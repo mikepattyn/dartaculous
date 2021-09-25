@@ -90,9 +90,9 @@ void main() {
       if (alreadyExists) {
         print('Skip creating collection $testCollection bexause it is exists');
       } else {
-        var answer = await testDbClient.createCollection(
-          name: testCollection,
-        );
+        var answer = await testDbClient
+            .createCollection(CollectionCriteria('testCollection'));
+
         if (answer.result.error == true) {
           print(answer);
         }

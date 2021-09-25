@@ -4,7 +4,9 @@ library arango_driver;
 
 export 'src/arango_client_query.dart';
 export 'src/arango_db_client.dart';
+export 'src/collection_criteria.dart';
 export 'src/collection_type.dart';
+export 'src/index_criteria.dart';
 export 'src/index_type.dart';
 export 'src/query.dart';
 export 'src/query_with_client.dart';

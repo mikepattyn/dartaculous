@@ -6,8 +6,8 @@ part of 'recipe.dart';
 // BuilderGenerator
 // **************************************************************************
 
-class RecipeBuilder implements Builder<Recipe> {
-  final _defaultsProvider = RecipeDefaultsProvider();
+class $RecipeBuilder implements Builder<Recipe> {
+  final _defaultsProvider = $RecipeDefaultsProvider();
 
   String? $title;
   String get title => $title ?? _defaultsProvider.title;
@@ -15,14 +15,14 @@ class RecipeBuilder implements Builder<Recipe> {
 
   String? description;
 
-  RecipeBuilder({
+  $RecipeBuilder({
     String? title,
     this.description,
   }) {
     $title = title;
   }
 
-  RecipeBuilder.fromRecipe(Recipe entity)
+  $RecipeBuilder.fromRecipe(Recipe entity)
       : this(
           title: entity.title,
           description: entity.description,
@@ -31,7 +31,7 @@ class RecipeBuilder implements Builder<Recipe> {
   @override
   Recipe build() {
     final entity = _build();
-    const RecipeValidator().validateThrowing(entity);
+    const $RecipeValidator().validateThrowing(entity);
     return entity;
   }
 
@@ -39,7 +39,7 @@ class RecipeBuilder implements Builder<Recipe> {
   BuildResult<Recipe> tryBuild() {
     try {
       final entity = _build();
-      final errors = RecipeValidator().validate(entity);
+      final errors = $RecipeValidator().validate(entity);
       final result =
           BuildResult<Recipe>(result: entity, validationErrors: errors);
       return result;
@@ -61,7 +61,7 @@ class RecipeBuilder implements Builder<Recipe> {
 // CopyWithGenerator
 // **************************************************************************
 
-extension RecipeCopyWithExtension on Recipe {
+extension $RecipeCopyWithExtension on Recipe {
   Recipe copyWith({
     String? title,
     String? description,
@@ -79,7 +79,9 @@ extension RecipeCopyWithExtension on Recipe {
 // DefaultsProviderGenerator
 // **************************************************************************
 
-class RecipeDefaultsProvider {
+class $RecipeDefaultsProvider {
+  const $RecipeDefaultsProvider();
+
   Recipe createWithDefaults({
     String? title,
   }) {
@@ -95,46 +97,43 @@ class RecipeDefaultsProvider {
 // EntityAdapterGenerator
 // **************************************************************************
 
-class RecipePermissions extends EntityPermissions {
-  const RecipePermissions();
+class $RecipePermissions extends EntityPermissions {
+  const $RecipePermissions();
 
   @override
-  String get create => 'createRecipe';
+  String get create => 'create_recipe';
 
   @override
-  String get delete => 'deleteRecipe';
+  String get delete => 'delete_recipe';
 
   @override
-  String get read => 'readRecipe';
+  String get read => 'read_recipe';
 
   @override
-  String get update => 'updateRecipe';
+  String get update => 'update_recipe';
 }
 
-class RecipeEntityAdapter implements EntityAdapter<Recipe> {
+class $RecipeEntityAdapter implements EntityAdapter<Recipe> {
   @override
-  final MapMapper<Recipe> mapMapper = const RecipeMapMapper();
+  final MapMapper<Recipe> mapMapper = const $RecipeMapMapper();
 
   @override
-  final Validator validator = const RecipeValidator();
+  final Validator validator = const $RecipeValidator();
 
   @override
-  final EntityPermissions permissions = const RecipePermissions();
+  final EntityPermissions permissions = const $RecipePermissions();
 }
 
 // **************************************************************************
 // MapMapGenerator
 // **************************************************************************
 
-class RecipeMapMapper extends MapMapper<Recipe> {
-  const RecipeMapMapper();
+class $RecipeMapMapper extends MapMapper<Recipe> {
+  const $RecipeMapMapper();
 
   @override
-  Recipe fromMap(
-    Map<String, dynamic> map, [
-    KeyHandler? keyHandler,
-  ]) {
-    var defaultsProvider = RecipeDefaultsProvider();
+  Recipe fromMap(Map<String, dynamic> map) {
+    final defaultsProvider = $RecipeDefaultsProvider();
 
     return Recipe(
       title: getValueOrDefault(map['title'], () => defaultsProvider.title,
@@ -144,10 +143,7 @@ class RecipeMapMapper extends MapMapper<Recipe> {
   }
 
   @override
-  Map<String, dynamic> toMap(
-    Recipe instance, [
-    KeyHandler? keyHandler,
-  ]) {
+  Map<String, dynamic> toMap(Recipe instance) {
     final map = <String, dynamic>{};
 
     map['title'] = instance.title;
@@ -157,28 +153,25 @@ class RecipeMapMapper extends MapMapper<Recipe> {
   }
 }
 
-extension RecipeMapExtension on Recipe {
-  Map<String, dynamic> toMap([KeyHandler? keyHandler]) =>
-      const RecipeMapMapper().toMap(this, keyHandler);
-  static Recipe fromMap(Map<String, dynamic> map, [KeyHandler? keyHandler]) =>
-      const RecipeMapMapper().fromMap(map, keyHandler);
+extension $RecipeMapExtension on Recipe {
+  Map<String, dynamic> toMap() => const $RecipeMapMapper().toMap(this);
+  static Recipe fromMap(Map<String, dynamic> map) =>
+      const $RecipeMapMapper().fromMap(map);
 }
 
-extension MapRecipeExtension on Map<String, dynamic> {
-  Recipe toRecipe([KeyHandler? keyHandler]) =>
-      const RecipeMapMapper().fromMap(this, keyHandler);
+extension $MapRecipeExtension on Map<String, dynamic> {
+  Recipe toRecipe() => const $RecipeMapMapper().fromMap(this);
 }
 
 class $RecipeFieldNames {
-  final KeyHandler keyHandler;
   final String fieldName;
   final String prefix;
 
-  $RecipeFieldNames({
-    KeyHandler? keyHandler,
-    this.fieldName = '',
-  })  : prefix = fieldName.isEmpty ? '' : fieldName + '.',
-        keyHandler = keyHandler ?? KeyHandler.fromDefault();
+  $RecipeFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+
+  const $RecipeFieldNames()
+      : fieldName = '',
+        prefix = '';
 
   static const _title = 'title';
   String get title => prefix + _title;
@@ -193,8 +186,8 @@ class $RecipeFieldNames {
 // ProtoMapperGenerator
 // **************************************************************************
 
-class RecipeProtoMapper implements ProtoMapper<Recipe, GRecipe> {
-  const RecipeProtoMapper();
+class $RecipeProtoMapper implements ProtoMapper<Recipe, GRecipe> {
+  const $RecipeProtoMapper();
 
   @override
   Recipe fromProto(GRecipe proto) => _$RecipeFromProto(proto);
@@ -230,7 +223,7 @@ Recipe _$RecipeFromProto(GRecipe instance) => Recipe(
           (instance.descriptionHasValue ? (instance.description) : null),
     );
 
-extension RecipeProtoExtension on Recipe {
+extension $RecipeProtoExtension on Recipe {
   GRecipe toProto() => _$RecipeToProto(this);
   String toJson() => _$RecipeToProto(this).writeToJson();
 
@@ -239,7 +232,7 @@ extension RecipeProtoExtension on Recipe {
       _$RecipeFromProto(GRecipe.fromJson(json));
 }
 
-extension GRecipeProtoExtension on GRecipe {
+extension $GRecipeProtoExtension on GRecipe {
   Recipe toRecipe() => _$RecipeFromProto(this);
 }
 
@@ -247,8 +240,8 @@ extension GRecipeProtoExtension on GRecipe {
 // ValidatorGenerator
 // **************************************************************************
 
-class RecipeValidator implements Validator {
-  const RecipeValidator();
+class $RecipeValidator implements Validator {
+  const $RecipeValidator();
 
   ValidationError? validateTitle(String value, {Recipe? entity}) {
     return null;

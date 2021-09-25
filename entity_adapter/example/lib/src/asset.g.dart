@@ -6,8 +6,8 @@ part of 'asset.dart';
 // BuilderGenerator
 // **************************************************************************
 
-class AssetBuilder implements Builder<Asset> {
-  final _defaultsProvider = AssetDefaultsProvider();
+class $AssetBuilder implements Builder<Asset> {
+  final _defaultsProvider = $AssetDefaultsProvider();
 
   String? $description;
   String get description => $description ?? _defaultsProvider.description;
@@ -17,7 +17,7 @@ class AssetBuilder implements Builder<Asset> {
   Decimal get value => $value ?? _defaultsProvider.value;
   set value(Decimal value) => $value = value;
 
-  AssetBuilder({
+  $AssetBuilder({
     String? description,
     Decimal? value,
   }) {
@@ -25,7 +25,7 @@ class AssetBuilder implements Builder<Asset> {
     $value = value;
   }
 
-  AssetBuilder.fromAsset(Asset entity)
+  $AssetBuilder.fromAsset(Asset entity)
       : this(
           description: entity.description,
           value: entity.value,
@@ -34,7 +34,7 @@ class AssetBuilder implements Builder<Asset> {
   @override
   Asset build() {
     final entity = _build();
-    const AssetValidator().validateThrowing(entity);
+    const $AssetValidator().validateThrowing(entity);
     return entity;
   }
 
@@ -42,7 +42,7 @@ class AssetBuilder implements Builder<Asset> {
   BuildResult<Asset> tryBuild() {
     try {
       final entity = _build();
-      final errors = AssetValidator().validate(entity);
+      final errors = $AssetValidator().validate(entity);
       final result =
           BuildResult<Asset>(result: entity, validationErrors: errors);
       return result;
@@ -64,7 +64,7 @@ class AssetBuilder implements Builder<Asset> {
 // CopyWithGenerator
 // **************************************************************************
 
-extension AssetCopyWithExtension on Asset {
+extension $AssetCopyWithExtension on Asset {
   Asset copyWith({
     String? description,
     Decimal? value,
@@ -80,7 +80,9 @@ extension AssetCopyWithExtension on Asset {
 // DefaultsProviderGenerator
 // **************************************************************************
 
-class AssetDefaultsProvider {
+class $AssetDefaultsProvider {
+  const $AssetDefaultsProvider();
+
   Asset createWithDefaults({
     String? description,
     Decimal? value,
@@ -99,15 +101,12 @@ class AssetDefaultsProvider {
 // MapMapGenerator
 // **************************************************************************
 
-class AssetMapMapper extends MapMapper<Asset> {
-  const AssetMapMapper();
+class $AssetMapMapper extends MapMapper<Asset> {
+  const $AssetMapMapper();
 
   @override
-  Asset fromMap(
-    Map<String, dynamic> map, [
-    KeyHandler? keyHandler,
-  ]) {
-    var defaultsProvider = AssetDefaultsProvider();
+  Asset fromMap(Map<String, dynamic> map) {
+    final defaultsProvider = $AssetDefaultsProvider();
 
     return Asset(
       description: getValueOrDefault(map['description'],
@@ -118,10 +117,7 @@ class AssetMapMapper extends MapMapper<Asset> {
   }
 
   @override
-  Map<String, dynamic> toMap(
-    Asset instance, [
-    KeyHandler? keyHandler,
-  ]) {
+  Map<String, dynamic> toMap(Asset instance) {
     final map = <String, dynamic>{};
 
     map['description'] = instance.description;
@@ -131,28 +127,25 @@ class AssetMapMapper extends MapMapper<Asset> {
   }
 }
 
-extension AssetMapExtension on Asset {
-  Map<String, dynamic> toMap([KeyHandler? keyHandler]) =>
-      const AssetMapMapper().toMap(this, keyHandler);
-  static Asset fromMap(Map<String, dynamic> map, [KeyHandler? keyHandler]) =>
-      const AssetMapMapper().fromMap(map, keyHandler);
+extension $AssetMapExtension on Asset {
+  Map<String, dynamic> toMap() => const $AssetMapMapper().toMap(this);
+  static Asset fromMap(Map<String, dynamic> map) =>
+      const $AssetMapMapper().fromMap(map);
 }
 
-extension MapAssetExtension on Map<String, dynamic> {
-  Asset toAsset([KeyHandler? keyHandler]) =>
-      const AssetMapMapper().fromMap(this, keyHandler);
+extension $MapAssetExtension on Map<String, dynamic> {
+  Asset toAsset() => const $AssetMapMapper().fromMap(this);
 }
 
 class $AssetFieldNames {
-  final KeyHandler keyHandler;
   final String fieldName;
   final String prefix;
 
-  $AssetFieldNames({
-    KeyHandler? keyHandler,
-    this.fieldName = '',
-  })  : prefix = fieldName.isEmpty ? '' : fieldName + '.',
-        keyHandler = keyHandler ?? KeyHandler.fromDefault();
+  $AssetFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+
+  const $AssetFieldNames()
+      : fieldName = '',
+        prefix = '';
 
   static const _description = 'description';
   String get description => prefix + _description;
@@ -167,8 +160,8 @@ class $AssetFieldNames {
 // ProtoMapperGenerator
 // **************************************************************************
 
-class AssetProtoMapper implements ProtoMapper<Asset, GAsset> {
-  const AssetProtoMapper();
+class $AssetProtoMapper implements ProtoMapper<Asset, GAsset> {
+  const $AssetProtoMapper();
 
   @override
   Asset fromProto(GAsset proto) => _$AssetFromProto(proto);
@@ -200,7 +193,7 @@ Asset _$AssetFromProto(GAsset instance) => Asset(
       value: Decimal.parse(instance.value),
     );
 
-extension AssetProtoExtension on Asset {
+extension $AssetProtoExtension on Asset {
   GAsset toProto() => _$AssetToProto(this);
   String toJson() => _$AssetToProto(this).writeToJson();
 
@@ -208,7 +201,7 @@ extension AssetProtoExtension on Asset {
   static Asset fromJson(String json) => _$AssetFromProto(GAsset.fromJson(json));
 }
 
-extension GAssetProtoExtension on GAsset {
+extension $GAssetProtoExtension on GAsset {
   Asset toAsset() => _$AssetFromProto(this);
 }
 
@@ -216,8 +209,8 @@ extension GAssetProtoExtension on GAsset {
 // ValidatorGenerator
 // **************************************************************************
 
-class AssetValidator implements Validator {
-  const AssetValidator();
+class $AssetValidator implements Validator {
+  const $AssetValidator();
 
   ValidationError? validateDescription(String value, {Asset? entity}) {
     return null;

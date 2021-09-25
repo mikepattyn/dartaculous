@@ -27,9 +27,11 @@ abstract class FieldCodeGenerator {
 
   String get _defaultsProviderExpression {
     var ret = '''getValueOrDefault(
-    map[\'$mapName\'], () => defaultsProvider.$fieldName, (mapValue) => ${fromMapExpression('mapValue')})''';
+    $mapValue, () => defaultsProvider.$fieldName, (mapValue) => ${fromMapExpression('mapValue')})''';
     return ret;
   }
+
+  String get mapValue => 'map[\'$mapName\']';
 
   String get constructorMap =>
       '''$fieldName: ${fieldDescriptor.isNullable ? fromNullableMapExpression : (hasDefaultsProvider ? _defaultsProviderExpression : fromMapExpression('map[\'$mapName\']'))},''';

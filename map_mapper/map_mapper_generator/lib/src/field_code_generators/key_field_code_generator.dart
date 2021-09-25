@@ -10,6 +10,9 @@ class KeyFieldCodeGenerator extends FieldCodeGenerator {
   bool get usesKh => true;
 
   @override
+  String get mapValue => '''\$kh.fieldNameToMapKey(\'$fieldName\')''';
+
+  @override
   String get toMapMap =>
       '''\$kh.keyToMap(map, instance.$fieldName ${fieldDescriptor.isNullable ? '?? \'\' ' : ''}, \'$fieldName\');''';
 
@@ -19,5 +22,5 @@ class KeyFieldCodeGenerator extends FieldCodeGenerator {
 
   @override
   String get fieldNamesClassGetter =>
-      '''String get $fieldName => prefix + keyHandler.fieldNameToMapKey(_$fieldName);''';
+      '''String get $fieldName => prefix + \$kh.fieldNameToMapKey(_$fieldName);''';
 }

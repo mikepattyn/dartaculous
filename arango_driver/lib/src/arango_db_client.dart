@@ -194,51 +194,40 @@ class ArangoDBClient {
 
   /// Creates a collection
   /// See https://www.arangodb.com/docs/3.4/http/collection-creating.html for details.
-  Future<CollectionPropertiesResponse> createCollection({
-    required String name,
-    bool waitForSync = false,
-    CollectionType collectionType = CollectionType.document,
-  }) async {
+  Future<CollectionPropertiesResponse> createCollection(
+      CollectionCriteria criteria) async {
     final answer = await _httpPost([
       '_db',
       db,
       '_api',
       'collection'
     ], {
-      'name': name,
-      'waitForSync': waitForSync,
-      'type': _typeFromCollectionType(collectionType),
+      'name': criteria.name,
+      'waitForSync': criteria.waitForSync,
+      'type': _typeFromCollectionType(criteria.collectionType),
     });
     final ret = _toCollectionPropertiesResult(answer);
     return ret;
   }
 
-  /// Creates a collection
+  /// Creates an index
   /// See https://www.arangodb.com/docs/devel/http/indexes-working-with.html for details.
-  Future<IndexResponse> createPersistentIndex({
-    required String collectionName,
-    required String indexName,
-    required List<String> fields,
-    bool unique = false,
-    bool deduplicate = false,
-    bool sparse = false,
-    bool inBackground = false,
-  }) async {
+  Future<IndexResponse> createPersistentIndex(IndexCriteria criteria) async {
     final answer = await _httpPost([
       '_db',
       db,
       '_api',
       'index'
     ], {
-      'name': indexName,
+      'name': criteria.indexName,
       'type': 'persistent',
-      'fields': fields,
-      'unique': unique,
-      'deduplicate': deduplicate,
-      'sparse': sparse,
-      'inBackground': inBackground,
+      'fields': criteria.fieldNames,
+      'unique': criteria.unique,
+      'deduplicate': criteria.deduplicate,
+      'sparse': criteria.sparse,
+      'inBackground': criteria.inBackground,
     }, queryParameters: {
-      'collection': collectionName,
+      'collection': criteria.collectionName,
     });
     final ret = _toIndexResponse(answer);
     return ret;

@@ -1,11 +1,5 @@
-import 'default_key_handler.dart';
-
 abstract class KeyHandler {
-  static KeyHandler defaultKeyHandler = DefaultKeyHandler();
-
-  KeyHandler();
-
-  factory KeyHandler.fromDefault() => defaultKeyHandler;
+  const KeyHandler();
 
   void keyToMap(
     Map<String, dynamic> map,

@@ -1,6 +1,8 @@
 import 'key_handler.dart';
 
 class DefaultKeyHandler extends KeyHandler {
+  const DefaultKeyHandler();
+
   @override
   String keyFromMap(Map<String, dynamic> map, [String fieldName = '']) {
     final mapKey = fieldNameToMapKey(fieldName);

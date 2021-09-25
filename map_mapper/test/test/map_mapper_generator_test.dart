@@ -225,35 +225,6 @@ void main() {
   });
 
   group('keyhandler tests', () {
-    test('mongo key handler', () {
-      final recipe = _scrambledEggsRecipe();
-      final mkh = MongoKeyHandler();
-      final mongoMap = recipe.toMap(mkh);
-
-      final mrecipe = mongoMap.toRecipe(mkh);
-
-      expect(mrecipe.key, recipe.key);
-      expect(mrecipe.categoryKey, recipe.categoryKey);
-      expect(mrecipe.category.id, recipe.category.id);
-      expect(mrecipe.category.mainComponentId, recipe.category.mainComponentId);
-      expect(mrecipe.ingredients.first.key, recipe.ingredients.first.key);
-      expect(mrecipe.ingredients.first.mainComponentKey,
-          recipe.ingredients.first.mainComponentKey);
-
-      expect(mongoMap['_id'], ObjectId.fromHexString(recipe.key));
-      expect(
-          mongoMap['categoryId'], ObjectId.fromHexString(recipe.categoryKey));
-      expect(mongoMap['category']['_id'],
-          ObjectId.fromHexString(recipe.category.id));
-      expect(mongoMap['category']['mainComponentId'],
-          ObjectId.fromHexString(recipe.category.mainComponentId));
-
-      expect(mongoMap['ingredients'][0]['_id'],
-          ObjectId.fromHexString(recipe.ingredients.first.key));
-      expect(mongoMap['ingredients'][0]['mainComponentId'],
-          ObjectId.fromHexString(recipe.ingredients.first.mainComponentKey));
-    });
-
     test('default key handler', () {
       final recipe = _scrambledEggsRecipe();
       final map = recipe.toMap();
@@ -271,8 +242,8 @@ void main() {
       expect(map['_key'], recipe.key);
       expect(map['categoryKey'], recipe.categoryKey);
       expect(map['category']['id'], recipe.category.id);
-      expect(map['category']['mainComponentId'],
-          recipe.category.mainComponentId);
+      expect(
+          map['category']['mainComponentId'], recipe.category.mainComponentId);
 
       expect(map['ingredients'][0]['_key'], recipe.ingredients.first.key);
       expect(map['ingredients'][0]['mainComponentKey'],

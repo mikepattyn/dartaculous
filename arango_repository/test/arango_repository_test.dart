@@ -41,9 +41,8 @@ Future _ensureEmptyTestCollection(
   var alreadyExists =
       allCollectionsAnsw.response!.any((coll) => coll.name == testCollection);
   if (!alreadyExists) {
-    var answer = await testDbClient.createCollection(
-      name: testCollection,
-    );
+    var answer =
+        await testDbClient.createCollection(CollectionCriteria(testCollection));
     if (answer.result.error) {
       throw Error();
     }

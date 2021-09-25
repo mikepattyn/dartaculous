@@ -9,7 +9,6 @@ part 'person.g.dart';
 @entity
 class Person extends Entity {
   final List<Asset> assets;
-
   final String name;
 
   Person({

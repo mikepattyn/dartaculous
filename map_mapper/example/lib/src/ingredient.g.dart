@@ -10,10 +10,7 @@ class $IngredientMapMapper extends MapMapper<Ingredient> {
   const $IngredientMapMapper();
 
   @override
-  Ingredient fromMap(
-    Map<String, dynamic> map, [
-    KeyHandler? keyHandler,
-  ]) {
+  Ingredient fromMap(Map<String, dynamic> map) {
     return Ingredient(
       description: map['description'] as String,
       quantity: map['quantity'] as double,
@@ -21,10 +18,7 @@ class $IngredientMapMapper extends MapMapper<Ingredient> {
   }
 
   @override
-  Map<String, dynamic> toMap(
-    Ingredient instance, [
-    KeyHandler? keyHandler,
-  ]) {
+  Map<String, dynamic> toMap(Ingredient instance) {
     final map = <String, dynamic>{};
 
     map['description'] = instance.description;
@@ -35,28 +29,24 @@ class $IngredientMapMapper extends MapMapper<Ingredient> {
 }
 
 extension $IngredientMapExtension on Ingredient {
-  Map<String, dynamic> toMap([KeyHandler? keyHandler]) =>
-      const $IngredientMapMapper().toMap(this, keyHandler);
-  static Ingredient fromMap(Map<String, dynamic> map,
-          [KeyHandler? keyHandler]) =>
-      const $IngredientMapMapper().fromMap(map, keyHandler);
+  Map<String, dynamic> toMap() => const $IngredientMapMapper().toMap(this);
+  static Ingredient fromMap(Map<String, dynamic> map) =>
+      const $IngredientMapMapper().fromMap(map);
 }
 
 extension $MapIngredientExtension on Map<String, dynamic> {
-  Ingredient toIngredient([KeyHandler? keyHandler]) =>
-      const $IngredientMapMapper().fromMap(this, keyHandler);
+  Ingredient toIngredient() => const $IngredientMapMapper().fromMap(this);
 }
 
 class $IngredientFieldNames {
-  final KeyHandler keyHandler;
   final String fieldName;
   final String prefix;
 
-  $IngredientFieldNames({
-    KeyHandler? keyHandler,
-    this.fieldName = '',
-  })  : prefix = fieldName.isEmpty ? '' : fieldName + '.',
-        keyHandler = keyHandler ?? KeyHandler.fromDefault();
+  $IngredientFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+
+  const $IngredientFieldNames()
+      : fieldName = '',
+        prefix = '';
 
   static const _description = 'description';
   String get description => prefix + _description;

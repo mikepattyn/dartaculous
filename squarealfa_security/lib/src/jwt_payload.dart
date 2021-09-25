@@ -36,6 +36,7 @@ class JwtPayload {
     var audience = '';
     var nbf = DateTime.now();
     var exp = DateTime.now();
+    var emailVerified = false;
     var extra = <String, dynamic>{};
 
     for (var entry in map.entries) {
@@ -61,6 +62,10 @@ class JwtPayload {
         case 'exp':
           exp = _getDateTime(entry.value);
           break;
+        case 'emailVerified':
+          emailVerified =
+              (entry.value as String).toLowerCase().trim() == 'true';
+          break;
         default:
           extra[entry.key] = entry.value;
           break;
@@ -76,6 +81,7 @@ class JwtPayload {
       notBefore: nbf,
       expires: exp,
       extra: extra,
+      emailVerified: emailVerified,
     );
     return payload;
   }

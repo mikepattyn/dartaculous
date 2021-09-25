@@ -29,7 +29,7 @@ class FirebaseTokenHandler {
       audience: claims.audience?.first ?? '',
       expires: claims.expiry ?? DateTime.now(),
       issuer: claims.issuer?.toString() ?? '',
-      name: claims.getTyped('name'),
+      name: claims.getTyped('name') ?? '',
       notBefore:
           claims.notBefore ?? DateTime.now().subtract(Duration(seconds: 1)),
       subject: claims.getTyped('sub'),

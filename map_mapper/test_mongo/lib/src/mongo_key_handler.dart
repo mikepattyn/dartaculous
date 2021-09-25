@@ -2,11 +2,10 @@ import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
 class MongoKeyHandler extends KeyHandler {
+  const MongoKeyHandler();
+
   @override
-  String keyFromMap(
-    Map<String, dynamic> map, [
-    String fieldName = '',
-  ]) {
+  String keyFromMap(Map<String, dynamic> map, [String fieldName = '']) {
     final mapKey = fieldNameToMapKey(fieldName);
     if (map[mapKey] is ObjectId) {
       final ret = (map[mapKey] as ObjectId).toHexString();

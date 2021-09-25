@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
+import 'package:build/build.dart';
 import 'package:build/src/builder/build_step.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:source_gen/source_gen.dart';
@@ -8,8 +9,15 @@ import 'field_code_generator.dart';
 import 'field_descriptor.dart';
 
 class MapMapGenerator extends GeneratorForAnnotation<MapMap> {
+  final BuilderOptions options;
+  late final _keyHandler;
   ClassElement? _classElement;
   String? _className;
+
+  MapMapGenerator(this.options) {
+    var config = options.config;
+    _keyHandler = config['keyHandler'] as String? ?? 'DefaultKeyHandler';
+  }
 
   @override
   String? generateForAnnotatedElement(
@@ -83,10 +91,9 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMap> {
     final defaultsProviderDeclaration =
         ((defaultsProviderClassName ?? '') == '')
             ? ''
-            : 'var defaultsProvider = $defaultsProviderClassName();';
+            : 'final defaultsProvider = $defaultsProviderClassName();';
 
-    final kh =
-        declareKh ? 'final \$kh = keyHandler ?? KeyHandler.fromDefault();' : '';
+    final kh = declareKh ? 'final \$kh = const $_keyHandler();' : '';
     return '''
 
       class \$${className}MapMapper extends MapMapper<$className> {
@@ -94,23 +101,16 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMap> {
 
 
         @override
-        $className fromMap(
-          Map<String, dynamic> map, [
-          KeyHandler? keyHandler,
-        ]) { 
-        
+        $className fromMap(Map<String, dynamic> map) { 
+          $kh        
           $defaultsProviderDeclaration
-          $kh
           
           return $className($constructorFieldBuffer)
               $fromMapFieldBuffer; 
         }
 
         @override
-        Map<String, dynamic> toMap(
-          $className instance, [
-          KeyHandler? keyHandler,
-        ]) {
+        Map<String, dynamic> toMap($className instance) {
             $kh
             final map = <String, dynamic>{};
         
@@ -122,26 +122,26 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMap> {
 
 
       extension \$${className}MapExtension on $className {
-        Map<String, dynamic> toMap([KeyHandler? keyHandler]) => const \$${className}MapMapper().toMap(this, keyHandler);
-        static $className fromMap(Map<String, dynamic> map, [KeyHandler? keyHandler]) => const \$${className}MapMapper().fromMap(map, keyHandler);
+        Map<String, dynamic> toMap() => const \$${className}MapMapper().toMap(this);
+        static $className fromMap(Map<String, dynamic> map) => const \$${className}MapMapper().fromMap(map);
       }
       
       extension \$Map${className}Extension on Map<String, dynamic> {
-        $className to$className([KeyHandler? keyHandler]) => const \$${className}MapMapper().fromMap(this, keyHandler);
+        $className to$className() => const \$${className}MapMapper().fromMap(this);
       }
   
 
       class \$${className}FieldNames {
-        final KeyHandler keyHandler;
+        $kh
         final String fieldName;
         final String prefix;
 
-        \$${className}FieldNames({
-          KeyHandler? keyHandler,
-          this.fieldName = '',
-        })  : prefix = fieldName.isEmpty ? '' : fieldName + '.',
-              keyHandler = keyHandler ?? KeyHandler.fromDefault();
+        \$${className}FieldNames.sub(this.fieldName) 
+          : prefix = fieldName + '.';
 
+      const \$${className}FieldNames()
+        : fieldName = '',
+          prefix = '';
 
         $fieldNamesBuffer
 

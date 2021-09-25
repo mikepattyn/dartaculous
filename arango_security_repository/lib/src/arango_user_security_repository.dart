@@ -54,7 +54,7 @@ class ArangoUserSecurityRepository implements UserSecurityRepository {
 
   @override
   Future<Map<String, dynamic>> getFromUsername(String username) async {
-    var userList = await _dbClient.newQuery().addLine('''
+    final userList = await _dbClient.newQuery().addLine('''
             for c in users
             filter c.username == @username
             limit 1
@@ -64,6 +64,16 @@ class ArangoUserSecurityRepository implements UserSecurityRepository {
       throw NotFound();
     }
     final userMap = userList.first;
+    return userMap;
+  }
+
+  @override
+  Future<Map<String, dynamic>> getFromKey(String key) async {
+    final response = await _dbClient.getDocumentByKey('users', key);
+    if (response.result.error) {
+      throw NotFound();
+    }
+    final userMap = response.document;
     return userMap;
   }
 

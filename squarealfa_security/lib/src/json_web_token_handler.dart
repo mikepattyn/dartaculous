@@ -47,7 +47,7 @@ class JsonWebTokenHandler {
       throw InvalidSignatureException();
     }
 
-    var payload = _deserializePayload(payloadBase64);
+    var payload = deserializeJwtPayload(payloadBase64, true);
     return payload;
   }
 
@@ -60,24 +60,23 @@ class JsonWebTokenHandler {
     return signature;
   }
 
-  JwtPayload _deserializePayload(String payloadBase64) {
-    var json = decodeB64Json(payloadBase64);
-    var map = jsonDecode(json);
+  static JwtPayload deserializeJwtPayload(String payloadBase64, bool isVerified) {
+    final json = decodeB64Json(payloadBase64);
+    final map = jsonDecode(json);
 
-    var ret = JwtPayload.fromMap(map).copyWith(
-      emailVerified: true,
+    final ret = JwtPayload.fromMap(map).copyWith(
       isVerified: true,
     );
     return ret;
   }
 
   String _serializePayload(JwtPayload payload) {
-    var map = payload.claimsMap;
+    final map = payload.claimsMap;
 
-    var json = jsonEncode(map);
-    var base64 = base64Encode(utf8.encode(json));
-    base64 = _adjustBase64(base64);
-    return base64;
+    final json = jsonEncode(map);
+    final base64 = base64Encode(utf8.encode(json));
+    final adjustedBase64 = _adjustBase64(base64);
+    return adjustedBase64;
   }
 
   String _serializeHeader() {

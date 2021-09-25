@@ -6,31 +6,31 @@ part of 'person.dart';
 // BuilderGenerator
 // **************************************************************************
 
-class PersonBuilder implements Builder<Person> {
-  final _defaultsProvider = PersonDefaultsProvider();
+class $PersonBuilder implements Builder<Person> {
+  final _defaultsProvider = $PersonDefaultsProvider();
 
-  List<AssetBuilder> assets;
+  List<$AssetBuilder> assets;
   String? $name;
   String get name => $name ?? _defaultsProvider.name;
   set name(String value) => $name = value;
 
-  PersonBuilder({
-    this.assets = const [],
+  $PersonBuilder({
+    List<$AssetBuilder>? assets,
     String? name,
-  }) {
+  }) : assets = assets ?? [] {
     $name = name;
   }
 
-  PersonBuilder.fromPerson(Person entity)
+  $PersonBuilder.fromPerson(Person entity)
       : this(
-          assets: entity.assets.map((e) => AssetBuilder.fromAsset(e)).toList(),
+          assets: entity.assets.map((e) => $AssetBuilder.fromAsset(e)).toList(),
           name: entity.name,
         );
 
   @override
   Person build() {
     final entity = _build();
-    const PersonValidator().validateThrowing(entity);
+    const $PersonValidator().validateThrowing(entity);
     return entity;
   }
 
@@ -38,7 +38,7 @@ class PersonBuilder implements Builder<Person> {
   BuildResult<Person> tryBuild() {
     try {
       final entity = _build();
-      final errors = PersonValidator().validate(entity);
+      final errors = $PersonValidator().validate(entity);
       final result =
           BuildResult<Person>(result: entity, validationErrors: errors);
       return result;
@@ -49,7 +49,7 @@ class PersonBuilder implements Builder<Person> {
 
   Person _build() {
     var entity = Person(
-      assets: assets.map((e) => e.build()).toList(),
+      assets: List.unmodifiable(assets.map((e) => e.build())),
       name: name,
     );
     return entity;
@@ -60,7 +60,7 @@ class PersonBuilder implements Builder<Person> {
 // CopyWithGenerator
 // **************************************************************************
 
-extension PersonCopyWithExtension on Person {
+extension $PersonCopyWithExtension on Person {
   Person copyWith({
     List<Asset>? assets,
     String? name,
@@ -76,7 +76,9 @@ extension PersonCopyWithExtension on Person {
 // DefaultsProviderGenerator
 // **************************************************************************
 
-class PersonDefaultsProvider {
+class $PersonDefaultsProvider {
+  const $PersonDefaultsProvider();
+
   Person createWithDefaults({
     List<Asset>? assets,
     String? name,
@@ -87,7 +89,7 @@ class PersonDefaultsProvider {
     );
   }
 
-  List<Asset> get assets => [];
+  List<Asset> get assets => const [];
   String get name => '';
 }
 
@@ -95,105 +97,89 @@ class PersonDefaultsProvider {
 // EntityAdapterGenerator
 // **************************************************************************
 
-class PersonPermissions extends EntityPermissions {
-  const PersonPermissions();
+class $PersonPermissions extends EntityPermissions {
+  const $PersonPermissions();
 
   @override
-  String get create => 'createPerson';
+  String get create => 'create_person';
 
   @override
-  String get delete => 'deletePerson';
+  String get delete => 'delete_person';
 
   @override
-  String get read => 'readPerson';
+  String get read => 'read_person';
 
   @override
-  String get update => 'updatePerson';
+  String get update => 'update_person';
 }
 
-class PersonEntityAdapter implements EntityAdapter<Person> {
+class $PersonEntityAdapter implements EntityAdapter<Person> {
   @override
-  final MapMapper<Person> mapMapper = const PersonMapMapper();
+  final MapMapper<Person> mapMapper = const $PersonMapMapper();
 
   @override
-  final Validator validator = const PersonValidator();
+  final Validator validator = const $PersonValidator();
 
   @override
-  final EntityPermissions permissions = const PersonPermissions();
+  final EntityPermissions permissions = const $PersonPermissions();
 }
 
 // **************************************************************************
 // MapMapGenerator
 // **************************************************************************
 
-class PersonMapMapper extends MapMapper<Person> {
-  const PersonMapMapper();
+class $PersonMapMapper extends MapMapper<Person> {
+  const $PersonMapMapper();
 
   @override
-  Person fromMap(
-    Map<String, dynamic> map, [
-    KeyHandler? keyHandler,
-  ]) {
-    var defaultsProvider = PersonDefaultsProvider();
-    final $kh = keyHandler ?? KeyHandler.fromDefault();
+  Person fromMap(Map<String, dynamic> map) {
+    final defaultsProvider = $PersonDefaultsProvider();
 
     return Person(
       assets: getValueOrDefault(
           map['assets'],
           () => defaultsProvider.assets,
-          (mapValue) => List<Asset>.from(
-              mapValue.map((e) => const AssetMapMapper().fromMap(e, $kh)))),
+          (mapValue) => List<Asset>.unmodifiable(
+              mapValue.map((e) => const $AssetMapMapper().fromMap(e)))),
       name: getValueOrDefault(map['name'], () => defaultsProvider.name,
           (mapValue) => mapValue as String),
     );
   }
 
   @override
-  Map<String, dynamic> toMap(
-    Person instance, [
-    KeyHandler? keyHandler,
-  ]) {
-    final $kh = keyHandler ?? KeyHandler.fromDefault();
+  Map<String, dynamic> toMap(Person instance) {
     final map = <String, dynamic>{};
 
-    map['assets'] = instance.assets
-        .map((e) => const AssetMapMapper().toMap(e, $kh))
-        .toList();
-    ;
+    map['assets'] =
+        instance.assets.map((e) => const $AssetMapMapper().toMap(e)).toList();
     map['name'] = instance.name;
 
     return map;
   }
 }
 
-extension PersonMapExtension on Person {
-  Map<String, dynamic> toMap([KeyHandler? keyHandler]) =>
-      const PersonMapMapper().toMap(this, keyHandler);
-  static Person fromMap(Map<String, dynamic> map, [KeyHandler? keyHandler]) =>
-      const PersonMapMapper().fromMap(map, keyHandler);
+extension $PersonMapExtension on Person {
+  Map<String, dynamic> toMap() => const $PersonMapMapper().toMap(this);
+  static Person fromMap(Map<String, dynamic> map) =>
+      const $PersonMapMapper().fromMap(map);
 }
 
-extension MapPersonExtension on Map<String, dynamic> {
-  Person toPerson([KeyHandler? keyHandler]) =>
-      const PersonMapMapper().fromMap(this, keyHandler);
+extension $MapPersonExtension on Map<String, dynamic> {
+  Person toPerson() => const $PersonMapMapper().fromMap(this);
 }
 
 class $PersonFieldNames {
-  final KeyHandler keyHandler;
   final String fieldName;
   final String prefix;
 
-  $PersonFieldNames({
-    KeyHandler? keyHandler,
-    this.fieldName = '',
-  })  : prefix = fieldName.isEmpty ? '' : fieldName + '.',
-        keyHandler = keyHandler ?? KeyHandler.fromDefault();
+  $PersonFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+
+  const $PersonFieldNames()
+      : fieldName = '',
+        prefix = '';
 
   static const _assets = 'assets';
-  $AssetFieldNames get assets => $AssetFieldNames(
-        keyHandler: keyHandler,
-        fieldName: prefix + _assets,
-      );
+  $AssetFieldNames get assets => $AssetFieldNames.sub(prefix + _assets);
 
   static const _name = 'name';
   String get name => prefix + _name;
@@ -206,8 +192,8 @@ class $PersonFieldNames {
 // ProtoMapperGenerator
 // **************************************************************************
 
-class PersonProtoMapper implements ProtoMapper<Person, GPerson> {
-  const PersonProtoMapper();
+class $PersonProtoMapper implements ProtoMapper<Person, GPerson> {
+  const $PersonProtoMapper();
 
   @override
   Person fromProto(GPerson proto) => _$PersonFromProto(proto);
@@ -229,7 +215,7 @@ GPerson _$PersonToProto(Person instance) {
   var proto = GPerson();
 
   proto.assets
-      .addAll(instance.assets.map((e) => const AssetProtoMapper().toProto(e)));
+      .addAll(instance.assets.map((e) => const $AssetProtoMapper().toProto(e)));
 
   proto.name = instance.name;
 
@@ -237,13 +223,12 @@ GPerson _$PersonToProto(Person instance) {
 }
 
 Person _$PersonFromProto(GPerson instance) => Person(
-      assets: instance.assets
-          .map((e) => const AssetProtoMapper().fromProto(e))
-          .toList(),
+      assets: List<Asset>.unmodifiable(
+          instance.assets.map((e) => const $AssetProtoMapper().fromProto(e))),
       name: instance.name,
     );
 
-extension PersonProtoExtension on Person {
+extension $PersonProtoExtension on Person {
   GPerson toProto() => _$PersonToProto(this);
   String toJson() => _$PersonToProto(this).writeToJson();
 
@@ -252,7 +237,7 @@ extension PersonProtoExtension on Person {
       _$PersonFromProto(GPerson.fromJson(json));
 }
 
-extension GPersonProtoExtension on GPerson {
+extension $GPersonProtoExtension on GPerson {
   Person toPerson() => _$PersonFromProto(this);
 }
 
@@ -260,13 +245,13 @@ extension GPersonProtoExtension on GPerson {
 // ValidatorGenerator
 // **************************************************************************
 
-class PersonValidator implements Validator {
-  const PersonValidator();
+class $PersonValidator implements Validator {
+  const $PersonValidator();
 
   ValidationError? validateAssets(List<Asset> value, {Person? entity}) {
     var errorLists = value
         .map((entity) {
-          var errors = AssetValidator().validate(entity);
+          var errors = $AssetValidator().validate(entity);
           var itemErrors = ListItemErrorList(value, entity, errors);
           return itemErrors;
         })

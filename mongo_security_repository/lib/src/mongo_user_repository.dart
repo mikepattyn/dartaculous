@@ -75,6 +75,18 @@ class MongoUserRepository implements UserSecurityRepository {
   }
 
   @override
+  Future<Map<String, dynamic>> getFromKey(String key) async {
+    final collection = await usersCollection;
+    final userMap = await collection.findOne({'_id', key});
+
+    if (userMap == null) {
+      throw NotFound();
+    }
+
+    return userMap;
+  }
+
+  @override
   Future<Map<String, dynamic>> updateUser(
       String key, Map<String, dynamic> userMap) async {
     final kh = MongoKeyHandler();
