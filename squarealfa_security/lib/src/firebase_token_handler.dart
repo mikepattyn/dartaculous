@@ -33,7 +33,7 @@ class FirebaseTokenHandler {
       notBefore:
           claims.notBefore ?? DateTime.now().subtract(Duration(seconds: 1)),
       subject: claims.getTyped('sub'),
-      username: claims.getTyped('email'),
+      email: claims.getTyped('email'),
       emailVerified: claims.getTyped('email_verified'),
       isVerified: true,
     );

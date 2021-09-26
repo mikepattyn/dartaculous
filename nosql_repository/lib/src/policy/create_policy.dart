@@ -30,6 +30,8 @@ class CreatePolicy extends PermissionPolicy {
           filterByTenant,
         );
 
+  const CreatePolicy.root() : super('', false);
+
   bool isAuthorized(DbPrincipal principal) =>
       permission == '' || principal.hasPermission(permission);
 }

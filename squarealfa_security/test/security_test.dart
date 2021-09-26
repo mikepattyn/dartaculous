@@ -9,7 +9,7 @@ void main() {
   group('Token generation', () {
     var claims = JwtPayload(
         name: 'John Doe',
-        username: 'user@domain.com',
+        email: 'user@domain.com',
         subject: '5f35bd0489d72e2cd430f78d',
         issuer: 'Our Server',
         audience: 'Our Server',
@@ -40,7 +40,7 @@ void main() {
       var map = jsonDecode(body) as Map<String, dynamic>;
 
       expect(map['name'], 'John Doe');
-      expect(map['username'], 'user@domain.com');
+      expect(map['email'], 'user@domain.com');
     });
   });
 

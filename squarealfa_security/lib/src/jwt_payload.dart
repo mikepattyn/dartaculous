@@ -1,7 +1,8 @@
 /// Represents the payload content of a JWT token.
 class JwtPayload {
   final String subject;
-  final String username;
+  //final String username;
+  final String email;
   final String name;
   final String issuer;
   final String audience;
@@ -17,7 +18,7 @@ class JwtPayload {
 
   const JwtPayload({
     required this.subject,
-    required this.username,
+    required this.email,
     required this.name,
     required this.issuer,
     required this.audience,
@@ -31,7 +32,7 @@ class JwtPayload {
   factory JwtPayload.fromMap(Map<String, dynamic> map) {
     var name = '';
     var subject = '';
-    var username = '';
+    var email = '';
     var issuer = '';
     var audience = '';
     var nbf = DateTime.now();
@@ -47,8 +48,8 @@ class JwtPayload {
         case 'sub':
           subject = entry.value;
           break;
-        case 'username':
-          username = entry.value;
+        case 'email':
+          email = entry.value;
           break;
         case 'iss':
           issuer = entry.value;
@@ -57,14 +58,14 @@ class JwtPayload {
           audience = entry.value;
           break;
         case 'nbf':
-          nbf = _getDateTime(entry.value);
+          nbf = _getDateTime(entry.value.toString());
           break;
         case 'exp':
-          exp = _getDateTime(entry.value);
+          exp = _getDateTime(entry.value.toString());
           break;
-        case 'emailVerified':
+        case 'email_verified':
           emailVerified =
-              (entry.value as String).toLowerCase().trim() == 'true';
+              (entry.value.toString()).toLowerCase().trim() == 'true';
           break;
         default:
           extra[entry.key] = entry.value;
@@ -75,7 +76,7 @@ class JwtPayload {
     var payload = JwtPayload(
       name: name,
       subject: subject,
-      username: username,
+      email: email,
       issuer: issuer,
       audience: audience,
       notBefore: nbf,
@@ -88,7 +89,7 @@ class JwtPayload {
 
   JwtPayload copyWith({
     String? subject,
-    String? username,
+    String? email,
     String? name,
     String? issuer,
     String? audience,
@@ -103,7 +104,7 @@ class JwtPayload {
   }) {
     var ret = JwtPayload(
       subject: subject ?? this.subject,
-      username: username ?? this.username,
+      email: email ?? this.email,
       name: name ?? this.name,
       issuer: issuer ?? this.issuer,
       audience: audience ?? this.audience,
@@ -123,7 +124,7 @@ class JwtPayload {
     var map = <String, dynamic>{};
     _addClaimIfNotNull(map, 'name', name);
     _addClaimIfNotNull(map, 'sub', subject);
-    _addClaimIfNotNull(map, 'username', username);
+    _addClaimIfNotNull(map, 'email', email);
     _addClaimIfNotNull(map, 'iss', issuer);
     _addClaimIfNotNull(map, 'aud', audience);
     _addClaimIfNotNull(map, 'nbf', nbf);
