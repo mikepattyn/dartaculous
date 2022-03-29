@@ -214,10 +214,10 @@ const GListOfChef$json = {
 final $typed_data.Uint8List gListOfChefDescriptor = $convert.base64Decode(
     'CgtHTGlzdE9mQ2hlZhIcCgVpdGVtcxgBIAMoCzIGLkdDaGVmUgVpdGVtcw==');
 @$core.Deprecated('Use gSousChefDescriptor instead')
-const GSousChef$json = const {
+const GSousChef$json = {
   '1': 'GSousChef',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'favorite_recipe',
       '3': 1,
       '4': 1,
@@ -225,14 +225,14 @@ const GSousChef$json = const {
       '6': '.GRecipe',
       '10': 'favoriteRecipe'
     },
-    const {
+    {
       '1': 'favorite_recipe_has_value',
       '3': 2,
       '4': 1,
       '5': 8,
       '10': 'favoriteRecipeHasValue'
     },
-    const {
+    {
       '1': 'favorite_knife',
       '3': 3,
       '4': 1,
@@ -240,14 +240,14 @@ const GSousChef$json = const {
       '6': '.GKnife',
       '10': 'favoriteKnife'
     },
-    const {
+    {
       '1': 'favorite_knife_has_value',
       '3': 4,
       '4': 1,
       '5': 8,
       '10': 'favoriteKnifeHasValue'
     },
-    const {
+    {
       '1': 'favorite_appliance_type',
       '3': 5,
       '4': 1,
@@ -255,16 +255,10 @@ const GSousChef$json = const {
       '6': '.GApplianceType',
       '10': 'favoriteApplianceType'
     },
-    const {
-      '1': 'favorite_words',
-      '3': 6,
-      '4': 3,
-      '5': 9,
-      '10': 'favoriteWords'
-    },
-    const {'1': 'birthdate', '3': 7, '4': 1, '5': 3, '10': 'birthdate'},
-    const {'1': 'shelf_life', '3': 8, '4': 1, '5': 1, '10': 'shelfLife'},
-    const {
+    {'1': 'favorite_words', '3': 6, '4': 3, '5': 9, '10': 'favoriteWords'},
+    {'1': 'birthdate', '3': 7, '4': 1, '5': 3, '10': 'birthdate'},
+    {'1': 'shelf_life', '3': 8, '4': 1, '5': 1, '10': 'shelfLife'},
+    {
       '1': 'shelf_life_has_value',
       '3': 9,
       '4': 1,
@@ -278,17 +272,10 @@ const GSousChef$json = const {
 final $typed_data.Uint8List gSousChefDescriptor = $convert.base64Decode(
     'CglHU291c0NoZWYSMQoPZmF2b3JpdGVfcmVjaXBlGAEgASgLMgguR1JlY2lwZVIOZmF2b3JpdGVSZWNpcGUSOQoZZmF2b3JpdGVfcmVjaXBlX2hhc192YWx1ZRgCIAEoCFIWZmF2b3JpdGVSZWNpcGVIYXNWYWx1ZRIuCg5mYXZvcml0ZV9rbmlmZRgDIAEoCzIHLkdLbmlmZVINZmF2b3JpdGVLbmlmZRI3ChhmYXZvcml0ZV9rbmlmZV9oYXNfdmFsdWUYBCABKAhSFWZhdm9yaXRlS25pZmVIYXNWYWx1ZRJHChdmYXZvcml0ZV9hcHBsaWFuY2VfdHlwZRgFIAEoDjIPLkdBcHBsaWFuY2VUeXBlUhVmYXZvcml0ZUFwcGxpYW5jZVR5cGUSJQoOZmF2b3JpdGVfd29yZHMYBiADKAlSDWZhdm9yaXRlV29yZHMSHAoJYmlydGhkYXRlGAcgASgDUgliaXJ0aGRhdGUSHQoKc2hlbGZfbGlmZRgIIAEoAVIJc2hlbGZMaWZlEi8KFHNoZWxmX2xpZmVfaGFzX3ZhbHVlGAkgASgIUhFzaGVsZkxpZmVIYXNWYWx1ZQ==');
 @$core.Deprecated('Use gListOfSousChefDescriptor instead')
-const GListOfSousChef$json = const {
+const GListOfSousChef$json = {
   '1': 'GListOfSousChef',
-  '2': const [
-    const {
-      '1': 'items',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.GSousChef',
-      '10': 'items'
-    },
+  '2': [
+    {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.GSousChef', '10': 'items'},
   ],
 };
 
@@ -296,10 +283,10 @@ const GListOfSousChef$json = const {
 final $typed_data.Uint8List gListOfSousChefDescriptor = $convert.base64Decode(
     'Cg9HTGlzdE9mU291c0NoZWYSIAoFaXRlbXMYASADKAsyCi5HU291c0NoZWZSBWl0ZW1z');
 @$core.Deprecated('Use gKnifeMasterDescriptor instead')
-const GKnifeMaster$json = const {
+const GKnifeMaster$json = {
   '1': 'GKnifeMaster',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'favorite_recipe',
       '3': 1,
       '4': 1,
@@ -307,14 +294,14 @@ const GKnifeMaster$json = const {
       '6': '.GRecipe',
       '10': 'favoriteRecipe'
     },
-    const {
+    {
       '1': 'favorite_recipe_has_value',
       '3': 2,
       '4': 1,
       '5': 8,
       '10': 'favoriteRecipeHasValue'
     },
-    const {
+    {
       '1': 'favorite_appliance_type',
       '3': 3,
       '4': 1,
@@ -322,23 +309,17 @@ const GKnifeMaster$json = const {
       '6': '.GApplianceType',
       '10': 'favoriteApplianceType'
     },
-    const {
-      '1': 'favorite_words',
-      '3': 4,
-      '4': 3,
-      '5': 9,
-      '10': 'favoriteWords'
-    },
-    const {'1': 'birthdate', '3': 5, '4': 1, '5': 3, '10': 'birthdate'},
-    const {'1': 'shelf_life', '3': 6, '4': 1, '5': 1, '10': 'shelfLife'},
-    const {
+    {'1': 'favorite_words', '3': 4, '4': 3, '5': 9, '10': 'favoriteWords'},
+    {'1': 'birthdate', '3': 5, '4': 1, '5': 3, '10': 'birthdate'},
+    {'1': 'shelf_life', '3': 6, '4': 1, '5': 1, '10': 'shelfLife'},
+    {
       '1': 'shelf_life_has_value',
       '3': 7,
       '4': 1,
       '5': 8,
       '10': 'shelfLifeHasValue'
     },
-    const {
+    {
       '1': 'favorite_knife',
       '3': 8,
       '4': 1,
@@ -353,10 +334,10 @@ const GKnifeMaster$json = const {
 final $typed_data.Uint8List gKnifeMasterDescriptor = $convert.base64Decode(
     'CgxHS25pZmVNYXN0ZXISMQoPZmF2b3JpdGVfcmVjaXBlGAEgASgLMgguR1JlY2lwZVIOZmF2b3JpdGVSZWNpcGUSOQoZZmF2b3JpdGVfcmVjaXBlX2hhc192YWx1ZRgCIAEoCFIWZmF2b3JpdGVSZWNpcGVIYXNWYWx1ZRJHChdmYXZvcml0ZV9hcHBsaWFuY2VfdHlwZRgDIAEoDjIPLkdBcHBsaWFuY2VUeXBlUhVmYXZvcml0ZUFwcGxpYW5jZVR5cGUSJQoOZmF2b3JpdGVfd29yZHMYBCADKAlSDWZhdm9yaXRlV29yZHMSHAoJYmlydGhkYXRlGAUgASgDUgliaXJ0aGRhdGUSHQoKc2hlbGZfbGlmZRgGIAEoAVIJc2hlbGZMaWZlEi8KFHNoZWxmX2xpZmVfaGFzX3ZhbHVlGAcgASgIUhFzaGVsZkxpZmVIYXNWYWx1ZRIuCg5mYXZvcml0ZV9rbmlmZRgIIAEoCzIHLkdLbmlmZVINZmF2b3JpdGVLbmlmZQ==');
 @$core.Deprecated('Use gListOfKnifeMasterDescriptor instead')
-const GListOfKnifeMaster$json = const {
+const GListOfKnifeMaster$json = {
   '1': 'GListOfKnifeMaster',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'items',
       '3': 1,
       '4': 3,

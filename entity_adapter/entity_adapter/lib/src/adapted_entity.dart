@@ -55,6 +55,7 @@ class AdaptedEntity
     this.dateTimeRepresentation,
     this.useProtoFieldNamingConventions = true,
     this.knownSubClasses,
+    this.allowMissingFields = false,
   });
 
   @override
@@ -92,4 +93,7 @@ class AdaptedEntity
 
   @override
   final List<Type>? knownSubClasses;
+
+  @override
+  final bool allowMissingFields;
 }

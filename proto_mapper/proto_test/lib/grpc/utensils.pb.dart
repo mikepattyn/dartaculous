@@ -799,7 +799,6 @@ class GSousChef extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   GSousChef._() : super();
-
   factory GSousChef({
     $0.GRecipe? favoriteRecipe,
     $core.bool? favoriteRecipeHasValue,
@@ -841,20 +840,16 @@ class GSousChef extends $pb.GeneratedMessage {
     }
     return _result;
   }
-
   factory GSousChef.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-
   factory GSousChef.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   GSousChef clone() => GSousChef()..mergeFromMessage(this);
-
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -862,14 +857,10 @@ class GSousChef extends $pb.GeneratedMessage {
       super.copyWith((message) => updates(message as GSousChef))
           as GSousChef; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
-
   @$core.pragma('dart2js:noInline')
   static GSousChef create() => GSousChef._();
-
   GSousChef createEmptyInstance() => create();
-
   static $pb.PbList<GSousChef> createRepeated() => $pb.PbList<GSousChef>();
-
   @$core.pragma('dart2js:noInline')
   static GSousChef getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GSousChef>(create);
@@ -877,7 +868,6 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $0.GRecipe get favoriteRecipe => $_getN(0);
-
   @$pb.TagNumber(1)
   set favoriteRecipe($0.GRecipe v) {
     setField(1, v);
@@ -885,16 +875,13 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.bool hasFavoriteRecipe() => $_has(0);
-
   @$pb.TagNumber(1)
   void clearFavoriteRecipe() => clearField(1);
-
   @$pb.TagNumber(1)
   $0.GRecipe ensureFavoriteRecipe() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.bool get favoriteRecipeHasValue => $_getBF(1);
-
   @$pb.TagNumber(2)
   set favoriteRecipeHasValue($core.bool v) {
     $_setBool(1, v);
@@ -902,13 +889,11 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.bool hasFavoriteRecipeHasValue() => $_has(1);
-
   @$pb.TagNumber(2)
   void clearFavoriteRecipeHasValue() => clearField(2);
 
   @$pb.TagNumber(3)
   GKnife get favoriteKnife => $_getN(2);
-
   @$pb.TagNumber(3)
   set favoriteKnife(GKnife v) {
     setField(3, v);
@@ -916,16 +901,13 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.bool hasFavoriteKnife() => $_has(2);
-
   @$pb.TagNumber(3)
   void clearFavoriteKnife() => clearField(3);
-
   @$pb.TagNumber(3)
   GKnife ensureFavoriteKnife() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.bool get favoriteKnifeHasValue => $_getBF(3);
-
   @$pb.TagNumber(4)
   set favoriteKnifeHasValue($core.bool v) {
     $_setBool(3, v);
@@ -933,13 +915,11 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(4)
   $core.bool hasFavoriteKnifeHasValue() => $_has(3);
-
   @$pb.TagNumber(4)
   void clearFavoriteKnifeHasValue() => clearField(4);
 
   @$pb.TagNumber(5)
   $6.GApplianceType get favoriteApplianceType => $_getN(4);
-
   @$pb.TagNumber(5)
   set favoriteApplianceType($6.GApplianceType v) {
     setField(5, v);
@@ -947,7 +927,6 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(5)
   $core.bool hasFavoriteApplianceType() => $_has(4);
-
   @$pb.TagNumber(5)
   void clearFavoriteApplianceType() => clearField(5);
 
@@ -956,7 +935,6 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(7)
   $fixnum.Int64 get birthdate => $_getI64(6);
-
   @$pb.TagNumber(7)
   set birthdate($fixnum.Int64 v) {
     $_setInt64(6, v);
@@ -964,13 +942,11 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(7)
   $core.bool hasBirthdate() => $_has(6);
-
   @$pb.TagNumber(7)
   void clearBirthdate() => clearField(7);
 
   @$pb.TagNumber(8)
   $core.double get shelfLife => $_getN(7);
-
   @$pb.TagNumber(8)
   set shelfLife($core.double v) {
     $_setDouble(7, v);
@@ -978,13 +954,11 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(8)
   $core.bool hasShelfLife() => $_has(7);
-
   @$pb.TagNumber(8)
   void clearShelfLife() => clearField(8);
 
   @$pb.TagNumber(9)
   $core.bool get shelfLifeHasValue => $_getBF(8);
-
   @$pb.TagNumber(9)
   set shelfLifeHasValue($core.bool v) {
     $_setBool(8, v);
@@ -992,7 +966,6 @@ class GSousChef extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(9)
   $core.bool hasShelfLifeHasValue() => $_has(8);
-
   @$pb.TagNumber(9)
   void clearShelfLifeHasValue() => clearField(9);
 }
@@ -1013,7 +986,6 @@ class GListOfSousChef extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   GListOfSousChef._() : super();
-
   factory GListOfSousChef({
     $core.Iterable<GSousChef>? items,
   }) {
@@ -1023,20 +995,16 @@ class GListOfSousChef extends $pb.GeneratedMessage {
     }
     return _result;
   }
-
   factory GListOfSousChef.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-
   factory GListOfSousChef.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   GListOfSousChef clone() => GListOfSousChef()..mergeFromMessage(this);
-
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1044,15 +1012,11 @@ class GListOfSousChef extends $pb.GeneratedMessage {
       super.copyWith((message) => updates(message as GListOfSousChef))
           as GListOfSousChef; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
-
   @$core.pragma('dart2js:noInline')
   static GListOfSousChef create() => GListOfSousChef._();
-
   GListOfSousChef createEmptyInstance() => create();
-
   static $pb.PbList<GListOfSousChef> createRepeated() =>
       $pb.PbList<GListOfSousChef>();
-
   @$core.pragma('dart2js:noInline')
   static GListOfSousChef getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GListOfSousChef>(create);
@@ -1118,7 +1082,6 @@ class GKnifeMaster extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   GKnifeMaster._() : super();
-
   factory GKnifeMaster({
     $0.GRecipe? favoriteRecipe,
     $core.bool? favoriteRecipeHasValue,
@@ -1156,20 +1119,16 @@ class GKnifeMaster extends $pb.GeneratedMessage {
     }
     return _result;
   }
-
   factory GKnifeMaster.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-
   factory GKnifeMaster.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   GKnifeMaster clone() => GKnifeMaster()..mergeFromMessage(this);
-
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1177,15 +1136,11 @@ class GKnifeMaster extends $pb.GeneratedMessage {
       super.copyWith((message) => updates(message as GKnifeMaster))
           as GKnifeMaster; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
-
   @$core.pragma('dart2js:noInline')
   static GKnifeMaster create() => GKnifeMaster._();
-
   GKnifeMaster createEmptyInstance() => create();
-
   static $pb.PbList<GKnifeMaster> createRepeated() =>
       $pb.PbList<GKnifeMaster>();
-
   @$core.pragma('dart2js:noInline')
   static GKnifeMaster getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GKnifeMaster>(create);
@@ -1193,7 +1148,6 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $0.GRecipe get favoriteRecipe => $_getN(0);
-
   @$pb.TagNumber(1)
   set favoriteRecipe($0.GRecipe v) {
     setField(1, v);
@@ -1201,16 +1155,13 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.bool hasFavoriteRecipe() => $_has(0);
-
   @$pb.TagNumber(1)
   void clearFavoriteRecipe() => clearField(1);
-
   @$pb.TagNumber(1)
   $0.GRecipe ensureFavoriteRecipe() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.bool get favoriteRecipeHasValue => $_getBF(1);
-
   @$pb.TagNumber(2)
   set favoriteRecipeHasValue($core.bool v) {
     $_setBool(1, v);
@@ -1218,13 +1169,11 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.bool hasFavoriteRecipeHasValue() => $_has(1);
-
   @$pb.TagNumber(2)
   void clearFavoriteRecipeHasValue() => clearField(2);
 
   @$pb.TagNumber(3)
   $6.GApplianceType get favoriteApplianceType => $_getN(2);
-
   @$pb.TagNumber(3)
   set favoriteApplianceType($6.GApplianceType v) {
     setField(3, v);
@@ -1232,7 +1181,6 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.bool hasFavoriteApplianceType() => $_has(2);
-
   @$pb.TagNumber(3)
   void clearFavoriteApplianceType() => clearField(3);
 
@@ -1241,7 +1189,6 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(5)
   $fixnum.Int64 get birthdate => $_getI64(4);
-
   @$pb.TagNumber(5)
   set birthdate($fixnum.Int64 v) {
     $_setInt64(4, v);
@@ -1249,13 +1196,11 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(5)
   $core.bool hasBirthdate() => $_has(4);
-
   @$pb.TagNumber(5)
   void clearBirthdate() => clearField(5);
 
   @$pb.TagNumber(6)
   $core.double get shelfLife => $_getN(5);
-
   @$pb.TagNumber(6)
   set shelfLife($core.double v) {
     $_setDouble(5, v);
@@ -1263,13 +1208,11 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(6)
   $core.bool hasShelfLife() => $_has(5);
-
   @$pb.TagNumber(6)
   void clearShelfLife() => clearField(6);
 
   @$pb.TagNumber(7)
   $core.bool get shelfLifeHasValue => $_getBF(6);
-
   @$pb.TagNumber(7)
   set shelfLifeHasValue($core.bool v) {
     $_setBool(6, v);
@@ -1277,13 +1220,11 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(7)
   $core.bool hasShelfLifeHasValue() => $_has(6);
-
   @$pb.TagNumber(7)
   void clearShelfLifeHasValue() => clearField(7);
 
   @$pb.TagNumber(8)
   GKnife get favoriteKnife => $_getN(7);
-
   @$pb.TagNumber(8)
   set favoriteKnife(GKnife v) {
     setField(8, v);
@@ -1291,10 +1232,8 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(8)
   $core.bool hasFavoriteKnife() => $_has(7);
-
   @$pb.TagNumber(8)
   void clearFavoriteKnife() => clearField(8);
-
   @$pb.TagNumber(8)
   GKnife ensureFavoriteKnife() => $_ensure(7);
 }
@@ -1315,7 +1254,6 @@ class GListOfKnifeMaster extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   GListOfKnifeMaster._() : super();
-
   factory GListOfKnifeMaster({
     $core.Iterable<GKnifeMaster>? items,
   }) {
@@ -1325,20 +1263,16 @@ class GListOfKnifeMaster extends $pb.GeneratedMessage {
     }
     return _result;
   }
-
   factory GListOfKnifeMaster.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-
   factory GListOfKnifeMaster.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   GListOfKnifeMaster clone() => GListOfKnifeMaster()..mergeFromMessage(this);
-
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1346,15 +1280,11 @@ class GListOfKnifeMaster extends $pb.GeneratedMessage {
       super.copyWith((message) => updates(message as GListOfKnifeMaster))
           as GListOfKnifeMaster; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
-
   @$core.pragma('dart2js:noInline')
   static GListOfKnifeMaster create() => GListOfKnifeMaster._();
-
   GListOfKnifeMaster createEmptyInstance() => create();
-
   static $pb.PbList<GListOfKnifeMaster> createRepeated() =>
       $pb.PbList<GListOfKnifeMaster>();
-
   @$core.pragma('dart2js:noInline')
   static GListOfKnifeMaster getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GListOfKnifeMaster>(create);

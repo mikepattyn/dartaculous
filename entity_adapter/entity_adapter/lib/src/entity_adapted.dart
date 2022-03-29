@@ -73,6 +73,7 @@ class EntityAdapted
     this.dateTimeRepresentation = DateTimeRepresentation.iso8601String,
     this.useProtoFieldNamingConventions = true,
     this.knownSubClasses,
+    this.allowMissingFields = false,
   });
 
   @override
@@ -110,4 +111,7 @@ class EntityAdapted
 
   @override
   final List<Type>? knownSubClasses;
+
+  @override
+  final bool allowMissingFields;
 }

@@ -1,3 +1,8 @@
+## 3.1.1
+
+ - Added "allowMissingFields" property for @AdaptedEntity and @EntityAdapted annotations.
+
+
 ## 3.1.0
 
 ### Changes

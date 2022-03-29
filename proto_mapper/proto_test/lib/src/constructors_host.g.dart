@@ -430,8 +430,7 @@ GConstructObject8 _$ConstructObject8ToProto(ConstructObject8 instance) {
 }
 
 ConstructObject8 _$ConstructObject8FromProto(GConstructObject8 instance) =>
-    ConstructObject8.complete(
-      (instance.numberHasValue ? (instance.number) : null),
+    ConstructObject8.incomplete(
       instance.name,
     );
 
