@@ -1,3 +1,7 @@
+## 3.0.8
+
+- Included idToken in ServiceCall extension
+
 ## 3.0.7
 
 - Upgraded dependencies

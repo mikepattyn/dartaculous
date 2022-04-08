@@ -16,6 +16,7 @@ extension AuthenticationExtensions on ServiceCall {
   }
 
   JwtPayload? get jwtPayload => _extra.jwtPayload;
+  String? get idToken => _extra.idToken;
 
   _ServiceCallExtra get _extra {
     var ret = _storage[this] ??= _ServiceCallExtra();
@@ -33,6 +34,7 @@ extension AuthenticationExtensions on ServiceCall {
       if (authHeader == null) {
         _extra.jwtPayload = null;
         _extra.principal = null;
+        _extra.idToken = null;
         return;
       }
 
@@ -46,6 +48,7 @@ extension AuthenticationExtensions on ServiceCall {
         throw 'Expired token';
       }
       _extra.jwtPayload = payload;
+      _extra.idToken = idToken;
       localPrincipal = await createPrincipal(payload);
     } catch (e) {
       throw GrpcError.unauthenticated();
