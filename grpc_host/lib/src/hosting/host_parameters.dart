@@ -4,7 +4,7 @@ import 'package:grpc_host/grpc_host.dart';
 
 class HostParameters<TAppSettings> {
   final SendPort sendPort;
-  final Settings settings;
+  final Settings<TAppSettings> settings;
 
   const HostParameters(
     this.sendPort,
