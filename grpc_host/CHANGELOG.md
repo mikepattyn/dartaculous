@@ -1,4 +1,7 @@
-## 3.0.9
+## 3.1.1
+- Fixed missing exports
+
+## 3.1.0
 - Removed deprecated smtp configuration support.
 - Supporting classless hosts
 
