@@ -1,3 +1,6 @@
+## 3.1.2
+ - Fixed bug in polymorphic code generation
+
 ## 3.1.1
  - @MapProto no longer requires nullable final fields in a constructor.
  - @MapProto allows missing non-nullable final fields if configured as such.

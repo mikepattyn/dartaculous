@@ -78,27 +78,27 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     final missingFields = <String>{};
     final constructors = _classElement!.constructors
         .where((constructor) => fieldDescriptors.every((fd) {
-          final match = !fd.isFinal ||
-            fd.isNullable ||
-            //fd.isLate ||
-            constructor.parameters.any((cp) => cp.name == fd.name);
-          if (!match) {
-            if (mapProto.allowMissingFields) {
-              // TODO: log instead of print???
-              print('WARNING: missing field ${fd.displayName}');
-              return true;
-            } else {
-              missingFields.add(fd.displayName);
-            }
-          }
-          return match;
-        }));
+              final match = !fd.isFinal ||
+                  fd.isNullable ||
+                  //fd.isLate ||
+                  constructor.parameters.any((cp) => cp.name == fd.name);
+              if (!match) {
+                if (mapProto.allowMissingFields) {
+                  // TODO: log instead of print???
+                  print('WARNING: missing field ${fd.displayName}');
+                  return true;
+                } else {
+                  missingFields.add(fd.displayName);
+                }
+              }
+              return match;
+            }));
 
     // let's just pick the first of the valid constructors
     final constructor = constructors.isEmpty
         ? throw InvalidGenerationSourceError(
             'Cannot generate proto mapper for class ${_classElement!.name} because it is missing a constructor that covers all final properties.\n'
-                '\tMissing fields: $missingFields')
+            '\tMissing fields: $missingFields')
         : constructors.first;
 
     // generate the mapping for the constructor, consuming all
@@ -191,7 +191,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     final toReturn = _classElement!.isAbstract
         ? 'throw UnimplementedError();'
         : '''
-            ${renderParms.toKnownSubclasses == null ? '' : 'final proto = uproto.vehicle = ${prefix}FieldsOf$className();'}
+            ${renderParms.toKnownSubclasses == null ? '' : 'final proto = uproto.${className!.camelCase} = ${prefix}FieldsOf$className();'}
 
         ${renderParms.toProtoFieldBuffer}
         
