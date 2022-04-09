@@ -1,3 +1,7 @@
+## 3.0.9
+- Removed deprecated smtp configuration support.
+- Supporting classless hosts
+
 ## 3.0.8
 
 - Included idToken in ServiceCall extension

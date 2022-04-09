@@ -20,5 +20,6 @@ abstract class PrincipalInterceptor {
       getTokenPayload: getTokenPayload,
       createPrincipal: createPrincipal,
     );
+    return null;
   }
 }

@@ -14,16 +14,12 @@ class HostSettings {
   final int extraIsolates;
   final int port;
   final SslSettings sslSettings;
-  @Deprecated(
-      'All settings not related to grpc-hosting features are deprecated and will be removed in the next version.')
-  final SmtpSettings smtpSettings;
 
   HostSettings({
     this.isolatesMultiplier = defaultIsolatesMultiplier,
     this.extraIsolates = defaultExtraIsolates,
     this.port = 8080,
     this.sslSettings = const SslSettings(),
-    this.smtpSettings = const SmtpSettings(),
   });
 
   factory HostSettings.fromYamlFile({String filename = 'appsettings.yaml'}) {
@@ -48,17 +44,12 @@ class HostSettings {
     final sslSettings = sslSettingsYaml == null
         ? SslSettings()
         : SslSettings.fromYaml(sslSettingsYaml);
-    final smtpSettingsYaml = yamlDocument['smtp'];
-    final smtpSettings = smtpSettingsYaml == null
-        ? SmtpSettings()
-        : SmtpSettings.fromYaml(smtpSettingsYaml);
 
     var ret = HostSettings(
       port: port,
       isolatesMultiplier: isolatesMultiplier,
       extraIsolates: extraIsolates,
       sslSettings: sslSettings,
-      smtpSettings: smtpSettings,
     );
 
     return ret;
@@ -69,14 +60,12 @@ class HostSettings {
     int? extraIsolates,
     int? port,
     SslSettings? sslSettings,
-    SmtpSettings? smtpSettings,
   }) {
     return HostSettings(
       isolatesMultiplier: isolatesMultiplier ?? this.isolatesMultiplier,
       extraIsolates: extraIsolates ?? this.extraIsolates,
       port: port ?? this.port,
       sslSettings: sslSettings ?? this.sslSettings,
-      smtpSettings: smtpSettings ?? this.smtpSettings,
     );
   }
 }
