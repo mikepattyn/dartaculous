@@ -4,7 +4,7 @@ import 'entity.dart';
 
 part 'person.g.dart';
 
-@MapMap(useDefaultsProvider: true)
+@MapMapped(useDefaultsProvider: true)
 class Person extends Entity {
   final String name;
   Person({

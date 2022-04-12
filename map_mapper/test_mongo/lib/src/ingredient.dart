@@ -5,7 +5,7 @@ import 'component.dart';
 
 part 'ingredient.g.dart';
 
-@mapMap
+@mapMapped
 class Ingredient {
   final String key;
   final String description;

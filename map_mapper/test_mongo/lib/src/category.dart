@@ -3,7 +3,7 @@ import 'package:map_mapper_generator_test_mongo/map_mapper_generator_test.dart';
 
 part 'category.g.dart';
 
-@mapMap
+@mapMapped
 class Category {
   final String id;
   final String title;
