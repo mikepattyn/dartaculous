@@ -1,6 +1,5 @@
 import 'package:decimal/decimal.dart';
-import 'package:map_mapper_generator_test/map_mapper_generator_test.dart';
-import 'package:map_mapper_generator_test/src/person.dart';
+import 'package:map_mapper_generator_test_mongo/map_mapper_generator_test.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:test/test.dart';
 

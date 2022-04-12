@@ -1,5 +1,6 @@
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
-import 'package:map_mapper_generator_test/map_mapper_generator_test.dart';
+import 'package:map_mapper_generator_test_mongo/map_mapper_generator_test.dart';
+
 
 part 'recipe.g.dart';
 
