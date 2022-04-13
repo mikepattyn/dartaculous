@@ -12,7 +12,7 @@ class CollectionPropertiesResponse extends CollectionResponse {
   final String objectId;
   final String? schema;
   final KeyOptions keyOptions;
-  final bool isDisjoint;
+  final bool? isDisjoint;
   final String statusString;
 
   const CollectionPropertiesResponse({
