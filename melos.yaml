@@ -4,7 +4,7 @@ repository: https://gitlab.com/ruicraveiro/dart_framework
 packages:
   - common_types/**
   - generators_common/**
-  - squarealfa_security/**
+  - security/**
   - proto_mapper/**
   - map_mapper/**
   - defaults_provider/**

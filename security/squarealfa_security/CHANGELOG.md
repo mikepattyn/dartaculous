@@ -1,3 +1,7 @@
+## 2.1.2
+
+- Maintenance tweak: Moved code in source structure and updated package reference
+
 ## 2.1.1
 
 - Fixed repository references in pubspec.yaml

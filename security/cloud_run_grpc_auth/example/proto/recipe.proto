@@ -1,0 +1,15 @@
+syntax = "proto3";
+      
+
+service GRecipeService
+{
+  rpc Create (GRecipe) returns (GRecipe);
+}
+
+message GRecipe
+{
+  string title = 1;
+  string description = 2;
+  string ingredients = 3;
+  string steps = 4;
+}   

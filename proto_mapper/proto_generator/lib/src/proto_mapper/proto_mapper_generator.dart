@@ -84,7 +84,6 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
                   constructor.parameters.any((cp) => cp.name == fd.name);
               if (!match) {
                 if (mapProto.allowMissingFields) {
-                  // TODO: log instead of print???
                   print('WARNING: missing field ${fd.displayName}');
                   return true;
                 } else {
