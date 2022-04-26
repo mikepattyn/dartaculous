@@ -1,6 +1,10 @@
+## 3.1.2
+
+- Fix to make MapMapper use ``defaultsProvider`` when setting ``late`` fields
+ 
 ## 3.1.1
- - Supporting mapping enum to string
- - Improved constructor support
+- Supporting mapping enum to string
+- Improved constructor support
  
 ## 3.1.0
 

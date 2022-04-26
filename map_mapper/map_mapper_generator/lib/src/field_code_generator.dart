@@ -41,7 +41,7 @@ abstract class FieldCodeGenerator {
       '''$fieldName: ${fieldDescriptor.isNullable ? fromNullableMapExpression : (hasDefaultsProvider ? _defaultsProviderExpression : fromMapExpression('map[\'$mapName\']'))},''';
 
   String get fromMapMap =>
-      '''..$fieldName = ${fieldDescriptor.isNullable ? fromNullableMapExpression : fromMapExpression('map[\'$mapName\']')} ''';
+      '''..$fieldName = ${fieldDescriptor.isNullable ? fromNullableMapExpression : (hasDefaultsProvider ? _defaultsProviderExpression : fromMapExpression('map[\'$mapName\']'))} ''';
 
   String get fieldNamesClassFieldName =>
       'static const _$fieldName = \'$fieldName\';';
