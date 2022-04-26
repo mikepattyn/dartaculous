@@ -11,7 +11,7 @@ environment:
 
 dependencies:
   defaults_provider_annotations: ^2.1.0
-  map_mapper_annotations: ^3.1.0
+  map_mapper_annotations: ^3.1.1
   proto_annotations: ^2.1.0
   squarealfa_entity_annotations: ^2.1.0
   squarealfa_common_types: ^1.1.0
@@ -21,10 +21,10 @@ dev_dependencies:
   lints: ^1.0.1
 
 
-# dependency_overrides:
+dependency_overrides:
 #   proto_annotations:
 #     path: ../../proto_mapper/proto_annotations
-#   map_mapper_annotations:
-#     path: ../../map_mapper/map_mapper_annotations
+  map_mapper_annotations:
+    path: ../../map_mapper/map_mapper_annotations
 #   squarealfa_common_types:
 #     path: ../../common_types

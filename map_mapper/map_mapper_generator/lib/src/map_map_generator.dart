@@ -63,6 +63,26 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     var hasDefaultsProvider = defaultsProviderClassName != null;
     var declareKh = false;
 
+    // let's get all the constructors which cover all non-nullable final fields
+    final missingFields = <String>{};
+    final constructors = _classElement!.getConstructorsMatchingFields(
+        fieldDescriptors: fieldDescriptors,
+        allowMissingFields: true,
+        missingFields: missingFields
+    );
+    // let's just pick the first of the valid constructors
+    final constructor = constructors.isEmpty
+        ? throw InvalidGenerationSourceError(
+        'Cannot generate proto mapper for class ${_classElement!.name} because it is missing a constructor that covers all final properties.\n'
+            '\tMissing fields: $missingFields')
+        : constructors.first;
+
+
+    // Set up constructor
+    // final constructorFieldBuffer = StringBuffer();
+    _buildConstructorBuffer(constructor, fieldDescriptors.toList(),
+        constructorFieldBuffer, readAnnotation.mapMapped.useDefaultsProvider);
+
     for (var fieldDescriptor in fieldDescriptors) {
       var fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
           fieldDescriptor, hasDefaultsProvider);
@@ -72,8 +92,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       toMapFieldBuffer.writeln(toMapMap);
 
       if (fieldDescriptor.isFinal) {
-        var constructorMap = fieldCodeGenerator.constructorMap;
-        constructorFieldBuffer.writeln(constructorMap);
+        // Only set non-final fields
       } else {
         var fromMapMap = fieldCodeGenerator.fromMapMap;
         fromMapFieldBuffer.writeln(fromMapMap);
@@ -88,6 +107,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       toMapFieldBuffer: toMapFieldBuffer,
       fromMapFieldBuffer: fromMapFieldBuffer,
       constructorFieldBuffer: constructorFieldBuffer,
+      constructorName: constructor.name,
       fieldNamesBuffer: fieldNamesBuffer,
       declareKh: declareKh,
       mapMappedReflected: readAnnotation,
@@ -101,6 +121,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     required StringBuffer toMapFieldBuffer,
     required StringBuffer fromMapFieldBuffer,
     required StringBuffer constructorFieldBuffer,
+    required String constructorName,
     required StringBuffer fieldNamesBuffer,
     required bool declareKh,
     required MapMappedReflected mapMappedReflected,
@@ -124,7 +145,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
           $kh        
           $defaultsProviderDeclaration
           
-          return $className($constructorFieldBuffer)
+          return $className${constructorName.isNotEmpty ? '.$constructorName' : ''}($constructorFieldBuffer)
               $fromMapFieldBuffer; 
     ''';
 
@@ -201,6 +222,33 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       }
 
   ''';
+  }
+
+  void _buildConstructorBuffer(
+      ConstructorElement constructor,
+      List<FieldDescriptor> fromFieldDescriptors,
+      StringBuffer constructorFieldBuffer,
+      bool hasDefaultsProvider) {
+    for (var constructorParameter in constructor.parameters) {
+      final fieldDescriptorList = fromFieldDescriptors
+          .where((element) => element.name == constructorParameter.name);
+
+      if (fieldDescriptorList.isEmpty) {
+        // If not found, there's not much we can do...
+        continue;
+      }
+      final fieldDescriptor = fieldDescriptorList.first;
+      fromFieldDescriptors.remove(fieldDescriptor);
+
+      final fieldCodeGenerator =
+      FieldCodeGenerator.fromFieldDescriptor(fieldDescriptor, hasDefaultsProvider);
+      // INLINE
+      final constructorMap = constructorParameter.isNamed
+          ? fieldCodeGenerator.constructorMap
+          : fieldCodeGenerator.constructorMap
+          .substring(constructorParameter.nameLength + 1);
+      constructorFieldBuffer.writeln(constructorMap);
+    }
   }
 
   String _renderEnumMapper() {
@@ -309,6 +357,7 @@ MapMappedReflected _hydrateAnnotation(
         reader.read('useDefaultsProvider').literalValue as bool,
     durationPrecision: annotatedDurationPrecision,
     dateTimeRepresentation: annotatedDateTimePrecision,
+    mapEnumToString: reader.read('mapEnumToString').literalValue as bool,
   );
   final ret = MapMappedReflected(mm, kscs);
   return ret;

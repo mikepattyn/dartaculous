@@ -23,6 +23,7 @@ abstract class $RecipeDefaultsProviderBase {
       key: key ?? this.key,
       title: title ?? this.title,
       ingredients: ingredients ?? this.ingredients,
+      runtimeTag: null,
       numPosts: numPosts ?? this.numPosts,
       doubleNumPosts: doubleNumPosts ?? this.doubleNumPosts,
       decimalNumPosts: decimalNumPosts ?? this.decimalNumPosts,

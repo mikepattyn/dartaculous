@@ -15,8 +15,12 @@ dependencies:
   decimal: ^2.1.0
   source_gen: ^1.0.0
   squarealfa_entity_annotations: ^2.1.0
-  squarealfa_generators_common: ^2.2.0
+  squarealfa_generators_common: ^2.2.1
   tuple: ^2.0.0
 
 dev_dependencies:
   lints: ^1.0.1
+
+dependency_overrides:
+  squarealfa_generators_common:
+    path: ../../generators_common

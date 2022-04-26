@@ -19,10 +19,15 @@ class Ingredient {
 class MapEntity implements Proto, MapProto, MapMapped {
   @override
   final String packageName;
+
   @override
   final String? prefix;
+
   @override
   final bool useDefaultsProvider;
+
+  @override
+  final bool mapEnumToString;
 
   @override
   final bool includeFieldsByDefault;
@@ -33,6 +38,7 @@ class MapEntity implements Proto, MapProto, MapMapped {
     this.useDefaultsProvider = false,
     this.includeFieldsByDefault = true,
     this.knownSubClasses,
+    this.mapEnumToString = false,
   });
 
   @override

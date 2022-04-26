@@ -43,11 +43,27 @@ class DefaultsProviderGenerator
     final parameterFieldBuffer = StringBuffer();
     final constructorFieldBuffer = StringBuffer();
 
+    // let's get all the constructors which cover all non-nullable final fields
+    final missingFields = <String>{};
+    final constructors = classElement.getConstructorsMatchingFields(
+        fieldDescriptors: constructorFields,
+        allowMissingFields: false,
+        missingFields: missingFields
+    );
+    // let's just pick the first of the valid constructors
+    final classConstructor = constructors.isEmpty
+        ? throw InvalidGenerationSourceError(
+        'Cannot generate defaults provider for class ${classElement.name} because '
+            'it is missing a constructor that covers all final properties.\n'
+            '\tMissing fields: $missingFields')
+        : constructors.first;
+    _buildConstructorBuffer(classConstructor, [...constructorFields], constructorFieldBuffer, createBaseClass);
+
     for (var field in constructorFields) {
-      parameterFieldBuffer
-          .writeln('${field.fieldElementTypeName}? ${field.displayName},');
-      constructorFieldBuffer.writeln(
-          '${field.displayName}: ${field.displayName} ?? this.${field.displayName},');
+      final fieldTypeName = field.fieldElementTypeName == 'dynamic'
+          ? field.fieldElementTypeName
+          : '${field.fieldElementTypeName}?';
+      parameterFieldBuffer.writeln('$fieldTypeName ${field.displayName},');
     }
 
     final propertyFields = _getFieldDescriptors(classElement, false);
@@ -74,11 +90,13 @@ class DefaultsProviderGenerator
         ? '''static const _superDefaultsProvider = \$${superTypeElement.name}DefaultsProvider();'''
         : '';
 
+    final constructorName = classConstructor.name.isNotEmpty ? '$className.${classConstructor.name}' : className;
+
     final constructor = classElement.isAbstract
         ? ''
         : '''
         $className createWithDefaults( ${parameterFieldBuffer.isEmpty ? '' : '{ $parameterFieldBuffer }'} ) {
-          return $className(
+          return $constructorName(
             $constructorFieldBuffer
           );
         }
@@ -98,6 +116,30 @@ class DefaultsProviderGenerator
       }
 
     ''';
+  }
+}
+
+void _buildConstructorBuffer(
+    ConstructorElement constructor,
+    List<FieldDescriptor> fromFieldDescriptors,
+    StringBuffer constructorFieldBuffer,
+    bool createBaseClass) {
+  for (var constructorParameter in constructor.parameters) {
+    final fieldDescriptorList = fromFieldDescriptors
+        .where((element) => element.name == constructorParameter.name);
+    var constructorArgValue = '${constructorParameter.displayName} ?? this.${constructorParameter.displayName}';
+    if (fieldDescriptorList.isEmpty) {
+      // If constructor arg is not in defined fields, just initialize it with "null"
+      constructorArgValue = 'null';
+    } else {
+      final fieldDescriptor = fieldDescriptorList.first;
+      fromFieldDescriptors.remove(fieldDescriptor);
+    }
+    if (constructorParameter.isNamed) {
+      constructorFieldBuffer.writeln('${constructorParameter.displayName}: $constructorArgValue,');
+    } else {
+      constructorFieldBuffer.writeln('$constructorArgValue,');
+    }
   }
 }
 

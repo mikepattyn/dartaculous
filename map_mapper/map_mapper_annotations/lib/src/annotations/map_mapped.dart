@@ -11,6 +11,7 @@ class MapMapped {
     this.durationPrecision,
     this.dateTimeRepresentation,
     this.knownSubClasses,
+    this.mapEnumToString = false,
   });
 
   /// Determines whether to include all fields by default.
@@ -21,6 +22,10 @@ class MapMapped {
   /// [MapField] annotation will be included.
   final bool includeFieldsByDefault;
   final bool useDefaultsProvider;
+
+  /// Defines whether or not to map enum values to their name (as a String)
+  /// or to their index (int). Defaults to index.
+  final bool mapEnumToString;
 
   /// Defines the level of precision of DateTime and
   /// Duration fields.
