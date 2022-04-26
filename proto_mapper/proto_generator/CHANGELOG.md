@@ -1,3 +1,6 @@
+## 3.1.3
+ - Improved constructor support.
+
 ## 3.1.2
  - Fixed bug in polymorphic code generation
 

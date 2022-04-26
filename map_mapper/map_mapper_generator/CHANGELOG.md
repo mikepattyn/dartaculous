@@ -1,3 +1,7 @@
+## 3.1.1
+ - Supporting mapping enum to string
+ - Improved constructor support
+ 
 ## 3.1.0
 
 ### Changes

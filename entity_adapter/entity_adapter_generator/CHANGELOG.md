@@ -1,3 +1,7 @@
+## 3.1.2
+ - Support for mapping enum to string
+ - Improved constructor support
+
 ## 3.1.1
  - @MapProto no longer requires nullable final fields in a constructor.
  - @MapProto allows missing non-nullable final fields if configured as such.

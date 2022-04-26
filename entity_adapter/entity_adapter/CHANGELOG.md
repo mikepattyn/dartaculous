@@ -1,3 +1,6 @@
+## 3.1.2
+ - Support for mapping enum to string
+
 ## 3.1.1
 
  - Added "allowMissingFields" property for @AdaptedEntity and @EntityAdapted annotations.

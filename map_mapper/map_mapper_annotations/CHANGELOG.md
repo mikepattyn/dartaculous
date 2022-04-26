@@ -1,3 +1,6 @@
+## 3.1.1
+ - Supporting mapping enum to string
+
 ## 3.1.0
 
 ### Changes

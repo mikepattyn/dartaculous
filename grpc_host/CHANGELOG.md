@@ -1,3 +1,6 @@
+## 3.1.3
+ - Updated dependencies
+
 ## 3.1.2
 - Added missing type parameters to HostParameters settings field
 
