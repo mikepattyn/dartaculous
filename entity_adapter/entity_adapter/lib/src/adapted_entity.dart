@@ -56,6 +56,7 @@ class AdaptedEntity
     this.useProtoFieldNamingConventions = true,
     this.knownSubClasses,
     this.allowMissingFields = false,
+    this.mapEnumToString = false,
   });
 
   @override
@@ -96,4 +97,7 @@ class AdaptedEntity
 
   @override
   final bool allowMissingFields;
+
+  @override
+  final bool mapEnumToString;
 }

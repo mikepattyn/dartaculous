@@ -2,15 +2,15 @@ name: map_mapper_generator
 description: Generates code that maps (converts) between instances of business classes to Map<String, dynamic> and back
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/map_mapper/map_mapper_generator
 repository: https://gitlab.com/squarealfa/dart_framework
-version: 3.1.0
+version: 3.1.1
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  map_mapper_annotations: ^3.1.0
+  map_mapper_annotations: ^3.1.1
   source_gen: ^1.0.0
-  squarealfa_generators_common: ^2.2.0
+  squarealfa_generators_common: ^2.2.1
   squarealfa_common_types: ^1.1.0
   analyzer: ^3.0.0
   build: ^2.0.0
@@ -19,9 +19,12 @@ dependencies:
 dev_dependencies:
   lints: ^1.0.1
 
-# dependency_overrides:
-#   map_mapper_annotations:
-#     path: ../map_mapper_annotations
+
+dependency_overrides:
+  squarealfa_generators_common:
+    path: ../../generators_common
+  map_mapper_annotations:
+    path: ../map_mapper_annotations
 #   squarealfa_common_types:
 #     path: ../../common_types
 #   squarealfa_generators_common:

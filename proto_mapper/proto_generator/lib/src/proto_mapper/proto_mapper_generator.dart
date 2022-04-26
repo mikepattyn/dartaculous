@@ -76,23 +76,11 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
     // let's get all the constructors which cover all non-nullable final fields
     final missingFields = <String>{};
-    final constructors = _classElement!.constructors
-        .where((constructor) => fieldDescriptors.every((fd) {
-              final match = !fd.isFinal ||
-                  fd.isNullable ||
-                  //fd.isLate ||
-                  constructor.parameters.any((cp) => cp.name == fd.name);
-              if (!match) {
-                if (mapProto.allowMissingFields) {
-                  print('WARNING: missing field ${fd.displayName}');
-                  return true;
-                } else {
-                  missingFields.add(fd.displayName);
-                }
-              }
-              return match;
-            }));
-
+    final constructors = _classElement!.getConstructorsMatchingFields(
+        fieldDescriptors: fieldDescriptors,
+        allowMissingFields: mapProto.allowMissingFields,
+        missingFields: missingFields
+    );
     // let's just pick the first of the valid constructors
     final constructor = constructors.isEmpty
         ? throw InvalidGenerationSourceError(

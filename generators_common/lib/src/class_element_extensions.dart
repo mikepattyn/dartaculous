@@ -3,6 +3,7 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/src/dart/element/inheritance_manager3.dart'
     show InheritanceManager3;
 import 'package:source_gen/source_gen.dart';
+import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 part 'fieldset.dart';
 part 'methodset.dart';
@@ -105,5 +106,31 @@ extension ClassElementFieldExtension on ClassElement {
             (field.getter == null && field.setter == null) ||
             field.isEnumConstant)
         .toList();
+  }
+
+  /// Gets all constructors that match a certain set of FieldDescriptors.
+  ///
+  /// Optionally allow for final fields that are not present in the constructor.
+  /// In that case it is up to the compiler to catch invalid constructor calls.
+  Iterable<ConstructorElement> getConstructorsMatchingFields(
+      {required Iterable<FieldDescriptorBase> fieldDescriptors,
+      bool allowMissingFields = false,
+      Set<String> missingFields = const <String>{}}) {
+    final constructors = this.constructors
+        .where((constructor) => fieldDescriptors.every((fd) {
+      final match = !fd.isFinal ||
+          fd.isNullable ||
+          //fd.isLate ||
+          constructor.parameters.any((cp) => cp.name == fd.name);
+      if (!match) {
+        missingFields.add(fd.displayName);
+        if (allowMissingFields) {
+          print('WARNING: missing field ${fd.displayName}');
+          return true;
+        }
+      }
+      return match;
+    }));
+    return constructors;
   }
 }

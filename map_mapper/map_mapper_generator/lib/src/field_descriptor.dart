@@ -12,9 +12,16 @@ class FieldDescriptor extends FieldDescriptorBase {
 
   final keyNames = ['key', 'id'];
 
-  bool get isKey => keyNames.any((kn) =>
-      kn == displayName ||
-      displayName.endsWith(kn.substring(0, 1).toUpperCase() + kn.substring(1)));
+  /// Keys are string or number values of which the field name ends with "id" or "key"
+  bool get isKey =>
+      keyNames.any((kn) =>
+          kn == displayName ||
+          displayName
+              .endsWith(kn.substring(0, 1).toUpperCase() + kn.substring(1))) &&
+      (fieldElementType.isDartCoreInt ||
+          fieldElementType.isDartCoreDouble ||
+          fieldElementType.isDartCoreNum ||
+          fieldElementType.isDartCoreString);
 
   FieldDescriptor._(
     FieldElement fieldElement,

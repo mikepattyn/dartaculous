@@ -1,3 +1,8 @@
+## 2.1.1
+
+- Improved constructor support in DefaultsProviderGenerator
+- Throw UnimplementedError when trying to create a default value for a field referring to an abstract class
+
 ## 2.1.0
 
 ### Changes

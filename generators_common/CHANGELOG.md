@@ -1,3 +1,8 @@
+## 2.2.1
+
+ - Make FieldDescriptor.isKey only return true for numeric or string values, not for objects
+ - Improved constructor support in MapMapGenerator
+
 ## 2.2.0
 
 ### Changes
