@@ -21,6 +21,3 @@ scripts:
 
   test: 
     melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" -- "dart test"
-
-  pub:
-    melos publish --ignore="*example"  
