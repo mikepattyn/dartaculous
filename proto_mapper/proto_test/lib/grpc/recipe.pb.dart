@@ -10,10 +10,10 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'category.pb.dart' as $7;
-import 'ingredient.pb.dart' as $8;
+import 'category.pb.dart' as $3;
+import 'ingredient.pb.dart' as $6;
 
-import 'appliance_type.pbenum.dart' as $6;
+import 'appliance_type.pbenum.dart' as $5;
 
 class GRecipe extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -36,19 +36,19 @@ class GRecipe extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'descriptionHasValue')
-    ..aOM<$7.GCategory>(
+    ..aOM<$3.GCategory>(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'category',
-        subBuilder: $7.GCategory.create)
-    ..pc<$8.GIngredient>(
+        subBuilder: $3.GCategory.create)
+    ..pc<$6.GIngredient>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'ingredients',
         $pb.PbFieldType.PM,
-        subBuilder: $8.GIngredient.create)
+        subBuilder: $6.GIngredient.create)
     ..aInt64(
         6,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -96,24 +96,24 @@ class GRecipe extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'requiresRobotHasValue')
-    ..e<$6.GApplianceType>(
+    ..e<$5.GApplianceType>(
         15,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'mainApplianceType',
         $pb.PbFieldType.OE,
-        defaultOrMaker: $6.GApplianceType.G_APPLIANCE_TYPE_HEAT,
-        valueOf: $6.GApplianceType.valueOf,
-        enumValues: $6.GApplianceType.values)
-    ..e<$6.GApplianceType>(
+        defaultOrMaker: $5.GApplianceType.G_APPLIANCE_TYPE_HEAT,
+        valueOf: $5.GApplianceType.valueOf,
+        enumValues: $5.GApplianceType.values)
+    ..e<$5.GApplianceType>(
         16,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'secondaryApplianceType',
         $pb.PbFieldType.OE,
-        defaultOrMaker: $6.GApplianceType.G_APPLIANCE_TYPE_HEAT,
-        valueOf: $6.GApplianceType.valueOf,
-        enumValues: $6.GApplianceType.values)
+        defaultOrMaker: $5.GApplianceType.G_APPLIANCE_TYPE_HEAT,
+        valueOf: $5.GApplianceType.valueOf,
+        enumValues: $5.GApplianceType.values)
     ..aOB(
         17,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -141,8 +141,8 @@ class GRecipe extends $pb.GeneratedMessage {
     $core.String? title,
     $core.String? description,
     $core.bool? descriptionHasValue,
-    $7.GCategory? category,
-    $core.Iterable<$8.GIngredient>? ingredients,
+    $3.GCategory? category,
+    $core.Iterable<$6.GIngredient>? ingredients,
     $fixnum.Int64? publishDate,
     $fixnum.Int64? expiryDate,
     $core.bool? expiryDateHasValue,
@@ -152,8 +152,8 @@ class GRecipe extends $pb.GeneratedMessage {
     $core.bool? isPublished,
     $core.bool? requiresRobot,
     $core.bool? requiresRobotHasValue,
-    $6.GApplianceType? mainApplianceType,
-    $6.GApplianceType? secondaryApplianceType,
+    $5.GApplianceType? mainApplianceType,
+    $5.GApplianceType? secondaryApplianceType,
     $core.bool? secondaryApplianceTypeHasValue,
     $core.Iterable<$core.String>? tags,
     $core.Iterable<$core.String>? extraTags,
@@ -285,9 +285,9 @@ class GRecipe extends $pb.GeneratedMessage {
   void clearDescriptionHasValue() => clearField(3);
 
   @$pb.TagNumber(4)
-  $7.GCategory get category => $_getN(3);
+  $3.GCategory get category => $_getN(3);
   @$pb.TagNumber(4)
-  set category($7.GCategory v) {
+  set category($3.GCategory v) {
     setField(4, v);
   }
 
@@ -296,10 +296,10 @@ class GRecipe extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearCategory() => clearField(4);
   @$pb.TagNumber(4)
-  $7.GCategory ensureCategory() => $_ensure(3);
+  $3.GCategory ensureCategory() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $core.List<$8.GIngredient> get ingredients => $_getList(4);
+  $core.List<$6.GIngredient> get ingredients => $_getList(4);
 
   @$pb.TagNumber(6)
   $fixnum.Int64 get publishDate => $_getI64(5);
@@ -410,9 +410,9 @@ class GRecipe extends $pb.GeneratedMessage {
   void clearRequiresRobotHasValue() => clearField(14);
 
   @$pb.TagNumber(15)
-  $6.GApplianceType get mainApplianceType => $_getN(14);
+  $5.GApplianceType get mainApplianceType => $_getN(14);
   @$pb.TagNumber(15)
-  set mainApplianceType($6.GApplianceType v) {
+  set mainApplianceType($5.GApplianceType v) {
     setField(15, v);
   }
 
@@ -422,9 +422,9 @@ class GRecipe extends $pb.GeneratedMessage {
   void clearMainApplianceType() => clearField(15);
 
   @$pb.TagNumber(16)
-  $6.GApplianceType get secondaryApplianceType => $_getN(15);
+  $5.GApplianceType get secondaryApplianceType => $_getN(15);
   @$pb.TagNumber(16)
-  set secondaryApplianceType($6.GApplianceType v) {
+  set secondaryApplianceType($5.GApplianceType v) {
     setField(16, v);
   }
 

@@ -92,8 +92,7 @@ $packageDeclaration
 $services
 
 $messagesBuffer
- 
-''';
+ ''';
     return ret;
   }
 
@@ -234,9 +233,10 @@ $fieldDeclarations}
 
   String _getTypeName(DartType type) {
     final itemType = type.finalType;
+    final stream = type.futureType.isDartAsyncStream ? 'stream ' : '';
     final listOf = (type.isList || type.isSet) ? 'ListOf' : '';
     final displayName = itemType.getDisplayString(withNullability: false);
-    final ret = '$prefix$listOf$displayName';
+    final ret = '$stream$prefix$listOf$displayName';
     return ret;
   }
 

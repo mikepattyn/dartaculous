@@ -148,7 +148,6 @@ class GRecipeService extends GRecipeServiceBase {
     final value = await service.count();
     final proto = G_GRecipeService_Count_Return();
     proto.value = value;
-
     return proto;
   }
 
@@ -195,7 +194,6 @@ class GRecipeService extends GRecipeServiceBase {
     final value = await service.getMainRecipeType();
     final proto = G_GRecipeService_GetMainRecipeType_Return();
     proto.value = GRecipeTypes.valueOf(value.index)!;
-
     return proto;
   }
 
@@ -279,17 +277,47 @@ class GRecipeService extends GRecipeServiceBase {
   }
 
   @override
-  Future<GCalcResult> doCalculation(
+  Stream<GRecipe> searchRecipeStream(
     ServiceCall call,
-    GCalcParameters request,
+    G_GRecipeService_SearchRecipeStream_Parameters request,
+  ) async* {
+    final service = $serviceFactory(call);
+
+    final $result = await service.searchRecipeStream();
+    await for (final $item in $result) {
+      final $proto = $item.toProto();
+      yield $proto;
+    }
+  }
+
+  @override
+  Future<G_GRecipeService_ReceiveStream_Return> receiveStream(
+    ServiceCall call,
+    Stream<GRecipe> request,
   ) async {
     final service = $serviceFactory(call);
 
-    final entity = request.toCalcParameters();
+    final $stream = request.map((event) => event.toRecipe());
 
-    final $result = await service.doCalculation(entity);
-    final proto = $result.toProto();
+    await service.receiveStream($stream);
+    final proto = G_GRecipeService_ReceiveStream_Return();
     return proto;
+  }
+
+  @override
+  Stream<GCategory> serveBidiStream(
+    ServiceCall call,
+    Stream<GRecipe> request,
+  ) async* {
+    final service = $serviceFactory(call);
+
+    final $stream = request.map((event) => event.toRecipe());
+
+    final $result = await service.serveBidiStream($stream);
+    await for (final $item in $result) {
+      final $proto = $item.toProto();
+      yield $proto;
+    }
   }
 
   @override
@@ -642,15 +670,36 @@ abstract class RecipeServiceClientBase implements RecipeServiceBase {
   }
 
   @override
-  Future<CalcResult> doCalculation(
-    CalcParameters parameters,
+  Future<Stream<Recipe>> searchRecipeStream() async {
+    final serviceClient = await getGServiceClient();
+    final $parm = G_GRecipeService_SearchRecipeStream_Parameters();
+
+    final $result = serviceClient.searchRecipeStream($parm);
+
+    final $ret = $result.map((e) => e.toRecipe());
+    return $ret;
+  }
+
+  @override
+  Future<void> receiveStream(
+    Stream<Recipe> recipes,
   ) async {
     final serviceClient = await getGServiceClient();
-    final $parm = parameters.toProto();
+    final $parm = recipes.map((event) => event.toProto());
 
-    final $result = await serviceClient.doCalculation($parm);
+    await serviceClient.receiveStream($parm);
+  }
 
-    final $ret = $result.toCalcResult();
+  @override
+  Future<Stream<Category>> serveBidiStream(
+    Stream<Recipe> recipes,
+  ) async {
+    final serviceClient = await getGServiceClient();
+    final $parm = recipes.map((event) => event.toProto());
+
+    final $result = serviceClient.serveBidiStream($parm);
+
+    final $ret = $result.map((e) => e.toCategory());
     return $ret;
   }
 

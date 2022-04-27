@@ -9,8 +9,7 @@ syntax = "proto3";
 import "recipe.proto";
 import "key.proto";
 import "recipe_type.proto";
-import "calc_parameters.proto";
-import "calc_result.proto";
+import "category.proto";
 
 
 
@@ -34,7 +33,9 @@ service GRecipeService
   rpc GetRecipeTypeListNullable (G_GRecipeService_GetRecipeTypeListNullable_Parameters) returns (G_GRecipeService_GetRecipeTypeListNullable_Return);
   rpc GetListOfInts (G_GRecipeService_GetListOfInts_Parameters) returns (G_GRecipeService_GetListOfInts_Return);
   rpc GetListOfIntsNullable (G_GRecipeService_GetListOfIntsNullable_Parameters) returns (G_GRecipeService_GetListOfIntsNullable_Return);
-  rpc DoCalculation (GCalcParameters) returns (GCalcResult);
+  rpc SearchRecipeStream (G_GRecipeService_SearchRecipeStream_Parameters) returns (stream GRecipe);
+  rpc ReceiveStream (stream GRecipe) returns (G_GRecipeService_ReceiveStream_Return);
+  rpc ServeBidiStream (stream GRecipe) returns (stream GCategory);
   rpc ReceiveLotsOfArgs (G_GRecipeService_ReceiveLotsOfArgs_Parameters) returns (G_GRecipeService_ReceiveLotsOfArgs_Return);
   rpc ReceiveLotsOfNullableArgs (G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters) returns (G_GRecipeService_ReceiveLotsOfNullableArgs_Return);
 } 
@@ -130,6 +131,12 @@ message G_GRecipeService_GetListOfIntsNullable_Parameters {
 message G_GRecipeService_GetListOfIntsNullable_Return {
   repeated int32 value = 1;
   bool value_has_value = 2;
+}
+
+message G_GRecipeService_SearchRecipeStream_Parameters {
+}
+
+message G_GRecipeService_ReceiveStream_Return {
 }
 
 message G_GRecipeService_ReceiveLotsOfArgs_Parameters {

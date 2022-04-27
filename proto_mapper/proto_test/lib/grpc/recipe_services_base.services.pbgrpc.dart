@@ -13,8 +13,7 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'recipe.pb.dart' as $0;
 import 'key.pb.dart' as $1;
 import 'recipe_services_base.services.pb.dart' as $2;
-import 'calc_parameters.pb.dart' as $3;
-import 'calc_result.pb.dart' as $4;
+import 'category.pb.dart' as $3;
 export 'recipe_services_base.services.pb.dart';
 
 class GRecipeServiceClient extends $grpc.Client {
@@ -135,11 +134,22 @@ class GRecipeServiceClient extends $grpc.Client {
           value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $2.G_GRecipeService_GetListOfIntsNullable_Return.fromBuffer(value));
-  static final _$doCalculation =
-      $grpc.ClientMethod<$3.GCalcParameters, $4.GCalcResult>(
-          '/GRecipeService/DoCalculation',
-          ($3.GCalcParameters value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $4.GCalcResult.fromBuffer(value));
+  static final _$searchRecipeStream = $grpc.ClientMethod<
+          $2.G_GRecipeService_SearchRecipeStream_Parameters, $0.GRecipe>(
+      '/GRecipeService/SearchRecipeStream',
+      ($2.G_GRecipeService_SearchRecipeStream_Parameters value) =>
+          value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.GRecipe.fromBuffer(value));
+  static final _$receiveStream =
+      $grpc.ClientMethod<$0.GRecipe, $2.G_GRecipeService_ReceiveStream_Return>(
+          '/GRecipeService/ReceiveStream',
+          ($0.GRecipe value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $2.G_GRecipeService_ReceiveStream_Return.fromBuffer(value));
+  static final _$serveBidiStream = $grpc.ClientMethod<$0.GRecipe, $3.GCategory>(
+      '/GRecipeService/ServeBidiStream',
+      ($0.GRecipe value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $3.GCategory.fromBuffer(value));
   static final _$receiveLotsOfArgs = $grpc.ClientMethod<
           $2.G_GRecipeService_ReceiveLotsOfArgs_Parameters,
           $2.G_GRecipeService_ReceiveLotsOfArgs_Return>(
@@ -269,9 +279,25 @@ class GRecipeServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getListOfIntsNullable, request, options: options);
   }
 
-  $grpc.ResponseFuture<$4.GCalcResult> doCalculation($3.GCalcParameters request,
+  $grpc.ResponseStream<$0.GRecipe> searchRecipeStream(
+      $2.G_GRecipeService_SearchRecipeStream_Parameters request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$doCalculation, request, options: options);
+    return $createStreamingCall(
+        _$searchRecipeStream, $async.Stream.fromIterable([request]),
+        options: options);
+  }
+
+  $grpc.ResponseFuture<$2.G_GRecipeService_ReceiveStream_Return> receiveStream(
+      $async.Stream<$0.GRecipe> request,
+      {$grpc.CallOptions? options}) {
+    return $createStreamingCall(_$receiveStream, request, options: options)
+        .single;
+  }
+
+  $grpc.ResponseStream<$3.GCategory> serveBidiStream(
+      $async.Stream<$0.GRecipe> request,
+      {$grpc.CallOptions? options}) {
+    return $createStreamingCall(_$serveBidiStream, request, options: options);
   }
 
   $grpc.ResponseFuture<$2.G_GRecipeService_ReceiveLotsOfArgs_Return>
@@ -457,13 +483,31 @@ abstract class GRecipeServiceBase extends $grpc.Service {
                 value),
         ($2.G_GRecipeService_GetListOfIntsNullable_Return value) =>
             value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$3.GCalcParameters, $4.GCalcResult>(
-        'DoCalculation',
-        doCalculation_Pre,
+    $addMethod($grpc.ServiceMethod<
+            $2.G_GRecipeService_SearchRecipeStream_Parameters, $0.GRecipe>(
+        'SearchRecipeStream',
+        searchRecipeStream_Pre,
         false,
+        true,
+        ($core.List<$core.int> value) =>
+            $2.G_GRecipeService_SearchRecipeStream_Parameters.fromBuffer(value),
+        ($0.GRecipe value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GRecipe,
+            $2.G_GRecipeService_ReceiveStream_Return>(
+        'ReceiveStream',
+        receiveStream,
+        true,
         false,
-        ($core.List<$core.int> value) => $3.GCalcParameters.fromBuffer(value),
-        ($4.GCalcResult value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.GRecipe.fromBuffer(value),
+        ($2.G_GRecipeService_ReceiveStream_Return value) =>
+            value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GRecipe, $3.GCategory>(
+        'ServeBidiStream',
+        serveBidiStream,
+        true,
+        true,
+        ($core.List<$core.int> value) => $0.GRecipe.fromBuffer(value),
+        ($3.GCategory value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<
             $2.G_GRecipeService_ReceiveLotsOfArgs_Parameters,
             $2.G_GRecipeService_ReceiveLotsOfArgs_Return>(
@@ -600,9 +644,11 @@ abstract class GRecipeServiceBase extends $grpc.Service {
     return getListOfIntsNullable(call, await request);
   }
 
-  $async.Future<$4.GCalcResult> doCalculation_Pre(
-      $grpc.ServiceCall call, $async.Future<$3.GCalcParameters> request) async {
-    return doCalculation(call, await request);
+  $async.Stream<$0.GRecipe> searchRecipeStream_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$2.G_GRecipeService_SearchRecipeStream_Parameters>
+          request) async* {
+    yield* searchRecipeStream(call, await request);
   }
 
   $async.Future<$2.G_GRecipeService_ReceiveLotsOfArgs_Return>
@@ -662,8 +708,12 @@ abstract class GRecipeServiceBase extends $grpc.Service {
   $async.Future<$2.G_GRecipeService_GetListOfIntsNullable_Return>
       getListOfIntsNullable($grpc.ServiceCall call,
           $2.G_GRecipeService_GetListOfIntsNullable_Parameters request);
-  $async.Future<$4.GCalcResult> doCalculation(
-      $grpc.ServiceCall call, $3.GCalcParameters request);
+  $async.Stream<$0.GRecipe> searchRecipeStream($grpc.ServiceCall call,
+      $2.G_GRecipeService_SearchRecipeStream_Parameters request);
+  $async.Future<$2.G_GRecipeService_ReceiveStream_Return> receiveStream(
+      $grpc.ServiceCall call, $async.Stream<$0.GRecipe> request);
+  $async.Stream<$3.GCategory> serveBidiStream(
+      $grpc.ServiceCall call, $async.Stream<$0.GRecipe> request);
   $async.Future<$2.G_GRecipeService_ReceiveLotsOfArgs_Return> receiveLotsOfArgs(
       $grpc.ServiceCall call,
       $2.G_GRecipeService_ReceiveLotsOfArgs_Parameters request);

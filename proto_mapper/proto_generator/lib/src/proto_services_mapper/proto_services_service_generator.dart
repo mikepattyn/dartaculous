@@ -122,7 +122,9 @@ class _Generator extends ProtoServicesGeneratorBase {
   void _generateMethod(MethodDescriptor methodDescriptor,
       StringBuffer methodBuffer, List<String> externalProtoNames) {
     final methodName = methodDescriptor.name;
-    final asnc = methodDescriptor.returnTypeIsFuture ? 'await' : '';
+    final isStream = methodDescriptor.returnType.futureType.isDartAsyncStream;
+    final awit = methodDescriptor.returnTypeIsFuture ? 'await' : '';
+
     final pVarBuffer = StringBuffer();
     final pParmBuffer = StringBuffer();
     final gParameterType =
@@ -132,15 +134,17 @@ class _Generator extends ProtoServicesGeneratorBase {
     final pReturnBuffer = StringBuffer();
     final gReturnType =
         _getReturnType(methodDescriptor, pResultBuffer, pReturnBuffer);
+    final gReturnSuperType =
+        isStream ? 'Stream<$gReturnType>' : 'Future<$gReturnType>';
+    final asnc = isStream ? 'async*' : 'async';
 
     methodBuffer.writeln('''
-      @override Future<$gReturnType> $methodName(ServiceCall call, $gParameterType request,) async {
+      @override $gReturnSuperType $methodName(ServiceCall call, $gParameterType request,) $asnc {
         final service = \$serviceFactory(call);
     
         $pVarBuffer
-        $pResultBuffer $asnc service.$methodName($pParmBuffer );
+        $pResultBuffer $awit service.$methodName($pParmBuffer );
         $pReturnBuffer
-        return proto;
       }
     
     ''');
@@ -168,8 +172,6 @@ class _Generator extends ProtoServicesGeneratorBase {
       pReturnBuffer,
     );
     if (protoMappedReturnType.isNotEmpty) {
-      // pResultBuffer.write(r'final $result = ');
-      // pReturnBuffer.write(protoMappedReturnType);
       return protoMappedReturnType;
     }
 
@@ -178,6 +180,7 @@ class _Generator extends ProtoServicesGeneratorBase {
     final futureType = methodDescriptor.returnType.futureType;
     if (futureType.isVoid) {
       pReturnBuffer.write('final proto = $messageName();');
+      pReturnBuffer.write('return proto;');
       return messageName;
     }
 
@@ -201,6 +204,7 @@ class _Generator extends ProtoServicesGeneratorBase {
     pReturnBuffer.writeln('final proto = $messageName();');
     final assignment = fieldCodeGenerator.toProtoMap;
     pReturnBuffer.writeln(assignment);
+    pReturnBuffer.writeln('return proto;');
 
     return messageName;
   }
@@ -263,12 +267,22 @@ class _Generator extends ProtoServicesGeneratorBase {
     }
 
     final gReturnType = _getPrefixedTypeName(returnType);
+    pResultBuffer.write(r'final $result = ');
+
+    if (returnType.futureType.isDartAsyncStream) {
+      pReturnBuffer.writeln('''await for (final \$item in \$result) {
+    final \$proto = \$item.toProto();
+    yield \$proto;
+  }''');
+      return gReturnType;
+    }
+
     final protoAssign = !methodDescriptor.returnType.isList
         ? r'final proto = $result.toProto();'
         : '''final proto = $gReturnType()..items.addAll(\$result.map((i) => i.toProto()));''';
 
-    pResultBuffer.write(r'final $result = ');
-    pReturnBuffer.write(protoAssign);
+    pReturnBuffer.writeln(protoAssign);
+    pReturnBuffer.writeln('return proto;');
     return gReturnType;
   }
 
@@ -313,6 +327,14 @@ class _Generator extends ProtoServicesGeneratorBase {
     if (!finalType.hasMapProto) return '';
 
     final parameterType = _getTypeName(methodDescriptor.parameterType);
+    final typeName = _getPrefixedTypeName(methodDescriptor.parameterType);
+
+    if (methodDescriptor.parameterType.futureType.isDartAsyncStream) {
+      pVarBuffer.writeln(
+          'final \$stream = request.map((event) => event.to$parameterType());');
+      pParmBuffer.writeln('\$stream');
+      return 'Stream<$typeName>';
+    }
 
     final toEntity = !methodDescriptor.parameterType.isList
         ? 'request.to$parameterType()'
@@ -321,7 +343,7 @@ class _Generator extends ProtoServicesGeneratorBase {
     pVarBuffer.writeln('final entity = $toEntity;');
     pParmBuffer.writeln('entity');
 
-    return _getPrefixedTypeName(methodDescriptor.parameterType);
+    return typeName;
   }
 }
 

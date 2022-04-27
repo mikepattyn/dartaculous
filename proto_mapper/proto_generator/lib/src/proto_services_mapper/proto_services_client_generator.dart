@@ -77,6 +77,10 @@ class _Generator extends ProtoServicesGeneratorBase {
       final returnType =
           _getReturnType(methodDescriptor, resultBuffer, returnBuffer);
 
+      final awit = methodDescriptor.returnType.futureType.isDartAsyncStream
+          ? ''
+          : 'await';
+
       methodBuffer.writeln('''
 
   @override
@@ -86,7 +90,7 @@ class _Generator extends ProtoServicesGeneratorBase {
 
     $assignments
 
-    $resultBuffer await serviceClient.$methodName(\$parm);
+    $resultBuffer $awit serviceClient.$methodName(\$parm);
     
     $returnBuffer
   }
@@ -174,9 +178,13 @@ abstract class ${serviceClassName}ClientBase implements $className {
     final parmName =
         methodDescriptor.methodElement.parameters.first.displayName;
 
-    final toProto = methodDescriptor.parameterType.futureType.isList
-        ? '${prefix}ListOf$finalType(items: $parmName.map((i) => i.toProto()))'
-        : '$parmName.toProto()';
+    final futureType = methodDescriptor.parameterType.futureType;
+
+    final toProto = futureType.isDartAsyncStream
+        ? '$parmName.map((event) => event.toProto())'
+        : (futureType.isList
+            ? '${prefix}ListOf$finalType(items: $parmName.map((i) => i.toProto()))'
+            : '$parmName.toProto()');
     return toProto;
   }
 
@@ -240,9 +248,12 @@ String _getProtoMappedReturnType(
 
   final entityType = finalType.getDisplayString(withNullability: false);
   final futureType = returnType.futureType;
-  final toEntity = returnType.futureType.isList
-      ? '\$result.items.map((i) => i.to$entityType()).toList()'
-      : '\$result.to$entityType()';
+
+  final toEntity = returnType.futureType.isDartAsyncStream
+      ? '\$result.map((e) => e.to$entityType())'
+      : (returnType.futureType.isList
+          ? '\$result.items.map((i) => i.to$entityType()).toList()'
+          : '\$result.to$entityType()');
   resultBuffer.write(r'final $result = ');
   returnBuffer.write('final \$ret = $toEntity;');
   returnBuffer.write(r'return $ret;');

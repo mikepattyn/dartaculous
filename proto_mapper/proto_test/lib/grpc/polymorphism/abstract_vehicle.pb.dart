@@ -9,8 +9,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'bicycle.pb.dart' as $10;
-import 'scooter.pb.dart' as $11;
+import 'bicycle.pb.dart' as $8;
+import 'scooter.pb.dart' as $9;
 
 enum GAbstractVehicle_Props { bicycle, scooter, notSet }
 
@@ -27,24 +27,24 @@ class GAbstractVehicle extends $pb.GeneratedMessage {
           : 'GAbstractVehicle',
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<$10.GBicycle>(
+    ..aOM<$8.GBicycle>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'bicycle',
-        subBuilder: $10.GBicycle.create)
-    ..aOM<$11.GScooter>(
+        subBuilder: $8.GBicycle.create)
+    ..aOM<$9.GScooter>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'scooter',
-        subBuilder: $11.GScooter.create)
+        subBuilder: $9.GScooter.create)
     ..hasRequiredFields = false;
 
   GAbstractVehicle._() : super();
   factory GAbstractVehicle({
-    $10.GBicycle? bicycle,
-    $11.GScooter? scooter,
+    $8.GBicycle? bicycle,
+    $9.GScooter? scooter,
   }) {
     final _result = create();
     if (bicycle != null) {
@@ -87,9 +87,9 @@ class GAbstractVehicle extends $pb.GeneratedMessage {
   void clearProps() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  $10.GBicycle get bicycle => $_getN(0);
+  $8.GBicycle get bicycle => $_getN(0);
   @$pb.TagNumber(1)
-  set bicycle($10.GBicycle v) {
+  set bicycle($8.GBicycle v) {
     setField(1, v);
   }
 
@@ -98,12 +98,12 @@ class GAbstractVehicle extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearBicycle() => clearField(1);
   @$pb.TagNumber(1)
-  $10.GBicycle ensureBicycle() => $_ensure(0);
+  $8.GBicycle ensureBicycle() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $11.GScooter get scooter => $_getN(1);
+  $9.GScooter get scooter => $_getN(1);
   @$pb.TagNumber(2)
-  set scooter($11.GScooter v) {
+  set scooter($9.GScooter v) {
     setField(2, v);
   }
 
@@ -112,7 +112,7 @@ class GAbstractVehicle extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearScooter() => clearField(2);
   @$pb.TagNumber(2)
-  $11.GScooter ensureScooter() => $_ensure(1);
+  $9.GScooter ensureScooter() => $_ensure(1);
 }
 
 class GListOfAbstractVehicle extends $pb.GeneratedMessage {

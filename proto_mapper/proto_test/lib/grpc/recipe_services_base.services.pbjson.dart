@@ -321,6 +321,26 @@ final $typed_data.Uint8List
     $convert.base64Decode(
         'Ci1HX0dSZWNpcGVTZXJ2aWNlX0dldExpc3RPZkludHNOdWxsYWJsZV9SZXR1cm4SFAoFdmFsdWUYASADKAVSBXZhbHVlEiYKD3ZhbHVlX2hhc192YWx1ZRgCIAEoCFINdmFsdWVIYXNWYWx1ZQ==');
 @$core.Deprecated(
+    'Use g_GRecipeService_SearchRecipeStream_ParametersDescriptor instead')
+const G_GRecipeService_SearchRecipeStream_Parameters$json = {
+  '1': 'G_GRecipeService_SearchRecipeStream_Parameters',
+};
+
+/// Descriptor for `G_GRecipeService_SearchRecipeStream_Parameters`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List
+    g_GRecipeService_SearchRecipeStream_ParametersDescriptor =
+    $convert.base64Decode(
+        'Ci5HX0dSZWNpcGVTZXJ2aWNlX1NlYXJjaFJlY2lwZVN0cmVhbV9QYXJhbWV0ZXJz');
+@$core.Deprecated('Use g_GRecipeService_ReceiveStream_ReturnDescriptor instead')
+const G_GRecipeService_ReceiveStream_Return$json = {
+  '1': 'G_GRecipeService_ReceiveStream_Return',
+};
+
+/// Descriptor for `G_GRecipeService_ReceiveStream_Return`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List g_GRecipeService_ReceiveStream_ReturnDescriptor =
+    $convert
+        .base64Decode('CiVHX0dSZWNpcGVTZXJ2aWNlX1JlY2VpdmVTdHJlYW1fUmV0dXJu');
+@$core.Deprecated(
     'Use g_GRecipeService_ReceiveLotsOfArgs_ParametersDescriptor instead')
 const G_GRecipeService_ReceiveLotsOfArgs_Parameters$json = {
   '1': 'G_GRecipeService_ReceiveLotsOfArgs_Parameters',

@@ -1,0 +1,106 @@
+[INFO] Generating build script...
+[INFO] Generating build script completed, took 576ms
+
+[INFO] Initializing inputs
+[INFO] Reading cached asset graph...
+[INFO] Reading cached asset graph completed, took 130ms
+
+[INFO] Checking for updates since last build...
+[INFO] Checking for updates since last build completed, took 920ms
+
+[WARNING] Invalidating asset graph due to build script update!
+[INFO] Cleaning up outputs from previous builds....
+[INFO] Cleaning up outputs from previous builds. completed, took 12ms
+
+[INFO] Generating build script...
+[INFO] Generating build script completed, took 149ms
+
+[WARNING] Invalidated precompiled build script due to missing asset graph.
+[INFO] Precompiling build script......
+[INFO] Precompiling build script... completed, took 1.4s
+
+[INFO] Initializing inputs
+[INFO] Building new asset graph...
+[INFO] Building new asset graph completed, took 1.4s
+
+[INFO] Checking for unexpected pre-existing outputs....
+[INFO] Checking for unexpected pre-existing outputs. completed, took 2ms
+
+[INFO] Running build...
+[INFO] 1.1s elapsed, 30/46 actions completed.
+[INFO] 2.1s elapsed, 30/46 actions completed.
+[INFO] 5.6s elapsed, 30/46 actions completed.
+[INFO] 6.7s elapsed, 88/104 actions completed.
+[WARNING] proto_generator:proto_mapper_generator on lib/src/utensils.dart:
+WARNING: missing field favoriteWords
+[WARNING] proto_generator:proto_mapper_generator on lib/src/utensils.dart:
+WARNING: missing field favoriteWords
+[INFO] 8.1s elapsed, 322/338 actions completed.
+[INFO] Running build completed, took 8.4s
+
+[INFO] Caching finalized dependency graph...
+[INFO] Caching finalized dependency graph completed, took 128ms
+
+[INFO] Succeeded after 8.5s with 98 outputs (388 actions)
+
+Formatted lib/grpc/appliance_type.pb.dart
+Formatted lib/grpc/appliance_type.pbenum.dart
+Formatted lib/grpc/appliance_type.pbjson.dart
+Formatted lib/grpc/calc_parameters.pb.dart
+Formatted lib/grpc/calc_parameters.pbenum.dart
+Formatted lib/grpc/calc_parameters.pbjson.dart
+Formatted lib/grpc/calc_result.pb.dart
+Formatted lib/grpc/calc_result.pbenum.dart
+Formatted lib/grpc/calc_result.pbjson.dart
+Formatted lib/grpc/category.pb.dart
+Formatted lib/grpc/category.pbenum.dart
+Formatted lib/grpc/category.pbjson.dart
+Formatted lib/grpc/component.pb.dart
+Formatted lib/grpc/component.pbenum.dart
+Formatted lib/grpc/component.pbjson.dart
+Formatted lib/grpc/constructors_host.pb.dart
+Formatted lib/grpc/constructors_host.pbenum.dart
+Formatted lib/grpc/constructors_host.pbjson.dart
+Formatted lib/grpc/empty.pb.dart
+Formatted lib/grpc/empty.pbenum.dart
+Formatted lib/grpc/empty.pbjson.dart
+Formatted lib/grpc/ingredient.pb.dart
+Formatted lib/grpc/ingredient.pbenum.dart
+Formatted lib/grpc/ingredient.pbjson.dart
+Formatted lib/grpc/key.pb.dart
+Formatted lib/grpc/key.pbenum.dart
+Formatted lib/grpc/key.pbjson.dart
+Formatted lib/grpc/lists_host.pb.dart
+Formatted lib/grpc/lists_host.pbenum.dart
+Formatted lib/grpc/lists_host.pbjson.dart
+Formatted lib/grpc/polymorphism/abstract_vehicle.pb.dart
+Formatted lib/grpc/polymorphism/abstract_vehicle.pbenum.dart
+Formatted lib/grpc/polymorphism/abstract_vehicle.pbjson.dart
+Formatted lib/grpc/polymorphism/airplane.pb.dart
+Formatted lib/grpc/polymorphism/airplane.pbenum.dart
+Formatted lib/grpc/polymorphism/airplane.pbjson.dart
+Formatted lib/grpc/polymorphism/bicycle.pb.dart
+Formatted lib/grpc/polymorphism/bicycle.pbenum.dart
+Formatted lib/grpc/polymorphism/bicycle.pbjson.dart
+Formatted lib/grpc/polymorphism/car.pb.dart
+Formatted lib/grpc/polymorphism/car.pbenum.dart
+Formatted lib/grpc/polymorphism/car.pbjson.dart
+Formatted lib/grpc/polymorphism/scooter.pb.dart
+Formatted lib/grpc/polymorphism/scooter.pbenum.dart
+Formatted lib/grpc/polymorphism/scooter.pbjson.dart
+Formatted lib/grpc/polymorphism/vehicle.pb.dart
+Formatted lib/grpc/polymorphism/vehicle.pbenum.dart
+Formatted lib/grpc/polymorphism/vehicle.pbjson.dart
+Formatted lib/grpc/recipe.pb.dart
+Formatted lib/grpc/recipe.pbenum.dart
+Formatted lib/grpc/recipe.pbjson.dart
+Formatted lib/grpc/recipe_services_base.services.pb.dart
+Formatted lib/grpc/recipe_services_base.services.pbenum.dart
+Formatted lib/grpc/recipe_services_base.services.pbjson.dart
+Formatted lib/grpc/recipe_type.pb.dart
+Formatted lib/grpc/recipe_type.pbenum.dart
+Formatted lib/grpc/recipe_type.pbjson.dart
+Formatted lib/grpc/utensils.pb.dart
+Formatted lib/grpc/utensils.pbenum.dart
+Formatted lib/grpc/utensils.pbjson.dart
+Formatted 61 files (60 changed) in 2.58 seconds.

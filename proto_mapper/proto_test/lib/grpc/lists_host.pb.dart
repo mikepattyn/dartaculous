@@ -10,7 +10,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'appliance_type.pbenum.dart' as $6;
+import 'appliance_type.pbenum.dart' as $5;
 
 class GListsHost extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -133,22 +133,22 @@ class GListsHost extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'nvdoublesHasValue')
-    ..pc<$6.GApplianceType>(
+    ..pc<$5.GApplianceType>(
         22,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'vapplianceTypes',
         $pb.PbFieldType.PE,
-        valueOf: $6.GApplianceType.valueOf,
-        enumValues: $6.GApplianceType.values)
-    ..pc<$6.GApplianceType>(
+        valueOf: $5.GApplianceType.valueOf,
+        enumValues: $5.GApplianceType.values)
+    ..pc<$5.GApplianceType>(
         23,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'nvapplianceTypes',
         $pb.PbFieldType.PE,
-        valueOf: $6.GApplianceType.valueOf,
-        enumValues: $6.GApplianceType.values)
+        valueOf: $5.GApplianceType.valueOf,
+        enumValues: $5.GApplianceType.values)
     ..aOB(
         24,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -179,8 +179,8 @@ class GListsHost extends $pb.GeneratedMessage {
     $core.Iterable<$core.double>? vdoubles,
     $core.Iterable<$core.double>? nvdoubles,
     $core.bool? nvdoublesHasValue,
-    $core.Iterable<$6.GApplianceType>? vapplianceTypes,
-    $core.Iterable<$6.GApplianceType>? nvapplianceTypes,
+    $core.Iterable<$5.GApplianceType>? vapplianceTypes,
+    $core.Iterable<$5.GApplianceType>? nvapplianceTypes,
     $core.bool? nvapplianceTypesHasValue,
   }) {
     final _result = create();
@@ -411,10 +411,10 @@ class GListsHost extends $pb.GeneratedMessage {
   void clearNvdoublesHasValue() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.List<$6.GApplianceType> get vapplianceTypes => $_getList(21);
+  $core.List<$5.GApplianceType> get vapplianceTypes => $_getList(21);
 
   @$pb.TagNumber(23)
-  $core.List<$6.GApplianceType> get nvapplianceTypes => $_getList(22);
+  $core.List<$5.GApplianceType> get nvapplianceTypes => $_getList(22);
 
   @$pb.TagNumber(24)
   $core.bool get nvapplianceTypesHasValue => $_getBF(23);

@@ -14,9 +14,13 @@ packages:
 
 ignore:
   - map_mapper/test_mongo/*
+  - defaults_provider/example/*
 
 scripts:
   analyze: melos exec -- "dart analyze ."
 
   test: 
     melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" -- "dart test"
+
+  pub:
+    melos publish --ignore="*example"  

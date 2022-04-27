@@ -1,13 +1,10 @@
 import 'package:grpc/grpc.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/calc_parameters.pb.dart';
-import 'package:proto_generator_test/grpc/calc_result.pb.dart';
+import 'package:proto_generator_test/grpc/category.pb.dart';
 import 'package:proto_generator_test/grpc/key.pb.dart';
 import 'package:proto_generator_test/grpc/recipe.pb.dart';
 import 'package:proto_generator_test/grpc/recipe_services_base.services.pbgrpc.dart';
 import 'package:proto_generator_test/grpc/recipe_type.pbenum.dart';
-import 'package:proto_generator_test/src/calc_parameters.dart';
-import 'package:proto_generator_test/src/calc_result.dart';
 import 'package:proto_generator_test/src/crud_services_base.dart';
 import 'package:proto_generator_test/src/recipe_type.dart';
 
@@ -32,8 +29,9 @@ abstract class RecipeServiceBase extends CrudServicesBase<Recipe> {
   Future<List<RecipeTypes>?> getRecipeTypeListNullable();
   Future<List<int>> getListOfInts();
   Future<List<int>?> getListOfIntsNullable();
-
-  Future<CalcResult> doCalculation(CalcParameters parameters);
+  Future<Stream<Recipe>> searchRecipeStream();
+  Future<void> receiveStream(Stream<Recipe> recipes);
+  Future<Stream<Category>> serveBidiStream(Stream<Recipe> recipes);
 
   Future<void> receiveLotsOfArgs(
     String pString,

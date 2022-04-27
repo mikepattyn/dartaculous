@@ -13,7 +13,7 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'recipe.pb.dart' as $0;
 
 import 'utensils.pbenum.dart';
-import 'appliance_type.pbenum.dart' as $6;
+import 'appliance_type.pbenum.dart' as $5;
 
 export 'utensils.pbenum.dart';
 
@@ -479,15 +479,15 @@ class GChef extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'favoriteKnifeHasValue')
-    ..e<$6.GApplianceType>(
+    ..e<$5.GApplianceType>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'favoriteApplianceType',
         $pb.PbFieldType.OE,
-        defaultOrMaker: $6.GApplianceType.G_APPLIANCE_TYPE_HEAT,
-        valueOf: $6.GApplianceType.valueOf,
-        enumValues: $6.GApplianceType.values)
+        defaultOrMaker: $5.GApplianceType.G_APPLIANCE_TYPE_HEAT,
+        valueOf: $5.GApplianceType.valueOf,
+        enumValues: $5.GApplianceType.values)
     ..pPS(
         6,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -517,7 +517,7 @@ class GChef extends $pb.GeneratedMessage {
     $core.bool? favoriteRecipeHasValue,
     GKnife? favoriteKnife,
     $core.bool? favoriteKnifeHasValue,
-    $6.GApplianceType? favoriteApplianceType,
+    $5.GApplianceType? favoriteApplianceType,
     $core.Iterable<$core.String>? favoriteWords,
     $fixnum.Int64? birthdate,
     $core.double? shelfLife,
@@ -632,9 +632,9 @@ class GChef extends $pb.GeneratedMessage {
   void clearFavoriteKnifeHasValue() => clearField(4);
 
   @$pb.TagNumber(5)
-  $6.GApplianceType get favoriteApplianceType => $_getN(4);
+  $5.GApplianceType get favoriteApplianceType => $_getN(4);
   @$pb.TagNumber(5)
-  set favoriteApplianceType($6.GApplianceType v) {
+  set favoriteApplianceType($5.GApplianceType v) {
     setField(5, v);
   }
 
@@ -766,15 +766,15 @@ class GSousChef extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'favoriteKnifeHasValue')
-    ..e<$6.GApplianceType>(
+    ..e<$5.GApplianceType>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'favoriteApplianceType',
         $pb.PbFieldType.OE,
-        defaultOrMaker: $6.GApplianceType.G_APPLIANCE_TYPE_HEAT,
-        valueOf: $6.GApplianceType.valueOf,
-        enumValues: $6.GApplianceType.values)
+        defaultOrMaker: $5.GApplianceType.G_APPLIANCE_TYPE_HEAT,
+        valueOf: $5.GApplianceType.valueOf,
+        enumValues: $5.GApplianceType.values)
     ..pPS(
         6,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -804,7 +804,7 @@ class GSousChef extends $pb.GeneratedMessage {
     $core.bool? favoriteRecipeHasValue,
     GKnife? favoriteKnife,
     $core.bool? favoriteKnifeHasValue,
-    $6.GApplianceType? favoriteApplianceType,
+    $5.GApplianceType? favoriteApplianceType,
     $core.Iterable<$core.String>? favoriteWords,
     $fixnum.Int64? birthdate,
     $core.double? shelfLife,
@@ -919,9 +919,9 @@ class GSousChef extends $pb.GeneratedMessage {
   void clearFavoriteKnifeHasValue() => clearField(4);
 
   @$pb.TagNumber(5)
-  $6.GApplianceType get favoriteApplianceType => $_getN(4);
+  $5.GApplianceType get favoriteApplianceType => $_getN(4);
   @$pb.TagNumber(5)
-  set favoriteApplianceType($6.GApplianceType v) {
+  set favoriteApplianceType($5.GApplianceType v) {
     setField(5, v);
   }
 
@@ -1043,15 +1043,15 @@ class GKnifeMaster extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'favoriteRecipeHasValue')
-    ..e<$6.GApplianceType>(
+    ..e<$5.GApplianceType>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'favoriteApplianceType',
         $pb.PbFieldType.OE,
-        defaultOrMaker: $6.GApplianceType.G_APPLIANCE_TYPE_HEAT,
-        valueOf: $6.GApplianceType.valueOf,
-        enumValues: $6.GApplianceType.values)
+        defaultOrMaker: $5.GApplianceType.G_APPLIANCE_TYPE_HEAT,
+        valueOf: $5.GApplianceType.valueOf,
+        enumValues: $5.GApplianceType.values)
     ..pPS(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1085,7 +1085,7 @@ class GKnifeMaster extends $pb.GeneratedMessage {
   factory GKnifeMaster({
     $0.GRecipe? favoriteRecipe,
     $core.bool? favoriteRecipeHasValue,
-    $6.GApplianceType? favoriteApplianceType,
+    $5.GApplianceType? favoriteApplianceType,
     $core.Iterable<$core.String>? favoriteWords,
     $fixnum.Int64? birthdate,
     $core.double? shelfLife,
@@ -1173,9 +1173,9 @@ class GKnifeMaster extends $pb.GeneratedMessage {
   void clearFavoriteRecipeHasValue() => clearField(2);
 
   @$pb.TagNumber(3)
-  $6.GApplianceType get favoriteApplianceType => $_getN(2);
+  $5.GApplianceType get favoriteApplianceType => $_getN(2);
   @$pb.TagNumber(3)
-  set favoriteApplianceType($6.GApplianceType v) {
+  set favoriteApplianceType($5.GApplianceType v) {
     setField(3, v);
   }
 
