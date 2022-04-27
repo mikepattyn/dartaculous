@@ -1,3 +1,7 @@
+## 3.2.0
+
+ - **FEAT**: Support for gRPC streams.
+
 ## 3.1.3
  - Improved constructor support.
 
