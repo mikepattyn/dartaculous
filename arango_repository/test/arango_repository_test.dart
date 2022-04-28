@@ -36,42 +36,33 @@ class ArangoRepositoryTestHandler extends RepositoryTestHandler {
 }
 
 Future _ensureEmptyTestCollection(
-    ArangoDBClient testDbClient, String testCollection) async {
+    DbClient testDbClient, String testCollection) async {
   var allCollectionsAnsw = await testDbClient.allCollections();
   var alreadyExists =
-      allCollectionsAnsw.response!.any((coll) => coll.name == testCollection);
+      allCollectionsAnsw.any((coll) => coll.name == testCollection);
   if (!alreadyExists) {
-    var answer =
-        await testDbClient.createCollection(CollectionCriteria(testCollection));
-    if (answer.result.error) {
-      throw Error();
-    }
+    await testDbClient.createCollection(CollectionCriteria(testCollection));
   }
-  if ((await testDbClient.truncateCollection(testCollection)).result.error) {
-    throw Error();
-  }
+  await testDbClient.truncateCollection(testCollection);
 }
 
-Future<ArangoDBClient> _connectTestDb() async {
+Future<DbClient> _connectTestDb() async {
   const systemDb = '_system';
   const testDb = 'test_temp_db';
   var clientSystemDb = _connectArangoDb(systemDb);
   var databases = await clientSystemDb.existingDatabases();
   // skip test if test database already exists
-  if (!databases.response!.contains(testDb)) {
-    var result = await clientSystemDb
+  if (!databases.contains(testDb)) {
+    await clientSystemDb
         .createDatabase(CreateDatabaseInfo(testDb, [DatabaseUser('u', 'ps')]));
-    if (result.result.error) {
-      throw Error();
-    }
   }
   final testDbClient = _connectArangoDb(testDb);
 
   return testDbClient;
 }
 
-ArangoDBClient _connectArangoDb(String db) {
-  var client = ArangoDBClient(
+DbClient _connectArangoDb(String db) {
+  var client = DbClient(
     scheme: dbscheme,
     host: dbhost,
     port: dbport,

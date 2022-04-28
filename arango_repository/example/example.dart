@@ -109,9 +109,9 @@ Recipe _friedEggsRecipe() {
   return recipe;
 }
 
-Future<ArangoDBClient> _connectArangoDb() async {
+Future<DbClient> _connectArangoDb() async {
   await _maybeCreateDatabase();
-  final client = ArangoDBClient(
+  final client = DbClient(
     scheme: 'http',
     host: 'localhost',
     port: 8529,
@@ -120,10 +120,8 @@ Future<ArangoDBClient> _connectArangoDb() async {
     pass: dbPassword, // update this
   );
 
-  final colExists = (await client.allCollections())
-          .response
-          ?.any((col) => col.name == colName) ??
-      false;
+  final colExists =
+      (await client.allCollections()).any((col) => col.name == colName);
   if (!colExists) {
     await client.createCollection(CollectionCriteria(
       colName,
@@ -135,7 +133,7 @@ Future<ArangoDBClient> _connectArangoDb() async {
 }
 
 Future<void> _maybeCreateDatabase() async {
-  final client = ArangoDBClient(
+  final client = DbClient(
     scheme: 'http',
     host: 'localhost',
     port: 8529,
@@ -143,10 +141,8 @@ Future<void> _maybeCreateDatabase() async {
     user: 'root', // update this
     pass: 'pass', // update this
   );
-  final dbExists = (await client.existingDatabases())
-          .response
-          ?.any((dbName) => dbName == myDbName) ??
-      false;
+  final dbExists =
+      (await client.existingDatabases()).any((dbName) => dbName == myDbName);
   if (!dbExists) {
     await client.createDatabase(CreateDatabaseInfo(myDbName, [
       DatabaseUser(

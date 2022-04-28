@@ -5,12 +5,12 @@ import 'package:nosql_repository/nosql_repository.dart';
 /// ArangoDB repository with no permission or tenant
 /// verification filtering
 class RootArangoDbRepository<TEntity> extends ArangoDbRepositoryBase<TEntity> {
-  RootArangoDbRepository(ArangoDBClient db, String collectionName)
+  RootArangoDbRepository(DbClient db, String collectionName)
       : super(db, collectionName);
 
   @override
   void addAuthFilterToQuery(
-      {required QueryWithClient query,
+      {required DbQueryWithClient query,
       required String collectionName,
       required DbPrincipal principal,
       required String action,

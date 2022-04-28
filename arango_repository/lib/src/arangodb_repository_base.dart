@@ -12,11 +12,12 @@ import 'package:tuple/tuple.dart';
 import 'arangodb_repository_transaction.dart';
 import 'expression_rendering/context.dart';
 import 'expression_rendering/expression_extension.dart';
+import 'db_error_extension.dart';
 
 abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
   ArangoDbRepositoryBase(this.db, this.collectionName);
 
-  final ArangoDBClient db;
+  final DbClient db;
   final String collectionName;
 
   void handleMetaForCreate(
@@ -53,7 +54,7 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
   );
 
   void addAuthFilterToQuery({
-    required QueryWithClient query,
+    required DbQueryWithClient query,
     required String collectionName,
     required DbPrincipal principal,
     required String action,
@@ -96,20 +97,23 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
     }
 
     final trx = _getDriverTransaction(transaction);
-    var resultMap = await db.createDocument(
-      collectionName,
-      map,
-      transaction: trx,
-    );
+    try {
+      final docResult = await db.createDocument(
+        collectionName,
+        map,
+        transaction: trx,
+      );
 
-    var key = _handleDataResult(resultMap);
-    map = (await db.getDocumentByKey(
-      collectionName,
-      key,
-      transaction: trx,
-    ))
-        .document;
-    return map;
+      final key = docResult.identifier.key;
+      map = (await db.getDocumentByKey(
+        collectionName,
+        key,
+        transaction: trx,
+      ));
+      return map;
+    } on DbError catch (error) {
+      throw error.toDbException();
+    }
   }
 
   @override
@@ -135,22 +139,25 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
     handleMetaForUpdate(existing, map, principal, updatePolicy);
 
     final trx = _getDriverTransaction(transaction);
-    final resultMap = await db.updateDocument(
-      collectionName,
-      key,
-      map,
-      ifMatchRevision: rev,
-      transaction: trx,
-    );
-    key = _handleDataResult(resultMap);
-    map = (await db.getDocumentByKey(
-      collectionName,
-      key,
-      transaction: trx,
-    ))
-        .document;
+    try {
+      final result = await db.updateDocument(
+        collectionName,
+        key,
+        map,
+        ifMatchRevision: rev,
+        transaction: trx,
+      );
+      key = result.identifier.key;
+      map = await db.getDocumentByKey(
+        collectionName,
+        key,
+        transaction: trx,
+      );
 
-    return map;
+      return map;
+    } on DbError catch (error) {
+      throw error.toDbException();
+    }
   }
 
   @override
@@ -166,12 +173,16 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
     handleMetaForDelete(map, principal, deletePolicy);
     _authorize(map, principal, deletePolicy);
     final trx = _getDriverTransaction(transaction);
-    var result = await db.removeDocument(
-      collectionName,
-      key,
-      transaction: trx,
-    );
-    _handleDataResult(result);
+
+    try {
+      await db.removeDocument(
+        collectionName,
+        key,
+        transaction: trx,
+      );
+    } on DbError catch (error) {
+      throw error.toDbException();
+    }
   }
 
   @override
@@ -310,12 +321,13 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
       exclusiveCollections: exclusiveCollections,
       waitForSync: true,
     );
-    final response = await db.beginTransaction(trxOptions);
-    _handleResultError(response.result);
-
-    final repoTrx = ArangoDbRepositoryTransaction(response.transaction);
-
-    return repoTrx;
+    try {
+      final transaction = await db.beginTransaction(trxOptions);
+      final repoTrx = ArangoDbRepositoryTransaction(transaction);
+      return repoTrx;
+    } on DbError catch (error) {
+      throw error.toDbException();
+    }
   }
 
   @override
@@ -371,7 +383,7 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
         : actionToDemand;
   }
 
-  QueryWithClient _createTenantBoundQuery(
+  DbQueryWithClient _createTenantBoundQuery(
     DbPrincipal principal,
     SearchPolicy policy,
   ) {
@@ -396,27 +408,25 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
     RepositoryTransaction? transaction,
   }) async {
     final trx = _getDriverTransaction(transaction);
-    final response = (await db.getDocumentByKey(
-      collectionName,
-      key,
-      transaction: trx,
-    ));
-    if (response.result.error) {
-      switch (response.result.errorNum) {
+    try {
+      final map = (await db.getDocumentByKey(
+        collectionName,
+        key,
+        transaction: trx,
+      ));
+      if (filterByTenant && !isValidTenant(principal, map)) {
+        throw Unauthorized();
+      }
+
+      return map;
+    } on DbError catch (error) {
+      switch (error.errorNum) {
         case 1202:
           throw NotFound();
         default:
-          throw Error();
+          throw error.toDbException();
       }
     }
-
-    final map = response.document;
-
-    if (filterByTenant && !isValidTenant(principal, map)) {
-      throw Unauthorized();
-    }
-
-    return map;
   }
 
   void _authorize(
@@ -438,10 +448,9 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
     throw Unauthorized();
   }
 
-  String _handleDataResult(OperationResult operationResult) {
-    _handleResultError(operationResult.result);
-    return operationResult.identifier.key;
-  }
+  // String _handleResult(DocumentOperationResult operationResult) {
+  //   return operationResult.identifier.key;
+  // }
 
   Tuple2<String, Map<String, dynamic>> _createFilters(SearchCriteria criteria) {
     var context = Context();
@@ -566,16 +575,16 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
     return sanitized;
   }
 
-  void _handleResultError(Result result) {
-    if (!result.error) {
-      return;
-    }
-    throw DbException(
-      message: result.errorMessage,
-      code: result.code.toString(),
-      number: result.errorNum.toString(),
-    );
-  }
+  // void _handleResultError(Result result) {
+  //   if (!result.error) {
+  //     return;
+  //   }
+  //   throw DbException(
+  //     message: result.errorMessage,
+  //     code: result.code.toString(),
+  //     number: result.errorNum.toString(),
+  //   );
+  // }
 
   List<String> _repositoryCollectionNames(List<Repository> repositories) {
     final names = repositories

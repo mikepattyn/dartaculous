@@ -4,7 +4,7 @@ import 'package:arangodb_repository/arangodb_repository.dart';
 class ExampleRepository<TEntity>
     extends TenantFilteredArangoDbRepository<TEntity>
     with RevisionInterceptor<TEntity> {
-  ExampleRepository(ArangoDBClient db, String collectionName)
+  ExampleRepository(DbClient db, String collectionName)
       : super(db, collectionName);
 
   @override

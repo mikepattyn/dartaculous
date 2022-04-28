@@ -6,7 +6,7 @@ import 'package:squarealfa_security/squarealfa_security.dart';
 class TenantFilteredArangoDbRepository<TEntity>
     extends ArangoDbRepositoryBase<TEntity> {
   TenantFilteredArangoDbRepository(
-    ArangoDBClient db,
+    DbClient db,
     String collectionName,
   ) : super(db, collectionName);
 
@@ -113,7 +113,7 @@ class TenantFilteredArangoDbRepository<TEntity>
 
   @override
   void addAuthFilterToQuery({
-    required QueryWithClient query,
+    required DbQueryWithClient query,
     required String collectionName,
     required DbPrincipal principal,
     required String action,

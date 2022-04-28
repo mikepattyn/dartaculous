@@ -12,7 +12,7 @@ with the optional mixin [RevisionInterceptor], implementing your own
 class ArangoDbRepository<TEntity>
     extends TenantFilteredArangoDbRepository<TEntity>
     with RevisionInterceptor<TEntity> {
-  ArangoDbRepository(ArangoDBClient db, String collectionName)
+  ArangoDbRepository(DbClient db, String collectionName)
       : super(db, collectionName);
 
   @override
