@@ -3,8 +3,8 @@ repository: https://gitlab.com/ruicraveiro/dart_framework
 
 packages:
   - nosql_repository/**
-  - arango_driver/**
-  - arango_repository/**
+  - arango_driver/package/**
+  - arango_repository/package/**
   - common_types/**
   - generators_common/**
   - security/**
@@ -20,7 +20,7 @@ ignore:
   - defaults_provider/example/*
 
 scripts:
-  analyze: melos exec -- "dart analyze ."
+  analyze: melos exec -- "dart analyze ." 
 
   test: 
     melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" -- "dart test"

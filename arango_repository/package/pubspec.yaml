@@ -17,8 +17,6 @@ dependencies:
 dev_dependencies:
   lints: ^1.0.1
   test: ^1.17.0
-  nosql_repository_tests:
-    path: ../nosql_repository/test
 
 # dependency_overrides:
 #   arango_driver:
