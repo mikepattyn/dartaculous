@@ -1,3 +1,10 @@
+## 3.0.0
+
+> Note: This release has breaking changes.
+
+ - **FEAT**: Using DbClient instead of ArangoDBClient clients.
+ - **BREAKING** **FEAT**: ArangoDBClient is deprecated by DbClient.
+
 ## 2.1.0
 
 ### Changes

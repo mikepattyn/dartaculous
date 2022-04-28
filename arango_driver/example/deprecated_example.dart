@@ -4,7 +4,6 @@
 import 'dart:io';
 
 import 'package:arango_driver/arango_driver.dart';
-import 'package:arango_driver/src/deprecated/arango_client_query.dart';
 
 void main() async {
 // First, create client for database:

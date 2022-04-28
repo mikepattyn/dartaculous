@@ -2,14 +2,14 @@ name: arangodb_repository
 description: Concrete implementation of the nosql_repository package for the ArangoDB database.
 repository: https://gitlab.com/squarealfa/dart_framework
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/arango_repository
-version: 2.1.0
+version: 3.0.0
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
 
 dependencies:
-  arango_driver: ^2.0.4
+  arango_driver: ^3.0.0
   nosql_repository: ^2.0.0
   squarealfa_security: ^2.0.0
   tuple: ^2.0.0
@@ -20,6 +20,6 @@ dev_dependencies:
   nosql_repository_tests:
     path: ../nosql_repository/test
 
-dependency_overrides:
-  arango_driver:
-    path: ../arango_driver
+# dependency_overrides:
+#   arango_driver:
+#     path: ../arango_driver

@@ -1,3 +1,10 @@
+## 3.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: ArangoDBClient is deprecated by DbClient.
+ - **BREAKING** **FEAT**: ArangoDBClient is deprecated by DbClient.
+
 ## 2.1.1
 - Made CollectionPropertiesResponse.isDisjoint nullable
 
