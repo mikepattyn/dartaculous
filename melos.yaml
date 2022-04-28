@@ -2,6 +2,9 @@ name: dart_framework
 repository: https://gitlab.com/ruicraveiro/dart_framework
 
 packages:
+  - nosql_repository/**
+  - arango_driver/**
+  - arango_repository/**
   - common_types/**
   - generators_common/**
   - security/**
@@ -10,7 +13,7 @@ packages:
   - defaults_provider/**
   - entity/**
   - example_model/**
-#  - firebase-auth-admin/**
+  - grpc_host/**
 
 ignore:
   - map_mapper/test_mongo/*

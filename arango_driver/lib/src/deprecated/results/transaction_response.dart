@@ -1,5 +1,5 @@
-import '../results/result.dart';
-import 'transaction.dart';
+import '../../transactions/transaction.dart';
+import 'result.dart';
 
 class TransactionResponse {
   final Transaction transaction;

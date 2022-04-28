@@ -1,9 +1,7 @@
 import 'collection_info.dart';
-import 'collection_response.dart';
-import 'key_options.dart';
-import 'result.dart';
+import '../results/key_options.dart';
 
-class CollectionPropertiesResponse extends CollectionResponse {
+class CollectionPropertiesResult  {
   final int writeConcern;
   final bool waitForSync;
   final String? tempObjectId;
@@ -14,10 +12,10 @@ class CollectionPropertiesResponse extends CollectionResponse {
   final KeyOptions keyOptions;
   final bool? isDisjoint;
   final String statusString;
+  final CollectionInfo collectionInfo;
 
-  const CollectionPropertiesResponse({
-    required Result result,
-    required CollectionInfo collectionInfo,
+  const CollectionPropertiesResult({
+    required this.collectionInfo,
     required this.writeConcern,
     required this.waitForSync,
     this.tempObjectId,
@@ -28,8 +26,5 @@ class CollectionPropertiesResponse extends CollectionResponse {
     required this.keyOptions,
     required this.isDisjoint,
     required this.statusString,
-  }) : super(
-          result: result,
-          collectionInfo: collectionInfo,
-        );
+  });
 }

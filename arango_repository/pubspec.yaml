@@ -20,3 +20,6 @@ dev_dependencies:
   nosql_repository_tests:
     path: ../nosql_repository/test
 
+dependency_overrides:
+  arango_driver:
+    path: ../arango_driver

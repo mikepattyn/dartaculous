@@ -1,4 +1,4 @@
-import 'index_info.dart';
+import '../../results/index_info.dart';
 import 'result.dart';
 
 class IndexResponse {

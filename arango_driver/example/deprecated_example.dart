@@ -1,8 +1,14 @@
+// Import dart_arango_min package:
+// ignore_for_file: deprecated_member_use_from_same_package
+
+import 'dart:io';
+
 import 'package:arango_driver/arango_driver.dart';
+import 'package:arango_driver/src/deprecated/arango_client_query.dart';
 
 void main() async {
 // First, create client for database:
-  var client = DbClient(
+  var client = ArangoDBClient(
     scheme: 'http',
     host: 'localhost',
     port: 8529, // <- use your real ArangoDB port
@@ -53,6 +59,13 @@ void main() async {
       },
     ],
   });
+
+  // See ArangoDB answer documentation for answer structure:
+  // https://www.arangodb.com/docs/3.5/http/document-working-with-documents.html#create-document
+  if (createResult.result.error) {
+    print('Somewhat wrong: $createResult');
+    exit(2);
+  }
 
   var newPostKey = createResult.identifier.key;
 

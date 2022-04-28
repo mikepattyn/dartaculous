@@ -1,4 +1,4 @@
-import 'collection_info.dart';
+import '../../results/collection_info.dart';
 import 'result.dart';
 
 class CollectionResponse {

@@ -1,5 +1,4 @@
-import 'package:arango_driver/src/results/identifier.dart';
-
+import '../../results/identifier.dart';
 import 'result.dart';
 
 class OperationResult {

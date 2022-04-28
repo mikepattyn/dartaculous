@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use_from_same_package
-
 import 'package:arango_driver/arango_driver.dart';
 import 'package:test/test.dart';
 
@@ -20,7 +18,7 @@ void main() {
     final ps = dbpass;
     const realm = '';
 
-    var clientSystemDb = ArangoDBClient(
+    var clientSystemDb = DbClient(
         scheme: sch,
         host: h,
         port: p,
@@ -31,37 +29,26 @@ void main() {
 
     test('Get current db info', () async {
       var answer = await clientSystemDb.currentDatabase();
-      if (answer.result.error) {
-        print(answer);
-      }
 
-      expect(answer.response!.name, equals(systemDb));
-      expect(answer.response!.isSystem, equals(true));
+      expect(answer.name, equals(systemDb));
+      expect(answer.isSystem, equals(true));
     });
 
     test('List of accessible databases', () async {
       var answer = await clientSystemDb.userDatabases();
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, equals(false));
-      expect(answer.response, contains(systemDb));
+      expect(answer, contains(systemDb));
     });
 
     test('List of all existing databases', () async {
       var answer = await clientSystemDb.existingDatabases();
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, equals(false));
-      expect(answer.response, contains(systemDb));
+      expect(answer, contains(systemDb));
     });
 
     test('Create a database', () async {
       // first, ask about all databases
       var databases = await clientSystemDb.existingDatabases();
       // skip test if test database already exists
-      if (databases.response!.contains(testDb)) {
+      if (databases.contains(testDb)) {
         print(
             // ignore: lines_longer_than_80_chars
             'Skip test for creating database because database $testDb already exists.');
@@ -71,12 +58,11 @@ void main() {
       var result = await clientSystemDb.createDatabase(
           CreateDatabaseInfo(testDb, [DatabaseUser('u', 'ps')]));
 
-      expect(result.result.error, equals(false));
-      expect(result.response, equals(true));
+      expect(result, equals(true));
     });
 
     // changing current database
-    var testDbClient = ArangoDBClient(
+    var testDbClient = DbClient(
         scheme: sch,
         host: h,
         port: p,
@@ -87,104 +73,65 @@ void main() {
 
     test('create collection', () async {
       var allCollectionsAnsw = await testDbClient.allCollections();
-      var alreadyExists = allCollectionsAnsw.response!
-          .any((coll) => coll.name == testCollection);
+      var alreadyExists =
+          allCollectionsAnsw.any((coll) => coll.name == testCollection);
       if (alreadyExists) {
         print('Skip creating collection $testCollection bexause it is exists');
       } else {
         var answer = await testDbClient
             .createCollection(CollectionCriteria(testCollection));
 
-        if (answer.result.error == true) {
-          print(answer);
-        }
-        expect(answer.result.error, false);
         expect(answer.collectionInfo.name, testCollection);
       }
     });
 
     test('truncate collection', () async {
       var answer = await testDbClient.truncateCollection(testCollection);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
-      expect(answer.collectionInfo.name, testCollection);
+      expect(answer.name, testCollection);
     });
 
     test('get collection info', () async {
       var answer = await testDbClient.collectionInfo(testCollection);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
-      expect(answer.collectionInfo.name, testCollection);
+      expect(answer.name, testCollection);
     });
 
     test('get collection properties', () async {
       var answer = await testDbClient.collectionProperties(testCollection);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
+      expect(answer.collectionInfo.name, testCollection);
     });
 
     test('get count of documents in collection', () async {
       var answer = await testDbClient.documentsCount(testCollection);
-      if (answer.result.error == true) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
+
+      expect(answer.collectionInfo.count, 0);
     });
 
     test('get statistics for a collection', () async {
-      var answer = await testDbClient.collectionStatistics(testCollection);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
+      await testDbClient.collectionStatistics(testCollection);
     });
 
     test('get collection revision id', () async {
-      var answer = await testDbClient.collectionRevisionId(testCollection);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
+      await testDbClient.collectionRevisionId(testCollection);
     });
 
     test('get collection checksum', () async {
-      var answer = await testDbClient.collectionChecksum(testCollection);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
+      await testDbClient.collectionChecksum(testCollection);
     });
 
     test('get all collections', () async {
-      var answer = await testDbClient.allCollections();
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
+      await testDbClient.allCollections();
     });
 
     test('create document', () async {
       var answer =
           await testDbClient.createDocument(testCollection, {'Hello': 'World'});
-      if (answer.result.error) {
-        print(answer);
-      }
       // save document key for next test:
       testDocumentKey = answer.identifier.key;
     });
     test('getDocumentByKey returns Map with _key', () async {
       var answer =
           await testDbClient.getDocumentByKey(testCollection, testDocumentKey);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.document, contains('_key'));
+      expect(answer, contains('_key'));
     });
 
     test('getDocumentByKey can require document revision', () async {
@@ -192,12 +139,9 @@ void main() {
       var answer =
           await testDbClient.getDocumentByKey(testCollection, testDocumentKey);
       // get its revision:
-      expect(answer.document, contains('_rev'));
-      if (answer.result.error) {
-        print(answer);
-      }
+      expect(answer, contains('_rev'));
       // save its revision:
-      testDocumentRev = answer.document['_rev'] as String;
+      testDocumentRev = answer['_rev'] as String;
 
       // now try to get the document with not matched revision:
       var emptyAnswer = await testDbClient.getDocumentByKey(
@@ -206,27 +150,25 @@ void main() {
 
       // because last revision equals ${testDocumentRev}
       // server answer will empty:
-      expect(emptyAnswer.document, equals({}));
+      expect(emptyAnswer, equals({}));
 
       // get document only required revision:
       var answerWithRevision = await testDbClient.getDocumentByKey(
           testCollection, testDocumentKey,
           ifMatchRevision: testDocumentRev);
 
-      expect(answerWithRevision.document, contains('_rev'));
-      if (answerWithRevision.result.error) {
-        print(answerWithRevision);
-      }
-      expect(answerWithRevision.document['_rev'], equals(testDocumentRev));
+      expect(answerWithRevision, contains('_rev'));
+      expect(answerWithRevision['_rev'], equals(testDocumentRev));
 
       // try get doc with noexists revision:
-      var notExistAnswer = await testDbClient.getDocumentByKey(
-          testCollection, testDocumentKey,
-          ifMatchRevision: 'my_wrong_rev');
-
-      // we will get error responce:
-      expect(notExistAnswer.result.error, equals(true));
-      expect(notExistAnswer.result.code, equals(412));
+      try {
+        await testDbClient.getDocumentByKey(testCollection, testDocumentKey,
+            ifMatchRevision: 'my_wrong_rev');
+        fail('Should have thrown');
+      } on DbError catch (result) {
+        expect(result.error, equals(true));
+        expect(result.code, equals(412));
+      }
     });
 
     test('update document', () async {
@@ -250,15 +192,17 @@ void main() {
       expect(matchedUpdateAnswer.oldRev, equals(testDocumentRev));
 
       // try to update not matched revision:
-      var notMatchedUpdateAnswer = await testDbClient.updateDocument(
-          testCollection,
-          testDocumentKey,
-          {'Bad trying': 'because bad revision'},
-          ifMatchRevision: 'my_bad_rev');
+      try {
+        await testDbClient.updateDocument(testCollection, testDocumentKey,
+            {'Bad trying': 'because bad revision'},
+            ifMatchRevision: 'my_bad_rev');
+        fail('Should have thrown');
+      } on DbError catch (result) {
+        expect(result.error, equals(true));
+        expect(result.code, equals(412));
+      }
 
       // we will get error in answer:
-      expect(notMatchedUpdateAnswer.result.error, equals(true));
-      expect(notMatchedUpdateAnswer.result.code, equals(412));
     });
 
     test('replace document', () async {
@@ -281,16 +225,18 @@ void main() {
       // document was updated:
       expect(matchedReplaceAnswer.oldRev, equals(testDocumentRev));
 
-      // try to update not matched revision:
-      var notMatchedReplaceAnswer = await testDbClient.replaceDocument(
-          testCollection,
-          testDocumentKey,
-          {'Bad trying': 'because bad revision'},
-          ifMatchRevision: 'my_bad_rev');
+      try {
+        // try to update not matched revision:
+        await testDbClient.replaceDocument(testCollection, testDocumentKey,
+            {'Bad trying': 'because bad revision'},
+            ifMatchRevision: 'my_bad_rev');
 
+        fail('Should have thrown');
+      } on DbError catch (result) {
+        expect(result.error, equals(true));
+        expect(result.code, equals(412));
+      }
       // we will get error in answer:
-      expect(notMatchedReplaceAnswer.result.error, equals(true));
-      expect(notMatchedReplaceAnswer.result.code, equals(412));
     });
 
     test('replace multiple documents', () async {
@@ -311,10 +257,6 @@ void main() {
       var answer = await testDbClient.removeDocument(
           testCollection, testDocumentKey,
           queryParams: {'returnOld': 'true'});
-
-      if (answer.result.error) {
-        print(answer);
-      }
 
       expect(answer.map,
           allOf(contains('_id'), contains('_key'), contains('_rev')));
@@ -365,44 +307,32 @@ void main() {
     });
 
     test('create and abort transaction', () async {
-      var answer = await testDbClient.beginTransaction(TransactionOptions());
-      if (answer.result.error) {
-        print(answer);
-      }
-      final abortAnswer =
-          await testDbClient.abortTransaction(answer.transaction);
-      expect(answer.transaction.id, isNotEmpty);
-      expect(answer.transaction.state, TransactionStates.running);
-      expect(abortAnswer.transaction.state, TransactionStates.aborted);
+      var transaction =
+          await testDbClient.beginTransaction(TransactionOptions());
+      final abortAnswer = await testDbClient.abortTransaction(transaction);
+      expect(transaction.id, isNotEmpty);
+      expect(transaction.state, TransactionStates.running);
+      expect(abortAnswer.state, TransactionStates.aborted);
     });
 
     test('create and commit transaction', () async {
-      var answer = await testDbClient.beginTransaction(TransactionOptions());
-      if (answer.result.error) {
-        print(answer);
-      }
-      final commitAnswer =
-          await testDbClient.commitTransaction(answer.transaction);
-      expect(answer.transaction.id, isNotEmpty);
-      expect(answer.transaction.state, TransactionStates.running);
-      expect(commitAnswer.transaction.state, TransactionStates.committed);
+      var transaction =
+          await testDbClient.beginTransaction(TransactionOptions());
+      final commitAnswer = await testDbClient.commitTransaction(transaction);
+      expect(transaction.id, isNotEmpty);
+      expect(transaction.state, TransactionStates.running);
+      expect(commitAnswer.state, TransactionStates.committed);
     });
 
     test('create document and rollback', () async {
       final countResult = await testDbClient.documentsCount(testCollection);
       final count = countResult.collectionInfo.count ?? 0;
 
-      var answer = await testDbClient.beginTransaction(TransactionOptions(
+      var transaction = await testDbClient.beginTransaction(TransactionOptions(
         writeCollections: [testCollection],
         waitForSync: true,
         allowImplicit: true,
       ));
-
-      if (answer.result.error) {
-        print(answer);
-      }
-
-      final transaction = answer.transaction;
 
       await testDbClient.createDocument(
         testCollection,
@@ -442,16 +372,11 @@ void main() {
       final countResult = await testDbClient.documentsCount(testCollection);
       final count = countResult.collectionInfo.count ?? 0;
 
-      var answer = await testDbClient.beginTransaction(TransactionOptions(
+      var transaction = await testDbClient.beginTransaction(TransactionOptions(
         writeCollections: [testCollection],
         waitForSync: true,
         allowImplicit: true,
       ));
-      if (answer.result.error) {
-        print(answer);
-      }
-
-      final transaction = answer.transaction;
 
       await testDbClient.createDocument(
         testCollection,
@@ -508,25 +433,17 @@ void main() {
       final countResult = await testDbClient.documentsCount(testCollection);
       final count = countResult.collectionInfo.count ?? 0;
 
-      var answer = await testDbClient.beginTransaction(TransactionOptions(
+      var transaction = await testDbClient.beginTransaction(TransactionOptions(
         writeCollections: [testCollection],
         waitForSync: true,
         allowImplicit: true,
       ));
-      if (answer.result.error) {
-        print(answer);
-      }
 
-      final transaction = answer.transaction;
-
-      var result = await testDbClient.removeDocument(
+      await testDbClient.removeDocument(
         testCollection,
         key,
         transaction: transaction,
       );
-      if (result.result.error) {
-        print(result.result.errorMessage);
-      }
 
       await testDbClient.abortTransaction(transaction);
 
@@ -549,15 +466,11 @@ void main() {
       final countResult = await testDbClient.documentsCount(testCollection);
       final count = countResult.collectionInfo.count ?? 0;
 
-      var answer = await testDbClient.beginTransaction(TransactionOptions(
+      var transaction = await testDbClient.beginTransaction(TransactionOptions(
         writeCollections: [testCollection],
         waitForSync: true,
         allowImplicit: true,
       ));
-      if (answer.result.error) {
-        print(answer);
-      }
-      final transaction = answer.transaction;
 
       var result = await testDbClient.removeDocument(
         testCollection,
@@ -577,7 +490,7 @@ void main() {
       expect(afterCount, count - 1);
     });
 
-    var testDbClientWithConnectionString = ArangoDBClient(
+    var testDbClientWithConnectionString = DbClient(
         scheme: sch,
         host: h,
         port: p,
@@ -590,28 +503,17 @@ void main() {
         () async {
       var answer =
           await testDbClientWithConnectionString.collectionInfo(testCollection);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
-      expect(answer.collectionInfo.name, testCollection);
+      expect(answer.name, testCollection);
     });
 
     test('drop collection', () async {
-      var answer = await testDbClient.dropCollection(testCollection);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.result.error, false);
+      await testDbClient.dropCollection(testCollection);
     });
 
     // back to _system db
     test('drop test database', () async {
       var answer = await clientSystemDb.dropDatabase(testDb);
-      if (answer.result.error) {
-        print(answer);
-      }
-      expect(answer.response, equals(true));
+      expect(answer, equals(true));
     });
   });
 }

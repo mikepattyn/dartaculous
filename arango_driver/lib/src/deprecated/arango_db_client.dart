@@ -4,10 +4,33 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:arango_driver/arango_driver.dart';
-import 'package:arango_driver/src/results/document_response.dart';
+// import 'package:arango_driver/arango_driver.dart';
 import 'package:arango_driver/src/results/key_options.dart';
 
+import '../collection_criteria.dart';
+import '../collection_type.dart';
+import '../create_database_info.dart';
+import 'results/collection_properties_response.dart';
+import 'results/collection_response.dart';
+import 'results/document_response.dart';
+import 'results/id_response.dart';
+import 'results/index_response.dart';
+import 'results/operation_result.dart';
+import 'results/result.dart';
+import 'results/result_response.dart';
+import 'results/transaction_response.dart';
+import '../results/identifier.dart';
+import '../results/index_info.dart';
+import '../index_criteria.dart';
+import '../index_type.dart';
+import '../results/collection_info.dart';
+import '../results/db_info_result.dart';
+import '../transactions/transaction.dart';
+import '../transactions/transaction_options.dart';
+import '../transactions/transaction_states.dart';
+
+@Deprecated(
+    'Use DbClient instead of this class. Unlike this class, DbClient throws errors for unsucessful operations instead of returning a result property.')
 class ArangoDBClient {
   final SecurityContext? securityContext;
   final String scheme;
