@@ -16,31 +16,38 @@ class $RecipeMapMapper extends MapMapper<Recipe> {
     return Recipe(
       key: $kh.keyFromMap(map, 'key'),
       title: map['title'] as String,
-      description: map['description'] as String?,
-      categoryKey: $kh.keyFromMap(map, 'categoryKey'),
-      secondaryCategoryKey: map['secondaryCategoryKey'] == null
-          ? null
-          : $kh.keyFromMap(map, 'secondaryCategoryKey'),
       category: const $CategoryMapMapper().fromMap(map['category']),
+      categoryKey: $kh.keyFromMap(map, 'categoryKey'),
       ingredients: List<Ingredient>.unmodifiable(map['ingredients']
           .map((e) => const $IngredientMapMapper().fromMap(e))),
-      publishDate: DateTime.parse(map['publishDate']),
-      expiryDate:
-          map['expiryDate'] == null ? null : DateTime.parse(map['expiryDate']),
-      preparationDuration: Duration(milliseconds: map['preparationDuration']),
+      publishDate: DateTime.fromMicrosecondsSinceEpoch(map['publishDate']),
+      preparationDuration: Duration(microseconds: map['preparationDuration']),
+      isPublished: map['isPublished'] as bool,
+      mainApplianceType: map['mainApplianceType'] is String
+          ? ApplianceType.values
+              .firstWhere((v) => v.name == map['mainApplianceType'])
+          : ApplianceType.values[map['mainApplianceType'] as int],
+      tags: List<String>.unmodifiable(map['tags']),
+      description: map['description'] as String?,
+      expiryDate: map['expiryDate'] == null
+          ? null
+          : DateTime.fromMicrosecondsSinceEpoch(map['expiryDate']),
       totalDuration: map['totalDuration'] == null
           ? null
-          : Duration(milliseconds: map['totalDuration']),
-      isPublished: map['isPublished'] as bool,
+          : Duration(microseconds: map['totalDuration']),
       requiresRobot: map['requiresRobot'] as bool?,
-      mainApplianceType: ApplianceType.values[map['mainApplianceType'] as int],
       secondaryApplianceType: map['secondaryApplianceType'] == null
           ? null
-          : ApplianceType.values[map['secondaryApplianceType'] as int],
-      tags: List<String>.unmodifiable(map['tags']),
+          : map['secondaryApplianceType'] is String
+              ? ApplianceType.values
+                  .firstWhere((v) => v.name == map['secondaryApplianceType'])
+              : ApplianceType.values[map['secondaryApplianceType'] as int],
       extraTags: map['extraTags'] == null
           ? null
           : List<String>.unmodifiable(map['extraTags']),
+      secondaryCategoryKey: map['secondaryCategoryKey'] == null
+          ? null
+          : $kh.keyFromMap(map, 'secondaryCategoryKey'),
     );
   }
 
@@ -59,10 +66,10 @@ class $RecipeMapMapper extends MapMapper<Recipe> {
     map['ingredients'] = instance.ingredients
         .map((e) => const $IngredientMapMapper().toMap(e))
         .toList();
-    map['publishDate'] = instance.publishDate.toIso8601String();
-    map['expiryDate'] = instance.expiryDate?.toIso8601String();
-    map['preparationDuration'] = instance.preparationDuration.inMilliseconds;
-    map['totalDuration'] = instance.totalDuration?.inMilliseconds;
+    map['publishDate'] = instance.publishDate.microsecondsSinceEpoch;
+    map['expiryDate'] = instance.expiryDate?.microsecondsSinceEpoch;
+    map['preparationDuration'] = instance.preparationDuration.inMicroseconds;
+    map['totalDuration'] = instance.totalDuration?.inMicroseconds;
     map['isPublished'] = instance.isPublished;
     map['requiresRobot'] = instance.requiresRobot;
     map['mainApplianceType'] = instance.mainApplianceType.index;

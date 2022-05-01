@@ -14,12 +14,10 @@ class $IngredientMapMapper extends MapMapper<Ingredient> {
     final $kh = const MongoKeyHandler();
 
     return Ingredient(
-      key: $kh.keyFromMap(map, 'key'),
       description: map['description'] as String,
       quantity: Decimal.parse(map['quantity']),
       precision: map['precision'] as double,
-      cookingDuration: Duration(milliseconds: map['cookingDuration']),
-      mainComponentKey: $kh.keyFromMap(map, 'mainComponentKey'),
+      cookingDuration: Duration(microseconds: map['cookingDuration']),
       mainComponent: const $ComponentMapMapper().fromMap(map['mainComponent']),
       otherComponents: List<Component>.unmodifiable(map['otherComponents']
           .map((e) => const $ComponentMapMapper().fromMap(e))),
@@ -30,6 +28,8 @@ class $IngredientMapMapper extends MapMapper<Ingredient> {
           ? null
           : List<Component>.unmodifiable(map['secondaryComponents']
               .map((e) => const $ComponentMapMapper().fromMap(e))),
+      key: $kh.keyFromMap(map, 'key'),
+      mainComponentKey: $kh.keyFromMap(map, 'mainComponentKey'),
     );
   }
 
@@ -42,7 +42,7 @@ class $IngredientMapMapper extends MapMapper<Ingredient> {
     map['description'] = instance.description;
     map['quantity'] = instance.quantity.toString();
     map['precision'] = instance.precision;
-    map['cookingDuration'] = instance.cookingDuration.inMilliseconds;
+    map['cookingDuration'] = instance.cookingDuration.inMicroseconds;
     $kh.keyToMap(map, instance.mainComponentKey, 'mainComponentKey');
     map['mainComponent'] =
         const $ComponentMapMapper().toMap(instance.mainComponent);

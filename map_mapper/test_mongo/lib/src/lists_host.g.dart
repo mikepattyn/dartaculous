@@ -13,34 +13,34 @@ class $ListsHostMapMapper extends MapMapper<ListsHost> {
   ListsHost fromMap(Map<String, dynamic> map) {
     return ListsHost(
       vbools: List<bool>.unmodifiable(map['vbools']),
+      vstrings: List<String>.unmodifiable(map['vstrings']),
+      vdurations: List<Duration>.unmodifiable(map['vdurations']),
+      vdatetimes: List<DateTime>.unmodifiable(map['vdatetimes']),
+      vdecimals: List<Decimal>.unmodifiable(map['vdecimals']),
+      vints: List<int>.unmodifiable(map['vints']),
+      vdoubles: List<double>.unmodifiable(map['vdoubles']),
+      vapplianceTypes: List<ApplianceType>.unmodifiable(map['vapplianceTypes']
+          .map((e) => const $ApplianceTypeMapMapper().fromMap(e))),
       nvbools: map['nvbools'] == null
           ? null
           : List<bool>.unmodifiable(map['nvbools']),
-      vstrings: List<String>.unmodifiable(map['vstrings']),
       nvstrings: map['nvstrings'] == null
           ? null
           : List<String>.unmodifiable(map['nvstrings']),
-      vdurations: List<Duration>.unmodifiable(map['vdurations']),
       nvdurations: map['nvdurations'] == null
           ? null
           : List<Duration>.unmodifiable(map['nvdurations']),
-      vdatetimes: List<DateTime>.unmodifiable(map['vdatetimes']),
       nvdatetimes: map['nvdatetimes'] == null
           ? null
           : List<DateTime>.unmodifiable(map['nvdatetimes']),
-      vdecimals: List<Decimal>.unmodifiable(map['vdecimals']),
       nvdecimals: map['nvdecimals'] == null
           ? null
           : List<Decimal>.unmodifiable(map['nvdecimals']),
-      vints: List<int>.unmodifiable(map['vints']),
       nvints:
           map['nvints'] == null ? null : List<int>.unmodifiable(map['nvints']),
-      vdoubles: List<double>.unmodifiable(map['vdoubles']),
       nvdoubles: map['nvdoubles'] == null
           ? null
           : List<double>.unmodifiable(map['nvdoubles']),
-      vapplianceTypes: List<ApplianceType>.unmodifiable(map['vapplianceTypes']
-          .map((e) => const $ApplianceTypeMapMapper().fromMap(e))),
       nvapplianceTypes: map['nvapplianceTypes'] == null
           ? null
           : List<ApplianceType>.unmodifiable(map['nvapplianceTypes']
