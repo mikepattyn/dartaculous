@@ -5,6 +5,7 @@ packages:
   - nosql_repository/**
   - arango_driver/package/**
   - arango_repository/package/**
+  - mongo_repository/package/**
   - common_types/**
   - generators_common/**
   - security/**

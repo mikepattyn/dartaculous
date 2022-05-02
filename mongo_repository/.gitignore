@@ -13,4 +13,4 @@ build/
 doc/api/
 
 # Test configuration file
-test/test_conf.dart
+**/test_conf.dart
