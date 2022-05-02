@@ -445,8 +445,6 @@ class DbClient {
     return ret;
   }
 
-  // td: updates multiple documents
-  // https://www.arangodb.com/docs/3.4/http/document-working-with-documents.html#update-documents
 
   /// Removes a document
   /// https://www.arangodb.com/docs/3.4/http/document-working-with-documents.html#removes-a-document
@@ -733,13 +731,6 @@ class DbClient {
 
     return ret;
   }
-
-  // static Result _toResult(Map<String, dynamic>? map) => Result(
-  //       error: (map ??= {})['error'] ?? false,
-  //       code: map['code'] ?? 0,
-  //       errorMessage: map['errorMessage'],
-  //       errorNum: map['errorNum'],
-  //     );
 
   static void _throwOnError(Map<String, dynamic>? map) {
     final result = DbError(
