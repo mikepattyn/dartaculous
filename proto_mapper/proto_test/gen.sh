@@ -1,5 +1,5 @@
 #!/bin/bash
-dart run build_runner build
+dart run build_runner build --delete-conflicting-outputs
 
 # recreate proto_generated
 rm -rf ./proto

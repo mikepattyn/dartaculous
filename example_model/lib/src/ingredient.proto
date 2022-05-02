@@ -10,10 +10,14 @@ syntax = "proto3";
 
 
 
+
+
+  
 message GIngredient
 {
   string description = 1;
   double quantity = 2;
+
 }   
 
 message GListOfIngredient

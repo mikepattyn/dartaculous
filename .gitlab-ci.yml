@@ -24,6 +24,7 @@ variables:
 
 before_script:
   - export PATH="$PATH:$HOME/.pub-cache/bin"
+  - dart pub global activate protoc_plugin
   - dart pub global activate melos
   - melos bootstrap
 
@@ -31,6 +32,7 @@ before_script:
 stages:          # List of stages for jobs, and their order of execution
   - analyze
   - test
+
 
 analyze-job:   # This job runs in the test stage.
   stage: analyze    # It only starts when the job in the build stage completes successfully.

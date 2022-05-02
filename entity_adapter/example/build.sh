@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dart run build_runner build --verbose
+dart run build_runner build --verbose  --delete-conflicting-outputs
 
 rm -rf ./lib/grpc/
 mkdir ./lib/grpc

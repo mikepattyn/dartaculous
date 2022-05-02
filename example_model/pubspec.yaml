@@ -19,19 +19,5 @@ dev_dependencies:
   lints: ^1.0.1
   map_mapper_generator: ^3.2.0
   proto_generator: ^3.3.0
-  test: ^1.17.12
-
-dependency_overrides:
-  map_mapper_annotations:
-    path: ../map_mapper/map_mapper_annotations
-  proto_annotations:
-    path: ../proto_mapper/proto_annotations
-  map_mapper_generator:
-    path: ../map_mapper/map_mapper_generator
-  proto_generator:
-    path: ../proto_mapper/proto_generator
-#   squarealfa_common_types:
-#     path: ../common_types
-  squarealfa_generators_common:
-    path: ../generators_common
-    
+  test: ^1.21.1
+  

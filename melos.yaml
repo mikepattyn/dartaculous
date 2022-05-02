@@ -23,5 +23,8 @@ ignore:
 scripts:
   analyze: melos exec -- "dart analyze ." 
 
-  test: 
-    melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" -- "dart test"
+  gen:
+    run: melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" --file-exists="gen.sh" -- "./gen.sh"
+
+  test:
+    run: melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" -- "dart test"

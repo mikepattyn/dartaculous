@@ -5,11 +5,14 @@
 // **************************************************************************
 
 syntax = "proto3";
+      
 
 
 
 
 
+
+  
 message GIngredient
 {
   string description = 1;

@@ -1,11 +1,13 @@
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 import 'grpc/ingredient.pb.dart';
 
 part 'ingredient.g.dart';
 
-@mapEntity
+@proto // generate .proto message based on this .dart file
+// generate mapping code between the protoc generated code and this class.
+@mapProto
+@mapMapped
 class Ingredient {
   final String description;
   final double quantity;
@@ -15,49 +17,3 @@ class Ingredient {
     required this.quantity,
   });
 }
-
-class MapEntity implements Proto, MapProto, MapMapped {
-  @override
-  final String packageName;
-
-  @override
-  final String? prefix;
-
-  @override
-  final bool useDefaultsProvider;
-
-  @override
-  final bool mapEnumToString;
-
-  @override
-  final bool includeFieldsByDefault;
-
-  const MapEntity({
-    this.prefix = 'G',
-    this.packageName = '',
-    this.useDefaultsProvider = false,
-    this.includeFieldsByDefault = true,
-    this.knownSubClasses,
-    this.mapEnumToString = false,
-  });
-
-  @override
-  TimePrecision? get dateTimePrecision => null;
-
-  @override
-  TimePrecision? get durationPrecision => null;
-
-  @override
-  bool? get useProtoFieldNamingConventions => null;
-
-  @override
-  DateTimeRepresentation? get dateTimeRepresentation => null;
-
-  @override
-  final List<Type>? knownSubClasses;
-
-  @override
-  bool get allowMissingFields => false;
-}
-
-const mapEntity = MapEntity();
