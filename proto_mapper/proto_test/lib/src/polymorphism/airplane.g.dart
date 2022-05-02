@@ -30,6 +30,7 @@ GAirplane _$AirplaneToProto(Airplane instance) {
   var proto = GAirplane();
 
   proto.weight = instance.weight;
+  proto.serviceCeiling = instance.serviceCeiling;
   proto.wingspan = instance.wingspan;
 
   return proto;
@@ -38,6 +39,7 @@ GAirplane _$AirplaneToProto(Airplane instance) {
 Airplane _$AirplaneFromProto(GAirplane instance) => Airplane(
       weight: instance.weight,
       wingspan: instance.wingspan,
+      serviceCeiling: instance.serviceCeiling,
     );
 
 extension $AirplaneProtoExtension on Airplane {

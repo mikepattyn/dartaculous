@@ -14,19 +14,19 @@ class $CategoryMapMapper extends MapMapper<Category> {
     final $kh = const DefaultKeyHandler();
 
     return Category(
-      id: $kh.keyFromMap(map, 'id'),
       title: map['title'] as String,
-      mainComponentId: $kh.keyFromMap(map, 'mainComponentId'),
       mainComponent: const $ComponentMapMapper().fromMap(map['mainComponent']),
+      otherComponents: List<Component>.unmodifiable(map['otherComponents']
+          .map((e) => const $ComponentMapMapper().fromMap(e))),
       alternativeComponent: (map['alternativeComponent'] != null
           ? const $ComponentMapMapper().fromMap(map['alternativeComponent'])
           : null),
-      otherComponents: List<Component>.unmodifiable(map['otherComponents']
-          .map((e) => const $ComponentMapMapper().fromMap(e))),
       secondaryComponents: map['secondaryComponents'] == null
           ? null
           : List<Component>.unmodifiable(map['secondaryComponents']
               .map((e) => const $ComponentMapMapper().fromMap(e))),
+      id: $kh.keyFromMap(map, 'id'),
+      mainComponentId: $kh.keyFromMap(map, 'mainComponentId'),
     );
   }
 

@@ -12,6 +12,7 @@ class $AirplaneMapMapper extends MapMapper<Airplane> {
   @override
   Airplane fromMap(Map<String, dynamic> map) {
     return Airplane(
+      serviceCeiling: Decimal.parse(map['serviceCeiling']),
       weight: map['weight'] as int,
       wingspan: map['wingspan'] as int,
     );
@@ -22,6 +23,7 @@ class $AirplaneMapMapper extends MapMapper<Airplane> {
     final map = <String, dynamic>{};
 
     map['weight'] = instance.weight;
+    map['serviceCeiling'] = instance.serviceCeiling.toString();
     map['wingspan'] = instance.wingspan;
 
     return map;
@@ -50,6 +52,8 @@ class $AirplaneFieldNames {
 
   static const _weight = 'weight';
   String get weight => prefix + _weight;
+  static const _serviceCeiling = 'serviceCeiling';
+  String get serviceCeiling => prefix + _serviceCeiling;
   static const _wingspan = 'wingspan';
   String get wingspan => prefix + _wingspan;
 

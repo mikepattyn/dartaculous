@@ -12,8 +12,8 @@ class $CarMapMapper extends MapMapper<Car> {
   @override
   Car fromMap(Map<String, dynamic> map) {
     return Car(
-      weight: map['weight'] as int,
       numberOfDoors: map['numberOfDoors'] as int,
+      weight: map['weight'] as int,
     );
   }
 

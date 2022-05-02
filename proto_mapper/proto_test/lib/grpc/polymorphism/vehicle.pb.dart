@@ -10,7 +10,9 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'airplane.pb.dart' as $10;
-import 'car.pb.dart' as $11;
+import 'helicopter.pb.dart' as $11;
+import 'gyrocopter.pb.dart' as $12;
+import 'car.pb.dart' as $13;
 
 class GFieldsOfVehicle extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -76,13 +78,15 @@ class GFieldsOfVehicle extends $pb.GeneratedMessage {
   void clearWeight() => clearField(1);
 }
 
-enum GVehicle_Props { vehicle, airplane, car, notSet }
+enum GVehicle_Props { vehicle, airplane, helicopter, gyrocopter, car, notSet }
 
 class GVehicle extends $pb.GeneratedMessage {
   static const $core.Map<$core.int, GVehicle_Props> _GVehicle_PropsByTag = {
     1: GVehicle_Props.vehicle,
     2: GVehicle_Props.airplane,
-    3: GVehicle_Props.car,
+    3: GVehicle_Props.helicopter,
+    4: GVehicle_Props.gyrocopter,
+    5: GVehicle_Props.car,
     0: GVehicle_Props.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -90,7 +94,7 @@ class GVehicle extends $pb.GeneratedMessage {
           ? ''
           : 'GVehicle',
       createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
+    ..oo(0, [1, 2, 3, 4, 5])
     ..aOM<GFieldsOfVehicle>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -103,19 +107,33 @@ class GVehicle extends $pb.GeneratedMessage {
             ? ''
             : 'airplane',
         subBuilder: $10.GAirplane.create)
-    ..aOM<$11.GCar>(
+    ..aOM<$11.GHelicopter>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
+            : 'helicopter',
+        subBuilder: $11.GHelicopter.create)
+    ..aOM<$12.GGyrocopter>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'gyrocopter',
+        subBuilder: $12.GGyrocopter.create)
+    ..aOM<$13.GCar>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
             : 'car',
-        subBuilder: $11.GCar.create)
+        subBuilder: $13.GCar.create)
     ..hasRequiredFields = false;
 
   GVehicle._() : super();
   factory GVehicle({
     GFieldsOfVehicle? vehicle,
     $10.GAirplane? airplane,
-    $11.GCar? car,
+    $11.GHelicopter? helicopter,
+    $12.GGyrocopter? gyrocopter,
+    $13.GCar? car,
   }) {
     final _result = create();
     if (vehicle != null) {
@@ -123,6 +141,12 @@ class GVehicle extends $pb.GeneratedMessage {
     }
     if (airplane != null) {
       _result.airplane = airplane;
+    }
+    if (helicopter != null) {
+      _result.helicopter = helicopter;
+    }
+    if (gyrocopter != null) {
+      _result.gyrocopter = gyrocopter;
     }
     if (car != null) {
       _result.car = car;
@@ -187,18 +211,46 @@ class GVehicle extends $pb.GeneratedMessage {
   $10.GAirplane ensureAirplane() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $11.GCar get car => $_getN(2);
+  $11.GHelicopter get helicopter => $_getN(2);
   @$pb.TagNumber(3)
-  set car($11.GCar v) {
+  set helicopter($11.GHelicopter v) {
     setField(3, v);
   }
 
   @$pb.TagNumber(3)
-  $core.bool hasCar() => $_has(2);
+  $core.bool hasHelicopter() => $_has(2);
   @$pb.TagNumber(3)
-  void clearCar() => clearField(3);
+  void clearHelicopter() => clearField(3);
   @$pb.TagNumber(3)
-  $11.GCar ensureCar() => $_ensure(2);
+  $11.GHelicopter ensureHelicopter() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $12.GGyrocopter get gyrocopter => $_getN(3);
+  @$pb.TagNumber(4)
+  set gyrocopter($12.GGyrocopter v) {
+    setField(4, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasGyrocopter() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearGyrocopter() => clearField(4);
+  @$pb.TagNumber(4)
+  $12.GGyrocopter ensureGyrocopter() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $13.GCar get car => $_getN(4);
+  @$pb.TagNumber(5)
+  set car($13.GCar v) {
+    setField(5, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasCar() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearCar() => clearField(5);
+  @$pb.TagNumber(5)
+  $13.GCar ensureCar() => $_ensure(4);
 }
 
 class GListOfVehicle extends $pb.GeneratedMessage {

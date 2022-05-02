@@ -68,15 +68,13 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     final constructors = _classElement!.getConstructorsMatchingFields(
         fieldDescriptors: fieldDescriptors,
         allowMissingFields: true,
-        missingFields: missingFields
-    );
+        missingFields: missingFields);
     // let's just pick the first of the valid constructors
     final constructor = constructors.isEmpty
         ? throw InvalidGenerationSourceError(
-        'Cannot generate proto mapper for class ${_classElement!.name} because it is missing a constructor that covers all final properties.\n'
+            'Cannot generate proto mapper for class ${_classElement!.name} because it is missing a constructor that covers all final properties.\n'
             '\tMissing fields: $missingFields')
         : constructors.first;
-
 
     // Set up constructor
     // final constructorFieldBuffer = StringBuffer();
@@ -240,13 +238,13 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       final fieldDescriptor = fieldDescriptorList.first;
       fromFieldDescriptors.remove(fieldDescriptor);
 
-      final fieldCodeGenerator =
-      FieldCodeGenerator.fromFieldDescriptor(fieldDescriptor, hasDefaultsProvider);
+      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+          fieldDescriptor, hasDefaultsProvider);
       // INLINE
       final constructorMap = constructorParameter.isNamed
           ? fieldCodeGenerator.constructorMap
           : fieldCodeGenerator.constructorMap
-          .substring(constructorParameter.nameLength + 1);
+              .substring(constructorParameter.nameLength + 1);
       constructorFieldBuffer.writeln(constructorMap);
     }
   }
@@ -278,8 +276,8 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
   }
 
   String _getFromSubClasses(MapMappedReflected reflected, String className) {
-    final kscs = reflected.knownSubClasses;
-    if (kscs == null) return '';
+    final kscs = getKnownSubclasses(reflected.knownSubClasses, MapMapped);
+    if (kscs.isEmpty) return '';
 
     final cases = kscs.map((ksc) {
       final typeName = ksc.getDisplayString(withNullability: false);
@@ -303,8 +301,8 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
   }
 
   static String _getToSubClasses(MapMappedReflected reflected) {
-    final kscs = reflected.knownSubClasses;
-    if (kscs == null) return '';
+    final kscs = getKnownSubclasses(reflected.knownSubClasses, MapMapped);
+    if (kscs.isEmpty) return '';
 
     final ret = kscs.map((ksc) {
       final typeName = ksc.getDisplayString(withNullability: false);

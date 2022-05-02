@@ -12,8 +12,8 @@ class $BicycleMapMapper extends MapMapper<Bicycle> {
   @override
   Bicycle fromMap(Map<String, dynamic> map) {
     return Bicycle(
-      weight: map['weight'] as int,
       wheelDiamater: Decimal.parse(map['wheelDiamater']),
+      weight: map['weight'] as int,
     );
   }
 

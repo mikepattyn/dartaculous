@@ -33,6 +33,16 @@ GVehicle _$VehicleToProto(Vehicle instance) {
     return uproto;
   }
 
+  if (instance is Helicopter) {
+    uproto.helicopter = (const $HelicopterProtoMapper()).toProto(instance);
+    return uproto;
+  }
+
+  if (instance is Gyrocopter) {
+    uproto.gyrocopter = (const $GyrocopterProtoMapper()).toProto(instance);
+    return uproto;
+  }
+
   if (instance is Car) {
     uproto.car = (const $CarProtoMapper()).toProto(instance);
     return uproto;
@@ -48,6 +58,14 @@ GVehicle _$VehicleToProto(Vehicle instance) {
 Vehicle _$VehicleFromProto(GVehicle sInstance) {
   if (sInstance.hasAirplane()) {
     return sInstance.airplane.toAirplane();
+  }
+
+  if (sInstance.hasHelicopter()) {
+    return sInstance.helicopter.toHelicopter();
+  }
+
+  if (sInstance.hasGyrocopter()) {
+    return sInstance.gyrocopter.toGyrocopter();
   }
 
   if (sInstance.hasCar()) {

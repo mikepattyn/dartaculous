@@ -1,13 +1,18 @@
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 
+import 'aircraft.dart';
+// import 'airplane.dart';
 import 'airplane.dart';
 import 'car.dart';
+import 'gyrocopter.dart';
+import 'helicopter.dart';
 
 part 'vehicle.g.dart';
 
 @MapMapped(knownSubClasses: [
   Car,
-  Airplane,
+  Aircraft,
+  // Airplane,
 ])
 class Vehicle {
   final int weight;

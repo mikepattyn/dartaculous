@@ -1,8 +1,12 @@
 import 'package:decimal/decimal.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/abstract_vehicle.dart';
+import 'package:map_mapper_generator_test/src/polymorphism/aircraft.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/airplane.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/bicycle.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/car.dart';
+import 'package:map_mapper_generator_test/src/polymorphism/gyrocopter.dart';
+import 'package:map_mapper_generator_test/src/polymorphism/helicopter.dart';
+import 'package:map_mapper_generator_test/src/polymorphism/rotorcraft.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/scooter.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/vehicle.dart';
 import 'package:test/test.dart';
@@ -18,7 +22,8 @@ void main() {
     });
 
     test('airplane test', () {
-      final airplane = Airplane(wingspan: 10, weight: 1500);
+      final airplane = Airplane(
+          serviceCeiling: Decimal.fromInt(10000), wingspan: 10, weight: 1500);
       final mairplane = airplane.toMap();
       final airplane2 = mairplane.toAirplane();
 
@@ -60,7 +65,8 @@ void main() {
       expect(vehicle2, TypeMatcher<Car>());
     });
     test('poly-airplane test', () {
-      final Vehicle vehicle = Airplane(wingspan: 13, weight: 1500);
+      final Vehicle vehicle = Airplane(
+          serviceCeiling: Decimal.fromInt(11000), wingspan: 13, weight: 1500);
       final mvehicle = vehicle.toMap();
       final vehicle2 = mvehicle.toVehicle();
 
@@ -68,9 +74,80 @@ void main() {
       expect(vehicle2, TypeMatcher<Airplane>());
     });
 
+    test('poly-helicopter test', () {
+      final Vehicle vehicle =
+          Helicopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final mvehicle = vehicle.toMap();
+      final vehicle2 = mvehicle.toVehicle();
+
+      expect(vehicle2, vehicle);
+      expect(vehicle2, TypeMatcher<Helicopter>());
+    });
+
+    test('poly-gyropcopter test', () {
+      final Vehicle vehicle =
+          Gyrocopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final mvehicle = vehicle.toMap();
+      final vehicle2 = mvehicle.toVehicle();
+
+      expect(vehicle2, vehicle);
+      expect(vehicle2, TypeMatcher<Gyrocopter>());
+    });
+
+    test('poly-aircraft-airplane test', () {
+      final Aircraft aircraft = Airplane(
+          serviceCeiling: Decimal.fromInt(11000), wingspan: 13, weight: 1500);
+      final mvehicle = aircraft.toMap();
+      final vehicle2 = mvehicle.toVehicle();
+
+      expect(vehicle2, aircraft);
+      expect(vehicle2, TypeMatcher<Airplane>());
+    });
+
+    test('poly-aircraft-helicopter test', () {
+      final Aircraft aircraft =
+          Helicopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final mvehicle = aircraft.toMap();
+      final vehicle2 = mvehicle.toVehicle();
+
+      expect(vehicle2, aircraft);
+      expect(vehicle2, TypeMatcher<Helicopter>());
+    });
+
+    test('poly-aircraft-gyrocopter test', () {
+      final Aircraft aircraft =
+          Gyrocopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final mvehicle = aircraft.toMap();
+      final vehicle2 = mvehicle.toVehicle();
+
+      expect(vehicle2, aircraft);
+      expect(vehicle2, TypeMatcher<Gyrocopter>());
+    });
+
+    test('poly-rotorcraft-helicopter test', () {
+      final Rotorcraft aircraft =
+          Helicopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final mvehicle = aircraft.toMap();
+      final vehicle2 = mvehicle.toVehicle();
+
+      expect(vehicle2, aircraft);
+      expect(vehicle2, TypeMatcher<Helicopter>());
+    });
+
+    test('poly-rotorcraft-gyrocopter test', () {
+      final Rotorcraft aircraft =
+          Gyrocopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final mvehicle = aircraft.toMap();
+      final vehicle2 = mvehicle.toVehicle();
+
+      expect(vehicle2, aircraft);
+      expect(vehicle2, TypeMatcher<Gyrocopter>());
+    });
+
     test('multi poly test', () {
       final car = Car(numberOfDoors: 4, weight: 1500);
-      final airplane = Airplane(wingspan: 13, weight: 1500);
+      final airplane = Airplane(
+          serviceCeiling: Decimal.fromInt(9500), wingspan: 13, weight: 1500);
       final vehicle = Vehicle(weight: 1500);
 
       final vehicles = <Vehicle>[car, vehicle, airplane];

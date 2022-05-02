@@ -1,24 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'vehicle.dart';
+part of 'aircraft.dart';
 
 // **************************************************************************
 // MapMapGenerator
 // **************************************************************************
 
-class $VehicleMapMapper extends MapMapper<Vehicle> {
-  const $VehicleMapMapper();
+class $AircraftMapMapper extends MapMapper<Aircraft> {
+  const $AircraftMapMapper();
 
   @override
-  Vehicle fromMap(Map<String, dynamic> map) {
+  Aircraft fromMap(Map<String, dynamic> map) {
     final type = map['\$type'] as String?;
     switch (type) {
       case null:
-      case 'Vehicle':
-        return _fromMap(map);
-      case 'Car':
-        return (const $CarMapMapper()).fromMap(map);
-
+      case 'Aircraft':
+        throw UnimplementedError();
       case 'Airplane':
         return (const $AirplaneMapMapper()).fromMap(map);
 
@@ -33,21 +30,8 @@ class $VehicleMapMapper extends MapMapper<Vehicle> {
     }
   }
 
-  Vehicle _fromMap(Map<String, dynamic> map) {
-    return Vehicle(
-      weight: map['weight'] as int,
-    );
-  }
-
   @override
-  Map<String, dynamic> toMap(Vehicle instance) {
-    if (instance is Car) {
-      return {
-        '\$type': 'Car',
-        ...const $CarMapMapper().toMap(instance),
-      };
-    }
-
+  Map<String, dynamic> toMap(Aircraft instance) {
     if (instance is Airplane) {
       return {
         '\$type': 'Airplane',
@@ -71,36 +55,39 @@ class $VehicleMapMapper extends MapMapper<Vehicle> {
 
     final map = <String, dynamic>{};
 
-    map['\$type'] = 'Vehicle';
+    map['\$type'] = 'Aircraft';
 
     map['weight'] = instance.weight;
+    map['serviceCeiling'] = instance.serviceCeiling.toString();
 
     return map;
   }
 }
 
-extension $VehicleMapExtension on Vehicle {
-  Map<String, dynamic> toMap() => const $VehicleMapMapper().toMap(this);
-  static Vehicle fromMap(Map<String, dynamic> map) =>
-      const $VehicleMapMapper().fromMap(map);
+extension $AircraftMapExtension on Aircraft {
+  Map<String, dynamic> toMap() => const $AircraftMapMapper().toMap(this);
+  static Aircraft fromMap(Map<String, dynamic> map) =>
+      const $AircraftMapMapper().fromMap(map);
 }
 
-extension $MapVehicleExtension on Map<String, dynamic> {
-  Vehicle toVehicle() => const $VehicleMapMapper().fromMap(this);
+extension $MapAircraftExtension on Map<String, dynamic> {
+  Aircraft toAircraft() => const $AircraftMapMapper().fromMap(this);
 }
 
-class $VehicleFieldNames {
+class $AircraftFieldNames {
   final String fieldName;
   final String prefix;
 
-  $VehicleFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $AircraftFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
 
-  const $VehicleFieldNames()
+  const $AircraftFieldNames()
       : fieldName = '',
         prefix = '';
 
   static const _weight = 'weight';
   String get weight => prefix + _weight;
+  static const _serviceCeiling = 'serviceCeiling';
+  String get serviceCeiling => prefix + _serviceCeiling;
 
   @override
   String toString() => fieldName;

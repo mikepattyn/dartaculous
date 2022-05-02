@@ -1,17 +1,18 @@
 import 'package:proto_generator_test/grpc/polymorphism/airplane.pb.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 
-import 'vehicle.dart';
+import 'aircraft.dart';
 
 part 'airplane.g.dart';
 
 @proto
 @mapProto
-class Airplane extends Vehicle {
+class Airplane extends Aircraft {
   Airplane({
     required int weight,
     required this.wingspan,
-  }) : super(weight: weight);
+    required int serviceCeiling,
+  }) : super(weight: weight, serviceCeiling: serviceCeiling);
 
   final int wingspan;
 

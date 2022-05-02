@@ -9,33 +9,25 @@ syntax = "proto3";
 import "polymorphism/airplane.proto";
 import "polymorphism/helicopter.proto";
 import "polymorphism/gyrocopter.proto";
-import "polymorphism/car.proto";
 
 
 
 
 
-message GFieldsOfVehicle
-{
-    int32 weight = 1;
 
-}
-    
   
-message GVehicle
+message GAircraft
 {
   oneof props {
-    GFieldsOfVehicle vehicle = 1;
-    GAirplane airplane = 2;
-    GHelicopter helicopter = 3;
-    GGyrocopter gyrocopter = 4;
-    GCar car = 5;
+    GAirplane airplane = 1;
+    GHelicopter helicopter = 2;
+    GGyrocopter gyrocopter = 3;
 
   }
     
 }   
 
-message GListOfVehicle
+message GListOfAircraft
 {
-  repeated GVehicle items = 1;
+  repeated GAircraft items = 1;
 }

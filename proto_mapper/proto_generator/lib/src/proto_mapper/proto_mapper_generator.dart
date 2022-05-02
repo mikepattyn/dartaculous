@@ -79,8 +79,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     final constructors = _classElement!.getConstructorsMatchingFields(
         fieldDescriptors: fieldDescriptors,
         allowMissingFields: mapProto.allowMissingFields,
-        missingFields: missingFields
-    );
+        missingFields: missingFields);
     // let's just pick the first of the valid constructors
     final constructor = constructors.isEmpty
         ? throw InvalidGenerationSourceError(
@@ -154,8 +153,9 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   }
 
   String? _generateToKnownSubclassses(MapProtoReflected mapProtoReflected) {
-    final kscs = mapProtoReflected.knownSubClasses;
-    if (kscs == null) return null;
+    final kscs =
+        getKnownSubclasses(mapProtoReflected.knownSubClasses, MapProto);
+    if (kscs.isEmpty) return null;
 
     final ret = kscs.map((ksc) {
       final className = ksc.getDisplayString(withNullability: false);
@@ -286,8 +286,9 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   }
 
   String? _generateFromKnownSubclasses(MapProtoReflected mapProtoReflected) {
-    final kscs = mapProtoReflected.knownSubClasses;
-    if (kscs == null) return null;
+    final kscs =
+        getKnownSubclasses(mapProtoReflected.knownSubClasses, MapProto);
+    if (kscs.isEmpty) return null;
 
     final ret = kscs.map((ksc) {
       final className = ksc.getDisplayString(withNullability: false);

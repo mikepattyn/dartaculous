@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: polymorphism/airplane.proto
+//  source: polymorphism/helicopter.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
@@ -9,11 +9,11 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class GAirplane extends $pb.GeneratedMessage {
+class GHelicopter extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
           ? ''
-          : 'GAirplane',
+          : 'GHelicopter',
       createEmptyInstance: create)
     ..a<$core.int>(
         1,
@@ -27,19 +27,12 @@ class GAirplane extends $pb.GeneratedMessage {
             ? ''
             : 'serviceCeiling',
         $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'wingspan',
-        $pb.PbFieldType.O3)
     ..hasRequiredFields = false;
 
-  GAirplane._() : super();
-  factory GAirplane({
+  GHelicopter._() : super();
+  factory GHelicopter({
     $core.int? weight,
     $core.int? serviceCeiling,
-    $core.int? wingspan,
   }) {
     final _result = create();
     if (weight != null) {
@@ -48,36 +41,33 @@ class GAirplane extends $pb.GeneratedMessage {
     if (serviceCeiling != null) {
       _result.serviceCeiling = serviceCeiling;
     }
-    if (wingspan != null) {
-      _result.wingspan = wingspan;
-    }
     return _result;
   }
-  factory GAirplane.fromBuffer($core.List<$core.int> i,
+  factory GHelicopter.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory GAirplane.fromJson($core.String i,
+  factory GHelicopter.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
-  GAirplane clone() => GAirplane()..mergeFromMessage(this);
+  GHelicopter clone() => GHelicopter()..mergeFromMessage(this);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
-  GAirplane copyWith(void Function(GAirplane) updates) =>
-      super.copyWith((message) => updates(message as GAirplane))
-          as GAirplane; // ignore: deprecated_member_use
+  GHelicopter copyWith(void Function(GHelicopter) updates) =>
+      super.copyWith((message) => updates(message as GHelicopter))
+          as GHelicopter; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static GAirplane create() => GAirplane._();
-  GAirplane createEmptyInstance() => create();
-  static $pb.PbList<GAirplane> createRepeated() => $pb.PbList<GAirplane>();
+  static GHelicopter create() => GHelicopter._();
+  GHelicopter createEmptyInstance() => create();
+  static $pb.PbList<GHelicopter> createRepeated() => $pb.PbList<GHelicopter>();
   @$core.pragma('dart2js:noInline')
-  static GAirplane getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GAirplane>(create);
-  static GAirplane? _defaultInstance;
+  static GHelicopter getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GHelicopter>(create);
+  static GHelicopter? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.int get weight => $_getIZ(0);
@@ -102,38 +92,26 @@ class GAirplane extends $pb.GeneratedMessage {
   $core.bool hasServiceCeiling() => $_has(1);
   @$pb.TagNumber(2)
   void clearServiceCeiling() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.int get wingspan => $_getIZ(2);
-  @$pb.TagNumber(3)
-  set wingspan($core.int v) {
-    $_setSignedInt32(2, v);
-  }
-
-  @$pb.TagNumber(3)
-  $core.bool hasWingspan() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearWingspan() => clearField(3);
 }
 
-class GListOfAirplane extends $pb.GeneratedMessage {
+class GListOfHelicopter extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
           ? ''
-          : 'GListOfAirplane',
+          : 'GListOfHelicopter',
       createEmptyInstance: create)
-    ..pc<GAirplane>(
+    ..pc<GHelicopter>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'items',
         $pb.PbFieldType.PM,
-        subBuilder: GAirplane.create)
+        subBuilder: GHelicopter.create)
     ..hasRequiredFields = false;
 
-  GListOfAirplane._() : super();
-  factory GListOfAirplane({
-    $core.Iterable<GAirplane>? items,
+  GListOfHelicopter._() : super();
+  factory GListOfHelicopter({
+    $core.Iterable<GHelicopter>? items,
   }) {
     final _result = create();
     if (items != null) {
@@ -141,33 +119,33 @@ class GListOfAirplane extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GListOfAirplane.fromBuffer($core.List<$core.int> i,
+  factory GListOfHelicopter.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory GListOfAirplane.fromJson($core.String i,
+  factory GListOfHelicopter.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
-  GListOfAirplane clone() => GListOfAirplane()..mergeFromMessage(this);
+  GListOfHelicopter clone() => GListOfHelicopter()..mergeFromMessage(this);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
-  GListOfAirplane copyWith(void Function(GListOfAirplane) updates) =>
-      super.copyWith((message) => updates(message as GListOfAirplane))
-          as GListOfAirplane; // ignore: deprecated_member_use
+  GListOfHelicopter copyWith(void Function(GListOfHelicopter) updates) =>
+      super.copyWith((message) => updates(message as GListOfHelicopter))
+          as GListOfHelicopter; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static GListOfAirplane create() => GListOfAirplane._();
-  GListOfAirplane createEmptyInstance() => create();
-  static $pb.PbList<GListOfAirplane> createRepeated() =>
-      $pb.PbList<GListOfAirplane>();
+  static GListOfHelicopter create() => GListOfHelicopter._();
+  GListOfHelicopter createEmptyInstance() => create();
+  static $pb.PbList<GListOfHelicopter> createRepeated() =>
+      $pb.PbList<GListOfHelicopter>();
   @$core.pragma('dart2js:noInline')
-  static GListOfAirplane getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GListOfAirplane>(create);
-  static GListOfAirplane? _defaultInstance;
+  static GListOfHelicopter getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GListOfHelicopter>(create);
+  static GListOfHelicopter? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<GAirplane> get items => $_getList(0);
+  $core.List<GHelicopter> get items => $_getList(0);
 }

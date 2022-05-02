@@ -16,32 +16,38 @@ class $RecipeMapMapper extends MapMapper<Recipe> {
     return Recipe(
       key: $kh.keyFromMap(map, 'key'),
       title: map['title'] as String,
-      description: map['description'] as String?,
-      categoryKey: $kh.keyFromMap(map, 'categoryKey'),
-      secondaryCategoryKey: map['secondaryCategoryKey'] == null
-          ? null
-          : $kh.keyFromMap(map, 'secondaryCategoryKey'),
       category: const $CategoryMapMapper().fromMap(map['category']),
+      categoryKey: $kh.keyFromMap(map, 'categoryKey'),
       ingredients: List<Ingredient>.unmodifiable(map['ingredients']
           .map((e) => const $IngredientMapMapper().fromMap(e))),
       publishDate: DateTime.fromMicrosecondsSinceEpoch(map['publishDate']),
+      preparationDuration: Duration(microseconds: map['preparationDuration']),
+      isPublished: map['isPublished'] as bool,
+      mainApplianceType: map['mainApplianceType'] is String
+          ? ApplianceType.values
+              .firstWhere((v) => v.name == map['mainApplianceType'])
+          : ApplianceType.values[map['mainApplianceType'] as int],
+      tags: List<String>.unmodifiable(map['tags']),
+      description: map['description'] as String?,
       expiryDate: map['expiryDate'] == null
           ? null
           : DateTime.fromMicrosecondsSinceEpoch(map['expiryDate']),
-      preparationDuration: Duration(microseconds: map['preparationDuration']),
       totalDuration: map['totalDuration'] == null
           ? null
           : Duration(microseconds: map['totalDuration']),
-      isPublished: map['isPublished'] as bool,
       requiresRobot: map['requiresRobot'] as bool?,
-      mainApplianceType: ApplianceType.values[map['mainApplianceType'] as int],
       secondaryApplianceType: map['secondaryApplianceType'] == null
           ? null
-          : ApplianceType.values[map['secondaryApplianceType'] as int],
-      tags: List<String>.unmodifiable(map['tags']),
+          : map['secondaryApplianceType'] is String
+              ? ApplianceType.values
+                  .firstWhere((v) => v.name == map['secondaryApplianceType'])
+              : ApplianceType.values[map['secondaryApplianceType'] as int],
       extraTags: map['extraTags'] == null
           ? null
           : List<String>.unmodifiable(map['extraTags']),
+      secondaryCategoryKey: map['secondaryCategoryKey'] == null
+          ? null
+          : $kh.keyFromMap(map, 'secondaryCategoryKey'),
     );
   }
 

@@ -13,15 +13,14 @@ syntax = "proto3";
 
 
   
-message GAirplane
+message GHelicopter
 {
   int32 weight = 1;
   int32 service_ceiling = 2;
-  int32 wingspan = 3;
 
 }   
 
-message GListOfAirplane
+message GListOfHelicopter
 {
-  repeated GAirplane items = 1;
+  repeated GHelicopter items = 1;
 }

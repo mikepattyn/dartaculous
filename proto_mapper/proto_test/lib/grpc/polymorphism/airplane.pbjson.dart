@@ -14,13 +14,14 @@ const GAirplane$json = {
   '1': 'GAirplane',
   '2': [
     {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
-    {'1': 'wingspan', '3': 2, '4': 1, '5': 5, '10': 'wingspan'},
+    {'1': 'service_ceiling', '3': 2, '4': 1, '5': 5, '10': 'serviceCeiling'},
+    {'1': 'wingspan', '3': 3, '4': 1, '5': 5, '10': 'wingspan'},
   ],
 };
 
 /// Descriptor for `GAirplane`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gAirplaneDescriptor = $convert.base64Decode(
-    'CglHQWlycGxhbmUSFgoGd2VpZ2h0GAEgASgFUgZ3ZWlnaHQSGgoId2luZ3NwYW4YAiABKAVSCHdpbmdzcGFu');
+    'CglHQWlycGxhbmUSFgoGd2VpZ2h0GAEgASgFUgZ3ZWlnaHQSJwoPc2VydmljZV9jZWlsaW5nGAIgASgFUg5zZXJ2aWNlQ2VpbGluZxIaCgh3aW5nc3BhbhgDIAEoBVIId2luZ3NwYW4=');
 @$core.Deprecated('Use gListOfAirplaneDescriptor instead')
 const GListOfAirplane$json = {
   '1': 'GListOfAirplane',

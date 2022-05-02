@@ -77,6 +77,9 @@ class $MessageMapMapper extends MapMapper<Message> {
       case 'Event':
         return (const $EventMapMapper()).fromMap(map);
 
+      case 'IntegrationEvent':
+        return (const $IntegrationEventMapMapper()).fromMap(map);
+
       default:
         throw UnimplementedError();
     }
@@ -95,6 +98,13 @@ class $MessageMapMapper extends MapMapper<Message> {
       return {
         '\$type': 'Event',
         ...const $EventMapMapper().toMap(instance),
+      };
+    }
+
+    if (instance is IntegrationEvent) {
+      return {
+        '\$type': 'IntegrationEvent',
+        ...const $IntegrationEventMapMapper().toMap(instance),
       };
     }
 

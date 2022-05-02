@@ -78,7 +78,8 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
   ) {
     final externalProtoNames = <String>[];
     final proto = protoReflected.proto;
-    final knownSubclasses = protoReflected.knownSubClasses;
+    final knownSubclasses =
+        getKnownSubclasses(protoReflected.knownSubClasses, Proto);
     var fieldDescriptors =
         _getFieldDescriptors(classElement, proto, forEnum: false);
     final fieldDeclarations =
@@ -98,7 +99,6 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
       externalProtoNames,
     );
 
-    _addKnownSubClassExternalProtoNames(knownSubclasses, externalProtoNames);
     final imports = _getImports(externalProtoNames);
 
     final messages = '''
@@ -131,10 +131,10 @@ $messages
 
   String _getFieldsMessage(
     ClassElement classElement,
-    List<DartType>? knownSubclasses,
+    List<DartType> knownSubclasses,
     String fieldDeclarations,
   ) {
-    if (knownSubclasses == null || classElement.isAbstract) return '';
+    if (knownSubclasses.isEmpty || classElement.isAbstract) return '';
     final className = classElement.name;
     final fieldsMessage = '''
 message ${_prefix}FieldsOf$className
@@ -195,10 +195,10 @@ message Nullable$_prefix$className
     Proto proto,
     ClassElement classElement,
     String fieldDeclarations,
-    List<DartType>? knownSubclasses,
+    List<DartType> knownSubclasses,
     List<String> externalProtoNames,
   ) {
-    if (knownSubclasses == null) return fieldDeclarations;
+    if (knownSubclasses.isEmpty) return fieldDeclarations;
     final className = classElement.name;
     int lineNumber = 1;
     final fieldsOf = classElement.isAbstract
@@ -227,13 +227,6 @@ $fieldsOf$fds
   }
     ''';
     return ret;
-  }
-
-  void _addKnownSubClassExternalProtoNames(
-    List<DartType>? knownSubclasses,
-    List<String> externalProtoNames,
-  ) {
-    if (knownSubclasses == null) return;
   }
 }
 

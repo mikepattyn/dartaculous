@@ -1,15 +1,20 @@
+import 'package:decimal/decimal.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 
-import 'vehicle.dart';
+import 'aircraft.dart';
 
 part 'airplane.g.dart';
 
 @mapMapped
-class Airplane extends Vehicle {
+class Airplane extends Aircraft {
   Airplane({
+    required Decimal serviceCeiling,
     required int weight,
     required this.wingspan,
-  }) : super(weight: weight);
+  }) : super(
+          serviceCeiling: serviceCeiling,
+          weight: weight,
+        );
 
   final int wingspan;
 
