@@ -1,3 +1,7 @@
+## 2.3.0
+
+ - **FEAT**: Multi-level hierarchy polymorphism.
+
 ## 2.2.1
 
  - Make FieldDescriptor.isKey only return true for numeric or string values, not for objects

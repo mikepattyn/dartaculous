@@ -1,3 +1,7 @@
+## 3.2.0
+
+ - **FEAT**: Multi-level hierarchy polymorphism.
+
 ## 3.1.2
 
 - Fix to make MapMapper use ``defaultsProvider`` when setting ``late`` fields

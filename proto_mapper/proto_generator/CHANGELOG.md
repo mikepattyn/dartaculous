@@ -1,3 +1,7 @@
+## 3.3.0
+
+ - **FEAT**: Multi-level hierarchy polymorphism.
+
 ## 3.2.0
 
  - **FEAT**: Support for gRPC streams.
