@@ -44,6 +44,11 @@ GAircraft _$AircraftToProto(Aircraft instance) {
     return uproto;
   }
 
+  if (instance is Balloon) {
+    uproto.balloon = (const $BalloonProtoMapper()).toProto(instance);
+    return uproto;
+  }
+
   throw UnimplementedError();
 }
 
@@ -58,6 +63,10 @@ Aircraft _$AircraftFromProto(GAircraft sInstance) {
 
   if (sInstance.hasGyrocopter()) {
     return sInstance.gyrocopter.toGyrocopter();
+  }
+
+  if (sInstance.hasBalloon()) {
+    return sInstance.balloon.toBalloon();
   }
 
   throw UnimplementedError();

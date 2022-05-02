@@ -40,6 +40,15 @@ const GAircraft$json = {
       '9': 0,
       '10': 'gyrocopter'
     },
+    {
+      '1': 'balloon',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.GBalloon',
+      '9': 0,
+      '10': 'balloon'
+    },
   ],
   '8': [
     {'1': 'props'},
@@ -48,7 +57,7 @@ const GAircraft$json = {
 
 /// Descriptor for `GAircraft`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gAircraftDescriptor = $convert.base64Decode(
-    'CglHQWlyY3JhZnQSKAoIYWlycGxhbmUYASABKAsyCi5HQWlycGxhbmVIAFIIYWlycGxhbmUSLgoKaGVsaWNvcHRlchgCIAEoCzIMLkdIZWxpY29wdGVySABSCmhlbGljb3B0ZXISLgoKZ3lyb2NvcHRlchgDIAEoCzIMLkdHeXJvY29wdGVySABSCmd5cm9jb3B0ZXJCBwoFcHJvcHM=');
+    'CglHQWlyY3JhZnQSKAoIYWlycGxhbmUYASABKAsyCi5HQWlycGxhbmVIAFIIYWlycGxhbmUSLgoKaGVsaWNvcHRlchgCIAEoCzIMLkdIZWxpY29wdGVySABSCmhlbGljb3B0ZXISLgoKZ3lyb2NvcHRlchgDIAEoCzIMLkdHeXJvY29wdGVySABSCmd5cm9jb3B0ZXISJQoHYmFsbG9vbhgEIAEoCzIJLkdCYWxsb29uSABSB2JhbGxvb25CBwoFcHJvcHM=');
 @$core.Deprecated('Use gListOfAircraftDescriptor instead')
 const GListOfAircraft$json = {
   '1': 'GListOfAircraft',

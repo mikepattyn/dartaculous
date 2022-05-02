@@ -25,6 +25,9 @@ class $AircraftMapMapper extends MapMapper<Aircraft> {
       case 'Gyrocopter':
         return (const $GyrocopterMapMapper()).fromMap(map);
 
+      case 'Balloon':
+        return (const $BalloonMapMapper()).fromMap(map);
+
       default:
         throw UnimplementedError();
     }
@@ -50,6 +53,13 @@ class $AircraftMapMapper extends MapMapper<Aircraft> {
       return {
         '\$type': 'Gyrocopter',
         ...const $GyrocopterMapMapper().toMap(instance),
+      };
+    }
+
+    if (instance is Balloon) {
+      return {
+        '\$type': 'Balloon',
+        ...const $BalloonMapMapper().toMap(instance),
       };
     }
 

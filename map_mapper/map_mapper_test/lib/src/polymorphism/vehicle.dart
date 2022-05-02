@@ -3,6 +3,7 @@ import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'aircraft.dart';
 // import 'airplane.dart';
 import 'airplane.dart';
+import 'balloon.dart';
 import 'car.dart';
 import 'gyrocopter.dart';
 import 'helicopter.dart';

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:firebase_auth_admin/firebase_auth_admin.dart' as firebase;
 import 'package:test/test.dart';
@@ -17,6 +18,10 @@ const userInfo = firebase.FirebaseUserInfo(
 );
 
 void main() {
+  if (!File('service-account.json').existsSync()) {
+    return;
+  }
+
   group('A group of tests', () {
     late final String uid;
 

@@ -43,6 +43,11 @@ GVehicle _$VehicleToProto(Vehicle instance) {
     return uproto;
   }
 
+  if (instance is Balloon) {
+    uproto.balloon = (const $BalloonProtoMapper()).toProto(instance);
+    return uproto;
+  }
+
   if (instance is Car) {
     uproto.car = (const $CarProtoMapper()).toProto(instance);
     return uproto;
@@ -66,6 +71,10 @@ Vehicle _$VehicleFromProto(GVehicle sInstance) {
 
   if (sInstance.hasGyrocopter()) {
     return sInstance.gyrocopter.toGyrocopter();
+  }
+
+  if (sInstance.hasBalloon()) {
+    return sInstance.balloon.toBalloon();
   }
 
   if (sInstance.hasCar()) {

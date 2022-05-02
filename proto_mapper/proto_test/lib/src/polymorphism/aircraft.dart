@@ -1,6 +1,7 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/polymorphism/aircraft.pb.dart';
 import 'package:proto_generator_test/src/polymorphism/airplane.dart';
+import 'package:proto_generator_test/src/polymorphism/balloon.dart';
 import 'package:proto_generator_test/src/polymorphism/rotorcraft.dart';
 
 import 'gyrocopter.dart';
@@ -12,6 +13,7 @@ part 'aircraft.g.dart';
 const knownSubClasses = [
   Airplane,
   Rotorcraft,
+  Balloon,
 ];
 
 @Proto(knownSubClasses: knownSubClasses)

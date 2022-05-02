@@ -2,6 +2,7 @@ import 'package:decimal/decimal.dart';
 import 'package:proto_generator_test/src/polymorphism/abstract_vehicle.dart';
 import 'package:proto_generator_test/src/polymorphism/aircraft.dart';
 import 'package:proto_generator_test/src/polymorphism/airplane.dart';
+import 'package:proto_generator_test/src/polymorphism/balloon.dart';
 import 'package:proto_generator_test/src/polymorphism/bicycle.dart';
 import 'package:proto_generator_test/src/polymorphism/car.dart';
 import 'package:proto_generator_test/src/polymorphism/gyrocopter.dart';
@@ -138,6 +139,24 @@ void main() {
 
       expect(vehicle2, vehicle);
       expect(vehicle2, TypeMatcher<Gyrocopter>());
+    });
+
+    test('poly-balloon test', () {
+      final Vehicle aircraft = Balloon(serviceCeiling: 11000, weight: 1500);
+      final mvehicle = aircraft.toProto();
+      final vehicle2 = mvehicle.toVehicle();
+
+      expect(vehicle2, aircraft);
+      expect(vehicle2, TypeMatcher<Balloon>());
+    });
+
+    test('poly-aircraft-balloon test', () {
+      final Aircraft aircraft = Balloon(serviceCeiling: 11000, weight: 1500);
+      final mvehicle = aircraft.toProto();
+      final vehicle2 = mvehicle.toAircraft();
+
+      expect(vehicle2, aircraft);
+      expect(vehicle2, TypeMatcher<Balloon>());
     });
 
     test('multi poly test', () {

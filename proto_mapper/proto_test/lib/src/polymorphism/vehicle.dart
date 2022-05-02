@@ -3,6 +3,7 @@ import 'package:proto_generator_test/grpc/polymorphism/vehicle.pb.dart';
 
 import 'aircraft.dart';
 import 'airplane.dart';
+import 'balloon.dart';
 import 'car.dart';
 import 'gyrocopter.dart';
 import 'helicopter.dart';

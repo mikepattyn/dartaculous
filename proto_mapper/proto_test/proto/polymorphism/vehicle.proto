@@ -9,6 +9,7 @@ syntax = "proto3";
 import "polymorphism/airplane.proto";
 import "polymorphism/helicopter.proto";
 import "polymorphism/gyrocopter.proto";
+import "polymorphism/balloon.proto";
 import "polymorphism/car.proto";
 
 
@@ -29,7 +30,8 @@ message GVehicle
     GAirplane airplane = 2;
     GHelicopter helicopter = 3;
     GGyrocopter gyrocopter = 4;
-    GCar car = 5;
+    GBalloon balloon = 5;
+    GCar car = 6;
 
   }
     

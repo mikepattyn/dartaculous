@@ -60,7 +60,16 @@ const GVehicle$json = {
       '9': 0,
       '10': 'gyrocopter'
     },
-    {'1': 'car', '3': 5, '4': 1, '5': 11, '6': '.GCar', '9': 0, '10': 'car'},
+    {
+      '1': 'balloon',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.GBalloon',
+      '9': 0,
+      '10': 'balloon'
+    },
+    {'1': 'car', '3': 6, '4': 1, '5': 11, '6': '.GCar', '9': 0, '10': 'car'},
   ],
   '8': [
     {'1': 'props'},
@@ -69,7 +78,7 @@ const GVehicle$json = {
 
 /// Descriptor for `GVehicle`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gVehicleDescriptor = $convert.base64Decode(
-    'CghHVmVoaWNsZRItCgd2ZWhpY2xlGAEgASgLMhEuR0ZpZWxkc09mVmVoaWNsZUgAUgd2ZWhpY2xlEigKCGFpcnBsYW5lGAIgASgLMgouR0FpcnBsYW5lSABSCGFpcnBsYW5lEi4KCmhlbGljb3B0ZXIYAyABKAsyDC5HSGVsaWNvcHRlckgAUgpoZWxpY29wdGVyEi4KCmd5cm9jb3B0ZXIYBCABKAsyDC5HR3lyb2NvcHRlckgAUgpneXJvY29wdGVyEhkKA2NhchgFIAEoCzIFLkdDYXJIAFIDY2FyQgcKBXByb3Bz');
+    'CghHVmVoaWNsZRItCgd2ZWhpY2xlGAEgASgLMhEuR0ZpZWxkc09mVmVoaWNsZUgAUgd2ZWhpY2xlEigKCGFpcnBsYW5lGAIgASgLMgouR0FpcnBsYW5lSABSCGFpcnBsYW5lEi4KCmhlbGljb3B0ZXIYAyABKAsyDC5HSGVsaWNvcHRlckgAUgpoZWxpY29wdGVyEi4KCmd5cm9jb3B0ZXIYBCABKAsyDC5HR3lyb2NvcHRlckgAUgpneXJvY29wdGVyEiUKB2JhbGxvb24YBSABKAsyCS5HQmFsbG9vbkgAUgdiYWxsb29uEhkKA2NhchgGIAEoCzIFLkdDYXJIAFIDY2FyQgcKBXByb3Bz');
 @$core.Deprecated('Use gListOfVehicleDescriptor instead')
 const GListOfVehicle$json = {
   '1': 'GListOfVehicle',

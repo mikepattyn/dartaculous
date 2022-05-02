@@ -12,14 +12,16 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'airplane.pb.dart' as $10;
 import 'helicopter.pb.dart' as $11;
 import 'gyrocopter.pb.dart' as $12;
+import 'balloon.pb.dart' as $13;
 
-enum GAircraft_Props { airplane, helicopter, gyrocopter, notSet }
+enum GAircraft_Props { airplane, helicopter, gyrocopter, balloon, notSet }
 
 class GAircraft extends $pb.GeneratedMessage {
   static const $core.Map<$core.int, GAircraft_Props> _GAircraft_PropsByTag = {
     1: GAircraft_Props.airplane,
     2: GAircraft_Props.helicopter,
     3: GAircraft_Props.gyrocopter,
+    4: GAircraft_Props.balloon,
     0: GAircraft_Props.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -27,7 +29,7 @@ class GAircraft extends $pb.GeneratedMessage {
           ? ''
           : 'GAircraft',
       createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
+    ..oo(0, [1, 2, 3, 4])
     ..aOM<$10.GAirplane>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -46,6 +48,12 @@ class GAircraft extends $pb.GeneratedMessage {
             ? ''
             : 'gyrocopter',
         subBuilder: $12.GGyrocopter.create)
+    ..aOM<$13.GBalloon>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'balloon',
+        subBuilder: $13.GBalloon.create)
     ..hasRequiredFields = false;
 
   GAircraft._() : super();
@@ -53,6 +61,7 @@ class GAircraft extends $pb.GeneratedMessage {
     $10.GAirplane? airplane,
     $11.GHelicopter? helicopter,
     $12.GGyrocopter? gyrocopter,
+    $13.GBalloon? balloon,
   }) {
     final _result = create();
     if (airplane != null) {
@@ -63,6 +72,9 @@ class GAircraft extends $pb.GeneratedMessage {
     }
     if (gyrocopter != null) {
       _result.gyrocopter = gyrocopter;
+    }
+    if (balloon != null) {
+      _result.balloon = balloon;
     }
     return _result;
   }
@@ -136,6 +148,20 @@ class GAircraft extends $pb.GeneratedMessage {
   void clearGyrocopter() => clearField(3);
   @$pb.TagNumber(3)
   $12.GGyrocopter ensureGyrocopter() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $13.GBalloon get balloon => $_getN(3);
+  @$pb.TagNumber(4)
+  set balloon($13.GBalloon v) {
+    setField(4, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasBalloon() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBalloon() => clearField(4);
+  @$pb.TagNumber(4)
+  $13.GBalloon ensureBalloon() => $_ensure(3);
 }
 
 class GListOfAircraft extends $pb.GeneratedMessage {
