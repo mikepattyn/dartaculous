@@ -558,6 +558,12 @@ class DbClient {
     return lst;
   }
 
+  /// Creates new [DbQueryWithClient] (with saved link to client) object
+  /// for continue to constructing it later.
+  DbQueryWithClient newQuery() {
+    return DbQueryWithClient(this, []);
+  }
+
   Stream<Map<String, dynamic>> queryToStream(
     Map<String, Object> data, {
     Transaction? transaction,

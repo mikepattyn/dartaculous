@@ -472,13 +472,11 @@ void main() {
         allowImplicit: true,
       ));
 
-      var result = await testDbClient.removeDocument(
+      await testDbClient.removeDocument(
         testCollection,
         key,
         transaction: transaction,
       );
-
-      print(result);
 
       await testDbClient.commitTransaction(transaction);
 

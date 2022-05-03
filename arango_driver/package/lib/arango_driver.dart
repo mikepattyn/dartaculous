@@ -2,7 +2,6 @@
 /// and queries.
 library arango_driver;
 
-export 'src/db_client_query.dart';
 export 'src/collection_criteria.dart';
 export 'src/collection_type.dart';
 export 'src/create_database_info.dart';
