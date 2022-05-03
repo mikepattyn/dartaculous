@@ -82,8 +82,9 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
         getKnownSubclasses(protoReflected.knownSubClasses, Proto);
     var fieldDescriptors =
         _getFieldDescriptors(classElement, proto, forEnum: false);
-    final fieldDeclarations =
-        createFieldDeclarations(fieldDescriptors, externalProtoNames);
+    final fieldDeclarations = classElement.isAbstract
+        ? ''
+        : createFieldDeclarations(fieldDescriptors, externalProtoNames);
 
     final className = classElement.name;
     final fieldsMessage = _getFieldsMessage(
