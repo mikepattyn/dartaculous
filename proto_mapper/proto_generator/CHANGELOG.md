@@ -1,3 +1,7 @@
+## 3.3.1
+
+ - **FIX**: Solved excessive imports from protos containing messages for abstract classes.
+
 ## 3.3.0
 
  - **FEAT**: Multi-level hierarchy polymorphism.
