@@ -1,3 +1,7 @@
+## 3.2.0
+
+ - **FEAT**: CrudServiceMethods mixin supports transactions.
+
 ## 3.1.3
  - Updated dependencies
 

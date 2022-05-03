@@ -1,3 +1,8 @@
+## 3.1.0
+
+ - **FIX**: newQuery method moved from extension into DbClient.
+ - **FEAT**: Support for creating TTL indexes.
+
 ## 3.0.0
 
 > Note: This release has breaking changes.
