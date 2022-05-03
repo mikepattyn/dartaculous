@@ -223,6 +223,27 @@ class DbClient {
     return ret;
   }
 
+  /// Creates an index
+  /// See https://www.arangodb.com/docs/devel/http/indexes-working-with.html for details.
+  Future<IndexInfo> createTtlIndex(TtlIndexCriteria criteria) async {
+    final answer = await _httpPost([
+      '_db',
+      db,
+      '_api',
+      'index'
+    ], {
+      'name': criteria.indexName,
+      'type': 'ttl',
+      'fields': criteria.fieldNames,
+      'expireAfter': criteria.expireAfter,
+      'inBackground': criteria.inBackground,
+    }, queryParameters: {
+      'collection': criteria.collectionName,
+    });
+    final ret = _toIndexResult(answer);
+    return ret;
+  }
+
   /// Drops a collection
   /// https://www.arangodb.com/docs/stable/http/collection-creating.html#drops-a-collection
   Future<String> dropCollection(String name, {bool isSystem = false}) async {
@@ -444,7 +465,6 @@ class DbClient {
     final ret = _toOperationResult(answer);
     return ret;
   }
-
 
   /// Removes a document
   /// https://www.arangodb.com/docs/3.4/http/document-working-with-documents.html#removes-a-document
@@ -827,9 +847,9 @@ class DbClient {
       fields: List<String>.from(map['fields']),
       type: _indexTypeFromString(map['type']),
       unique: map['unique'],
-      deduplicate: map['deduplicate'],
+      deduplicate: map['deduplicate'] ?? false,
       sparse: map['sparse'],
-      selectivityEstimate: map['selectivityEstimate'].toDouble(),
+      selectivityEstimate: map['selectivityEstimate']?.toDouble() ?? 0,
     );
     return info;
   }

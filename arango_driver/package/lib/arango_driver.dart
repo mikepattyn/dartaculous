@@ -9,6 +9,7 @@ export 'src/create_database_info.dart';
 export 'src/database_user.dart';
 export 'src/db_client.dart';
 export 'src/index_criteria.dart';
+export 'src/ttl_index_criteria.dart';
 export 'src/index_type.dart';
 export 'src/query.dart';
 export 'src/db_query_with_client.dart';
