@@ -1,3 +1,7 @@
+## 2.1.1
+
+ - **FIX**: Delete method returns map from deleted entity.
+
 ## 2.1.0
 
 ### Changes
