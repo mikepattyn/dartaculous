@@ -1,3 +1,9 @@
+## 4.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FIX**: Deprecated transaction lifecycle from repository.
+
 ## 3.1.0
 
  - **FEAT**: Delete method returns deleted entity.

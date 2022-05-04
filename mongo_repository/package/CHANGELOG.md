@@ -1,3 +1,9 @@
+## 3.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FIX**: Deprecated transaction lifecycle from repository.
+
 ## 2.1.1
 
  - **FIX**: Delete method returns map from deleted entity.
