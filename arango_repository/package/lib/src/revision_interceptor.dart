@@ -41,12 +41,3 @@ mixin RevisionInterceptor<TEntity> on TenantFilteredArangoDbRepository<TEntity>
     };
   }
 }
-
-// mixin CreateRevisionWithIso8601Date {
-//   Map<String, dynamic> createRevision(DbPrincipal principal) {
-//     return {
-//       'userKey': principal.userKey,
-//       'revisionDate': DateTime.now().toUtc().toIso8601String()
-//     };
-//   }
-// }

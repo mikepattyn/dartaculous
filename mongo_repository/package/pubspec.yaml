@@ -19,3 +19,7 @@ dev_dependencies:
   nosql_repository_tests:
     path: ../../nosql_repository/test
   lints: ^1.0.1
+
+dependency_overrides:
+  nosql_repository:
+    path: ../../nosql_repository/nosql_repository 

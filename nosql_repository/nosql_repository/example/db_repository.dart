@@ -123,20 +123,4 @@ class DbRepository<T> extends Repository<T> {
   }) {
     throw UnimplementedError();
   }
-
-  @override
-  Future abortTransaction(RepositoryTransaction transaction) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<RepositoryTransaction> beginTransaction(
-      RepositoryTransactionOptions options) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future commitTransaction(RepositoryTransaction transaction) {
-    throw UnimplementedError();
-  }
 }

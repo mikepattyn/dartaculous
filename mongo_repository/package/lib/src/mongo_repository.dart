@@ -425,20 +425,4 @@ class MongoRepository<TEntity> extends Repository<TEntity> {
 
     pipeline.addStage(Project(map));
   }
-
-  @override
-  Future abortTransaction(RepositoryTransaction transaction) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<RepositoryTransaction> beginTransaction(
-      RepositoryTransactionOptions options) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future commitTransaction(RepositoryTransaction transaction) {
-    throw UnimplementedError();
-  }
 }

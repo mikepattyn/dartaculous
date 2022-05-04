@@ -1,1 +1,3 @@
-abstract class RepositoryTransaction {}
+abstract class RepositoryTransaction {
+  
+}

@@ -18,6 +18,7 @@ dev_dependencies:
   lints: ^1.0.1
   test: ^1.17.0
 
-# dependency_overrides:
-#   arango_driver:
-#     path: ../arango_driver
+dependency_overrides:
+  nosql_repository:
+    path: ../../nosql_repository/nosql_repository 
+  

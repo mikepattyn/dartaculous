@@ -2,10 +2,7 @@ import 'dart:async';
 
 import 'package:arango_driver/arango_driver.dart' hide Transaction;
 import 'package:arango_driver/arango_driver.dart' as driver show Transaction;
-import 'package:nosql_repository/nosql_repository.dart'
-    hide RepositoryTransaction, RepositoryTransactionOptions;
-import 'package:nosql_repository/nosql_repository.dart'
-    show RepositoryTransaction, RepositoryTransactionOptions;
+import 'package:nosql_repository/nosql_repository.dart';
 import 'package:squarealfa_security/squarealfa_security.dart';
 import 'package:tuple/tuple.dart';
 
@@ -13,6 +10,9 @@ import 'arangodb_repository_transaction.dart';
 import 'expression_rendering/context.dart';
 import 'expression_rendering/expression_extension.dart';
 import 'db_error_extension.dart';
+
+const _transactionDeprecationMessage =
+    'Use the database driver to create a transaction and wrap in inside an instance of ArangoDbRepositoryTransaction';
 
 abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
   ArangoDbRepositoryBase(this.db, this.collectionName);
@@ -306,6 +306,7 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
   }
 
   @override
+  @Deprecated(_transactionDeprecationMessage)
   Future<ArangoDbRepositoryTransaction> beginTransaction(
     RepositoryTransactionOptions options,
   ) async {
@@ -332,6 +333,7 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
   }
 
   @override
+  @Deprecated(_transactionDeprecationMessage)
   Future abortTransaction(RepositoryTransaction transaction) async {
     if (transaction is! ArangoDbRepositoryTransaction) {
       throw UnsupportedError(

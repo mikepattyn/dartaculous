@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:nosql_repository/nosql_repository.dart';
 
+const _transactionDeprecationMessage =
+    'Use the database driver to create a transaction and wrap in inside a subclass of RepositoryTransaction';
+
 /// Defines data access methods to a specific
 /// database collection.
 ///
@@ -233,8 +236,19 @@ abstract class Repository<TEntity> {
       ))
           .toList();
 
+  @Deprecated(_transactionDeprecationMessage)
   Future<RepositoryTransaction> beginTransaction(
-      RepositoryTransactionOptions options);
-  Future commitTransaction(RepositoryTransaction transaction);
-  Future abortTransaction(RepositoryTransaction transaction);
+      RepositoryTransactionOptions options) {
+    throw Deprecated(_transactionDeprecationMessage);
+  }
+
+  @Deprecated(_transactionDeprecationMessage)
+  Future commitTransaction(RepositoryTransaction transaction) {
+    throw Deprecated(_transactionDeprecationMessage);
+  }
+
+  @Deprecated(_transactionDeprecationMessage)
+  Future abortTransaction(RepositoryTransaction transaction) {
+    throw Deprecated(_transactionDeprecationMessage);
+  }
 }
