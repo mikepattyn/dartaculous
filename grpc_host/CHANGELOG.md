@@ -1,3 +1,7 @@
+## 3.3.0
+
+ - **FEAT**: Delete method returns deleted entity.
+
 ## 3.2.0
 
  - **FEAT**: CrudServiceMethods mixin supports transactions.
