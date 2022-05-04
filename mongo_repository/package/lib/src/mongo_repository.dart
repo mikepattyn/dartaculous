@@ -109,7 +109,7 @@ class MongoRepository<TEntity> extends Repository<TEntity> {
   }
 
   @override
-  Future delete(
+  Future<Map<String, dynamic>> delete(
     String key,
     DbPrincipal principal, {
     DeletePolicy? deletePolicy,
@@ -123,7 +123,9 @@ class MongoRepository<TEntity> extends Repository<TEntity> {
 
     try {
       final collection = await entityDb.collection;
-      await collection.remove(where.eq('_id', ObjectId.fromHexString(key)));
+      final deleted =
+          await collection.remove(where.eq('_id', ObjectId.fromHexString(key)));
+      return deleted;
     } on DbException {
       rethrow;
     } catch (ex) {
