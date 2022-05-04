@@ -161,7 +161,7 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
   }
 
   @override
-  Future delete(
+  Future<Map<String, dynamic>> delete(
     String key,
     DbPrincipal principal, {
     DeletePolicy? deletePolicy,
@@ -183,6 +183,7 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
     } on DbError catch (error) {
       throw error.toDbException();
     }
+    return map;
   }
 
   @override

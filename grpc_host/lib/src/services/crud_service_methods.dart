@@ -17,15 +17,17 @@ mixin CrudServiceMethods<TEntity extends Object> on EntityServices<TEntity> {
     return entity;
   }
 
-  Future deleteByKeyValue(
+  Future<TEntity> deleteByKeyValue(
     String keyValue, {
     RepositoryTransaction? transaction,
   }) async {
-    await repository.delete(
+    final map = await repository.delete(
       keyValue,
       principal,
       transaction: transaction,
     );
+    final entity = mapMapper.fromMap(map);
+    return entity;
   }
 
   Future<TEntity> getByKeyValue(
