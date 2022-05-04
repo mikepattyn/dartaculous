@@ -451,10 +451,6 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
     throw Unauthorized();
   }
 
-  // String _handleResult(DocumentOperationResult operationResult) {
-  //   return operationResult.identifier.key;
-  // }
-
   Tuple2<String, Map<String, dynamic>> _createFilters(SearchCriteria criteria) {
     var context = Context();
     var buffer = StringBuffer();
@@ -577,17 +573,6 @@ abstract class ArangoDbRepositoryBase<TEntity> extends Repository<TEntity> {
     var sanitized = path.replaceAll(RegExp(r'[^a-zA-Z0-9\.\_]'), '');
     return sanitized;
   }
-
-  // void _handleResultError(Result result) {
-  //   if (!result.error) {
-  //     return;
-  //   }
-  //   throw DbException(
-  //     message: result.errorMessage,
-  //     code: result.code.toString(),
-  //     number: result.errorNum.toString(),
-  //   );
-  // }
 
   List<String> _repositoryCollectionNames(List<Repository> repositories) {
     final names = repositories

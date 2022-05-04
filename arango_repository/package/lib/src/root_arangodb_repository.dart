@@ -9,12 +9,13 @@ class RootArangoDbRepository<TEntity> extends ArangoDbRepositoryBase<TEntity> {
       : super(db, collectionName);
 
   @override
-  void addAuthFilterToQuery(
-      {required DbQueryWithClient query,
-      required String collectionName,
-      required DbPrincipal principal,
-      required String action,
-      required bool filterByTenant}) {
+  void addAuthFilterToQuery({
+    required DbQueryWithClient query,
+    required String collectionName,
+    required DbPrincipal principal,
+    required String action,
+    required bool filterByTenant,
+  }) {
     // no added filtering
   }
 
