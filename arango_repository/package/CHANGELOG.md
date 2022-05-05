@@ -1,3 +1,9 @@
+## 5.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FIX**: Deprecating classes that are too specific to be part of this framework.
+
 ## 4.0.0
 
 > Note: This release has breaking changes.
