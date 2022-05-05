@@ -15,7 +15,7 @@ class ArangoRepositoryTestHandler extends RepositoryTestHandler {
     final testDbClient = await _connectTestDb();
     await _ensureEmptyTestCollection(testDbClient, 'recipes');
     final repository =
-        ArangoDbRepositoryIso8601RevDate<Recipe>(testDbClient, 'recipes');
+        TenantFilteredArangoDbRepository<Recipe>(testDbClient, 'recipes');
     return repository;
   }
 

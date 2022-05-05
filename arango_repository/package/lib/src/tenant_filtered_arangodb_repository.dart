@@ -10,6 +10,7 @@ class TenantFilteredArangoDbRepository<TEntity>
     String collectionName,
   ) : super(db, collectionName);
 
+  
   Map<String, dynamic> getOrCreateMetaForCreate(
           Map<String, dynamic> map, DbPrincipal principal) =>
       _getOrCreateMeta(map);

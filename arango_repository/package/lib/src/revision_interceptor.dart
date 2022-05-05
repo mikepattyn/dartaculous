@@ -1,10 +1,12 @@
 import 'package:arangodb_repository/arangodb_repository.dart';
 import 'package:nosql_repository/nosql_repository.dart';
 
+@Deprecated('This class will be removed in a later version')
 abstract class IRevisionDateMapper {
   dynamic mapDate(DateTime revisionDate);
 }
 
+@Deprecated('This class will be removed in a later version')
 mixin RevisionInterceptor<TEntity> on TenantFilteredArangoDbRepository<TEntity>
     implements IRevisionDateMapper {
   @override
