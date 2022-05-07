@@ -1,6 +1,7 @@
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 
 import 'bicycle.dart';
+import 'entity.dart';
 import 'scooter.dart';
 
 part 'abstract_vehicle.g.dart';
@@ -9,7 +10,7 @@ part 'abstract_vehicle.g.dart';
   Bicycle,
   Scooter,
 ])
-abstract class AbstractVehicle {
+abstract class AbstractVehicle implements Entity {
   final int weight;
   AbstractVehicle({
     required this.weight,

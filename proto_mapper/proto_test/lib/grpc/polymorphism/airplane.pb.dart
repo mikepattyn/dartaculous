@@ -33,6 +33,11 @@ class GAirplane extends $pb.GeneratedMessage {
             ? ''
             : 'wingspan',
         $pb.PbFieldType.O3)
+    ..aOS(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'key')
     ..hasRequiredFields = false;
 
   GAirplane._() : super();
@@ -40,6 +45,7 @@ class GAirplane extends $pb.GeneratedMessage {
     $core.int? weight,
     $core.int? serviceCeiling,
     $core.int? wingspan,
+    $core.String? key,
   }) {
     final _result = create();
     if (weight != null) {
@@ -50,6 +56,9 @@ class GAirplane extends $pb.GeneratedMessage {
     }
     if (wingspan != null) {
       _result.wingspan = wingspan;
+    }
+    if (key != null) {
+      _result.key = key;
     }
     return _result;
   }
@@ -114,6 +123,18 @@ class GAirplane extends $pb.GeneratedMessage {
   $core.bool hasWingspan() => $_has(2);
   @$pb.TagNumber(3)
   void clearWingspan() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get key => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set key($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasKey() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearKey() => clearField(4);
 }
 
 class GListOfAirplane extends $pb.GeneratedMessage {

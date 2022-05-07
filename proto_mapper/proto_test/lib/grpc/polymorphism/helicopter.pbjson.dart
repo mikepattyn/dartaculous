@@ -15,12 +15,13 @@ const GHelicopter$json = {
   '2': [
     {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
     {'1': 'service_ceiling', '3': 2, '4': 1, '5': 5, '10': 'serviceCeiling'},
+    {'1': 'key', '3': 3, '4': 1, '5': 9, '10': 'key'},
   ],
 };
 
 /// Descriptor for `GHelicopter`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gHelicopterDescriptor = $convert.base64Decode(
-    'CgtHSGVsaWNvcHRlchIWCgZ3ZWlnaHQYASABKAVSBndlaWdodBInCg9zZXJ2aWNlX2NlaWxpbmcYAiABKAVSDnNlcnZpY2VDZWlsaW5n');
+    'CgtHSGVsaWNvcHRlchIWCgZ3ZWlnaHQYASABKAVSBndlaWdodBInCg9zZXJ2aWNlX2NlaWxpbmcYAiABKAVSDnNlcnZpY2VDZWlsaW5nEhAKA2tleRgDIAEoCVIDa2V5');
 @$core.Deprecated('Use gListOfHelicopterDescriptor instead')
 const GListOfHelicopter$json = {
   '1': 'GListOfHelicopter',

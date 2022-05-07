@@ -1,5 +1,5 @@
-import 'package:proto_generator_test/grpc/polymorphism/airplane.pb.dart';
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/polymorphism/airplane.pb.dart';
 
 import 'aircraft.dart';
 
@@ -10,11 +10,15 @@ part 'airplane.g.dart';
 class Airplane extends Aircraft {
   Airplane({
     required int weight,
-    required this.wingspan,
     required int serviceCeiling,
+    required this.wingspan,
+    required this.key,
   }) : super(weight: weight, serviceCeiling: serviceCeiling);
 
   final int wingspan;
+
+  @override
+  final String key;
 
   @override
   bool operator ==(Object other) {

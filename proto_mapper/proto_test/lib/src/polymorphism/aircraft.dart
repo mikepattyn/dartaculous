@@ -4,6 +4,7 @@ import 'package:proto_generator_test/src/polymorphism/airplane.dart';
 import 'package:proto_generator_test/src/polymorphism/balloon.dart';
 import 'package:proto_generator_test/src/polymorphism/rotorcraft.dart';
 
+import 'entity.dart';
 import 'gyrocopter.dart';
 import 'helicopter.dart';
 import 'vehicle.dart';
@@ -18,7 +19,7 @@ const knownSubClasses = [
 
 @Proto(knownSubClasses: knownSubClasses)
 @MapProto(knownSubClasses: knownSubClasses)
-abstract class Aircraft extends Vehicle {
+abstract class Aircraft extends Vehicle implements Entity {
   final int serviceCeiling;
   Aircraft({
     required this.serviceCeiling,

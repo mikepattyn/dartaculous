@@ -17,6 +17,7 @@ message GBicycle
 {
   int32 weight = 1;
   string wheel_diamater = 2;
+  string key = 3;
 
 }   
 

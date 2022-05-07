@@ -30,6 +30,7 @@ GBicycle _$BicycleToProto(Bicycle instance) {
 
   proto.weight = instance.weight;
   proto.wheelDiamater = instance.wheelDiamater.toString();
+  proto.key = instance.key;
 
   return proto;
 }
@@ -37,6 +38,7 @@ GBicycle _$BicycleToProto(Bicycle instance) {
 Bicycle _$BicycleFromProto(GBicycle instance) => Bicycle(
       wheelDiamater: Decimal.parse(instance.wheelDiamater),
       weight: instance.weight,
+      key: instance.key,
     );
 
 extension $BicycleProtoExtension on Bicycle {

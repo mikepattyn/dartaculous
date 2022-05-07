@@ -13,11 +13,13 @@ class Car extends Vehicle {
 
   final int numberOfDoors;
 
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-
-    return other is Car && other.numberOfDoors == numberOfDoors;
+  
+    return other is Car &&
+      other.numberOfDoors == numberOfDoors;
   }
 
   @override

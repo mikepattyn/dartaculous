@@ -1,5 +1,6 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/polymorphism/abstract_vehicle.pb.dart';
+import 'package:proto_generator_test/src/polymorphism/entity.dart';
 
 import 'bicycle.dart';
 import 'scooter.dart';
@@ -13,7 +14,7 @@ const knownSubClasses = [
 
 @Proto(knownSubClasses: knownSubClasses)
 @MapProto(knownSubClasses: knownSubClasses)
-abstract class AbstractVehicle {
+abstract class AbstractVehicle implements Entity {
   final int weight;
   AbstractVehicle({
     required this.weight,

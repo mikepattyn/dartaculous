@@ -8,7 +8,11 @@ part 'scooter.g.dart';
 @proto
 @mapProto
 class Scooter extends AbstractVehicle {
+  @override
+  final String key;
+
   Scooter({
     required int weight,
+    required this.key,
   }) : super(weight: weight);
 }

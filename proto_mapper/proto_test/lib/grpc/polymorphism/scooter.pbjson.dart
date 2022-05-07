@@ -14,12 +14,13 @@ const GScooter$json = {
   '1': 'GScooter',
   '2': [
     {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
+    {'1': 'key', '3': 2, '4': 1, '5': 9, '10': 'key'},
   ],
 };
 
 /// Descriptor for `GScooter`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gScooterDescriptor =
-    $convert.base64Decode('CghHU2Nvb3RlchIWCgZ3ZWlnaHQYASABKAVSBndlaWdodA==');
+final $typed_data.Uint8List gScooterDescriptor = $convert.base64Decode(
+    'CghHU2Nvb3RlchIWCgZ3ZWlnaHQYASABKAVSBndlaWdodBIQCgNrZXkYAiABKAlSA2tleQ==');
 @$core.Deprecated('Use gListOfScooterDescriptor instead')
 const GListOfScooter$json = {
   '1': 'GListOfScooter',

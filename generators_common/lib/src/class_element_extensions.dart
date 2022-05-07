@@ -73,7 +73,7 @@ extension ClassElementFieldExtension on ClassElement {
     final manager = InheritanceManager3();
 
     if (includeInherited) {
-      for (final v in manager.getInheritedMap2(this).values) {
+      for (final v in manager.getInheritedConcreteMap2(this).values) {
         assert(v is! FieldElement);
         if (_dartCoreObjectChecker.isExactly(v.enclosingElement)) {
           continue;
@@ -116,21 +116,21 @@ extension ClassElementFieldExtension on ClassElement {
       {required Iterable<FieldDescriptorBase> fieldDescriptors,
       bool allowMissingFields = false,
       Set<String> missingFields = const <String>{}}) {
-    final constructors = this.constructors
-        .where((constructor) => fieldDescriptors.every((fd) {
-      final match = !fd.isFinal ||
-          fd.isNullable ||
-          //fd.isLate ||
-          constructor.parameters.any((cp) => cp.name == fd.name);
-      if (!match) {
-        missingFields.add(fd.displayName);
-        if (allowMissingFields) {
-          print('WARNING: missing field ${fd.displayName}');
-          return true;
-        }
-      }
-      return match;
-    }));
+    final constructors =
+        this.constructors.where((constructor) => fieldDescriptors.every((fd) {
+              final match = !fd.isFinal ||
+                  fd.isNullable ||
+                  //fd.isLate ||
+                  constructor.parameters.any((cp) => cp.name == fd.name);
+              if (!match) {
+                missingFields.add(fd.displayName);
+                if (allowMissingFields) {
+                  print('WARNING: missing field ${fd.displayName}');
+                  return true;
+                }
+              }
+              return match;
+            }));
     return constructors;
   }
 }

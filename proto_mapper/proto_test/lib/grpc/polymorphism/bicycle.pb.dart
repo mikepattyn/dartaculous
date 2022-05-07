@@ -26,12 +26,18 @@ class GBicycle extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'wheelDiamater')
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'key')
     ..hasRequiredFields = false;
 
   GBicycle._() : super();
   factory GBicycle({
     $core.int? weight,
     $core.String? wheelDiamater,
+    $core.String? key,
   }) {
     final _result = create();
     if (weight != null) {
@@ -39,6 +45,9 @@ class GBicycle extends $pb.GeneratedMessage {
     }
     if (wheelDiamater != null) {
       _result.wheelDiamater = wheelDiamater;
+    }
+    if (key != null) {
+      _result.key = key;
     }
     return _result;
   }
@@ -91,6 +100,18 @@ class GBicycle extends $pb.GeneratedMessage {
   $core.bool hasWheelDiamater() => $_has(1);
   @$pb.TagNumber(2)
   void clearWheelDiamater() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get key => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set key($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasKey() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearKey() => clearField(3);
 }
 
 class GListOfBicycle extends $pb.GeneratedMessage {

@@ -24,7 +24,10 @@ void main() {
 
     test('airplane test', () {
       final airplane = Airplane(
-          serviceCeiling: Decimal.fromInt(10000), wingspan: 10, weight: 1500);
+          key: 'at',
+          serviceCeiling: Decimal.fromInt(10000),
+          wingspan: 10,
+          weight: 1500);
       final mairplane = airplane.toMap();
       final airplane2 = mairplane.toAirplane();
 
@@ -42,7 +45,8 @@ void main() {
     });
 
     test('bicycle test', () {
-      final bicycle = Bicycle(wheelDiamater: Decimal.fromInt(20), weight: 1500);
+      final bicycle =
+          Bicycle(key: 'a', wheelDiamater: Decimal.fromInt(20), weight: 1500);
       final mbicycle = bicycle.toMap();
       final bicycle2 = mbicycle.toBicycle();
 
@@ -50,7 +54,7 @@ void main() {
     });
 
     test('scooter test', () {
-      final scooter = Scooter(weight: 1500);
+      final scooter = Scooter(key: 'b', weight: 1500);
       final mscooter = scooter.toMap();
       final scooter2 = mscooter.toScooter();
 
@@ -67,7 +71,10 @@ void main() {
     });
     test('poly-airplane test', () {
       final Vehicle vehicle = Airplane(
-          serviceCeiling: Decimal.fromInt(11000), wingspan: 13, weight: 1500);
+          key: 'pat',
+          serviceCeiling: Decimal.fromInt(11000),
+          wingspan: 13,
+          weight: 1500);
       final mvehicle = vehicle.toMap();
       final vehicle2 = mvehicle.toVehicle();
 
@@ -76,8 +83,8 @@ void main() {
     });
 
     test('poly-helicopter test', () {
-      final Vehicle vehicle =
-          Helicopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final Vehicle vehicle = Helicopter(
+          key: 'pht', serviceCeiling: Decimal.fromInt(11000), weight: 1500);
       final mvehicle = vehicle.toMap();
       final vehicle2 = mvehicle.toVehicle();
 
@@ -86,8 +93,8 @@ void main() {
     });
 
     test('poly-gyropcopter test', () {
-      final Vehicle vehicle =
-          Gyrocopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final Vehicle vehicle = Gyrocopter(
+          key: 'pgt', serviceCeiling: Decimal.fromInt(11000), weight: 1500);
       final mvehicle = vehicle.toMap();
       final vehicle2 = mvehicle.toVehicle();
 
@@ -97,7 +104,10 @@ void main() {
 
     test('poly-aircraft-airplane test', () {
       final Aircraft aircraft = Airplane(
-          serviceCeiling: Decimal.fromInt(11000), wingspan: 13, weight: 1500);
+          key: 'paat',
+          serviceCeiling: Decimal.fromInt(11000),
+          wingspan: 13,
+          weight: 1500);
       final mvehicle = aircraft.toMap();
       final vehicle2 = mvehicle.toVehicle();
 
@@ -106,8 +116,8 @@ void main() {
     });
 
     test('poly-aircraft-helicopter test', () {
-      final Aircraft aircraft =
-          Helicopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final Aircraft aircraft = Helicopter(
+          key: 'paht', serviceCeiling: Decimal.fromInt(11000), weight: 1500);
       final mvehicle = aircraft.toMap();
       final vehicle2 = mvehicle.toVehicle();
 
@@ -116,8 +126,8 @@ void main() {
     });
 
     test('poly-aircraft-gyrocopter test', () {
-      final Aircraft aircraft =
-          Gyrocopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final Aircraft aircraft = Gyrocopter(
+          key: 'pagt', serviceCeiling: Decimal.fromInt(11000), weight: 1500);
       final mvehicle = aircraft.toMap();
       final vehicle2 = mvehicle.toVehicle();
 
@@ -126,8 +136,8 @@ void main() {
     });
 
     test('poly-rotorcraft-helicopter test', () {
-      final Rotorcraft aircraft =
-          Helicopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final Rotorcraft aircraft = Helicopter(
+          key: 'prht', serviceCeiling: Decimal.fromInt(11000), weight: 1500);
       final mvehicle = aircraft.toMap();
       final vehicle2 = mvehicle.toVehicle();
 
@@ -136,8 +146,8 @@ void main() {
     });
 
     test('poly-rotorcraft-gyrocopter test', () {
-      final Rotorcraft aircraft =
-          Gyrocopter(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final Rotorcraft aircraft = Gyrocopter(
+          key: 'prgt', serviceCeiling: Decimal.fromInt(11000), weight: 1500);
       final mvehicle = aircraft.toMap();
       final vehicle2 = mvehicle.toRotorcraft();
 
@@ -146,8 +156,8 @@ void main() {
     });
 
     test('poly-balloon test', () {
-      final Vehicle aircraft =
-          Balloon(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final Vehicle aircraft = Balloon(
+          key: 'pbs', serviceCeiling: Decimal.fromInt(11000), weight: 1500);
       final mvehicle = aircraft.toMap();
       final vehicle2 = mvehicle.toVehicle();
 
@@ -156,8 +166,8 @@ void main() {
     });
 
     test('poly-aircraft-balloon test', () {
-      final Aircraft aircraft =
-          Balloon(serviceCeiling: Decimal.fromInt(11000), weight: 1500);
+      final Aircraft aircraft = Balloon(
+          key: 'pabt', serviceCeiling: Decimal.fromInt(11000), weight: 1500);
       final mvehicle = aircraft.toMap();
       final vehicle2 = mvehicle.toAircraft();
 
@@ -168,7 +178,10 @@ void main() {
     test('multi poly test', () {
       final car = Car(numberOfDoors: 4, weight: 1500);
       final airplane = Airplane(
-          serviceCeiling: Decimal.fromInt(9500), wingspan: 13, weight: 1500);
+          key: 'mpt',
+          serviceCeiling: Decimal.fromInt(9500),
+          wingspan: 13,
+          weight: 1500);
       final vehicle = Vehicle(weight: 1500);
 
       final vehicles = <Vehicle>[car, vehicle, airplane];
@@ -190,7 +203,7 @@ void main() {
 
     test('poly-bicycle test', () {
       final AbstractVehicle vehicle =
-          Bicycle(wheelDiamater: Decimal.fromInt(20), weight: 1500);
+          Bicycle(key: 'c', wheelDiamater: Decimal.fromInt(20), weight: 1500);
       final mvehicle = vehicle.toMap();
       final vehicle2 = mvehicle.toAbstractVehicle();
 
@@ -199,7 +212,7 @@ void main() {
     });
 
     test('poly-scooter test', () {
-      final AbstractVehicle vehicle = Scooter(weight: 1500);
+      final AbstractVehicle vehicle = Scooter(key: 'd', weight: 1500);
       final mvehicle = vehicle.toMap();
       final vehicle2 = mvehicle.toAbstractVehicle();
 
@@ -208,8 +221,9 @@ void main() {
     });
 
     test('multi abstract poly test', () {
-      final bicycle = Bicycle(wheelDiamater: Decimal.fromInt(20), weight: 1500);
-      final scooter = Scooter(weight: 1500);
+      final bicycle = Bicycle(
+          key: 'mapt', wheelDiamater: Decimal.fromInt(20), weight: 1500);
+      final scooter = Scooter(key: 'a', weight: 1500);
 
       final abstractVehicles = <AbstractVehicle>[bicycle, scooter];
       final maps = abstractVehicles.map((v) => v.toMap());

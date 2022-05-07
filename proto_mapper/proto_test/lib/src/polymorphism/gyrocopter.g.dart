@@ -32,6 +32,7 @@ GGyrocopter _$GyrocopterToProto(Gyrocopter instance) {
 
   proto.weight = instance.weight;
   proto.serviceCeiling = instance.serviceCeiling;
+  proto.key = instance.key;
 
   return proto;
 }
@@ -39,6 +40,7 @@ GGyrocopter _$GyrocopterToProto(Gyrocopter instance) {
 Gyrocopter _$GyrocopterFromProto(GGyrocopter instance) => Gyrocopter(
       weight: instance.weight,
       serviceCeiling: instance.serviceCeiling,
+      key: instance.key,
     );
 
 extension $GyrocopterProtoExtension on Gyrocopter {

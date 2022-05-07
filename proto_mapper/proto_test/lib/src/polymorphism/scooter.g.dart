@@ -29,12 +29,14 @@ GScooter _$ScooterToProto(Scooter instance) {
   var proto = GScooter();
 
   proto.weight = instance.weight;
+  proto.key = instance.key;
 
   return proto;
 }
 
 Scooter _$ScooterFromProto(GScooter instance) => Scooter(
       weight: instance.weight,
+      key: instance.key,
     );
 
 extension $ScooterProtoExtension on Scooter {

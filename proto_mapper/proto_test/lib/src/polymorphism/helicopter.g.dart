@@ -32,6 +32,7 @@ GHelicopter _$HelicopterToProto(Helicopter instance) {
 
   proto.weight = instance.weight;
   proto.serviceCeiling = instance.serviceCeiling;
+  proto.key = instance.key;
 
   return proto;
 }
@@ -39,6 +40,7 @@ GHelicopter _$HelicopterToProto(Helicopter instance) {
 Helicopter _$HelicopterFromProto(GHelicopter instance) => Helicopter(
       weight: instance.weight,
       serviceCeiling: instance.serviceCeiling,
+      key: instance.key,
     );
 
 extension $HelicopterProtoExtension on Helicopter {

@@ -14,13 +14,14 @@ const GBalloon$json = {
   '1': 'GBalloon',
   '2': [
     {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
-    {'1': 'service_ceiling', '3': 2, '4': 1, '5': 5, '10': 'serviceCeiling'},
+    {'1': 'key', '3': 2, '4': 1, '5': 9, '10': 'key'},
+    {'1': 'service_ceiling', '3': 3, '4': 1, '5': 5, '10': 'serviceCeiling'},
   ],
 };
 
 /// Descriptor for `GBalloon`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gBalloonDescriptor = $convert.base64Decode(
-    'CghHQmFsbG9vbhIWCgZ3ZWlnaHQYASABKAVSBndlaWdodBInCg9zZXJ2aWNlX2NlaWxpbmcYAiABKAVSDnNlcnZpY2VDZWlsaW5n');
+    'CghHQmFsbG9vbhIWCgZ3ZWlnaHQYASABKAVSBndlaWdodBIQCgNrZXkYAiABKAlSA2tleRInCg9zZXJ2aWNlX2NlaWxpbmcYAyABKAVSDnNlcnZpY2VDZWlsaW5n');
 @$core.Deprecated('Use gListOfBalloonDescriptor instead')
 const GListOfBalloon$json = {
   '1': 'GListOfBalloon',

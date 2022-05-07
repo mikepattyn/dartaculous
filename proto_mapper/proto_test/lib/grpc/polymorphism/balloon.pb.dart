@@ -21,8 +21,13 @@ class GBalloon extends $pb.GeneratedMessage {
             ? ''
             : 'weight',
         $pb.PbFieldType.O3)
-    ..a<$core.int>(
+    ..aOS(
         2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'key')
+    ..a<$core.int>(
+        3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'serviceCeiling',
@@ -32,11 +37,15 @@ class GBalloon extends $pb.GeneratedMessage {
   GBalloon._() : super();
   factory GBalloon({
     $core.int? weight,
+    $core.String? key,
     $core.int? serviceCeiling,
   }) {
     final _result = create();
     if (weight != null) {
       _result.weight = weight;
+    }
+    if (key != null) {
+      _result.key = key;
     }
     if (serviceCeiling != null) {
       _result.serviceCeiling = serviceCeiling;
@@ -82,16 +91,28 @@ class GBalloon extends $pb.GeneratedMessage {
   void clearWeight() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get serviceCeiling => $_getIZ(1);
+  $core.String get key => $_getSZ(1);
   @$pb.TagNumber(2)
-  set serviceCeiling($core.int v) {
-    $_setSignedInt32(1, v);
+  set key($core.String v) {
+    $_setString(1, v);
   }
 
   @$pb.TagNumber(2)
-  $core.bool hasServiceCeiling() => $_has(1);
+  $core.bool hasKey() => $_has(1);
   @$pb.TagNumber(2)
-  void clearServiceCeiling() => clearField(2);
+  void clearKey() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get serviceCeiling => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set serviceCeiling($core.int v) {
+    $_setSignedInt32(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasServiceCeiling() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearServiceCeiling() => clearField(3);
 }
 
 class GListOfBalloon extends $pb.GeneratedMessage {

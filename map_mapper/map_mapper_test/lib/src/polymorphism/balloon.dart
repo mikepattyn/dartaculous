@@ -9,6 +9,7 @@ class Balloon implements Aircraft {
   Balloon({
     required this.serviceCeiling,
     required this.weight,
+    required this.key,
   });
 
   @override
@@ -18,14 +19,18 @@ class Balloon implements Aircraft {
   final int weight;
 
   @override
+  final String key;
+
+  @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
     return other is Balloon &&
         other.serviceCeiling == serviceCeiling &&
-        other.weight == weight;
+        other.weight == weight &&
+        other.key == key;
   }
 
   @override
-  int get hashCode => serviceCeiling.hashCode ^ weight.hashCode;
+  int get hashCode => serviceCeiling.hashCode ^ weight.hashCode ^ key.hashCode;
 }

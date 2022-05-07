@@ -27,12 +27,18 @@ class GGyrocopter extends $pb.GeneratedMessage {
             ? ''
             : 'serviceCeiling',
         $pb.PbFieldType.O3)
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'key')
     ..hasRequiredFields = false;
 
   GGyrocopter._() : super();
   factory GGyrocopter({
     $core.int? weight,
     $core.int? serviceCeiling,
+    $core.String? key,
   }) {
     final _result = create();
     if (weight != null) {
@@ -40,6 +46,9 @@ class GGyrocopter extends $pb.GeneratedMessage {
     }
     if (serviceCeiling != null) {
       _result.serviceCeiling = serviceCeiling;
+    }
+    if (key != null) {
+      _result.key = key;
     }
     return _result;
   }
@@ -92,6 +101,18 @@ class GGyrocopter extends $pb.GeneratedMessage {
   $core.bool hasServiceCeiling() => $_has(1);
   @$pb.TagNumber(2)
   void clearServiceCeiling() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get key => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set key($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasKey() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearKey() => clearField(3);
 }
 
 class GListOfGyrocopter extends $pb.GeneratedMessage {

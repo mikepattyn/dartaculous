@@ -29,6 +29,7 @@ GBalloon _$BalloonToProto(Balloon instance) {
   var proto = GBalloon();
 
   proto.weight = instance.weight;
+  proto.key = instance.key;
   proto.serviceCeiling = instance.serviceCeiling;
 
   return proto;
@@ -36,6 +37,7 @@ GBalloon _$BalloonToProto(Balloon instance) {
 
 Balloon _$BalloonFromProto(GBalloon instance) => Balloon(
       weight: instance.weight,
+      key: instance.key,
       serviceCeiling: instance.serviceCeiling,
     );
 

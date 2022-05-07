@@ -77,9 +77,10 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     // let's get all the constructors which cover all non-nullable final fields
     final missingFields = <String>{};
     final constructors = _classElement!.getConstructorsMatchingFields(
-        fieldDescriptors: fieldDescriptors,
-        allowMissingFields: mapProto.allowMissingFields,
-        missingFields: missingFields);
+      fieldDescriptors: fieldDescriptors,
+      allowMissingFields: mapProto.allowMissingFields,
+      missingFields: missingFields,
+    );
     // let's just pick the first of the valid constructors
     final constructor = constructors.isEmpty
         ? throw InvalidGenerationSourceError(

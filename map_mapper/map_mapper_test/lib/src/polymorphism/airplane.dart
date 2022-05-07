@@ -11,6 +11,7 @@ class Airplane extends Aircraft {
     required Decimal serviceCeiling,
     required int weight,
     required this.wingspan,
+    required this.key,
   }) : super(
           serviceCeiling: serviceCeiling,
           weight: weight,
@@ -19,12 +20,15 @@ class Airplane extends Aircraft {
   final int wingspan;
 
   @override
+  final String key;
+
+  @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Airplane && other.wingspan == wingspan;
+    return other is Airplane && other.wingspan == wingspan && other.key == key;
   }
 
   @override
-  int get hashCode => wingspan.hashCode;
+  int get hashCode => wingspan.hashCode ^ key.hashCode;
 }

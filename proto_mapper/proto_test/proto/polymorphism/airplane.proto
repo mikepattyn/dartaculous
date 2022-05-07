@@ -18,6 +18,7 @@ message GAirplane
   int32 weight = 1;
   int32 service_ceiling = 2;
   int32 wingspan = 3;
+  string key = 4;
 
 }   
 

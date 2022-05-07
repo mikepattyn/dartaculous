@@ -13,14 +13,13 @@ syntax = "proto3";
 
 
   
-message GScooter
+message GEntity
 {
-  int32 weight = 1;
-  string key = 2;
+  string key = 1;
 
 }   
 
-message GListOfScooter
+message GListOfEntity
 {
-  repeated GScooter items = 1;
+  repeated GEntity items = 1;
 }

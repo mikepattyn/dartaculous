@@ -16,7 +16,8 @@ syntax = "proto3";
 message GBalloon
 {
   int32 weight = 1;
-  int32 service_ceiling = 2;
+  string key = 2;
+  int32 service_ceiling = 3;
 
 }   
 

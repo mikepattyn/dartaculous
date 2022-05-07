@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: polymorphism/scooter.proto
+//  source: polymorphism/entity.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
@@ -9,108 +9,86 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class GScooter extends $pb.GeneratedMessage {
+class GEntity extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
           ? ''
-          : 'GScooter',
+          : 'GEntity',
       createEmptyInstance: create)
-    ..a<$core.int>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'weight',
-        $pb.PbFieldType.O3)
     ..aOS(
-        2,
+        1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'key')
     ..hasRequiredFields = false;
 
-  GScooter._() : super();
-  factory GScooter({
-    $core.int? weight,
+  GEntity._() : super();
+  factory GEntity({
     $core.String? key,
   }) {
     final _result = create();
-    if (weight != null) {
-      _result.weight = weight;
-    }
     if (key != null) {
       _result.key = key;
     }
     return _result;
   }
-  factory GScooter.fromBuffer($core.List<$core.int> i,
+  factory GEntity.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory GScooter.fromJson($core.String i,
+  factory GEntity.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
-  GScooter clone() => GScooter()..mergeFromMessage(this);
+  GEntity clone() => GEntity()..mergeFromMessage(this);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
-  GScooter copyWith(void Function(GScooter) updates) =>
-      super.copyWith((message) => updates(message as GScooter))
-          as GScooter; // ignore: deprecated_member_use
+  GEntity copyWith(void Function(GEntity) updates) =>
+      super.copyWith((message) => updates(message as GEntity))
+          as GEntity; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static GScooter create() => GScooter._();
-  GScooter createEmptyInstance() => create();
-  static $pb.PbList<GScooter> createRepeated() => $pb.PbList<GScooter>();
+  static GEntity create() => GEntity._();
+  GEntity createEmptyInstance() => create();
+  static $pb.PbList<GEntity> createRepeated() => $pb.PbList<GEntity>();
   @$core.pragma('dart2js:noInline')
-  static GScooter getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GScooter>(create);
-  static GScooter? _defaultInstance;
+  static GEntity getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GEntity>(create);
+  static GEntity? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get weight => $_getIZ(0);
+  $core.String get key => $_getSZ(0);
   @$pb.TagNumber(1)
-  set weight($core.int v) {
-    $_setSignedInt32(0, v);
-  }
-
-  @$pb.TagNumber(1)
-  $core.bool hasWeight() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearWeight() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get key => $_getSZ(1);
-  @$pb.TagNumber(2)
   set key($core.String v) {
-    $_setString(1, v);
+    $_setString(0, v);
   }
 
-  @$pb.TagNumber(2)
-  $core.bool hasKey() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearKey() => clearField(2);
+  @$pb.TagNumber(1)
+  $core.bool hasKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearKey() => clearField(1);
 }
 
-class GListOfScooter extends $pb.GeneratedMessage {
+class GListOfEntity extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
           ? ''
-          : 'GListOfScooter',
+          : 'GListOfEntity',
       createEmptyInstance: create)
-    ..pc<GScooter>(
+    ..pc<GEntity>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'items',
         $pb.PbFieldType.PM,
-        subBuilder: GScooter.create)
+        subBuilder: GEntity.create)
     ..hasRequiredFields = false;
 
-  GListOfScooter._() : super();
-  factory GListOfScooter({
-    $core.Iterable<GScooter>? items,
+  GListOfEntity._() : super();
+  factory GListOfEntity({
+    $core.Iterable<GEntity>? items,
   }) {
     final _result = create();
     if (items != null) {
@@ -118,33 +96,33 @@ class GListOfScooter extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GListOfScooter.fromBuffer($core.List<$core.int> i,
+  factory GListOfEntity.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory GListOfScooter.fromJson($core.String i,
+  factory GListOfEntity.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
-  GListOfScooter clone() => GListOfScooter()..mergeFromMessage(this);
+  GListOfEntity clone() => GListOfEntity()..mergeFromMessage(this);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
-  GListOfScooter copyWith(void Function(GListOfScooter) updates) =>
-      super.copyWith((message) => updates(message as GListOfScooter))
-          as GListOfScooter; // ignore: deprecated_member_use
+  GListOfEntity copyWith(void Function(GListOfEntity) updates) =>
+      super.copyWith((message) => updates(message as GListOfEntity))
+          as GListOfEntity; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static GListOfScooter create() => GListOfScooter._();
-  GListOfScooter createEmptyInstance() => create();
-  static $pb.PbList<GListOfScooter> createRepeated() =>
-      $pb.PbList<GListOfScooter>();
+  static GListOfEntity create() => GListOfEntity._();
+  GListOfEntity createEmptyInstance() => create();
+  static $pb.PbList<GListOfEntity> createRepeated() =>
+      $pb.PbList<GListOfEntity>();
   @$core.pragma('dart2js:noInline')
-  static GListOfScooter getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GListOfScooter>(create);
-  static GListOfScooter? _defaultInstance;
+  static GListOfEntity getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GListOfEntity>(create);
+  static GListOfEntity? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<GScooter> get items => $_getList(0);
+  $core.List<GEntity> get items => $_getList(0);
 }

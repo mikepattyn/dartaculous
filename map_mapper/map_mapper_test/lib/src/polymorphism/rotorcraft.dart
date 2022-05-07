@@ -12,5 +12,19 @@ abstract class Rotorcraft extends Aircraft {
   Rotorcraft({
     required int weight,
     required Decimal serviceCeiling,
+    required this.key,
   }) : super(weight: weight, serviceCeiling: serviceCeiling);
+
+  @override
+  final String key;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Rotorcraft && other.key == key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }

@@ -10,11 +10,14 @@ part 'balloon.g.dart';
 class Balloon implements Aircraft {
   Balloon({
     required this.weight,
+    required this.key,
     required this.serviceCeiling,
   });
 
   @override
   final int weight;
+  @override
+  final String key;
 
   @override
   final int serviceCeiling;

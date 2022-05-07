@@ -11,20 +11,25 @@ class $AirplaneMapMapper extends MapMapper<Airplane> {
 
   @override
   Airplane fromMap(Map<String, dynamic> map) {
+    final $kh = const DefaultKeyHandler();
+
     return Airplane(
       serviceCeiling: Decimal.parse(map['serviceCeiling']),
       weight: map['weight'] as int,
       wingspan: map['wingspan'] as int,
+      key: $kh.keyFromMap(map, 'key'),
     );
   }
 
   @override
   Map<String, dynamic> toMap(Airplane instance) {
+    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
     map['weight'] = instance.weight;
     map['serviceCeiling'] = instance.serviceCeiling.toString();
     map['wingspan'] = instance.wingspan;
+    $kh.keyToMap(map, instance.key, 'key');
 
     return map;
   }
@@ -41,6 +46,7 @@ extension $MapAirplaneExtension on Map<String, dynamic> {
 }
 
 class $AirplaneFieldNames {
+  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -56,6 +62,8 @@ class $AirplaneFieldNames {
   String get serviceCeiling => prefix + _serviceCeiling;
   static const _wingspan = 'wingspan';
   String get wingspan => prefix + _wingspan;
+  static const _key = 'key';
+  String get key => prefix + $kh.fieldNameToMapKey(_key);
 
   @override
   String toString() => fieldName;

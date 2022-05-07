@@ -11,9 +11,12 @@ part 'bicycle.g.dart';
 @mapProto
 class Bicycle extends AbstractVehicle {
   final Decimal wheelDiamater;
+  @override
+  final String key;
 
   Bicycle({
     required this.wheelDiamater,
     required int weight,
+    required this.key,
   }) : super(weight: weight);
 }
