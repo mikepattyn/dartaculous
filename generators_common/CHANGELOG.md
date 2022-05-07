@@ -1,3 +1,7 @@
+## 2.3.1
+
+ - **FIX**: Fixed code generation for abstract classes without implementation of declared interfaces.
+
 ## 2.3.0
 
  - **FEAT**: Multi-level hierarchy polymorphism.
