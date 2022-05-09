@@ -1,3 +1,7 @@
+## 3.3.2
+
+ - **FIX**: EntityServiceParameters.fromEntityAdapter no longer a factory.
+
 ## 3.3.1
 
  - Update a dependency to the latest release.

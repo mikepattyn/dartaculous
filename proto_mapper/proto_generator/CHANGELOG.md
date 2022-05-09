@@ -1,3 +1,7 @@
+## 3.3.3
+
+ - **FIX**: Fixed code generation for abstract classes without implementation of declared interfaces.
+
 ## 3.3.2
 
  - **FIX**: Fixed code generation for abstract classes without implementation of declared interfaces.
