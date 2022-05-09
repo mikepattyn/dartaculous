@@ -1,3 +1,7 @@
+## 3.2.0
+
+ - **FEAT**: Added collection key generation options.
+
 ## 3.1.0
 
  - **FIX**: newQuery method moved from extension into DbClient.
