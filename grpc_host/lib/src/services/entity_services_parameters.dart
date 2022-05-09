@@ -16,19 +16,10 @@ class EntityServicesParameters<TEntity> {
     required this.validator,
   });
 
-  factory EntityServicesParameters.fromEntityAdapter(
-    Repository<TEntity> repository,
+  EntityServicesParameters.fromEntityAdapter(
+    this.repository,
     EntityAdapter<TEntity> adapter,
-  ) {
-    final mapMapper = adapter.mapMapper;
-    final permissions = adapter.permissions;
-    final validator = adapter.validator;
-    final ret = EntityServicesParameters(
-      repository: repository,
-      mapMapper: mapMapper,
-      permissions: permissions,
-      validator: validator,
-    );
-    return ret;
-  }
+  )   : mapMapper = adapter.mapMapper,
+        permissions = adapter.permissions,
+        validator = adapter.validator;
 }
