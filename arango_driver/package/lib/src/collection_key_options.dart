@@ -8,7 +8,7 @@ class CollectionKeyOptions {
   final int increment;
   final int offset;
 
-  CollectionKeyOptions({
+  const CollectionKeyOptions({
     this.type = KeyTypes.traditional,
     this.allowUserKeys = true,
     this.increment = 1,
