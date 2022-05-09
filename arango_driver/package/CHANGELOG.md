@@ -1,3 +1,7 @@
+## 3.2.1
+
+ - **FIX**: CollectionsKeyOptions made const.
+
 ## 3.2.0
 
  - **FEAT**: Added collection key generation options.
