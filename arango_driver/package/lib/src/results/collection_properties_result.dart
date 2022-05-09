@@ -1,7 +1,6 @@
-import 'collection_info.dart';
-import '../results/key_options.dart';
+import 'package:arango_driver/arango_driver.dart';
 
-class CollectionPropertiesResult  {
+class CollectionPropertiesResult {
   final int writeConcern;
   final bool waitForSync;
   final String? tempObjectId;

@@ -186,6 +186,7 @@ class DbClient {
   /// See https://www.arangodb.com/docs/3.4/http/collection-creating.html for details.
   Future<CollectionPropertiesResult> createCollection(
       CollectionCriteria criteria) async {
+    final keyOptions = criteria.keyOptions;
     final answer = await _httpPost([
       '_db',
       db,
@@ -195,6 +196,7 @@ class DbClient {
       'name': criteria.name,
       'waitForSync': criteria.waitForSync,
       'type': _typeFromCollectionType(criteria.collectionType),
+      if (keyOptions != null) 'keyOptions': keyOptions.toMap()
     });
     final ret = _toCollectionPropertiesResult(answer);
     return ret;

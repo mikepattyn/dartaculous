@@ -1,5 +1,6 @@
 import 'package:arango_driver/arango_driver.dart';
 import 'package:test/test.dart';
+import 'package:uuid/uuid.dart';
 
 import 'test_conf.dart';
 
@@ -128,6 +129,7 @@ void main() {
       // save document key for next test:
       testDocumentKey = answer.identifier.key;
     });
+
     test('getDocumentByKey returns Map with _key', () async {
       var answer =
           await testDbClient.getDocumentByKey(testCollection, testDocumentKey);
@@ -502,6 +504,145 @@ void main() {
       var answer =
           await testDbClientWithConnectionString.collectionInfo(testCollection);
       expect(answer.name, testCollection);
+    });
+
+    test('create collection disallowing user keys', () async {
+      const testCollectionNoUKs = 'test_temp_collection_no_uks';
+
+      var allCollectionsAnsw = await testDbClient.allCollections();
+      var alreadyExists =
+          allCollectionsAnsw.any((coll) => coll.name == testCollectionNoUKs);
+      if (alreadyExists) {
+        print('Skip creating collection $testCollection because it is exists');
+        return;
+      }
+      var answer = await testDbClient.createCollection(CollectionCriteria(
+        testCollectionNoUKs,
+        keyOptions: CollectionKeyOptions(
+          allowUserKeys: false,
+          increment: 1,
+          type: KeyTypes.autoincrement,
+          offset: 0,
+        ),
+      ));
+
+      await testDbClient.createDocument(testCollectionNoUKs, {'name': 'first'});
+
+      expect(
+        () async {
+          await testDbClient.createDocument(
+              testCollectionNoUKs, {'_key': 'mykey', 'name': 'something'});
+        },
+        throwsA(TypeMatcher<DbError>().having(
+          (f) => f.errorNum,
+          'Duplicate error code',
+          1222,
+        )),
+      );
+
+      final cnt = await testDbClient.documentsCount(testCollectionNoUKs);
+
+      expect(answer.collectionInfo.name, testCollectionNoUKs);
+      expect(cnt.collectionInfo.count, 1);
+    });
+
+    test('create collection with uuid key', () async {
+      const testCollectionUuidKey = 'test_temp_collection_uuid';
+
+      var allCollectionsAnsw = await testDbClient.allCollections();
+      var alreadyExists =
+          allCollectionsAnsw.any((coll) => coll.name == testCollectionUuidKey);
+      if (alreadyExists) {
+        print('Skip creating collection $testCollection because it is exists');
+        return;
+      }
+      await testDbClient.createCollection(CollectionCriteria(
+        testCollectionUuidKey,
+        keyOptions: CollectionKeyOptions(
+          type: KeyTypes.uuid,
+        ),
+      ));
+
+      final doc = await testDbClient
+          .createDocument(testCollectionUuidKey, {'name': 'first'});
+      final key = doc.map['_key'];
+
+      expect(Uuid.isValidUUID(fromString: key), true);
+    });
+
+    test('create collection with autoincrement key', () async {
+      const testCollectionAutoIncrement = 'test_temp_collection_autoincrement';
+
+      var allCollectionsAnsw = await testDbClient.allCollections();
+      var alreadyExists = allCollectionsAnsw
+          .any((coll) => coll.name == testCollectionAutoIncrement);
+      if (alreadyExists) {
+        print('Skip creating collection $testCollection because it is exists');
+        return;
+      }
+      await testDbClient.createCollection(CollectionCriteria(
+        testCollectionAutoIncrement,
+        keyOptions: CollectionKeyOptions(
+            type: KeyTypes.autoincrement, offset: 0, increment: 1),
+      ));
+
+      final doc1 = await testDbClient
+          .createDocument(testCollectionAutoIncrement, {'name': 'first'});
+      final doc2 = await testDbClient
+          .createDocument(testCollectionAutoIncrement, {'name': 'second'});
+      final key1 = doc1.map['_key'];
+      final key2 = doc2.map['_key'];
+
+      expect(key1, '1');
+      expect(key2, '2');
+    });
+    test('create collection with offset autoincrement key', () async {
+      const testCollectionAutoIncrement = 'test_temp_collection_offset';
+
+      var allCollectionsAnsw = await testDbClient.allCollections();
+      var alreadyExists = allCollectionsAnsw
+          .any((coll) => coll.name == testCollectionAutoIncrement);
+      if (alreadyExists) {
+        print('Skip creating collection $testCollection because it is exists');
+        return;
+      }
+      await testDbClient.createCollection(CollectionCriteria(
+        testCollectionAutoIncrement,
+        keyOptions: CollectionKeyOptions(
+            type: KeyTypes.autoincrement, offset: 2, increment: 3),
+      ));
+
+      final doc1 = await testDbClient
+          .createDocument(testCollectionAutoIncrement, {'name': 'first'});
+      final doc2 = await testDbClient
+          .createDocument(testCollectionAutoIncrement, {'name': 'second'});
+      final key1 = doc1.map['_key'];
+      final key2 = doc2.map['_key'];
+
+      expect(key1, '2');
+      expect(key2, '5');
+    });
+
+    test('create collection with padded key', () async {
+      const testCollectionAutoIncrement = 'test_temp_collection_padded';
+
+      var allCollectionsAnsw = await testDbClient.allCollections();
+      var alreadyExists = allCollectionsAnsw
+          .any((coll) => coll.name == testCollectionAutoIncrement);
+      if (alreadyExists) {
+        print('Skip creating collection $testCollection because it is exists');
+        return;
+      }
+      await testDbClient.createCollection(CollectionCriteria(
+        testCollectionAutoIncrement,
+        keyOptions: CollectionKeyOptions(type: KeyTypes.padded),
+      ));
+
+      final doc = await testDbClient
+          .createDocument(testCollectionAutoIncrement, {'name': 'first'});
+      final key = doc.map['_key'];
+
+      expect(key.length, 16);
     });
 
     test('drop collection', () async {
