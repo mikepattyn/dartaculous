@@ -8,6 +8,7 @@ part of 'legacy.dart';
 
 class $LegacyMapMapper extends MapMapper<Legacy> {
   const $LegacyMapMapper();
+  static const $type = 'Legacy';
 
   @override
   Legacy fromMap(Map<String, dynamic> map) {

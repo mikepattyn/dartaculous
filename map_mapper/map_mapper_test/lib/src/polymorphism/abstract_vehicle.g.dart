@@ -8,18 +8,19 @@ part of 'abstract_vehicle.dart';
 
 class $AbstractVehicleMapMapper extends MapMapper<AbstractVehicle> {
   const $AbstractVehicleMapMapper();
+  static const $type = 'AbstractVehicle';
 
   @override
   AbstractVehicle fromMap(Map<String, dynamic> map) {
     final type = map['\$type'] as String?;
     switch (type) {
       case null:
-      case 'AbstractVehicle':
+      case $type:
         throw UnimplementedError();
-      case 'Bicycle':
+      case $BicycleMapMapper.$type:
         return (const $BicycleMapMapper()).fromMap(map);
 
-      case 'Scooter':
+      case $ScooterMapMapper.$type:
         return (const $ScooterMapMapper()).fromMap(map);
 
       default:
@@ -31,14 +32,14 @@ class $AbstractVehicleMapMapper extends MapMapper<AbstractVehicle> {
   Map<String, dynamic> toMap(AbstractVehicle instance) {
     if (instance is Bicycle) {
       return {
-        '\$type': 'Bicycle',
+        '\$type': $BicycleMapMapper.$type,
         ...const $BicycleMapMapper().toMap(instance),
       };
     }
 
     if (instance is Scooter) {
       return {
-        '\$type': 'Scooter',
+        '\$type': $ScooterMapMapper.$type,
         ...const $ScooterMapMapper().toMap(instance),
       };
     }

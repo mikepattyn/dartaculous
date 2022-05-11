@@ -8,6 +8,7 @@ part of 'standard_precision.dart';
 
 class $StandardPrecisionMapMapper extends MapMapper<StandardPrecision> {
   const $StandardPrecisionMapMapper();
+  static const $type = 'StandardPrecision';
 
   @override
   StandardPrecision fromMap(Map<String, dynamic> map) {

@@ -8,6 +8,7 @@ part of 'recipe.dart';
 
 class $RecipeMapMapper extends MapMapper<Recipe> {
   const $RecipeMapMapper();
+  static const $type = 'Recipe';
 
   @override
   Recipe fromMap(Map<String, dynamic> map) {

@@ -8,6 +8,7 @@ part of 'micro_dt.dart';
 
 class $MicroDtMapMapper extends MapMapper<MicroDt> {
   const $MicroDtMapMapper();
+  static const $type = 'MicroDt';
 
   @override
   MicroDt fromMap(Map<String, dynamic> map) {

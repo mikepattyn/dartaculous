@@ -8,6 +8,7 @@ part of 'category.dart';
 
 class $CategoryMapMapper extends MapMapper<Category> {
   const $CategoryMapMapper();
+  static const $type = 'Category';
 
   @override
   Category fromMap(Map<String, dynamic> map) {

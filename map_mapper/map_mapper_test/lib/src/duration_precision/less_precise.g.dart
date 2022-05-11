@@ -8,6 +8,7 @@ part of 'less_precise.dart';
 
 class $LessPreciseMapMapper extends MapMapper<LessPrecise> {
   const $LessPreciseMapMapper();
+  static const $type = 'LessPrecise';
 
   @override
   LessPrecise fromMap(Map<String, dynamic> map) {

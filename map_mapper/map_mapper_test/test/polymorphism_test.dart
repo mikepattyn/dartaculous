@@ -5,6 +5,7 @@ import 'package:map_mapper_generator_test/src/polymorphism/airplane.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/balloon.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/bicycle.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/car.dart';
+import 'package:map_mapper_generator_test/src/polymorphism/entity.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/gyrocopter.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/helicopter.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/rotorcraft.dart';
@@ -237,6 +238,58 @@ void main() {
 
       expect(scooter2, scooter);
       expect(scooter2, TypeMatcher<Scooter>());
+    });
+
+    test('abstract-vehicle type test', () {
+      expect($AbstractVehicleMapMapper.$type, 'AbstractVehicle');
+    });
+
+    test('abstract-vehicle type test', () {
+      expect($AbstractVehicleMapMapper.$type, 'AbstractVehicle');
+    });
+
+    test('vehicle type test', () {
+      expect($VehicleMapMapper.$type, 'Vehicle');
+    });
+
+    test('entity type test', () {
+      expect($EntityMapMapper.$type, 'Entity');
+    });
+
+    test('scooter type test', () {
+      expect($ScooterMapMapper.$type, 'Scooter');
+    });
+
+    test('car type test', () {
+      expect($CarMapMapper.$type, 'Car');
+    });
+
+    test('bicycle type test', () {
+      expect($BicycleMapMapper.$type, 'Bicycle');
+    });
+
+    test('aircraft type test', () {
+      expect($AircraftMapMapper.$type, 'Aircraft');
+    });
+
+    test('rotorcraft type test', () {
+      expect($RotorcraftMapMapper.$type, 'Rotorcraft');
+    });
+
+    test('airplane type test', () {
+      expect($AirplaneMapMapper.$type, 'Airplane');
+    });
+
+    test('Balloon type test', () {
+      expect($BalloonMapMapper.$type, 'Balloon');
+    });
+
+    test('gyrocopter type test', () {
+      expect($GyrocopterMapMapper.$type, 'Gyrocopter');
+    });
+
+    test('helicopter type test', () {
+      expect($HelicopterMapMapper.$type, 'Helicopter');
     });
   });
 }

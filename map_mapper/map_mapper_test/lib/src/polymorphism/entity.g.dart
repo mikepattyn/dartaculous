@@ -8,6 +8,7 @@ part of 'entity.dart';
 
 class $EntityMapMapper extends MapMapper<Entity> {
   const $EntityMapMapper();
+  static const $type = 'Entity';
 
   @override
   Entity fromMap(Map<String, dynamic> map) {

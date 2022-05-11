@@ -8,27 +8,28 @@ part of 'vehicle.dart';
 
 class $VehicleMapMapper extends MapMapper<Vehicle> {
   const $VehicleMapMapper();
+  static const $type = 'Vehicle';
 
   @override
   Vehicle fromMap(Map<String, dynamic> map) {
     final type = map['\$type'] as String?;
     switch (type) {
       case null:
-      case 'Vehicle':
+      case $type:
         return _fromMap(map);
-      case 'Car':
+      case $CarMapMapper.$type:
         return (const $CarMapMapper()).fromMap(map);
 
-      case 'Airplane':
+      case $AirplaneMapMapper.$type:
         return (const $AirplaneMapMapper()).fromMap(map);
 
-      case 'Helicopter':
+      case $HelicopterMapMapper.$type:
         return (const $HelicopterMapMapper()).fromMap(map);
 
-      case 'Gyrocopter':
+      case $GyrocopterMapMapper.$type:
         return (const $GyrocopterMapMapper()).fromMap(map);
 
-      case 'Balloon':
+      case $BalloonMapMapper.$type:
         return (const $BalloonMapMapper()).fromMap(map);
 
       default:
@@ -46,35 +47,35 @@ class $VehicleMapMapper extends MapMapper<Vehicle> {
   Map<String, dynamic> toMap(Vehicle instance) {
     if (instance is Car) {
       return {
-        '\$type': 'Car',
+        '\$type': $CarMapMapper.$type,
         ...const $CarMapMapper().toMap(instance),
       };
     }
 
     if (instance is Airplane) {
       return {
-        '\$type': 'Airplane',
+        '\$type': $AirplaneMapMapper.$type,
         ...const $AirplaneMapMapper().toMap(instance),
       };
     }
 
     if (instance is Helicopter) {
       return {
-        '\$type': 'Helicopter',
+        '\$type': $HelicopterMapMapper.$type,
         ...const $HelicopterMapMapper().toMap(instance),
       };
     }
 
     if (instance is Gyrocopter) {
       return {
-        '\$type': 'Gyrocopter',
+        '\$type': $GyrocopterMapMapper.$type,
         ...const $GyrocopterMapMapper().toMap(instance),
       };
     }
 
     if (instance is Balloon) {
       return {
-        '\$type': 'Balloon',
+        '\$type': $BalloonMapMapper.$type,
         ...const $BalloonMapMapper().toMap(instance),
       };
     }

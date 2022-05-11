@@ -8,6 +8,7 @@ part of 'default_dt.dart';
 
 class $DefaultDtMapMapper extends MapMapper<DefaultDt> {
   const $DefaultDtMapMapper();
+  static const $type = 'DefaultDt';
 
   @override
   DefaultDt fromMap(Map<String, dynamic> map) {

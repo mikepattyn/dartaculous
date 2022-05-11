@@ -8,6 +8,7 @@ part of 'lists_host.dart';
 
 class $ListsHostMapMapper extends MapMapper<ListsHost> {
   const $ListsHostMapMapper();
+  static const $type = 'ListsHost';
 
   @override
   ListsHost fromMap(Map<String, dynamic> map) {

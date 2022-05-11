@@ -8,6 +8,7 @@ part of 'ingredient.dart';
 
 class $IngredientMapMapper extends MapMapper<Ingredient> {
   const $IngredientMapMapper();
+  static const $type = 'Ingredient';
 
   @override
   Ingredient fromMap(Map<String, dynamic> map) {

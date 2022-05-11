@@ -8,6 +8,7 @@ part of 'airplane.dart';
 
 class $AirplaneMapMapper extends MapMapper<Airplane> {
   const $AirplaneMapMapper();
+  static const $type = 'Airplane';
 
   @override
   Airplane fromMap(Map<String, dynamic> map) {

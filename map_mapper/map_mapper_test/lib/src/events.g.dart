@@ -8,6 +8,7 @@ part of 'events.dart';
 
 class $AggregateIdMapMapper extends MapMapper<AggregateId> {
   const $AggregateIdMapMapper();
+  static const $type = 'AggregateId';
 
   @override
   AggregateId fromMap(Map<String, dynamic> map) {
@@ -63,21 +64,22 @@ class $AggregateIdFieldNames {
 
 class $MessageMapMapper extends MapMapper<Message> {
   const $MessageMapMapper();
+  static const $type = 'Message';
 
   @override
   Message fromMap(Map<String, dynamic> map) {
     final type = map['\$type'] as String?;
     switch (type) {
       case null:
-      case 'Message':
+      case $type:
         throw UnimplementedError();
-      case 'Command':
+      case $CommandMapMapper.$type:
         return (const $CommandMapMapper()).fromMap(map);
 
-      case 'Event':
+      case $EventMapMapper.$type:
         return (const $EventMapMapper()).fromMap(map);
 
-      case 'IntegrationEvent':
+      case $IntegrationEventMapMapper.$type:
         return (const $IntegrationEventMapMapper()).fromMap(map);
 
       default:
@@ -89,21 +91,21 @@ class $MessageMapMapper extends MapMapper<Message> {
   Map<String, dynamic> toMap(Message instance) {
     if (instance is Command) {
       return {
-        '\$type': 'Command',
+        '\$type': $CommandMapMapper.$type,
         ...const $CommandMapMapper().toMap(instance),
       };
     }
 
     if (instance is Event) {
       return {
-        '\$type': 'Event',
+        '\$type': $EventMapMapper.$type,
         ...const $EventMapMapper().toMap(instance),
       };
     }
 
     if (instance is IntegrationEvent) {
       return {
-        '\$type': 'IntegrationEvent',
+        '\$type': $IntegrationEventMapMapper.$type,
         ...const $IntegrationEventMapMapper().toMap(instance),
       };
     }
@@ -167,6 +169,7 @@ class $MessageFieldNames {
 
 class $CommandMapMapper extends MapMapper<Command> {
   const $CommandMapMapper();
+  static const $type = 'Command';
 
   @override
   Command fromMap(Map<String, dynamic> map) {
@@ -249,15 +252,16 @@ class $CommandFieldNames {
 
 class $EventMapMapper extends MapMapper<Event> {
   const $EventMapMapper();
+  static const $type = 'Event';
 
   @override
   Event fromMap(Map<String, dynamic> map) {
     final type = map['\$type'] as String?;
     switch (type) {
       case null:
-      case 'Event':
+      case $type:
         return _fromMap(map);
-      case 'IntegrationEvent':
+      case $IntegrationEventMapMapper.$type:
         return (const $IntegrationEventMapMapper()).fromMap(map);
 
       default:
@@ -287,7 +291,7 @@ class $EventMapMapper extends MapMapper<Event> {
   Map<String, dynamic> toMap(Event instance) {
     if (instance is IntegrationEvent) {
       return {
-        '\$type': 'IntegrationEvent',
+        '\$type': $IntegrationEventMapMapper.$type,
         ...const $IntegrationEventMapMapper().toMap(instance),
       };
     }
@@ -354,6 +358,7 @@ class $EventFieldNames {
 
 class $IntegrationEventMapMapper extends MapMapper<IntegrationEvent> {
   const $IntegrationEventMapMapper();
+  static const $type = 'IntegrationEvent';
 
   @override
   IntegrationEvent fromMap(Map<String, dynamic> map) {

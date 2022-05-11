@@ -165,7 +165,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
 
       class \$${className}MapMapper extends MapMapper<$className> {
         const \$${className}MapMapper();
-
+        static const \$type = '$className';
 
         @override
         $className fromMap(Map<String, dynamic> map) { 
@@ -281,7 +281,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
 
     final cases = kscs.map((ksc) {
       final typeName = ksc.getDisplayString(withNullability: false);
-      return '''case '$typeName':
+      return '''case \$${typeName}MapMapper.\$type:
         return (const \$${typeName}MapMapper()).fromMap(map);
       ''';
     }).join('\n');
@@ -290,7 +290,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
         final type = map['\\\$type'] as String?;
         switch (type) {
           case null:
-          case '$className':
+          case \$type:
             ${_classElement!.isAbstract ? 'throw UnimplementedError();' : 'return _fromMap(map);'} 
           $cases
           default:
@@ -308,7 +308,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       final typeName = ksc.getDisplayString(withNullability: false);
       final line = '''
     if (instance is $typeName) {
-      return {'\\\$type': '$typeName', ...const \$${typeName}MapMapper().toMap(instance),};
+      return {'\\\$type': \$${typeName}MapMapper.\$type, ...const \$${typeName}MapMapper().toMap(instance),};
     }    
 ''';
       return line;

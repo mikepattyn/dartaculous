@@ -8,6 +8,7 @@ part of 'bicycle.dart';
 
 class $BicycleMapMapper extends MapMapper<Bicycle> {
   const $BicycleMapMapper();
+  static const $type = 'Bicycle';
 
   @override
   Bicycle fromMap(Map<String, dynamic> map) {

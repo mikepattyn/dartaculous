@@ -8,6 +8,7 @@ part of 'gyrocopter.dart';
 
 class $GyrocopterMapMapper extends MapMapper<Gyrocopter> {
   const $GyrocopterMapMapper();
+  static const $type = 'Gyrocopter';
 
   @override
   Gyrocopter fromMap(Map<String, dynamic> map) {

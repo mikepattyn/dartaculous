@@ -8,6 +8,7 @@ part of 'component.dart';
 
 class $ComponentMapMapper extends MapMapper<Component> {
   const $ComponentMapMapper();
+  static const $type = 'Component';
 
   @override
   Component fromMap(Map<String, dynamic> map) {

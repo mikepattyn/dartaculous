@@ -8,6 +8,7 @@ part of 'milli_dt.dart';
 
 class $MilliDtMapMapper extends MapMapper<MilliDt> {
   const $MilliDtMapMapper();
+  static const $type = 'MilliDt';
 
   @override
   MilliDt fromMap(Map<String, dynamic> map) {

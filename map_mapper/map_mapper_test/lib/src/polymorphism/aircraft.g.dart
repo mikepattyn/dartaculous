@@ -8,24 +8,25 @@ part of 'aircraft.dart';
 
 class $AircraftMapMapper extends MapMapper<Aircraft> {
   const $AircraftMapMapper();
+  static const $type = 'Aircraft';
 
   @override
   Aircraft fromMap(Map<String, dynamic> map) {
     final type = map['\$type'] as String?;
     switch (type) {
       case null:
-      case 'Aircraft':
+      case $type:
         throw UnimplementedError();
-      case 'Airplane':
+      case $AirplaneMapMapper.$type:
         return (const $AirplaneMapMapper()).fromMap(map);
 
-      case 'Helicopter':
+      case $HelicopterMapMapper.$type:
         return (const $HelicopterMapMapper()).fromMap(map);
 
-      case 'Gyrocopter':
+      case $GyrocopterMapMapper.$type:
         return (const $GyrocopterMapMapper()).fromMap(map);
 
-      case 'Balloon':
+      case $BalloonMapMapper.$type:
         return (const $BalloonMapMapper()).fromMap(map);
 
       default:
@@ -37,28 +38,28 @@ class $AircraftMapMapper extends MapMapper<Aircraft> {
   Map<String, dynamic> toMap(Aircraft instance) {
     if (instance is Airplane) {
       return {
-        '\$type': 'Airplane',
+        '\$type': $AirplaneMapMapper.$type,
         ...const $AirplaneMapMapper().toMap(instance),
       };
     }
 
     if (instance is Helicopter) {
       return {
-        '\$type': 'Helicopter',
+        '\$type': $HelicopterMapMapper.$type,
         ...const $HelicopterMapMapper().toMap(instance),
       };
     }
 
     if (instance is Gyrocopter) {
       return {
-        '\$type': 'Gyrocopter',
+        '\$type': $GyrocopterMapMapper.$type,
         ...const $GyrocopterMapMapper().toMap(instance),
       };
     }
 
     if (instance is Balloon) {
       return {
-        '\$type': 'Balloon',
+        '\$type': $BalloonMapMapper.$type,
         ...const $BalloonMapMapper().toMap(instance),
       };
     }

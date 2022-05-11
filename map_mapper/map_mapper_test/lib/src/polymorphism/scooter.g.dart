@@ -8,6 +8,7 @@ part of 'scooter.dart';
 
 class $ScooterMapMapper extends MapMapper<Scooter> {
   const $ScooterMapMapper();
+  static const $type = 'Scooter';
 
   @override
   Scooter fromMap(Map<String, dynamic> map) {

@@ -8,18 +8,19 @@ part of 'rotorcraft.dart';
 
 class $RotorcraftMapMapper extends MapMapper<Rotorcraft> {
   const $RotorcraftMapMapper();
+  static const $type = 'Rotorcraft';
 
   @override
   Rotorcraft fromMap(Map<String, dynamic> map) {
     final type = map['\$type'] as String?;
     switch (type) {
       case null:
-      case 'Rotorcraft':
+      case $type:
         throw UnimplementedError();
-      case 'Helicopter':
+      case $HelicopterMapMapper.$type:
         return (const $HelicopterMapMapper()).fromMap(map);
 
-      case 'Gyrocopter':
+      case $GyrocopterMapMapper.$type:
         return (const $GyrocopterMapMapper()).fromMap(map);
 
       default:
@@ -31,14 +32,14 @@ class $RotorcraftMapMapper extends MapMapper<Rotorcraft> {
   Map<String, dynamic> toMap(Rotorcraft instance) {
     if (instance is Helicopter) {
       return {
-        '\$type': 'Helicopter',
+        '\$type': $HelicopterMapMapper.$type,
         ...const $HelicopterMapMapper().toMap(instance),
       };
     }
 
     if (instance is Gyrocopter) {
       return {
-        '\$type': 'Gyrocopter',
+        '\$type': $GyrocopterMapMapper.$type,
         ...const $GyrocopterMapMapper().toMap(instance),
       };
     }

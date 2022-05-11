@@ -8,6 +8,7 @@ part of 'car.dart';
 
 class $CarMapMapper extends MapMapper<Car> {
   const $CarMapMapper();
+  static const $type = 'Car';
 
   @override
   Car fromMap(Map<String, dynamic> map) {

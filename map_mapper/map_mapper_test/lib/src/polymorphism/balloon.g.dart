@@ -8,6 +8,7 @@ part of 'balloon.dart';
 
 class $BalloonMapMapper extends MapMapper<Balloon> {
   const $BalloonMapMapper();
+  static const $type = 'Balloon';
 
   @override
   Balloon fromMap(Map<String, dynamic> map) {

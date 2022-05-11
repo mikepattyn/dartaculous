@@ -8,6 +8,7 @@ part of 'iso_dt.dart';
 
 class $IsoDtMapMapper extends MapMapper<IsoDt> {
   const $IsoDtMapMapper();
+  static const $type = 'IsoDt';
 
   @override
   IsoDt fromMap(Map<String, dynamic> map) {

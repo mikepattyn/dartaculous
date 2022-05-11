@@ -8,6 +8,7 @@ part of 'more_precise.dart';
 
 class $MorePreciseMapMapper extends MapMapper<MorePrecise> {
   const $MorePreciseMapMapper();
+  static const $type = 'MorePrecise';
 
   @override
   MorePrecise fromMap(Map<String, dynamic> map) {
