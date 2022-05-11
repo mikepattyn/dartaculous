@@ -1,3 +1,7 @@
+## 3.3.0
+
+ - **FEAT**: Generating $type constant for each map-mapped class.
+
 ## 3.2.2
 
  - Update a dependency to the latest release.
