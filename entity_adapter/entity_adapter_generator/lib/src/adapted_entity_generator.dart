@@ -51,6 +51,8 @@ class \$${className}Permissions extends EntityPermissions {
 
 
 class \$${className}EntityAdapter implements EntityAdapter<$className> {
+  const \$${className}EntityAdapter();
+  
   @override
   final MapMapper<$className> mapMapper = const \$${className}MapMapper();
 

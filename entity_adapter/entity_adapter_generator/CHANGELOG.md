@@ -1,3 +1,11 @@
+## 3.2.0-dev.1
+
+ - **FIX**: const EntityAdapter from @AdaptedEntity.
+
+## 3.2.0-dev.0
+
+ - **FEAT**: EntityAdapter made const.
+
 ## 3.1.2
  - Support for mapping enum to string
  - Improved constructor support

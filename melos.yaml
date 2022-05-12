@@ -13,12 +13,14 @@ packages:
   - map_mapper/**
   - defaults_provider/**
   - entity/**
+  - entity_adapter/**
   - example_model/**
   - grpc_host/**
 
 ignore:
   - map_mapper/test_mongo/*
   - defaults_provider/example/*
+  - entity_adapter/example/*
 
 scripts:
   analyze: melos exec -- "dart analyze ." 
