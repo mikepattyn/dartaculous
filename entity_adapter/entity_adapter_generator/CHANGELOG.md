@@ -1,3 +1,7 @@
+## 3.2.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 3.2.0-dev.1
 
  - **FIX**: const EntityAdapter from @AdaptedEntity.
