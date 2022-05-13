@@ -1,24 +1,7 @@
-import 'package:grpc/grpc.dart';
 import 'package:grpc_host/grpc_host.dart';
 import 'package:nosql_repository/nosql_repository.dart';
-import 'package:squarealfa_entity_adapter/squarealfa_entity_adapter.dart';
 
-@Deprecated(
-    'This class is to be replaced by EntityServicesBase combined with SearchMethods mixin')
-class EntityServices<TEntity> extends AuthenticatedServices {
-  final Repository<TEntity> repository;
-
-  final MapMapper<TEntity> mapMapper;
-  final EntityPermissions permissions;
-  final Validator validator;
-
-  EntityServices(ServiceCall call, EntityServicesParameters<TEntity> parameters)
-      : repository = parameters.repository,
-        validator = parameters.validator,
-        permissions = parameters.permissions,
-        mapMapper = parameters.mapMapper,
-        super(call);
-
+mixin SearchMethods<TEntity> on EntityServicesBase<TEntity> {
   Future<Stream<Map<String, dynamic>>> findToStream([
     SearchCriteria criteria = const SearchCriteria(),
   ]) async {

@@ -3,16 +3,14 @@ import 'package:grpc_host/grpc_host.dart';
 import 'package:nosql_repository/nosql_repository.dart';
 import 'package:squarealfa_security/squarealfa_security.dart';
 
-@Deprecated('Use CrudMethods on EntityServicesBase instead')
-mixin CrudServiceMethods<TEntity extends Object> on EntityServices<TEntity> {
+mixin CrudMethods<TEntity extends Object> on EntityServicesBase<TEntity> {
   Future<TEntity> create(
     TEntity entity, {
     RepositoryTransaction? transaction,
   }) async {
     validator.validateThrowing(entity);
     var map = mapMapper.toMap(entity);
-    map =
-        await repository.create(map, call.principal, transaction: transaction);
+    map = await repository.create(map, principal, transaction: transaction);
 
     entity = mapMapper.fromMap(map);
     return entity;
@@ -60,7 +58,7 @@ mixin CrudServiceMethods<TEntity extends Object> on EntityServices<TEntity> {
         transaction: transaction,
       );
     } on NotFound {
-      throw GrpcError.notFound();
+      throwNotFound();
     } on Unauthorized {
       throwUnauthorized();
     }

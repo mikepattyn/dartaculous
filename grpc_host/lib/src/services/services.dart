@@ -4,3 +4,6 @@ export 'service_collection.dart';
 export 'crud_service_methods.dart';
 export 'paged_search_result.dart';
 export 'authenticated_services.dart';
+export 'entity_services_base.dart';
+export 'search_methods.dart';
+export 'crud_methods.dart';
