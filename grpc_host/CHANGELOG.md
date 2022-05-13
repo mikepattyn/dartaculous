@@ -1,3 +1,9 @@
+## 4.0.0-dev.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: :New versions of service classes that are more decoupled from gRPC.
+
 ## 3.3.2
 
  - **FIX**: EntityServiceParameters.fromEntityAdapter no longer a factory.
