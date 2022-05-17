@@ -1,3 +1,9 @@
+## 4.0.0-dev.1
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Deprecated entire services library.
+
 ## 4.0.0-dev.0
 
 > Note: This release has breaking changes.
