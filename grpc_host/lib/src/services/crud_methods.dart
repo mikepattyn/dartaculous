@@ -1,8 +1,13 @@
-import 'package:grpc/grpc.dart';
-import 'package:grpc_host/grpc_host.dart';
+import 'package:grpc_host/services.dart';
 import 'package:nosql_repository/nosql_repository.dart';
 import 'package:squarealfa_security/squarealfa_security.dart';
 
+@Deprecated('''This class is being discontinued.
+The purpose is to refocus this package on the single task
+of hosting gRPC services instead of including classes to 
+help implement the actual services, especcially classes
+that are related to data persistency.
+''')
 mixin CrudMethods<TEntity extends Object> on EntityServicesBase<TEntity> {
   Future<TEntity> create(
     TEntity entity, {
