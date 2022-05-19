@@ -1,3 +1,7 @@
+## 3.3.0
+
+ - **FEAT**: Allow null bound variable value.
+
 ## 3.2.1
 
  - **FIX**: CollectionsKeyOptions made const.
