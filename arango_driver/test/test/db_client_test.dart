@@ -292,7 +292,7 @@ void main() {
       }
     });
 
-    test('basic query with bound var', () async {
+    test('basic query with bound null var', () async {
       final d1 =
           await testDbClient.createDocument(testCollection, {'name': 'Alice'});
       final d2 =

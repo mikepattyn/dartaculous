@@ -1,3 +1,3 @@
 abstract class BindNameValuePair {
-  Map<String, Object> bindNameValuePair = {};
+  Map<String, dynamic> bindNameValuePair = {};
 }
