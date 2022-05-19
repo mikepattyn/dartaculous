@@ -1,3 +1,7 @@
+## 3.3.1
+
+ - **FIX**: DbClient.runAndReturnStream now throws proper error when invalid query.
+
 ## 3.3.0
 
  - **FEAT**: Allow null bound variable value.
