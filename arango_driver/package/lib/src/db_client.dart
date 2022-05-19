@@ -574,7 +574,11 @@ class DbClient {
       data,
       transaction: transaction,
     );
+
     await for (var batch in streamStream) {
+      if (batch['error']) {
+        throw batch;
+      }
       var items = batch['result'];
       for (var item in items) {
         yield item as Map<String, dynamic>;

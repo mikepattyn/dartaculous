@@ -312,6 +312,25 @@ void main() {
       }
     });
 
+    test('base stream test', () async {
+      final d1 =
+          await testDbClient.createDocument(testCollection, {'name': 'Alice'});
+      final d2 =
+          await testDbClient.createDocument(testCollection, {'name': 'Bob'});
+      try {
+        final results = testDbClient
+            .newQuery()
+            .addLine('for c in $testCollection return c')
+            .runAndReturnStream();
+        final lst = await results.toList();
+
+        expect(lst.length, 3);
+      } finally {
+        await testDbClient.removeDocument(testCollection, d1.identifier.key);
+        await testDbClient.removeDocument(testCollection, d2.identifier.key);
+      }
+    });
+
     test('remove document', () async {
       var answer = await testDbClient.removeDocument(
           testCollection, testDocumentKey,
