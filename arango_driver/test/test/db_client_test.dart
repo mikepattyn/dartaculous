@@ -255,6 +255,63 @@ void main() {
       expect(replaceAnswer[0].map['new']['_key'], testDocumentKey);
     });
 
+    test('basic query', () async {
+      final d =
+          await testDbClient.createDocument(testCollection, {'name': 'Alice'});
+      try {
+        final results = await testDbClient
+            .newQuery()
+            .addLine(
+                'for c in $testCollection filter c.name == "Alice" return c')
+            .runAndReturnFutureList();
+
+        expect(results.length, 1);
+        expect(results.first['name'], 'Alice');
+      } finally {
+        await testDbClient.removeDocument(testCollection, d.identifier.key);
+      }
+    });
+
+    test('basic query with bound var', () async {
+      final d1 =
+          await testDbClient.createDocument(testCollection, {'name': 'Alice'});
+      final d2 =
+          await testDbClient.createDocument(testCollection, {'name': 'Bob'});
+      try {
+        final results = await testDbClient
+            .newQuery()
+            .addLine('for c in $testCollection filter c.name == @name return c')
+            .addBindVar('name', 'Bob')
+            .runAndReturnFutureList();
+
+        expect(results.length, 1);
+        expect(results.first['name'], 'Bob');
+      } finally {
+        await testDbClient.removeDocument(testCollection, d1.identifier.key);
+        await testDbClient.removeDocument(testCollection, d2.identifier.key);
+      }
+    });
+
+    test('basic query with bound var', () async {
+      final d1 =
+          await testDbClient.createDocument(testCollection, {'name': 'Alice'});
+      final d2 =
+          await testDbClient.createDocument(testCollection, {'name': 'Bob'});
+      try {
+        final results = await testDbClient
+            .newQuery()
+            .addLine(
+                'for c in $testCollection filter @name == null || c.name == @name return c')
+            .addBindVar('name', null)
+            .runAndReturnFutureList();
+
+        expect(results.length, 3);
+      } finally {
+        await testDbClient.removeDocument(testCollection, d1.identifier.key);
+        await testDbClient.removeDocument(testCollection, d2.identifier.key);
+      }
+    });
+
     test('remove document', () async {
       var answer = await testDbClient.removeDocument(
           testCollection, testDocumentKey,
