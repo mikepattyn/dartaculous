@@ -7,41 +7,67 @@ import 'package:googleapis_auth/src/crypto/rsa_sign.dart';
 import 'package:googleapis_auth/src/known_uris.dart';
 import 'package:googleapis_auth/src/utils.dart';
 import 'package:http/http.dart' as http;
+import 'package:googleapis_auth/googleapis_auth.dart' as auth;
+import 'package:jose/jose.dart';
+
+const _uri = 'urn:ietf:params:oauth:grant-type:jwt-bearer';
+const defaultExpirySeconds = 3600;
 
 class JwtFlow {
   // All details are described at:
   // https://developers.google.com/accounts/docs/OAuth2ServiceAccount
   // JSON Web Signature (JWS) requires signing a string with a private key.
 
-  final String _clientEmail;
   final RS256Signer _signer;
-  final List<String> _scopes;
-  final String? _user;
-  final http.Client _client;
 
   JwtFlow(
-    this._clientEmail,
     RSAPrivateKey key,
-    this._user,
-    this._scopes,
-    this._client,
   ) : _signer = RS256Signer(key);
 
-  Future<String> run() async {
-    final timestamp = DateTime.now().toUtc().millisecondsSinceEpoch ~/ 1000 -
-        maxExpectedTimeDiffInSeconds;
-
-    final jwtHeader = {'alg': 'RS256', 'typ': 'JWT'};
-    final jwtHeaderBase64 = _base64url(ascii.encode(jsonEncode(jwtHeader)));
+  Future<auth.AccessToken> oauthTokenRequest(
+    http.Client httpClient, {
+    required String issuer,
+    required List<String> scopes,
+    final String? sub,
+  }) async {
+    final timestamp = currentTimestamp();
 
     final jwtClaimSet = {
-      'iss': _clientEmail,
-      'scope': _scopes.join(' '),
+      'iss': issuer,
+      'scope': scopes.join(' '),
       'aud': googleOauth2TokenEndpoint.toString(),
-      'exp': timestamp + 3600,
+      'exp': timestamp + defaultExpirySeconds,
       'iat': timestamp,
-      if (_user != null) 'sub': _user!,
+      if (sub != null) 'sub': sub,
     };
+
+    String jwt = createJwt(jwtClaimSet);
+
+    // https://developers.google.com/identity/protocols/oauth2/service-account#authorizingrequests
+    final response = await httpClient.oauthTokenRequest({
+      'grant_type': _uri,
+      'assertion': jwt,
+    });
+    final String? idToken = response['id_token'];
+    if (idToken != null) {
+      final expiry = _getExpiry(idToken);
+      return auth.AccessToken('Bearer', idToken, expiry);
+    }
+
+    final expires =
+        DateTime.now().add(Duration(seconds: response['expires_in'])).toUtc();
+    final token = response['access_token'];
+
+    return auth.AccessToken('Bearer', token, expires);
+  }
+
+  String createJwt(Map<String, Object> jwtClaimSet, {String? kid}) {
+    final jwtHeader = {
+      'alg': 'RS256',
+      'typ': 'JWT',
+      if (kid != null) 'kid': kid,
+    };
+    final jwtHeaderBase64 = _base64url(ascii.encode(jsonEncode(jwtHeader)));
     final jwtClaimSetBase64 = _base64url(utf8.encode(jsonEncode(jwtClaimSet)));
 
     final jwtSignatureInput = '$jwtHeaderBase64.$jwtClaimSetBase64';
@@ -49,17 +75,22 @@ class JwtFlow {
 
     final signature = _signer.sign(jwtSignatureInputInBytes);
     final jwt = '$jwtSignatureInput.${_base64url(signature)}';
-
-    // https://developers.google.com/identity/protocols/oauth2/service-account#authorizingrequests
-    final response = await _client.oauthTokenRequest({
-      'grant_type': _uri,
-      'assertion': jwt,
-    });
-    return response['id_token'];
+    return jwt;
   }
 }
 
-const _uri = 'urn:ietf:params:oauth:grant-type:jwt-bearer';
+int currentTimestamp([DateTime? moment]) {
+  moment ??= DateTime.now();
+  final timestamp = moment.toUtc().millisecondsSinceEpoch ~/ 1000 -
+      maxExpectedTimeDiffInSeconds;
+  return timestamp;
+}
 
 String _base64url(List<int> bytes) =>
     base64Url.encode(bytes).replaceAll('=', '');
+
+DateTime _getExpiry(String idToken) {
+  final token = JsonWebToken.unverified(idToken);
+  final expiry = token.claims.expiry?.toUtc();
+  return expiry ?? DateTime.now().add(const Duration(hours: 1)).toUtc();
+}

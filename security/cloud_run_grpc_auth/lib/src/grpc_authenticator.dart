@@ -1,10 +1,36 @@
+import 'package:cloud_run_grpc_auth/src/oauth_service_account_authenticator.dart';
 import 'package:googleapis_auth/googleapis_auth.dart' as auth;
 import 'package:grpc/grpc.dart';
 import 'package:meta/meta.dart';
 
+import 'access_token_from_meta_authenticator.dart';
+import 'id_token_from_meta_authenticator.dart';
+import 'jwt_service_account_authenticator.dart' as jwt;
+
 const _tokenExpirationThreshold = Duration(seconds: 30);
 
-abstract class CloudRunBaseAuthenticator {
+abstract class GrpcAuthenticator {
+  factory GrpcAuthenticator.idTokenFromMeta() {
+    return IdTokenFromMetaAuthenticator();
+  }
+
+  factory GrpcAuthenticator.accessTokenFromMeta() {
+    return AccessTokenFromMetaAuthenticator();
+  }
+
+  factory GrpcAuthenticator.idTokenFromServiceAccountOAuth(
+      Map<String, dynamic> serviceAccountJson) {
+    return OAuthServiceAccountAuthenticator(serviceAccountJson);
+  }
+
+  factory GrpcAuthenticator.idTokenFromServiceAccountJwt(
+      Map<String, dynamic> serviceAccountJson) {
+    return jwt.JwtServiceAccountAuthenticator(serviceAccountJson);
+  }
+
+  @protected
+  GrpcAuthenticator();
+
   auth.AccessToken? _accessToken;
   late String _lastUri;
   var _lastUriSet = false;
