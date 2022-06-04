@@ -18,7 +18,7 @@ dependencies:
   squarealfa_entity_generator: ^2.1.1
   squarealfa_generators_common: ^2.2.1
   squarealfa_common_types: ^1.1.0
-  analyzer: ^3.0.0
+  analyzer: ^3.2.0
   build: ^2.0.0
 
 
