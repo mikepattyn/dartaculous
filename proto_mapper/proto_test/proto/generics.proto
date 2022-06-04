@@ -1,0 +1,50 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// ProtoGenerator
+// **************************************************************************
+
+syntax = "proto3";
+      
+
+
+
+
+
+
+  
+message GScheduleConstraint
+{
+  oneof props {
+    GContestConstraint contest_constraint = 1;
+
+  }
+    
+}   
+
+message GListOfScheduleConstraint
+{
+  repeated GScheduleConstraint items = 1;
+}
+
+message GConstraintAdded
+{
+  string contest_schedule_id = 1;
+  GScheduleConstraint constraint = 2;
+
+}   
+
+message GListOfConstraintAdded
+{
+  repeated GConstraintAdded items = 1;
+}
+
+message GContestConstraint
+{
+
+}   
+
+message GListOfContestConstraint
+{
+  repeated GContestConstraint items = 1;
+}

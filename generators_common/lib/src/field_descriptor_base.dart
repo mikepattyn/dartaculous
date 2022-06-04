@@ -35,8 +35,22 @@ class FieldDescriptorBase {
   final DartType fieldElementType;
 
   /// Returns the name of the type of the field element
-  String get fieldElementTypeName =>
+  /// First try to get the element name directly,
+  /// in order to avoid the "<dynamic>" suffix when class has a generic type.
+  String get fieldElementTypeName {
+    // In case of dynamic typed field...
+    if (fieldElementType is ParameterizedType &&
+        (fieldElementType as ParameterizedType)
+            .typeArguments
+            .whereType<DynamicType>()
+            .isNotEmpty) {
+      if (fieldElementType.element?.name != null) {
+        return fieldElementType.element!.name!;
+      }
+    }
+    return
       fieldElementType.getDisplayString(withNullability: false);
+  }
 
   /// When the field element is a List, returns the type of List element
   DartType? get listParameterType =>
