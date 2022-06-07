@@ -1,0 +1,27 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// ProtoGenerator
+// **************************************************************************
+
+syntax = "proto3";
+      
+
+
+
+
+
+
+  
+message GEncapsulatedFieldsClass
+{
+  string final_string = 1;
+  string encapsulated_string = 2;
+  repeated string encapsulated_collection = 3;
+
+}   
+
+message GListOfEncapsulatedFieldsClass
+{
+  repeated GEncapsulatedFieldsClass items = 1;
+}

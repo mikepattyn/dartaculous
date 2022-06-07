@@ -111,7 +111,7 @@ class FieldDescriptorBase {
   }
 
   /// When the field element type is a generic, returns the
-  /// firt type parameter type name
+  /// first type parameter type name
   String get parameterTypeName =>
       parameterType.getDisplayString(withNullability: false);
 

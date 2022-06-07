@@ -90,7 +90,9 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       toMapFieldBuffer.writeln(toMapMap);
 
       if (fieldDescriptor.isFinal) {
-        // Only set non-final fields
+        // Skip final fields
+      } else if (constructor.parameters.where((p) => p.name == fieldDescriptor.name).isNotEmpty) {
+        // Skip fields that are already set in the constructor
       } else {
         var fromMapMap = fieldCodeGenerator.fromMapMap;
         fromMapFieldBuffer.writeln(fromMapMap);
