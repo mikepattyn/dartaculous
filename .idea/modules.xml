@@ -22,6 +22,8 @@
       <module fileurl="file://$PROJECT_DIR$/proto_mapper/proto_test/melos_proto_generator_test.iml" filepath="$PROJECT_DIR$/proto_mapper/proto_test/melos_proto_generator_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/proto_mapper/example/melos_proto_mapper_example.iml" filepath="$PROJECT_DIR$/proto_mapper/example/melos_proto_mapper_example.iml" />
       <module fileurl="file://$PROJECT_DIR$/common_types/melos_squarealfa_common_types.iml" filepath="$PROJECT_DIR$/common_types/melos_squarealfa_common_types.iml" />
+      <module fileurl="file://$PROJECT_DIR$/entity_adapter/entity_adapter/melos_squarealfa_entity_adapter.iml" filepath="$PROJECT_DIR$/entity_adapter/entity_adapter/melos_squarealfa_entity_adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/entity_adapter/entity_adapter_generator/melos_squarealfa_entity_adapter_generator.iml" filepath="$PROJECT_DIR$/entity_adapter/entity_adapter_generator/melos_squarealfa_entity_adapter_generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/entity/entity_annotations/melos_squarealfa_entity_annotations.iml" filepath="$PROJECT_DIR$/entity/entity_annotations/melos_squarealfa_entity_annotations.iml" />
       <module fileurl="file://$PROJECT_DIR$/entity/entity_generator/melos_squarealfa_entity_generator.iml" filepath="$PROJECT_DIR$/entity/entity_generator/melos_squarealfa_entity_generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/generators_common/melos_squarealfa_generators_common.iml" filepath="$PROJECT_DIR$/generators_common/melos_squarealfa_generators_common.iml" />
