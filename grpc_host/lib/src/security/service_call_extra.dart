@@ -5,9 +5,5 @@ class _ServiceCallExtra {
   JwtPayload? jwtPayload;
   String? idToken;
 
-  _ServiceCallExtra({
-    this.principal,
-    this.jwtPayload,
-    this.idToken,
-  });
+  _ServiceCallExtra();
 }
