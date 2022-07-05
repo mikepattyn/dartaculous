@@ -63,14 +63,7 @@ void main() {
     });
 
     // changing current database
-    var testDbClient = DbClient(
-        scheme: sch,
-        host: h,
-        port: p,
-        db: testDb,
-        user: u,
-        pass: ps,
-        realm: realm);
+    var testDbClient = DbClient.fromConnectionString(connectionString);
 
     test('create collection', () async {
       var allCollectionsAnsw = await testDbClient.allCollections();
@@ -597,7 +590,7 @@ void main() {
         keyOptions: CollectionKeyOptions(
           allowUserKeys: false,
           increment: 1,
-          type: KeyTypes.autoincrement,
+          type: KeyTypes.traditional,
           offset: 0,
         ),
       ));
@@ -656,21 +649,30 @@ void main() {
         print('Skip creating collection $testCollection because it is exists');
         return;
       }
-      await testDbClient.createCollection(CollectionCriteria(
-        testCollectionAutoIncrement,
-        keyOptions: CollectionKeyOptions(
-            type: KeyTypes.autoincrement, offset: 0, increment: 1),
-      ));
 
-      final doc1 = await testDbClient
-          .createDocument(testCollectionAutoIncrement, {'name': 'first'});
-      final doc2 = await testDbClient
-          .createDocument(testCollectionAutoIncrement, {'name': 'second'});
-      final key1 = doc1.map['_key'];
-      final key2 = doc2.map['_key'];
+      final matcher = isCluster
+          ? throwsA(TypeMatcher<DbError>().having(
+              (f) => f.errorNum,
+              'Unsupported key type for cluster',
+              1470,
+            ))
+          : isA<Function>();
+      await expectLater(() async {
+        await testDbClient.createCollection(CollectionCriteria(
+          testCollectionAutoIncrement,
+          keyOptions: CollectionKeyOptions(
+              type: KeyTypes.autoincrement, offset: 0, increment: 1),
+        ));
+        final doc1 = await testDbClient
+            .createDocument(testCollectionAutoIncrement, {'name': 'first'});
+        final doc2 = await testDbClient
+            .createDocument(testCollectionAutoIncrement, {'name': 'second'});
+        final key1 = doc1.map['_key'];
+        final key2 = doc2.map['_key'];
 
-      expect(key1, '1');
-      expect(key2, '2');
+        expect(key1, '1');
+        expect(key2, '2');
+      }, matcher);
     });
     test('create collection with offset autoincrement key', () async {
       const testCollectionAutoIncrement = 'test_temp_collection_offset';
@@ -682,21 +684,31 @@ void main() {
         print('Skip creating collection $testCollection because it is exists');
         return;
       }
-      await testDbClient.createCollection(CollectionCriteria(
-        testCollectionAutoIncrement,
-        keyOptions: CollectionKeyOptions(
-            type: KeyTypes.autoincrement, offset: 2, increment: 3),
-      ));
 
-      final doc1 = await testDbClient
-          .createDocument(testCollectionAutoIncrement, {'name': 'first'});
-      final doc2 = await testDbClient
-          .createDocument(testCollectionAutoIncrement, {'name': 'second'});
-      final key1 = doc1.map['_key'];
-      final key2 = doc2.map['_key'];
+      final matcher = isCluster
+          ? throwsA(TypeMatcher<DbError>().having(
+              (f) => f.errorNum,
+              'Unsupported key type for cluster',
+              1470,
+            ))
+          : isA<Function>();
 
-      expect(key1, '2');
-      expect(key2, '5');
+      await expectLater(() async {
+        await testDbClient.createCollection(CollectionCriteria(
+          testCollectionAutoIncrement,
+          keyOptions: CollectionKeyOptions(
+              type: KeyTypes.autoincrement, offset: 2, increment: 3),
+        ));
+        final doc1 = await testDbClient
+            .createDocument(testCollectionAutoIncrement, {'name': 'first'});
+        final doc2 = await testDbClient
+            .createDocument(testCollectionAutoIncrement, {'name': 'second'});
+        final key1 = doc1.map['_key'];
+        final key2 = doc2.map['_key'];
+
+        expect(key1, '2');
+        expect(key2, '5');
+      }, matcher);
     });
 
     test('create collection with padded key', () async {

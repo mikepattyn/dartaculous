@@ -6,7 +6,7 @@ class CollectionPropertiesResult {
   final String? tempObjectId;
   final bool cacheEnabled;
   final bool isSmartChild;
-  final String objectId;
+  final String? objectId;
   final String? schema;
   final KeyOptions keyOptions;
   final bool? isDisjoint;
@@ -20,7 +20,7 @@ class CollectionPropertiesResult {
     this.tempObjectId,
     required this.cacheEnabled,
     required this.isSmartChild,
-    required this.objectId,
+    this.objectId,
     this.schema,
     required this.keyOptions,
     required this.isDisjoint,

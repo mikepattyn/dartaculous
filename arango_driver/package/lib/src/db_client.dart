@@ -8,41 +8,46 @@ import 'package:arango_driver/arango_driver.dart';
 
 class DbClient {
   final SecurityContext? securityContext;
-  final String scheme;
-  final String host;
-  final int port;
-  final String db;
   final String user;
   final String pass;
+  final String db;
   final String realm;
 
-  late Uri dbUrl;
-  late HttpClientBasicCredentials credentials;
+  final List<Uri> dbUrls;
+  int liveUrlIX = 0;
+
   late HttpClient httpClient;
 
   DbClient({
-    this.scheme = 'http',
-    this.host = 'localhost',
-    this.port = 8529,
+    String scheme = 'http',
+    String host = 'localhost',
+    int port = 8529,
     this.db = '_system',
     required this.user,
     required this.pass,
     this.realm = '',
     this.securityContext,
-  }) {
-    ({
-      'sheme': scheme,
-      'db': db,
-      'host': host,
-      'port': port,
-      'user': user,
-      'pass': pass,
-      'realm': realm,
-    });
+  }) : dbUrls = [
+          Uri(
+            scheme: scheme,
+            host: host,
+            port: port,
+            pathSegments: ['_db', db],
+          )
+        ] {
+    _connect();
+  }
 
-    dbUrl =
-        Uri(scheme: scheme, host: host, port: port, pathSegments: ['_db', db]);
-
+  DbClient._({
+    required this.dbUrls,
+    this.db = '_system',
+    required this.user,
+    required this.pass,
+    this.securityContext,
+  }) : realm = '' {
+    if (dbUrls.isEmpty) {
+      throw 'dbUrls must have least one value';
+    }
     _connect();
   }
 
@@ -51,7 +56,8 @@ class DbClient {
     SecurityContext? securityContext,
   }) {
     var scheme = 'http';
-    var host = 'localhost';
+    String? host;
+    List<Uri> urls = [];
     var port = 8529;
     var db = '_system';
     var user = '';
@@ -64,6 +70,7 @@ class DbClient {
       if (subParts.length != 2) {
         continue;
       }
+
       final name = subParts[0];
       final value = subParts[1];
       switch (name) {
@@ -77,6 +84,9 @@ class DbClient {
           break;
         case 'port':
           port = int.tryParse(value) ?? 8529;
+          break;
+        case 'urls':
+          urls = _getUrls(value);
           break;
         case 'database':
         case 'db':
@@ -92,10 +102,15 @@ class DbClient {
           break;
       }
     }
-    final ret = DbClient(
-      scheme: scheme,
-      host: host,
-      port: port,
+
+    if (urls.isEmpty) {
+      host = 'localhost';
+    }
+    final ret = DbClient._(
+      dbUrls: [
+        if (host != null) Uri(scheme: scheme, host: host, port: port),
+        ...urls,
+      ],
       db: db,
       user: user,
       pass: pass,
@@ -105,9 +120,11 @@ class DbClient {
   }
 
   void _connect() {
-    credentials = HttpClientBasicCredentials(user, pass);
+    final credentials = HttpClientBasicCredentials(user, pass);
     httpClient = HttpClient(context: securityContext);
-    httpClient.addCredentials(dbUrl, realm, credentials);
+    for (final url in dbUrls) {
+      httpClient.addCredentials(url, realm, credentials);
+    }
   }
 
   /// Retrieves information about the current database
@@ -713,13 +730,7 @@ class DbClient {
     Map<String, dynamic> headers = const {},
     postData,
   }) async {
-    var url = dbUrl.replace(pathSegments: pathSegments);
-
-    if (queryParameters.isNotEmpty) {
-      url = url.replace(queryParameters: queryParameters);
-    }
-
-    var req = await httpClient.openUrl(method, url);
+    final req = await _getHttpRequest(pathSegments, queryParameters, method);
 
     for (var headerName in headers.keys) {
       if (headers[headerName] == null) continue;
@@ -734,6 +745,32 @@ class DbClient {
     }
 
     return await _toMap(req);
+  }
+
+  Future<HttpClientRequest> _getHttpRequest(Iterable<String> pathSegments,
+      Map<String, dynamic> queryParameters, String method) async {
+    var currentUrlIX = liveUrlIX;
+    final initialUrlIX = liveUrlIX;
+
+    do {
+      try {
+        var url = dbUrls[currentUrlIX].replace(pathSegments: pathSegments);
+
+        if (queryParameters.isNotEmpty) {
+          url = url.replace(queryParameters: queryParameters);
+        }
+
+        var req = await httpClient.openUrl(method, url);
+        if (currentUrlIX != liveUrlIX) {
+          liveUrlIX = currentUrlIX;
+        }
+        return req;
+      } on SocketException catch (_) {
+        final nextIX = currentUrlIX + 1;
+        currentUrlIX = nextIX >= dbUrls.length ? 0 : nextIX;
+      }
+    } while (currentUrlIX != initialUrlIX);
+    throw 'Tried connecting to all db servers with no success';
   }
 
   static T _toResultResponse<T>(
@@ -946,3 +983,10 @@ class DbClient {
     }
   }
 }
+
+List<Uri> _getUrls(String value) => value
+    .split(',')
+    .map(
+      (e) => Uri.parse(e),
+    )
+    .toList();

@@ -1,3 +1,7 @@
+## 3.4.0
+
+ - **FEAT**: Added support for multi-host connection string.
+
 ## 3.3.1
 
  - **FIX**: DbClient.runAndReturnStream now throws proper error when invalid query.
