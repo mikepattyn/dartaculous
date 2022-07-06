@@ -1,1 +1,1 @@
-go build -buildmode=c-shared -o lib-auth.dll auth.go
+go build -buildmode=c-shared -o lib-auth\windows\lib-auth.dll auth.go
