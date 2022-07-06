@@ -1,3 +1,7 @@
+## 0.9.7
+
+- Updated README with updated path to native library with MacOS Arm version
+
 ## 0.9.6
 
 ### Changes
