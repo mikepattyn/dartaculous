@@ -104,8 +104,14 @@ extension ClassElementFieldExtension on ClassElement {
                 (field.setter != null ||
                     field.isFinal && field.getter!.isSynthetic && !isEnum)) ||
             (field.getter == null && field.setter == null) ||
-            field.isEnumConstant)
+            field.isEnumConstant
+            || _fieldIsDefinedInConstructor(field))
         .toList();
+  }
+
+  /// Check if any of the available constructors contains a parameter with given field's name
+  bool _fieldIsDefinedInConstructor(FieldElement field) {
+    return constructors.where((c) => c.parameters.map((p) => p.name).contains(field.name)).isNotEmpty;
   }
 
   /// Gets all constructors that match a certain set of FieldDescriptors.

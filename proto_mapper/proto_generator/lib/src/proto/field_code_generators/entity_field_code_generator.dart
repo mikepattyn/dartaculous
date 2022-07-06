@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/element/type.dart';
 import 'package:proto_generator/src/proto_common.dart';
 
 import '../field_code_generator.dart';
@@ -13,8 +14,15 @@ class EntityFieldCodeGenerator extends FieldCodeGenerator
 
     final packageName = fieldElementType.packageName;
 
-    final fieldElementTypeName =
-        '''${fieldDescriptor.prefix}${fieldElementType.getDisplayString(withNullability: false)}''';
+    var displayName = fieldElementType.getDisplayString(withNullability: false);
+    // In case of dynamic typed field, avoid "TypeName<dynamic>"...
+    if (fieldElementType is ParameterizedType &&
+        fieldElementType.typeArguments.whereType<DynamicType>().isNotEmpty) {
+      if (fieldElementType.element?.name != null) {
+        displayName = fieldElementType.element!.name!;
+      }
+    }
+    final fieldElementTypeName = '''${fieldDescriptor.prefix}$displayName''';
     _fieldType = packageName != ''
         ? '$packageName.$fieldElementTypeName'
         : fieldElementTypeName;
