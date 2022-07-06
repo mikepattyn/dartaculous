@@ -1,3 +1,7 @@
+## 3.2.1
+
+ - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).
+
 ## 3.2.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

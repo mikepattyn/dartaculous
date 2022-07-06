@@ -1,3 +1,9 @@
+## 2.4.0
+
+ - **FIX**: Avoid `<dynamic>` suffix for types in generated `.proto` file and `ProtoMapper` classes ([#5](https://gitlab.com/ruicraveiro/dart_framework/-/issues/5)).
+ - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).
+ - **FEAT**: Include encapsulated fields that match constructor parameters when generating `Mapper` classes and `.proto` files ([#6](https://gitlab.com/ruicraveiro/dart_framework/-/issues/6)).
+
 ## 2.3.2
 
  - **FIX**: Fixed code generation for abstract classes without implementation of declared interfaces.

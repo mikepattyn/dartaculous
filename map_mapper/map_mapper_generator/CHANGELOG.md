@@ -1,3 +1,8 @@
+## 3.4.0
+
+ - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).
+ - **FEAT**: Include encapsulated fields that match constructor parameters when generating `Mapper` classes and `.proto` files ([#6](https://gitlab.com/ruicraveiro/dart_framework/-/issues/6)).
+
 ## 3.3.0
 
  - **FEAT**: Generating $type constant for each map-mapped class.

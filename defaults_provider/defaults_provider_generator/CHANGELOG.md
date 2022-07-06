@@ -1,3 +1,7 @@
+## 2.1.5
+
+ - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).
+
 ## 2.1.4
 
  - Update a dependency to the latest release.

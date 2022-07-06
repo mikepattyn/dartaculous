@@ -1,3 +1,7 @@
+## 3.5.0
+
+ - **FEAT**: Added support for multi-host connection string.
+
 ## 3.4.0
 
  - **FEAT**: Added support for multi-host connection string.
