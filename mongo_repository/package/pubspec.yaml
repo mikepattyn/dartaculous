@@ -2,14 +2,14 @@ name: mongo_repository
 description: Concrete implementation of the nosql_repository package for the MongoDB database.
 repository: https://gitlab.com/squarealfa/dart_framework
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/mongo_repository
-version: 3.0.0
+version: 4.0.0
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   mongo_dart: ^0.7.2
-  nosql_repository: ^3.0.0
+  nosql_repository: ^4.0.0
   squarealfa_security: ^2.0.0
   tuple: ^2.0.0
 
