@@ -1,0 +1,117 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// ProtoGenerator
+// **************************************************************************
+
+syntax = "proto3";
+      
+
+
+
+
+
+
+  
+message BStaff
+{
+  oneof props {
+    CChef chef = 1;
+    GWaiter waiter = 2;
+    MManager manager = 3;
+
+  }
+    
+}   
+
+message BListOfStaff
+{
+  repeated BStaff items = 1;
+}
+
+message CChef
+{
+  string name = 1;
+  AFoodCategory favorite_food = 2;
+  MManager manager = 3;
+
+}   
+
+message CListOfChef
+{
+  repeated CChef items = 1;
+}
+
+message GWaiter
+{
+  string name = 1;
+  AFoodCategory favorite_food = 2;
+  MManager manager = 3;
+  repeated TTable table = 4;
+
+}   
+
+message GListOfWaiter
+{
+  repeated GWaiter items = 1;
+}
+
+message MManager
+{
+  string name = 1;
+  AFoodCategory favorite_food = 2;
+
+}   
+
+message MListOfManager
+{
+  repeated MManager items = 1;
+}
+
+message TTable
+{
+  int32 number = 1;
+
+}   
+
+message TListOfTable
+{
+  repeated TTable items = 1;
+}
+
+message RRestaurant
+{
+  repeated GWaiter waiters = 1;
+  repeated CChef chefs = 2;
+
+}   
+
+message RListOfRestaurant
+{
+  repeated RRestaurant items = 1;
+}
+
+message WCustomer
+{
+  RRestaurant favorite_restaurant = 1;
+  CChef favorite_chef = 2;
+
+}   
+
+message WListOfCustomer
+{
+  repeated WCustomer items = 1;
+}
+
+enum AFoodCategory
+{
+  A_FOOD_CATEGORY_VEGETABLES = 0;
+  A_FOOD_CATEGORY_MEAT = 1;
+  A_FOOD_CATEGORY_OTHER = 2;
+}   
+     
+message NullableAFoodCategory
+{
+  bool has_value = 1;
+  AFoodCategory value = 2;
+}
