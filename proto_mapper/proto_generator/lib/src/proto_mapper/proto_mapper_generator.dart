@@ -199,13 +199,17 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
             return ret;          
           '''}
 
-           }    
+           }
           '''
-        : '''
-           $className _\$${className}FromProto($prefix$className instance) =>
-        $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
+        :
+        classElement!.isAbstract ? '''
+          $className _\$${className}FromProto($prefix$className instance) {
+            throw UnimplementedError();
+          }
+          ''' : '''
+          $className _\$${className}FromProto($prefix$className instance) =>
+            $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
           ${renderParms.fromProtoFieldBuffer};
-
      ''';
 
     return '''

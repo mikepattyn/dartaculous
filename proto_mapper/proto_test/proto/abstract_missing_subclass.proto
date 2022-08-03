@@ -1,0 +1,48 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// ProtoGenerator
+// **************************************************************************
+
+syntax = "proto3";
+      
+
+
+
+
+
+
+  
+message GAbstractParentClass1
+{
+
+}   
+
+message GListOfAbstractParentClass1
+{
+  repeated GAbstractParentClass1 items = 1;
+}
+
+message GAbstractParentClass2
+{
+  oneof props {
+    GSubClass1 sub_class1 = 1;
+
+  }
+    
+}   
+
+message GListOfAbstractParentClass2
+{
+  repeated GAbstractParentClass2 items = 1;
+}
+
+message GSubClass1
+{
+
+}   
+
+message GListOfSubClass1
+{
+  repeated GSubClass1 items = 1;
+}
