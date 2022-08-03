@@ -141,7 +141,8 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
 
     final fromSubClassMap = _getFromSubClasses(mapMappedReflected, className);
 
-    final fromMapMap = '''
+    final fromMapMap = _classElement?.isAbstract ?? false ? '''
+          throw UnimplementedError();''' : '''
           $kh        
           $defaultsProviderDeclaration
           

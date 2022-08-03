@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
+import 'package:analyzer/dart/element/type.dart';
 import 'package:build/build.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto_mapper/map_proto_reflected.dart';
@@ -14,7 +15,7 @@ part 'proto_mapper_generator.helpers.dart';
 
 class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   final BuilderOptions options;
-  String? _prefix;
+  late String _prefix;
 
   late TimePrecision _dateTimePrecision;
   late TimePrecision _durationPrecision;
@@ -25,8 +26,6 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   ClassElement? get classElement => _classElement;
 
   String? get className => _classElement?.name;
-
-  String? get prefix => _prefix;
 
   ProtoMapperGenerator(this.options) {
     var config = options.config;
@@ -51,15 +50,15 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       durationPrecision: _durationPrecision,
       allowMissingFields: _allowMissingFields,
     );
-    final mapProto = mapProtoReflected.mapProto;
-    _prefix = mapProto.prefix ?? _prefix;
 
     _classElement = element.asClassElement();
-    if (_classElement!.kind == ElementKind.ENUM) return renderEnumMapper();
+    if (_classElement!.kind == ElementKind.ENUM) {
+      return renderEnumMapper(mapProtoReflected.mapProto.prefix);
+    }
 
     RenderMapperBuffers renderParms = _createRenderBuffers(mapProtoReflected);
 
-    final mapper = _renderMapper(renderParms);
+    final mapper = _renderMapper(renderParms, mapProtoReflected.mapProto.prefix);
     return mapper;
   }
 
@@ -67,7 +66,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     MapProtoReflected mapProtoReflected,
   ) {
     final mapProto = mapProtoReflected.mapProto;
-    final fieldDescriptors = _getFieldDescriptors(_classElement!, mapProto);
+    final fieldDescriptors = _getFieldDescriptors(_classElement!, mapProto, _prefix);
     final fromFieldDescriptors = [...fieldDescriptors];
 
     final toProtoFieldBuffer = StringBuffer();
@@ -172,10 +171,9 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     return ret;
   }
 
-  String _renderMapper(RenderMapperBuffers renderParms) {
-    final prefix = _prefix;
+  String _renderMapper(RenderMapperBuffers renderParms, String? prefix) {
+    prefix ??= _prefix;
     final toVar = renderParms.toKnownSubclasses == null ? 'proto' : 'uproto';
-
     final toReturn = _classElement!.isAbstract
         ? 'throw UnimplementedError();'
         : '''
@@ -201,13 +199,17 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
             return ret;          
           '''}
 
-           }    
+           }
           '''
-        : '''
-           $className _\$${className}FromProto($prefix$className instance) =>
-        $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
+        :
+        classElement!.isAbstract ? '''
+          $className _\$${className}FromProto($prefix$className instance) {
+            throw UnimplementedError();
+          }
+          ''' : '''
+          $className _\$${className}FromProto($prefix$className instance) =>
+            $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
           ${renderParms.fromProtoFieldBuffer};
-
      ''';
 
     return '''
@@ -263,7 +265,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   ''';
   }
 
-  String renderEnumMapper() {
+  String renderEnumMapper(String? prefix) {
+    prefix ??= _prefix;
     return '''
       class \$${className}ProtoMapper implements ProtoMapper<$className, $prefix$className> {
         const \$${className}ProtoMapper();
@@ -303,42 +306,6 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     }).join('\n');
     return ret;
   }
-}
-
-MapProtoReflected _hydrateAnnotation(
-  ConstantReader reader, {
-  String? prefix,
-  required TimePrecision dateTimePrecision,
-  required TimePrecision durationPrecision,
-  required bool allowMissingFields,
-}) {
-  final annotatedDateTimePrecision =
-      reader.getTimePrecision('dateTimePrecision') ?? dateTimePrecision;
-
-  final annotatedDurationPrecision =
-      reader.getTimePrecision('durationPrecision') ?? durationPrecision;
-
-  final annotatedAllowMissingFields =
-      reader.read('allowMissingFields').boolValue || allowMissingFields;
-
-  var mapProto = MapProto(
-    prefix: reader.read('prefix').literalValue as String? ?? prefix,
-    packageName: reader.read('packageName').literalValue as String,
-    dateTimePrecision: annotatedDateTimePrecision,
-    durationPrecision: annotatedDurationPrecision,
-    allowMissingFields: annotatedAllowMissingFields,
-  );
-
-  final kscReader = reader.read('knownSubClasses');
-  final kscs = kscReader.isNull
-      ? null
-      : kscReader.listValue.map((ksc) {
-          return ksc.toTypeValue()!;
-        }).toList();
-
-  final ret = MapProtoReflected(mapProto, kscs);
-
-  return ret;
 }
 
 class RenderMapperBuffers {
