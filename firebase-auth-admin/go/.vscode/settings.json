@@ -1,0 +1,5 @@
+{
+    "files.associations": {
+        "dart_api.h": "c"
+    }
+}

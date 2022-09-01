@@ -16,6 +16,21 @@ import 'lib_auth.dart';
 
 final nl = _getNativeLibrary();
 
+Future<void> testComms() async {
+  //final c = Completer<Uint8List>();
+  final c = Completer<String>();
+  final receivePort = _createReceivePort2(c);
+
+  try {
+    try {
+      nl.testComms(receivePort.sendPort.nativePort, );
+    } finally {}
+    await c.future;
+  } finally {
+    receivePort.close();
+  }
+}
+
 void initialize(String serviceFilePath) {
   final serviceAccount =
       serviceFilePath.toNativeUtf8(allocator: malloc).cast<Int8>();
@@ -364,6 +379,15 @@ ReceivePort _createReceivePort(Completer<String> c) {
       }
       final ret = map['data'];
       c.complete(ret);
+    });
+  return receivePort;
+}
+
+ReceivePort _createReceivePort2(Completer<String> c) {
+  final receivePort = ReceivePort()
+    ..listen((data) {
+      print(data.toString());
+      c.complete("strData");
     });
   return receivePort;
 }

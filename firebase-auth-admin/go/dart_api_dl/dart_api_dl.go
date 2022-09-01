@@ -52,7 +52,6 @@ func SendErrorToPort(port int64, err error) {
 	SendStringToPort(port, strJson)
 }
 
-
 func SendMapToPort(port int64, data map[string]interface{}) {
 	json, err := json.Marshal(data)
 	if err != nil {
@@ -73,4 +72,26 @@ func SendStringToPort(port int64, value string) {
 	C.GoDart_PostCObject(C.long(port), &obj)
 
 	C.free(unsafe.Pointer(ret))
+}
+
+type UTypedData struct {
+	_type  C.Dart_TypedData_Type
+	length C.intptr_t
+	values *C.uint8_t
+}
+
+func SendUInt8ArrayToPort(port int64, value []uint8) {
+
+	var obj C.Dart_CObject
+	obj._type = C.Dart_CObject_kTypedData
+
+	var ret UTypedData
+
+	ret._type = C.Dart_TypedData_kUint8
+	ret.length = C.intptr_t(len(value))
+	ret.values = (*C.uint8_t)(unsafe.Pointer(&value[0]))
+
+	*(*UTypedData)(unsafe.Pointer(&obj.value)) = ret
+	C.GoDart_PostCObject(C.long(port), &obj)
+
 }

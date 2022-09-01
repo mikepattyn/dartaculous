@@ -803,6 +803,20 @@ class LibAuth {
   late final _realloc = _reallocPtr
       .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int)>();
 
+  void free(
+    ffi.Pointer<ffi.Void> __ptr,
+  ) {
+    return _free(
+      __ptr,
+    );
+  }
+
+  late final _freePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'free');
+  late final _free =
+      _freePtr.asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
   ffi.Pointer<ffi.Void> reallocarray(
     ffi.Pointer<ffi.Void> __ptr,
     int __nmemb,
@@ -821,20 +835,6 @@ class LibAuth {
               ffi.Pointer<ffi.Void>, ffi.Int32, ffi.Int32)>>('reallocarray');
   late final _reallocarray = _reallocarrayPtr.asFunction<
       ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int, int)>();
-
-  void free(
-    ffi.Pointer<ffi.Void> __ptr,
-  ) {
-    return _free(
-      __ptr,
-    );
-  }
-
-  late final _freePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-          'free');
-  late final _free =
-      _freePtr.asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
   ffi.Pointer<ffi.Void> alloca(
     int __size,
@@ -1814,6 +1814,22 @@ class LibAuth {
               GoInt64, ffi.Pointer<ffi.Int8>)>>('getUserByPhoneNumber');
   late final _getUserByPhoneNumber = _getUserByPhoneNumberPtr
       .asFunction<void Function(int, ffi.Pointer<ffi.Int8>)>();
+
+  void testComms(
+    int port,
+    ffi.Pointer<ffi.Uint8> buffer,
+  ) {
+    return _testComms(
+      port,
+      buffer,
+    );
+  }
+
+  late final _testCommsPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(GoInt64, ffi.Pointer<ffi.Uint8>)>>('testComms');
+  late final _testComms =
+      _testCommsPtr.asFunction<void Function(int, ffi.Pointer<ffi.Uint8>)>();
 }
 
 class div_t extends ffi.Struct {
@@ -1877,6 +1893,21 @@ class fd_set extends ffi.Struct {
 }
 
 typedef __fd_mask = ffi.Int64;
+
+class __atomic_wide_counter extends ffi.Union {
+  @ffi.Uint64()
+  external int __value64;
+
+  external UnnamedStruct1 __value32;
+}
+
+class UnnamedStruct1 extends ffi.Struct {
+  @ffi.Uint32()
+  external int __low;
+
+  @ffi.Uint32()
+  external int __high;
+}
 
 class __pthread_internal_list extends ffi.Struct {
   external ffi.Pointer<__pthread_internal_list> __prev;
@@ -1954,6 +1985,10 @@ class __pthread_rwlock_arch_t extends ffi.Struct {
 }
 
 class __pthread_cond_s extends ffi.Struct {
+  external __atomic_wide_counter __wseq;
+
+  external __atomic_wide_counter __g1_start;
+
   @ffi.Array.multi([2])
   external ffi.Array<ffi.Uint32> __g_refs;
 
@@ -2142,6 +2177,14 @@ const int __USE_XOPEN2K8 = 1;
 
 const int _ATFILE_SOURCE = 1;
 
+const int __WORDSIZE = 64;
+
+const int __WORDSIZE_TIME64_COMPAT32 = 1;
+
+const int __SYSCALL_WORDSIZE = 64;
+
+const int __TIMESIZE = 64;
+
 const int __USE_MISC = 1;
 
 const int __USE_ATFILE = 1;
@@ -2156,7 +2199,11 @@ const int _STDC_PREDEF_H = 1;
 
 const int __STDC_IEC_559__ = 1;
 
+const int __STDC_IEC_60559_BFP__ = 201404;
+
 const int __STDC_IEC_559_COMPLEX__ = 1;
+
+const int __STDC_IEC_60559_COMPLEX__ = 201404;
 
 const int __STDC_ISO_10646__ = 201706;
 
@@ -2164,7 +2211,7 @@ const int __GNU_LIBRARY__ = 6;
 
 const int __GLIBC__ = 2;
 
-const int __GLIBC_MINOR__ = 33;
+const int __GLIBC_MINOR__ = 35;
 
 const int _SYS_CDEFS_H = 1;
 
@@ -2173,12 +2220,6 @@ const int __THROW = 1;
 const int __THROWNL = 1;
 
 const int __glibc_c99_flexarr_available = 1;
-
-const int __WORDSIZE = 64;
-
-const int __WORDSIZE_TIME64_COMPAT32 = 1;
-
-const int __SYSCALL_WORDSIZE = 64;
 
 const int __LDOUBLE_REDIRECTS_TO_FLOAT128_ABI = 0;
 
@@ -2189,6 +2230,8 @@ const int __GLIBC_USE_LIB_EXT2 = 1;
 const int __GLIBC_USE_IEC_60559_BFP_EXT = 1;
 
 const int __GLIBC_USE_IEC_60559_BFP_EXT_C2X = 1;
+
+const int __GLIBC_USE_IEC_60559_EXT = 1;
 
 const int __GLIBC_USE_IEC_60559_FUNCS_EXT = 1;
 
@@ -2267,8 +2310,6 @@ const int EXIT_SUCCESS = 0;
 const int _SYS_TYPES_H = 1;
 
 const int _BITS_TYPES_H = 1;
-
-const int __TIMESIZE = 64;
 
 const int _BITS_TYPESIZES_H = 1;
 

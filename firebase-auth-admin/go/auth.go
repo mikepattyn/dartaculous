@@ -426,5 +426,15 @@ func _checkClient(port int64) bool {
 
 }
 
+//export testComms
+func testComms(port int64, buffer *C.uchar) {
+	go doTestComms(port)
+}
+
+func doTestComms(port int64) {
+	a := []uint8{1, 2, 3}
+	dart_api_dl.SendUInt8ArrayToPort(port, a)
+}
+
 func main() {
 }
