@@ -87,7 +87,7 @@ extern void createCustomToken(GoInt64 port, char* uid);
 extern void getUser(GoInt64 port, char* uid);
 extern void getUserByEmail(GoInt64 port, char* email);
 extern void getUserByPhoneNumber(GoInt64 port, char* phoneNumber);
-extern void testComms(GoInt64 port, unsigned char* buffer);
+extern void testComms(GoInt64 port, unsigned char* buffer, GoInt size);
 
 #ifdef __cplusplus
 }

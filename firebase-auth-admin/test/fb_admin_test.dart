@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:firebase_auth_admin/firebase_auth_admin.dart' as firebase;
 import 'package:test/test.dart';
@@ -139,7 +140,14 @@ void main() {
     //     expect(uid, isNotEmpty);
     //   });
     test('test comms', () async {
-      await firebase.testComms();
+      final lst = Uint8List.fromList([3, 6, 6, 8, 9]);
+      final res = await firebase.testComms(lst);
+      expect(res.length, 5);
+      expect(res[0], 3);
+      expect(res[1], 6);
+      expect(res[2], 6);
+      expect(res[3], 8);
+      expect(res[4], 9);
     });
   });
 }

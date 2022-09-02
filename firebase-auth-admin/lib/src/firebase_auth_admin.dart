@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:ffi' as ffi; // For FFI
 import 'dart:ffi';
 import 'dart:isolate';
+import 'dart:typed_data';
 import 'package:path/path.dart';
 import 'dart:io';
 import 'package:ffi/ffi.dart';
@@ -16,16 +17,24 @@ import 'lib_auth.dart';
 
 final nl = _getNativeLibrary();
 
-Future<void> testComms() async {
-  //final c = Completer<Uint8List>();
-  final c = Completer<String>();
+Future<Uint8List> testComms(Uint8List bytes) async {
+  final c = Completer<Uint8List>();
+
+  final ptr = malloc.allocate<Uint8>(bytes.lengthInBytes);
+  bytes.asMap().forEach((index, utf) {
+    ptr[index] = bytes[index];
+  });
+
   final receivePort = _createReceivePort2(c);
 
   try {
     try {
-      nl.testComms(receivePort.sendPort.nativePort, );
-    } finally {}
-    await c.future;
+      nl.testComms(receivePort.sendPort.nativePort, ptr, bytes.length);
+    } finally {
+      malloc.free(ptr);
+    }
+    final ret = await c.future;
+    return ret;
   } finally {
     receivePort.close();
   }
@@ -383,11 +392,10 @@ ReceivePort _createReceivePort(Completer<String> c) {
   return receivePort;
 }
 
-ReceivePort _createReceivePort2(Completer<String> c) {
+ReceivePort _createReceivePort2(Completer<Uint8List> c) {
   final receivePort = ReceivePort()
     ..listen((data) {
-      print(data.toString());
-      c.complete("strData");
+      c.complete(data);
     });
   return receivePort;
 }

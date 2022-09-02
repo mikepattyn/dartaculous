@@ -1818,18 +1818,21 @@ class LibAuth {
   void testComms(
     int port,
     ffi.Pointer<ffi.Uint8> buffer,
+    int size,
   ) {
     return _testComms(
       port,
       buffer,
+      size,
     );
   }
 
   late final _testCommsPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(GoInt64, ffi.Pointer<ffi.Uint8>)>>('testComms');
-  late final _testComms =
-      _testCommsPtr.asFunction<void Function(int, ffi.Pointer<ffi.Uint8>)>();
+          ffi.Void Function(
+              GoInt64, ffi.Pointer<ffi.Uint8>, GoInt)>>('testComms');
+  late final _testComms = _testCommsPtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.Uint8>, int)>();
 }
 
 class div_t extends ffi.Struct {

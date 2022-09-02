@@ -427,13 +427,14 @@ func _checkClient(port int64) bool {
 }
 
 //export testComms
-func testComms(port int64, buffer *C.uchar) {
-	go doTestComms(port)
+func testComms(port int64, buffer *C.uchar, size int) {
+	gbuffer := C.GoBytes(unsafe.Pointer(buffer), C.int(size))
+	go doTestComms(port, gbuffer)
 }
 
-func doTestComms(port int64) {
-	a := []uint8{1, 2, 3}
-	dart_api_dl.SendUInt8ArrayToPort(port, a)
+func doTestComms(port int64, buffer []byte) {
+	// a := []uint8{1, 2, 3}
+	dart_api_dl.SendUInt8ArrayToPort(port, buffer)
 }
 
 func main() {
