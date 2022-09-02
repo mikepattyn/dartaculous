@@ -79,7 +79,7 @@ extern void verifyIDTokenAndCheckRevoked(GoInt64 port, char* idToken);
 extern void revokeRefreshTokens(GoInt64 port, char* idToken);
 extern void setCustomUserClaims(GoInt64 port, char* uid, char* claims);
 extern void createUser(GoInt64 port, char* userJson);
-extern void updateUser(GoInt64 port, char* userJson);
+extern void updateUser(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void deleteUser(GoInt64 port, char* uid);
 extern void getCustomClaims(GoInt64 port, char* uid);
 extern void createCustomTokenWithClaims(GoInt64 port, char* uid, char* claims);

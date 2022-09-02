@@ -1,3 +1,10 @@
+import 'package:firebase_auth_admin/gen/firebase_user_info.pb.dart';
+import 'package:proto_annotations/proto_annotations.dart';
+
+part 'firebase_user_info.g.dart';
+
+@proto
+@mapProto
 class FirebaseUserInfo {
   final String? email;
   final bool? emailVerified;

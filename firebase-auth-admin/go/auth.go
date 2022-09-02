@@ -7,6 +7,8 @@ import (
 	"errors"
 
 	firebase "firebase.google.com/go"
+	proto "google.golang.org/protobuf/proto"
+
 	"golang.org/x/net/context"
 	"google.golang.org/api/option"
 
@@ -16,6 +18,7 @@ import (
 
 	"firebase.google.com/go/auth"
 	"gitlab.com/squarealfa/dart_framework/firebase-auth-admin/go/dart_api_dl"
+	"gitlab.com/squarealfa/dart_framework/firebase-auth-admin/go/gproto"
 )
 
 var client *auth.Client
@@ -205,39 +208,38 @@ func doCreateUser(port int64, ctx context.Context, params *auth.UserToCreate) {
 }
 
 //export updateUser
-func updateUser(port int64, userJson *C.char) {
+func updateUser(port int64, buffer *C.uchar, size int) {
 	if !_checkClient(port) {
 		return
 	}
 
-	gUserJson := []byte(C.GoString(userJson))
+	gbuffer := C.GoBytes(unsafe.Pointer(buffer), C.int(size))
+	user := &gproto.GFirebaseUpdateUser{}
+	proto.Unmarshal(gbuffer, user)
 
-	var userMap map[string]interface{}
-	json.Unmarshal(gUserJson, &userMap)
-	gUid := userMap["uid"].(string)
+	gUid := user.Uid
 
 	params := (&auth.UserToUpdate{})
-
-	if userMap["email"] != nil {
-		params.Email(userMap["email"].(string))
+	if user.Info.EmailHasValue {
+		params.Email(user.Info.Email)
 	}
-	if userMap["emailVerified"] != nil {
-		params.EmailVerified(userMap["emailVerified"].(bool))
+	if user.Info.EmailVerifiedHasValue {
+		params.EmailVerified(user.Info.EmailVerifiedHasValue)
 	}
-	if userMap["disabled"] != nil {
-		params.Disabled(userMap["disabled"].(bool))
+	if user.Info.DisabledHasValue {
+		params.Disabled(user.Info.Disabled)
 	}
-	if userMap["displayName"] != nil {
-		params.DisplayName(userMap["displayName"].(string))
+	if user.Info.DisplayNameHasValue {
+		params.DisplayName(user.Info.DisplayName)
 	}
-	if userMap["password"] != nil {
-		params.Password(userMap["password"].(string))
+	if user.Info.PasswordHasValue {
+		params.Password(user.Info.Password)
 	}
-	if userMap["phoneNumber"] != nil {
-		params.PhoneNumber(userMap["phoneNumber"].(string))
+	if user.Info.PhoneNumberHasValue {
+		params.PhoneNumber(user.Info.PhoneNumber)
 	}
-	if userMap["photoUrl"] != nil {
-		params.PhotoURL(userMap["photoUrl"].(string))
+	if user.Info.PhotoUrlHasValue {
+		params.PhotoURL(user.Info.PhotoUrl)
 	}
 
 	go doUpdateUser(port, gUid, params)

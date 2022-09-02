@@ -1,0 +1,38 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// ProtoGenerator
+// **************************************************************************
+
+syntax = "proto3";
+      
+
+
+
+
+
+
+  
+message GFirebaseUserInfo
+{
+  string email = 1;
+  bool email_has_value = 2;
+  bool email_verified = 3;
+  bool email_verified_has_value = 4;
+  string display_name = 5;
+  bool display_name_has_value = 6;
+  string password = 7;
+  bool password_has_value = 8;
+  bool disabled = 9;
+  bool disabled_has_value = 10;
+  string phone_number = 11;
+  bool phone_number_has_value = 12;
+  string photo_url = 13;
+  bool photo_url_has_value = 14;
+
+}   
+
+message GListOfFirebaseUserInfo
+{
+  repeated GFirebaseUserInfo items = 1;
+}

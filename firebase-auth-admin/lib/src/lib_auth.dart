@@ -1682,19 +1682,22 @@ class LibAuth {
 
   void updateUser(
     int port,
-    ffi.Pointer<ffi.Int8> userJson,
+    ffi.Pointer<ffi.Uint8> buffer,
+    int size,
   ) {
     return _updateUser(
       port,
-      userJson,
+      buffer,
+      size,
     );
   }
 
   late final _updateUserPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(GoInt64, ffi.Pointer<ffi.Int8>)>>('updateUser');
-  late final _updateUser =
-      _updateUserPtr.asFunction<void Function(int, ffi.Pointer<ffi.Int8>)>();
+          ffi.Void Function(
+              GoInt64, ffi.Pointer<ffi.Uint8>, GoInt)>>('updateUser');
+  late final _updateUser = _updateUserPtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.Uint8>, int)>();
 
   void deleteUser(
     int port,

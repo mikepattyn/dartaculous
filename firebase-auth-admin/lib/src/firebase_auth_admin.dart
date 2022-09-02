@@ -17,29 +17,6 @@ import 'lib_auth.dart';
 
 final nl = _getNativeLibrary();
 
-Future<Uint8List> testComms(Uint8List bytes) async {
-  final c = Completer<Uint8List>();
-
-  final ptr = malloc.allocate<Uint8>(bytes.lengthInBytes);
-  bytes.asMap().forEach((index, utf) {
-    ptr[index] = bytes[index];
-  });
-
-  final receivePort = _createReceivePort2(c);
-
-  try {
-    try {
-      nl.testComms(receivePort.sendPort.nativePort, ptr, bytes.length);
-    } finally {
-      malloc.free(ptr);
-    }
-    final ret = await c.future;
-    return ret;
-  } finally {
-    receivePort.close();
-  }
-}
-
 void initialize(String serviceFilePath) {
   final serviceAccount =
       serviceFilePath.toNativeUtf8(allocator: malloc).cast<Int8>();
@@ -148,29 +125,45 @@ Future<String> createUser(FirebaseCreateUser user) async {
   }
 }
 
+Future<Uint8List> testComms(Uint8List bytes) async {
+  final c = Completer<Uint8List>();
+
+  final ptr = malloc.allocate<Uint8>(bytes.lengthInBytes);
+  bytes.asMap().forEach((index, utf) {
+    ptr[index] = bytes[index];
+  });
+
+  final receivePort = _createReceivePort2(c);
+
+  try {
+    try {
+      nl.testComms(receivePort.sendPort.nativePort, ptr, bytes.length);
+    } finally {
+      malloc.free(ptr);
+    }
+    final ret = await c.future;
+    return ret;
+  } finally {
+    receivePort.close();
+  }
+}
+
 Future<void> updateUser(FirebaseUpdateUser user) async {
-  final userMap = <String, dynamic>{};
-  userMap['uid'] = user.uid;
-  userMap['email'] = user.info.email;
-  userMap['displayName'] = user.info.displayName;
-  userMap['password'] = user.info.password;
-  userMap['emailVerified'] = user.info.emailVerified;
-  userMap['disabled'] = user.info.disabled;
-  userMap['password'] = user.info.password;
-  userMap['phoneNumber'] = user.info.phoneNumber;
-  userMap['photoUrl'] = user.info.photoUrl;
-  final json = jsonEncode(userMap);
+  final bytes = user.toProto().writeToBuffer();
 
   final c = Completer<String>();
   final receivePort = _createReceivePort(c);
 
   try {
-    final Pointer<Int8> pJson =
-        json.toNativeUtf8(allocator: malloc).cast<Int8>();
+    final ptr = malloc.allocate<Uint8>(bytes.lengthInBytes);
+
     try {
-      nl.updateUser(receivePort.sendPort.nativePort, pJson);
+      bytes.asMap().forEach((index, utf) {
+        ptr[index] = bytes[index];
+      });
+      nl.updateUser(receivePort.sendPort.nativePort, ptr, bytes.length);
     } finally {
-      malloc.free(pJson);
+      malloc.free(ptr);
     }
     await c.future;
   } finally {
