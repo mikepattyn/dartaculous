@@ -19,6 +19,8 @@ dev_dependencies:
 
 
 
-# dependency_overrides:
-#   squarealfa_common_types:
-#     path: ../../common_types
+dependency_overrides:
+  squarealfa_common_types:
+    path: ../../common_types
+  proto_generator:
+    path: ../../proto_mapper/proto_generator

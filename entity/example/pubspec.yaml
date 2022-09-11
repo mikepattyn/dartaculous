@@ -14,3 +14,7 @@ dev_dependencies:
   build_verify: ^3.0.0
   lints: ^1.0.1
   test: ^1.16.8
+
+dependency_overrides:
+  proto_generator:
+    path: ../../proto_mapper/proto_generator

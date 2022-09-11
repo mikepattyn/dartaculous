@@ -32,9 +32,6 @@ class _FieldSet implements Comparable<_FieldSet> {
       }
 
       final checkerB = TypeChecker.fromStatic(
-          // ignore: todo
-          // TODO: remove `ignore` when min pkg:analyzer >= 0.38.0
-          // ignore: unnecessary_cast
           (b.enclosingElement as ClassElement).thisType);
 
       if (checkerB.isAssignableFrom(a.enclosingElement)) {
