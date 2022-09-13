@@ -8,6 +8,7 @@ part of 'airplane.dart';
 
 class $AirplaneMapMapper extends MapMapper<Airplane> {
   const $AirplaneMapMapper();
+  static const $type = 'Airplane';
 
   @override
   Airplane fromMap(Map<String, dynamic> map) {
@@ -42,7 +43,7 @@ class $AirplaneFieldNames {
   final String fieldName;
   final String prefix;
 
-  $AirplaneFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $AirplaneFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $AirplaneFieldNames()
       : fieldName = '',

@@ -8,6 +8,7 @@ part of 'person.dart';
 
 class $PersonMapMapper extends MapMapper<Person> {
   const $PersonMapMapper();
+  static const $type = 'Person';
 
   @override
   Person fromMap(Map<String, dynamic> map) {
@@ -49,7 +50,7 @@ class $PersonFieldNames {
   final String fieldName;
   final String prefix;
 
-  $PersonFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $PersonFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $PersonFieldNames()
       : fieldName = '',

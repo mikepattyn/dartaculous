@@ -8,6 +8,7 @@ part of 'lists_host.dart';
 
 class $ListsHostMapMapper extends MapMapper<ListsHost> {
   const $ListsHostMapMapper();
+  static const $type = 'ListsHost';
 
   @override
   ListsHost fromMap(Map<String, dynamic> map) {
@@ -93,7 +94,7 @@ class $ListsHostFieldNames {
   final String fieldName;
   final String prefix;
 
-  $ListsHostFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $ListsHostFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $ListsHostFieldNames()
       : fieldName = '',

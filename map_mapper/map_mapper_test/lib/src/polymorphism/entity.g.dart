@@ -45,7 +45,7 @@ class $EntityFieldNames {
   final String fieldName;
   final String prefix;
 
-  $EntityFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $EntityFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $EntityFieldNames()
       : fieldName = '',

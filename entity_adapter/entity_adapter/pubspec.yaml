@@ -28,3 +28,7 @@ dependency_overrides:
     path: ../../map_mapper/map_mapper_annotations
   squarealfa_common_types:
     path: ../../common_types
+  defaults_provider_annotations:
+    path: ../../defaults_provider/defaults_provider_annotations
+  squarealfa_entity_annotations:
+    path: ../../entity/entity_annotations

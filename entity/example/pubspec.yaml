@@ -18,3 +18,7 @@ dev_dependencies:
 dependency_overrides:
   proto_generator:
     path: ../../proto_mapper/proto_generator
+  squarealfa_entity_generator:
+    path: ../../entity/entity_generator
+  squarealfa_generators_common:
+    path: ../../generators_common

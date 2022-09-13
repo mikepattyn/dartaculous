@@ -51,7 +51,7 @@ class $AirplaneFieldNames {
   final String fieldName;
   final String prefix;
 
-  $AirplaneFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $AirplaneFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $AirplaneFieldNames()
       : fieldName = '',

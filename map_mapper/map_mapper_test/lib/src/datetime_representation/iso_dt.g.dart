@@ -45,7 +45,7 @@ class $IsoDtFieldNames {
   final String fieldName;
   final String prefix;
 
-  $IsoDtFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $IsoDtFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $IsoDtFieldNames()
       : fieldName = '',

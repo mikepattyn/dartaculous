@@ -8,6 +8,7 @@ part of 'category.dart';
 
 class $CategoryMapMapper extends MapMapper<Category> {
   const $CategoryMapMapper();
+  static const $type = 'Category';
 
   @override
   Category fromMap(Map<String, dynamic> map) {
@@ -71,7 +72,7 @@ class $CategoryFieldNames {
   final String fieldName;
   final String prefix;
 
-  $CategoryFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $CategoryFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $CategoryFieldNames()
       : fieldName = '',

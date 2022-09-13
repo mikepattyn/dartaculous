@@ -72,7 +72,7 @@ class $CategoryFieldNames {
   final String fieldName;
   final String prefix;
 
-  $CategoryFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $CategoryFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $CategoryFieldNames()
       : fieldName = '',

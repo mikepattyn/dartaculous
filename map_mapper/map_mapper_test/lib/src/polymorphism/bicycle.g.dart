@@ -49,7 +49,7 @@ class $BicycleFieldNames {
   final String fieldName;
   final String prefix;
 
-  $BicycleFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $BicycleFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $BicycleFieldNames()
       : fieldName = '',

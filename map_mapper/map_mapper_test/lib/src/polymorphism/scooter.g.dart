@@ -17,7 +17,7 @@ class $ScooterMapMapper extends MapMapper<Scooter> {
     return Scooter(
       weight: map['weight'] as int,
       key: $kh.keyFromMap(map, 'key'),
-    )..key = $kh.keyFromMap(map, 'key');
+    );
   }
 
   @override
@@ -47,7 +47,7 @@ class $ScooterFieldNames {
   final String fieldName;
   final String prefix;
 
-  $ScooterFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $ScooterFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $ScooterFieldNames()
       : fieldName = '',

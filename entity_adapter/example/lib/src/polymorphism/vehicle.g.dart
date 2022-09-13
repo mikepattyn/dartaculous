@@ -23,6 +23,8 @@ class $VehiclePermissions extends EntityPermissions {
 }
 
 class $VehicleEntityAdapter implements EntityAdapter<Vehicle> {
+  const $VehicleEntityAdapter();
+
   @override
   final MapMapper<Vehicle> mapMapper = const $VehicleMapMapper();
 
@@ -121,18 +123,19 @@ class $VehicleDefaultsProvider {
 
 class $VehicleMapMapper extends MapMapper<Vehicle> {
   const $VehicleMapMapper();
+  static const $type = 'Vehicle';
 
   @override
   Vehicle fromMap(Map<String, dynamic> map) {
     final type = map['\$type'] as String?;
     switch (type) {
       case null:
-      case 'Vehicle':
+      case $type:
         return _fromMap(map);
-      case 'Car':
+      case $CarMapMapper.$type:
         return (const $CarMapMapper()).fromMap(map);
 
-      case 'Airplane':
+      case $AirplaneMapMapper.$type:
         return (const $AirplaneMapMapper()).fromMap(map);
 
       default:
@@ -153,14 +156,14 @@ class $VehicleMapMapper extends MapMapper<Vehicle> {
   Map<String, dynamic> toMap(Vehicle instance) {
     if (instance is Car) {
       return {
-        '\$type': 'Car',
+        '\$type': $CarMapMapper.$type,
         ...const $CarMapMapper().toMap(instance),
       };
     }
 
     if (instance is Airplane) {
       return {
-        '\$type': 'Airplane',
+        '\$type': $AirplaneMapMapper.$type,
         ...const $AirplaneMapMapper().toMap(instance),
       };
     }
@@ -189,7 +192,7 @@ class $VehicleFieldNames {
   final String fieldName;
   final String prefix;
 
-  $VehicleFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $VehicleFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $VehicleFieldNames()
       : fieldName = '',

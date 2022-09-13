@@ -23,8 +23,10 @@ dev_dependencies:
 ## We need to consider implementing a mongodb driver over RestHeart (Rest API for Dart) instead of 
 ## depending on mongo_dart. With RestHeart we will get MongoDB transaction support.
 
-# dependency_overrides:
+dependency_overrides:
 #   # map_mapper_generator: 2.0.0
 #   bson:
 #     git: https://gitlab.com/squarealfa/bson.git
 #   rational: ^2.2.0
+  squarealfa_generators_common:
+    path: ../../generators_common

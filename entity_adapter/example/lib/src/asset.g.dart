@@ -103,6 +103,7 @@ class $AssetDefaultsProvider {
 
 class $AssetMapMapper extends MapMapper<Asset> {
   const $AssetMapMapper();
+  static const $type = 'Asset';
 
   @override
   Asset fromMap(Map<String, dynamic> map) {
@@ -141,7 +142,7 @@ class $AssetFieldNames {
   final String fieldName;
   final String prefix;
 
-  $AssetFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $AssetFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $AssetFieldNames()
       : fieldName = '',

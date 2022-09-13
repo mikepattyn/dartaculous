@@ -23,6 +23,8 @@ class $RecipePermissions extends EntityPermissions {
 }
 
 class $RecipeEntityAdapter implements EntityAdapter<Recipe> {
+  const $RecipeEntityAdapter();
+
   @override
   final MapMapper<Recipe> mapMapper = const $RecipeMapMapper();
 
@@ -118,6 +120,7 @@ class $RecipeDefaultsProvider {
   }) {
     return Recipe(
       title: title ?? this.title,
+      description: null,
     );
   }
 
@@ -130,6 +133,7 @@ class $RecipeDefaultsProvider {
 
 class $RecipeMapMapper extends MapMapper<Recipe> {
   const $RecipeMapMapper();
+  static const $type = 'Recipe';
 
   @override
   Recipe fromMap(Map<String, dynamic> map) {
@@ -167,7 +171,7 @@ class $RecipeFieldNames {
   final String fieldName;
   final String prefix;
 
-  $RecipeFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $RecipeFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $RecipeFieldNames()
       : fieldName = '',

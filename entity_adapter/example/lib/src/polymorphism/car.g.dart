@@ -89,8 +89,8 @@ class $CarDefaultsProvider {
     int? numberOfDoors,
   }) {
     return Car(
-      weight: weight ?? this.weight,
       numberOfDoors: numberOfDoors ?? this.numberOfDoors,
+      weight: weight ?? this.weight,
     );
   }
 
@@ -104,16 +104,17 @@ class $CarDefaultsProvider {
 
 class $CarMapMapper extends MapMapper<Car> {
   const $CarMapMapper();
+  static const $type = 'Car';
 
   @override
   Car fromMap(Map<String, dynamic> map) {
     final defaultsProvider = $CarDefaultsProvider();
 
     return Car(
-      weight: getValueOrDefault(map['weight'], () => defaultsProvider.weight,
-          (mapValue) => mapValue as int),
       numberOfDoors: getValueOrDefault(map['numberOfDoors'],
           () => defaultsProvider.numberOfDoors, (mapValue) => mapValue as int),
+      weight: getValueOrDefault(map['weight'], () => defaultsProvider.weight,
+          (mapValue) => mapValue as int),
     );
   }
 
@@ -142,7 +143,7 @@ class $CarFieldNames {
   final String fieldName;
   final String prefix;
 
-  $CarFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $CarFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $CarFieldNames()
       : fieldName = '',

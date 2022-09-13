@@ -47,7 +47,7 @@ class $MilliDtFieldNames {
   final String fieldName;
   final String prefix;
 
-  $MilliDtFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $MilliDtFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $MilliDtFieldNames()
       : fieldName = '',

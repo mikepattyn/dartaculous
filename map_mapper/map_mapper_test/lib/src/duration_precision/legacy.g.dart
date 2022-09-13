@@ -45,7 +45,7 @@ class $LegacyFieldNames {
   final String fieldName;
   final String prefix;
 
-  $LegacyFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $LegacyFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $LegacyFieldNames()
       : fieldName = '',

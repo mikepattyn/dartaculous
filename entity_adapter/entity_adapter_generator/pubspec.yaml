@@ -44,3 +44,5 @@ dependency_overrides:
     path: ../../defaults_provider/defaults_provider_generator
   squarealfa_entity_generator:
     path: ../../entity/entity_generator
+  squarealfa_common_types:
+    path: ../../common_types

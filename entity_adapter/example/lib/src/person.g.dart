@@ -23,6 +23,8 @@ class $PersonPermissions extends EntityPermissions {
 }
 
 class $PersonEntityAdapter implements EntityAdapter<Person> {
+  const $PersonEntityAdapter();
+
   @override
   final MapMapper<Person> mapMapper = const $PersonMapMapper();
 
@@ -130,6 +132,7 @@ class $PersonDefaultsProvider {
 
 class $PersonMapMapper extends MapMapper<Person> {
   const $PersonMapMapper();
+  static const $type = 'Person';
 
   @override
   Person fromMap(Map<String, dynamic> map) {
@@ -172,7 +175,7 @@ class $PersonFieldNames {
   final String fieldName;
   final String prefix;
 
-  $PersonFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $PersonFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $PersonFieldNames()
       : fieldName = '',

@@ -45,7 +45,7 @@ class $MorePreciseFieldNames {
   final String fieldName;
   final String prefix;
 
-  $MorePreciseFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $MorePreciseFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $MorePreciseFieldNames()
       : fieldName = '',

@@ -21,10 +21,14 @@ dependency_overrides:
     path: ../entity_adapter
   squarealfa_entity_adapter_generator:
     path: ../entity_adapter_generator
+  squarealfa_entity_generator:
+    path: ../../entity/entity_generator
   squarealfa_generators_common:
     path: ../../generators_common
   map_mapper_generator:
     path: ../../map_mapper/map_mapper_generator
+  proto_generator:
+    path: ../../proto_mapper/proto_generator
   map_mapper_annotations:
     path: ../../map_mapper/map_mapper_annotations
   defaults_provider_generator:
