@@ -1,10 +1,19 @@
 MongoDB driver based on the [official MongoDB GO SDK](https://pkg.go.dev/go.mongodb.org/mongo-driver/mongo).
 
-While there is a wonderful community based MongoDB driver, [mongo_dart](https://pub.dev/packages/mongo_dart), this package is a less portable package, but one that includes session, which we needed urgently but without the time to actually learn MongoDB's protocol. Therefore, the approach was to leverage GO's existing MongoDB driver, which is an official driver. So, this is the closest we have to get an official MongoDB driver for Dart, albeit probably a very incomplete one for now.
+While there is a wonderful community based MongoDB driver, [mongo_dart](https://pub.dev/packages/mongo_dart), this package is a less portable package, but one that includes sessions, which we needed urgently but without the time to actually learn MongoDB's protocol. Therefore, the approach was to leverage GO's existing MongoDB driver, which is an official driver. So, this is the closest we have to get an official MongoDB driver for Dart, albeit probably a very incomplete one for now.
 
-It supports the basic features like CRUD operations ```insertOne```, ..., ```find```, aggregate, some slightly more advanced features like ```watch```. It supports sessions and transactions.
+It supports the basic features like CRUD operations ```insertOne```, ..., ```find```, ```aggregate```, some slightly more advanced features like ```watch```. It supports sessions and transactions.
 
 ## Getting started
+
+In order to use this package:
+- Add this package to your package dependencies on pubspec.yaml.
+
+- The package requires a dynamic library, ```mongo_proxy.so```, which you need to be able to access from your application. Find the physical path to the package and you may either add that path to your library search path, or you may copy or add a symbolic link from the library, to the root of your app's package. 
+
+Download the library from https://gitlab.com/squarealfa/dart_framework/-/blob/mongo_improvements/mongo_go/mongo_proxy.so.
+
+
 
 ```dart
 
