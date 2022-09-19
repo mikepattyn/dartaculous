@@ -1,3 +1,7 @@
+## 2.2.1
+
+ - **FIX**: Fixed warnings.
+
 ## 2.2.0
 
  - **FEAT**: also allowMissingFields for defaults generator. Generated sources will result in compilation error if it's actually a problem.
