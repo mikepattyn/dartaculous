@@ -1,3 +1,7 @@
+## 2.4.3
+
+ - **FIX**: minor fix.
+
 ## 2.4.2
 
  - **FIX**: Fixed all pending warnings.
