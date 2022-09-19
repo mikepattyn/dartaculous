@@ -1,3 +1,7 @@
+## 3.4.1
+
+ - **REFACTOR**: Use interpolation to compose strings and values (fieldName + '.' => '$fieldName.').
+
 ## 3.4.0
 
  - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).

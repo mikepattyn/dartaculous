@@ -1,3 +1,7 @@
+## 2.2.0
+
+ - **FEAT**: also allowMissingFields for defaults generator. Generated sources will result in compilation error if it's actually a problem.
+
 ## 2.1.5
 
  - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).

@@ -1,3 +1,7 @@
+## 3.1.3
+
+ - **REFACTOR**: Use interpolation to compose strings and values (fieldName + '.' => '$fieldName.').
+
 ## 3.1.2
  - Support for mapping enum to string
 
