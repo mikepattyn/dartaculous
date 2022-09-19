@@ -1,3 +1,7 @@
+## 2.1.7
+
+ - **FIX**: Fixed all pending warnings.
+
 ## 2.1.6
 
  - **CHORE**: Updated dependencies

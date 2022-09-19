@@ -1,3 +1,7 @@
+## 3.4.2
+
+ - **FIX**: Fixed all pending warnings.
+
 ## 3.4.1
 
  - **REFACTOR**: Use interpolation to compose strings and values (fieldName + '.' => '$fieldName.').

@@ -1,3 +1,7 @@
+## 3.3.6
+
+ - **FIX**: Fixed all pending warnings.
+
 ## 3.3.5
 
 - **CHORE**: Updated dependencies

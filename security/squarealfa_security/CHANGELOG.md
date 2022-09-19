@@ -1,3 +1,7 @@
+## 2.1.3
+
+ - **FIX**: Fixed all pending warnings.
+
 ## 2.1.2
 
 - Maintenance tweak: Moved code in source structure and updated package reference

@@ -1,3 +1,7 @@
+## 0.10.0+1
+
+ - **FIX**: Fixed all pending warnings.
+
 ## 0.10.0
 
 > Note: This release has breaking changes.

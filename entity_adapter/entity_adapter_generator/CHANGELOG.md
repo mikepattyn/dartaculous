@@ -1,3 +1,7 @@
+## 3.2.5
+
+ - **FIX**: Fixed all pending warnings.
+
 ## 3.2.4
 
  - Update a dependency to the latest release.

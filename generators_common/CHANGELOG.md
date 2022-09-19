@@ -1,3 +1,7 @@
+## 2.4.2
+
+ - **FIX**: Fixed all pending warnings.
+
 ## 2.4.1
 
  - **CHORE**: upgraded dependencies
