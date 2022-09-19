@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:firebase_admin/gen/google/protobuf/wrappers.pb.dart';
+import 'package:firebase_go_admin/gen/google/protobuf/wrappers.pb.dart';
 import 'package:path/path.dart';
 import 'dart:ffi' as ffi; // For FFI
 

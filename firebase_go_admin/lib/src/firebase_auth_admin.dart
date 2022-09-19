@@ -1,13 +1,13 @@
 import 'dart:async';
-import 'package:firebase_admin/firebase_admin.dart';
-import 'package:firebase_admin/gen/firebase/bool_claim.pb.dart';
-import 'package:firebase_admin/gen/firebase/claim_base.pb.dart';
-import 'package:firebase_admin/gen/firebase/claims_request.pb.dart';
-import 'package:firebase_admin/gen/firebase/claims_response.pb.dart';
-import 'package:firebase_admin/gen/firebase/string_claim.pb.dart';
-import 'package:firebase_admin/gen/firebase/string_list_claim.pb.dart';
-import 'package:firebase_admin/gen/firebase/user_info.pb.dart';
-import 'package:firebase_admin/gen/google/protobuf/empty.pb.dart';
+import 'package:firebase_go_admin/firebase_go_admin.dart';
+import 'package:firebase_go_admin/gen/firebase/bool_claim.pb.dart';
+import 'package:firebase_go_admin/gen/firebase/claim_base.pb.dart';
+import 'package:firebase_go_admin/gen/firebase/claims_request.pb.dart';
+import 'package:firebase_go_admin/gen/firebase/claims_response.pb.dart';
+import 'package:firebase_go_admin/gen/firebase/string_claim.pb.dart';
+import 'package:firebase_go_admin/gen/firebase/string_list_claim.pb.dart';
+import 'package:firebase_go_admin/gen/firebase/user_info.pb.dart';
+import 'package:firebase_go_admin/gen/google/protobuf/empty.pb.dart';
 import 'package:go_bridge/gen/common/primitive_messages.pb.dart';
 import 'package:go_bridge/helpers.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:firebase_admin/firebase_admin.dart' as firebase;
+import 'package:firebase_go_admin/firebase_go_admin.dart' as firebase;
 import 'package:test/test.dart';
 
 import 'test_service_account.dart';

@@ -1,0 +1,6 @@
+go/
+**.so
+**.dll
+**.dylib
+test/test_service_account.dart
+

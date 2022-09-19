@@ -1,7 +1,7 @@
 /// Support for doing something awesome.
 ///
 /// More dartdocs go here.
-library firebase_admin;
+library firebase_go_admin;
 
 export 'src/firebase_admin.dart';
 export 'src/firebase_create_user.dart';
