@@ -13,14 +13,10 @@ dependencies:
   squarealfa_generators_common: ^2.4.0
   build: ^2.0.0
   decimal: ^2.1.0
-  analyzer: '>=4.1.0 <=4.5.0'
+  analyzer: ^4.7.0
   
 
 
 dev_dependencies:
   lints: ^2.0.0
 
-
-dependency_overrides:
-  squarealfa_generators_common:
-    path: ../../generators_common

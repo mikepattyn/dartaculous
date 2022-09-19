@@ -1,3 +1,7 @@
+## 2.1.1
+
+- ** chore ** updated dependencies
+
 ## 2.1.0
 
 ### Changes

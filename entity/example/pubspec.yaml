@@ -12,13 +12,5 @@ dev_dependencies:
   squarealfa_entity_generator: ^2.1.5
   build_runner: ^2.1.7
   build_verify: ^3.0.0
-  lints: ^1.0.1
+  lints: ^2.0.0
   test: ^1.16.8
-
-dependency_overrides:
-  proto_generator:
-    path: ../../proto_mapper/proto_generator
-  squarealfa_entity_generator:
-    path: ../../entity/entity_generator
-  squarealfa_generators_common:
-    path: ../../generators_common

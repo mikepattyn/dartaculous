@@ -12,24 +12,6 @@ dev_dependencies:
   
   build_runner: ^2.0.0
   build_verify: ^3.0.0
-  lints: ^1.0.1
+  lints: ^2.0.0
   squarealfa_entity_adapter_generator: ^3.1.1
   test: ^1.17.0
-
-dependency_overrides:
-  squarealfa_entity_adapter:
-    path: ../entity_adapter
-  squarealfa_entity_adapter_generator:
-    path: ../entity_adapter_generator
-  squarealfa_entity_generator:
-    path: ../../entity/entity_generator
-  squarealfa_generators_common:
-    path: ../../generators_common
-  map_mapper_generator:
-    path: ../../map_mapper/map_mapper_generator
-  proto_generator:
-    path: ../../proto_mapper/proto_generator
-  map_mapper_annotations:
-    path: ../../map_mapper/map_mapper_annotations
-  defaults_provider_generator:
-    path: ../../defaults_provider/defaults_provider_generator

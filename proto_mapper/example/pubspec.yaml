@@ -18,8 +18,3 @@ dev_dependencies:
   proto_generator: ^3.3.4
   build_runner: ^2.1.2
 
-dependency_overrides:
-  proto_annotations:
-    path: ../proto_annotations
-  proto_generator:
-    path: ../proto_generator

@@ -1,3 +1,7 @@
+## 3.5.1
+
+ - **CHORE**: Upgraded dependencies
+
 ## 3.5.0
 
  - **FEAT**: Added support for multi-host connection string.

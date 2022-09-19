@@ -30,7 +30,7 @@ class DefaultsProviderGenerator
       Element element, bool createBaseClass) {
     var classElement = element.asClassElement();
     if (classElement.kind == ElementKind.ENUM) return '';
-    var superTypeElement = classElement.supertype!.element;
+    var superTypeElement = classElement.supertype!.element2;
 
     var annotation = TypeChecker.fromRuntime(DefaultsProvider)
         .firstAnnotationOf(superTypeElement);

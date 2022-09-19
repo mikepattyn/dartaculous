@@ -1,3 +1,7 @@
+## 3.2.3
+
+ - **CHORE**: Updated dependencies
+
 ## 3.2.2
 
  - **REFACTOR**: Use interpolation to compose strings and values (fieldName + '.' => '$fieldName.').

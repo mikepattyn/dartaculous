@@ -1,3 +1,7 @@
+## 2.4.1
+
+ - **CHORE**: upgraded dependencies
+
 ## 2.4.0
 
  - **FIX**: Avoid `<dynamic>` suffix for types in generated `.proto` file and `ProtoMapper` classes ([#5](https://gitlab.com/ruicraveiro/dart_framework/-/issues/5)).

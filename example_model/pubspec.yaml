@@ -22,12 +22,3 @@ dev_dependencies:
   test: ^1.21.1
 
 
-dependency_overrides:
-  proto_annotations:
-    path: ../proto_mapper/proto_annotations
-  proto_generator:
-    path: ../proto_mapper/proto_generator
-  map_mapper_generator:
-    path: ../map_mapper/map_mapper_generator
-  squarealfa_generators_common:
-    path: ../generators_common
