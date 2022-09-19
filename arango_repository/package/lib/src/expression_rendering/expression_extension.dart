@@ -120,7 +120,7 @@ extension ExpressionExtension on Expression {
   }
 
   String renderFieldPath(FieldPath operand, Context context) {
-    return 'entity.' + operand.fieldPath;
+    return 'entity.${operand.fieldPath}';
   }
 
   String renderInput(Input operand, Context context) {
