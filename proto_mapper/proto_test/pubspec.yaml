@@ -23,3 +23,5 @@ dependency_overrides:
     path: ../../generators_common
   squarealfa_common_types:
     path: ../../common_types
+  proto_generator:
+    path: ../../proto_mapper/proto_generator

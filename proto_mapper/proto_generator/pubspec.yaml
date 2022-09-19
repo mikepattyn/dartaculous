@@ -12,7 +12,7 @@ dependencies:
   proto_annotations: ^2.1.1
   decimal: ^2.0.0
   grpc: ^3.0.2
-  analyzer: ^3.2.0
+  analyzer: '>=4.1.0 <=4.5.0'
   build: ^2.0.0
   recase: ^4.0.0
   squarealfa_common_types: ^1.1.0
@@ -21,8 +21,10 @@ dev_dependencies:
   lints: ^1.0.1
   test: ^1.17.0
 
-# dependency_overrides:
-#   squarealfa_generators_common:
-#     path: ../../generators_common
-#  proto_annotations:
-#    path: ../proto_annotations
+dependency_overrides:
+  squarealfa_generators_common:
+    path: ../../generators_common
+  proto_annotations:
+    path: ../proto_annotations
+  squarealfa_common_types:
+    path: ../../common_types

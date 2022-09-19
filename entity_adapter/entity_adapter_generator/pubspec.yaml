@@ -18,7 +18,7 @@ dependencies:
   squarealfa_entity_generator: ^2.1.5
   squarealfa_generators_common: ^2.4.0
   squarealfa_common_types: ^1.1.0
-  analyzer: ^3.2.0
+  analyzer: '>=4.1.0 <=4.5.0'
   build: ^2.0.0
 
 
@@ -27,18 +27,20 @@ dev_dependencies:
   test: ^1.14.4
 
 
-# dependency_overrides:
-#   squarealfa_generators_common:
-#     path: ../../generators_common
-#   proto_generator:
-#     path: ../../proto_mapper/proto_generator
-#   proto_annotations:
-#     path: ../../proto_mapper/proto_annotations
-#   map_mapper_annotations:
-#     path: ../../map_mapper/map_mapper_annotations
-#  map_mapper_generator:
-#    path: ../../map_mapper/map_mapper_generator
-#   squarealfa_entity_adapter:
-#     path: ../entity_adapter
-#  defaults_provider_generator:
-#    path: ../../defaults_provider/defaults_provider_generator
+dependency_overrides:
+  squarealfa_generators_common:
+    path: ../../generators_common
+  proto_generator:
+    path: ../../proto_mapper/proto_generator
+  proto_annotations:
+    path: ../../proto_mapper/proto_annotations
+  map_mapper_annotations:
+    path: ../../map_mapper/map_mapper_annotations
+  map_mapper_generator:
+   path: ../../map_mapper/map_mapper_generator
+  squarealfa_entity_adapter:
+    path: ../entity_adapter
+  defaults_provider_generator:
+    path: ../../defaults_provider/defaults_provider_generator
+  squarealfa_entity_generator:
+    path: ../../entity/entity_generator
