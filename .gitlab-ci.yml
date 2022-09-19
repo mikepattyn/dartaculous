@@ -32,14 +32,6 @@ before_script:
 stages:          # List of stages for jobs, and their order of execution
   - test
 
-
-analyze-job:   # This job runs in the test stage.
-  stage: analyze    # It only starts when the job in the build stage completes successfully.
-  script:
-    - echo "Analyzing..."
-    - melos run analyze
-
-
 test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
