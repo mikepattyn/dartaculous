@@ -17,6 +17,7 @@ packages:
   - example_model/**
   - grpc_host/**
   - go_bridge/**
+  - mongo_go/**
 
 ignore:
   - map_mapper/test_mongo/*

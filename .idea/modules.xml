@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/map_mapper/example/melos_map_mapper_example.iml" filepath="$PROJECT_DIR$/map_mapper/example/melos_map_mapper_example.iml" />
       <module fileurl="file://$PROJECT_DIR$/map_mapper/map_mapper_generator/melos_map_mapper_generator.iml" filepath="$PROJECT_DIR$/map_mapper/map_mapper_generator/melos_map_mapper_generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/map_mapper/map_mapper_test/melos_map_mapper_generator_test.iml" filepath="$PROJECT_DIR$/map_mapper/map_mapper_test/melos_map_mapper_generator_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mongo_go/melos_mongo_go.iml" filepath="$PROJECT_DIR$/mongo_go/melos_mongo_go.iml" />
       <module fileurl="file://$PROJECT_DIR$/mongo_repository/package/melos_mongo_repository.iml" filepath="$PROJECT_DIR$/mongo_repository/package/melos_mongo_repository.iml" />
       <module fileurl="file://$PROJECT_DIR$/nosql_repository/nosql_repository/melos_nosql_repository.iml" filepath="$PROJECT_DIR$/nosql_repository/nosql_repository/melos_nosql_repository.iml" />
       <module fileurl="file://$PROJECT_DIR$/nosql_repository/test/melos_nosql_repository_tests.iml" filepath="$PROJECT_DIR$/nosql_repository/test/melos_nosql_repository_tests.iml" />
