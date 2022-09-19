@@ -30,7 +30,7 @@ before_script:
 
 
 stages:          # List of stages for jobs, and their order of execution
-  - analyze
+#  - analyze
   - test
 
 
