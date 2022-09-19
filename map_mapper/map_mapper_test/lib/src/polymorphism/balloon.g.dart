@@ -49,7 +49,7 @@ class $BalloonFieldNames {
   final String fieldName;
   final String prefix;
 
-  $BalloonFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $BalloonFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $BalloonFieldNames()
       : fieldName = '',

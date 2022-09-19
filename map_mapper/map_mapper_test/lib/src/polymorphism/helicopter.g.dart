@@ -49,7 +49,7 @@ class $HelicopterFieldNames {
   final String fieldName;
   final String prefix;
 
-  $HelicopterFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $HelicopterFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $HelicopterFieldNames()
       : fieldName = '',

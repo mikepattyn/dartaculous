@@ -47,7 +47,7 @@ class $AggregateIdFieldNames {
   final String fieldName;
   final String prefix;
 
-  $AggregateIdFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $AggregateIdFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $AggregateIdFieldNames()
       : fieldName = '',
@@ -143,7 +143,7 @@ class $MessageFieldNames {
   final String fieldName;
   final String prefix;
 
-  $MessageFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $MessageFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $MessageFieldNames()
       : fieldName = '',
@@ -224,7 +224,7 @@ class $CommandFieldNames {
   final String fieldName;
   final String prefix;
 
-  $CommandFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $CommandFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $CommandFieldNames()
       : fieldName = '',
@@ -330,7 +330,7 @@ class $EventFieldNames {
   final String fieldName;
   final String prefix;
 
-  $EventFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $EventFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $EventFieldNames()
       : fieldName = '',
@@ -411,7 +411,7 @@ class $IntegrationEventFieldNames {
   final String fieldName;
   final String prefix;
 
-  $IntegrationEventFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $IntegrationEventFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $IntegrationEventFieldNames()
       : fieldName = '',

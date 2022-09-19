@@ -210,7 +210,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
         final String prefix;
 
         \$${className}FieldNames.sub(this.fieldName) 
-          : prefix = fieldName + '.';
+          : prefix = '\$fieldName.';
 
       const \$${className}FieldNames()
         : fieldName = '',

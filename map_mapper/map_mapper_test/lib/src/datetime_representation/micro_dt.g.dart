@@ -47,7 +47,7 @@ class $MicroDtFieldNames {
   final String fieldName;
   final String prefix;
 
-  $MicroDtFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $MicroDtFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $MicroDtFieldNames()
       : fieldName = '',

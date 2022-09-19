@@ -45,7 +45,7 @@ class $LegacyDtFieldNames {
   final String fieldName;
   final String prefix;
 
-  $LegacyDtFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $LegacyDtFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $LegacyDtFieldNames()
       : fieldName = '',

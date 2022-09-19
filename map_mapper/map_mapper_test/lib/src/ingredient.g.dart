@@ -78,7 +78,7 @@ class $IngredientFieldNames {
   final String fieldName;
   final String prefix;
 
-  $IngredientFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $IngredientFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $IngredientFieldNames()
       : fieldName = '',

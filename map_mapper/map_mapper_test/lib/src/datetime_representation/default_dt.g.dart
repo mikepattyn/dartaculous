@@ -47,7 +47,7 @@ class $DefaultDtFieldNames {
   final String fieldName;
   final String prefix;
 
-  $DefaultDtFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $DefaultDtFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $DefaultDtFieldNames()
       : fieldName = '',

@@ -104,7 +104,7 @@ class $VehicleFieldNames {
   final String fieldName;
   final String prefix;
 
-  $VehicleFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $VehicleFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $VehicleFieldNames()
       : fieldName = '',

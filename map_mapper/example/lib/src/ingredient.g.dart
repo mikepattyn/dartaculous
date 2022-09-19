@@ -8,6 +8,7 @@ part of 'ingredient.dart';
 
 class $IngredientMapMapper extends MapMapper<Ingredient> {
   const $IngredientMapMapper();
+  static const $type = 'Ingredient';
 
   @override
   Ingredient fromMap(Map<String, dynamic> map) {
@@ -42,7 +43,7 @@ class $IngredientFieldNames {
   final String fieldName;
   final String prefix;
 
-  $IngredientFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $IngredientFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $IngredientFieldNames()
       : fieldName = '',

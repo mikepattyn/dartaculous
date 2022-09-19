@@ -88,6 +88,7 @@ class $PayloadDefaultsProvider {
 
 class $AggregateIdMapMapper extends MapMapper<AggregateId> {
   const $AggregateIdMapMapper();
+  static const $type = 'AggregateId';
 
   @override
   AggregateId fromMap(Map<String, dynamic> map) {
@@ -126,7 +127,7 @@ class $AggregateIdFieldNames {
   final String fieldName;
   final String prefix;
 
-  $AggregateIdFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $AggregateIdFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $AggregateIdFieldNames()
       : fieldName = '',
@@ -143,6 +144,7 @@ class $AggregateIdFieldNames {
 
 class $EventMapMapper extends MapMapper<Event> {
   const $EventMapMapper();
+  static const $type = 'Event';
 
   @override
   Event fromMap(Map<String, dynamic> map) {
@@ -207,7 +209,7 @@ class $EventFieldNames {
   final String fieldName;
   final String prefix;
 
-  $EventFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $EventFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $EventFieldNames()
       : fieldName = '',
@@ -233,6 +235,7 @@ class $EventFieldNames {
 
 class $CommandMapMapper extends MapMapper<Command> {
   const $CommandMapMapper();
+  static const $type = 'Command';
 
   @override
   Command fromMap(Map<String, dynamic> map) {
@@ -298,7 +301,7 @@ class $CommandFieldNames {
   final String fieldName;
   final String prefix;
 
-  $CommandFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $CommandFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $CommandFieldNames()
       : fieldName = '',
@@ -324,6 +327,7 @@ class $CommandFieldNames {
 
 class $PayloadMapMapper extends MapMapper<Payload> {
   const $PayloadMapMapper();
+  static const $type = 'Payload';
 
   @override
   Payload fromMap(Map<String, dynamic> map) {
@@ -354,7 +358,7 @@ class $PayloadFieldNames {
   final String fieldName;
   final String prefix;
 
-  $PayloadFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $PayloadFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $PayloadFieldNames()
       : fieldName = '',

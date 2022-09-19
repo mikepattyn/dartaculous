@@ -8,6 +8,7 @@ part of 'component.dart';
 
 class $ComponentMapMapper extends MapMapper<Component> {
   const $ComponentMapMapper();
+  static const $type = 'Component';
 
   @override
   Component fromMap(Map<String, dynamic> map) {
@@ -40,7 +41,7 @@ class $ComponentFieldNames {
   final String fieldName;
   final String prefix;
 
-  $ComponentFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $ComponentFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $ComponentFieldNames()
       : fieldName = '',

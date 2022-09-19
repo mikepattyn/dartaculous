@@ -40,7 +40,7 @@ class $AbstractParentClass1FieldNames {
   final String prefix;
 
   $AbstractParentClass1FieldNames.sub(this.fieldName)
-      : prefix = fieldName + '.';
+      : prefix = '$fieldName.';
 
   const $AbstractParentClass1FieldNames()
       : fieldName = '',
@@ -103,7 +103,7 @@ class $AbstractParentClass2FieldNames {
   final String prefix;
 
   $AbstractParentClass2FieldNames.sub(this.fieldName)
-      : prefix = fieldName + '.';
+      : prefix = '$fieldName.';
 
   const $AbstractParentClass2FieldNames()
       : fieldName = '',
@@ -144,7 +144,7 @@ class $SubClass1FieldNames {
   final String fieldName;
   final String prefix;
 
-  $SubClass1FieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $SubClass1FieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $SubClass1FieldNames()
       : fieldName = '',

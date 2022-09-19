@@ -50,7 +50,7 @@ class $EncapsulatedFieldsClassFieldNames {
   final String prefix;
 
   $EncapsulatedFieldsClassFieldNames.sub(this.fieldName)
-      : prefix = fieldName + '.';
+      : prefix = '$fieldName.';
 
   const $EncapsulatedFieldsClassFieldNames()
       : fieldName = '',

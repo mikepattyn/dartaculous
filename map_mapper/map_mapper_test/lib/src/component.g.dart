@@ -41,7 +41,7 @@ class $ComponentFieldNames {
   final String fieldName;
   final String prefix;
 
-  $ComponentFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $ComponentFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $ComponentFieldNames()
       : fieldName = '',
