@@ -29,7 +29,7 @@ extension ClassElementFieldExtension on ClassElement {
     if (includeInherited) {
       for (final v in manager.getInheritedMap2(this).values) {
         assert(v is! FieldElement);
-        if (_dartCoreObjectChecker.isExactly(v.enclosingElement)) {
+        if (_dartCoreObjectChecker.isExactly(v.enclosingElement3)) {
           continue;
         }
 
@@ -75,7 +75,7 @@ extension ClassElementFieldExtension on ClassElement {
     if (includeInherited) {
       for (final v in manager.getInheritedConcreteMap2(this).values) {
         assert(v is! FieldElement);
-        if (_dartCoreObjectChecker.isExactly(v.enclosingElement)) {
+        if (_dartCoreObjectChecker.isExactly(v.enclosingElement3)) {
           continue;
         }
 
@@ -102,16 +102,20 @@ extension ClassElementFieldExtension on ClassElement {
         .where((field) =>
             (field.getter != null &&
                 (field.setter != null ||
-                    field.isFinal && field.getter!.isSynthetic && !isEnum)) ||
+                    field.isFinal &&
+                        field.getter!.isSynthetic &&
+                        this is! EnumElement)) ||
             (field.getter == null && field.setter == null) ||
-            field.isEnumConstant
-            || _fieldIsDefinedInConstructor(field))
+            field.isEnumConstant ||
+            _fieldIsDefinedInConstructor(field))
         .toList();
   }
 
   /// Check if any of the available constructors contains a parameter with given field's name
   bool _fieldIsDefinedInConstructor(FieldElement field) {
-    return constructors.where((c) => c.parameters.map((p) => p.name).contains(field.name)).isNotEmpty;
+    return constructors
+        .where((c) => c.parameters.map((p) => p.name).contains(field.name))
+        .isNotEmpty;
   }
 
   /// Gets all constructors that match a certain set of FieldDescriptors.

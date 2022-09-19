@@ -51,7 +51,7 @@ class FieldDescriptor extends FieldDescriptorBase {
 
   @override
   bool get parameterTypeIsEnum =>
-      parameterType.element!.kind == ElementKind.ENUM;
+      parameterType.element2!.kind == ElementKind.ENUM;
 
   TimePrecision get dateTimePrecision =>
       protoMapperAnnotation.dateTimePrecision ?? TimePrecision.microseconds;

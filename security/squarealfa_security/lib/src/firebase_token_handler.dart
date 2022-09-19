@@ -8,15 +8,15 @@ import 'invalid_signature_exception.dart';
 
 class FirebaseTokenHandler {
   static Future<JwtPayload> getJwtPayload(String idToken) async {
-    final _idToken =
+    final lIdToken =
         idToken.startsWith('Bearer ') ? idToken.substring(7) : idToken;
-    final b64Header = _idToken.split('.')[0];
+    final b64Header = lIdToken.split('.')[0];
     var jsonHeader = decodeB64Json(b64Header);
     final map = jsonDecode(jsonHeader);
     final keyId = map['kid'];
 
     final ks = await _getKeyStore(keyId);
-    final jwt = await JsonWebToken.decodeAndVerify(_idToken, ks);
+    final jwt = await JsonWebToken.decodeAndVerify(lIdToken, ks);
     if (!(jwt.isVerified ?? false)) {
       throw InvalidSignatureException();
     }

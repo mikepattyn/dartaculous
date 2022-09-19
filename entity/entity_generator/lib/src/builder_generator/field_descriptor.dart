@@ -18,13 +18,13 @@ class FieldDescriptor extends FieldDescriptorBase {
 
   bool get typeHasEntityMapAnnotation {
     var annotation = TypeChecker.fromRuntime(BuildBuilder)
-        .firstAnnotationOf(fieldElementType.element!);
+        .firstAnnotationOf(fieldElementType.element2!);
     return annotation != null;
   }
 
   bool get parameterTypeHasEntityMapAnnotation {
     var annotation = TypeChecker.fromRuntime(BuildBuilder)
-        .firstAnnotationOf(parameterType.element!);
+        .firstAnnotationOf(parameterType.element2!);
     return annotation != null;
   }
 }

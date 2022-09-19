@@ -58,7 +58,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
     RenderMapperBuffers renderParms = _createRenderBuffers(mapProtoReflected);
 
-    final mapper = _renderMapper(renderParms, mapProtoReflected.mapProto.prefix);
+    final mapper =
+        _renderMapper(renderParms, mapProtoReflected.mapProto.prefix);
     return mapper;
   }
 
@@ -66,7 +67,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     MapProtoReflected mapProtoReflected,
   ) {
     final mapProto = mapProtoReflected.mapProto;
-    final fieldDescriptors = _getFieldDescriptors(_classElement!, mapProto, _prefix);
+    final fieldDescriptors =
+        _getFieldDescriptors(_classElement!, mapProto, _prefix);
     final fromFieldDescriptors = [...fieldDescriptors];
 
     final toProtoFieldBuffer = StringBuffer();
@@ -201,12 +203,13 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
            }
           '''
-        :
-        classElement!.isAbstract ? '''
+        : classElement!.isAbstract
+            ? '''
           $className _\$${className}FromProto($prefix$className instance) {
             throw UnimplementedError();
           }
-          ''' : '''
+          '''
+            : '''
           $className _\$${className}FromProto($prefix$className instance) =>
             $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
           ${renderParms.fromProtoFieldBuffer};
@@ -239,7 +242,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
       $prefix$className _\$${className}ToProto($className instance) 
       {
-        var $toVar = $prefix$className();
+        ${((_classElement?.isAbstract ?? false) && (renderParms.toKnownSubclasses ?? '').isEmpty) ? '' : 'var $toVar = $prefix$className();'}
         
         ${renderParms.toKnownSubclasses ?? ''}
 

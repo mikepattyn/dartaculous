@@ -56,13 +56,13 @@ class FieldDescriptor extends FieldDescriptorBase {
 
   bool get typeHasMapMapAnnotation {
     var annotation = TypeChecker.fromRuntime(MapMapped)
-        .firstAnnotationOf(fieldElementType.element!);
+        .firstAnnotationOf(fieldElementType.element2!);
     return annotation != null;
   }
 
   bool get parameterTypeHasMapMapAnnotation {
     var annotation = TypeChecker.fromRuntime(MapMapped)
-        .firstAnnotationOf(parameterType.element!);
+        .firstAnnotationOf(parameterType.element2!);
     return annotation != null;
   }
 

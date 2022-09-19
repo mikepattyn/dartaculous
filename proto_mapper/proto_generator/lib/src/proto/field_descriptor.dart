@@ -73,7 +73,7 @@ class FieldDescriptor extends FieldDescriptorBase {
 
   @override
   bool get parameterTypeIsEnum =>
-      parameterType.element!.kind == ElementKind.ENUM;
+      parameterType.element2!.kind == ElementKind.ENUM;
 }
 
 const _protoFieldChecker = TypeChecker.fromRuntime(ProtoField);

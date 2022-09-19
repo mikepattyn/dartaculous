@@ -18,8 +18,8 @@ class EntityFieldCodeGenerator extends FieldCodeGenerator
     // In case of dynamic typed field, avoid "TypeName<dynamic>"...
     if (fieldElementType is ParameterizedType &&
         fieldElementType.typeArguments.whereType<DynamicType>().isNotEmpty) {
-      if (fieldElementType.element?.name != null) {
-        displayName = fieldElementType.element!.name!;
+      if (fieldElementType.element2?.name != null) {
+        displayName = fieldElementType.element2!.name!;
       }
     }
     final fieldElementTypeName = '''${fieldDescriptor.prefix}$displayName''';
@@ -33,11 +33,11 @@ class EntityFieldCodeGenerator extends FieldCodeGenerator
   Iterable<String>? _initExternalProtoName(FieldDescriptor fieldDescriptor) {
     final fieldElementType = fieldDescriptor.itemType;
     final segments =
-        fieldElementType.element!.source!.uri.pathSegments.toList();
+        fieldElementType.element2!.source!.uri.pathSegments.toList();
     final lastSrc = segments.lastIndexOf('src');
     if (lastSrc != -1) segments.removeRange(0, lastSrc + 1);
     var fileName = segments[segments.length - 1];
-    fileName = fileName.substring(0, fileName.length - 4) + 'proto';
+    fileName = '${fileName.substring(0, fileName.length - 4)}proto';
     segments[segments.length - 1] = fileName;
     return [segments.join('/')];
   }

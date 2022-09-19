@@ -28,7 +28,7 @@ class EntityAdapterGenerator extends GeneratorForAnnotation<EntityAdapted> {
 
     final className = classElement.name;
     final permName = className.replaceAllMapped(
-        RegExp('[A-Z]'), (m) => '_' + m.group(0).toString().toLowerCase());
+        RegExp('[A-Z]'), (m) => '_${m.group(0).toString().toLowerCase()}');
 
     final ret = '''
 

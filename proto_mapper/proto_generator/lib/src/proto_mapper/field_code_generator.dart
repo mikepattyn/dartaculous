@@ -24,8 +24,8 @@ abstract class FieldCodeGenerator {
 
   final FieldDescriptor fieldDescriptor;
   final String refName;
-  String get ref => refName.isEmpty ? '' : refName + '.';
-  String get protoRef => protoRefName.isEmpty ? '' : protoRefName + '.';
+  String get ref => refName.isEmpty ? '' : '$refName.';
+  String get protoRef => protoRefName.isEmpty ? '' : '$protoRefName.';
   final String protoRefName;
 
   FieldCodeGenerator(

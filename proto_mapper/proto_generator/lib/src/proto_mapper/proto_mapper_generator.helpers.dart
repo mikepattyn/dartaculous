@@ -69,7 +69,7 @@ MapProtoReflected _hydrateAnnotation(
 }
 
 Iterable<ElementAnnotation> getAnnotationsByName(DartType dartType, String annotationName) {
-  return dartType.element!.metadata.where((m) {
+  return dartType.element2!.metadata.where((m) {
     DartType annotationType;
     if (m.element! is PropertyAccessorElement) {
       annotationType = (m.element! as PropertyAccessorElement).returnType;

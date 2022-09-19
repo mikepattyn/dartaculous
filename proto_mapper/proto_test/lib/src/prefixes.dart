@@ -1,7 +1,6 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/prefixes.pb.dart';
-import 'package:squarealfa_common_types/src/time_precision.dart';
-
+import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
 part 'prefixes.g.dart';
 
@@ -36,9 +35,7 @@ class Waiter extends Staff {
 
 @Proto(prefix: 'M')
 @MapProto(prefix: 'M')
-class Manager extends Staff {
-
-}
+class Manager extends Staff {}
 
 @Proto(prefix: 'T')
 @MapProto(prefix: 'T')
@@ -62,13 +59,13 @@ class Customer {
 class WrapperAnnotation implements Proto, MapProto {
   const WrapperAnnotation(
       {this.allowMissingFields = true,
-        this.dateTimePrecision,
-        this.durationPrecision,
-        this.includeFieldsByDefault = true,
-        this.knownSubClasses,
-        this.packageName = '',
-        this.prefix,
-        this.useProtoFieldNamingConventions});
+      this.dateTimePrecision,
+      this.durationPrecision,
+      this.includeFieldsByDefault = true,
+      this.knownSubClasses,
+      this.packageName = '',
+      this.prefix,
+      this.useProtoFieldNamingConventions});
 
   @override
   final bool allowMissingFields;

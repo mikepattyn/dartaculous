@@ -44,8 +44,8 @@ class FieldDescriptorBase {
             .typeArguments
             .whereType<DynamicType>()
             .isNotEmpty) {
-      if (fieldElementType.element?.name != null) {
-        return fieldElementType.element!.name!;
+      if (fieldElementType.element2?.name != null) {
+        return fieldElementType.element2!.name!;
       }
     }
     return
@@ -80,7 +80,7 @@ class FieldDescriptorBase {
   bool get isRepeated => listParameterType != null || setParameterType != null;
 
   /// Returns true when the field is an enum
-  bool get typeIsEnum => fieldElementType.element!.kind == ElementKind.ENUM;
+  bool get typeIsEnum => fieldElementType.element2!.kind == ElementKind.ENUM;
 
   /// Returns true when the field is a nullable type
   bool get isNullable =>
@@ -118,5 +118,5 @@ class FieldDescriptorBase {
   /// When the field element type is a generic, returns
   /// a value indicating whether the first type parameter is an enum
   bool get parameterTypeIsEnum =>
-      parameterType.element!.kind == ElementKind.ENUM;
+      parameterType.element2!.kind == ElementKind.ENUM;
 }

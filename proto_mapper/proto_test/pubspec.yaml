@@ -4,9 +4,18 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  decimal: ^2.3.0
+  
   proto_generator:
     path: ../proto_generator
-  # decimal: ^2.0.0
+  proto_annotations:
+    path: ../proto_annotations
+  squarealfa_generators_common:
+    path: ../../generators_common
+  squarealfa_common_types:
+    path: ../../common_types
+  grpc: ^3.0.2
+
   # fixnum: ^1.0.0
   # grpc: ^3.0.0
 

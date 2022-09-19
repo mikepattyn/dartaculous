@@ -33,8 +33,6 @@ class $AbstractParentClass1ProtoMapper
 
 GAbstractParentClass1 _$AbstractParentClass1ToProto(
     AbstractParentClass1 instance) {
-  var proto = GAbstractParentClass1();
-
   throw UnimplementedError();
 }
 

@@ -154,7 +154,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
         ? fromMapMap
         : fromSubClassMap;
 
-    final _fromMapMethod =
+    final lFromMapMethod =
         mapMappedReflected.knownSubClasses == null || _classElement!.isAbstract
             ? ''
             : '''
@@ -175,7 +175,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
           $fromMapBody
         }
 
-        $_fromMapMethod
+        $lFromMapMethod
 
         @override
         Map<String, dynamic> toMap($className instance) {

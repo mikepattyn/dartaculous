@@ -14,7 +14,7 @@ Future<auth.AccessToken> _jwtTokenFor(String uri) async {
   final client = http.Client();
 
   try {
-    final audience = 'https://' + Uri.parse(uri).host + '/';
+    final audience = 'https://${Uri.parse(uri).host}/';
     final response = await client.get(
         Uri.parse(
             'http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=$audience'),

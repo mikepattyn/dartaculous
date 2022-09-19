@@ -20,7 +20,7 @@ class OAuthServiceAccountAuthenticator extends GrpcAuthenticator {
           .oauthTokenRequest(
         client,
         issuer: _serviceAccountCredentials.email,
-        scopes: ['https://' + Uri.parse(uri).host],
+        scopes: ['https://${Uri.parse(uri).host}'],
         sub: _serviceAccountCredentials.impersonatedUser,
       );
 

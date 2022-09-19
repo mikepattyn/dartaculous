@@ -21,13 +21,13 @@ class AdaptedEntityGenerator extends GeneratorForAnnotation<AdaptedEntity> {
     if (classElement.kind == ElementKind.ENUM) return '';
 
     final type = annotation.read('rootEntityType').typeValue;
-    if (!classElement.allSupertypes.any((st) => st.element == type.element)) {
+    if (!classElement.allSupertypes.any((st) => st.element2 == type.element2)) {
       return '';
     }
 
     final className = classElement.name;
     final permName = className.replaceAllMapped(
-        RegExp('[A-Z]'), (m) => '_' + m.group(0).toString().toLowerCase());
+        RegExp('[A-Z]'), (m) => '_${m.group(0).toString().toLowerCase()}');
 
     final ret = '''
 
