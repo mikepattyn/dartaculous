@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+import "request_context.proto";
+
+message AggregateRequest {
+  bytes collectionOid = 1;
+  RequestContext context = 2;
+  repeated bytes pipeline = 3;
+}
+

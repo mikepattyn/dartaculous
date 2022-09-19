@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+import "google/protobuf/wrappers.proto";
+
+message Collation {
+  string Locale = 1;
+  bool CaseLevel = 2;
+  string CaseFirst = 3;
+  int32 Strength = 4;
+  bool NumericOrdering = 5;
+  string Alternate = 6;
+  string MaxVariable = 7;
+  bool Normalization = 8;
+  bool Backwards = 9;
+}
+
+message IndexOptions {
+  google.protobuf.BoolValue background = 1;
+  google.protobuf.Int32Value expireAfterSeconds = 2;
+  google.protobuf.StringValue name = 3;
+  google.protobuf.BoolValue sparse = 4;
+  bytes storageEngine = 5;
+  google.protobuf.BoolValue unique = 6;
+  google.protobuf.Int32Value version = 7;
+  google.protobuf.StringValue defaultLanguage = 8;
+  google.protobuf.StringValue languageOverride = 9;
+  google.protobuf.Int32Value textVersion = 10;
+  bytes weights = 11;
+  google.protobuf.Int32Value sphereVersion = 12;
+  google.protobuf.Int32Value bits = 13;
+  google.protobuf.DoubleValue max = 14;
+  google.protobuf.DoubleValue min = 15;
+  google.protobuf.Int32Value bucketSize = 16;
+  bytes partialFilterExpression = 17;
+  bytes collation = 18;
+  bytes wildcardProjection = 19;
+  google.protobuf.BoolValue hidden = 20;
+}
+
+
+message CreateIndexRequest {
+  bytes collectionOid = 1;
+  bytes keys = 2;
+  bytes indexOptions = 3;  
+}
+
+message DropIndexRequest {
+  bytes collectionOid = 1;
+  string name = 2;
+}
+
+message DropAllIndexesRequest {
+  bytes collectionOid = 1;
+}
+
+message ListIndexesRequest {
+  bytes collectionOid = 1;
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+      
+option go_package = "./stubs/auth";
+  
+message StringClaim
+{
+  string name = 1;
+  string value = 2;
+}   
+

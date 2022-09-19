@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = "./stubs/common";
+      
+
+message ErrorMessage {
+    string message = 1;
+    int32 errorCode = 2;
+}

@@ -1,0 +1,20 @@
+name: go_bridge
+description: Provides a bridge to call go libraries via FFI and protobuffer encoded messages
+version: 1.0.0
+homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/go_bridge
+repository: https://gitlab.com/squarealfa/dart_framework
+
+
+environment:
+  sdk: '>=2.17.6 <3.0.0'
+
+dependencies:
+  ffi: ^2.0.1
+  fixnum: ^1.0.1
+  protobuf: ^2.1.0
+  tuple: ^2.0.0
+  
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.16.0

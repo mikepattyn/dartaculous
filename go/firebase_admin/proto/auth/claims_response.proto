@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option go_package = "./stubs/auth";
+      
+import "auth/claim_base.proto";
+
+message ClaimsResponse
+{
+    repeated ClaimBase claims = 1;
+}

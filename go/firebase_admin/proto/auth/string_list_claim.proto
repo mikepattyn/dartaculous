@@ -1,0 +1,12 @@
+syntax = "proto3";
+      
+option go_package = "./stubs/auth";
+
+  
+message StringListClaim
+{
+  string name = 1;
+  repeated string value = 2;
+
+}   
+

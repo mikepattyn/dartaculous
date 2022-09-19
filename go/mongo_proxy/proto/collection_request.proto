@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+message CollectionRequest {
+  bytes databaseOid = 1;
+  string collectionName = 2;
+}

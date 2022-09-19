@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+message ListDatabaseNamesResponse { 
+  repeated string names = 1; 
+}

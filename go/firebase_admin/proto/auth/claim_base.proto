@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "./stubs/auth";
+      
+import "auth/bool_claim.proto";
+import "auth/string_claim.proto";
+import "auth/string_list_claim.proto";
+
+
+ 
+message ClaimBase
+{
+  oneof props {
+    BoolClaim bool_claim = 1;
+    StringClaim string_claim = 2;
+    StringListClaim string_list_claim = 3;
+  }
+    
+}   
+
