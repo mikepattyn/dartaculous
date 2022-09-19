@@ -47,7 +47,7 @@ class DefaultsProviderGenerator
     final missingFields = <String>{};
     final constructors = classElement.getConstructorsMatchingFields(
         fieldDescriptors: constructorFields,
-        allowMissingFields: false,
+        allowMissingFields: true,
         missingFields: missingFields
     );
     // let's just pick the first of the valid constructors
