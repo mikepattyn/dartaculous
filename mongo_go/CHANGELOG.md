@@ -1,3 +1,7 @@
+## 0.9.1+2
+
+ - **FIX**: improved documentation.
+
 ## 0.9.1+1
 
  - **FIX**: Makefile copying mongo_proxy.so instead of link.
