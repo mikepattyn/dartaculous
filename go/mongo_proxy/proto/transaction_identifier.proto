@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+message TransactionIdentifier {
+  bytes sessionOid = 2;
+  bytes transactionId = 3;
+}

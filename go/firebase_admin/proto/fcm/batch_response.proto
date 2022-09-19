@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+option go_package = "./stubs/fcm";
+
+message BatchResponse {
+  int32 failure_count = 1;
+  int32 success_count = 2;
+  repeated SendResponse responses = 3;
+}
+
+message SendResponse {
+  string message_id = 1;
+  bool message_id_has_value = 2;
+  bool is_success = 3;
+  string error = 4;
+}
+
+// message FirebaseMessagingException {
+//   ErrorCode error_code = 1;
+//   string message = 2;
+//   bool message_has_value = 3;
+//   MessagingErrorCode messaging_error_code = 4;
+//   bool messaging_error_code_has_value = 5;
+// }
+
+// enum ErrorCode {
+//   G_ERROR_CODE_INVALID_ARGUMENT = 0;
+//   G_ERROR_CODE_FAILED_PRECONDITION = 1;
+//   G_ERROR_CODE_OUT_OF_RANGE = 2;
+//   G_ERROR_CODE_UNAUTHENTICATED = 3;
+//   G_ERROR_CODE_PERMISSION_DENIED = 4;
+//   G_ERROR_CODE_NOT_FOUND = 5;
+//   G_ERROR_CODE_CONFLICT = 6;
+//   G_ERROR_CODE_ABORTED = 7;
+//   G_ERROR_CODE_ALREADY_EXISTS = 8;
+//   G_ERROR_CODE_RESOURCE_EXHAUSTED = 9;
+//   G_ERROR_CODE_CANCELLED = 10;
+//   G_ERROR_CODE_DATA_LOSS = 11;
+//   G_ERROR_CODE_UNKNOWN = 12;
+//   G_ERROR_CODE_INTERNAL = 13;
+//   G_ERROR_CODE_UNAVAILABLE = 14;
+//   G_ERROR_CODE_DEADLINE_EXCEEDED = 15;
+// }
+
+// enum MessagingErrorCode {
+//   G_MESSAGING_ERROR_CODE_THIRD_PARTY_AUTH_ERROR = 0;
+//   G_MESSAGING_ERROR_CODE_INVALID_ARGUMENT = 1;
+//   G_MESSAGING_ERROR_CODE_INTERNAL = 2;
+//   G_MESSAGING_ERROR_CODE_QUOTA_EXCEEDED = 3;
+//   G_MESSAGING_ERROR_CODE_SENDER_ID_MISMATCH = 4;
+//   G_MESSAGING_ERROR_CODE_UNAVAILABLE = 5;
+//   G_MESSAGING_ERROR_CODE_UNREGISTERED = 6;
+// }

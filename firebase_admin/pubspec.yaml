@@ -1,0 +1,38 @@
+name: firebase_admin
+description: Firebase Administration based on the official Firebase Admin GO SDK via Dart FFI.
+version: 0.9.7
+
+publish_to: none
+
+environment:
+  sdk: '>=2.14.3 <3.0.0'
+
+dependencies: 
+  args: ^2.3.0
+  ffi: ^2.0.1
+  path: ^1.8.0
+  proto_annotations: ^2.1.1
+  protobuf: ^2.1.0
+  tuple: ^2.0.0
+  go_bridge: 
+    path: ../go_bridge
+
+
+dev_dependencies:
+  ffigen: ^6.1.2
+  lints: ^2.0.0
+  test: ^1.16.0
+  build_runner: ^2.2.0
+  proto_generator: ^3.3.4
+
+# executables: 
+#   firebase-auth: firebase_auth_admin
+
+ffigen:
+  name: LibFirebaseAdmin
+  description: Go Firebase Admin SDK
+  output: 'lib/src/lib_firebase_admin.dart'
+  headers:
+    entry-points:
+      - ../go/firebase_admin/out/firebase_admin.h
+

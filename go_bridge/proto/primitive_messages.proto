@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "./stubs";
+      
+
+message StringMessage
+{
+    string value = 1;
+}
+
+message Int64Message
+{
+    int64 value = 1;
+}
+
+message ByteArrayMessage {
+    bytes value = 1;
+}

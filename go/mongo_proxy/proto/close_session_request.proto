@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+message CloseSessionRequest {
+  bytes connectionOid = 1;
+  bytes sessionOid = 2;
+}

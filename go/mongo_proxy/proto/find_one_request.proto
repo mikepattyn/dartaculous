@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+import "request_context.proto";
+
+message FindOneRequest {
+  bytes collectionOid = 1;
+  RequestContext context = 2;
+  bytes filter = 3;
+}

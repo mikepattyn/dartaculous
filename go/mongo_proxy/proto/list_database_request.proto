@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+import "google/protobuf/wrappers.proto";
+
+message ListDatabasesRequest {
+  bytes connectionOid = 1;
+  message Request {
+    bytes filter = 1;
+    google.protobuf.BoolValue nameOnly = 2;
+    google.protobuf.BoolValue authorizedDatabases = 3;
+  }
+  Request request = 2;
+}
