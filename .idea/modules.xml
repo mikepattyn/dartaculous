@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/defaults_provider/defaults_provider_generator/melos_defaults_provider_generator.iml" filepath="$PROJECT_DIR$/defaults_provider/defaults_provider_generator/melos_defaults_provider_generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/defaults_provider/defaults_provider_test/melos_defaults_provider_test.iml" filepath="$PROJECT_DIR$/defaults_provider/defaults_provider_test/melos_defaults_provider_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/example_model/melos_example_model.iml" filepath="$PROJECT_DIR$/example_model/melos_example_model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/go_bridge/melos_go_bridge.iml" filepath="$PROJECT_DIR$/go_bridge/melos_go_bridge.iml" />
       <module fileurl="file://$PROJECT_DIR$/grpc_host/melos_grpc_host.iml" filepath="$PROJECT_DIR$/grpc_host/melos_grpc_host.iml" />
       <module fileurl="file://$PROJECT_DIR$/map_mapper/map_mapper_annotations/melos_map_mapper_annotations.iml" filepath="$PROJECT_DIR$/map_mapper/map_mapper_annotations/melos_map_mapper_annotations.iml" />
       <module fileurl="file://$PROJECT_DIR$/map_mapper/example/melos_map_mapper_example.iml" filepath="$PROJECT_DIR$/map_mapper/example/melos_map_mapper_example.iml" />

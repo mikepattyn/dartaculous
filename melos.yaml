@@ -16,6 +16,7 @@ packages:
   - entity_adapter/**
   - example_model/**
   - grpc_host/**
+  - go_bridge/**
 
 ignore:
   - map_mapper/test_mongo/*
