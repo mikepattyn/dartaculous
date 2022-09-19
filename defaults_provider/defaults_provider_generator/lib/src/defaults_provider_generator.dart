@@ -76,7 +76,7 @@ class DefaultsProviderGenerator
         var gen =
             FieldCodeGenerator.fromFieldDescriptor(field, createBaseClass);
         propertyFieldBuffer.writeln(
-            '''${field.fieldElementTypeName} get ${field.displayName} ${createBaseClass && gen.defaultExpression == '' ? '' : ' => ' + gen.defaultExpression};''');
+            '''${field.fieldElementTypeName} get ${field.displayName} ${createBaseClass && gen.defaultExpression == '' ? '' : ' => ${gen.defaultExpression}'};''');
       } else {
         propertyFieldBuffer.writeln(
             '''${field.fieldElementTypeName} get ${field.displayName} => _superDefaultsProvider.${field.displayName};''');
