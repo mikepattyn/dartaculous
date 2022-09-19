@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bson/bson.dart';
 import 'package:meta/meta.dart';
-import 'package:mongo_go/mongo_proxy.dart';
+import 'package:mongo_go/mongo_go.dart';
 import 'package:mongo_go/src/extensions.dart';
 import 'package:mongo_go/src/mongo_proxy.dart' as p;
 import 'proto.dart';

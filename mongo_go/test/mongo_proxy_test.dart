@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:isolate';
 
 import 'package:go_bridge/gen/common/basic_error_message.pb.dart';
-import 'package:mongo_go/mongo_proxy.dart';
+import 'package:mongo_go/mongo_go.dart';
 import 'package:test/test.dart';
 import 'package:tuple/tuple.dart';
 

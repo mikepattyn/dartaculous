@@ -1,27 +1,12 @@
-Firebase Authorization Administration based on the [official Firebase Admin GO SDK](https://firebase.google.com/docs/auth/admin).
+Firebase Administration based on the [official Firebase Admin GO SDK](https://firebase.google.com/docs/auth/admin).
 
 ## Features
 
 Exposes the [official Firebase Admin GO SDK](https://firebase.google.com/docs/auth/admin) to Dart to enable the usage of that SDK on the server. 
 
-Currently the following methods are implemented:
-- createUser
-- updateUser
-- deleteUser
-- getUser
-- getUserByEmail
-- getUserByPhoneNumber
-- setCustomClaims
-- getCustomClaims
-- revokeRefreshTokens
-- verifyIdToken
-- verifyIDTokenAndCheckRevoked
-- createCustomTokenWithClaims
-- createCustomToken
-
 ## Considerations before using
 
-The purpose of this package, as an alternative to other implementations, was to have as much of an official Firebase Auth Admin SDK on the server possible. Since at the time of this writing there is no official Firebase Dart Admin SDK, the closest approach was to use the official GO SDK and expose it to Dart via FFI - Foreign Function Interface.
+The purpose of this package, as an alternative to other implementations, was to have parts of the official Firebase Admin SDK on the server possible. Since at the time of this writing there is no official Firebase Dart Admin SDK, the closest approach was to use the official GO SDK and expose it to Dart via FFI - Foreign Function Interface.
 
 While there is some extra confidence by exposing an official SDK, there is a caveat to this implementation that you should be aware of.
 
@@ -33,12 +18,9 @@ While both Dart and Go are garbage collected platforms, the interface used to co
 The usage of this package requires a few extra steps than usual:
 - Add this package to your package dependencies on pubspec.yaml.
 
-- The package requires a dynamic library, ```lib-auth```, which you need to be able to access from your application. Find the physical path to the package and you may either add that path to your library search path, or you may copy or add a symbolic link from the library to the root of your app's package. The file extension of the library is different for each operating system:
-    * Linux: ``lib-auth.so``
-    * MacOS: ``lib-auth.dylib``
-    * Windows ``lib-auth.dll``
+- The package requires a dynamic library, ```firebase_admin.so```, which you need to be able to access from your application. Find the physical path to the package and you may either add that path to your library search path, or you may copy or add a symbolic link from the library, to the root of your app's package.
 
-Download lib-auth.so (Linux), lib-auth.dylib (MacOS) or lib-auth.dll (Windows) library from: https://gitlab.com/squarealfa/dart_framework/-/tree/main/firebase-auth-admin/go/lib-auth.
+Download the library from https://gitlab.com/squarealfa/dart_framework/-/blob/main/firebase_admin/firebase_admin.so.
 
 - Generate and download a new private key following the instruction in https://firebase.google.com/docs/admin/setup, under **To generate a private key file for your service account**.
 
@@ -52,7 +34,7 @@ After completing the steps in the previous section, you should be ready to use t
 First thing we need to do, preferably on the main function, is to initialize the API. We need to do this only once for the entire life of your application and regardless of the isolates you create later. In other words, as long as you've called ``initialize`` from your main Isolate (or any other isolate for that matter), you never need to call it again, not even on isolates you spawn later on.
 
 ```dart
-import 'package:firebase_auth_admin/firebase_auth_admin.dart' as firebase;
+import 'package:firebase_admin/firebase_admin.dart' as firebase;
 
 void main() {
     
