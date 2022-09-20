@@ -3,7 +3,7 @@
 //  source: google/protobuf/unittest_lite.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -288,9 +288,9 @@ class TestAllTypesLite extends $pb.GeneratedMessage {
     ..pc<TestAllTypesLite_NestedMessage>(48, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedNestedMessage', $pb.PbFieldType.PM, subBuilder: TestAllTypesLite_NestedMessage.create)
     ..pc<ForeignMessageLite>(49, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedForeignMessage', $pb.PbFieldType.PM, subBuilder: ForeignMessageLite.create)
     ..pc<$3.ImportMessageLite>(50, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedImportMessage', $pb.PbFieldType.PM, subBuilder: $3.ImportMessageLite.create)
-    ..pc<TestAllTypesLite_NestedEnum>(51, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedNestedEnum', $pb.PbFieldType.PE, valueOf: TestAllTypesLite_NestedEnum.valueOf, enumValues: TestAllTypesLite_NestedEnum.values)
-    ..pc<ForeignEnumLite>(52, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedForeignEnum', $pb.PbFieldType.PE, valueOf: ForeignEnumLite.valueOf, enumValues: ForeignEnumLite.values)
-    ..pc<$3.ImportEnumLite>(53, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedImportEnum', $pb.PbFieldType.PE, valueOf: $3.ImportEnumLite.valueOf, enumValues: $3.ImportEnumLite.values)
+    ..pc<TestAllTypesLite_NestedEnum>(51, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedNestedEnum', $pb.PbFieldType.PE, valueOf: TestAllTypesLite_NestedEnum.valueOf, enumValues: TestAllTypesLite_NestedEnum.values, defaultEnumValue: TestAllTypesLite_NestedEnum.FOO)
+    ..pc<ForeignEnumLite>(52, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedForeignEnum', $pb.PbFieldType.PE, valueOf: ForeignEnumLite.valueOf, enumValues: ForeignEnumLite.values, defaultEnumValue: ForeignEnumLite.FOREIGN_LITE_FOO)
+    ..pc<$3.ImportEnumLite>(53, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedImportEnum', $pb.PbFieldType.PE, valueOf: $3.ImportEnumLite.valueOf, enumValues: $3.ImportEnumLite.values, defaultEnumValue: $3.ImportEnumLite.IMPORT_LITE_FOO)
     ..pPS(54, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedStringPiece')
     ..pPS(55, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedCord')
     ..pc<TestAllTypesLite_NestedMessage>(57, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedLazyMessage', $pb.PbFieldType.PM, subBuilder: TestAllTypesLite_NestedMessage.create)
@@ -1312,7 +1312,7 @@ class TestPackedTypesLite extends $pb.GeneratedMessage {
     ..p<$core.double>(100, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedFloat', $pb.PbFieldType.KF)
     ..p<$core.double>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedDouble', $pb.PbFieldType.KD)
     ..p<$core.bool>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedBool', $pb.PbFieldType.KB)
-    ..pc<ForeignEnumLite>(103, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedEnum', $pb.PbFieldType.KE, valueOf: ForeignEnumLite.valueOf, enumValues: ForeignEnumLite.values)
+    ..pc<ForeignEnumLite>(103, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedEnum', $pb.PbFieldType.KE, valueOf: ForeignEnumLite.valueOf, enumValues: ForeignEnumLite.values, defaultEnumValue: ForeignEnumLite.FOREIGN_LITE_FOO)
     ..hasRequiredFields = false
   ;
 

@@ -3,7 +3,7 @@
 //  source: google/protobuf/unittest.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:async' as $async;
 import 'dart:core' as $core;
@@ -224,9 +224,9 @@ class TestAllTypes extends $pb.GeneratedMessage {
     ..pc<TestAllTypes_NestedMessage>(48, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedNestedMessage', $pb.PbFieldType.PM, subBuilder: TestAllTypes_NestedMessage.create)
     ..pc<ForeignMessage>(49, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedForeignMessage', $pb.PbFieldType.PM, subBuilder: ForeignMessage.create)
     ..pc<$6.ImportMessage>(50, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedImportMessage', $pb.PbFieldType.PM, subBuilder: $6.ImportMessage.create)
-    ..pc<TestAllTypes_NestedEnum>(51, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedNestedEnum', $pb.PbFieldType.PE, valueOf: TestAllTypes_NestedEnum.valueOf, enumValues: TestAllTypes_NestedEnum.values)
-    ..pc<ForeignEnum>(52, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedForeignEnum', $pb.PbFieldType.PE, valueOf: ForeignEnum.valueOf, enumValues: ForeignEnum.values)
-    ..pc<$6.ImportEnum>(53, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedImportEnum', $pb.PbFieldType.PE, valueOf: $6.ImportEnum.valueOf, enumValues: $6.ImportEnum.values)
+    ..pc<TestAllTypes_NestedEnum>(51, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedNestedEnum', $pb.PbFieldType.PE, valueOf: TestAllTypes_NestedEnum.valueOf, enumValues: TestAllTypes_NestedEnum.values, defaultEnumValue: TestAllTypes_NestedEnum.FOO)
+    ..pc<ForeignEnum>(52, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedForeignEnum', $pb.PbFieldType.PE, valueOf: ForeignEnum.valueOf, enumValues: ForeignEnum.values, defaultEnumValue: ForeignEnum.FOREIGN_FOO)
+    ..pc<$6.ImportEnum>(53, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedImportEnum', $pb.PbFieldType.PE, valueOf: $6.ImportEnum.valueOf, enumValues: $6.ImportEnum.values, defaultEnumValue: $6.ImportEnum.IMPORT_FOO)
     ..pPS(54, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedStringPiece')
     ..pPS(55, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedCord')
     ..pc<TestAllTypes_NestedMessage>(57, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatedLazyMessage', $pb.PbFieldType.PM, subBuilder: TestAllTypes_NestedMessage.create)
@@ -4180,7 +4180,7 @@ class TestCamelCaseFieldNames extends $pb.GeneratedMessage {
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'CordField', protoName: 'CordField')
     ..p<$core.int>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RepeatedPrimitiveField', $pb.PbFieldType.P3, protoName: 'RepeatedPrimitiveField')
     ..pPS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RepeatedStringField', protoName: 'RepeatedStringField')
-    ..pc<ForeignEnum>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RepeatedEnumField', $pb.PbFieldType.PE, protoName: 'RepeatedEnumField', valueOf: ForeignEnum.valueOf, enumValues: ForeignEnum.values)
+    ..pc<ForeignEnum>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RepeatedEnumField', $pb.PbFieldType.PE, protoName: 'RepeatedEnumField', valueOf: ForeignEnum.valueOf, enumValues: ForeignEnum.values, defaultEnumValue: ForeignEnum.FOREIGN_FOO)
     ..pc<ForeignMessage>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RepeatedMessageField', $pb.PbFieldType.PM, protoName: 'RepeatedMessageField', subBuilder: ForeignMessage.create)
     ..pPS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RepeatedStringPieceField', protoName: 'RepeatedStringPieceField')
     ..pPS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RepeatedCordField', protoName: 'RepeatedCordField')
@@ -6967,7 +6967,7 @@ class TestPackedTypes extends $pb.GeneratedMessage {
     ..p<$core.double>(100, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedFloat', $pb.PbFieldType.KF)
     ..p<$core.double>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedDouble', $pb.PbFieldType.KD)
     ..p<$core.bool>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedBool', $pb.PbFieldType.KB)
-    ..pc<ForeignEnum>(103, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedEnum', $pb.PbFieldType.KE, valueOf: ForeignEnum.valueOf, enumValues: ForeignEnum.values)
+    ..pc<ForeignEnum>(103, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'packedEnum', $pb.PbFieldType.KE, valueOf: ForeignEnum.valueOf, enumValues: ForeignEnum.values, defaultEnumValue: ForeignEnum.FOREIGN_FOO)
     ..hasRequiredFields = false
   ;
 
@@ -7112,7 +7112,7 @@ class TestUnpackedTypes extends $pb.GeneratedMessage {
     ..p<$core.double>(100, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unpackedFloat', $pb.PbFieldType.PF)
     ..p<$core.double>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unpackedDouble', $pb.PbFieldType.PD)
     ..p<$core.bool>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unpackedBool', $pb.PbFieldType.PB)
-    ..pc<ForeignEnum>(103, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unpackedEnum', $pb.PbFieldType.PE, valueOf: ForeignEnum.valueOf, enumValues: ForeignEnum.values)
+    ..pc<ForeignEnum>(103, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unpackedEnum', $pb.PbFieldType.PE, valueOf: ForeignEnum.valueOf, enumValues: ForeignEnum.values, defaultEnumValue: ForeignEnum.FOREIGN_FOO)
     ..hasRequiredFields = false
   ;
 

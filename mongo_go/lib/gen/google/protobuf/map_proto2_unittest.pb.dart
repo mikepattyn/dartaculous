@@ -3,7 +3,7 @@
 //  source: google/protobuf/map_proto2_unittest.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -17,8 +17,8 @@ export 'map_proto2_unittest.pbenum.dart';
 
 class TestEnumMap extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TestEnumMap', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protobuf_unittest'), createEmptyInstance: create)
-    ..m<$core.int, Proto2MapEnum>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'knownMapField', entryClassName: 'TestEnumMap.KnownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnum.valueOf, enumValues: Proto2MapEnum.values, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, Proto2MapEnum>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unknownMapField', entryClassName: 'TestEnumMap.UnknownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnum.valueOf, enumValues: Proto2MapEnum.values, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, Proto2MapEnum>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'knownMapField', entryClassName: 'TestEnumMap.KnownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnum.valueOf, enumValues: Proto2MapEnum.values, defaultEnumValue: Proto2MapEnum.PROTO2_MAP_ENUM_FOO, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, Proto2MapEnum>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unknownMapField', entryClassName: 'TestEnumMap.UnknownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnum.valueOf, enumValues: Proto2MapEnum.values, defaultEnumValue: Proto2MapEnum.PROTO2_MAP_ENUM_FOO, packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false
   ;
 
@@ -66,8 +66,8 @@ class TestEnumMap extends $pb.GeneratedMessage {
 
 class TestEnumMapPlusExtra extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TestEnumMapPlusExtra', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protobuf_unittest'), createEmptyInstance: create)
-    ..m<$core.int, Proto2MapEnumPlusExtra>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'knownMapField', entryClassName: 'TestEnumMapPlusExtra.KnownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumPlusExtra.valueOf, enumValues: Proto2MapEnumPlusExtra.values, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, Proto2MapEnumPlusExtra>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unknownMapField', entryClassName: 'TestEnumMapPlusExtra.UnknownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumPlusExtra.valueOf, enumValues: Proto2MapEnumPlusExtra.values, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, Proto2MapEnumPlusExtra>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'knownMapField', entryClassName: 'TestEnumMapPlusExtra.KnownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumPlusExtra.valueOf, enumValues: Proto2MapEnumPlusExtra.values, defaultEnumValue: Proto2MapEnumPlusExtra.E_PROTO2_MAP_ENUM_FOO, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, Proto2MapEnumPlusExtra>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unknownMapField', entryClassName: 'TestEnumMapPlusExtra.UnknownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumPlusExtra.valueOf, enumValues: Proto2MapEnumPlusExtra.values, defaultEnumValue: Proto2MapEnumPlusExtra.E_PROTO2_MAP_ENUM_FOO, packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false
   ;
 
@@ -115,7 +115,7 @@ class TestEnumMapPlusExtra extends $pb.GeneratedMessage {
 
 class TestImportEnumMap extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TestImportEnumMap', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protobuf_unittest'), createEmptyInstance: create)
-    ..m<$core.int, $6.ImportEnumForMap>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'importEnumAmp', entryClassName: 'TestImportEnumMap.ImportEnumAmpEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: $6.ImportEnumForMap.valueOf, enumValues: $6.ImportEnumForMap.values, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $6.ImportEnumForMap>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'importEnumAmp', entryClassName: 'TestImportEnumMap.ImportEnumAmpEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: $6.ImportEnumForMap.valueOf, enumValues: $6.ImportEnumForMap.values, defaultEnumValue: $6.ImportEnumForMap.UNKNOWN, packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false
   ;
 

@@ -3,7 +3,7 @@
 //  source: google/protobuf/map_lite_unittest.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -33,7 +33,7 @@ class TestMapLite extends $pb.GeneratedMessage {
     ..m<$core.bool, $core.bool>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapBoolBool', entryClassName: 'TestMapLite.MapBoolBoolEntry', keyFieldType: $pb.PbFieldType.OB, valueFieldType: $pb.PbFieldType.OB, packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.String, $core.String>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapStringString', entryClassName: 'TestMapLite.MapStringStringEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OS, packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, $core.List<$core.int>>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapInt32Bytes', entryClassName: 'TestMapLite.MapInt32BytesEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OY, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, MapEnumLite>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapInt32Enum', entryClassName: 'TestMapLite.MapInt32EnumEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: MapEnumLite.valueOf, enumValues: MapEnumLite.values, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, MapEnumLite>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapInt32Enum', entryClassName: 'TestMapLite.MapInt32EnumEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: MapEnumLite.valueOf, enumValues: MapEnumLite.values, defaultEnumValue: MapEnumLite.MAP_ENUM_FOO_LITE, packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, $5.ForeignMessageLite>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapInt32ForeignMessage', entryClassName: 'TestMapLite.MapInt32ForeignMessageEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $5.ForeignMessageLite.create, packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, $core.int>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'teboring', entryClassName: 'TestMapLite.TeboringEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.O3, packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false
@@ -210,7 +210,7 @@ class TestArenaMapLite extends $pb.GeneratedMessage {
     ..m<$core.bool, $core.bool>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapBoolBool', entryClassName: 'TestArenaMapLite.MapBoolBoolEntry', keyFieldType: $pb.PbFieldType.OB, valueFieldType: $pb.PbFieldType.OB, packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.String, $core.String>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapStringString', entryClassName: 'TestArenaMapLite.MapStringStringEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OS, packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, $core.List<$core.int>>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapInt32Bytes', entryClassName: 'TestArenaMapLite.MapInt32BytesEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OY, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, MapEnumLite>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapInt32Enum', entryClassName: 'TestArenaMapLite.MapInt32EnumEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: MapEnumLite.valueOf, enumValues: MapEnumLite.values, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, MapEnumLite>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapInt32Enum', entryClassName: 'TestArenaMapLite.MapInt32EnumEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: MapEnumLite.valueOf, enumValues: MapEnumLite.values, defaultEnumValue: MapEnumLite.MAP_ENUM_FOO_LITE, packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, ForeignMessageArenaLite>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mapInt32ForeignMessage', entryClassName: 'TestArenaMapLite.MapInt32ForeignMessageEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: ForeignMessageArenaLite.create, packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false
   ;
@@ -404,8 +404,8 @@ class TestRequiredMessageMapLite extends $pb.GeneratedMessage {
 
 class TestEnumMapLite extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TestEnumMapLite', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protobuf_unittest'), createEmptyInstance: create)
-    ..m<$core.int, Proto2MapEnumLite>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'knownMapField', entryClassName: 'TestEnumMapLite.KnownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumLite.valueOf, enumValues: Proto2MapEnumLite.values, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, Proto2MapEnumLite>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unknownMapField', entryClassName: 'TestEnumMapLite.UnknownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumLite.valueOf, enumValues: Proto2MapEnumLite.values, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, Proto2MapEnumLite>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'knownMapField', entryClassName: 'TestEnumMapLite.KnownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumLite.valueOf, enumValues: Proto2MapEnumLite.values, defaultEnumValue: Proto2MapEnumLite.PROTO2_MAP_ENUM_FOO_LITE, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, Proto2MapEnumLite>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unknownMapField', entryClassName: 'TestEnumMapLite.UnknownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumLite.valueOf, enumValues: Proto2MapEnumLite.values, defaultEnumValue: Proto2MapEnumLite.PROTO2_MAP_ENUM_FOO_LITE, packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false
   ;
 
@@ -453,8 +453,8 @@ class TestEnumMapLite extends $pb.GeneratedMessage {
 
 class TestEnumMapPlusExtraLite extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TestEnumMapPlusExtraLite', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protobuf_unittest'), createEmptyInstance: create)
-    ..m<$core.int, Proto2MapEnumPlusExtraLite>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'knownMapField', entryClassName: 'TestEnumMapPlusExtraLite.KnownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumPlusExtraLite.valueOf, enumValues: Proto2MapEnumPlusExtraLite.values, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, Proto2MapEnumPlusExtraLite>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unknownMapField', entryClassName: 'TestEnumMapPlusExtraLite.UnknownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumPlusExtraLite.valueOf, enumValues: Proto2MapEnumPlusExtraLite.values, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, Proto2MapEnumPlusExtraLite>(101, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'knownMapField', entryClassName: 'TestEnumMapPlusExtraLite.KnownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumPlusExtraLite.valueOf, enumValues: Proto2MapEnumPlusExtraLite.values, defaultEnumValue: Proto2MapEnumPlusExtraLite.E_PROTO2_MAP_ENUM_FOO_LITE, packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, Proto2MapEnumPlusExtraLite>(102, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unknownMapField', entryClassName: 'TestEnumMapPlusExtraLite.UnknownMapFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OE, valueOf: Proto2MapEnumPlusExtraLite.valueOf, enumValues: Proto2MapEnumPlusExtraLite.values, defaultEnumValue: Proto2MapEnumPlusExtraLite.E_PROTO2_MAP_ENUM_FOO_LITE, packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false
   ;
 
