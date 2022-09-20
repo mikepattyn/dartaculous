@@ -1,3 +1,7 @@
+## 0.9.1+3
+
+ - **FIX**: locked Decimal dependency to 2.2.0.
+
 ## 0.9.1+2
 
  - **FIX**: improved documentation.
