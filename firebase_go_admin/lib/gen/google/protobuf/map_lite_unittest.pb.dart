@@ -3,7 +3,7 @@
 //  source: google/protobuf/map_lite_unittest.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -171,6 +171,7 @@ class TestMapLite extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: MapEnumLite.valueOf,
         enumValues: MapEnumLite.values,
+        defaultEnumValue: MapEnumLite.MAP_ENUM_FOO_LITE,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, $5.ForeignMessageLite>(
         17,
@@ -509,6 +510,7 @@ class TestArenaMapLite extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: MapEnumLite.valueOf,
         enumValues: MapEnumLite.values,
+        defaultEnumValue: MapEnumLite.MAP_ENUM_FOO_LITE,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, ForeignMessageArenaLite>(
         17,
@@ -762,6 +764,7 @@ class TestEnumMapLite extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: Proto2MapEnumLite.valueOf,
         enumValues: Proto2MapEnumLite.values,
+        defaultEnumValue: Proto2MapEnumLite.PROTO2_MAP_ENUM_FOO_LITE,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, Proto2MapEnumLite>(
         102,
@@ -773,6 +776,7 @@ class TestEnumMapLite extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: Proto2MapEnumLite.valueOf,
         enumValues: Proto2MapEnumLite.values,
+        defaultEnumValue: Proto2MapEnumLite.PROTO2_MAP_ENUM_FOO_LITE,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false;
 
@@ -844,6 +848,7 @@ class TestEnumMapPlusExtraLite extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: Proto2MapEnumPlusExtraLite.valueOf,
         enumValues: Proto2MapEnumPlusExtraLite.values,
+        defaultEnumValue: Proto2MapEnumPlusExtraLite.E_PROTO2_MAP_ENUM_FOO_LITE,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, Proto2MapEnumPlusExtraLite>(
         102,
@@ -855,6 +860,7 @@ class TestEnumMapPlusExtraLite extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: Proto2MapEnumPlusExtraLite.valueOf,
         enumValues: Proto2MapEnumPlusExtraLite.values,
+        defaultEnumValue: Proto2MapEnumPlusExtraLite.E_PROTO2_MAP_ENUM_FOO_LITE,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false;
 

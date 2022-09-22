@@ -3,7 +3,7 @@
 //  source: google/protobuf/map_proto2_unittest.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -35,6 +35,7 @@ class TestEnumMap extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: Proto2MapEnum.valueOf,
         enumValues: Proto2MapEnum.values,
+        defaultEnumValue: Proto2MapEnum.PROTO2_MAP_ENUM_FOO,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, Proto2MapEnum>(
         102,
@@ -46,6 +47,7 @@ class TestEnumMap extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: Proto2MapEnum.valueOf,
         enumValues: Proto2MapEnum.values,
+        defaultEnumValue: Proto2MapEnum.PROTO2_MAP_ENUM_FOO,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false;
 
@@ -116,6 +118,7 @@ class TestEnumMapPlusExtra extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: Proto2MapEnumPlusExtra.valueOf,
         enumValues: Proto2MapEnumPlusExtra.values,
+        defaultEnumValue: Proto2MapEnumPlusExtra.E_PROTO2_MAP_ENUM_FOO,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..m<$core.int, Proto2MapEnumPlusExtra>(
         102,
@@ -127,6 +130,7 @@ class TestEnumMapPlusExtra extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: Proto2MapEnumPlusExtra.valueOf,
         enumValues: Proto2MapEnumPlusExtra.values,
+        defaultEnumValue: Proto2MapEnumPlusExtra.E_PROTO2_MAP_ENUM_FOO,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false;
 
@@ -200,6 +204,7 @@ class TestImportEnumMap extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: $6.ImportEnumForMap.valueOf,
         enumValues: $6.ImportEnumForMap.values,
+        defaultEnumValue: $6.ImportEnumForMap.UNKNOWN,
         packageName: const $pb.PackageName('protobuf_unittest'))
     ..hasRequiredFields = false;
 

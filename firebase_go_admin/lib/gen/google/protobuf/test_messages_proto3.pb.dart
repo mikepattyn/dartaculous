@@ -3,7 +3,7 @@
 //  source: google/protobuf/test_messages_proto3.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -309,79 +309,79 @@ class TestAllTypesProto3 extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedInt32',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..p<$fixnum.Int64>(
         32,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedInt64',
-        $pb.PbFieldType.P6)
+        $pb.PbFieldType.K6)
     ..p<$core.int>(
         33,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedUint32',
-        $pb.PbFieldType.PU3)
+        $pb.PbFieldType.KU3)
     ..p<$fixnum.Int64>(
         34,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedUint64',
-        $pb.PbFieldType.PU6)
+        $pb.PbFieldType.KU6)
     ..p<$core.int>(
         35,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedSint32',
-        $pb.PbFieldType.PS3)
+        $pb.PbFieldType.KS3)
     ..p<$fixnum.Int64>(
         36,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedSint64',
-        $pb.PbFieldType.PS6)
+        $pb.PbFieldType.KS6)
     ..p<$core.int>(
         37,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedFixed32',
-        $pb.PbFieldType.PF3)
+        $pb.PbFieldType.KF3)
     ..p<$fixnum.Int64>(
         38,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedFixed64',
-        $pb.PbFieldType.PF6)
+        $pb.PbFieldType.KF6)
     ..p<$core.int>(
         39,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedSfixed32',
-        $pb.PbFieldType.PSF3)
+        $pb.PbFieldType.KSF3)
     ..p<$fixnum.Int64>(
         40,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedSfixed64',
-        $pb.PbFieldType.PSF6)
+        $pb.PbFieldType.KSF6)
     ..p<$core.double>(
         41,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedFloat',
-        $pb.PbFieldType.PF)
+        $pb.PbFieldType.KF)
     ..p<$core.double>(
         42,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedDouble',
-        $pb.PbFieldType.PD)
+        $pb.PbFieldType.KD)
     ..p<$core.bool>(
         43,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedBool',
-        $pb.PbFieldType.PB)
+        $pb.PbFieldType.KB)
     ..pPS(
         44,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -412,17 +412,19 @@ class TestAllTypesProto3 extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedNestedEnum',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: TestAllTypesProto3_NestedEnum.valueOf,
-        enumValues: TestAllTypesProto3_NestedEnum.values)
+        enumValues: TestAllTypesProto3_NestedEnum.values,
+        defaultEnumValue: TestAllTypesProto3_NestedEnum.FOO)
     ..pc<ForeignEnum>(
         52,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedForeignEnum',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: ForeignEnum.valueOf,
-        enumValues: ForeignEnum.values)
+        enumValues: ForeignEnum.values,
+        defaultEnumValue: ForeignEnum.FOREIGN_FOO)
     ..pPS(
         54,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -598,6 +600,7 @@ class TestAllTypesProto3 extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: TestAllTypesProto3_NestedEnum.valueOf,
         enumValues: TestAllTypesProto3_NestedEnum.values,
+        defaultEnumValue: TestAllTypesProto3_NestedEnum.FOO,
         packageName: const $pb.PackageName('protobuf_test_messages.proto3'))
     ..m<$core.String, ForeignEnum>(
         74,
@@ -609,6 +612,7 @@ class TestAllTypesProto3 extends $pb.GeneratedMessage {
         valueFieldType: $pb.PbFieldType.OE,
         valueOf: ForeignEnum.valueOf,
         enumValues: ForeignEnum.values,
+        defaultEnumValue: ForeignEnum.FOREIGN_FOO,
         packageName: const $pb.PackageName('protobuf_test_messages.proto3'))
     ..p<$core.int>(
         75,
@@ -695,7 +699,8 @@ class TestAllTypesProto3 extends $pb.GeneratedMessage {
             : 'packedNestedEnum',
         $pb.PbFieldType.KE,
         valueOf: TestAllTypesProto3_NestedEnum.valueOf,
-        enumValues: TestAllTypesProto3_NestedEnum.values)
+        enumValues: TestAllTypesProto3_NestedEnum.values,
+        defaultEnumValue: TestAllTypesProto3_NestedEnum.FOO)
     ..p<$core.int>(
         89,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -781,7 +786,8 @@ class TestAllTypesProto3 extends $pb.GeneratedMessage {
             : 'unpackedNestedEnum',
         $pb.PbFieldType.PE,
         valueOf: TestAllTypesProto3_NestedEnum.valueOf,
-        enumValues: TestAllTypesProto3_NestedEnum.values)
+        enumValues: TestAllTypesProto3_NestedEnum.values,
+        defaultEnumValue: TestAllTypesProto3_NestedEnum.FOO)
     ..a<$core.int>(
         111,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')

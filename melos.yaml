@@ -18,6 +18,7 @@ packages:
   - grpc_host/**
   - go_bridge/**
   - mongo_go/**
+  - firebase_go_admin/**
 
 ignore:
   - map_mapper/test_mongo/*
@@ -25,10 +26,10 @@ ignore:
   - entity_adapter/example/*
 
 scripts:
-  analyze: melos exec -- "dart analyze ." 
+  analyze: melos exec -- "dart analyze ."
 
   gen:
     run: melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" --file-exists="gen.sh" -- "./gen.sh"
 
   test:
-    run: melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" -- "dart test"
+    run: melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" --ignore="*firebase_go_admin*" -- "dart test" 

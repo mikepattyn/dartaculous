@@ -20,7 +20,7 @@ The usage of this package requires a few extra steps than usual:
 
 - The package requires a dynamic library, ```firebase_admin.so```, which you need to be able to access from your application. Find the physical path to the package and you may either add that path to your library search path, or you may copy or add a symbolic link from the library, to the root of your app's package.
 
-Download the library from https://gitlab.com/squarealfa/dart_framework/-/blob/main/firebase_admin/firebase_admin.so.
+Download the library from https://gitlab.com/squarealfa/dart_framework/-/blob/main/firebase_go_admin/firebase_admin.so.
 
 - Generate and download a new private key following the instruction in https://firebase.google.com/docs/admin/setup, under **To generate a private key file for your service account**.
 

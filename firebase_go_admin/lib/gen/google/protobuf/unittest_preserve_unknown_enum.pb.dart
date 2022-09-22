@@ -3,7 +3,7 @@
 //  source: google/protobuf/unittest_preserve_unknown_enum.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -45,9 +45,10 @@ class MyMessage extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedE',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: MyEnum.valueOf,
-        enumValues: MyEnum.values)
+        enumValues: MyEnum.values,
+        defaultEnumValue: MyEnum.FOO)
     ..pc<MyEnum>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -55,15 +56,17 @@ class MyMessage extends $pb.GeneratedMessage {
             : 'repeatedPackedE',
         $pb.PbFieldType.KE,
         valueOf: MyEnum.valueOf,
-        enumValues: MyEnum.values)
+        enumValues: MyEnum.values,
+        defaultEnumValue: MyEnum.FOO)
     ..pc<MyEnumPlusExtra>(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedPackedUnexpectedE',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: MyEnumPlusExtra.valueOf,
-        enumValues: MyEnumPlusExtra.values)
+        enumValues: MyEnumPlusExtra.values,
+        defaultEnumValue: MyEnumPlusExtra.E_FOO)
     ..e<MyEnum>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -224,9 +227,10 @@ class MyMessagePlusExtra extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'repeatedE',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: MyEnumPlusExtra.valueOf,
-        enumValues: MyEnumPlusExtra.values)
+        enumValues: MyEnumPlusExtra.values,
+        defaultEnumValue: MyEnumPlusExtra.E_FOO)
     ..pc<MyEnumPlusExtra>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -234,7 +238,8 @@ class MyMessagePlusExtra extends $pb.GeneratedMessage {
             : 'repeatedPackedE',
         $pb.PbFieldType.KE,
         valueOf: MyEnumPlusExtra.valueOf,
-        enumValues: MyEnumPlusExtra.values)
+        enumValues: MyEnumPlusExtra.values,
+        defaultEnumValue: MyEnumPlusExtra.E_FOO)
     ..pc<MyEnumPlusExtra>(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -242,7 +247,8 @@ class MyMessagePlusExtra extends $pb.GeneratedMessage {
             : 'repeatedPackedUnexpectedE',
         $pb.PbFieldType.KE,
         valueOf: MyEnumPlusExtra.valueOf,
-        enumValues: MyEnumPlusExtra.values)
+        enumValues: MyEnumPlusExtra.values,
+        defaultEnumValue: MyEnumPlusExtra.E_FOO)
     ..e<MyEnumPlusExtra>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')

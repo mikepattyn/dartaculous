@@ -3,7 +3,7 @@
 //  source: google/protobuf/unittest_lite.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -655,7 +655,8 @@ class TestAllTypesLite extends $pb.GeneratedMessage {
             : 'repeatedNestedEnum',
         $pb.PbFieldType.PE,
         valueOf: TestAllTypesLite_NestedEnum.valueOf,
-        enumValues: TestAllTypesLite_NestedEnum.values)
+        enumValues: TestAllTypesLite_NestedEnum.values,
+        defaultEnumValue: TestAllTypesLite_NestedEnum.FOO)
     ..pc<ForeignEnumLite>(
         52,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -663,7 +664,8 @@ class TestAllTypesLite extends $pb.GeneratedMessage {
             : 'repeatedForeignEnum',
         $pb.PbFieldType.PE,
         valueOf: ForeignEnumLite.valueOf,
-        enumValues: ForeignEnumLite.values)
+        enumValues: ForeignEnumLite.values,
+        defaultEnumValue: ForeignEnumLite.FOREIGN_LITE_FOO)
     ..pc<$3.ImportEnumLite>(
         53,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -671,7 +673,8 @@ class TestAllTypesLite extends $pb.GeneratedMessage {
             : 'repeatedImportEnum',
         $pb.PbFieldType.PE,
         valueOf: $3.ImportEnumLite.valueOf,
-        enumValues: $3.ImportEnumLite.values)
+        enumValues: $3.ImportEnumLite.values,
+        defaultEnumValue: $3.ImportEnumLite.IMPORT_LITE_FOO)
     ..pPS(
         54,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2142,7 +2145,8 @@ class TestPackedTypesLite extends $pb.GeneratedMessage {
             : 'packedEnum',
         $pb.PbFieldType.KE,
         valueOf: ForeignEnumLite.valueOf,
-        enumValues: ForeignEnumLite.values)
+        enumValues: ForeignEnumLite.values,
+        defaultEnumValue: ForeignEnumLite.FOREIGN_LITE_FOO)
     ..hasRequiredFields = false;
 
   TestPackedTypesLite._() : super();
