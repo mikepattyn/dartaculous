@@ -1,5 +1,5 @@
 import 'dart:ffi';
-import 'package:bson2/bson2.dart';
+import 'package:bson/bson.dart';
 import 'package:go_bridge/helpers.dart';
 import 'package:mongo_go/src/extensions.dart';
 import 'package:mongo_go/src/update_options.dart';

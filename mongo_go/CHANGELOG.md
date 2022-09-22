@@ -1,3 +1,7 @@
+## 0.9.1+5
+
+ - **FIX**: restored the lock on the dependency of decimal 2.2.0.
+
 ## 0.9.1+4
 
  - **FIX**: using bson2 to enable upgrade to decimal 2.3.0.
