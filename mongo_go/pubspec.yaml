@@ -18,8 +18,8 @@ dependencies:
   go_bridge: ^1.0.0
   meta: ^1.8.0
   fixnum: ^1.0.1
-  decimal: 2.2.0
-  bson: ^2.0.1
+  decimal: ^2.3.0
+  bson: ^3.0.0
   
 dev_dependencies:
   ffigen: ^6.1.2

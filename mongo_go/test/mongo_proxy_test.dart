@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:isolate';
 
+import 'package:bson/bson.dart';
 import 'package:go_bridge/gen/common/basic_error_message.pb.dart';
 import 'package:mongo_go/mongo_go.dart';
 import 'package:test/test.dart';
@@ -33,6 +34,13 @@ void main() {
       final result = await collection
           .insertOne({'name': 'Alice', 'age': 40, "test": "insertOne"});
       expect(result.keys.first, "insertedid");
+    });
+
+    test('Insert Document with client generated objectId', () async {
+      final id = ObjectId(clientMode: true);
+      final result = await collection.insertOne(
+          {'_id': id, 'name': 'Bob', 'age': 41, "test": "insertOne_oid"});
+      expect(result.values.first, id);
     });
     test(
       'Find',
