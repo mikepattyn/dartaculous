@@ -1,3 +1,7 @@
+## 1.0.0
+
+ - **FIX**: mongo_go depends on bson 3.0.0.
+
 ## 0.9.1+5
 
  - **FIX**: restored the lock on the dependency of decimal 2.2.0.
