@@ -1,3 +1,9 @@
+## 2.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Bulk write operations.
+
 ## 1.0.0
 
  - **FIX**: mongo_go depends on bson 3.0.0.
