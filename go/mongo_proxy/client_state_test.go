@@ -130,12 +130,9 @@ func Test_InsertOne(t *testing.T) {
 		t.Error("Could not marshal document to insert")
 	}
 
-	bytes, err = coll.InsertOne(ctx, nil, bytes)
+	_, err = coll.InsertOne(ctx, nil, bytes)
 	if err != nil {
 		t.Error(err)
-	}
-	if len(bytes) == 0 {
-		t.Error("didn't receive an inserted id")
 	}
 	c, err := mongoCollection.CountDocuments(ctx, bson.D{})
 	if err != nil {
@@ -186,19 +183,13 @@ func Test_InsertTwoTrxError(t *testing.T) {
 		t.Error("Could not marshal document to insert")
 	}
 
-	rbytes, err := coll.InsertOne(ctx, transactionProxy, bytes)
+	_, err = coll.InsertOne(ctx, transactionProxy, bytes)
 	if err != nil {
 		t.Error(err)
 	}
-	if len(rbytes) == 0 {
-		t.Error("didn't receive an inserted id")
-	}
-	rbytes2, err := coll.InsertOne(ctx, transactionProxy, bytes2)
+	_, err = coll.InsertOne(ctx, transactionProxy, bytes2)
 	if err != nil {
 		t.Error(err)
-	}
-	if len(rbytes2) == 0 {
-		t.Error("didn't receive an inserted id")
 	}
 
 	tr := TransactionResult{err: errors.New("oops")}
@@ -327,19 +318,13 @@ func Test_InsertOneTrx(t *testing.T) {
 		t.Error("Could not marshal document to insert")
 	}
 
-	rbytes, err := coll.InsertOne(ctx, transactionProxy, bytes)
+	_, err = coll.InsertOne(ctx, transactionProxy, bytes)
 	if err != nil {
 		t.Error(err)
 	}
-	if len(rbytes) == 0 {
-		t.Error("didn't receive an inserted id")
-	}
-	rbytes2, err := coll.InsertOne(ctx, transactionProxy, bytes2)
+	_, err = coll.InsertOne(ctx, transactionProxy, bytes2)
 	if err != nil {
 		t.Error(err)
-	}
-	if len(rbytes2) == 0 {
-		t.Error("didn't receive an inserted id")
 	}
 
 	cs.EndTransaction(ctx, connectionOid, sessionOid, trxOid, TransactionResult{})

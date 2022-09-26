@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+import "request_context.proto";
+
+message InsertManyRequest {
+  bytes collectionOid = 1;
+  RequestContext context = 2;
+  repeated bytes documents = 3;
+}
+
+message InsertManyResult {
+  repeated bytes insertedIds = 1;
+}

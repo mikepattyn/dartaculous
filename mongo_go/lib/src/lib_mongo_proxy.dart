@@ -507,6 +507,25 @@ class LibMongoProxy {
               GoInt)>>('dropAllIndexes');
   late final _dropAllIndexes = _dropAllIndexesPtr
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
+
+  void bulkWrite(
+    int port,
+    ffi.Pointer<ffi.UnsignedChar> buffer,
+    int size,
+  ) {
+    return _bulkWrite(
+      port,
+      buffer,
+      size,
+    );
+  }
+
+  late final _bulkWritePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              GoInt64, ffi.Pointer<ffi.UnsignedChar>, GoInt)>>('bulkWrite');
+  late final _bulkWrite = _bulkWritePtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 }
 
 class GoInterface extends ffi.Struct {

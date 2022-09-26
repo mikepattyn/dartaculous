@@ -84,7 +84,7 @@ Future<void> endTransaction(EndTransactionRequest request) async {
   );
 }
 
-Future<Map<String, dynamic>> insertOne(
+Future<InsertOneResult> insertOne(
   ObjectId collectionOid,
   BsonBinary document, {
   RequestContext? requestContext,
@@ -97,14 +97,12 @@ Future<Map<String, dynamic>> insertOne(
   final response = await callGoFunc(
     request: request,
     goFunc: nl.insertOne,
-    responseToFill: ByteArrayMessage(),
+    responseToFill: InsertOneResult(),
   );
-  final bson = BSON();
-  final bb = BsonBinary.from(response.value);
-  return bson.deserialize(bb);
+  return response;
 }
 
-Future<Map<String, dynamic>> insertMany(
+Future<InsertManyResult> insertMany(
   ObjectId collectionOid,
   List<BsonBinary> document, {
   RequestContext? requestContext,
@@ -120,17 +118,15 @@ Future<Map<String, dynamic>> insertMany(
   final response = await callGoFunc(
     request: request,
     goFunc: nl.insertMany,
-    responseToFill: ByteArrayMessage(),
+    responseToFill: InsertManyResult(),
   );
-  final bson = BSON();
-  final bb = BsonBinary.from(response.value);
-  return bson.deserialize(bb);
+  return response;
 }
 
 RequestContext _getRequestContext(RequestContext? transactionContext) =>
     transactionContext ?? emptyRequestContext;
 
-Future<Map<String, dynamic>> updateOne(
+Future<UpdateResult> updateOne(
   ObjectId collectionOid,
   BsonBinary filter,
   BsonBinary update, {
@@ -150,14 +146,12 @@ Future<Map<String, dynamic>> updateOne(
   final response = await callGoFunc(
     request: request,
     goFunc: nl.updateOne,
-    responseToFill: ByteArrayMessage(),
+    responseToFill: UpdateResult(),
   );
-  final bson = BSON();
-  final bb = BsonBinary.from(response.value);
-  return bson.deserialize(bb);
+  return response;
 }
 
-Future<Map<String, dynamic>> updateMany(
+Future<UpdateResult> updateMany(
   ObjectId collectionOid,
   BsonBinary filter,
   BsonBinary update, {
@@ -177,14 +171,12 @@ Future<Map<String, dynamic>> updateMany(
   final response = await callGoFunc(
     request: request,
     goFunc: nl.updateMany,
-    responseToFill: ByteArrayMessage(),
+    responseToFill: UpdateResult(),
   );
-  final bson = BSON();
-  final bb = BsonBinary.from(response.value);
-  return bson.deserialize(bb);
+  return response;
 }
 
-Future<Map<String, dynamic>> replaceOne(
+Future<UpdateResult> replaceOne(
   ObjectId collectionOid,
   BsonBinary filter,
   BsonBinary replacement, {
@@ -204,14 +196,12 @@ Future<Map<String, dynamic>> replaceOne(
   final response = await callGoFunc(
     request: request,
     goFunc: nl.replaceOne,
-    responseToFill: ByteArrayMessage(),
+    responseToFill: UpdateResult(),
   );
-  final bson = BSON();
-  final bb = BsonBinary.from(response.value);
-  return bson.deserialize(bb);
+  return response;
 }
 
-Future<Map<String, dynamic>> deleteOne(
+Future<DeleteResult> deleteOne(
   ObjectId collectionOid,
   BsonBinary filter, {
   RequestContext? requestContext,
@@ -227,14 +217,12 @@ Future<Map<String, dynamic>> deleteOne(
   final response = await callGoFunc(
     request: request,
     goFunc: nl.deleteOne,
-    responseToFill: ByteArrayMessage(),
+    responseToFill: DeleteResult(),
   );
-  final bson = BSON();
-  final bb = BsonBinary.from(response.value);
-  return bson.deserialize(bb);
+  return response;
 }
 
-Future<Map<String, dynamic>> deleteMany(
+Future<DeleteResult> deleteMany(
   ObjectId collectionOid,
   BsonBinary filter, {
   RequestContext? requestContext,
@@ -250,11 +238,9 @@ Future<Map<String, dynamic>> deleteMany(
   final response = await callGoFunc(
     request: request,
     goFunc: nl.deleteMany,
-    responseToFill: ByteArrayMessage(),
+    responseToFill: DeleteResult(),
   );
-  final bson = BSON();
-  final bb = BsonBinary.from(response.value);
-  return bson.deserialize(bb);
+  return response;
 }
 
 Stream<Map<String, dynamic>> find(
@@ -421,4 +407,27 @@ Future<Map<String, dynamic>> dropAllIndexes(ObjectId collectionOid) async {
   final bson = BSON();
   final bb = BsonBinary.from(response.value);
   return bson.deserialize(bb);
+}
+
+Future<BulkWriteResult> bulkWrite(
+  ObjectId collectionOid,
+  List<WriteModel> writeModels, {
+  RequestContext? requestContext,
+  BulkWriteOptions? options,
+}) async {
+  final oid = collectionOid.toByteList();
+  final ctx = _getRequestContext(requestContext);
+
+  final request = BulkWriteRequest(
+    collectionOid: oid,
+    context: ctx,
+    writeModels: writeModels,
+    options: options,
+  );
+  final response = await callGoFunc(
+    request: request,
+    goFunc: nl.bulkWrite,
+    responseToFill: BulkWriteResult(),
+  );
+  return response;
 }

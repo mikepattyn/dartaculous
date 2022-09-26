@@ -7,6 +7,6 @@ build: proto mongo_proxy.go helpers/helpers.go client_state.go collection_proxy.
 	go build -buildmode=c-shared -o out/mongo_proxy.so 
 
 clean:
-	rm *.so *.h
+	rm out/* mongo_stubs/*
 
 FORCE:

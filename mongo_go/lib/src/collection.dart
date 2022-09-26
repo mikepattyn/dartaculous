@@ -13,17 +13,23 @@ class Collection {
     required this.database,
   });
 
-  Future<Map<String, dynamic>> insertOne(Map<String, dynamic> document,
-      {Transaction? transaction}) async {
+  Future<InsertOneResult> insertOne(
+    Map<String, dynamic> document, {
+    Transaction? transaction,
+  }) async {
     final bson = BSON();
     final bytes = bson.serialize(document);
 
-    final ret = await p.insertOne(collectionId, bytes,
-        requestContext: transaction?.requestContext);
+    final result = await p.insertOne(
+      collectionId,
+      bytes,
+      requestContext: transaction?.requestContext,
+    );
+    final ret = InsertOneResult.fromProto(result);
     return ret;
   }
 
-  Future<Map<String, dynamic>> insertMany(
+  Future<InsertManyResult> insertMany(
     List<Map<String, dynamic>> documents, {
     Transaction? transaction,
   }) async {
@@ -33,15 +39,16 @@ class Collection {
       return bytes;
     }).toList();
 
-    final ret = await p.insertMany(
+    final result = await p.insertMany(
       collectionId,
       docs,
       requestContext: transaction?.requestContext,
     );
+    final ret = InsertManyResult.fromProto(result);
     return ret;
   }
 
-  Future<Map<String, dynamic>> updateOne(
+  Future<UpdateResult> updateOne(
     Map<String, dynamic> filter,
     Map<String, dynamic> update, {
     UpdateOptions? options,
@@ -50,33 +57,35 @@ class Collection {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
     final updateBytes = bson.serialize(update);
-    final ret = await p.updateOne(
+    final result = await p.updateOne(
       collectionId,
       filterBytes,
       updateBytes,
       options: options,
       requestContext: transaction?.requestContext,
     );
+    final ret = UpdateResult.fromProto(result);
     return ret;
   }
 
-  Future<Map<String, dynamic>> updateMany(
+  Future<UpdateResult> updateMany(
       Map<String, dynamic> filter, Map<String, dynamic> update,
       {UpdateOptions? options, Transaction? transaction}) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
     final updateBytes = bson.serialize(update);
-    final ret = await p.updateMany(
+    final result = await p.updateMany(
       collectionId,
       filterBytes,
       updateBytes,
       options: options,
       requestContext: transaction?.requestContext,
     );
+    final ret = UpdateResult.fromProto(result);
     return ret;
   }
 
-  Future<Map<String, dynamic>> replaceOne(
+  Future<UpdateResult> replaceOne(
     Map<String, dynamic> filter,
     Map<String, dynamic> update, {
     UpdateOptions? options,
@@ -85,41 +94,44 @@ class Collection {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
     final updateBytes = bson.serialize(update);
-    final ret = await p.replaceOne(
+    final result = await p.replaceOne(
       collectionId,
       filterBytes,
       updateBytes,
       options: options,
       requestContext: transaction?.requestContext,
     );
+    final ret = UpdateResult.fromProto(result);
     return ret;
   }
 
-  Future<Map<String, dynamic>> deleteOne(
+  Future<DeleteResult> deleteOne(
     Map<String, dynamic> filter, {
     Transaction? transaction,
   }) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
-    final ret = await p.deleteOne(
+    final result = await p.deleteOne(
       collectionId,
       filterBytes,
       requestContext: transaction?.requestContext,
     );
+    final ret = DeleteResult.fromProto(result);
     return ret;
   }
 
-  Future<Map<String, dynamic>> deleteMany(
+  Future<DeleteResult> deleteMany(
     Map<String, dynamic> filter, {
     Transaction? transaction,
   }) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
-    final ret = await p.deleteMany(
+    final result = await p.deleteMany(
       collectionId,
       filterBytes,
       requestContext: transaction?.requestContext,
     );
+    final ret = DeleteResult.fromProto(result);
     return ret;
   }
 
@@ -201,6 +213,24 @@ class Collection {
 
   Future<Map<String, dynamic>> dropAllIndexes() async {
     final ret = await p.dropAllIndexes(collectionId);
+    return ret;
+  }
+
+  Future<BulkWriteResult> bulkWrite(
+    List<BulkWriteModel> writeModels, {
+    Transaction? transaction,
+    BulkWriteOptions? options,
+  }) async {
+    final wms = writeModels.map((p) => p.toProto()).toList();
+    final opts = options?.toProto();
+
+    final result = await p.bulkWrite(
+      collectionId,
+      wms,
+      requestContext: transaction?.requestContext,
+      options: opts,
+    );
+    final ret = BulkWriteResult.fromProto(result);
     return ret;
   }
 }

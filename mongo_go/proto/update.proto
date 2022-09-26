@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+import "request_context.proto";
+
+message UpdateRequest {
+  bytes collectionOid = 1;
+  RequestContext context = 2;
+  bytes filter = 3;
+  bytes update = 4;
+  bool isUpsert = 5;
+}
+
+message UpdateResult {
+  int64 matched_count = 1;
+  int64 modified_count = 2;
+  int64 upserted_count = 3;
+  bytes upserted_id = 4;
+} 
+

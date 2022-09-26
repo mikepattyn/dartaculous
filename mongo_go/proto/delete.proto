@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+import "request_context.proto";
+
+message DeleteRequest {
+  bytes collectionOid = 1;
+  RequestContext context = 2;
+  bytes filter = 3;
+}
+
+message DeleteResult {
+  int64 deletedCount = 1;
+}

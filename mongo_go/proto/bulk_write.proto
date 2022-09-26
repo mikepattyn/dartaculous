@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+import "google/protobuf/wrappers.proto";
+import "request_context.proto";
+
+message BulkWriteRequest {
+  bytes collectionOid = 1;
+  RequestContext context = 2;
+  repeated WriteModel writeModels = 3;  
+  oneof opts {
+    BulkWriteOptions options = 5;
+  } 
+  
+}
+
+message BulkWriteOptions {
+  google.protobuf.BoolValue bypass_document_validation = 1;
+  bytes comment = 2;
+  google.protobuf.BoolValue ordered = 3;
+  bytes let = 4;
+}
+
+
+message WriteModel {
+  oneof ops {
+    InsertOneModel insertOneModel = 1;
+    DeleteOneModel deleteOneModel = 2;
+    ReplaceOneModel replaceOneModel = 3;
+    UpdateOneModel updateOneModel = 4;
+    DeleteManyModel deleteManyModel = 5;
+    UpdateManyModel updateManyModel = 6;
+  }
+}
+
+message InsertOneModel { bytes document = 1; }
+
+message DeleteOneModel {
+  bytes filter = 1;
+  bytes hint = 2;
+}
+
+message DeleteManyModel {
+  bytes filter = 1;
+  bytes hint = 2;
+}
+
+message ReplaceOneModel {
+  google.protobuf.BoolValue upsert = 1;
+  bytes filter = 2;
+  bytes replacement = 3;
+  bytes hint = 4;
+}
+
+message UpdateOneModel {
+  google.protobuf.BoolValue upsert = 1;
+  bytes filter = 2;
+  bytes update = 3;
+  bytes hint = 4;
+}
+
+message UpdateManyModel {
+  google.protobuf.BoolValue upsert = 1;
+  bytes filter = 2;
+  bytes update = 3;
+  bytes hint = 4;
+}
+
+
+message BulkWriteResult {
+  int64 inserted_count = 1;
+  int64 matched_count = 2;
+  int64 modified_count = 3;
+  int64 deleted_count = 4;
+  int64 upserted_count = 5;
+  map<int64, bytes> upserted_ids = 6;
+}

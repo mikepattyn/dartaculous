@@ -1,7 +1,6 @@
 package main
 
 import (
-	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 
@@ -35,106 +34,61 @@ func runInTransaction[TResult any](ctx context.Context, transactionProxy *Transa
 	return result.result, result.err
 }
 
-func (c *CollectionProxy) InsertOne(ctx context.Context, transactionProxy *TransactionProxy, document []byte) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
-		r, err := c.col.InsertOne(ctx, document)
-		if err != nil {
-			return nil, err
-		}
-		bytes, err := bson.Marshal(r)
-		if err != nil {
-			return nil, err
-		}
-		return bytes, nil
+func (c *CollectionProxy) InsertOne(ctx context.Context, transactionProxy *TransactionProxy, document []byte) (*mongo.InsertOneResult, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.InsertOneResult, error) {
+		return c.col.InsertOne(ctx, document)
 	})
 }
 
-func (c *CollectionProxy) InsertMany(ctx context.Context, transactionProxy *TransactionProxy, documents [][]byte) ([]byte, error) {
+func (c *CollectionProxy) InsertMany(ctx context.Context, transactionProxy *TransactionProxy, documents [][]byte) (*mongo.InsertManyResult, error) {
 	docs := make([]interface{}, len(documents))
 	for i, v := range documents {
 		docs[i] = v
 	}
 
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
-		r, err := c.col.InsertMany(ctx, docs)
-		if err != nil {
-			return nil, err
-		}
-		bytes, err := bson.Marshal(r)
-		if err != nil {
-			return nil, err
-		}
-		return bytes, nil
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.InsertManyResult, error) {
+		return c.col.InsertMany(ctx, docs)
 	})
 }
 
-func (c *CollectionProxy) DeleteOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
-		r, err := c.col.DeleteOne(ctx, filter)
-		if err != nil {
-			return nil, err
-		}
-		bytes, err := bson.Marshal(r)
-		if err != nil {
-			return nil, err
-		}
-		return bytes, nil
+func (c *CollectionProxy) BulkWrite(
+	ctx context.Context,
+	transactionProxy *TransactionProxy,
+	writeModels []mongo.WriteModel,
+	opts ...*options.BulkWriteOptions) (*mongo.BulkWriteResult, error) {
+
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.BulkWriteResult, error) {
+		return c.col.BulkWrite(ctx, writeModels, opts...)
 	})
 }
 
-func (c *CollectionProxy) DeleteMany(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
-		r, err := c.col.DeleteMany(ctx, filter)
-		if err != nil {
-			return nil, err
-		}
-		bytes, err := bson.Marshal(r)
-		if err != nil {
-			return nil, err
-		}
-		return bytes, nil
+func (c *CollectionProxy) DeleteOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) (*mongo.DeleteResult, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.DeleteResult, error) {
+		return c.col.DeleteOne(ctx, filter)
 	})
 }
 
-func (c *CollectionProxy) UpdateOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.UpdateOptions) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
-		r, err := c.col.UpdateOne(ctx, filter, update, opts...)
-		if err != nil {
-			return nil, err
-		}
-		bytes, err := bson.Marshal(r)
-		if err != nil {
-			return nil, err
-		}
-		return bytes, nil
+func (c *CollectionProxy) DeleteMany(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) (*mongo.DeleteResult, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.DeleteResult, error) {
+		return c.col.DeleteMany(ctx, filter)
 	})
 }
 
-func (c *CollectionProxy) UpdateMany(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.UpdateOptions) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
-		r, err := c.col.UpdateMany(ctx, filter, update, opts...)
-		if err != nil {
-			return nil, err
-		}
-		bytes, err := bson.Marshal(r)
-		if err != nil {
-			return nil, err
-		}
-		return bytes, nil
+func (c *CollectionProxy) UpdateOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.UpdateOptions) (*mongo.UpdateResult, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.UpdateResult, error) {
+		return c.col.UpdateOne(ctx, filter, update, opts...)
 	})
 }
 
-func (c *CollectionProxy) ReplaceOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, replacement []byte, opts ...*options.ReplaceOptions) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
-		r, err := c.col.ReplaceOne(ctx, filter, replacement, opts...)
-		if err != nil {
-			return nil, err
-		}
-		bytes, err := bson.Marshal(r)
-		if err != nil {
-			return nil, err
-		}
-		return bytes, nil
+func (c *CollectionProxy) UpdateMany(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.UpdateOptions) (*mongo.UpdateResult, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.UpdateResult, error) {
+		return c.col.UpdateMany(ctx, filter, update, opts...)
+	})
+}
+
+func (c *CollectionProxy) ReplaceOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, replacement []byte, opts ...*options.ReplaceOptions) (*mongo.UpdateResult, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.UpdateResult, error) {
+		return c.col.ReplaceOne(ctx, filter, replacement, opts...)
 	})
 }
 

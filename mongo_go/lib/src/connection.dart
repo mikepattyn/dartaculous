@@ -16,6 +16,8 @@ class ConnectionSettings {
 }
 
 class Connection {
+  @Deprecated(
+      'There is no further need to call this, as any call to connect will automatically initialize.')
   static void initialize() {
     p.initialize();
   }
@@ -37,6 +39,7 @@ class Connection {
   }
 
   static Future<Connection> connect(ConnectionSettings settings) async {
+    p.initialize();
     final oid = await p.connect(settings.toConnectionRequest());
     final connection = Connection(connectionId: oid);
     return connection;

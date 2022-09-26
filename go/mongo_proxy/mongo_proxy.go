@@ -3,6 +3,7 @@ package main
 // #include <stdlib.h>
 import (
 	"C"
+	"mongo_proxy/marshalling"
 	"mongo_proxy/mongo_stubs"
 	"unsafe"
 
@@ -15,22 +16,29 @@ import (
 	"mongo_proxy/helpers"
 
 	"golang.org/x/net/context"
-
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
 )
+import "sync"
 
 func main() {}
 
+var isInitialized bool = false
+var isInitializedLock sync.RWMutex
+
 //export initialize
 func initialize(api unsafe.Pointer) {
+	isInitializedLock.Lock()
+	defer isInitializedLock.Unlock()
+
+	if isInitialized {
+		return
+	}
+	isInitialized = true
 
 	ffi.Init(api)
 }
 
 //export connectMongo
 func connectMongo(port int64, buffer *C.uchar, size int) {
-
 	request := &mongo_stubs.ConnectionRequest{}
 	ffi.Unmarshal(unsafe.Pointer(buffer), size, request)
 
@@ -248,13 +256,19 @@ func insertOne(port int64, buffer *C.uchar, size int) {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
-		bytes, err := coll.InsertOne(ctx, trxProxy, request.Document)
+		r, err := coll.InsertOne(ctx, trxProxy, request.Document)
 		if err != nil {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
 
-		ffi.SendByteArrayMessage(port, bytes)
+		m, err := marshalling.ToInsertOneResult(r)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendMessage(port, m)
 	}()
 }
 
@@ -277,14 +291,20 @@ func insertMany(port int64, buffer *C.uchar, size int) {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
-		bytes, err := coll.InsertMany(ctx, trxProxy, request.Documents)
+		r, err := coll.InsertMany(ctx, trxProxy, request.Documents)
 
 		if err != nil {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
 
-		ffi.SendByteArrayMessage(port, bytes)
+		m, err := marshalling.ToInsertManyResult(r)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendMessage(port, m)
 	}()
 }
 
@@ -308,13 +328,20 @@ func updateOne(port int64, buffer *C.uchar, size int) {
 			return
 		}
 		opts := getUpdateOptions(&request)
-		bytes, err := coll.UpdateOne(ctx, trxProxy, request.Filter, request.Update, opts)
+		r, err := coll.UpdateOne(ctx, trxProxy, request.Filter, request.Update, opts)
 		if err != nil {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
 
-		ffi.SendByteArrayMessage(port, bytes)
+		m, err := marshalling.ToUpdateResult(r)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendMessage(port, m)
+
 	}()
 }
 
@@ -337,13 +364,20 @@ func updateMany(port int64, buffer *C.uchar, size int) {
 			return
 		}
 		opts := getUpdateOptions(&request)
-		bytes, err := coll.UpdateMany(ctx, trxProxy, request.Filter, request.Update, opts)
+		r, err := coll.UpdateMany(ctx, trxProxy, request.Filter, request.Update, opts)
 		if err != nil {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
 
-		ffi.SendByteArrayMessage(port, bytes)
+		m, err := marshalling.ToUpdateResult(r)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendMessage(port, m)
+
 	}()
 }
 
@@ -367,13 +401,19 @@ func replaceOne(port int64, buffer *C.uchar, size int) {
 			return
 		}
 		opts := getReplaceOptions(&request)
-		bytes, err := coll.ReplaceOne(ctx, trxProxy, request.Filter, request.Replacement, opts)
+		r, err := coll.ReplaceOne(ctx, trxProxy, request.Filter, request.Replacement, opts)
 		if err != nil {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
 
-		ffi.SendByteArrayMessage(port, bytes)
+		m, err := marshalling.ToUpdateResult(r)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendMessage(port, m)
 	}()
 }
 
@@ -418,13 +458,19 @@ func deleteOne(port int64, buffer *C.uchar, size int) {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
-		bytes, err := coll.DeleteOne(ctx, trxProxy, request.Filter)
+		r, err := coll.DeleteOne(ctx, trxProxy, request.Filter)
 		if err != nil {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
 
-		ffi.SendByteArrayMessage(port, bytes)
+		m, err := marshalling.ToDeleteResult(r)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendMessage(port, m)
 	}()
 }
 
@@ -447,13 +493,20 @@ func deleteMany(port int64, buffer *C.uchar, size int) {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
-		bytes, err := coll.DeleteMany(ctx, trxProxy, request.Filter)
+		r, err := coll.DeleteMany(ctx, trxProxy, request.Filter)
 		if err != nil {
 			ffi.SendErrorMessage(port, err)
 			return
 		}
 
-		ffi.SendByteArrayMessage(port, bytes)
+		m, err := marshalling.ToDeleteResult(r)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendMessage(port, m)
+
 	}()
 }
 
@@ -597,7 +650,7 @@ func createOneIndex(port int64, buffer *C.uchar, size int) {
 			return
 		}
 
-		model := _createIndexModel(&request)
+		model := marshalling.CreateIndexModel(&request)
 		name, err := coll.CreateOneIndex(ctx, model)
 		if err != nil {
 			ffi.SendErrorMessage(port, err)
@@ -684,76 +737,49 @@ func dropAllIndexes(port int64, buffer *C.uchar, size int) {
 	}()
 }
 
-func _createIndexModel(request *mongo_stubs.CreateIndexRequest) mongo.IndexModel {
-	model := mongo.IndexModel{
-		Keys:    request.Keys,
-		Options: _getIndexOptions(request),
-	}
-	return model
-}
+//export bulkWrite
+func bulkWrite(port int64, buffer *C.uchar, size int) {
+	var request mongo_stubs.BulkWriteRequest
+	ffi.Unmarshal(unsafe.Pointer(buffer), size, &request)
 
-func _getIndexOptions(request *mongo_stubs.CreateIndexRequest) *options.IndexOptions {
-	if len(request.IndexOptions) == 0 {
-		return nil
-	}
+	go func() {
+		ctx := context.Background()
+		oid := helpers.BytesToOid(request.CollectionOid)
 
-	roptions := mongo_stubs.IndexOptions{}
+		coll, err := cs.GetCollectionProxy(oid)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
+		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
 
-	ffi.UnmarshalBytes(request.IndexOptions, &roptions)
-	collation := _getCollation(roptions.Collation)
+		writeModels, err := marshalling.GetWriteModels(&request)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
+		opts := marshalling.GetBulkWriteOptions(&request)
 
-	ioptions := &options.IndexOptions{
-		Background:         ffi.FromBoolValue(roptions.Background),
-		ExpireAfterSeconds: ffi.FromInt32Value(roptions.ExpireAfterSeconds),
-		Name:               ffi.FromStringValue(roptions.Name),
-		Sparse:             ffi.FromBoolValue(roptions.Sparse),
-		Unique:             ffi.FromBoolValue(roptions.Unique),
-		Version:            ffi.FromInt32Value(roptions.Version),
-		DefaultLanguage:    ffi.FromStringValue(roptions.DefaultLanguage),
-		LanguageOverride:   ffi.FromStringValue(roptions.LanguageOverride),
-		TextVersion:        ffi.FromInt32Value(roptions.TextVersion),
-		SphereVersion:      ffi.FromInt32Value(roptions.SphereVersion),
-		Bits:               ffi.FromInt32Value(roptions.Bits),
-		Max:                ffi.FromDoubleValue(roptions.Max),
-		Min:                ffi.FromDoubleValue(roptions.Min),
-		BucketSize:         ffi.FromInt32Value(roptions.BucketSize),
-		Collation:          collation,
-		Hidden:             ffi.FromBoolValue(roptions.Hidden),
-	}
-	if len(roptions.StorageEngine) != 0 {
-		bson.Unmarshal(roptions.StorageEngine, ioptions.StorageEngine)
-	}
-	if len(roptions.Weights) != 0 {
-		bson.Unmarshal(roptions.Weights, ioptions.Weights)
-	}
-	if len(roptions.PartialFilterExpression) != 0 {
-		bson.Unmarshal(roptions.PartialFilterExpression, ioptions.PartialFilterExpression)
-	}
-	if len(roptions.WildcardProjection) != 0 {
-		bson.Unmarshal(roptions.WildcardProjection, ioptions.WildcardProjection)
-	}
+		// Action
+		r, err := coll.BulkWrite(ctx, trxProxy, writeModels, opts)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
 
-	return ioptions
-}
+		m, err := marshalling.ToBulkWriteResult(r)
+		if err != nil {
+			ffi.SendErrorMessage(port, err)
+			return
+		}
 
-func _getCollation(collationBytes []byte) *options.Collation {
-	if len(collationBytes) == 0 {
-		return nil
-	}
-	rCollation := mongo_stubs.Collation{}
-	ffi.UnmarshalBytes(collationBytes, &rCollation)
-	ret := &options.Collation{
-		Locale:          rCollation.Locale,
-		CaseLevel:       rCollation.CaseLevel,
-		CaseFirst:       rCollation.CaseFirst,
-		Strength:        int(rCollation.Strength),
-		NumericOrdering: rCollation.NumericOrdering,
-		Alternate:       rCollation.Alternate,
-		MaxVariable:     rCollation.MaxVariable,
-		Normalization:   rCollation.Normalization,
-		Backwards:       rCollation.Backwards,
-	}
-	return ret
+		ffi.SendMessage(port, m)
+
+	}()
 }
 
 func _getTransactionProxy(connectionProxy *ConnectionProxy, requestContext *mongo_stubs.RequestContext) (*TransactionProxy, error) {
