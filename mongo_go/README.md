@@ -11,7 +11,7 @@ In order to use this package:
 
 - The package requires a dynamic library, ```mongo_proxy.so```, which you need to be able to access from your application. Find the physical path to the package and you may either add that path to your library search path, or you may copy or add a symbolic link from the library, to the root of your app's package. 
 
-Download the library from https://gitlab.com/squarealfa/dart_framework/-/blob/mongo_improvements/mongo_go/mongo_proxy.so.
+Download the library from https://gitlab.com/squarealfa/dart_framework/-/blob/main/mongo_go/mongo_proxy.so.
 
 
 
