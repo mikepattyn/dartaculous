@@ -46,6 +46,7 @@ class Connection {
   }
 
   static Future<Connection> connectWithString(String connectionString) async {
+    p.initialize();
     final settings = ConnectionSettings(connectionString: connectionString);
     return await connect(settings);
   }

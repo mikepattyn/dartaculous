@@ -1,14 +1,6 @@
 import 'package:mongo_go/mongo_go.dart';
 
 void main() async {
-  // Once during the lifecycle of the application
-  // if you spawn several Isolates, you do *not* need
-  // to call initialize on each Isolate, only once for
-  // all isolates, before any other use of this package.
-  // This call initializes the communications between
-  // Dart and the GO package that hosts the MongoDB driver.
-  Connection.initialize();
-
   // you can keep this as a singleton.
   final connection =
       await Connection.connectWithString("mongodb://localhost:27021/");
