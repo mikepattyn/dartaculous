@@ -1,3 +1,7 @@
+## 2.0.1
+
+ - **FIX**: initializing from all connection factory constructors.
+
 ## 2.0.0
 
 > Note: This release has breaking changes.
