@@ -1,3 +1,7 @@
+## 2.0.2
+
+ - **FIX**: Fixed README reference to mongo_proxy.so to refer to main branch's version.
+
 ## 2.0.1
 
  - **FIX**: initializing from all connection factory constructors.
