@@ -1,3 +1,7 @@
+## 2.0.3
+
+ - **FIX**: mongo_go pubspec explicitly stating only Linux is supported.
+
 ## 2.0.2
 
  - **FIX**: Fixed README reference to mongo_proxy.so to refer to main branch's version.
