@@ -28,6 +28,8 @@ dev_dependencies:
   build_runner: ^2.2.0
   proto_generator: ^3.3.4
 
+platforms:
+  linux:
 
 ffigen:
   name: LibMongoProxy
