@@ -1,3 +1,7 @@
+## 2.1.1-dev.0
+
+ - **FIX**: moved mongo_proxy.so to lib.
+
 ## 2.1.0
 
  - **FEAT**: include mongo_go.so in package.
