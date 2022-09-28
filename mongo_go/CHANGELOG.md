@@ -1,3 +1,7 @@
+## 2.1.1-dev.1
+
+ - **FIX**: remove root mongo_proxy.so.
+
 ## 2.1.1-dev.0
 
  - **FIX**: moved mongo_proxy.so to lib.
