@@ -1,3 +1,9 @@
+## 2.1.1-dev.2
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: changed mongo_proxy.so to mongo_go.so.
+
 ## 2.1.1-dev.1
 
  - **FIX**: remove root mongo_proxy.so.
