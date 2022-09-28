@@ -2,7 +2,7 @@
 
 lib: .PHONY
 	cd ../go/mongo_proxy && make
-	cp ../go/mongo_proxy/out/mongo_proxy.so ./lib/
+	cp ../go/mongo_proxy/out/mongo_go.so ./lib/mongo_go.so
 
 proto: .PHONY
 	protoc --dart_out=./lib/gen -Iproto proto/google/protobuf/*.proto proto/*.proto

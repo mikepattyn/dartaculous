@@ -20,6 +20,7 @@ dependencies:
   fixnum: ^1.0.1
   decimal: ^2.3.0
   bson: ^3.0.0
+  pubspec: ^2.3.0
   
 dev_dependencies:
   ffigen: ^6.1.2
@@ -28,14 +29,14 @@ dev_dependencies:
   build_runner: ^2.2.0
   proto_generator: ^3.3.4
 
+
 platforms:
   linux:
 
 ffigen:
   name: LibMongoProxy
   description: MongoProxy GO driver
-  output: 'lib/src/lib_mongo_proxy.dart'
+  output: 'lib/src/lib_mongo_go.dart'
   headers:
     entry-points:
-      - ../go/mongo_proxy/out/mongo_proxy.h
-
+      - ../go/mongo_proxy/out/mongo_go.h
