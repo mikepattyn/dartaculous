@@ -36,7 +36,7 @@ void main(List<String> args) async {
   }
   final dest = path.join(currentDir, '$packageName.so');
   File(src).copy(dest);
-  print('Copied $packageName.so to current directory')
+  print('Copied $packageName.so to current directory');
 }
 
 String? _getPackageName(List<String> args) {
