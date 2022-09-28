@@ -1,3 +1,7 @@
+## 1.0.0
+
+- Graduated to release.
+
 ## 0.1.0-dev.3
 
 - Looking at pubspec.lock instead of pubspec.yaml to package version
