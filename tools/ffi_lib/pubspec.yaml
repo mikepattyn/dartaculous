@@ -2,7 +2,7 @@ name: ffi_lib
 description: Tool to install native library associated to (non-Flutter) Dart package
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/tools/ffi_lib
 repository: https://gitlab.com/squarealfa/dart_framework
-version: 0.1.0-dev.1
+version: 0.1.0-dev.2
 
 
 environment:
@@ -16,4 +16,4 @@ platforms:
   linux:
 
 executables:
-  ffi-install: ffi_install 
+  ffi-lib: ffi_lib
