@@ -1,3 +1,7 @@
+## 2.1.0
+
+ - **FEAT**: include mongo_go.so in package.
+
 ## 2.0.3
 
  - **FIX**: mongo_go pubspec explicitly stating only Linux is supported.
