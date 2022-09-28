@@ -9,24 +9,23 @@ It supports the basic features like CRUD operations ```insertOne```, ..., ```fin
 In order to use this package:
 - Add this package to your package dependencies on pubspec.yaml.
 
-- The package requires a dynamic library, ```mongo_go.so```, which you need to be able to access from your application. Find the physical path to the package and you may either add that path to your library search path, or you may copy or add a symbolic link from the library, to the root of your app's package. 
+- The package requires a dynamic library, ```mongo_go.so```, which is shipped with the package. You will find it under ~/.pub-cache/hosted/pub.dartlang.org/mongo_go-<version>/lib/mongo_go.so. Each time you upgrade to the latest version of this package, you will most probably need to get the latest version of the dynamic library copied to your application. The easiest way to do so is by running the following commands on the root directory of your application:
 
-Download the library from https://gitlab.com/squarealfa/dart_framework/-/blob/main/mongo_go/mongo_go.so.
+```sh
+# This needs to be done only once:
+dart pub global activate ffi_lib 
 
+# This should be done everytime you update mongo_go package:
+ffi-lib mongo_go 
+```
 
+Here's a quick example of the package's usage:
 
 ```dart
 
 import 'package:mongo_go/mongo_go.dart';
 
 void main() async {
-  // Once during the lifecycle of the application
-  // if you spawn several Isolates, you do *not* need
-  // to call initialize on each Isolate, only once for
-  // all isolates, before any other use of this package.
-  // This call initializes the communications between
-  // Dart and the GO package that hosts the MongoDB driver.
-  Connection.initialize();
 
   // you can keep this as a singleton.
   final connection =
