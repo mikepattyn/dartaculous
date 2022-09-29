@@ -1,14 +1,13 @@
 package marshalling
 
 import (
-	"mongo_proxy/mongo_stubs"
+	"mongo_go/mongo_stubs"
 
 	"gitlab.com/squarealfa/dart_bridge/ffi"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
-
 
 func CreateIndexModel(request *mongo_stubs.CreateIndexRequest) mongo.IndexModel {
 	model := mongo.IndexModel{

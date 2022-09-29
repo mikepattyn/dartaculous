@@ -32,6 +32,8 @@ dev_dependencies:
 
 platforms:
   linux:
+  windows:
+  macos:
 
 ffigen:
   name: LibMongoProxy

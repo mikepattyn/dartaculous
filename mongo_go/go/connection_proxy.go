@@ -2,7 +2,7 @@ package main
 
 import (
 	"errors"
-	"mongo_proxy/mongo_stubs"
+	"mongo_go/mongo_stubs"
 	"sync"
 
 	"go.mongodb.org/mongo-driver/bson"

@@ -9,3 +9,5 @@ build/
 # https://dart.dev/guides/libraries/private-files#pubspeclock.
 pubspec.lock
 test/test_service_account.dart
+
+**/**.so

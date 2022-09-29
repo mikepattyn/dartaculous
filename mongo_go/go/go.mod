@@ -1,9 +1,10 @@
-module mongo_proxy
+module mongo_go
 
 go 1.18
 
+
 require (
-	gitlab.com/squarealfa/dart_bridge v0.1.4
+	gitlab.com/squarealfa/dart_bridge v1.0.0
 	go.mongodb.org/mongo-driver v1.10.1
 	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2
 	google.golang.org/protobuf v1.28.1

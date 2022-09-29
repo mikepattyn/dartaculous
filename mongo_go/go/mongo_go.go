@@ -3,8 +3,9 @@ package main
 // #include <stdlib.h>
 import (
 	"C"
-	"mongo_proxy/marshalling"
-	"mongo_proxy/mongo_stubs"
+	"mongo_go/helpers"
+	"mongo_go/marshalling"
+	"mongo_go/mongo_stubs"
 	"unsafe"
 
 	"gitlab.com/squarealfa/dart_bridge/ffi"
@@ -12,8 +13,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 
 	"errors"
-
-	"mongo_proxy/helpers"
 
 	"golang.org/x/net/context"
 )

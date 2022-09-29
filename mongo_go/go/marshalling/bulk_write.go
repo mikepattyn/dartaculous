@@ -2,7 +2,7 @@ package marshalling
 
 import (
 	"errors"
-	"mongo_proxy/mongo_stubs"
+	"mongo_go/mongo_stubs"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
