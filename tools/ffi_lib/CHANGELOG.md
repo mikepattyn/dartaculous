@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Support for local compilation of go package inside dart package
+
 ## 1.0.1
 
 - Minor fix.
