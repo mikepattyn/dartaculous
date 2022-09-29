@@ -1,3 +1,9 @@
+## 3.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Type-safe exceptions.
+
 ## 2.3.1
 
  - **FIX**: Minor fixes to README.
