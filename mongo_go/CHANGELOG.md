@@ -1,3 +1,7 @@
+## 2.3.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 2.3.0-dev.2
 
  - **FIX**: bumped dart_bridge to v1.0.1.
