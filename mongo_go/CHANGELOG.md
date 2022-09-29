@@ -1,3 +1,7 @@
+## 2.2.0
+
+ - **FEAT**: Added findOne.
+
 ## 2.1.1
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
