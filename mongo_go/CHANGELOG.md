@@ -1,3 +1,9 @@
+## 2.3.0-dev.1
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Removed native library from package.
+
 ## 2.3.0-dev.0
 
  - **FEAT**: Moved go code into mongo_go package.
