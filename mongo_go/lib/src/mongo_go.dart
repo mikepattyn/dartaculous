@@ -268,6 +268,25 @@ Stream<Map<String, dynamic>> find(
   return stream;
 }
 
+Future<BsonBinary> findOne(
+  ObjectId collectionOid,
+  BsonBinary filter, {
+  RequestContext? requestContext,
+}) async {
+  final oid = collectionOid.toByteList();
+  final ctx = _getRequestContext(requestContext);
+
+  final request =
+      FindRequest(collectionOid: oid, context: ctx, filter: filter.byteList);
+  final response = await callGoFunc(
+    request: request,
+    goFunc: nl.findOne,
+    responseToFill: ByteArrayMessage(),
+  );
+  final bin = BsonBinary.from(response.value);
+  return bin;
+}
+
 Stream<Map<String, dynamic>> aggregate(
   ObjectId collectionOid,
   List<BsonBinary> pipeline, {

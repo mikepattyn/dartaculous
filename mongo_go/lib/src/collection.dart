@@ -150,6 +150,23 @@ class Collection {
     return ret;
   }
 
+  Future<Map<String, dynamic>> findOne(
+    Map<String, dynamic> filter, {
+    Transaction? transaction,
+  }) async {
+    final bson = BSON();
+    final bytes = bson.serialize(filter);
+
+    final result = await p.findOne(
+      collectionId,
+      bytes,
+      requestContext: transaction?.requestContext,
+    );
+
+    final ret = bson.deserialize(result);
+    return ret;
+  }
+
   Stream<Map<String, dynamic>> aggregate(
     List<Map<String, dynamic>> pipeline, {
     Transaction? transaction,

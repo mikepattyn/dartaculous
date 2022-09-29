@@ -73,6 +73,14 @@ void main() {
       timeout: Timeout(Duration(minutes: 5)),
     );
 
+    test('FindOne Document', () async {
+      await collection.insertOne({'name': 'Alice', "test": "findOne"});
+      await collection.insertOne({'name': 'Bob', "test": "findOne"});
+
+      final doc = await collection.findOne({'test': 'findOne'});
+      expect(doc['name'], 'Alice');
+    });
+
     test(
       'Aggregate',
       () async {
