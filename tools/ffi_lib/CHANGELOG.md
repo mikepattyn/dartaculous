@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Much more verbose output of the utility
+
 ## 1.1.0
 
 - Support for local compilation of go package inside dart package

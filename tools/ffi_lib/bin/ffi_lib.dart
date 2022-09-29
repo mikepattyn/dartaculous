@@ -15,6 +15,7 @@ void main(List<String> args) async {
 
     final src = await _getLibSrcPath(packageLocation, packageName);
     final dest = path.join(cwd, '$packageName.so');
+    print('Copying from $src to $dest');
     File(src).copy(dest);
     print(
         '${isCompiled ? 'Compiled and copied' : 'copied'} $packageName.so to current directory');
@@ -26,10 +27,15 @@ void main(List<String> args) async {
 Future<bool> _compileGoLib(String packageLocation, String packageName) async {
   final cwd = path.join(packageLocation, 'go');
   if (!await Directory(cwd).exists()) {
+    print(
+        'Did not find a "go" directory under "$packageLocation". Will try to retrieve the native package from "lib" sub-directory.');
     return false;
   }
+  print('Will run "go get" in $cwd');
   await Process.run('go', ['get'], workingDirectory: cwd);
 
+  print(
+      'Will compile by running "go build -buildmode=c-shared -o $packageName.so" in $cwd');
   final compileResult = await Process.run(
     'go',
     ['build', '-buildmode=c-shared', '-o', '$packageName.so'],
@@ -37,6 +43,8 @@ Future<bool> _compileGoLib(String packageLocation, String packageName) async {
   );
   if (compileResult.exitCode != 0) {
     throw 'Compilation failed. Ensure you have GO and GCC installed and up to date.';
+  } else {
+    print('Native library compiled successfully.');
   }
   return true;
 }
@@ -78,6 +86,7 @@ String _getNixPackageLocation(String packageName, String ver) {
 
   final pkgPath =
       path.join(home, '.pub-cache/hosted/pub.dartlang.org/$packageName-$ver');
+
   return pkgPath;
 }
 
@@ -103,6 +112,7 @@ Future<String> _getPackageVersion(String cwd, String packageName) async {
     throw 'No version of $packageName is installed. ($pubspecLockPath)';
   }
 
+  print('Package containing native library is $packageName: $ver');
   return ver;
 }
 
