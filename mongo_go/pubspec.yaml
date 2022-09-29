@@ -39,4 +39,4 @@ ffigen:
   output: 'lib/src/lib_mongo_go.dart'
   headers:
     entry-points:
-      - ../go/mongo_proxy/out/mongo_go.h
+      - go/mongo_go.h

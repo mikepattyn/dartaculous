@@ -9,4 +9,3 @@ message AggregateRequest {
   RequestContext context = 2;
   repeated bytes pipeline = 3;
 }
-
