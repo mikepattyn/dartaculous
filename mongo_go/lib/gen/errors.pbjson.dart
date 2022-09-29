@@ -16,11 +16,12 @@ const ErrorType$json = const {
     const {'1': 'duplicate_key', '2': 1},
     const {'1': 'network', '2': 2},
     const {'1': 'timeout', '2': 3},
+    const {'1': 'no_documents', '2': 4},
   ],
 };
 
 /// Descriptor for `ErrorType`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List errorTypeDescriptor = $convert.base64Decode('CglFcnJvclR5cGUSDwoLdW5zcGVjaWZpZWQQABIRCg1kdXBsaWNhdGVfa2V5EAESCwoHbmV0d29yaxACEgsKB3RpbWVvdXQQAw==');
+final $typed_data.Uint8List errorTypeDescriptor = $convert.base64Decode('CglFcnJvclR5cGUSDwoLdW5zcGVjaWZpZWQQABIRCg1kdXBsaWNhdGVfa2V5EAESCwoHbmV0d29yaxACEgsKB3RpbWVvdXQQAxIQCgxub19kb2N1bWVudHMQBA==');
 @$core.Deprecated('Use mongoErrorDescriptor instead')
 const MongoError$json = const {
   '1': 'MongoError',

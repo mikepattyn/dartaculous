@@ -39,7 +39,9 @@ func SendErrorMessage(port int64, err error) {
 		Message:   err.Error(),
 		ErrorType: mongo_stubs.ErrorType_unspecified,
 	}
-	if mongo.IsDuplicateKeyError(err) {
+	if err == mongo.ErrNoDocuments {
+		mError.ErrorType = mongo_stubs.ErrorType_no_documents
+	} else if mongo.IsDuplicateKeyError(err) {
 		mError.ErrorType = mongo_stubs.ErrorType_duplicate_key
 	} else if mongo.IsNetworkError(err) {
 		mError.ErrorType = mongo_stubs.ErrorType_network

@@ -14,12 +14,14 @@ class ErrorType extends $pb.ProtobufEnum {
   static const ErrorType duplicate_key = ErrorType._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'duplicate_key');
   static const ErrorType network = ErrorType._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'network');
   static const ErrorType timeout = ErrorType._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'timeout');
+  static const ErrorType no_documents = ErrorType._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'no_documents');
 
   static const $core.List<ErrorType> values = <ErrorType> [
     unspecified,
     duplicate_key,
     network,
     timeout,
+    no_documents,
   ];
 
   static final $core.Map<$core.int, ErrorType> _byValue = $pb.ProtobufEnum.initByValue(values);

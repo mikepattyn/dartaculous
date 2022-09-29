@@ -80,6 +80,18 @@ void main() {
       expect(doc['name'], 'Alice');
     });
 
+    test('FindNone Document', () async {
+      await collection.insertOne({'name': 'Alice', "test": "findNone"});
+      await collection.insertOne({'name': 'Bob', "test": "findNone"});
+
+      expect(() async {
+        await collection.findOne({
+          'test': 'findNone',
+          'name': 'Charles',
+        });
+      }, throwsA(const TypeMatcher<MongoNoDocumentsError>()));
+    });
+
     test(
       'Aggregate',
       () async {
@@ -332,18 +344,13 @@ void main() {
         });
 
         expect(() async {
-          try {
-            await collection.insertOne({
-              'name': 'Arthur',
-              'age': 35,
-              'u2': 1,
-              'test': 'unique2',
-              'qual': 2,
-            });
-          } catch (ex) {
-            print(ex);
-            rethrow;
-          }
+          await collection.insertOne({
+            'name': 'Arthur',
+            'age': 35,
+            'u2': 1,
+            'test': 'unique2',
+            'qual': 2,
+          });
         }, throwsA(const TypeMatcher<MongoDuplicateKeyError>()));
       } finally {
         await collection.dropOneIndex('second_unique_index');

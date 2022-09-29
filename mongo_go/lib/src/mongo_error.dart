@@ -12,6 +12,8 @@ class MongoError {
   factory MongoError.fromProto(p.MongoError pError) {
     final msg = pError.message;
     switch (pError.errorType) {
+      case p.ErrorType.no_documents:
+        return MongoNoDocumentsError(message: msg);
       case p.ErrorType.duplicate_key:
         return MongoDuplicateKeyError(message: msg);
       case p.ErrorType.network:
@@ -34,4 +36,8 @@ class MongoDuplicateKeyError extends MongoError {
 
 class MongoNetworkError extends MongoError {
   MongoNetworkError({required super.message});
+}
+
+class MongoNoDocumentsError extends MongoError {
+  MongoNoDocumentsError({required super.message});
 }
