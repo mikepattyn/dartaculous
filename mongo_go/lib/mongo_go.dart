@@ -1,7 +1,7 @@
 /// Support for doing something awesome.
 ///
 /// More dartdocs go here.
-library mongo_proxy;
+library mongo_go;
 
 export 'src/connection.dart';
 export 'src/database.dart';
