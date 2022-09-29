@@ -1,8 +1,10 @@
 .DEFAULT_GOAL:=build
 
+
 lib: .PHONY
 	cd go && make
 	mv go/mongo_go.so ./lib/mongo_go.so
+
 
 proto: .PHONY
 	protoc --dart_out=./lib/gen -Igo/proto go/proto/google/protobuf/*.proto go/proto/*.proto

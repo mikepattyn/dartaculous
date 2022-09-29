@@ -12,4 +12,4 @@ proto: $(proto_files)
 	protoc --go_out=. -Iproto proto/*.proto
 
 clean:
-	rm out/* mongo_stubs/*
+	rm mongo_go.so mongo_stubs/*

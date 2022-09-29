@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:isolate';
 
 import 'package:bson/bson.dart';
-import 'package:go_bridge/gen/common/basic_error_message.pb.dart';
 import 'package:mongo_go/mongo_go.dart';
 import 'package:test/test.dart';
 import 'package:tuple/tuple.dart';
@@ -243,7 +242,7 @@ void main() {
         );
       },
           throwsA(
-            const TypeMatcher<BasicErrorMessage>().having(
+            const TypeMatcher<MongoError>().having(
               (p0) => p0.message,
               'Exception is BasicErrorMessage with sent message',
               'oops',
@@ -307,6 +306,50 @@ void main() {
       );
       await collection.dropAllIndexes();
       expect(result, 'first_unique_index');
+    });
+
+    test('Insert duplicate key', () async {
+      await collection.deleteMany({});
+      final result = await collection.createOneIndex(
+        {
+          'name': 1,
+          'age': -1,
+          'u2': 1,
+        },
+        indexOptions: IndexOptions(
+          name: 'second_unique_index',
+          unique: true,
+        ),
+      );
+
+      try {
+        await collection.insertOne({
+          'name': 'Arthur',
+          'age': 35,
+          'u2': 1,
+          'test': 'unique2',
+          'qual': 1,
+        });
+
+        expect(() async {
+          try {
+            await collection.insertOne({
+              'name': 'Arthur',
+              'age': 35,
+              'u2': 1,
+              'test': 'unique2',
+              'qual': 2,
+            });
+          } catch (ex) {
+            print(ex);
+            rethrow;
+          }
+        }, throwsA(const TypeMatcher<MongoDuplicateKeyError>()));
+      } finally {
+        await collection.dropOneIndex('second_unique_index');
+      }
+
+      expect(result, 'second_unique_index');
     });
 
     test('List Indexes', () async {
@@ -384,7 +427,7 @@ void main() {
         );
       },
           throwsA(
-            const TypeMatcher<BasicErrorMessage>().having(
+            const TypeMatcher<MongoError>().having(
               (p0) => p0.message,
               'Exception is BasicErrorMessage with sent message',
               'oops',

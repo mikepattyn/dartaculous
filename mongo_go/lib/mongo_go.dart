@@ -12,3 +12,4 @@ export 'src/index_options.dart';
 export 'src/collation.dart';
 export 'src/bulk/bulk.dart';
 export 'src/results/result.dart';
+export 'src/mongo_error.dart';

@@ -19,6 +19,7 @@ export '../gen/find_request.pb.dart';
 export '../gen/aggregate_request.pb.dart';
 export '../gen/index_requests.pb.dart';
 export '../gen/bulk_write.pb.dart';
+export '../gen/errors.pb.dart';
 
 export '../gen/google/protobuf/empty.pb.dart';
 export 'package:go_bridge/gen/common/primitive_messages.pb.dart';

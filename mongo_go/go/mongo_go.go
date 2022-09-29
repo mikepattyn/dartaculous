@@ -45,7 +45,7 @@ func connectMongo(port int64, buffer *C.uchar, size int) {
 		ctx := context.Background()
 		oid, err := cs.Connect(ctx, options.Client().ApplyURI(request.ConnectionString))
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 		}
 		helpers.SendObjectId(port, oid)
 	}()
@@ -62,7 +62,7 @@ func disconnect(port int64, buffer *C.uchar, size int) {
 		ctx := context.Background()
 		err := cs.Disconnect(ctx, oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 		}
 		ffi.SendEmptyMessage(port)
 	}()
@@ -78,7 +78,7 @@ func startSession(port int64, buffer *C.uchar, size int) {
 		connectionOid := helpers.BytesToOid(request.ConnectionOid)
 		sessionOid, err := cs.StartSession(ctx, connectionOid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 		}
 		helpers.SendObjectId(port, sessionOid)
 	}()
@@ -95,7 +95,7 @@ func closeSession(port int64, buffer *C.uchar, size int) {
 		sessionOid := helpers.BytesToOid(request.SessionOid)
 		err := cs.CloseSession(ctx, connectionOid, sessionOid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		helpers.SendObjectId(port, sessionOid)
@@ -112,13 +112,13 @@ func withTransaction(port int64, buffer *C.uchar, size int) {
 		sessionOid := helpers.BytesToOid(request.SessionOid)
 		connectionProxy, err := cs.GetConnectionProxy(connectionOid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxOid, err := connectionProxy.WithTransaction(sessionOid)
 
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 		}
 
 		helpers.SendObjectId(port, trxOid)
@@ -136,12 +136,12 @@ func endTransaction(port int64, buffer *C.uchar, size int) {
 		transactionOid := helpers.BytesToOid(request.TransactionOid)
 		connectionProxy, err := cs.GetConnectionProxy(connectionOid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		sessionProxy, err := connectionProxy.GetSessionProxy(sessionOid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 		}
 		var resultError error
 		if request.ErrorMessage != "" {
@@ -152,7 +152,7 @@ func endTransaction(port int64, buffer *C.uchar, size int) {
 			err:    resultError,
 		})
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 		}
 		ffi.SendEmptyMessage(port)
 	}()
@@ -168,7 +168,7 @@ func database(port int64, buffer *C.uchar, size int) {
 		connectionOid := helpers.BytesToOid(request.ConnectionOid)
 		oid, err := cs.CreateDatabaseProxy(ctx, connectionOid, request.DatabaseName)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 		}
 		helpers.SendObjectId(port, oid)
 	}()
@@ -183,13 +183,13 @@ func dropDatabase(port int64, buffer *C.uchar, size int) {
 		dbOid := helpers.BytesToOid(request.DatabaseOid)
 		dbProxy, err := cs.GetDatabaseProxy(dbOid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		ctx := context.Background()
 		err = dbProxy.Drop(ctx)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 		} else {
 			ffi.SendEmptyMessage(port)
 		}
@@ -206,7 +206,7 @@ func collection(port int64, buffer *C.uchar, size int) {
 		dbOid := helpers.BytesToOid(request.DatabaseOid)
 		oid, err := cs.CreateCollectionProxy(ctx, dbOid, request.CollectionName)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 		}
 		helpers.SendObjectId(port, oid)
 	}()
@@ -223,12 +223,12 @@ func listDatabaseNames(port int64, buffer *C.uchar, size int) {
 
 		con, err := cs.GetConnectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		names, err := con.ListDatabaseNames(ctx, request.Request)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		ret := &mongo_stubs.ListDatabaseNamesResponse{Names: names}
@@ -247,23 +247,23 @@ func insertOne(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		r, err := coll.InsertOne(ctx, trxProxy, request.Document)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		m, err := marshalling.ToInsertOneResult(r)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -282,24 +282,24 @@ func insertMany(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		r, err := coll.InsertMany(ctx, trxProxy, request.Documents)
 
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		m, err := marshalling.ToInsertManyResult(r)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -318,24 +318,24 @@ func updateOne(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		opts := getUpdateOptions(&request)
 		r, err := coll.UpdateOne(ctx, trxProxy, request.Filter, request.Update, opts)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		m, err := marshalling.ToUpdateResult(r)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -354,24 +354,24 @@ func updateMany(port int64, buffer *C.uchar, size int) {
 		oid := helpers.BytesToOid(request.CollectionOid)
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		opts := getUpdateOptions(&request)
 		r, err := coll.UpdateMany(ctx, trxProxy, request.Filter, request.Update, opts)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		m, err := marshalling.ToUpdateResult(r)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -391,24 +391,24 @@ func replaceOne(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		opts := getReplaceOptions(&request)
 		r, err := coll.ReplaceOne(ctx, trxProxy, request.Filter, request.Replacement, opts)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		m, err := marshalling.ToUpdateResult(r)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -449,23 +449,23 @@ func deleteOne(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		r, err := coll.DeleteOne(ctx, trxProxy, request.Filter)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		m, err := marshalling.ToDeleteResult(r)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -484,23 +484,23 @@ func deleteMany(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		r, err := coll.DeleteMany(ctx, trxProxy, request.Filter)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		m, err := marshalling.ToDeleteResult(r)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -520,17 +520,17 @@ func findOne(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		bytes, err := coll.FindOne(ctx, trxProxy, request.Filter)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -549,17 +549,17 @@ func find(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		cursor, err := coll.Find(ctx, trxProxy, request.Filter)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -581,17 +581,17 @@ func aggregate(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		cursor, err := coll.Aggregate(ctx, trxProxy, request.Pipeline)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -613,17 +613,17 @@ func watch(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		cursor, err := coll.Watch(ctx, trxProxy, request.Pipeline)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -645,14 +645,14 @@ func createOneIndex(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		model := marshalling.CreateIndexModel(&request)
 		name, err := coll.CreateOneIndex(ctx, model)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -672,12 +672,12 @@ func listIndexes(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		cursor, err := coll.ListIndexes(ctx)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -699,12 +699,12 @@ func dropOneIndex(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		bytes, err := coll.DropOneIndex(ctx, request.Name)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -723,12 +723,12 @@ func dropAllIndexes(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		bytes, err := coll.DropAllIndexes(ctx)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
@@ -747,18 +747,18 @@ func bulkWrite(port int64, buffer *C.uchar, size int) {
 
 		coll, err := cs.GetCollectionProxy(oid)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		writeModels, err := marshalling.GetWriteModels(&request)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 		opts := marshalling.GetBulkWriteOptions(&request)
@@ -766,13 +766,13 @@ func bulkWrite(port int64, buffer *C.uchar, size int) {
 		// Action
 		r, err := coll.BulkWrite(ctx, trxProxy, writeModels, opts)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 
 		m, err := marshalling.ToBulkWriteResult(r)
 		if err != nil {
-			ffi.SendErrorMessage(port, err)
+			helpers.SendErrorMessage(port, err)
 			return
 		}
 

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "./mongo_stubs";
+
+enum ErrorType {
+  unspecified = 0;
+  duplicate_key = 1;
+  network = 2;
+  timeout = 3;
+}
+
+message MongoError {
+  string message = 1;
+  ErrorType errorType = 2;
+}
