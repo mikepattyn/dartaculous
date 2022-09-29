@@ -20,7 +20,7 @@ So, instead of shipping the binary, we ship the GO source code that is required 
 In order to use this package:
 - Add this package to your package dependencies on pubspec.yaml and run ```dart pub get```.
 
-- The package requires a dynamic library, ```mongo_go.so```. You will find it's GO source code under ~/.pub-cache/hosted/pub.dartlang.org/mongo_go-<version>/go/. Each time you upgrade to the latest version of this package, you will most probably need to recompile the latest version of the dynamic library and have it copied to your application. The easiest way to do so is by doing the following:
+- The package requires a dynamic library, ```mongo_go.so```. You will find its GO source code under ```~/.pub-cache/hosted/pub.dartlang.org/mongo_go-<version>/go/```. Each time you upgrade to the latest version of this package, you will most probably need to recompile the latest version of the dynamic library and have it copied to your application. The easiest way to do so is by doing the following:
 
   1. Ensure you have GO SDK installed on your machine. If you don't, you can download GO from https://go.dev/dl/. Minimum version is 1.19.1.
 
@@ -28,7 +28,7 @@ In order to use this package:
 
   3. Install ffi_lib, by running ```dart pub global activate ffi_lib```. The minimum required version is 1.1.0.
   
-  4. For each time you upgrade this package, run the following command on the root directory of your application: ```ffi-lib mongo_go```.
+  4. For the initial installation and for each time you upgrade this package, run the following command on the root directory of your application: ```ffi-lib mongo_go```.
 
 Here's a quick example of the package's usage:
 
