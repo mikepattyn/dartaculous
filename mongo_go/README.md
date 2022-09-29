@@ -4,7 +4,7 @@ While there is a wonderful community based MongoDB driver, [mongo_dart](https://
 
 It supports the basic features like CRUD operations ```insertOne```, ..., ```find```, ```aggregate```, some slightly more advanced features like ```watch```. It supports sessions and transactions.
 
-## 3.0.0 Breaking Change
+## 2.3.0 Deployment Change
 
 This package requires a native library to run, ```mongo_go.so```. Previous versions of the package shipped the library with the package. This had several downsides:
 - The package became too big, getting too close to the limits imposed by pub.dev.
