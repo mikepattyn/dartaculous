@@ -1,3 +1,7 @@
+## 2.3.0-dev.0
+
+ - **FEAT**: Moved go code into mongo_go package.
+
 ## 2.2.0
 
  - **FEAT**: Added findOne.
