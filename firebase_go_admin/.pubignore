@@ -1,6 +1,3 @@
-go/
-**.so
-**.dll
-**.dylib
+firebase_go_admin.so 
 test/test_service_account.dart
 

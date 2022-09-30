@@ -2,7 +2,7 @@ name: firebase_go_admin
 description: Firebase Administration based on the official Firebase Admin GO SDK via Dart FFI.
 repository: https://gitlab.com/squarealfa/dart_framework
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/firebase_admin
-version: 0.9.0+1
+version: 0.10.0-dev.0
 
 
 environment:
