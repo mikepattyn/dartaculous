@@ -4,8 +4,6 @@ import 'dart:io';
 import 'package:firebase_go_admin/firebase_go_admin.dart' as firebase;
 import 'package:test/test.dart';
 
-import 'test_service_account.dart';
-
 const testEmail = 'fbtest@test.com';
 const testDisplayName = 'Test User';
 const userInfo = firebase.FirebaseUserInfo(
@@ -110,6 +108,8 @@ void main() {
     late final String uid;
 
     setUpAll(() async {
+      final serviceAccountJson =
+          await File('service-account.json').readAsString();
       firebase.initializeWithJson(serviceAccountJson);
       final usr = firebase.FirebaseCreateUser(
         info: userInfo,
