@@ -3,7 +3,7 @@
 //  source: recipe_services_base.services.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -1097,9 +1097,10 @@ class G_GRecipeService_GetRecipeTypeList_Return extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'value',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $7.GRecipeTypes.valueOf,
-        enumValues: $7.GRecipeTypes.values)
+        enumValues: $7.GRecipeTypes.values,
+        defaultEnumValue: $7.GRecipeTypes.G_RECIPE_TYPES_COOK)
     ..hasRequiredFields = false;
 
   G_GRecipeService_GetRecipeTypeList_Return._() : super();
@@ -1213,9 +1214,10 @@ class G_GRecipeService_GetRecipeTypeListNullable_Return
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'value',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $7.GRecipeTypes.valueOf,
-        enumValues: $7.GRecipeTypes.values)
+        enumValues: $7.GRecipeTypes.values,
+        defaultEnumValue: $7.GRecipeTypes.G_RECIPE_TYPES_COOK)
     ..aOB(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1347,7 +1349,7 @@ class G_GRecipeService_GetListOfInts_Return extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'value',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..hasRequiredFields = false;
 
   G_GRecipeService_GetListOfInts_Return._() : super();
@@ -1459,7 +1461,7 @@ class G_GRecipeService_GetListOfIntsNullable_Return
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'value',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..aOB(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1669,15 +1671,16 @@ class G_GRecipeService_ReceiveLotsOfArgs_Parameters
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pListInts',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..pc<$7.GRecipeTypes>(
         7,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pListRecipeTypes',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $7.GRecipeTypes.valueOf,
-        enumValues: $7.GRecipeTypes.values)
+        enumValues: $7.GRecipeTypes.values,
+        defaultEnumValue: $7.GRecipeTypes.G_RECIPE_TYPES_COOK)
     ..pc<$0.GRecipe>(
         8,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1695,15 +1698,16 @@ class G_GRecipeService_ReceiveLotsOfArgs_Parameters
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pSetInt',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..pc<$7.GRecipeTypes>(
         11,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pSetRecipeTypes',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $7.GRecipeTypes.valueOf,
-        enumValues: $7.GRecipeTypes.values)
+        enumValues: $7.GRecipeTypes.values,
+        defaultEnumValue: $7.GRecipeTypes.G_RECIPE_TYPES_COOK)
     ..pc<$0.GRecipe>(
         12,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1721,15 +1725,16 @@ class G_GRecipeService_ReceiveLotsOfArgs_Parameters
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pIterableInt',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..pc<$7.GRecipeTypes>(
         15,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pIterableRecipeTypes',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $7.GRecipeTypes.valueOf,
-        enumValues: $7.GRecipeTypes.values)
+        enumValues: $7.GRecipeTypes.values,
+        defaultEnumValue: $7.GRecipeTypes.G_RECIPE_TYPES_COOK)
     ..pc<$0.GRecipe>(
         16,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2045,7 +2050,7 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pListInts',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..aOB(
         12,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2056,9 +2061,10 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pListRecipeTypes',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $7.GRecipeTypes.valueOf,
-        enumValues: $7.GRecipeTypes.values)
+        enumValues: $7.GRecipeTypes.values,
+        defaultEnumValue: $7.GRecipeTypes.G_RECIPE_TYPES_COOK)
     ..aOB(
         14,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2091,7 +2097,7 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pSetInt',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..aOB(
         20,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2102,9 +2108,10 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pSetRecipeTypes',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $7.GRecipeTypes.valueOf,
-        enumValues: $7.GRecipeTypes.values)
+        enumValues: $7.GRecipeTypes.values,
+        defaultEnumValue: $7.GRecipeTypes.G_RECIPE_TYPES_COOK)
     ..aOB(
         22,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2137,7 +2144,7 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pIterableInt',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..aOB(
         28,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2148,9 +2155,10 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'pIterableRecipeTypes',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $7.GRecipeTypes.valueOf,
-        enumValues: $7.GRecipeTypes.values)
+        enumValues: $7.GRecipeTypes.values,
+        defaultEnumValue: $7.GRecipeTypes.G_RECIPE_TYPES_COOK)
     ..aOB(
         30,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2634,7 +2642,7 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Return
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'value',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..hasRequiredFields = false;
 
   G_GRecipeService_ReceiveLotsOfNullableArgs_Return._() : super();

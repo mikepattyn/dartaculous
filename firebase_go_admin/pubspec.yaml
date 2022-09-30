@@ -25,14 +25,11 @@ dev_dependencies:
   build_runner: ^2.2.0
   proto_generator: ^3.3.4
 
-# executables: 
-#   firebase-auth: firebase_auth_admin
-
 ffigen:
   name: LibFirebaseAdmin
   description: Go Firebase Admin SDK
   output: 'lib/src/lib_firebase_admin.dart'
   headers:
     entry-points:
-      - ../go/firebase_admin/out/firebase_admin.h
+      - go/firebase_go_admin.h
 

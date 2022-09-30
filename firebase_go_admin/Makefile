@@ -1,11 +1,11 @@
 .DEFAULT_GOAL:=build
 
-lib: FORCE
-	cd ../go/firebase_admin && make
-	cp ../go/firebase_admin/out/firebase_admin.so .
+lib: .PHONY
+	cd go && make
+	mv go/firebase_go_admin.so ./firebase_go_admin.so
 
-proto: FORCE
-	protoc --dart_out=./lib/gen -Iproto proto/google/protobuf/*.proto proto/common/*.proto proto/auth/*.proto proto/fcm/*.proto
+proto: .PHONY
+	protoc --dart_out=./lib/gen -Igo/proto go/proto/google/protobuf/*.proto go/proto/common/*.proto go/proto/auth/*.proto go/proto/fcm/*.proto
 
 ffi: lib
 	dart run ffigen
@@ -20,4 +20,6 @@ test: build
 clean:
 	rm -rf ./lib/gen/*
 
-FORCE:
+.PHONY:
+
+

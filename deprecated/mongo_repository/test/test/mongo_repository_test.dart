@@ -3,7 +3,7 @@ import 'package:mongo_repository/mongo_repository.dart';
 import 'package:nosql_repository/src/repository.dart';
 import 'package:nosql_repository_tests/nosql_repository_tests.dart';
 
-import 'test_conf.dart';
+final connectionString = '';
 
 void main() {
   repositoryTests(MongoRepositoryTestHandler());

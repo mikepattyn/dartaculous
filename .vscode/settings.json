@@ -11,5 +11,6 @@
         "squarealfa",
         "validatable"
     ],
-    "dart.runPubGetOnPubspecChanges": false
+    "dart.runPubGetOnPubspecChanges": false,
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
 }

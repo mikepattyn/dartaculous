@@ -6,5 +6,4 @@ message BoolClaim
 {
   string name = 1;
   bool value = 2;
-}   
-
+}

@@ -3,7 +3,7 @@
 //  source: lists_host.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -23,13 +23,13 @@ class GListsHost extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'vbools',
-        $pb.PbFieldType.PB)
+        $pb.PbFieldType.KB)
     ..p<$core.bool>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'nvbools',
-        $pb.PbFieldType.PB)
+        $pb.PbFieldType.KB)
     ..aOB(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -55,13 +55,13 @@ class GListsHost extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'vdurations',
-        $pb.PbFieldType.PD)
+        $pb.PbFieldType.KD)
     ..p<$core.double>(
         8,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'nvdurations',
-        $pb.PbFieldType.PD)
+        $pb.PbFieldType.KD)
     ..aOB(
         9,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -72,13 +72,13 @@ class GListsHost extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'vdatetimes',
-        $pb.PbFieldType.P6)
+        $pb.PbFieldType.K6)
     ..p<$fixnum.Int64>(
         11,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'nvdatetimes',
-        $pb.PbFieldType.P6)
+        $pb.PbFieldType.K6)
     ..aOB(
         12,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -104,13 +104,13 @@ class GListsHost extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'vints',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..p<$core.int>(
         17,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'nvints',
-        $pb.PbFieldType.P3)
+        $pb.PbFieldType.K3)
     ..aOB(
         18,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -121,13 +121,13 @@ class GListsHost extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'vdoubles',
-        $pb.PbFieldType.PD)
+        $pb.PbFieldType.KD)
     ..p<$core.double>(
         20,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'nvdoubles',
-        $pb.PbFieldType.PD)
+        $pb.PbFieldType.KD)
     ..aOB(
         21,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -138,17 +138,19 @@ class GListsHost extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'vapplianceTypes',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $5.GApplianceType.valueOf,
-        enumValues: $5.GApplianceType.values)
+        enumValues: $5.GApplianceType.values,
+        defaultEnumValue: $5.GApplianceType.G_APPLIANCE_TYPE_HEAT)
     ..pc<$5.GApplianceType>(
         23,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'nvapplianceTypes',
-        $pb.PbFieldType.PE,
+        $pb.PbFieldType.KE,
         valueOf: $5.GApplianceType.valueOf,
-        enumValues: $5.GApplianceType.values)
+        enumValues: $5.GApplianceType.values,
+        defaultEnumValue: $5.GApplianceType.G_APPLIANCE_TYPE_HEAT)
     ..aOB(
         24,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')

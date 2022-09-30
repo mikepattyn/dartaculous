@@ -94,7 +94,7 @@ class $ListsHostFieldNames {
   final String fieldName;
   final String prefix;
 
-  $ListsHostFieldNames.sub(this.fieldName) : prefix = fieldName + '.';
+  $ListsHostFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
 
   const $ListsHostFieldNames()
       : fieldName = '',

@@ -15,12 +15,19 @@ While both Dart and Go are garbage collected platforms, the interface used to co
 
 ## Getting started
 
-The usage of this package requires a few extra steps than usual:
-- Add this package to your package dependencies on pubspec.yaml.
+In order to use this package:
+- Add this package to your package dependencies on pubspec.yaml and run ```dart pub get```.
 
-- The package requires a dynamic library, ```firebase_admin.so```, which you need to be able to access from your application. Find the physical path to the package and you may either add that path to your library search path, or you may copy or add a symbolic link from the library, to the root of your app's package.
+- The package requires a dynamic library, ```firebase_go_admin.so```. You will find its GO source code under ```~/.pub-cache/hosted/pub.dartlang.org/firebase_go_admin-<version>/go/```. Each time you upgrade to the latest version of this package, you will most probably need to recompile the latest version of the dynamic library and have it copied to your application. The easiest way to do so is by doing the following:
 
-Download the library from https://gitlab.com/squarealfa/dart_framework/-/blob/main/firebase_go_admin/firebase_admin.so.
+  1. Ensure you have GO SDK installed on your machine. If you don't, you can download GO from https://go.dev/dl/. Minimum version is 1.19.1.
+
+  2. Ensure you have GCC installed on your machine. For Windows users, you can use [tdm-gcc](https://jmeubank.github.io/tdm-gcc/download/).
+
+  3. Install ffi_lib, by running ```dart pub global activate ffi_lib```. The minimum required version is 1.1.0.
+  
+  4. For the initial installation and for each time you upgrade this package, run the following command on the root directory of your application: ```ffi-lib firebase_go_admin```.
+
 
 - Generate and download a new private key following the instruction in https://firebase.google.com/docs/admin/setup, under **To generate a private key file for your service account**.
 
@@ -34,7 +41,7 @@ After completing the steps in the previous section, you should be ready to use t
 First thing we need to do, preferably on the main function, is to initialize the API. We need to do this only once for the entire life of your application and regardless of the isolates you create later. In other words, as long as you've called ``initialize`` from your main Isolate (or any other isolate for that matter), you never need to call it again, not even on isolates you spawn later on.
 
 ```dart
-import 'package:firebase_admin/firebase_admin.dart' as firebase;
+import 'package:firebase_go_admin/firebase_go_admin.dart' as firebase;
 
 void main() {
     

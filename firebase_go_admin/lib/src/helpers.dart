@@ -8,7 +8,7 @@ import 'lib_firebase_admin.dart';
 
 LibFirebaseAdmin getNativeLibrary() {
   final dylib = ffi.DynamicLibrary.open(
-      join(Directory.current.path, 'firebase_admin.so'));
+      join(Directory.current.path, 'firebase_go_admin.so'));
   final nl = LibFirebaseAdmin(dylib);
   return nl;
 }
