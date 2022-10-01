@@ -1,4 +1,4 @@
-## 2.0.0-dev.0
+## 2.0.0
 
 - Native library is deployed to bin directory  
 

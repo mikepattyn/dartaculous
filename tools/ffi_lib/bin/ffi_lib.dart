@@ -18,7 +18,7 @@ void main(List<String> args) async {
     print('Copying from $src to $dest');
     File(src).copy(dest);
     print(
-        '${isCompiled ? 'Compiled and copied' : 'copied'} $packageName.so to current directory');
+        '${isCompiled ? 'Compiled and copied' : 'copied'} $packageName.so to bin sub-directory.');
   } catch (ex) {
     print(ex.toString());
   }
