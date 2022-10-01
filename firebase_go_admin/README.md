@@ -26,7 +26,7 @@ In order to use this package:
 
   3. Install ffi_lib, by running ```dart pub global activate ffi_lib```. The minimum required version is 1.1.0.
   
-  4. For the initial installation and for each time you upgrade this package, run the following command on the root directory of your application: ```ffi-lib firebase_go_admin```.
+  4. For the initial installation and for each time you upgrade this package, run the following command on the root directory of your application: ```ffi-lib firebase_go_admin```. This tool will compile the native library from the GO code present in the package and it will then copy the compiled package to the bin sub-directory of your package, where ```firebase_go_admin``` expects to find it.
 
 
 - Generate and download a new private key following the instruction in https://firebase.google.com/docs/admin/setup, under **To generate a private key file for your service account**.
