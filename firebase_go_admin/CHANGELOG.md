@@ -1,3 +1,7 @@
+## 0.11.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 0.11.0-dev.1
 
  - **FEAT**: Probing for go native library at <cwd> directory, bin, lib and go subdirectories.
