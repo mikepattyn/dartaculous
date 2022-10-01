@@ -1,3 +1,7 @@
+## 0.11.0-dev.1
+
+ - **FEAT**: Probing for go native library at <cwd> directory, bin, lib and go subdirectories.
+
 ## 0.11.0-dev.0+1
 
  - Update a dependency to the latest release.
