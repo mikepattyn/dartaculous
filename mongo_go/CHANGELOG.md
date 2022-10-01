@@ -1,3 +1,7 @@
+## 4.1.0-dev.0
+
+ - **FEAT**: mongo_go probes for <cwd> directory, bin, lib and go subdirectories for go library.
+
 ## 4.0.0
 
 > Note: This release has breaking changes.
