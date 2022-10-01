@@ -17,7 +17,11 @@ class Database {
     final request = CollectionRequest(
         databaseOid: databaseId.toByteList(), collectionName: name);
     final oid = await p.collection(request);
-    final ret = Collection(database: this, collectionId: oid);
+    final ret = Collection(
+      database: this,
+      collectionId: oid,
+      name: name,
+    );
     return ret;
   }
 

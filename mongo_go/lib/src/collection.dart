@@ -5,12 +5,14 @@ import 'package:mongo_go/src/mongo_go.dart' as p;
 import 'package:mongo_go/src/update_options.dart';
 
 class Collection {
+  final String name;
   final Database database;
   final ObjectId collectionId;
 
   Collection({
     required this.collectionId,
     required this.database,
+    required this.name,
   });
 
   Future<InsertOneResult> insertOne(
