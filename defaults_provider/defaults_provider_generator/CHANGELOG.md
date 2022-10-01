@@ -1,3 +1,9 @@
+## 2.3.0
+
+ - **FIX**: Fixed warnings.
+ - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).
+ - **FEAT**: also allowMissingFields for defaults generator. Generated sources will result in compilation error if it's actually a problem.
+
 ## 2.2.3
 
  - Update a dependency to the latest release.

@@ -1,3 +1,12 @@
+## 3.6.0
+
+ - **FIX**: DbClient.runAndReturnStream now throws proper error when invalid query.
+ - **FIX**: CollectionsKeyOptions made const.
+ - **FIX**: newQuery method moved from extension into DbClient.
+ - **FEAT**: Allow null bound variable value.
+ - **FEAT**: Added collection key generation options.
+ - **FEAT**: Support for creating TTL indexes.
+
 ## 3.5.1
 
  - **CHORE**: Upgraded dependencies

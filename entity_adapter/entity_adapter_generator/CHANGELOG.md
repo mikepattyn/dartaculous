@@ -1,3 +1,10 @@
+## 3.3.0
+
+ - **REFACTOR**: Use interpolation to compose strings and values (fieldName + '.' => '$fieldName.').
+ - **FIX**: Fixed all pending warnings.
+ - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).
+ - **FEAT**: EntityAdapter made const.
+
 ## 3.2.6
 
  - Update a dependency to the latest release.

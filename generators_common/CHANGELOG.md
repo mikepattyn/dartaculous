@@ -1,3 +1,13 @@
+## 2.5.0
+
+ - **FIX**: minor fix.
+ - **FIX**: Fixed all pending warnings.
+ - **FIX**: Avoid `<dynamic>` suffix for types in generated `.proto` file and `ProtoMapper` classes ([#5](https://gitlab.com/ruicraveiro/dart_framework/-/issues/5)).
+ - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).
+ - **FIX**: Fixed code generation for abstract classes without implementation of declared interfaces.
+ - **FEAT**: Include encapsulated fields that match constructor parameters when generating `Mapper` classes and `.proto` files ([#6](https://gitlab.com/ruicraveiro/dart_framework/-/issues/6)).
+ - **FEAT**: Multi-level hierarchy polymorphism.
+
 ## 2.4.3
 
  - **FIX**: minor fix.

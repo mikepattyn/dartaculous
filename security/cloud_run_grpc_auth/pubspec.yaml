@@ -2,7 +2,7 @@ name: cloud_run_grpc_auth
 description: Identity for Google Cloud Run Services as gRPC clients
 repository: https://gitlab.com/squarealfa/dart_framework
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/security/cloud_run_grpc_auth
-version: 0.10.0+1
+version: 0.11.0
 
 environment:
   sdk: '>=2.12.0 <3.0.0'

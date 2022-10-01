@@ -1,3 +1,13 @@
+## 3.4.0
+
+ - **FIX**: Fixed all pending warnings.
+ - **FIX**: Avoid `<dynamic>` suffix for types in generated `.proto` file and `ProtoMapper` classes ([#5](https://gitlab.com/ruicraveiro/dart_framework/-/issues/5)).
+ - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).
+ - **FIX**: Fixed code generation for abstract classes without implementation of declared interfaces.
+ - **FIX**: Solved excessive imports from protos containing messages for abstract classes.
+ - **FEAT**: Multi-level hierarchy polymorphism.
+ - **FEAT**: Support for gRPC streams.
+
 ## 3.3.7
 
  - Update a dependency to the latest release.

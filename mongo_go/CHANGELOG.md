@@ -1,3 +1,31 @@
+## 4.0.0
+
+> Note: This release has breaking changes.
+
+ - **FIX**: Minor fixes to README.
+ - **FIX**: bumped dart_bridge to v1.0.1.
+ - **FIX**: remove root mongo_proxy.so.
+ - **FIX**: moved mongo_proxy.so to lib.
+ - **FIX**: mongo_go pubspec explicitly stating only Linux is supported.
+ - **FIX**: Fixed README reference to mongo_proxy.so to refer to main branch's version.
+ - **FIX**: initializing from all connection factory constructors.
+ - **FIX**: mongo_go depends on bson 3.0.0.
+ - **FIX**: restored the lock on the dependency of decimal 2.2.0.
+ - **FIX**: using bson2 to enable upgrade to decimal 2.3.0.
+ - **FIX**: locked Decimal dependency to 2.2.0.
+ - **FIX**: improved documentation.
+ - **FIX**: Makefile copying mongo_proxy.so instead of link.
+ - **FEAT**: Added name field to Collection.
+ - **FEAT**: Added MongoNoDocumentsError.
+ - **FEAT**: Moved go code into mongo_go package.
+ - **FEAT**: Added findOne.
+ - **FEAT**: include mongo_go.so in package.
+ - **BREAKING** **FEAT**: Type-safe exceptions.
+ - **BREAKING** **FEAT**: Removed native library from package.
+ - **BREAKING** **FEAT**: Updated README to refer to the usage of ffi-lib.
+ - **BREAKING** **FEAT**: changed mongo_proxy.so to mongo_go.so.
+ - **BREAKING** **FEAT**: Bulk write operations.
+
 ## 3.1.0
 
  - **FEAT**: Added MongoNoDocumentsError.

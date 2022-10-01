@@ -1,3 +1,10 @@
+## 0.11.0
+
+> Note: This release has breaking changes.
+
+ - **FIX**: Fixed all pending warnings.
+ - **BREAKING** **FEAT**: Support for calling Google APIs.
+
 ## 0.10.0+1
 
  - **FIX**: Fixed all pending warnings.

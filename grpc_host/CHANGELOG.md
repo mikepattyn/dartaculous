@@ -1,3 +1,13 @@
+## 5.0.0
+
+> Note: This release has breaking changes.
+
+ - **FIX**: EntityServiceParameters.fromEntityAdapter no longer a factory.
+ - **FEAT**: Delete method returns deleted entity.
+ - **FEAT**: CrudServiceMethods mixin supports transactions.
+ - **BREAKING** **FEAT**: Deprecated entire services library.
+ - **BREAKING** **FEAT**: :New versions of service classes that are more decoupled from gRPC.
+
 ## 4.0.3
 
  - Update a dependency to the latest release.

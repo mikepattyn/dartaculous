@@ -1,3 +1,12 @@
+## 6.0.0
+
+> Note: This release has breaking changes.
+
+ - **FIX**: minor hint fix.
+ - **FEAT**: Delete method returns deleted entity.
+ - **BREAKING** **FIX**: Deprecating classes that are too specific to be part of this framework.
+ - **BREAKING** **FIX**: Deprecated transaction lifecycle from repository.
+
 ## 5.0.9
 
  - Update a dependency to the latest release.

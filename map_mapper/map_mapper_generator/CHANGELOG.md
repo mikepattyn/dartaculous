@@ -1,3 +1,12 @@
+## 3.5.0
+
+ - **REFACTOR**: Use interpolation to compose strings and values (fieldName + '.' => '$fieldName.').
+ - **FIX**: Fixed all pending warnings.
+ - **FIX**: Update analyzer dependency ([#4](https://gitlab.com/ruicraveiro/dart_framework/-/issues/4)).
+ - **FEAT**: Include encapsulated fields that match constructor parameters when generating `Mapper` classes and `.proto` files ([#6](https://gitlab.com/ruicraveiro/dart_framework/-/issues/6)).
+ - **FEAT**: Generating $type constant for each map-mapped class.
+ - **FEAT**: Multi-level hierarchy polymorphism.
+
 ## 3.4.3
 
  - Update a dependency to the latest release.
