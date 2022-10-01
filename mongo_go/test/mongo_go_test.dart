@@ -33,7 +33,7 @@ void main() {
     test('Insert Document', () async {
       final result = await collection
           .insertOne({'name': 'Alice', 'age': 40, "test": "insertOne"});
-          
+
       expect(result.insertedId, isA<ObjectId>());
     });
 
@@ -115,6 +115,41 @@ void main() {
         expect(resultList[3]["name"], 'Person 3');
         expect(resultList[0].containsKey('age'), false);
         expect(resultList[0].containsKey('test'), false);
+      },
+      timeout: Timeout(Duration(minutes: 5)),
+    );
+
+    test(
+      'Regex',
+      () async {
+        final docs = List<Map<String, dynamic>>.generate(4, (index) {
+          return {'name': 'Person $index', 'age': 45, 'test': 'aggregate'};
+        });
+        await collection.insertMany(docs);
+        await collection.insertOne({'name': 'AaLice', 'test': 'regex'});
+        await collection.insertOne({'name': 'Alice', 'test': 'regex'});
+        await collection.insertOne({'name': 'alice', 'test': 'regex'});
+        await collection.insertOne({'name': 'Bob', 'test': 'regex'});
+        await collection.insertOne({'name': 'aLice', 'test': 'regex'});
+        await collection.insertOne({'name': 'ALICE', 'test': 'regex'});
+        final escaped = RegExp.escape('alice');
+        final resultStream = collection.aggregate([
+          {
+            r'$match': {
+              'test': 'regex',
+              'name': {r'$regex': '^$escaped\$', r'$options': 'i'},
+            }
+          },
+          {
+            r'$project': {'name': 1}
+          }
+        ]);
+        final resultList = await resultStream.toList();
+        expect(resultList.length, 4);
+        expect(resultList[0]["name"], 'Alice');
+        expect(resultList[1]["name"], 'alice');
+        expect(resultList[2]["name"], 'aLice');
+        expect(resultList[3]["name"], 'ALICE');
       },
       timeout: Timeout(Duration(minutes: 5)),
     );
