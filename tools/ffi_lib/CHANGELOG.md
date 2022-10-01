@@ -1,3 +1,7 @@
+## 2.0.0-dev.0
+
+- Native library is deployed to bin directory  
+
 ## 1.1.1
 
 - Much more verbose output of the utility

@@ -15,7 +15,7 @@ dependencies:
   proto_annotations: ^2.1.1
   protobuf: ^2.1.0
   tuple: ^2.0.0
-  go_bridge: ^1.0.0
+  go_bridge: ^1.2.0
   meta: ^1.8.0
   fixnum: ^1.0.1
   decimal: ^2.3.0

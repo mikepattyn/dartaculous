@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ffi';
+import 'dart:io';
 import 'dart:isolate';
 import 'dart:typed_data';
 
@@ -7,11 +8,40 @@ import 'package:ffi/ffi.dart';
 import 'package:go_bridge/gen/common/basic_error_message.pb.dart';
 import 'package:go_bridge/gen/common/response.pb.dart';
 import 'package:go_bridge/gen/google/protobuf/any.pb.dart';
+import 'package:path/path.dart';
 import 'dart:ffi' as ffi; // For FFI
 import 'package:protobuf/protobuf.dart';
 import 'package:tuple/tuple.dart';
 
 import 'gen/google/protobuf/empty.pb.dart';
+
+DynamicLibrary getDynamicLibrary(String fileName) {
+  final path = _getLibPath(fileName);
+  final dylib = ffi.DynamicLibrary.open(path);
+  return dylib;
+}
+
+String _getLibPath(String fileName) {
+  var path = _tryGetLibPath('', fileName) ??
+      _tryGetLibPath('bin', fileName) ??
+      _tryGetLibPath('lib', fileName) ??
+      _tryGetLibPath('go', fileName);
+  if (path == null) {
+    throw 'Could not find $fileName';
+  }
+  return path;
+}
+
+String? _tryGetLibPath(String subDirectory, String fileName) {
+  final cwd = Directory.current.path;
+  final path = subDirectory.isEmpty
+      ? join(cwd, fileName)
+      : join(cwd, subDirectory, fileName);
+  if (File(path).existsSync()) {
+    return path;
+  }
+  return null;
+}
 
 ReceivePort createReceivePort(Completer<Uint8List> c) {
   final receivePort = ReceivePort()

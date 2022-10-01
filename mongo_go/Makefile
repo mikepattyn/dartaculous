@@ -3,7 +3,7 @@
 
 lib: .PHONY
 	cd go && make
-	mv go/mongo_go.so ./lib/mongo_go.so
+	
 
 
 proto: .PHONY

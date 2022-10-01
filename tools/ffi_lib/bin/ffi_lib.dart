@@ -14,7 +14,7 @@ void main(List<String> args) async {
     final isCompiled = await _compileGoLib(packageLocation, packageName);
 
     final src = await _getLibSrcPath(packageLocation, packageName);
-    final dest = path.join(cwd, '$packageName.so');
+    final dest = path.join(cwd, 'bin', '$packageName.so');
     print('Copying from $src to $dest');
     File(src).copy(dest);
     print(
