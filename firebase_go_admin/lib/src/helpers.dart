@@ -1,14 +1,10 @@
-import 'dart:io';
-
 import 'package:firebase_go_admin/gen/google/protobuf/wrappers.pb.dart';
-import 'package:path/path.dart';
-import 'dart:ffi' as ffi; // For FFI
+import 'package:go_bridge/helpers.dart' as bridge;
 
 import 'lib_firebase_admin.dart';
 
 LibFirebaseAdmin getNativeLibrary() {
-  final dylib = ffi.DynamicLibrary.open(
-      join(Directory.current.path, 'firebase_go_admin.so'));
+  final dylib = bridge.getDynamicLibrary('firebase_go_admin.so');
   final nl = LibFirebaseAdmin(dylib);
   return nl;
 }
