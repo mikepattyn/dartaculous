@@ -1,3 +1,7 @@
+## 3.3.1
+
+ - Update a dependency to the latest release.
+
 ## 3.3.0
 
  - **REFACTOR**: Use interpolation to compose strings and values (fieldName + '.' => '$fieldName.').

@@ -1,3 +1,7 @@
+## 3.2.0
+
+ - **FEAT**: Added isKey field to MapField annotation.
+
 ## 3.1.1
  - Supporting mapping enum to string
 

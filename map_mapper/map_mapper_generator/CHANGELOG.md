@@ -1,3 +1,7 @@
+## 3.6.0
+
+ - **FEAT**: Added isKey field to MapField annotation.
+
 ## 3.5.0
 
  - **REFACTOR**: Use interpolation to compose strings and values (fieldName + '.' => '$fieldName.').

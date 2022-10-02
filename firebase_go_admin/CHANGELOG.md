@@ -1,3 +1,8 @@
+## 0.11.1
+
+ - **FIX**: Minor fix to README file.
+ - **FEAT**: Probing for go native library at <cwd> directory, bin, lib and go subdirectories.
+
 ## 0.11.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
