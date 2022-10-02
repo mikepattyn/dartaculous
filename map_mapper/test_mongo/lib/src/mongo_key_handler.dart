@@ -1,5 +1,5 @@
+import 'package:bson/bson.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
-import 'package:mongo_dart/mongo_dart.dart';
 
 class MongoKeyHandler extends KeyHandler {
   const MongoKeyHandler();

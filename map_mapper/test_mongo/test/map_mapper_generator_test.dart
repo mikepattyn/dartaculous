@@ -1,6 +1,6 @@
+import 'package:bson/bson.dart';
 import 'package:decimal/decimal.dart';
 import 'package:map_mapper_generator_test_mongo/map_mapper_generator_test.dart';
-import 'package:mongo_dart/mongo_dart.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -52,6 +52,7 @@ Category _eggsCategory({
 }) =>
     Category(
       id: ObjectId.fromSeconds(4343433).toHexString(),
+      rev: '',
       mainComponentId: ObjectId.fromSeconds(87633323).toHexString(),
       title: 'eggs',
       mainComponent: Component(

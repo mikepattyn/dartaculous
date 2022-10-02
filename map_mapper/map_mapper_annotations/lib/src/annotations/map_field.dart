@@ -6,5 +6,6 @@
 /// mapped to the Map<String, dynamic>.
 class MapField {
   final String? name;
-  const MapField({this.name});
+  final bool? isKey;
+  const MapField({this.name, this.isKey});
 }

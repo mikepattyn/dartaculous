@@ -15,19 +15,21 @@ class $CategoryMapMapper extends MapMapper<Category> {
     final $kh = const MongoKeyHandler();
 
     return Category(
+      id: $kh.keyFromMap(map, 'id'),
+      rev: $kh.keyFromMap(map, 'rev'),
+      key: map['key'] as String,
       title: map['title'] as String,
+      mainComponentId: $kh.keyFromMap(map, 'mainComponentId'),
       mainComponent: const $ComponentMapMapper().fromMap(map['mainComponent']),
-      otherComponents: List<Component>.unmodifiable(map['otherComponents']
-          .map((e) => const $ComponentMapMapper().fromMap(e))),
       alternativeComponent: (map['alternativeComponent'] != null
           ? const $ComponentMapMapper().fromMap(map['alternativeComponent'])
           : null),
+      otherComponents: List<Component>.unmodifiable(map['otherComponents']
+          .map((e) => const $ComponentMapMapper().fromMap(e))),
       secondaryComponents: map['secondaryComponents'] == null
           ? null
           : List<Component>.unmodifiable(map['secondaryComponents']
               .map((e) => const $ComponentMapMapper().fromMap(e))),
-      id: $kh.keyFromMap(map, 'id'),
-      mainComponentId: $kh.keyFromMap(map, 'mainComponentId'),
     );
   }
 
@@ -37,6 +39,8 @@ class $CategoryMapMapper extends MapMapper<Category> {
     final map = <String, dynamic>{};
 
     $kh.keyToMap(map, instance.id, 'id');
+    $kh.keyToMap(map, instance.rev, 'rev');
+    map['key'] = instance.key;
     map['title'] = instance.title;
     $kh.keyToMap(map, instance.mainComponentId, 'mainComponentId');
     map['mainComponent'] =
@@ -80,6 +84,10 @@ class $CategoryFieldNames {
 
   static const _id = 'id';
   String get id => prefix + $kh.fieldNameToMapKey(_id);
+  static const _rev = 'rev';
+  String get rev => prefix + $kh.fieldNameToMapKey(_rev);
+  static const _key = 'key';
+  String get key => prefix + _key;
   static const _title = 'title';
   String get title => prefix + _title;
   static const _mainComponentId = 'mainComponentId';

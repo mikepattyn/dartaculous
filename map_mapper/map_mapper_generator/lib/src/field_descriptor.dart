@@ -13,15 +13,20 @@ class FieldDescriptor extends FieldDescriptorBase {
   final keyNames = ['key', 'id'];
 
   /// Keys are string or number values of which the field name ends with "id" or "key"
-  bool get isKey =>
-      keyNames.any((kn) =>
-          kn == displayName ||
-          displayName
-              .endsWith(kn.substring(0, 1).toUpperCase() + kn.substring(1))) &&
-      (fieldElementType.isDartCoreInt ||
-          fieldElementType.isDartCoreDouble ||
-          fieldElementType.isDartCoreNum ||
-          fieldElementType.isDartCoreString);
+  bool get isKey {
+    final ret = (keyNames.any((kn) =>
+                kn == displayName ||
+                displayName.endsWith(
+                    kn.substring(0, 1).toUpperCase() + kn.substring(1))) ||
+            (mapFieldAnnotation?.isKey ?? false)) &&
+        (mapFieldAnnotation?.isKey ?? true) &&
+        (fieldElementType.isDartCoreInt ||
+            fieldElementType.isDartCoreDouble ||
+            fieldElementType.isDartCoreNum ||
+            fieldElementType.isDartCoreString);
+
+    return ret;
+  }
 
   FieldDescriptor._(
     FieldElement fieldElement,
@@ -77,7 +82,10 @@ MapField? _getMapField(FieldElement fieldElement) {
   var reader =
       TypeChecker.fromRuntime(MapField).firstAnnotationOf(fieldElement);
   if (reader == null) return null;
-  var ret = MapField(name: reader.getField('name')!.toStringValue());
+  var ret = MapField(
+    name: reader.getField('name')!.toStringValue(),
+    isKey: reader.getField('isKey')!.toBoolValue(),
+  );
   return ret;
 }
 
