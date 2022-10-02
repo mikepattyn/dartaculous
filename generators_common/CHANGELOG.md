@@ -1,3 +1,7 @@
+## 2.6.0
+
+ - **FEAT**: Updated dependencies.
+
 ## 2.5.0
 
  - **FIX**: minor fix.

@@ -3,19 +3,19 @@ description:
   Code generators that augment classes that are meant to be used as business entities
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/entity/entity_generator
 repository: https://gitlab.com/squarealfa/dart_framework
-version: 2.1.9
+version: 2.1.10
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
 
 dependencies:
-  analyzer: ^4.7.0
+  analyzer: ^5.1.0
   build: ^2.0.0
   decimal: ^2.1.0
   source_gen: ^1.0.0
   squarealfa_entity_annotations: ^2.1.0
-  squarealfa_generators_common: ^2.5.0
+  squarealfa_generators_common: ^2.6.0
   tuple: ^2.0.0
 
 dev_dependencies:
