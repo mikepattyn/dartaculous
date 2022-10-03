@@ -22,7 +22,7 @@ class _MethodSet implements Comparable<_MethodSet> {
   static int _sortByLocation(MethodElement a, MethodElement b) {
     final checkerA = TypeChecker.fromStatic(
         // ignore: unnecessary_cast
-        (a.enclosingElement3 as ClassElement).thisType);
+        (a.enclosingElement3 as InterfaceElement).thisType);
 
     if (!checkerA.isExactly(b.enclosingElement3)) {
       // in this case, you want to prioritize the enclosingElement that is more
@@ -33,7 +33,7 @@ class _MethodSet implements Comparable<_MethodSet> {
       }
 
       final checkerB =
-          TypeChecker.fromStatic((b.enclosingElement3 as ClassElement).thisType);
+          TypeChecker.fromStatic((b.enclosingElement3 as InterfaceElement).thisType);
 
       if (checkerB.isAssignableFrom(a.enclosingElement3)) {
         return 1;

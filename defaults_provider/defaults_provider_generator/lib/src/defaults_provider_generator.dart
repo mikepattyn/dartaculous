@@ -28,8 +28,8 @@ class DefaultsProviderGenerator
 
   static String generateDefaultsProvider(
       Element element, bool createBaseClass) {
+    if (element is EnumElement) return '';
     var classElement = element.asClassElement();
-    if (classElement.kind == ElementKind.ENUM) return '';
     var superTypeElement = classElement.supertype!.element2;
 
     var annotation = TypeChecker.fromRuntime(DefaultsProvider)
@@ -48,16 +48,16 @@ class DefaultsProviderGenerator
     final constructors = classElement.getConstructorsMatchingFields(
         fieldDescriptors: constructorFields,
         allowMissingFields: true,
-        missingFields: missingFields
-    );
+        missingFields: missingFields);
     // let's just pick the first of the valid constructors
     final classConstructor = constructors.isEmpty
         ? throw InvalidGenerationSourceError(
-        'Cannot generate defaults provider for class ${classElement.name} because '
+            'Cannot generate defaults provider for class ${classElement.name} because '
             'it is missing a constructor that covers all final properties.\n'
             '\tMissing fields: $missingFields')
         : constructors.first;
-    _buildConstructorBuffer(classConstructor, [...constructorFields], constructorFieldBuffer, createBaseClass);
+    _buildConstructorBuffer(classConstructor, [...constructorFields],
+        constructorFieldBuffer, createBaseClass);
 
     for (var field in constructorFields) {
       final fieldTypeName = field.fieldElementTypeName == 'dynamic'
@@ -90,7 +90,9 @@ class DefaultsProviderGenerator
         ? '''static const _superDefaultsProvider = \$${superTypeElement.name}DefaultsProvider();'''
         : '';
 
-    final constructorName = classConstructor.name.isNotEmpty ? '$className.${classConstructor.name}' : className;
+    final constructorName = classConstructor.name.isNotEmpty
+        ? '$className.${classConstructor.name}'
+        : className;
 
     final constructor = classElement.isAbstract
         ? ''
@@ -127,7 +129,8 @@ void _buildConstructorBuffer(
   for (var constructorParameter in constructor.parameters) {
     final fieldDescriptorList = fromFieldDescriptors
         .where((element) => element.name == constructorParameter.name);
-    var constructorArgValue = '${constructorParameter.displayName} ?? this.${constructorParameter.displayName}';
+    var constructorArgValue =
+        '${constructorParameter.displayName} ?? this.${constructorParameter.displayName}';
     if (fieldDescriptorList.isEmpty) {
       // If constructor arg is not in defined fields, just initialize it with "null"
       constructorArgValue = 'null';
@@ -136,7 +139,8 @@ void _buildConstructorBuffer(
       fromFieldDescriptors.remove(fieldDescriptor);
     }
     if (constructorParameter.isNamed) {
-      constructorFieldBuffer.writeln('${constructorParameter.displayName}: $constructorArgValue,');
+      constructorFieldBuffer.writeln(
+          '${constructorParameter.displayName}: $constructorArgValue,');
     } else {
       constructorFieldBuffer.writeln('$constructorArgValue,');
     }
@@ -144,7 +148,7 @@ void _buildConstructorBuffer(
 }
 
 Iterable<FieldDescriptor> _getFieldDescriptors(
-    ClassElement classElement, bool includeInherited) {
+    InterfaceElement classElement, bool includeInherited) {
   final fieldSet =
       classElement.getSortedFieldSet(includeInherited: includeInherited);
   final fieldDescriptors = fieldSet

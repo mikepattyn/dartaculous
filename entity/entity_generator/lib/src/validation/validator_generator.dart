@@ -31,8 +31,8 @@ class ValidatorGenerator extends GeneratorForAnnotation<Validatable> {
   }
 
   static String generateValidator(Element element, bool createBaseClass) {
-    var classElement = element.asClassElement();
-    if (classElement.kind == ElementKind.ENUM) return '';
+    if (element is EnumElement) return '';
+    var classElement = element.asInterfaceElement();
     var superTypeElement = classElement.supertype!.element2;
 
     var annotation = TypeChecker.fromRuntime(Validatable)
@@ -235,7 +235,7 @@ class ValidatorGenerator extends GeneratorForAnnotation<Validatable> {
   }
 }
 
-Iterable<FieldDescriptor> _getFieldDescriptors(ClassElement classElement) {
+Iterable<FieldDescriptor> _getFieldDescriptors(InterfaceElement classElement) {
   final fieldSet = classElement.getSortedFieldSet(includeInherited: false);
   final fieldDescriptors =
       fieldSet.map((fieldElement) => FieldDescriptor.fromFieldElement(

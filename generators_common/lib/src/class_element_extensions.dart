@@ -11,7 +11,7 @@ part 'methodset.dart';
 const _dartCoreObjectChecker = TypeChecker.fromRuntime(Object);
 
 /// Adds field and method retrieval features to the [ClassElement] class
-extension ClassElementFieldExtension on ClassElement {
+extension ClassElementFieldExtension on InterfaceElement {
   /// Gets the public methods of the class
   ///
   /// This method will retrieve the methods of the

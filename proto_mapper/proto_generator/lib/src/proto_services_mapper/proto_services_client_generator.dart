@@ -31,7 +31,7 @@ class ProtoServicesClientGenerator
   ) {
     var readAnnotation = _hydrateAnnotation(annotation, prefix: _prefix);
 
-    final classElement = element.asClassElement();
+    final classElement = element.asInterfaceElement();
     final generator = _Generator(
       annotation: readAnnotation,
       classElement: classElement,
@@ -53,7 +53,7 @@ class _Generator extends ProtoServicesGeneratorBase {
   _Generator({
     required this.annotation,
     required String prefix,
-    required ClassElement classElement,
+    required InterfaceElement classElement,
     required this.packageName,
   })  : methodDescriptors = _getMethodDescriptors(classElement, annotation),
         super(classElement: classElement, prefix: prefix);
@@ -262,7 +262,7 @@ String _getProtoMappedReturnType(
 }
 
 Iterable<MethodDescriptor> _getMethodDescriptors(
-  ClassElement classElement,
+  InterfaceElement classElement,
   MapProtoServices annotation,
 ) {
   final methods = classElement.getSortedMethods();

@@ -9,14 +9,14 @@ class MethodDescriptor extends MethodDescriptorBase {
   final ProtoIgnore? protoIgnoreAnnotation;
 
   MethodDescriptor._(
-    ClassElement classElement,
+    InterfaceElement classElement,
     MethodElement methodElement,
     this.protoServicesAnnotation, {
     this.protoIgnoreAnnotation,
   }) : super(classElement, methodElement);
 
   factory MethodDescriptor.fromMethodElement(
-    ClassElement classElement,
+    InterfaceElement classElement,
     MethodElement methodElement,
     MapProtoServices protoServicesAnnotation,
   ) {

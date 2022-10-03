@@ -19,8 +19,8 @@ class BuilderGenerator extends GeneratorForAnnotation<BuildBuilder> {
     BuildStep buildStep,
   ) {
     final readAnnotation = _hydrateAnnotation(annotation);
-    var classElement = element.asClassElement();
-    if (classElement.kind == ElementKind.ENUM) return '';
+    if (element is EnumElement) return '';
+    var classElement = element.asInterfaceElement();
     _className = classElement.name;
 
     if (classElement.kind == ElementKind.ENUM) return '';
@@ -150,7 +150,7 @@ class BuilderGenerator extends GeneratorForAnnotation<BuildBuilder> {
   }
 }
 
-Iterable<FieldDescriptor> _getFieldDescriptors(ClassElement classElement) {
+Iterable<FieldDescriptor> _getFieldDescriptors(InterfaceElement classElement) {
   final fieldSet = classElement.getSortedFieldSet();
   final fieldDescriptors = fieldSet
       .map((fieldElement) => FieldDescriptor.fromFieldElement(fieldElement));

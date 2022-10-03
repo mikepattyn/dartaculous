@@ -21,11 +21,11 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   late TimePrecision _durationPrecision;
   late bool _allowMissingFields;
 
-  ClassElement? _classElement;
+  // InterfaceElement? _classElement;
 
-  ClassElement? get classElement => _classElement;
+  // InterfaceElement? get classElement => _classElement;
 
-  String? get className => _classElement?.name;
+  // String? get className => _classElement?.name;
 
   ProtoMapperGenerator(this.options) {
     var config = options.config;
@@ -51,24 +51,26 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       allowMissingFields: _allowMissingFields,
     );
 
-    _classElement = element.asClassElement();
-    if (_classElement!.kind == ElementKind.ENUM) {
-      return renderEnumMapper(mapProtoReflected.mapProto.prefix);
+    if (element is EnumElement) {
+      return renderEnumMapper(element, mapProtoReflected.mapProto.prefix);
     }
 
-    RenderMapperBuffers renderParms = _createRenderBuffers(mapProtoReflected);
+    final classElement = element.asClassElement();
+    RenderMapperBuffers renderParms =
+        _createRenderBuffers(classElement, mapProtoReflected);
 
-    final mapper =
-        _renderMapper(renderParms, mapProtoReflected.mapProto.prefix);
+    final mapper = _renderMapper(
+        classElement, renderParms, mapProtoReflected.mapProto.prefix);
     return mapper;
   }
 
   RenderMapperBuffers _createRenderBuffers(
+    ClassElement classElement,
     MapProtoReflected mapProtoReflected,
   ) {
     final mapProto = mapProtoReflected.mapProto;
     final fieldDescriptors =
-        _getFieldDescriptors(_classElement!, mapProto, _prefix);
+        _getFieldDescriptors(classElement, mapProto, _prefix);
     final fromFieldDescriptors = [...fieldDescriptors];
 
     final toProtoFieldBuffer = StringBuffer();
@@ -77,7 +79,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
     // let's get all the constructors which cover all non-nullable final fields
     final missingFields = <String>{};
-    final constructors = _classElement!.getConstructorsMatchingFields(
+    final constructors = classElement.getConstructorsMatchingFields(
       fieldDescriptors: fieldDescriptors,
       allowMissingFields: mapProto.allowMissingFields,
       missingFields: missingFields,
@@ -85,7 +87,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     // let's just pick the first of the valid constructors
     final constructor = constructors.isEmpty
         ? throw InvalidGenerationSourceError(
-            'Cannot generate proto mapper for class ${_classElement!.name} because it is missing a constructor that covers all final properties.\n'
+            'Cannot generate proto mapper for class ${classElement.name} because it is missing a constructor that covers all final properties.\n'
             '\tMissing fields: $missingFields')
         : constructors.first;
 
@@ -173,13 +175,15 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     return ret;
   }
 
-  String _renderMapper(RenderMapperBuffers renderParms, String? prefix) {
+  String _renderMapper(ClassElement classElement,
+      RenderMapperBuffers renderParms, String? prefix) {
+    final className = classElement.name;
     prefix ??= _prefix;
     final toVar = renderParms.toKnownSubclasses == null ? 'proto' : 'uproto';
-    final toReturn = _classElement!.isAbstract
+    final toReturn = classElement.isAbstract
         ? 'throw UnimplementedError();'
         : '''
-            ${renderParms.toKnownSubclasses == null ? '' : 'final proto = uproto.${className!.camelCase} = ${prefix}FieldsOf$className();'}
+            ${renderParms.toKnownSubclasses == null ? '' : 'final proto = uproto.${className.camelCase} = ${prefix}FieldsOf$className();'}
 
         ${renderParms.toProtoFieldBuffer}
         
@@ -191,10 +195,10 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
            $className _\$${className}FromProto($prefix$className sInstance) {
              ${renderParms.fromKnownSubclasses}
 
-          ${classElement!.isAbstract ? '''
+          ${classElement.isAbstract ? '''
             throw UnimplementedError();
           ''' : '''
-            final instance = sInstance.${className!.camelCase};
+            final instance = sInstance.${className.camelCase};
             final ret = $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
           ${renderParms.fromProtoFieldBuffer};
 
@@ -203,7 +207,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
            }
           '''
-        : classElement!.isAbstract
+        : classElement.isAbstract
             ? '''
           $className _\$${className}FromProto($prefix$className instance) {
             throw UnimplementedError();
@@ -242,7 +246,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
       $prefix$className _\$${className}ToProto($className instance) 
       {
-        ${((_classElement?.isAbstract ?? false) && (renderParms.toKnownSubclasses ?? '').isEmpty) ? '' : 'var $toVar = $prefix$className();'}
+        ${((classElement.isAbstract) && (renderParms.toKnownSubclasses ?? '').isEmpty) ? '' : 'var $toVar = $prefix$className();'}
         
         ${renderParms.toKnownSubclasses ?? ''}
 
@@ -268,7 +272,9 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   ''';
   }
 
-  String renderEnumMapper(String? prefix) {
+  String renderEnumMapper(Element element, String? prefix) {
+    final classElement = element.asInterfaceElement();
+    final className = classElement.name;
     prefix ??= _prefix;
     return '''
       class \$${className}ProtoMapper implements ProtoMapper<$className, $prefix$className> {

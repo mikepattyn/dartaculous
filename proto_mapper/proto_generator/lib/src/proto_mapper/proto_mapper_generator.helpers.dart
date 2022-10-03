@@ -1,7 +1,7 @@
 part of 'proto_mapper_generator.dart';
 
 Iterable<FieldDescriptor> _getFieldDescriptors(
-  ClassElement classElement,
+  InterfaceElement classElement,
   MapProto annotation,
   String defaultPrefix,
 ) {

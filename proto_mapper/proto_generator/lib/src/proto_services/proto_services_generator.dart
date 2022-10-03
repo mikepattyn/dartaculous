@@ -28,7 +28,7 @@ class ProtoServicesGenerator extends GeneratorForAnnotation<ProtoServices> {
   ) {
     var readAnnotation = _hydrateAnnotation(annotation, prefix: _prefix);
 
-    var classElement = element.asClassElement();
+    var classElement = element.asInterfaceElement();
     if (classElement.kind == ElementKind.ENUM) return '';
 
     var packageName = readAnnotation.packageName != '' ? '' : _defaultPackage;
@@ -54,7 +54,7 @@ class _Generator extends ProtoServicesGeneratorBase {
   _Generator({
     required this.annotation,
     required String prefix,
-    required ClassElement classElement,
+    required InterfaceElement classElement,
     required this.packageName,
   })  : packageDeclaration = packageName != '' ? 'package $packageName;' : '',
         super(classElement: classElement, prefix: prefix);
@@ -260,7 +260,7 @@ $fieldDeclarations}
 }
 
 Iterable<MethodDescriptor> _getMethodDescriptors(
-  ClassElement classElement,
+  InterfaceElement classElement,
   ProtoServices annotation,
 ) {
   final methods = classElement.getSortedMethods();

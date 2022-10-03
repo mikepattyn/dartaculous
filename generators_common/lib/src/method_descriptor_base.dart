@@ -4,7 +4,7 @@ import 'package:analyzer/dart/element/type.dart';
 
 /// Enhanced information over a [FieldElement]
 class MethodDescriptorBase {
-  final ClassElement classElement;
+  final InterfaceElement classElement;
   final MethodElement methodElement;
 
   MethodDescriptorBase(this.classElement, this.methodElement);

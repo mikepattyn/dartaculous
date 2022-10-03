@@ -41,7 +41,7 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
 
     final proto = readAnnotation.proto;
 
-    var classElement = element.asClassElement();
+    //var classElement = element.asInterfaceElement();
     var packageName = proto.packageName != '' ? '' : _defaultPackage;
 
     final packageDeclaration = packageName != '' ? 'package $packageName;' : '';
@@ -56,14 +56,14 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
           .map((e) => e.path.substring(e.path.lastIndexOf('/') + 1)));
     }
 
-    var ret = classElement.kind == ElementKind.ENUM
+    var ret = element is EnumElement
         ? _generateForEnum(
-            classElement,
+            element,
             proto,
             packageDeclaration,
           )
         : _generateForClass(
-            classElement,
+            element,
             readAnnotation,
             packageDeclaration,
           );
@@ -73,10 +73,11 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
   }
 
   String _generateForClass(
-    ClassElement classElement,
+    Element element,
     ProtoReflected protoReflected,
     String packageDeclaration,
   ) {
+    final classElement = element.asClassElement();
     final externalProtoNames = <String>[];
     final proto = protoReflected.proto;
     final knownSubclasses =
@@ -90,11 +91,7 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
     final prefix = proto.prefix ?? _prefix;
     final className = classElement.name;
     final fieldsMessage = _getFieldsMessage(
-      classElement,
-      knownSubclasses,
-      fieldDeclarations,
-      prefix
-    );
+        classElement, knownSubclasses, fieldDeclarations, prefix);
     final classMessageContent = _getClassMessageContent(
       proto,
       classElement,
@@ -163,20 +160,21 @@ message ${prefix}FieldsOf$className
   }
 
   String _generateForEnum(
-    ClassElement classElement,
+    InterfaceElement interfaceElement,
     Proto annotation,
     String packageDeclaration,
   ) {
     var fieldBuffer = StringBuffer();
-    var fieldDescriptors =
-        _getFieldDescriptors(classElement, annotation, _prefix, forEnum: true);
+    var fieldDescriptors = _getFieldDescriptors(
+        interfaceElement, annotation, _prefix,
+        forEnum: true);
     final prefix = annotation.prefix ?? _prefix;
     var lineNumber = 0;
     for (var fieldDescriptor in fieldDescriptors) {
       fieldBuffer
           .writeln('  ${fieldDescriptor.protoFieldName} = ${lineNumber++};');
     }
-    var className = classElement.name;
+    var className = interfaceElement.name;
     var ret = '''
     
 $packageDeclaration
@@ -212,8 +210,8 @@ message Nullable$prefix$className
         : '    ${prefix}FieldsOf$className ${className.snakeCase} = ${lineNumber++};\n';
     final fieldDescriptors = <FieldDescriptor>[
       ...knownSubclasses.map((ksc) {
-        final annotation =
-        ConstantReader(getAnnotationsByName(ksc, 'Proto').first.computeConstantValue());
+        final annotation = ConstantReader(
+            getAnnotationsByName(ksc, 'Proto').first.computeConstantValue());
         var readAnnotation = _hydrateAnnotation(
           annotation,
           prefix: _prefix,
@@ -244,17 +242,22 @@ $fieldsOf$fds
 }
 
 Iterable<FieldDescriptor> _getFieldDescriptors(
-    ClassElement classElement, Proto annotation,
-    String defaultPrefix, {bool forEnum = false}) {
+  InterfaceElement classElement,
+  Proto annotation,
+  String defaultPrefix, {
+  bool forEnum = false,
+}) {
   final fieldSet = classElement.getSortedFieldSet();
   final fieldDescriptors = fieldSet.map((fieldElement) {
     var relevantFieldType = fieldElement.type;
     if (relevantFieldType.isIterable || relevantFieldType.isList) {
-      relevantFieldType = (relevantFieldType as InterfaceType).typeArguments.first;
+      relevantFieldType =
+          (relevantFieldType as InterfaceType).typeArguments.first;
     }
     var annotations = getAnnotationsByName(relevantFieldType, 'Proto');
     if (annotations.isNotEmpty) {
-      final readAnnotation = ConstantReader(annotations.first.computeConstantValue());
+      final readAnnotation =
+          ConstantReader(annotations.first.computeConstantValue());
       var hydratedAnnotation = _hydrateAnnotation(
         readAnnotation,
         prefix: defaultPrefix,

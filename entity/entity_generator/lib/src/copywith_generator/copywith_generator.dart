@@ -16,8 +16,8 @@ class CopyWithGenerator extends GeneratorForAnnotation<CopyWith> {
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    var classElement = element.asClassElement();
-    if (classElement.kind == ElementKind.ENUM) return '';
+    if (element is EnumElement) return '';
+    final classElement = element.asInterfaceElement();
     _className = classElement.name;
 
     if (classElement.kind == ElementKind.ENUM) return '';
@@ -67,7 +67,7 @@ class CopyWithGenerator extends GeneratorForAnnotation<CopyWith> {
   }
 }
 
-Iterable<FieldDescriptor> _getFieldDescriptors(ClassElement classElement) {
+Iterable<FieldDescriptor> _getFieldDescriptors(InterfaceElement classElement) {
   final fieldSet = classElement.getSortedFieldSet();
   final fieldDescriptors = fieldSet
       .map((fieldElement) => FieldDescriptor.fromFieldElement(fieldElement));

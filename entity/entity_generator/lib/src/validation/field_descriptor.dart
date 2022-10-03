@@ -7,7 +7,7 @@ class FieldDescriptor extends FieldElementDescriptorBase {
   FieldDescriptor._(FieldElement fieldElement) : super(fieldElement);
 
   factory FieldDescriptor.fromFieldElement(
-    ClassElement classElement,
+    InterfaceElement classElement,
     FieldElement fieldElement,
   ) {
     return FieldDescriptor._(

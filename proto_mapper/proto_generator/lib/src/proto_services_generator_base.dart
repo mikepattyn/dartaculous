@@ -2,7 +2,7 @@ import 'package:analyzer/dart/element/element.dart';
 
 class ProtoServicesGeneratorBase {
   final String className;
-  final ClassElement classElement;
+  final InterfaceElement classElement;
   final String prefix;
   final String serviceClassName;
 
@@ -18,7 +18,7 @@ class ProtoServicesGeneratorBase {
 
   ProtoServicesGeneratorBase({
     required String prefix,
-    required ClassElement classElement,
+    required InterfaceElement classElement,
   }) : this._(
           prefix: prefix,
           classElement: classElement,

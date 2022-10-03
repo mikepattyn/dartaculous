@@ -16,9 +16,8 @@ class AdaptedEntityGenerator extends GeneratorForAnnotation<AdaptedEntity> {
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    final classElement = element.asClassElement();
-
-    if (classElement.kind == ElementKind.ENUM) return '';
+    if (element is EnumElement) return '';
+    final classElement = element.asInterfaceElement();
 
     final type = annotation.read('rootEntityType').typeValue;
     if (!classElement.allSupertypes.any((st) => st.element2 == type.element2)) {
