@@ -12,8 +12,6 @@ import 'field_descriptor.dart';
 class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
   final BuilderOptions options;
   late final String _keyHandler;
-  ClassElement? _classElement;
-  String? _className;
   late TimePrecision _durationPrecision;
   late DateTimeRepresentation _dateTimeRepresentation;
 
@@ -40,12 +38,10 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       dateTimeRepresentation: _dateTimeRepresentation,
     );
 
-    if (element is! ClassElement) return null;
-    _classElement = element;
-    _className = element.name;
+    if (element is! InterfaceElement) return null;
 
-    if (_classElement!.kind == ElementKind.ENUM) {
-      return _renderEnumMapper();
+    if (element is EnumElement) {
+      return _renderEnumMapper(element);
     }
 
     var toMapFieldBuffer = StringBuffer();
@@ -53,10 +49,11 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     var constructorFieldBuffer = StringBuffer();
     var fieldNamesBuffer = StringBuffer();
 
+    final classElement = element.asClassElement();
     var fieldDescriptors =
-        _getFieldDescriptors(_classElement!, readAnnotation.mapMapped);
+        _getFieldDescriptors(classElement, readAnnotation.mapMapped);
     var defaultsProviderClassName = _getDefaultsProvider(
-      _classElement,
+      classElement,
       readAnnotation.mapMapped,
       fieldDescriptors,
     );
@@ -65,14 +62,14 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
 
     // let's get all the constructors which cover all non-nullable final fields
     final missingFields = <String>{};
-    final constructors = _classElement!.getConstructorsMatchingFields(
+    final constructors = classElement.getConstructorsMatchingFields(
         fieldDescriptors: fieldDescriptors,
         allowMissingFields: true,
         missingFields: missingFields);
     // let's just pick the first of the valid constructors
     final constructor = constructors.isEmpty
         ? throw InvalidGenerationSourceError(
-            'Cannot generate proto mapper for class ${_classElement!.name} because it is missing a constructor that covers all final properties.\n'
+            'Cannot generate proto mapper for class ${classElement.name} because it is missing a constructor that covers all final properties.\n'
             '\tMissing fields: $missingFields')
         : constructors.first;
 
@@ -91,7 +88,9 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
 
       if (fieldDescriptor.isFinal) {
         // Skip final fields
-      } else if (constructor.parameters.where((p) => p.name == fieldDescriptor.name).isNotEmpty) {
+      } else if (constructor.parameters
+          .where((p) => p.name == fieldDescriptor.name)
+          .isNotEmpty) {
         // Skip fields that are already set in the constructor
       } else {
         var fromMapMap = fieldCodeGenerator.fromMapMap;
@@ -103,6 +102,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     }
 
     var ret = _renderMapper(
+      classElement,
       defaultsProviderClassName: defaultsProviderClassName,
       toMapFieldBuffer: toMapFieldBuffer,
       fromMapFieldBuffer: fromMapFieldBuffer,
@@ -116,7 +116,8 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     return ret;
   }
 
-  String _renderMapper({
+  String _renderMapper(
+    ClassElement classElement, {
     required String? defaultsProviderClassName,
     required StringBuffer toMapFieldBuffer,
     required StringBuffer fromMapFieldBuffer,
@@ -126,7 +127,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     required bool declareKh,
     required MapMappedReflected mapMappedReflected,
   }) {
-    final className = _className!;
+    final className = classElement.name;
 
     final defaultsProviderDeclaration =
         ((defaultsProviderClassName ?? '') == '')
@@ -139,10 +140,13 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
         ? ''
         : '''map['\\\$type'] = '$className';''';
 
-    final fromSubClassMap = _getFromSubClasses(mapMappedReflected, className);
+    final fromSubClassMap =
+        _getFromSubClasses(classElement, mapMappedReflected, className);
 
-    final fromMapMap = _classElement?.isAbstract ?? false ? '''
-          throw UnimplementedError();''' : '''
+    final fromMapMap = classElement.isAbstract
+        ? '''
+          throw UnimplementedError();'''
+        : '''
           $kh        
           $defaultsProviderDeclaration
           
@@ -155,7 +159,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
         : fromSubClassMap;
 
     final lFromMapMethod =
-        mapMappedReflected.knownSubClasses == null || _classElement!.isAbstract
+        mapMappedReflected.knownSubClasses == null || classElement.isAbstract
             ? ''
             : '''
         $className _fromMap(Map<String, dynamic> map) { 
@@ -252,20 +256,20 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     }
   }
 
-  String _renderEnumMapper() {
-    var className = _className;
+  String _renderEnumMapper(EnumElement enumElement) {
+    var name = enumElement.name;
     return '''
-    class \$${className}MapMapper
+    class \$${name}MapMapper
     {
-      const \$${className}MapMapper();
-      $className fromMap(dynamic e) => $className.values[e];
-      dynamic toMap($className e) => e.index;
+      const \$${name}MapMapper();
+      $name fromMap(dynamic e) => $name.values[e];
+      dynamic toMap($name e) => e.index;
     }
     ''';
   }
 
   static String? _getDefaultsProvider(
-    ClassElement? classElement,
+    InterfaceElement? classElement,
     MapMapped annotation,
     Iterable<FieldDescriptor> fieldDescriptors,
   ) {
@@ -278,7 +282,8 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     return '\$${classElement!.name}DefaultsProvider';
   }
 
-  String _getFromSubClasses(MapMappedReflected reflected, String className) {
+  String _getFromSubClasses(ClassElement classElement,
+      MapMappedReflected reflected, String className) {
     final kscs = getKnownSubclasses(reflected.knownSubClasses, MapMapped);
     if (kscs.isEmpty) return '';
 
@@ -294,7 +299,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
         switch (type) {
           case null:
           case \$type:
-            ${_classElement!.isAbstract ? 'throw UnimplementedError();' : 'return _fromMap(map);'} 
+            ${classElement.isAbstract ? 'throw UnimplementedError();' : 'return _fromMap(map);'} 
           $cases
           default:
             throw UnimplementedError();
@@ -321,7 +326,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
 }
 
 Iterable<FieldDescriptor> _getFieldDescriptors(
-    ClassElement classElement, MapMapped annotation) {
+    InterfaceElement classElement, MapMapped annotation) {
   final fieldSet = classElement.getSortedFieldSet();
   final fieldDescriptors = fieldSet
       .map((fieldElement) => FieldDescriptor.fromFieldElement(
