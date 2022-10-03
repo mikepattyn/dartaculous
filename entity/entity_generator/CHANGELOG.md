@@ -1,3 +1,7 @@
+## 2.1.11-dev.0
+
+ - **FIX**: Fixed upgrade to Analysis 5.1.0.
+
 ## 2.1.10
 
  - Update a dependency to the latest release.

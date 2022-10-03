@@ -1,3 +1,7 @@
+## 2.6.1-dev.0
+
+ - **FIX**: Fixed upgrade to Analysis 5.1.0.
+
 ## 2.6.0
 
  - **FEAT**: Updated dependencies.
