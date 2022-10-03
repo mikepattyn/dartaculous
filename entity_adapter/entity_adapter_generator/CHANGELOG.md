@@ -1,3 +1,7 @@
+## 3.3.3-dev.1
+
+ - Update a dependency to the latest release.
+
 ## 3.3.3-dev.0
 
  - **FIX**: Fixed upgrade to Analysis 5.1.0.

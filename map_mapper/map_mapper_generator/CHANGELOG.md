@@ -1,3 +1,7 @@
+## 3.6.2-dev.1
+
+ - **FIX**: Fixed map_mapper_generator enum generation.
+
 ## 3.6.2-dev.0
 
  - Update a dependency to the latest release.
