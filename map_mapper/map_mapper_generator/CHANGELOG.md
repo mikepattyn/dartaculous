@@ -1,3 +1,7 @@
+## 3.6.2
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 3.6.2-dev.1
 
  - **FIX**: Fixed map_mapper_generator enum generation.
