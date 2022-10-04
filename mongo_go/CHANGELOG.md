@@ -1,3 +1,7 @@
+## 4.2.0-dev.1
+
+ - **FEAT**: Added direct parameter to Connection.connectWithString.
+
 ## 4.2.0-dev.0
 
  - **FEAT**: Add support for direct connection.
