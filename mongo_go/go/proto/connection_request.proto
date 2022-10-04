@@ -1,7 +1,11 @@
 syntax = "proto3";
 
+import "google/protobuf/wrappers.proto";
+
+
 option go_package = "./mongo_stubs";
 
 message ConnectionRequest {
     string connectionString = 1; 
+    google.protobuf.BoolValue direct = 2;
 }

@@ -9,19 +9,26 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'google/protobuf/wrappers.pb.dart' as $9;
+
 class ConnectionRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ConnectionRequest', createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'connectionString', protoName: 'connectionString')
+    ..aOM<$9.BoolValue>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'direct', subBuilder: $9.BoolValue.create)
     ..hasRequiredFields = false
   ;
 
   ConnectionRequest._() : super();
   factory ConnectionRequest({
     $core.String? connectionString,
+    $9.BoolValue? direct,
   }) {
     final _result = create();
     if (connectionString != null) {
       _result.connectionString = connectionString;
+    }
+    if (direct != null) {
+      _result.direct = direct;
     }
     return _result;
   }
@@ -54,5 +61,16 @@ class ConnectionRequest extends $pb.GeneratedMessage {
   $core.bool hasConnectionString() => $_has(0);
   @$pb.TagNumber(1)
   void clearConnectionString() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $9.BoolValue get direct => $_getN(1);
+  @$pb.TagNumber(2)
+  set direct($9.BoolValue v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDirect() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDirect() => clearField(2);
+  @$pb.TagNumber(2)
+  $9.BoolValue ensureDirect() => $_ensure(1);
 }
 

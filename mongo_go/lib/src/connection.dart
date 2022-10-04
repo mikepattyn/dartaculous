@@ -10,8 +10,10 @@ import 'proto.dart';
 
 class ConnectionSettings {
   final String connectionString;
+  final bool? direct;
   ConnectionSettings({
     required this.connectionString,
+    this.direct,
   });
 }
 
@@ -45,9 +47,13 @@ class Connection {
     return connection;
   }
 
-  static Future<Connection> connectWithString(String connectionString) async {
+  static Future<Connection> connectWithString(String connectionString,
+      {bool? direct}) async {
     p.initialize();
-    final settings = ConnectionSettings(connectionString: connectionString);
+    final settings = ConnectionSettings(
+      connectionString: connectionString,
+      direct: direct,
+    );
     return await connect(settings);
   }
 

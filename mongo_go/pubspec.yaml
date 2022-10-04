@@ -2,7 +2,7 @@ name: mongo_go
 description: MongoDB driver based on the official GO SDK via Dart FFI.
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/mongo_go
 repository: https://gitlab.com/squarealfa/dart_framework
-version: 4.1.0
+version: 4.2.0
 
 
 environment:

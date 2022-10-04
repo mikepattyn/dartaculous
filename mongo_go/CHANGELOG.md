@@ -1,3 +1,15 @@
+## 4.2.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
+## 4.2.0-dev.1
+
+ - **FEAT**: Added direct parameter to Connection.connectWithString.
+
+## 4.2.0-dev.0
+
+ - **FEAT**: Add support for direct connection.
+
 ## 4.1.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
