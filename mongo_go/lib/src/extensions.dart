@@ -21,7 +21,9 @@ extension ObjectIdExtensions on ObjectId {
 
 extension ConnectionSettingsExtension on ConnectionSettings {
   p.ConnectionRequest toConnectionRequest() {
-    return p.ConnectionRequest(connectionString: connectionString);
+    return p.ConnectionRequest(
+        connectionString: connectionString,
+        direct: direct == null ? null : BoolValue(value: direct));
   }
 }
 

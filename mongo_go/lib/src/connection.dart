@@ -10,8 +10,10 @@ import 'proto.dart';
 
 class ConnectionSettings {
   final String connectionString;
+  final bool? direct;
   ConnectionSettings({
     required this.connectionString,
+    this.direct,
   });
 }
 

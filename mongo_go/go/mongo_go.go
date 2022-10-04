@@ -43,7 +43,11 @@ func connectMongo(port int64, buffer *C.uchar, size int) {
 
 	go func() {
 		ctx := context.Background()
-		oid, err := cs.Connect(ctx, options.Client().ApplyURI(request.ConnectionString))
+		opts := options.Client().ApplyURI(request.ConnectionString)
+		if request.Direct != nil {
+			opts.SetDirect(request.Direct.Value)
+		}
+		oid, err := cs.Connect(ctx, opts)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 		}
