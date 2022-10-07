@@ -8,18 +8,33 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use insertManyRequestDescriptor instead')
 const InsertManyRequest$json = const {
   '1': 'InsertManyRequest',
   '2': const [
-    const {'1': 'collectionOid', '3': 1, '4': 1, '5': 12, '10': 'collectionOid'},
-    const {'1': 'context', '3': 2, '4': 1, '5': 11, '6': '.RequestContext', '10': 'context'},
+    const {
+      '1': 'collectionOid',
+      '3': 1,
+      '4': 1,
+      '5': 12,
+      '10': 'collectionOid'
+    },
+    const {
+      '1': 'context',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.RequestContext',
+      '10': 'context'
+    },
     const {'1': 'documents', '3': 3, '4': 3, '5': 12, '10': 'documents'},
   ],
 };
 
 /// Descriptor for `InsertManyRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List insertManyRequestDescriptor = $convert.base64Decode('ChFJbnNlcnRNYW55UmVxdWVzdBIkCg1jb2xsZWN0aW9uT2lkGAEgASgMUg1jb2xsZWN0aW9uT2lkEikKB2NvbnRleHQYAiABKAsyDy5SZXF1ZXN0Q29udGV4dFIHY29udGV4dBIcCglkb2N1bWVudHMYAyADKAxSCWRvY3VtZW50cw==');
+final $typed_data.Uint8List insertManyRequestDescriptor = $convert.base64Decode(
+    'ChFJbnNlcnRNYW55UmVxdWVzdBIkCg1jb2xsZWN0aW9uT2lkGAEgASgMUg1jb2xsZWN0aW9uT2lkEikKB2NvbnRleHQYAiABKAsyDy5SZXF1ZXN0Q29udGV4dFIHY29udGV4dBIcCglkb2N1bWVudHMYAyADKAxSCWRvY3VtZW50cw==');
 @$core.Deprecated('Use insertManyResultDescriptor instead')
 const InsertManyResult$json = const {
   '1': 'InsertManyResult',
@@ -29,4 +44,5 @@ const InsertManyResult$json = const {
 };
 
 /// Descriptor for `InsertManyResult`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List insertManyResultDescriptor = $convert.base64Decode('ChBJbnNlcnRNYW55UmVzdWx0EiAKC2luc2VydGVkSWRzGAEgAygMUgtpbnNlcnRlZElkcw==');
+final $typed_data.Uint8List insertManyResultDescriptor = $convert.base64Decode(
+    'ChBJbnNlcnRNYW55UmVzdWx0EiAKC2luc2VydGVkSWRzGAEgAygMUgtpbnNlcnRlZElkcw==');

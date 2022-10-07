@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use listDatabaseNamesResponseDescriptor instead')
 const ListDatabaseNamesResponse$json = const {
   '1': 'ListDatabaseNamesResponse',
@@ -17,4 +18,6 @@ const ListDatabaseNamesResponse$json = const {
 };
 
 /// Descriptor for `ListDatabaseNamesResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List listDatabaseNamesResponseDescriptor = $convert.base64Decode('ChlMaXN0RGF0YWJhc2VOYW1lc1Jlc3BvbnNlEhQKBW5hbWVzGAEgAygJUgVuYW1lcw==');
+final $typed_data.Uint8List listDatabaseNamesResponseDescriptor =
+    $convert.base64Decode(
+        'ChlMaXN0RGF0YWJhc2VOYW1lc1Jlc3BvbnNlEhQKBW5hbWVzGAEgAygJUgVuYW1lcw==');

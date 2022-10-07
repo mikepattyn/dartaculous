@@ -13,14 +13,43 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'request_context.pb.dart' as $24;
 
 class UpdateRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateRequest', createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'collectionOid', $pb.PbFieldType.OY, protoName: 'collectionOid')
-    ..aOM<$24.RequestContext>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'context', subBuilder: $24.RequestContext.create)
-    ..a<$core.List<$core.int>>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'filter', $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'update', $pb.PbFieldType.OY)
-    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isUpsert', protoName: 'isUpsert')
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'UpdateRequest',
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'collectionOid',
+        $pb.PbFieldType.OY,
+        protoName: 'collectionOid')
+    ..aOM<$24.RequestContext>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'context',
+        subBuilder: $24.RequestContext.create)
+    ..a<$core.List<$core.int>>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'filter',
+        $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'update',
+        $pb.PbFieldType.OY)
+    ..aOB(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'isUpsert',
+        protoName: 'isUpsert')
+    ..hasRequiredFields = false;
 
   UpdateRequest._() : super();
   factory UpdateRequest({
@@ -48,31 +77,40 @@ class UpdateRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory UpdateRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UpdateRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory UpdateRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory UpdateRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   UpdateRequest clone() => UpdateRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UpdateRequest copyWith(void Function(UpdateRequest) updates) => super.copyWith((message) => updates(message as UpdateRequest)) as UpdateRequest; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  UpdateRequest copyWith(void Function(UpdateRequest) updates) =>
+      super.copyWith((message) => updates(message as UpdateRequest))
+          as UpdateRequest; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static UpdateRequest create() => UpdateRequest._();
   UpdateRequest createEmptyInstance() => create();
-  static $pb.PbList<UpdateRequest> createRepeated() => $pb.PbList<UpdateRequest>();
+  static $pb.PbList<UpdateRequest> createRepeated() =>
+      $pb.PbList<UpdateRequest>();
   @$core.pragma('dart2js:noInline')
-  static UpdateRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateRequest>(create);
+  static UpdateRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateRequest>(create);
   static UpdateRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<$core.int> get collectionOid => $_getN(0);
   @$pb.TagNumber(1)
-  set collectionOid($core.List<$core.int> v) { $_setBytes(0, v); }
+  set collectionOid($core.List<$core.int> v) {
+    $_setBytes(0, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasCollectionOid() => $_has(0);
   @$pb.TagNumber(1)
@@ -81,7 +119,10 @@ class UpdateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $24.RequestContext get context => $_getN(1);
   @$pb.TagNumber(2)
-  set context($24.RequestContext v) { setField(2, v); }
+  set context($24.RequestContext v) {
+    setField(2, v);
+  }
+
   @$pb.TagNumber(2)
   $core.bool hasContext() => $_has(1);
   @$pb.TagNumber(2)
@@ -92,7 +133,10 @@ class UpdateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.List<$core.int> get filter => $_getN(2);
   @$pb.TagNumber(3)
-  set filter($core.List<$core.int> v) { $_setBytes(2, v); }
+  set filter($core.List<$core.int> v) {
+    $_setBytes(2, v);
+  }
+
   @$pb.TagNumber(3)
   $core.bool hasFilter() => $_has(2);
   @$pb.TagNumber(3)
@@ -101,7 +145,10 @@ class UpdateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.List<$core.int> get update => $_getN(3);
   @$pb.TagNumber(4)
-  set update($core.List<$core.int> v) { $_setBytes(3, v); }
+  set update($core.List<$core.int> v) {
+    $_setBytes(3, v);
+  }
+
   @$pb.TagNumber(4)
   $core.bool hasUpdate() => $_has(3);
   @$pb.TagNumber(4)
@@ -110,7 +157,10 @@ class UpdateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool get isUpsert => $_getBF(4);
   @$pb.TagNumber(5)
-  set isUpsert($core.bool v) { $_setBool(4, v); }
+  set isUpsert($core.bool v) {
+    $_setBool(4, v);
+  }
+
   @$pb.TagNumber(5)
   $core.bool hasIsUpsert() => $_has(4);
   @$pb.TagNumber(5)
@@ -118,13 +168,33 @@ class UpdateRequest extends $pb.GeneratedMessage {
 }
 
 class UpdateResult extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateResult', createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'matchedCount')
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'modifiedCount')
-    ..aInt64(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'upsertedCount')
-    ..a<$core.List<$core.int>>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'upsertedId', $pb.PbFieldType.OY)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'UpdateResult',
+      createEmptyInstance: create)
+    ..aInt64(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'matchedCount')
+    ..aInt64(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'modifiedCount')
+    ..aInt64(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'upsertedCount')
+    ..a<$core.List<$core.int>>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'upsertedId',
+        $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
 
   UpdateResult._() : super();
   factory UpdateResult({
@@ -148,31 +218,40 @@ class UpdateResult extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory UpdateResult.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UpdateResult.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory UpdateResult.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory UpdateResult.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   UpdateResult clone() => UpdateResult()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UpdateResult copyWith(void Function(UpdateResult) updates) => super.copyWith((message) => updates(message as UpdateResult)) as UpdateResult; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  UpdateResult copyWith(void Function(UpdateResult) updates) =>
+      super.copyWith((message) => updates(message as UpdateResult))
+          as UpdateResult; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static UpdateResult create() => UpdateResult._();
   UpdateResult createEmptyInstance() => create();
-  static $pb.PbList<UpdateResult> createRepeated() => $pb.PbList<UpdateResult>();
+  static $pb.PbList<UpdateResult> createRepeated() =>
+      $pb.PbList<UpdateResult>();
   @$core.pragma('dart2js:noInline')
-  static UpdateResult getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateResult>(create);
+  static UpdateResult getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateResult>(create);
   static UpdateResult? _defaultInstance;
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get matchedCount => $_getI64(0);
   @$pb.TagNumber(1)
-  set matchedCount($fixnum.Int64 v) { $_setInt64(0, v); }
+  set matchedCount($fixnum.Int64 v) {
+    $_setInt64(0, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasMatchedCount() => $_has(0);
   @$pb.TagNumber(1)
@@ -181,7 +260,10 @@ class UpdateResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $fixnum.Int64 get modifiedCount => $_getI64(1);
   @$pb.TagNumber(2)
-  set modifiedCount($fixnum.Int64 v) { $_setInt64(1, v); }
+  set modifiedCount($fixnum.Int64 v) {
+    $_setInt64(1, v);
+  }
+
   @$pb.TagNumber(2)
   $core.bool hasModifiedCount() => $_has(1);
   @$pb.TagNumber(2)
@@ -190,7 +272,10 @@ class UpdateResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $fixnum.Int64 get upsertedCount => $_getI64(2);
   @$pb.TagNumber(3)
-  set upsertedCount($fixnum.Int64 v) { $_setInt64(2, v); }
+  set upsertedCount($fixnum.Int64 v) {
+    $_setInt64(2, v);
+  }
+
   @$pb.TagNumber(3)
   $core.bool hasUpsertedCount() => $_has(2);
   @$pb.TagNumber(3)
@@ -199,10 +284,12 @@ class UpdateResult extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.List<$core.int> get upsertedId => $_getN(3);
   @$pb.TagNumber(4)
-  set upsertedId($core.List<$core.int> v) { $_setBytes(3, v); }
+  set upsertedId($core.List<$core.int> v) {
+    $_setBytes(3, v);
+  }
+
   @$pb.TagNumber(4)
   $core.bool hasUpsertedId() => $_has(3);
   @$pb.TagNumber(4)
   void clearUpsertedId() => clearField(4);
 }
-

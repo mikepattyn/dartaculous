@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use foreignEnumDescriptor instead')
 const ForeignEnum$json = const {
   '1': 'ForeignEnum',
@@ -19,7 +20,8 @@ const ForeignEnum$json = const {
 };
 
 /// Descriptor for `ForeignEnum`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List foreignEnumDescriptor = $convert.base64Decode('CgtGb3JlaWduRW51bRIPCgtGT1JFSUdOX0ZPTxAEEg8KC0ZPUkVJR05fQkFSEAUSDwoLRk9SRUlHTl9CQVoQBg==');
+final $typed_data.Uint8List foreignEnumDescriptor = $convert.base64Decode(
+    'CgtGb3JlaWduRW51bRIPCgtGT1JFSUdOX0ZPTxAEEg8KC0ZPUkVJR05fQkFSEAUSDwoLRk9SRUlHTl9CQVoQBg==');
 @$core.Deprecated('Use testEnumWithDupValueDescriptor instead')
 const TestEnumWithDupValue$json = const {
   '1': 'TestEnumWithDupValue',
@@ -34,7 +36,8 @@ const TestEnumWithDupValue$json = const {
 };
 
 /// Descriptor for `TestEnumWithDupValue`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List testEnumWithDupValueDescriptor = $convert.base64Decode('ChRUZXN0RW51bVdpdGhEdXBWYWx1ZRIICgRGT08xEAESCAoEQkFSMRACEgcKA0JBWhADEggKBEZPTzIQARIICgRCQVIyEAIaAhAB');
+final $typed_data.Uint8List testEnumWithDupValueDescriptor = $convert.base64Decode(
+    'ChRUZXN0RW51bVdpdGhEdXBWYWx1ZRIICgRGT08xEAESCAoEQkFSMRACEgcKA0JBWhADEggKBEZPTzIQARIICgRCQVIyEAIaAhAB');
 @$core.Deprecated('Use testSparseEnumDescriptor instead')
 const TestSparseEnum$json = const {
   '1': 'TestSparseEnum',
@@ -50,7 +53,8 @@ const TestSparseEnum$json = const {
 };
 
 /// Descriptor for `TestSparseEnum`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List testSparseEnumDescriptor = $convert.base64Decode('Cg5UZXN0U3BhcnNlRW51bRIMCghTUEFSU0VfQRB7Eg4KCFNQQVJTRV9CEKbnAxIPCghTUEFSU0VfQxCysYAGEhUKCFNQQVJTRV9EEPH//////////wESFQoIU1BBUlNFX0UQtN78////////ARIMCghTUEFSU0VfRhAAEgwKCFNQQVJTRV9HEAI=');
+final $typed_data.Uint8List testSparseEnumDescriptor = $convert.base64Decode(
+    'Cg5UZXN0U3BhcnNlRW51bRIMCghTUEFSU0VfQRB7Eg4KCFNQQVJTRV9CEKbnAxIPCghTUEFSU0VfQxCysYAGEhUKCFNQQVJTRV9EEPH//////////wESFQoIU1BBUlNFX0UQtN78////////ARIMCghTUEFSU0VfRhAAEgwKCFNQQVJTRV9HEAI=');
 @$core.Deprecated('Use veryLargeEnumDescriptor instead')
 const VeryLargeEnum$json = const {
   '1': 'VeryLargeEnum',
@@ -160,33 +164,167 @@ const VeryLargeEnum$json = const {
 };
 
 /// Descriptor for `VeryLargeEnum`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List veryLargeEnumDescriptor = $convert.base64Decode('Cg1WZXJ5TGFyZ2VFbnVtEhYKEkVOVU1fTEFCRUxfREVGQVVMVBAAEhAKDEVOVU1fTEFCRUxfMRABEhAKDEVOVU1fTEFCRUxfMhACEhAKDEVOVU1fTEFCRUxfMxADEhAKDEVOVU1fTEFCRUxfNBAEEhAKDEVOVU1fTEFCRUxfNRAFEhAKDEVOVU1fTEFCRUxfNhAGEhAKDEVOVU1fTEFCRUxfNxAHEhAKDEVOVU1fTEFCRUxfOBAIEhAKDEVOVU1fTEFCRUxfORAJEhEKDUVOVU1fTEFCRUxfMTAQChIRCg1FTlVNX0xBQkVMXzExEAsSEQoNRU5VTV9MQUJFTF8xMhAMEhEKDUVOVU1fTEFCRUxfMTMQDRIRCg1FTlVNX0xBQkVMXzE0EA4SEQoNRU5VTV9MQUJFTF8xNRAPEhEKDUVOVU1fTEFCRUxfMTYQEBIRCg1FTlVNX0xBQkVMXzE3EBESEQoNRU5VTV9MQUJFTF8xOBASEhEKDUVOVU1fTEFCRUxfMTkQExIRCg1FTlVNX0xBQkVMXzIwEBQSEQoNRU5VTV9MQUJFTF8yMRAVEhEKDUVOVU1fTEFCRUxfMjIQFhIRCg1FTlVNX0xBQkVMXzIzEBcSEQoNRU5VTV9MQUJFTF8yNBAYEhEKDUVOVU1fTEFCRUxfMjUQGRIRCg1FTlVNX0xBQkVMXzI2EBoSEQoNRU5VTV9MQUJFTF8yNxAbEhEKDUVOVU1fTEFCRUxfMjgQHBIRCg1FTlVNX0xBQkVMXzI5EB0SEQoNRU5VTV9MQUJFTF8zMBAeEhEKDUVOVU1fTEFCRUxfMzEQHxIRCg1FTlVNX0xBQkVMXzMyECASEQoNRU5VTV9MQUJFTF8zMxAhEhEKDUVOVU1fTEFCRUxfMzQQIhIRCg1FTlVNX0xBQkVMXzM1ECMSEQoNRU5VTV9MQUJFTF8zNhAkEhEKDUVOVU1fTEFCRUxfMzcQJRIRCg1FTlVNX0xBQkVMXzM4ECYSEQoNRU5VTV9MQUJFTF8zORAnEhEKDUVOVU1fTEFCRUxfNDAQKBIRCg1FTlVNX0xBQkVMXzQxECkSEQoNRU5VTV9MQUJFTF80MhAqEhEKDUVOVU1fTEFCRUxfNDMQKxIRCg1FTlVNX0xBQkVMXzQ0ECwSEQoNRU5VTV9MQUJFTF80NRAtEhEKDUVOVU1fTEFCRUxfNDYQLhIRCg1FTlVNX0xBQkVMXzQ3EC8SEQoNRU5VTV9MQUJFTF80OBAwEhEKDUVOVU1fTEFCRUxfNDkQMRIRCg1FTlVNX0xBQkVMXzUwEDISEQoNRU5VTV9MQUJFTF81MRAzEhEKDUVOVU1fTEFCRUxfNTIQNBIRCg1FTlVNX0xBQkVMXzUzEDUSEQoNRU5VTV9MQUJFTF81NBA2EhEKDUVOVU1fTEFCRUxfNTUQNxIRCg1FTlVNX0xBQkVMXzU2EDgSEQoNRU5VTV9MQUJFTF81NxA5EhEKDUVOVU1fTEFCRUxfNTgQOhIRCg1FTlVNX0xBQkVMXzU5EDsSEQoNRU5VTV9MQUJFTF82MBA8EhEKDUVOVU1fTEFCRUxfNjEQPRIRCg1FTlVNX0xBQkVMXzYyED4SEQoNRU5VTV9MQUJFTF82MxA/EhEKDUVOVU1fTEFCRUxfNjQQQBIRCg1FTlVNX0xBQkVMXzY1EEESEQoNRU5VTV9MQUJFTF82NhBCEhEKDUVOVU1fTEFCRUxfNjcQQxIRCg1FTlVNX0xBQkVMXzY4EEQSEQoNRU5VTV9MQUJFTF82ORBFEhEKDUVOVU1fTEFCRUxfNzAQRhIRCg1FTlVNX0xBQkVMXzcxEEcSEQoNRU5VTV9MQUJFTF83MhBIEhEKDUVOVU1fTEFCRUxfNzMQSRIRCg1FTlVNX0xBQkVMXzc0EEoSEQoNRU5VTV9MQUJFTF83NRBLEhEKDUVOVU1fTEFCRUxfNzYQTBIRCg1FTlVNX0xBQkVMXzc3EE0SEQoNRU5VTV9MQUJFTF83OBBOEhEKDUVOVU1fTEFCRUxfNzkQTxIRCg1FTlVNX0xBQkVMXzgwEFASEQoNRU5VTV9MQUJFTF84MRBREhEKDUVOVU1fTEFCRUxfODIQUhIRCg1FTlVNX0xBQkVMXzgzEFMSEQoNRU5VTV9MQUJFTF84NBBUEhEKDUVOVU1fTEFCRUxfODUQVRIRCg1FTlVNX0xBQkVMXzg2EFYSEQoNRU5VTV9MQUJFTF84NxBXEhEKDUVOVU1fTEFCRUxfODgQWBIRCg1FTlVNX0xBQkVMXzg5EFkSEQoNRU5VTV9MQUJFTF85MBBaEhEKDUVOVU1fTEFCRUxfOTEQWxIRCg1FTlVNX0xBQkVMXzkyEFwSEQoNRU5VTV9MQUJFTF85MxBdEhEKDUVOVU1fTEFCRUxfOTQQXhIRCg1FTlVNX0xBQkVMXzk1EF8SEQoNRU5VTV9MQUJFTF85NhBgEhEKDUVOVU1fTEFCRUxfOTcQYRIRCg1FTlVNX0xBQkVMXzk4EGISEQoNRU5VTV9MQUJFTF85ORBjEhIKDkVOVU1fTEFCRUxfMTAwEGQ=');
+final $typed_data.Uint8List veryLargeEnumDescriptor = $convert.base64Decode(
+    'Cg1WZXJ5TGFyZ2VFbnVtEhYKEkVOVU1fTEFCRUxfREVGQVVMVBAAEhAKDEVOVU1fTEFCRUxfMRABEhAKDEVOVU1fTEFCRUxfMhACEhAKDEVOVU1fTEFCRUxfMxADEhAKDEVOVU1fTEFCRUxfNBAEEhAKDEVOVU1fTEFCRUxfNRAFEhAKDEVOVU1fTEFCRUxfNhAGEhAKDEVOVU1fTEFCRUxfNxAHEhAKDEVOVU1fTEFCRUxfOBAIEhAKDEVOVU1fTEFCRUxfORAJEhEKDUVOVU1fTEFCRUxfMTAQChIRCg1FTlVNX0xBQkVMXzExEAsSEQoNRU5VTV9MQUJFTF8xMhAMEhEKDUVOVU1fTEFCRUxfMTMQDRIRCg1FTlVNX0xBQkVMXzE0EA4SEQoNRU5VTV9MQUJFTF8xNRAPEhEKDUVOVU1fTEFCRUxfMTYQEBIRCg1FTlVNX0xBQkVMXzE3EBESEQoNRU5VTV9MQUJFTF8xOBASEhEKDUVOVU1fTEFCRUxfMTkQExIRCg1FTlVNX0xBQkVMXzIwEBQSEQoNRU5VTV9MQUJFTF8yMRAVEhEKDUVOVU1fTEFCRUxfMjIQFhIRCg1FTlVNX0xBQkVMXzIzEBcSEQoNRU5VTV9MQUJFTF8yNBAYEhEKDUVOVU1fTEFCRUxfMjUQGRIRCg1FTlVNX0xBQkVMXzI2EBoSEQoNRU5VTV9MQUJFTF8yNxAbEhEKDUVOVU1fTEFCRUxfMjgQHBIRCg1FTlVNX0xBQkVMXzI5EB0SEQoNRU5VTV9MQUJFTF8zMBAeEhEKDUVOVU1fTEFCRUxfMzEQHxIRCg1FTlVNX0xBQkVMXzMyECASEQoNRU5VTV9MQUJFTF8zMxAhEhEKDUVOVU1fTEFCRUxfMzQQIhIRCg1FTlVNX0xBQkVMXzM1ECMSEQoNRU5VTV9MQUJFTF8zNhAkEhEKDUVOVU1fTEFCRUxfMzcQJRIRCg1FTlVNX0xBQkVMXzM4ECYSEQoNRU5VTV9MQUJFTF8zORAnEhEKDUVOVU1fTEFCRUxfNDAQKBIRCg1FTlVNX0xBQkVMXzQxECkSEQoNRU5VTV9MQUJFTF80MhAqEhEKDUVOVU1fTEFCRUxfNDMQKxIRCg1FTlVNX0xBQkVMXzQ0ECwSEQoNRU5VTV9MQUJFTF80NRAtEhEKDUVOVU1fTEFCRUxfNDYQLhIRCg1FTlVNX0xBQkVMXzQ3EC8SEQoNRU5VTV9MQUJFTF80OBAwEhEKDUVOVU1fTEFCRUxfNDkQMRIRCg1FTlVNX0xBQkVMXzUwEDISEQoNRU5VTV9MQUJFTF81MRAzEhEKDUVOVU1fTEFCRUxfNTIQNBIRCg1FTlVNX0xBQkVMXzUzEDUSEQoNRU5VTV9MQUJFTF81NBA2EhEKDUVOVU1fTEFCRUxfNTUQNxIRCg1FTlVNX0xBQkVMXzU2EDgSEQoNRU5VTV9MQUJFTF81NxA5EhEKDUVOVU1fTEFCRUxfNTgQOhIRCg1FTlVNX0xBQkVMXzU5EDsSEQoNRU5VTV9MQUJFTF82MBA8EhEKDUVOVU1fTEFCRUxfNjEQPRIRCg1FTlVNX0xBQkVMXzYyED4SEQoNRU5VTV9MQUJFTF82MxA/EhEKDUVOVU1fTEFCRUxfNjQQQBIRCg1FTlVNX0xBQkVMXzY1EEESEQoNRU5VTV9MQUJFTF82NhBCEhEKDUVOVU1fTEFCRUxfNjcQQxIRCg1FTlVNX0xBQkVMXzY4EEQSEQoNRU5VTV9MQUJFTF82ORBFEhEKDUVOVU1fTEFCRUxfNzAQRhIRCg1FTlVNX0xBQkVMXzcxEEcSEQoNRU5VTV9MQUJFTF83MhBIEhEKDUVOVU1fTEFCRUxfNzMQSRIRCg1FTlVNX0xBQkVMXzc0EEoSEQoNRU5VTV9MQUJFTF83NRBLEhEKDUVOVU1fTEFCRUxfNzYQTBIRCg1FTlVNX0xBQkVMXzc3EE0SEQoNRU5VTV9MQUJFTF83OBBOEhEKDUVOVU1fTEFCRUxfNzkQTxIRCg1FTlVNX0xBQkVMXzgwEFASEQoNRU5VTV9MQUJFTF84MRBREhEKDUVOVU1fTEFCRUxfODIQUhIRCg1FTlVNX0xBQkVMXzgzEFMSEQoNRU5VTV9MQUJFTF84NBBUEhEKDUVOVU1fTEFCRUxfODUQVRIRCg1FTlVNX0xBQkVMXzg2EFYSEQoNRU5VTV9MQUJFTF84NxBXEhEKDUVOVU1fTEFCRUxfODgQWBIRCg1FTlVNX0xBQkVMXzg5EFkSEQoNRU5VTV9MQUJFTF85MBBaEhEKDUVOVU1fTEFCRUxfOTEQWxIRCg1FTlVNX0xBQkVMXzkyEFwSEQoNRU5VTV9MQUJFTF85MxBdEhEKDUVOVU1fTEFCRUxfOTQQXhIRCg1FTlVNX0xBQkVMXzk1EF8SEQoNRU5VTV9MQUJFTF85NhBgEhEKDUVOVU1fTEFCRUxfOTcQYRIRCg1FTlVNX0xBQkVMXzk4EGISEQoNRU5VTV9MQUJFTF85ORBjEhIKDkVOVU1fTEFCRUxfMTAwEGQ=');
 @$core.Deprecated('Use testAllTypesDescriptor instead')
 const TestAllTypes$json = const {
   '1': 'TestAllTypes',
   '2': const [
-    const {'1': 'optional_int32', '3': 1, '4': 1, '5': 5, '10': 'optionalInt32'},
-    const {'1': 'optional_int64', '3': 2, '4': 1, '5': 3, '10': 'optionalInt64'},
-    const {'1': 'optional_uint32', '3': 3, '4': 1, '5': 13, '10': 'optionalUint32'},
-    const {'1': 'optional_uint64', '3': 4, '4': 1, '5': 4, '10': 'optionalUint64'},
-    const {'1': 'optional_sint32', '3': 5, '4': 1, '5': 17, '10': 'optionalSint32'},
-    const {'1': 'optional_sint64', '3': 6, '4': 1, '5': 18, '10': 'optionalSint64'},
-    const {'1': 'optional_fixed32', '3': 7, '4': 1, '5': 7, '10': 'optionalFixed32'},
-    const {'1': 'optional_fixed64', '3': 8, '4': 1, '5': 6, '10': 'optionalFixed64'},
-    const {'1': 'optional_sfixed32', '3': 9, '4': 1, '5': 15, '10': 'optionalSfixed32'},
-    const {'1': 'optional_sfixed64', '3': 10, '4': 1, '5': 16, '10': 'optionalSfixed64'},
-    const {'1': 'optional_float', '3': 11, '4': 1, '5': 2, '10': 'optionalFloat'},
-    const {'1': 'optional_double', '3': 12, '4': 1, '5': 1, '10': 'optionalDouble'},
+    const {
+      '1': 'optional_int32',
+      '3': 1,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt32'
+    },
+    const {
+      '1': 'optional_int64',
+      '3': 2,
+      '4': 1,
+      '5': 3,
+      '10': 'optionalInt64'
+    },
+    const {
+      '1': 'optional_uint32',
+      '3': 3,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint32'
+    },
+    const {
+      '1': 'optional_uint64',
+      '3': 4,
+      '4': 1,
+      '5': 4,
+      '10': 'optionalUint64'
+    },
+    const {
+      '1': 'optional_sint32',
+      '3': 5,
+      '4': 1,
+      '5': 17,
+      '10': 'optionalSint32'
+    },
+    const {
+      '1': 'optional_sint64',
+      '3': 6,
+      '4': 1,
+      '5': 18,
+      '10': 'optionalSint64'
+    },
+    const {
+      '1': 'optional_fixed32',
+      '3': 7,
+      '4': 1,
+      '5': 7,
+      '10': 'optionalFixed32'
+    },
+    const {
+      '1': 'optional_fixed64',
+      '3': 8,
+      '4': 1,
+      '5': 6,
+      '10': 'optionalFixed64'
+    },
+    const {
+      '1': 'optional_sfixed32',
+      '3': 9,
+      '4': 1,
+      '5': 15,
+      '10': 'optionalSfixed32'
+    },
+    const {
+      '1': 'optional_sfixed64',
+      '3': 10,
+      '4': 1,
+      '5': 16,
+      '10': 'optionalSfixed64'
+    },
+    const {
+      '1': 'optional_float',
+      '3': 11,
+      '4': 1,
+      '5': 2,
+      '10': 'optionalFloat'
+    },
+    const {
+      '1': 'optional_double',
+      '3': 12,
+      '4': 1,
+      '5': 1,
+      '10': 'optionalDouble'
+    },
     const {'1': 'optional_bool', '3': 13, '4': 1, '5': 8, '10': 'optionalBool'},
-    const {'1': 'optional_string', '3': 14, '4': 1, '5': 9, '10': 'optionalString'},
-    const {'1': 'optional_bytes', '3': 15, '4': 1, '5': 12, '10': 'optionalBytes'},
-    const {'1': 'optionalgroup', '3': 16, '4': 1, '5': 10, '6': '.protobuf_unittest.TestAllTypes.OptionalGroup', '10': 'optionalgroup'},
-    const {'1': 'optional_nested_message', '3': 18, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes.NestedMessage', '10': 'optionalNestedMessage'},
-    const {'1': 'optional_foreign_message', '3': 19, '4': 1, '5': 11, '6': '.protobuf_unittest.ForeignMessage', '10': 'optionalForeignMessage'},
-    const {'1': 'optional_import_message', '3': 20, '4': 1, '5': 11, '6': '.protobuf_unittest_import.ImportMessage', '10': 'optionalImportMessage'},
-    const {'1': 'optional_nested_enum', '3': 21, '4': 1, '5': 14, '6': '.protobuf_unittest.TestAllTypes.NestedEnum', '10': 'optionalNestedEnum'},
-    const {'1': 'optional_foreign_enum', '3': 22, '4': 1, '5': 14, '6': '.protobuf_unittest.ForeignEnum', '10': 'optionalForeignEnum'},
-    const {'1': 'optional_import_enum', '3': 23, '4': 1, '5': 14, '6': '.protobuf_unittest_import.ImportEnum', '10': 'optionalImportEnum'},
+    const {
+      '1': 'optional_string',
+      '3': 14,
+      '4': 1,
+      '5': 9,
+      '10': 'optionalString'
+    },
+    const {
+      '1': 'optional_bytes',
+      '3': 15,
+      '4': 1,
+      '5': 12,
+      '10': 'optionalBytes'
+    },
+    const {
+      '1': 'optionalgroup',
+      '3': 16,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestAllTypes.OptionalGroup',
+      '10': 'optionalgroup'
+    },
+    const {
+      '1': 'optional_nested_message',
+      '3': 18,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes.NestedMessage',
+      '10': 'optionalNestedMessage'
+    },
+    const {
+      '1': 'optional_foreign_message',
+      '3': 19,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.ForeignMessage',
+      '10': 'optionalForeignMessage'
+    },
+    const {
+      '1': 'optional_import_message',
+      '3': 20,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest_import.ImportMessage',
+      '10': 'optionalImportMessage'
+    },
+    const {
+      '1': 'optional_nested_enum',
+      '3': 21,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.TestAllTypes.NestedEnum',
+      '10': 'optionalNestedEnum'
+    },
+    const {
+      '1': 'optional_foreign_enum',
+      '3': 22,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.ForeignEnum',
+      '10': 'optionalForeignEnum'
+    },
+    const {
+      '1': 'optional_import_enum',
+      '3': 23,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest_import.ImportEnum',
+      '10': 'optionalImportEnum'
+    },
     const {
       '1': 'optional_string_piece',
       '3': 24,
@@ -203,7 +341,14 @@ const TestAllTypes$json = const {
       '8': const {'1': 1},
       '10': 'optionalCord',
     },
-    const {'1': 'optional_public_import_message', '3': 26, '4': 1, '5': 11, '6': '.protobuf_unittest_import.PublicImportMessage', '10': 'optionalPublicImportMessage'},
+    const {
+      '1': 'optional_public_import_message',
+      '3': 26,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest_import.PublicImportMessage',
+      '10': 'optionalPublicImportMessage'
+    },
     const {
       '1': 'optional_lazy_message',
       '3': 27,
@@ -213,29 +358,170 @@ const TestAllTypes$json = const {
       '8': const {'5': true},
       '10': 'optionalLazyMessage',
     },
-    const {'1': 'optional_unverified_lazy_message', '3': 28, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes.NestedMessage', '8': const {}, '10': 'optionalUnverifiedLazyMessage'},
-    const {'1': 'repeated_int32', '3': 31, '4': 3, '5': 5, '10': 'repeatedInt32'},
-    const {'1': 'repeated_int64', '3': 32, '4': 3, '5': 3, '10': 'repeatedInt64'},
-    const {'1': 'repeated_uint32', '3': 33, '4': 3, '5': 13, '10': 'repeatedUint32'},
-    const {'1': 'repeated_uint64', '3': 34, '4': 3, '5': 4, '10': 'repeatedUint64'},
-    const {'1': 'repeated_sint32', '3': 35, '4': 3, '5': 17, '10': 'repeatedSint32'},
-    const {'1': 'repeated_sint64', '3': 36, '4': 3, '5': 18, '10': 'repeatedSint64'},
-    const {'1': 'repeated_fixed32', '3': 37, '4': 3, '5': 7, '10': 'repeatedFixed32'},
-    const {'1': 'repeated_fixed64', '3': 38, '4': 3, '5': 6, '10': 'repeatedFixed64'},
-    const {'1': 'repeated_sfixed32', '3': 39, '4': 3, '5': 15, '10': 'repeatedSfixed32'},
-    const {'1': 'repeated_sfixed64', '3': 40, '4': 3, '5': 16, '10': 'repeatedSfixed64'},
-    const {'1': 'repeated_float', '3': 41, '4': 3, '5': 2, '10': 'repeatedFloat'},
-    const {'1': 'repeated_double', '3': 42, '4': 3, '5': 1, '10': 'repeatedDouble'},
+    const {
+      '1': 'optional_unverified_lazy_message',
+      '3': 28,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes.NestedMessage',
+      '8': const {},
+      '10': 'optionalUnverifiedLazyMessage'
+    },
+    const {
+      '1': 'repeated_int32',
+      '3': 31,
+      '4': 3,
+      '5': 5,
+      '10': 'repeatedInt32'
+    },
+    const {
+      '1': 'repeated_int64',
+      '3': 32,
+      '4': 3,
+      '5': 3,
+      '10': 'repeatedInt64'
+    },
+    const {
+      '1': 'repeated_uint32',
+      '3': 33,
+      '4': 3,
+      '5': 13,
+      '10': 'repeatedUint32'
+    },
+    const {
+      '1': 'repeated_uint64',
+      '3': 34,
+      '4': 3,
+      '5': 4,
+      '10': 'repeatedUint64'
+    },
+    const {
+      '1': 'repeated_sint32',
+      '3': 35,
+      '4': 3,
+      '5': 17,
+      '10': 'repeatedSint32'
+    },
+    const {
+      '1': 'repeated_sint64',
+      '3': 36,
+      '4': 3,
+      '5': 18,
+      '10': 'repeatedSint64'
+    },
+    const {
+      '1': 'repeated_fixed32',
+      '3': 37,
+      '4': 3,
+      '5': 7,
+      '10': 'repeatedFixed32'
+    },
+    const {
+      '1': 'repeated_fixed64',
+      '3': 38,
+      '4': 3,
+      '5': 6,
+      '10': 'repeatedFixed64'
+    },
+    const {
+      '1': 'repeated_sfixed32',
+      '3': 39,
+      '4': 3,
+      '5': 15,
+      '10': 'repeatedSfixed32'
+    },
+    const {
+      '1': 'repeated_sfixed64',
+      '3': 40,
+      '4': 3,
+      '5': 16,
+      '10': 'repeatedSfixed64'
+    },
+    const {
+      '1': 'repeated_float',
+      '3': 41,
+      '4': 3,
+      '5': 2,
+      '10': 'repeatedFloat'
+    },
+    const {
+      '1': 'repeated_double',
+      '3': 42,
+      '4': 3,
+      '5': 1,
+      '10': 'repeatedDouble'
+    },
     const {'1': 'repeated_bool', '3': 43, '4': 3, '5': 8, '10': 'repeatedBool'},
-    const {'1': 'repeated_string', '3': 44, '4': 3, '5': 9, '10': 'repeatedString'},
-    const {'1': 'repeated_bytes', '3': 45, '4': 3, '5': 12, '10': 'repeatedBytes'},
-    const {'1': 'repeatedgroup', '3': 46, '4': 3, '5': 10, '6': '.protobuf_unittest.TestAllTypes.RepeatedGroup', '10': 'repeatedgroup'},
-    const {'1': 'repeated_nested_message', '3': 48, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes.NestedMessage', '10': 'repeatedNestedMessage'},
-    const {'1': 'repeated_foreign_message', '3': 49, '4': 3, '5': 11, '6': '.protobuf_unittest.ForeignMessage', '10': 'repeatedForeignMessage'},
-    const {'1': 'repeated_import_message', '3': 50, '4': 3, '5': 11, '6': '.protobuf_unittest_import.ImportMessage', '10': 'repeatedImportMessage'},
-    const {'1': 'repeated_nested_enum', '3': 51, '4': 3, '5': 14, '6': '.protobuf_unittest.TestAllTypes.NestedEnum', '10': 'repeatedNestedEnum'},
-    const {'1': 'repeated_foreign_enum', '3': 52, '4': 3, '5': 14, '6': '.protobuf_unittest.ForeignEnum', '10': 'repeatedForeignEnum'},
-    const {'1': 'repeated_import_enum', '3': 53, '4': 3, '5': 14, '6': '.protobuf_unittest_import.ImportEnum', '10': 'repeatedImportEnum'},
+    const {
+      '1': 'repeated_string',
+      '3': 44,
+      '4': 3,
+      '5': 9,
+      '10': 'repeatedString'
+    },
+    const {
+      '1': 'repeated_bytes',
+      '3': 45,
+      '4': 3,
+      '5': 12,
+      '10': 'repeatedBytes'
+    },
+    const {
+      '1': 'repeatedgroup',
+      '3': 46,
+      '4': 3,
+      '5': 10,
+      '6': '.protobuf_unittest.TestAllTypes.RepeatedGroup',
+      '10': 'repeatedgroup'
+    },
+    const {
+      '1': 'repeated_nested_message',
+      '3': 48,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes.NestedMessage',
+      '10': 'repeatedNestedMessage'
+    },
+    const {
+      '1': 'repeated_foreign_message',
+      '3': 49,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.ForeignMessage',
+      '10': 'repeatedForeignMessage'
+    },
+    const {
+      '1': 'repeated_import_message',
+      '3': 50,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest_import.ImportMessage',
+      '10': 'repeatedImportMessage'
+    },
+    const {
+      '1': 'repeated_nested_enum',
+      '3': 51,
+      '4': 3,
+      '5': 14,
+      '6': '.protobuf_unittest.TestAllTypes.NestedEnum',
+      '10': 'repeatedNestedEnum'
+    },
+    const {
+      '1': 'repeated_foreign_enum',
+      '3': 52,
+      '4': 3,
+      '5': 14,
+      '6': '.protobuf_unittest.ForeignEnum',
+      '10': 'repeatedForeignEnum'
+    },
+    const {
+      '1': 'repeated_import_enum',
+      '3': 53,
+      '4': 3,
+      '5': 14,
+      '6': '.protobuf_unittest_import.ImportEnum',
+      '10': 'repeatedImportEnum'
+    },
     const {
       '1': 'repeated_string_piece',
       '3': 54,
@@ -261,24 +547,153 @@ const TestAllTypes$json = const {
       '8': const {'5': true},
       '10': 'repeatedLazyMessage',
     },
-    const {'1': 'default_int32', '3': 61, '4': 1, '5': 5, '7': '41', '10': 'defaultInt32'},
-    const {'1': 'default_int64', '3': 62, '4': 1, '5': 3, '7': '42', '10': 'defaultInt64'},
-    const {'1': 'default_uint32', '3': 63, '4': 1, '5': 13, '7': '43', '10': 'defaultUint32'},
-    const {'1': 'default_uint64', '3': 64, '4': 1, '5': 4, '7': '44', '10': 'defaultUint64'},
-    const {'1': 'default_sint32', '3': 65, '4': 1, '5': 17, '7': '-45', '10': 'defaultSint32'},
-    const {'1': 'default_sint64', '3': 66, '4': 1, '5': 18, '7': '46', '10': 'defaultSint64'},
-    const {'1': 'default_fixed32', '3': 67, '4': 1, '5': 7, '7': '47', '10': 'defaultFixed32'},
-    const {'1': 'default_fixed64', '3': 68, '4': 1, '5': 6, '7': '48', '10': 'defaultFixed64'},
-    const {'1': 'default_sfixed32', '3': 69, '4': 1, '5': 15, '7': '49', '10': 'defaultSfixed32'},
-    const {'1': 'default_sfixed64', '3': 70, '4': 1, '5': 16, '7': '-50', '10': 'defaultSfixed64'},
-    const {'1': 'default_float', '3': 71, '4': 1, '5': 2, '7': '51.5', '10': 'defaultFloat'},
-    const {'1': 'default_double', '3': 72, '4': 1, '5': 1, '7': '52000', '10': 'defaultDouble'},
-    const {'1': 'default_bool', '3': 73, '4': 1, '5': 8, '7': 'true', '10': 'defaultBool'},
-    const {'1': 'default_string', '3': 74, '4': 1, '5': 9, '7': 'hello', '10': 'defaultString'},
-    const {'1': 'default_bytes', '3': 75, '4': 1, '5': 12, '7': 'world', '10': 'defaultBytes'},
-    const {'1': 'default_nested_enum', '3': 81, '4': 1, '5': 14, '6': '.protobuf_unittest.TestAllTypes.NestedEnum', '7': 'BAR', '10': 'defaultNestedEnum'},
-    const {'1': 'default_foreign_enum', '3': 82, '4': 1, '5': 14, '6': '.protobuf_unittest.ForeignEnum', '7': 'FOREIGN_BAR', '10': 'defaultForeignEnum'},
-    const {'1': 'default_import_enum', '3': 83, '4': 1, '5': 14, '6': '.protobuf_unittest_import.ImportEnum', '7': 'IMPORT_BAR', '10': 'defaultImportEnum'},
+    const {
+      '1': 'default_int32',
+      '3': 61,
+      '4': 1,
+      '5': 5,
+      '7': '41',
+      '10': 'defaultInt32'
+    },
+    const {
+      '1': 'default_int64',
+      '3': 62,
+      '4': 1,
+      '5': 3,
+      '7': '42',
+      '10': 'defaultInt64'
+    },
+    const {
+      '1': 'default_uint32',
+      '3': 63,
+      '4': 1,
+      '5': 13,
+      '7': '43',
+      '10': 'defaultUint32'
+    },
+    const {
+      '1': 'default_uint64',
+      '3': 64,
+      '4': 1,
+      '5': 4,
+      '7': '44',
+      '10': 'defaultUint64'
+    },
+    const {
+      '1': 'default_sint32',
+      '3': 65,
+      '4': 1,
+      '5': 17,
+      '7': '-45',
+      '10': 'defaultSint32'
+    },
+    const {
+      '1': 'default_sint64',
+      '3': 66,
+      '4': 1,
+      '5': 18,
+      '7': '46',
+      '10': 'defaultSint64'
+    },
+    const {
+      '1': 'default_fixed32',
+      '3': 67,
+      '4': 1,
+      '5': 7,
+      '7': '47',
+      '10': 'defaultFixed32'
+    },
+    const {
+      '1': 'default_fixed64',
+      '3': 68,
+      '4': 1,
+      '5': 6,
+      '7': '48',
+      '10': 'defaultFixed64'
+    },
+    const {
+      '1': 'default_sfixed32',
+      '3': 69,
+      '4': 1,
+      '5': 15,
+      '7': '49',
+      '10': 'defaultSfixed32'
+    },
+    const {
+      '1': 'default_sfixed64',
+      '3': 70,
+      '4': 1,
+      '5': 16,
+      '7': '-50',
+      '10': 'defaultSfixed64'
+    },
+    const {
+      '1': 'default_float',
+      '3': 71,
+      '4': 1,
+      '5': 2,
+      '7': '51.5',
+      '10': 'defaultFloat'
+    },
+    const {
+      '1': 'default_double',
+      '3': 72,
+      '4': 1,
+      '5': 1,
+      '7': '52000',
+      '10': 'defaultDouble'
+    },
+    const {
+      '1': 'default_bool',
+      '3': 73,
+      '4': 1,
+      '5': 8,
+      '7': 'true',
+      '10': 'defaultBool'
+    },
+    const {
+      '1': 'default_string',
+      '3': 74,
+      '4': 1,
+      '5': 9,
+      '7': 'hello',
+      '10': 'defaultString'
+    },
+    const {
+      '1': 'default_bytes',
+      '3': 75,
+      '4': 1,
+      '5': 12,
+      '7': 'world',
+      '10': 'defaultBytes'
+    },
+    const {
+      '1': 'default_nested_enum',
+      '3': 81,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.TestAllTypes.NestedEnum',
+      '7': 'BAR',
+      '10': 'defaultNestedEnum'
+    },
+    const {
+      '1': 'default_foreign_enum',
+      '3': 82,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.ForeignEnum',
+      '7': 'FOREIGN_BAR',
+      '10': 'defaultForeignEnum'
+    },
+    const {
+      '1': 'default_import_enum',
+      '3': 83,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest_import.ImportEnum',
+      '7': 'IMPORT_BAR',
+      '10': 'defaultImportEnum'
+    },
     const {
       '1': 'default_string_piece',
       '3': 84,
@@ -297,12 +712,45 @@ const TestAllTypes$json = const {
       '8': const {'1': 1},
       '10': 'defaultCord',
     },
-    const {'1': 'oneof_uint32', '3': 111, '4': 1, '5': 13, '9': 0, '10': 'oneofUint32'},
-    const {'1': 'oneof_nested_message', '3': 112, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes.NestedMessage', '9': 0, '10': 'oneofNestedMessage'},
-    const {'1': 'oneof_string', '3': 113, '4': 1, '5': 9, '9': 0, '10': 'oneofString'},
-    const {'1': 'oneof_bytes', '3': 114, '4': 1, '5': 12, '9': 0, '10': 'oneofBytes'},
+    const {
+      '1': 'oneof_uint32',
+      '3': 111,
+      '4': 1,
+      '5': 13,
+      '9': 0,
+      '10': 'oneofUint32'
+    },
+    const {
+      '1': 'oneof_nested_message',
+      '3': 112,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes.NestedMessage',
+      '9': 0,
+      '10': 'oneofNestedMessage'
+    },
+    const {
+      '1': 'oneof_string',
+      '3': 113,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'oneofString'
+    },
+    const {
+      '1': 'oneof_bytes',
+      '3': 114,
+      '4': 1,
+      '5': 12,
+      '9': 0,
+      '10': 'oneofBytes'
+    },
   ],
-  '3': const [TestAllTypes_NestedMessage$json, TestAllTypes_OptionalGroup$json, TestAllTypes_RepeatedGroup$json],
+  '3': const [
+    TestAllTypes_NestedMessage$json,
+    TestAllTypes_OptionalGroup$json,
+    TestAllTypes_RepeatedGroup$json
+  ],
   '4': const [TestAllTypes_NestedEnum$json],
   '8': const [
     const {'1': 'oneof_field'},
@@ -345,14 +793,36 @@ const TestAllTypes_NestedEnum$json = const {
 };
 
 /// Descriptor for `TestAllTypes`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testAllTypesDescriptor = $convert.base64Decode('CgxUZXN0QWxsVHlwZXMSJQoOb3B0aW9uYWxfaW50MzIYASABKAVSDW9wdGlvbmFsSW50MzISJQoOb3B0aW9uYWxfaW50NjQYAiABKANSDW9wdGlvbmFsSW50NjQSJwoPb3B0aW9uYWxfdWludDMyGAMgASgNUg5vcHRpb25hbFVpbnQzMhInCg9vcHRpb25hbF91aW50NjQYBCABKARSDm9wdGlvbmFsVWludDY0EicKD29wdGlvbmFsX3NpbnQzMhgFIAEoEVIOb3B0aW9uYWxTaW50MzISJwoPb3B0aW9uYWxfc2ludDY0GAYgASgSUg5vcHRpb25hbFNpbnQ2NBIpChBvcHRpb25hbF9maXhlZDMyGAcgASgHUg9vcHRpb25hbEZpeGVkMzISKQoQb3B0aW9uYWxfZml4ZWQ2NBgIIAEoBlIPb3B0aW9uYWxGaXhlZDY0EisKEW9wdGlvbmFsX3NmaXhlZDMyGAkgASgPUhBvcHRpb25hbFNmaXhlZDMyEisKEW9wdGlvbmFsX3NmaXhlZDY0GAogASgQUhBvcHRpb25hbFNmaXhlZDY0EiUKDm9wdGlvbmFsX2Zsb2F0GAsgASgCUg1vcHRpb25hbEZsb2F0EicKD29wdGlvbmFsX2RvdWJsZRgMIAEoAVIOb3B0aW9uYWxEb3VibGUSIwoNb3B0aW9uYWxfYm9vbBgNIAEoCFIMb3B0aW9uYWxCb29sEicKD29wdGlvbmFsX3N0cmluZxgOIAEoCVIOb3B0aW9uYWxTdHJpbmcSJQoOb3B0aW9uYWxfYnl0ZXMYDyABKAxSDW9wdGlvbmFsQnl0ZXMSUwoNb3B0aW9uYWxncm91cBgQIAEoCjItLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlcy5PcHRpb25hbEdyb3VwUg1vcHRpb25hbGdyb3VwEmUKF29wdGlvbmFsX25lc3RlZF9tZXNzYWdlGBIgASgLMi0ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzLk5lc3RlZE1lc3NhZ2VSFW9wdGlvbmFsTmVzdGVkTWVzc2FnZRJbChhvcHRpb25hbF9mb3JlaWduX21lc3NhZ2UYEyABKAsyIS5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduTWVzc2FnZVIWb3B0aW9uYWxGb3JlaWduTWVzc2FnZRJfChdvcHRpb25hbF9pbXBvcnRfbWVzc2FnZRgUIAEoCzInLnByb3RvYnVmX3VuaXR0ZXN0X2ltcG9ydC5JbXBvcnRNZXNzYWdlUhVvcHRpb25hbEltcG9ydE1lc3NhZ2USXAoUb3B0aW9uYWxfbmVzdGVkX2VudW0YFSABKA4yKi5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuTmVzdGVkRW51bVISb3B0aW9uYWxOZXN0ZWRFbnVtElIKFW9wdGlvbmFsX2ZvcmVpZ25fZW51bRgWIAEoDjIeLnByb3RvYnVmX3VuaXR0ZXN0LkZvcmVpZ25FbnVtUhNvcHRpb25hbEZvcmVpZ25FbnVtElYKFG9wdGlvbmFsX2ltcG9ydF9lbnVtGBcgASgOMiQucHJvdG9idWZfdW5pdHRlc3RfaW1wb3J0LkltcG9ydEVudW1SEm9wdGlvbmFsSW1wb3J0RW51bRI2ChVvcHRpb25hbF9zdHJpbmdfcGllY2UYGCABKAlCAggCUhNvcHRpb25hbFN0cmluZ1BpZWNlEicKDW9wdGlvbmFsX2NvcmQYGSABKAlCAggBUgxvcHRpb25hbENvcmQScgoeb3B0aW9uYWxfcHVibGljX2ltcG9ydF9tZXNzYWdlGBogASgLMi0ucHJvdG9idWZfdW5pdHRlc3RfaW1wb3J0LlB1YmxpY0ltcG9ydE1lc3NhZ2VSG29wdGlvbmFsUHVibGljSW1wb3J0TWVzc2FnZRJlChVvcHRpb25hbF9sYXp5X21lc3NhZ2UYGyABKAsyLS5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuTmVzdGVkTWVzc2FnZUICKAFSE29wdGlvbmFsTGF6eU1lc3NhZ2USegogb3B0aW9uYWxfdW52ZXJpZmllZF9sYXp5X21lc3NhZ2UYHCABKAsyLS5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuTmVzdGVkTWVzc2FnZUICeAFSHW9wdGlvbmFsVW52ZXJpZmllZExhenlNZXNzYWdlEiUKDnJlcGVhdGVkX2ludDMyGB8gAygFUg1yZXBlYXRlZEludDMyEiUKDnJlcGVhdGVkX2ludDY0GCAgAygDUg1yZXBlYXRlZEludDY0EicKD3JlcGVhdGVkX3VpbnQzMhghIAMoDVIOcmVwZWF0ZWRVaW50MzISJwoPcmVwZWF0ZWRfdWludDY0GCIgAygEUg5yZXBlYXRlZFVpbnQ2NBInCg9yZXBlYXRlZF9zaW50MzIYIyADKBFSDnJlcGVhdGVkU2ludDMyEicKD3JlcGVhdGVkX3NpbnQ2NBgkIAMoElIOcmVwZWF0ZWRTaW50NjQSKQoQcmVwZWF0ZWRfZml4ZWQzMhglIAMoB1IPcmVwZWF0ZWRGaXhlZDMyEikKEHJlcGVhdGVkX2ZpeGVkNjQYJiADKAZSD3JlcGVhdGVkRml4ZWQ2NBIrChFyZXBlYXRlZF9zZml4ZWQzMhgnIAMoD1IQcmVwZWF0ZWRTZml4ZWQzMhIrChFyZXBlYXRlZF9zZml4ZWQ2NBgoIAMoEFIQcmVwZWF0ZWRTZml4ZWQ2NBIlCg5yZXBlYXRlZF9mbG9hdBgpIAMoAlINcmVwZWF0ZWRGbG9hdBInCg9yZXBlYXRlZF9kb3VibGUYKiADKAFSDnJlcGVhdGVkRG91YmxlEiMKDXJlcGVhdGVkX2Jvb2wYKyADKAhSDHJlcGVhdGVkQm9vbBInCg9yZXBlYXRlZF9zdHJpbmcYLCADKAlSDnJlcGVhdGVkU3RyaW5nEiUKDnJlcGVhdGVkX2J5dGVzGC0gAygMUg1yZXBlYXRlZEJ5dGVzElMKDXJlcGVhdGVkZ3JvdXAYLiADKAoyLS5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuUmVwZWF0ZWRHcm91cFINcmVwZWF0ZWRncm91cBJlChdyZXBlYXRlZF9uZXN0ZWRfbWVzc2FnZRgwIAMoCzItLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlcy5OZXN0ZWRNZXNzYWdlUhVyZXBlYXRlZE5lc3RlZE1lc3NhZ2USWwoYcmVwZWF0ZWRfZm9yZWlnbl9tZXNzYWdlGDEgAygLMiEucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbk1lc3NhZ2VSFnJlcGVhdGVkRm9yZWlnbk1lc3NhZ2USXwoXcmVwZWF0ZWRfaW1wb3J0X21lc3NhZ2UYMiADKAsyJy5wcm90b2J1Zl91bml0dGVzdF9pbXBvcnQuSW1wb3J0TWVzc2FnZVIVcmVwZWF0ZWRJbXBvcnRNZXNzYWdlElwKFHJlcGVhdGVkX25lc3RlZF9lbnVtGDMgAygOMioucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzLk5lc3RlZEVudW1SEnJlcGVhdGVkTmVzdGVkRW51bRJSChVyZXBlYXRlZF9mb3JlaWduX2VudW0YNCADKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bVITcmVwZWF0ZWRGb3JlaWduRW51bRJWChRyZXBlYXRlZF9pbXBvcnRfZW51bRg1IAMoDjIkLnByb3RvYnVmX3VuaXR0ZXN0X2ltcG9ydC5JbXBvcnRFbnVtUhJyZXBlYXRlZEltcG9ydEVudW0SNgoVcmVwZWF0ZWRfc3RyaW5nX3BpZWNlGDYgAygJQgIIAlITcmVwZWF0ZWRTdHJpbmdQaWVjZRInCg1yZXBlYXRlZF9jb3JkGDcgAygJQgIIAVIMcmVwZWF0ZWRDb3JkEmUKFXJlcGVhdGVkX2xhenlfbWVzc2FnZRg5IAMoCzItLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlcy5OZXN0ZWRNZXNzYWdlQgIoAVITcmVwZWF0ZWRMYXp5TWVzc2FnZRInCg1kZWZhdWx0X2ludDMyGD0gASgFOgI0MVIMZGVmYXVsdEludDMyEicKDWRlZmF1bHRfaW50NjQYPiABKAM6AjQyUgxkZWZhdWx0SW50NjQSKQoOZGVmYXVsdF91aW50MzIYPyABKA06AjQzUg1kZWZhdWx0VWludDMyEikKDmRlZmF1bHRfdWludDY0GEAgASgEOgI0NFINZGVmYXVsdFVpbnQ2NBIqCg5kZWZhdWx0X3NpbnQzMhhBIAEoEToDLTQ1Ug1kZWZhdWx0U2ludDMyEikKDmRlZmF1bHRfc2ludDY0GEIgASgSOgI0NlINZGVmYXVsdFNpbnQ2NBIrCg9kZWZhdWx0X2ZpeGVkMzIYQyABKAc6AjQ3Ug5kZWZhdWx0Rml4ZWQzMhIrCg9kZWZhdWx0X2ZpeGVkNjQYRCABKAY6AjQ4Ug5kZWZhdWx0Rml4ZWQ2NBItChBkZWZhdWx0X3NmaXhlZDMyGEUgASgPOgI0OVIPZGVmYXVsdFNmaXhlZDMyEi4KEGRlZmF1bHRfc2ZpeGVkNjQYRiABKBA6Ay01MFIPZGVmYXVsdFNmaXhlZDY0EikKDWRlZmF1bHRfZmxvYXQYRyABKAI6BDUxLjVSDGRlZmF1bHRGbG9hdBIsCg5kZWZhdWx0X2RvdWJsZRhIIAEoAToFNTIwMDBSDWRlZmF1bHREb3VibGUSJwoMZGVmYXVsdF9ib29sGEkgASgIOgR0cnVlUgtkZWZhdWx0Qm9vbBIsCg5kZWZhdWx0X3N0cmluZxhKIAEoCToFaGVsbG9SDWRlZmF1bHRTdHJpbmcSKgoNZGVmYXVsdF9ieXRlcxhLIAEoDDoFd29ybGRSDGRlZmF1bHRCeXRlcxJfChNkZWZhdWx0X25lc3RlZF9lbnVtGFEgASgOMioucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzLk5lc3RlZEVudW06A0JBUlIRZGVmYXVsdE5lc3RlZEVudW0SXQoUZGVmYXVsdF9mb3JlaWduX2VudW0YUiABKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bToLRk9SRUlHTl9CQVJSEmRlZmF1bHRGb3JlaWduRW51bRJgChNkZWZhdWx0X2ltcG9ydF9lbnVtGFMgASgOMiQucHJvdG9idWZfdW5pdHRlc3RfaW1wb3J0LkltcG9ydEVudW06CklNUE9SVF9CQVJSEWRlZmF1bHRJbXBvcnRFbnVtEjkKFGRlZmF1bHRfc3RyaW5nX3BpZWNlGFQgASgJOgNhYmNCAggCUhJkZWZhdWx0U3RyaW5nUGllY2USKgoMZGVmYXVsdF9jb3JkGFUgASgJOgMxMjNCAggBUgtkZWZhdWx0Q29yZBIjCgxvbmVvZl91aW50MzIYbyABKA1IAFILb25lb2ZVaW50MzISYQoUb25lb2ZfbmVzdGVkX21lc3NhZ2UYcCABKAsyLS5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuTmVzdGVkTWVzc2FnZUgAUhJvbmVvZk5lc3RlZE1lc3NhZ2USIwoMb25lb2Zfc3RyaW5nGHEgASgJSABSC29uZW9mU3RyaW5nEiEKC29uZW9mX2J5dGVzGHIgASgMSABSCm9uZW9mQnl0ZXMaHwoNTmVzdGVkTWVzc2FnZRIOCgJiYhgBIAEoBVICYmIaHQoNT3B0aW9uYWxHcm91cBIMCgFhGBEgASgFUgFhGh0KDVJlcGVhdGVkR3JvdXASDAoBYRgvIAEoBVIBYSI5CgpOZXN0ZWRFbnVtEgcKA0ZPTxABEgcKA0JBUhACEgcKA0JBWhADEhAKA05FRxD///////////8BQg0KC29uZW9mX2ZpZWxk');
+final $typed_data.Uint8List testAllTypesDescriptor = $convert.base64Decode(
+    'CgxUZXN0QWxsVHlwZXMSJQoOb3B0aW9uYWxfaW50MzIYASABKAVSDW9wdGlvbmFsSW50MzISJQoOb3B0aW9uYWxfaW50NjQYAiABKANSDW9wdGlvbmFsSW50NjQSJwoPb3B0aW9uYWxfdWludDMyGAMgASgNUg5vcHRpb25hbFVpbnQzMhInCg9vcHRpb25hbF91aW50NjQYBCABKARSDm9wdGlvbmFsVWludDY0EicKD29wdGlvbmFsX3NpbnQzMhgFIAEoEVIOb3B0aW9uYWxTaW50MzISJwoPb3B0aW9uYWxfc2ludDY0GAYgASgSUg5vcHRpb25hbFNpbnQ2NBIpChBvcHRpb25hbF9maXhlZDMyGAcgASgHUg9vcHRpb25hbEZpeGVkMzISKQoQb3B0aW9uYWxfZml4ZWQ2NBgIIAEoBlIPb3B0aW9uYWxGaXhlZDY0EisKEW9wdGlvbmFsX3NmaXhlZDMyGAkgASgPUhBvcHRpb25hbFNmaXhlZDMyEisKEW9wdGlvbmFsX3NmaXhlZDY0GAogASgQUhBvcHRpb25hbFNmaXhlZDY0EiUKDm9wdGlvbmFsX2Zsb2F0GAsgASgCUg1vcHRpb25hbEZsb2F0EicKD29wdGlvbmFsX2RvdWJsZRgMIAEoAVIOb3B0aW9uYWxEb3VibGUSIwoNb3B0aW9uYWxfYm9vbBgNIAEoCFIMb3B0aW9uYWxCb29sEicKD29wdGlvbmFsX3N0cmluZxgOIAEoCVIOb3B0aW9uYWxTdHJpbmcSJQoOb3B0aW9uYWxfYnl0ZXMYDyABKAxSDW9wdGlvbmFsQnl0ZXMSUwoNb3B0aW9uYWxncm91cBgQIAEoCjItLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlcy5PcHRpb25hbEdyb3VwUg1vcHRpb25hbGdyb3VwEmUKF29wdGlvbmFsX25lc3RlZF9tZXNzYWdlGBIgASgLMi0ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzLk5lc3RlZE1lc3NhZ2VSFW9wdGlvbmFsTmVzdGVkTWVzc2FnZRJbChhvcHRpb25hbF9mb3JlaWduX21lc3NhZ2UYEyABKAsyIS5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduTWVzc2FnZVIWb3B0aW9uYWxGb3JlaWduTWVzc2FnZRJfChdvcHRpb25hbF9pbXBvcnRfbWVzc2FnZRgUIAEoCzInLnByb3RvYnVmX3VuaXR0ZXN0X2ltcG9ydC5JbXBvcnRNZXNzYWdlUhVvcHRpb25hbEltcG9ydE1lc3NhZ2USXAoUb3B0aW9uYWxfbmVzdGVkX2VudW0YFSABKA4yKi5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuTmVzdGVkRW51bVISb3B0aW9uYWxOZXN0ZWRFbnVtElIKFW9wdGlvbmFsX2ZvcmVpZ25fZW51bRgWIAEoDjIeLnByb3RvYnVmX3VuaXR0ZXN0LkZvcmVpZ25FbnVtUhNvcHRpb25hbEZvcmVpZ25FbnVtElYKFG9wdGlvbmFsX2ltcG9ydF9lbnVtGBcgASgOMiQucHJvdG9idWZfdW5pdHRlc3RfaW1wb3J0LkltcG9ydEVudW1SEm9wdGlvbmFsSW1wb3J0RW51bRI2ChVvcHRpb25hbF9zdHJpbmdfcGllY2UYGCABKAlCAggCUhNvcHRpb25hbFN0cmluZ1BpZWNlEicKDW9wdGlvbmFsX2NvcmQYGSABKAlCAggBUgxvcHRpb25hbENvcmQScgoeb3B0aW9uYWxfcHVibGljX2ltcG9ydF9tZXNzYWdlGBogASgLMi0ucHJvdG9idWZfdW5pdHRlc3RfaW1wb3J0LlB1YmxpY0ltcG9ydE1lc3NhZ2VSG29wdGlvbmFsUHVibGljSW1wb3J0TWVzc2FnZRJlChVvcHRpb25hbF9sYXp5X21lc3NhZ2UYGyABKAsyLS5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuTmVzdGVkTWVzc2FnZUICKAFSE29wdGlvbmFsTGF6eU1lc3NhZ2USegogb3B0aW9uYWxfdW52ZXJpZmllZF9sYXp5X21lc3NhZ2UYHCABKAsyLS5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuTmVzdGVkTWVzc2FnZUICeAFSHW9wdGlvbmFsVW52ZXJpZmllZExhenlNZXNzYWdlEiUKDnJlcGVhdGVkX2ludDMyGB8gAygFUg1yZXBlYXRlZEludDMyEiUKDnJlcGVhdGVkX2ludDY0GCAgAygDUg1yZXBlYXRlZEludDY0EicKD3JlcGVhdGVkX3VpbnQzMhghIAMoDVIOcmVwZWF0ZWRVaW50MzISJwoPcmVwZWF0ZWRfdWludDY0GCIgAygEUg5yZXBlYXRlZFVpbnQ2NBInCg9yZXBlYXRlZF9zaW50MzIYIyADKBFSDnJlcGVhdGVkU2ludDMyEicKD3JlcGVhdGVkX3NpbnQ2NBgkIAMoElIOcmVwZWF0ZWRTaW50NjQSKQoQcmVwZWF0ZWRfZml4ZWQzMhglIAMoB1IPcmVwZWF0ZWRGaXhlZDMyEikKEHJlcGVhdGVkX2ZpeGVkNjQYJiADKAZSD3JlcGVhdGVkRml4ZWQ2NBIrChFyZXBlYXRlZF9zZml4ZWQzMhgnIAMoD1IQcmVwZWF0ZWRTZml4ZWQzMhIrChFyZXBlYXRlZF9zZml4ZWQ2NBgoIAMoEFIQcmVwZWF0ZWRTZml4ZWQ2NBIlCg5yZXBlYXRlZF9mbG9hdBgpIAMoAlINcmVwZWF0ZWRGbG9hdBInCg9yZXBlYXRlZF9kb3VibGUYKiADKAFSDnJlcGVhdGVkRG91YmxlEiMKDXJlcGVhdGVkX2Jvb2wYKyADKAhSDHJlcGVhdGVkQm9vbBInCg9yZXBlYXRlZF9zdHJpbmcYLCADKAlSDnJlcGVhdGVkU3RyaW5nEiUKDnJlcGVhdGVkX2J5dGVzGC0gAygMUg1yZXBlYXRlZEJ5dGVzElMKDXJlcGVhdGVkZ3JvdXAYLiADKAoyLS5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuUmVwZWF0ZWRHcm91cFINcmVwZWF0ZWRncm91cBJlChdyZXBlYXRlZF9uZXN0ZWRfbWVzc2FnZRgwIAMoCzItLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlcy5OZXN0ZWRNZXNzYWdlUhVyZXBlYXRlZE5lc3RlZE1lc3NhZ2USWwoYcmVwZWF0ZWRfZm9yZWlnbl9tZXNzYWdlGDEgAygLMiEucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbk1lc3NhZ2VSFnJlcGVhdGVkRm9yZWlnbk1lc3NhZ2USXwoXcmVwZWF0ZWRfaW1wb3J0X21lc3NhZ2UYMiADKAsyJy5wcm90b2J1Zl91bml0dGVzdF9pbXBvcnQuSW1wb3J0TWVzc2FnZVIVcmVwZWF0ZWRJbXBvcnRNZXNzYWdlElwKFHJlcGVhdGVkX25lc3RlZF9lbnVtGDMgAygOMioucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzLk5lc3RlZEVudW1SEnJlcGVhdGVkTmVzdGVkRW51bRJSChVyZXBlYXRlZF9mb3JlaWduX2VudW0YNCADKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bVITcmVwZWF0ZWRGb3JlaWduRW51bRJWChRyZXBlYXRlZF9pbXBvcnRfZW51bRg1IAMoDjIkLnByb3RvYnVmX3VuaXR0ZXN0X2ltcG9ydC5JbXBvcnRFbnVtUhJyZXBlYXRlZEltcG9ydEVudW0SNgoVcmVwZWF0ZWRfc3RyaW5nX3BpZWNlGDYgAygJQgIIAlITcmVwZWF0ZWRTdHJpbmdQaWVjZRInCg1yZXBlYXRlZF9jb3JkGDcgAygJQgIIAVIMcmVwZWF0ZWRDb3JkEmUKFXJlcGVhdGVkX2xhenlfbWVzc2FnZRg5IAMoCzItLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlcy5OZXN0ZWRNZXNzYWdlQgIoAVITcmVwZWF0ZWRMYXp5TWVzc2FnZRInCg1kZWZhdWx0X2ludDMyGD0gASgFOgI0MVIMZGVmYXVsdEludDMyEicKDWRlZmF1bHRfaW50NjQYPiABKAM6AjQyUgxkZWZhdWx0SW50NjQSKQoOZGVmYXVsdF91aW50MzIYPyABKA06AjQzUg1kZWZhdWx0VWludDMyEikKDmRlZmF1bHRfdWludDY0GEAgASgEOgI0NFINZGVmYXVsdFVpbnQ2NBIqCg5kZWZhdWx0X3NpbnQzMhhBIAEoEToDLTQ1Ug1kZWZhdWx0U2ludDMyEikKDmRlZmF1bHRfc2ludDY0GEIgASgSOgI0NlINZGVmYXVsdFNpbnQ2NBIrCg9kZWZhdWx0X2ZpeGVkMzIYQyABKAc6AjQ3Ug5kZWZhdWx0Rml4ZWQzMhIrCg9kZWZhdWx0X2ZpeGVkNjQYRCABKAY6AjQ4Ug5kZWZhdWx0Rml4ZWQ2NBItChBkZWZhdWx0X3NmaXhlZDMyGEUgASgPOgI0OVIPZGVmYXVsdFNmaXhlZDMyEi4KEGRlZmF1bHRfc2ZpeGVkNjQYRiABKBA6Ay01MFIPZGVmYXVsdFNmaXhlZDY0EikKDWRlZmF1bHRfZmxvYXQYRyABKAI6BDUxLjVSDGRlZmF1bHRGbG9hdBIsCg5kZWZhdWx0X2RvdWJsZRhIIAEoAToFNTIwMDBSDWRlZmF1bHREb3VibGUSJwoMZGVmYXVsdF9ib29sGEkgASgIOgR0cnVlUgtkZWZhdWx0Qm9vbBIsCg5kZWZhdWx0X3N0cmluZxhKIAEoCToFaGVsbG9SDWRlZmF1bHRTdHJpbmcSKgoNZGVmYXVsdF9ieXRlcxhLIAEoDDoFd29ybGRSDGRlZmF1bHRCeXRlcxJfChNkZWZhdWx0X25lc3RlZF9lbnVtGFEgASgOMioucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzLk5lc3RlZEVudW06A0JBUlIRZGVmYXVsdE5lc3RlZEVudW0SXQoUZGVmYXVsdF9mb3JlaWduX2VudW0YUiABKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bToLRk9SRUlHTl9CQVJSEmRlZmF1bHRGb3JlaWduRW51bRJgChNkZWZhdWx0X2ltcG9ydF9lbnVtGFMgASgOMiQucHJvdG9idWZfdW5pdHRlc3RfaW1wb3J0LkltcG9ydEVudW06CklNUE9SVF9CQVJSEWRlZmF1bHRJbXBvcnRFbnVtEjkKFGRlZmF1bHRfc3RyaW5nX3BpZWNlGFQgASgJOgNhYmNCAggCUhJkZWZhdWx0U3RyaW5nUGllY2USKgoMZGVmYXVsdF9jb3JkGFUgASgJOgMxMjNCAggBUgtkZWZhdWx0Q29yZBIjCgxvbmVvZl91aW50MzIYbyABKA1IAFILb25lb2ZVaW50MzISYQoUb25lb2ZfbmVzdGVkX21lc3NhZ2UYcCABKAsyLS5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXMuTmVzdGVkTWVzc2FnZUgAUhJvbmVvZk5lc3RlZE1lc3NhZ2USIwoMb25lb2Zfc3RyaW5nGHEgASgJSABSC29uZW9mU3RyaW5nEiEKC29uZW9mX2J5dGVzGHIgASgMSABSCm9uZW9mQnl0ZXMaHwoNTmVzdGVkTWVzc2FnZRIOCgJiYhgBIAEoBVICYmIaHQoNT3B0aW9uYWxHcm91cBIMCgFhGBEgASgFUgFhGh0KDVJlcGVhdGVkR3JvdXASDAoBYRgvIAEoBVIBYSI5CgpOZXN0ZWRFbnVtEgcKA0ZPTxABEgcKA0JBUhACEgcKA0JBWhADEhAKA05FRxD///////////8BQg0KC29uZW9mX2ZpZWxk');
 @$core.Deprecated('Use nestedTestAllTypesDescriptor instead')
 const NestedTestAllTypes$json = const {
   '1': 'NestedTestAllTypes',
   '2': const [
-    const {'1': 'child', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.NestedTestAllTypes', '10': 'child'},
-    const {'1': 'payload', '3': 2, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'payload'},
-    const {'1': 'repeated_child', '3': 3, '4': 3, '5': 11, '6': '.protobuf_unittest.NestedTestAllTypes', '10': 'repeatedChild'},
+    const {
+      '1': 'child',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.NestedTestAllTypes',
+      '10': 'child'
+    },
+    const {
+      '1': 'payload',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'payload'
+    },
+    const {
+      '1': 'repeated_child',
+      '3': 3,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.NestedTestAllTypes',
+      '10': 'repeatedChild'
+    },
     const {
       '1': 'lazy_child',
       '3': 4,
@@ -375,7 +845,8 @@ const NestedTestAllTypes$json = const {
 };
 
 /// Descriptor for `NestedTestAllTypes`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List nestedTestAllTypesDescriptor = $convert.base64Decode('ChJOZXN0ZWRUZXN0QWxsVHlwZXMSOwoFY2hpbGQYASABKAsyJS5wcm90b2J1Zl91bml0dGVzdC5OZXN0ZWRUZXN0QWxsVHlwZXNSBWNoaWxkEjkKB3BheWxvYWQYAiABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSB3BheWxvYWQSTAoOcmVwZWF0ZWRfY2hpbGQYAyADKAsyJS5wcm90b2J1Zl91bml0dGVzdC5OZXN0ZWRUZXN0QWxsVHlwZXNSDXJlcGVhdGVkQ2hpbGQSSAoKbGF6eV9jaGlsZBgEIAEoCzIlLnByb3RvYnVmX3VuaXR0ZXN0Lk5lc3RlZFRlc3RBbGxUeXBlc0ICKAFSCWxhenlDaGlsZBJECgtlYWdlcl9jaGlsZBgFIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc0ICKABSCmVhZ2VyQ2hpbGQ=');
+final $typed_data.Uint8List nestedTestAllTypesDescriptor = $convert.base64Decode(
+    'ChJOZXN0ZWRUZXN0QWxsVHlwZXMSOwoFY2hpbGQYASABKAsyJS5wcm90b2J1Zl91bml0dGVzdC5OZXN0ZWRUZXN0QWxsVHlwZXNSBWNoaWxkEjkKB3BheWxvYWQYAiABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSB3BheWxvYWQSTAoOcmVwZWF0ZWRfY2hpbGQYAyADKAsyJS5wcm90b2J1Zl91bml0dGVzdC5OZXN0ZWRUZXN0QWxsVHlwZXNSDXJlcGVhdGVkQ2hpbGQSSAoKbGF6eV9jaGlsZBgEIAEoCzIlLnByb3RvYnVmX3VuaXR0ZXN0Lk5lc3RlZFRlc3RBbGxUeXBlc0ICKAFSCWxhenlDaGlsZBJECgtlYWdlcl9jaGlsZBgFIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc0ICKABSCmVhZ2VyQ2hpbGQ=');
 @$core.Deprecated('Use testDeprecatedFieldsDescriptor instead')
 const TestDeprecatedFields$json = const {
   '1': 'TestDeprecatedFields',
@@ -404,7 +875,8 @@ const TestDeprecatedFields$json = const {
 };
 
 /// Descriptor for `TestDeprecatedFields`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testDeprecatedFieldsDescriptor = $convert.base64Decode('ChRUZXN0RGVwcmVjYXRlZEZpZWxkcxItChBkZXByZWNhdGVkX2ludDMyGAEgASgFQgIYAVIPZGVwcmVjYXRlZEludDMyEj8KGWRlcHJlY2F0ZWRfaW50MzJfaW5fb25lb2YYAiABKAVCAhgBSABSFmRlcHJlY2F0ZWRJbnQzMkluT25lb2ZCDgoMb25lb2ZfZmllbGRz');
+final $typed_data.Uint8List testDeprecatedFieldsDescriptor = $convert.base64Decode(
+    'ChRUZXN0RGVwcmVjYXRlZEZpZWxkcxItChBkZXByZWNhdGVkX2ludDMyGAEgASgFQgIYAVIPZGVwcmVjYXRlZEludDMyEj8KGWRlcHJlY2F0ZWRfaW50MzJfaW5fb25lb2YYAiABKAVCAhgBSABSFmRlcHJlY2F0ZWRJbnQzMkluT25lb2ZCDgoMb25lb2ZfZmllbGRz');
 @$core.Deprecated('Use testDeprecatedMessageDescriptor instead')
 const TestDeprecatedMessage$json = const {
   '1': 'TestDeprecatedMessage',
@@ -412,7 +884,8 @@ const TestDeprecatedMessage$json = const {
 };
 
 /// Descriptor for `TestDeprecatedMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testDeprecatedMessageDescriptor = $convert.base64Decode('ChVUZXN0RGVwcmVjYXRlZE1lc3NhZ2U6AhgB');
+final $typed_data.Uint8List testDeprecatedMessageDescriptor =
+    $convert.base64Decode('ChVUZXN0RGVwcmVjYXRlZE1lc3NhZ2U6AhgB');
 @$core.Deprecated('Use foreignMessageDescriptor instead')
 const ForeignMessage$json = const {
   '1': 'ForeignMessage',
@@ -423,7 +896,8 @@ const ForeignMessage$json = const {
 };
 
 /// Descriptor for `ForeignMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List foreignMessageDescriptor = $convert.base64Decode('Cg5Gb3JlaWduTWVzc2FnZRIMCgFjGAEgASgFUgFjEgwKAWQYAiABKAVSAWQ=');
+final $typed_data.Uint8List foreignMessageDescriptor = $convert.base64Decode(
+    'Cg5Gb3JlaWduTWVzc2FnZRIMCgFjGAEgASgFUgFjEgwKAWQYAiABKAVSAWQ=');
 @$core.Deprecated('Use testReservedFieldsDescriptor instead')
 const TestReservedFields$json = const {
   '1': 'TestReservedFields',
@@ -436,7 +910,9 @@ const TestReservedFields$json = const {
 };
 
 /// Descriptor for `TestReservedFields`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testReservedFieldsDescriptor = $convert.base64Decode('ChJUZXN0UmVzZXJ2ZWRGaWVsZHNKBAgCEANKBAgPEBBKBAgJEAxSA2JhclIDYmF6');
+final $typed_data.Uint8List testReservedFieldsDescriptor =
+    $convert.base64Decode(
+        'ChJUZXN0UmVzZXJ2ZWRGaWVsZHNKBAgCEANKBAgPEBBKBAgJEAxSA2JhclIDYmF6');
 @$core.Deprecated('Use testAllExtensionsDescriptor instead')
 const TestAllExtensions$json = const {
   '1': 'TestAllExtensions',
@@ -446,7 +922,8 @@ const TestAllExtensions$json = const {
 };
 
 /// Descriptor for `TestAllExtensions`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testAllExtensionsDescriptor = $convert.base64Decode('ChFUZXN0QWxsRXh0ZW5zaW9ucyoICAEQgICAgAI=');
+final $typed_data.Uint8List testAllExtensionsDescriptor =
+    $convert.base64Decode('ChFUZXN0QWxsRXh0ZW5zaW9ucyoICAEQgICAgAI=');
 @$core.Deprecated('Use optionalGroup_extensionDescriptor instead')
 const OptionalGroup_extension$json = const {
   '1': 'OptionalGroup_extension',
@@ -456,7 +933,8 @@ const OptionalGroup_extension$json = const {
 };
 
 /// Descriptor for `OptionalGroup_extension`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List optionalGroup_extensionDescriptor = $convert.base64Decode('ChdPcHRpb25hbEdyb3VwX2V4dGVuc2lvbhIMCgFhGBEgASgFUgFh');
+final $typed_data.Uint8List optionalGroup_extensionDescriptor = $convert
+    .base64Decode('ChdPcHRpb25hbEdyb3VwX2V4dGVuc2lvbhIMCgFhGBEgASgFUgFh');
 @$core.Deprecated('Use repeatedGroup_extensionDescriptor instead')
 const RepeatedGroup_extension$json = const {
   '1': 'RepeatedGroup_extension',
@@ -466,13 +944,28 @@ const RepeatedGroup_extension$json = const {
 };
 
 /// Descriptor for `RepeatedGroup_extension`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List repeatedGroup_extensionDescriptor = $convert.base64Decode('ChdSZXBlYXRlZEdyb3VwX2V4dGVuc2lvbhIMCgFhGC8gASgFUgFh');
+final $typed_data.Uint8List repeatedGroup_extensionDescriptor = $convert
+    .base64Decode('ChdSZXBlYXRlZEdyb3VwX2V4dGVuc2lvbhIMCgFhGC8gASgFUgFh');
 @$core.Deprecated('Use testGroupDescriptor instead')
 const TestGroup$json = const {
   '1': 'TestGroup',
   '2': const [
-    const {'1': 'optionalgroup', '3': 16, '4': 1, '5': 10, '6': '.protobuf_unittest.TestGroup.OptionalGroup', '10': 'optionalgroup'},
-    const {'1': 'optional_foreign_enum', '3': 22, '4': 1, '5': 14, '6': '.protobuf_unittest.ForeignEnum', '10': 'optionalForeignEnum'},
+    const {
+      '1': 'optionalgroup',
+      '3': 16,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestGroup.OptionalGroup',
+      '10': 'optionalgroup'
+    },
+    const {
+      '1': 'optional_foreign_enum',
+      '3': 22,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.ForeignEnum',
+      '10': 'optionalForeignEnum'
+    },
   ],
   '3': const [TestGroup_OptionalGroup$json],
 };
@@ -486,7 +979,8 @@ const TestGroup_OptionalGroup$json = const {
 };
 
 /// Descriptor for `TestGroup`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testGroupDescriptor = $convert.base64Decode('CglUZXN0R3JvdXASUAoNb3B0aW9uYWxncm91cBgQIAEoCjIqLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RHcm91cC5PcHRpb25hbEdyb3VwUg1vcHRpb25hbGdyb3VwElIKFW9wdGlvbmFsX2ZvcmVpZ25fZW51bRgWIAEoDjIeLnByb3RvYnVmX3VuaXR0ZXN0LkZvcmVpZ25FbnVtUhNvcHRpb25hbEZvcmVpZ25FbnVtGh0KDU9wdGlvbmFsR3JvdXASDAoBYRgRIAEoBVIBYQ==');
+final $typed_data.Uint8List testGroupDescriptor = $convert.base64Decode(
+    'CglUZXN0R3JvdXASUAoNb3B0aW9uYWxncm91cBgQIAEoCjIqLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RHcm91cC5PcHRpb25hbEdyb3VwUg1vcHRpb25hbGdyb3VwElIKFW9wdGlvbmFsX2ZvcmVpZ25fZW51bRgWIAEoDjIeLnByb3RvYnVmX3VuaXR0ZXN0LkZvcmVpZ25FbnVtUhNvcHRpb25hbEZvcmVpZ25FbnVtGh0KDU9wdGlvbmFsR3JvdXASDAoBYRgRIAEoBVIBYQ==');
 @$core.Deprecated('Use testGroupExtensionDescriptor instead')
 const TestGroupExtension$json = const {
   '1': 'TestGroupExtension',
@@ -496,16 +990,48 @@ const TestGroupExtension$json = const {
 };
 
 /// Descriptor for `TestGroupExtension`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testGroupExtensionDescriptor = $convert.base64Decode('ChJUZXN0R3JvdXBFeHRlbnNpb24qCAgBEICAgIAC');
+final $typed_data.Uint8List testGroupExtensionDescriptor =
+    $convert.base64Decode('ChJUZXN0R3JvdXBFeHRlbnNpb24qCAgBEICAgIAC');
 @$core.Deprecated('Use testNestedExtensionDescriptor instead')
 const TestNestedExtension$json = const {
   '1': 'TestNestedExtension',
   '3': const [TestNestedExtension_OptionalGroup_extension$json],
   '6': const [
-    const {'1': 'test', '2': '.protobuf_unittest.TestAllExtensions', '3': 1002, '4': 1, '5': 9, '7': 'test', '10': 'test'},
-    const {'1': 'nested_string_extension', '2': '.protobuf_unittest.TestAllExtensions', '3': 1003, '4': 1, '5': 9, '10': 'nestedStringExtension'},
-    const {'1': 'optionalgroup_extension', '2': '.protobuf_unittest.TestGroupExtension', '3': 16, '4': 1, '5': 10, '6': '.protobuf_unittest.TestNestedExtension.OptionalGroup_extension', '10': 'optionalgroupExtension'},
-    const {'1': 'optional_foreign_enum_extension', '2': '.protobuf_unittest.TestGroupExtension', '3': 22, '4': 1, '5': 14, '6': '.protobuf_unittest.ForeignEnum', '10': 'optionalForeignEnumExtension'},
+    const {
+      '1': 'test',
+      '2': '.protobuf_unittest.TestAllExtensions',
+      '3': 1002,
+      '4': 1,
+      '5': 9,
+      '7': 'test',
+      '10': 'test'
+    },
+    const {
+      '1': 'nested_string_extension',
+      '2': '.protobuf_unittest.TestAllExtensions',
+      '3': 1003,
+      '4': 1,
+      '5': 9,
+      '10': 'nestedStringExtension'
+    },
+    const {
+      '1': 'optionalgroup_extension',
+      '2': '.protobuf_unittest.TestGroupExtension',
+      '3': 16,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestNestedExtension.OptionalGroup_extension',
+      '10': 'optionalgroupExtension'
+    },
+    const {
+      '1': 'optional_foreign_enum_extension',
+      '2': '.protobuf_unittest.TestGroupExtension',
+      '3': 22,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.ForeignEnum',
+      '10': 'optionalForeignEnumExtension'
+    },
   ],
 };
 
@@ -518,26 +1044,43 @@ const TestNestedExtension_OptionalGroup_extension$json = const {
 };
 
 /// Descriptor for `TestNestedExtension`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testNestedExtensionDescriptor = $convert.base64Decode('ChNUZXN0TmVzdGVkRXh0ZW5zaW9uGicKF09wdGlvbmFsR3JvdXBfZXh0ZW5zaW9uEgwKAWEYESABKAVSAWEyPwoEdGVzdBIkLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxFeHRlbnNpb25zGOoHIAEoCToEdGVzdFIEdGVzdDJdChduZXN0ZWRfc3RyaW5nX2V4dGVuc2lvbhIkLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxFeHRlbnNpb25zGOsHIAEoCVIVbmVzdGVkU3RyaW5nRXh0ZW5zaW9uMp4BChdvcHRpb25hbGdyb3VwX2V4dGVuc2lvbhIlLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RHcm91cEV4dGVuc2lvbhgQIAEoCjI+LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3ROZXN0ZWRFeHRlbnNpb24uT3B0aW9uYWxHcm91cF9leHRlbnNpb25SFm9wdGlvbmFsZ3JvdXBFeHRlbnNpb24yjAEKH29wdGlvbmFsX2ZvcmVpZ25fZW51bV9leHRlbnNpb24SJS5wcm90b2J1Zl91bml0dGVzdC5UZXN0R3JvdXBFeHRlbnNpb24YFiABKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bVIcb3B0aW9uYWxGb3JlaWduRW51bUV4dGVuc2lvbg==');
+final $typed_data.Uint8List testNestedExtensionDescriptor = $convert.base64Decode(
+    'ChNUZXN0TmVzdGVkRXh0ZW5zaW9uGicKF09wdGlvbmFsR3JvdXBfZXh0ZW5zaW9uEgwKAWEYESABKAVSAWEyPwoEdGVzdBIkLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxFeHRlbnNpb25zGOoHIAEoCToEdGVzdFIEdGVzdDJdChduZXN0ZWRfc3RyaW5nX2V4dGVuc2lvbhIkLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxFeHRlbnNpb25zGOsHIAEoCVIVbmVzdGVkU3RyaW5nRXh0ZW5zaW9uMp4BChdvcHRpb25hbGdyb3VwX2V4dGVuc2lvbhIlLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RHcm91cEV4dGVuc2lvbhgQIAEoCjI+LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3ROZXN0ZWRFeHRlbnNpb24uT3B0aW9uYWxHcm91cF9leHRlbnNpb25SFm9wdGlvbmFsZ3JvdXBFeHRlbnNpb24yjAEKH29wdGlvbmFsX2ZvcmVpZ25fZW51bV9leHRlbnNpb24SJS5wcm90b2J1Zl91bml0dGVzdC5UZXN0R3JvdXBFeHRlbnNpb24YFiABKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bVIcb3B0aW9uYWxGb3JlaWduRW51bUV4dGVuc2lvbg==');
 @$core.Deprecated('Use testChildExtensionDescriptor instead')
 const TestChildExtension$json = const {
   '1': 'TestChildExtension',
   '2': const [
     const {'1': 'a', '3': 1, '4': 1, '5': 9, '10': 'a'},
     const {'1': 'b', '3': 2, '4': 1, '5': 9, '10': 'b'},
-    const {'1': 'optional_extension', '3': 3, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllExtensions', '10': 'optionalExtension'},
+    const {
+      '1': 'optional_extension',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllExtensions',
+      '10': 'optionalExtension'
+    },
   ],
 };
 
 /// Descriptor for `TestChildExtension`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testChildExtensionDescriptor = $convert.base64Decode('ChJUZXN0Q2hpbGRFeHRlbnNpb24SDAoBYRgBIAEoCVIBYRIMCgFiGAIgASgJUgFiElMKEm9wdGlvbmFsX2V4dGVuc2lvbhgDIAEoCzIkLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxFeHRlbnNpb25zUhFvcHRpb25hbEV4dGVuc2lvbg==');
+final $typed_data.Uint8List testChildExtensionDescriptor = $convert.base64Decode(
+    'ChJUZXN0Q2hpbGRFeHRlbnNpb24SDAoBYRgBIAEoCVIBYRIMCgFiGAIgASgJUgFiElMKEm9wdGlvbmFsX2V4dGVuc2lvbhgDIAEoCzIkLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxFeHRlbnNpb25zUhFvcHRpb25hbEV4dGVuc2lvbg==');
 @$core.Deprecated('Use testChildExtensionDataDescriptor instead')
 const TestChildExtensionData$json = const {
   '1': 'TestChildExtensionData',
   '2': const [
     const {'1': 'a', '3': 1, '4': 1, '5': 9, '10': 'a'},
     const {'1': 'b', '3': 2, '4': 1, '5': 9, '10': 'b'},
-    const {'1': 'optional_extension', '3': 3, '4': 1, '5': 11, '6': '.protobuf_unittest.TestChildExtensionData.NestedTestAllExtensionsData', '10': 'optionalExtension'},
+    const {
+      '1': 'optional_extension',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6':
+          '.protobuf_unittest.TestChildExtensionData.NestedTestAllExtensionsData',
+      '10': 'optionalExtension'
+    },
   ],
   '3': const [TestChildExtensionData_NestedTestAllExtensionsData$json],
 };
@@ -546,13 +1089,24 @@ const TestChildExtensionData$json = const {
 const TestChildExtensionData_NestedTestAllExtensionsData$json = const {
   '1': 'NestedTestAllExtensionsData',
   '2': const [
-    const {'1': 'dynamic', '3': 409707008, '4': 1, '5': 11, '6': '.protobuf_unittest.TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions', '10': 'dynamic'},
+    const {
+      '1': 'dynamic',
+      '3': 409707008,
+      '4': 1,
+      '5': 11,
+      '6':
+          '.protobuf_unittest.TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions',
+      '10': 'dynamic'
+    },
   ],
-  '3': const [TestChildExtensionData_NestedTestAllExtensionsData_NestedDynamicExtensions$json],
+  '3': const [
+    TestChildExtensionData_NestedTestAllExtensionsData_NestedDynamicExtensions$json
+  ],
 };
 
 @$core.Deprecated('Use testChildExtensionDataDescriptor instead')
-const TestChildExtensionData_NestedTestAllExtensionsData_NestedDynamicExtensions$json = const {
+const TestChildExtensionData_NestedTestAllExtensionsData_NestedDynamicExtensions$json =
+    const {
   '1': 'NestedDynamicExtensions',
   '2': const [
     const {'1': 'a', '3': 1, '4': 1, '5': 5, '10': 'a'},
@@ -561,29 +1115,49 @@ const TestChildExtensionData_NestedTestAllExtensionsData_NestedDynamicExtensions
 };
 
 /// Descriptor for `TestChildExtensionData`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testChildExtensionDataDescriptor = $convert.base64Decode('ChZUZXN0Q2hpbGRFeHRlbnNpb25EYXRhEgwKAWEYASABKAlSAWESDAoBYhgCIAEoCVIBYhJ0ChJvcHRpb25hbF9leHRlbnNpb24YAyABKAsyRS5wcm90b2J1Zl91bml0dGVzdC5UZXN0Q2hpbGRFeHRlbnNpb25EYXRhLk5lc3RlZFRlc3RBbGxFeHRlbnNpb25zRGF0YVIRb3B0aW9uYWxFeHRlbnNpb24a0QEKG05lc3RlZFRlc3RBbGxFeHRlbnNpb25zRGF0YRJ7CgdkeW5hbWljGIDErsMBIAEoCzJdLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RDaGlsZEV4dGVuc2lvbkRhdGEuTmVzdGVkVGVzdEFsbEV4dGVuc2lvbnNEYXRhLk5lc3RlZER5bmFtaWNFeHRlbnNpb25zUgdkeW5hbWljGjUKF05lc3RlZER5bmFtaWNFeHRlbnNpb25zEgwKAWEYASABKAVSAWESDAoBYhgCIAEoBVIBYg==');
+final $typed_data.Uint8List testChildExtensionDataDescriptor =
+    $convert.base64Decode(
+        'ChZUZXN0Q2hpbGRFeHRlbnNpb25EYXRhEgwKAWEYASABKAlSAWESDAoBYhgCIAEoCVIBYhJ0ChJvcHRpb25hbF9leHRlbnNpb24YAyABKAsyRS5wcm90b2J1Zl91bml0dGVzdC5UZXN0Q2hpbGRFeHRlbnNpb25EYXRhLk5lc3RlZFRlc3RBbGxFeHRlbnNpb25zRGF0YVIRb3B0aW9uYWxFeHRlbnNpb24a0QEKG05lc3RlZFRlc3RBbGxFeHRlbnNpb25zRGF0YRJ7CgdkeW5hbWljGIDErsMBIAEoCzJdLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RDaGlsZEV4dGVuc2lvbkRhdGEuTmVzdGVkVGVzdEFsbEV4dGVuc2lvbnNEYXRhLk5lc3RlZER5bmFtaWNFeHRlbnNpb25zUgdkeW5hbWljGjUKF05lc3RlZER5bmFtaWNFeHRlbnNpb25zEgwKAWEYASABKAVSAWESDAoBYhgCIAEoBVIBYg==');
 @$core.Deprecated('Use testNestedChildExtensionDescriptor instead')
 const TestNestedChildExtension$json = const {
   '1': 'TestNestedChildExtension',
   '2': const [
     const {'1': 'a', '3': 1, '4': 1, '5': 5, '10': 'a'},
-    const {'1': 'child', '3': 2, '4': 1, '5': 11, '6': '.protobuf_unittest.TestChildExtension', '10': 'child'},
+    const {
+      '1': 'child',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestChildExtension',
+      '10': 'child'
+    },
   ],
 };
 
 /// Descriptor for `TestNestedChildExtension`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testNestedChildExtensionDescriptor = $convert.base64Decode('ChhUZXN0TmVzdGVkQ2hpbGRFeHRlbnNpb24SDAoBYRgBIAEoBVIBYRI7CgVjaGlsZBgCIAEoCzIlLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RDaGlsZEV4dGVuc2lvblIFY2hpbGQ=');
+final $typed_data.Uint8List testNestedChildExtensionDescriptor =
+    $convert.base64Decode(
+        'ChhUZXN0TmVzdGVkQ2hpbGRFeHRlbnNpb24SDAoBYRgBIAEoBVIBYRI7CgVjaGlsZBgCIAEoCzIlLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RDaGlsZEV4dGVuc2lvblIFY2hpbGQ=');
 @$core.Deprecated('Use testNestedChildExtensionDataDescriptor instead')
 const TestNestedChildExtensionData$json = const {
   '1': 'TestNestedChildExtensionData',
   '2': const [
     const {'1': 'a', '3': 1, '4': 1, '5': 5, '10': 'a'},
-    const {'1': 'child', '3': 2, '4': 1, '5': 11, '6': '.protobuf_unittest.TestChildExtensionData', '10': 'child'},
+    const {
+      '1': 'child',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestChildExtensionData',
+      '10': 'child'
+    },
   ],
 };
 
 /// Descriptor for `TestNestedChildExtensionData`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testNestedChildExtensionDataDescriptor = $convert.base64Decode('ChxUZXN0TmVzdGVkQ2hpbGRFeHRlbnNpb25EYXRhEgwKAWEYASABKAVSAWESPwoFY2hpbGQYAiABKAsyKS5wcm90b2J1Zl91bml0dGVzdC5UZXN0Q2hpbGRFeHRlbnNpb25EYXRhUgVjaGlsZA==');
+final $typed_data.Uint8List testNestedChildExtensionDataDescriptor =
+    $convert.base64Decode(
+        'ChxUZXN0TmVzdGVkQ2hpbGRFeHRlbnNpb25EYXRhEgwKAWEYASABKAVSAWESPwoFY2hpbGQYAiABKAsyKS5wcm90b2J1Zl91bml0dGVzdC5UZXN0Q2hpbGRFeHRlbnNpb25EYXRhUgVjaGlsZA==');
 @$core.Deprecated('Use testRequiredDescriptor instead')
 const TestRequired$json = const {
   '1': 'TestRequired',
@@ -621,69 +1195,155 @@ const TestRequired$json = const {
     const {'1': 'dummy31', '3': 31, '4': 1, '5': 5, '10': 'dummy31'},
     const {'1': 'dummy32', '3': 32, '4': 1, '5': 5, '10': 'dummy32'},
     const {'1': 'c', '3': 33, '4': 2, '5': 5, '10': 'c'},
-    const {'1': 'optional_foreign', '3': 34, '4': 1, '5': 11, '6': '.protobuf_unittest.ForeignMessage', '10': 'optionalForeign'},
+    const {
+      '1': 'optional_foreign',
+      '3': 34,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.ForeignMessage',
+      '10': 'optionalForeign'
+    },
   ],
   '6': const [
-    const {'1': 'single', '2': '.protobuf_unittest.TestAllExtensions', '3': 1000, '4': 1, '5': 11, '6': '.protobuf_unittest.TestRequired', '10': 'single'},
-    const {'1': 'multi', '2': '.protobuf_unittest.TestAllExtensions', '3': 1001, '4': 3, '5': 11, '6': '.protobuf_unittest.TestRequired', '10': 'multi'},
+    const {
+      '1': 'single',
+      '2': '.protobuf_unittest.TestAllExtensions',
+      '3': 1000,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRequired',
+      '10': 'single'
+    },
+    const {
+      '1': 'multi',
+      '2': '.protobuf_unittest.TestAllExtensions',
+      '3': 1001,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRequired',
+      '10': 'multi'
+    },
   ],
 };
 
 /// Descriptor for `TestRequired`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testRequiredDescriptor = $convert.base64Decode('CgxUZXN0UmVxdWlyZWQSDAoBYRgBIAIoBVIBYRIWCgZkdW1teTIYAiABKAVSBmR1bW15MhIMCgFiGAMgAigFUgFiEhYKBmR1bW15NBgEIAEoBVIGZHVtbXk0EhYKBmR1bW15NRgFIAEoBVIGZHVtbXk1EhYKBmR1bW15NhgGIAEoBVIGZHVtbXk2EhYKBmR1bW15NxgHIAEoBVIGZHVtbXk3EhYKBmR1bW15OBgIIAEoBVIGZHVtbXk4EhYKBmR1bW15ORgJIAEoBVIGZHVtbXk5EhgKB2R1bW15MTAYCiABKAVSB2R1bW15MTASGAoHZHVtbXkxMRgLIAEoBVIHZHVtbXkxMRIYCgdkdW1teTEyGAwgASgFUgdkdW1teTEyEhgKB2R1bW15MTMYDSABKAVSB2R1bW15MTMSGAoHZHVtbXkxNBgOIAEoBVIHZHVtbXkxNBIYCgdkdW1teTE1GA8gASgFUgdkdW1teTE1EhgKB2R1bW15MTYYECABKAVSB2R1bW15MTYSGAoHZHVtbXkxNxgRIAEoBVIHZHVtbXkxNxIYCgdkdW1teTE4GBIgASgFUgdkdW1teTE4EhgKB2R1bW15MTkYEyABKAVSB2R1bW15MTkSGAoHZHVtbXkyMBgUIAEoBVIHZHVtbXkyMBIYCgdkdW1teTIxGBUgASgFUgdkdW1teTIxEhgKB2R1bW15MjIYFiABKAVSB2R1bW15MjISGAoHZHVtbXkyMxgXIAEoBVIHZHVtbXkyMxIYCgdkdW1teTI0GBggASgFUgdkdW1teTI0EhgKB2R1bW15MjUYGSABKAVSB2R1bW15MjUSGAoHZHVtbXkyNhgaIAEoBVIHZHVtbXkyNhIYCgdkdW1teTI3GBsgASgFUgdkdW1teTI3EhgKB2R1bW15MjgYHCABKAVSB2R1bW15MjgSGAoHZHVtbXkyORgdIAEoBVIHZHVtbXkyORIYCgdkdW1teTMwGB4gASgFUgdkdW1teTMwEhgKB2R1bW15MzEYHyABKAVSB2R1bW15MzESGAoHZHVtbXkzMhggIAEoBVIHZHVtbXkzMhIMCgFjGCEgAigFUgFjEkwKEG9wdGlvbmFsX2ZvcmVpZ24YIiABKAsyIS5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduTWVzc2FnZVIPb3B0aW9uYWxGb3JlaWduMl4KBnNpbmdsZRIkLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxFeHRlbnNpb25zGOgHIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RSZXF1aXJlZFIGc2luZ2xlMlwKBW11bHRpEiQucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbEV4dGVuc2lvbnMY6QcgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdFJlcXVpcmVkUgVtdWx0aQ==');
+final $typed_data.Uint8List testRequiredDescriptor = $convert.base64Decode(
+    'CgxUZXN0UmVxdWlyZWQSDAoBYRgBIAIoBVIBYRIWCgZkdW1teTIYAiABKAVSBmR1bW15MhIMCgFiGAMgAigFUgFiEhYKBmR1bW15NBgEIAEoBVIGZHVtbXk0EhYKBmR1bW15NRgFIAEoBVIGZHVtbXk1EhYKBmR1bW15NhgGIAEoBVIGZHVtbXk2EhYKBmR1bW15NxgHIAEoBVIGZHVtbXk3EhYKBmR1bW15OBgIIAEoBVIGZHVtbXk4EhYKBmR1bW15ORgJIAEoBVIGZHVtbXk5EhgKB2R1bW15MTAYCiABKAVSB2R1bW15MTASGAoHZHVtbXkxMRgLIAEoBVIHZHVtbXkxMRIYCgdkdW1teTEyGAwgASgFUgdkdW1teTEyEhgKB2R1bW15MTMYDSABKAVSB2R1bW15MTMSGAoHZHVtbXkxNBgOIAEoBVIHZHVtbXkxNBIYCgdkdW1teTE1GA8gASgFUgdkdW1teTE1EhgKB2R1bW15MTYYECABKAVSB2R1bW15MTYSGAoHZHVtbXkxNxgRIAEoBVIHZHVtbXkxNxIYCgdkdW1teTE4GBIgASgFUgdkdW1teTE4EhgKB2R1bW15MTkYEyABKAVSB2R1bW15MTkSGAoHZHVtbXkyMBgUIAEoBVIHZHVtbXkyMBIYCgdkdW1teTIxGBUgASgFUgdkdW1teTIxEhgKB2R1bW15MjIYFiABKAVSB2R1bW15MjISGAoHZHVtbXkyMxgXIAEoBVIHZHVtbXkyMxIYCgdkdW1teTI0GBggASgFUgdkdW1teTI0EhgKB2R1bW15MjUYGSABKAVSB2R1bW15MjUSGAoHZHVtbXkyNhgaIAEoBVIHZHVtbXkyNhIYCgdkdW1teTI3GBsgASgFUgdkdW1teTI3EhgKB2R1bW15MjgYHCABKAVSB2R1bW15MjgSGAoHZHVtbXkyORgdIAEoBVIHZHVtbXkyORIYCgdkdW1teTMwGB4gASgFUgdkdW1teTMwEhgKB2R1bW15MzEYHyABKAVSB2R1bW15MzESGAoHZHVtbXkzMhggIAEoBVIHZHVtbXkzMhIMCgFjGCEgAigFUgFjEkwKEG9wdGlvbmFsX2ZvcmVpZ24YIiABKAsyIS5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduTWVzc2FnZVIPb3B0aW9uYWxGb3JlaWduMl4KBnNpbmdsZRIkLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxFeHRlbnNpb25zGOgHIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RSZXF1aXJlZFIGc2luZ2xlMlwKBW11bHRpEiQucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbEV4dGVuc2lvbnMY6QcgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdFJlcXVpcmVkUgVtdWx0aQ==');
 @$core.Deprecated('Use testRequiredForeignDescriptor instead')
 const TestRequiredForeign$json = const {
   '1': 'TestRequiredForeign',
   '2': const [
-    const {'1': 'optional_message', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestRequired', '10': 'optionalMessage'},
-    const {'1': 'repeated_message', '3': 2, '4': 3, '5': 11, '6': '.protobuf_unittest.TestRequired', '10': 'repeatedMessage'},
+    const {
+      '1': 'optional_message',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRequired',
+      '10': 'optionalMessage'
+    },
+    const {
+      '1': 'repeated_message',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRequired',
+      '10': 'repeatedMessage'
+    },
     const {'1': 'dummy', '3': 3, '4': 1, '5': 5, '10': 'dummy'},
   ],
 };
 
 /// Descriptor for `TestRequiredForeign`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testRequiredForeignDescriptor = $convert.base64Decode('ChNUZXN0UmVxdWlyZWRGb3JlaWduEkoKEG9wdGlvbmFsX21lc3NhZ2UYASABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0UmVxdWlyZWRSD29wdGlvbmFsTWVzc2FnZRJKChByZXBlYXRlZF9tZXNzYWdlGAIgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdFJlcXVpcmVkUg9yZXBlYXRlZE1lc3NhZ2USFAoFZHVtbXkYAyABKAVSBWR1bW15');
+final $typed_data.Uint8List testRequiredForeignDescriptor = $convert.base64Decode(
+    'ChNUZXN0UmVxdWlyZWRGb3JlaWduEkoKEG9wdGlvbmFsX21lc3NhZ2UYASABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0UmVxdWlyZWRSD29wdGlvbmFsTWVzc2FnZRJKChByZXBlYXRlZF9tZXNzYWdlGAIgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdFJlcXVpcmVkUg9yZXBlYXRlZE1lc3NhZ2USFAoFZHVtbXkYAyABKAVSBWR1bW15');
 @$core.Deprecated('Use testRequiredMessageDescriptor instead')
 const TestRequiredMessage$json = const {
   '1': 'TestRequiredMessage',
   '2': const [
-    const {'1': 'optional_message', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestRequired', '10': 'optionalMessage'},
-    const {'1': 'repeated_message', '3': 2, '4': 3, '5': 11, '6': '.protobuf_unittest.TestRequired', '10': 'repeatedMessage'},
-    const {'1': 'required_message', '3': 3, '4': 2, '5': 11, '6': '.protobuf_unittest.TestRequired', '10': 'requiredMessage'},
+    const {
+      '1': 'optional_message',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRequired',
+      '10': 'optionalMessage'
+    },
+    const {
+      '1': 'repeated_message',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRequired',
+      '10': 'repeatedMessage'
+    },
+    const {
+      '1': 'required_message',
+      '3': 3,
+      '4': 2,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRequired',
+      '10': 'requiredMessage'
+    },
   ],
 };
 
 /// Descriptor for `TestRequiredMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testRequiredMessageDescriptor = $convert.base64Decode('ChNUZXN0UmVxdWlyZWRNZXNzYWdlEkoKEG9wdGlvbmFsX21lc3NhZ2UYASABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0UmVxdWlyZWRSD29wdGlvbmFsTWVzc2FnZRJKChByZXBlYXRlZF9tZXNzYWdlGAIgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdFJlcXVpcmVkUg9yZXBlYXRlZE1lc3NhZ2USSgoQcmVxdWlyZWRfbWVzc2FnZRgDIAIoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RSZXF1aXJlZFIPcmVxdWlyZWRNZXNzYWdl');
+final $typed_data.Uint8List testRequiredMessageDescriptor = $convert.base64Decode(
+    'ChNUZXN0UmVxdWlyZWRNZXNzYWdlEkoKEG9wdGlvbmFsX21lc3NhZ2UYASABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0UmVxdWlyZWRSD29wdGlvbmFsTWVzc2FnZRJKChByZXBlYXRlZF9tZXNzYWdlGAIgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdFJlcXVpcmVkUg9yZXBlYXRlZE1lc3NhZ2USSgoQcmVxdWlyZWRfbWVzc2FnZRgDIAIoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RSZXF1aXJlZFIPcmVxdWlyZWRNZXNzYWdl');
 @$core.Deprecated('Use testNestedRequiredForeignDescriptor instead')
 const TestNestedRequiredForeign$json = const {
   '1': 'TestNestedRequiredForeign',
   '2': const [
-    const {'1': 'child', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestNestedRequiredForeign', '10': 'child'},
-    const {'1': 'payload', '3': 2, '4': 1, '5': 11, '6': '.protobuf_unittest.TestRequiredForeign', '10': 'payload'},
+    const {
+      '1': 'child',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestNestedRequiredForeign',
+      '10': 'child'
+    },
+    const {
+      '1': 'payload',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRequiredForeign',
+      '10': 'payload'
+    },
     const {'1': 'dummy', '3': 3, '4': 1, '5': 5, '10': 'dummy'},
   ],
 };
 
 /// Descriptor for `TestNestedRequiredForeign`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testNestedRequiredForeignDescriptor = $convert.base64Decode('ChlUZXN0TmVzdGVkUmVxdWlyZWRGb3JlaWduEkIKBWNoaWxkGAEgASgLMiwucHJvdG9idWZfdW5pdHRlc3QuVGVzdE5lc3RlZFJlcXVpcmVkRm9yZWlnblIFY2hpbGQSQAoHcGF5bG9hZBgCIAEoCzImLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RSZXF1aXJlZEZvcmVpZ25SB3BheWxvYWQSFAoFZHVtbXkYAyABKAVSBWR1bW15');
+final $typed_data.Uint8List testNestedRequiredForeignDescriptor =
+    $convert.base64Decode(
+        'ChlUZXN0TmVzdGVkUmVxdWlyZWRGb3JlaWduEkIKBWNoaWxkGAEgASgLMiwucHJvdG9idWZfdW5pdHRlc3QuVGVzdE5lc3RlZFJlcXVpcmVkRm9yZWlnblIFY2hpbGQSQAoHcGF5bG9hZBgCIAEoCzImLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RSZXF1aXJlZEZvcmVpZ25SB3BheWxvYWQSFAoFZHVtbXkYAyABKAVSBWR1bW15');
 @$core.Deprecated('Use testForeignNestedDescriptor instead')
 const TestForeignNested$json = const {
   '1': 'TestForeignNested',
   '2': const [
-    const {'1': 'foreign_nested', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes.NestedMessage', '10': 'foreignNested'},
+    const {
+      '1': 'foreign_nested',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes.NestedMessage',
+      '10': 'foreignNested'
+    },
   ],
 };
 
 /// Descriptor for `TestForeignNested`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testForeignNestedDescriptor = $convert.base64Decode('ChFUZXN0Rm9yZWlnbk5lc3RlZBJUCg5mb3JlaWduX25lc3RlZBgBIAEoCzItLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlcy5OZXN0ZWRNZXNzYWdlUg1mb3JlaWduTmVzdGVk');
+final $typed_data.Uint8List testForeignNestedDescriptor = $convert.base64Decode(
+    'ChFUZXN0Rm9yZWlnbk5lc3RlZBJUCg5mb3JlaWduX25lc3RlZBgBIAEoCzItLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlcy5OZXN0ZWRNZXNzYWdlUg1mb3JlaWduTmVzdGVk');
 @$core.Deprecated('Use testEmptyMessageDescriptor instead')
 const TestEmptyMessage$json = const {
   '1': 'TestEmptyMessage',
 };
 
 /// Descriptor for `TestEmptyMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testEmptyMessageDescriptor = $convert.base64Decode('ChBUZXN0RW1wdHlNZXNzYWdl');
+final $typed_data.Uint8List testEmptyMessageDescriptor =
+    $convert.base64Decode('ChBUZXN0RW1wdHlNZXNzYWdl');
 @$core.Deprecated('Use testEmptyMessageWithExtensionsDescriptor instead')
 const TestEmptyMessageWithExtensions$json = const {
   '1': 'TestEmptyMessageWithExtensions',
@@ -693,7 +1353,8 @@ const TestEmptyMessageWithExtensions$json = const {
 };
 
 /// Descriptor for `TestEmptyMessageWithExtensions`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testEmptyMessageWithExtensionsDescriptor = $convert.base64Decode('Ch5UZXN0RW1wdHlNZXNzYWdlV2l0aEV4dGVuc2lvbnMqCAgBEICAgIAC');
+final $typed_data.Uint8List testEmptyMessageWithExtensionsDescriptor = $convert
+    .base64Decode('Ch5UZXN0RW1wdHlNZXNzYWdlV2l0aEV4dGVuc2lvbnMqCAgBEICAgIAC');
 @$core.Deprecated('Use testPickleNestedMessageDescriptor instead')
 const TestPickleNestedMessage$json = const {
   '1': 'TestPickleNestedMessage',
@@ -718,7 +1379,9 @@ const TestPickleNestedMessage_NestedMessage_NestedNestedMessage$json = const {
 };
 
 /// Descriptor for `TestPickleNestedMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testPickleNestedMessageDescriptor = $convert.base64Decode('ChdUZXN0UGlja2xlTmVzdGVkTWVzc2FnZRpGCg1OZXN0ZWRNZXNzYWdlEg4KAmJiGAEgASgFUgJiYholChNOZXN0ZWROZXN0ZWRNZXNzYWdlEg4KAmNjGAEgASgFUgJjYw==');
+final $typed_data.Uint8List testPickleNestedMessageDescriptor =
+    $convert.base64Decode(
+        'ChdUZXN0UGlja2xlTmVzdGVkTWVzc2FnZRpGCg1OZXN0ZWRNZXNzYWdlEg4KAmJiGAEgASgFUgJiYholChNOZXN0ZWROZXN0ZWRNZXNzYWdlEg4KAmNjGAEgASgFUgJjYw==');
 @$core.Deprecated('Use testMultipleExtensionRangesDescriptor instead')
 const TestMultipleExtensionRanges$json = const {
   '1': 'TestMultipleExtensionRanges',
@@ -730,7 +1393,9 @@ const TestMultipleExtensionRanges$json = const {
 };
 
 /// Descriptor for `TestMultipleExtensionRanges`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testMultipleExtensionRangesDescriptor = $convert.base64Decode('ChtUZXN0TXVsdGlwbGVFeHRlbnNpb25SYW5nZXMqBAgqECsqBgivIBCUISoKCICABBCAgICAAg==');
+final $typed_data.Uint8List testMultipleExtensionRangesDescriptor =
+    $convert.base64Decode(
+        'ChtUZXN0TXVsdGlwbGVFeHRlbnNpb25SYW5nZXMqBAgqECsqBgivIBCUISoKCICABBCAgICAAg==');
 @$core.Deprecated('Use testReallyLargeTagNumberDescriptor instead')
 const TestReallyLargeTagNumber$json = const {
   '1': 'TestReallyLargeTagNumber',
@@ -741,33 +1406,67 @@ const TestReallyLargeTagNumber$json = const {
 };
 
 /// Descriptor for `TestReallyLargeTagNumber`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testReallyLargeTagNumberDescriptor = $convert.base64Decode('ChhUZXN0UmVhbGx5TGFyZ2VUYWdOdW1iZXISDAoBYRgBIAEoBVIBYRIRCgJiYhj///9/IAEoBVICYmI=');
+final $typed_data.Uint8List testReallyLargeTagNumberDescriptor =
+    $convert.base64Decode(
+        'ChhUZXN0UmVhbGx5TGFyZ2VUYWdOdW1iZXISDAoBYRgBIAEoBVIBYRIRCgJiYhj///9/IAEoBVICYmI=');
 @$core.Deprecated('Use testRecursiveMessageDescriptor instead')
 const TestRecursiveMessage$json = const {
   '1': 'TestRecursiveMessage',
   '2': const [
-    const {'1': 'a', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestRecursiveMessage', '10': 'a'},
+    const {
+      '1': 'a',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRecursiveMessage',
+      '10': 'a'
+    },
     const {'1': 'i', '3': 2, '4': 1, '5': 5, '10': 'i'},
   ],
 };
 
 /// Descriptor for `TestRecursiveMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testRecursiveMessageDescriptor = $convert.base64Decode('ChRUZXN0UmVjdXJzaXZlTWVzc2FnZRI1CgFhGAEgASgLMicucHJvdG9idWZfdW5pdHRlc3QuVGVzdFJlY3Vyc2l2ZU1lc3NhZ2VSAWESDAoBaRgCIAEoBVIBaQ==');
+final $typed_data.Uint8List testRecursiveMessageDescriptor = $convert.base64Decode(
+    'ChRUZXN0UmVjdXJzaXZlTWVzc2FnZRI1CgFhGAEgASgLMicucHJvdG9idWZfdW5pdHRlc3QuVGVzdFJlY3Vyc2l2ZU1lc3NhZ2VSAWESDAoBaRgCIAEoBVIBaQ==');
 @$core.Deprecated('Use testMutualRecursionADescriptor instead')
 const TestMutualRecursionA$json = const {
   '1': 'TestMutualRecursionA',
   '2': const [
-    const {'1': 'bb', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestMutualRecursionB', '10': 'bb'},
-    const {'1': 'subgroup', '3': 2, '4': 1, '5': 10, '6': '.protobuf_unittest.TestMutualRecursionA.SubGroup', '10': 'subgroup'},
+    const {
+      '1': 'bb',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestMutualRecursionB',
+      '10': 'bb'
+    },
+    const {
+      '1': 'subgroup',
+      '3': 2,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestMutualRecursionA.SubGroup',
+      '10': 'subgroup'
+    },
   ],
-  '3': const [TestMutualRecursionA_SubMessage$json, TestMutualRecursionA_SubGroup$json],
+  '3': const [
+    TestMutualRecursionA_SubMessage$json,
+    TestMutualRecursionA_SubGroup$json
+  ],
 };
 
 @$core.Deprecated('Use testMutualRecursionADescriptor instead')
 const TestMutualRecursionA_SubMessage$json = const {
   '1': 'SubMessage',
   '2': const [
-    const {'1': 'b', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestMutualRecursionB', '10': 'b'},
+    const {
+      '1': 'b',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestMutualRecursionB',
+      '10': 'b'
+    },
   ],
 };
 
@@ -775,29 +1474,65 @@ const TestMutualRecursionA_SubMessage$json = const {
 const TestMutualRecursionA_SubGroup$json = const {
   '1': 'SubGroup',
   '2': const [
-    const {'1': 'sub_message', '3': 3, '4': 1, '5': 11, '6': '.protobuf_unittest.TestMutualRecursionA.SubMessage', '10': 'subMessage'},
-    const {'1': 'not_in_this_scc', '3': 4, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'notInThisScc'},
+    const {
+      '1': 'sub_message',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestMutualRecursionA.SubMessage',
+      '10': 'subMessage'
+    },
+    const {
+      '1': 'not_in_this_scc',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'notInThisScc'
+    },
   ],
 };
 
 /// Descriptor for `TestMutualRecursionA`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testMutualRecursionADescriptor = $convert.base64Decode('ChRUZXN0TXV0dWFsUmVjdXJzaW9uQRI3CgJiYhgBIAEoCzInLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RNdXR1YWxSZWN1cnNpb25CUgJiYhJMCghzdWJncm91cBgCIAEoCjIwLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RNdXR1YWxSZWN1cnNpb25BLlN1Ykdyb3VwUghzdWJncm91cBpDCgpTdWJNZXNzYWdlEjUKAWIYASABKAsyJy5wcm90b2J1Zl91bml0dGVzdC5UZXN0TXV0dWFsUmVjdXJzaW9uQlIBYhqnAQoIU3ViR3JvdXASUwoLc3ViX21lc3NhZ2UYAyABKAsyMi5wcm90b2J1Zl91bml0dGVzdC5UZXN0TXV0dWFsUmVjdXJzaW9uQS5TdWJNZXNzYWdlUgpzdWJNZXNzYWdlEkYKD25vdF9pbl90aGlzX3NjYxgEIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IMbm90SW5UaGlzU2Nj');
+final $typed_data.Uint8List testMutualRecursionADescriptor = $convert.base64Decode(
+    'ChRUZXN0TXV0dWFsUmVjdXJzaW9uQRI3CgJiYhgBIAEoCzInLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RNdXR1YWxSZWN1cnNpb25CUgJiYhJMCghzdWJncm91cBgCIAEoCjIwLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RNdXR1YWxSZWN1cnNpb25BLlN1Ykdyb3VwUghzdWJncm91cBpDCgpTdWJNZXNzYWdlEjUKAWIYASABKAsyJy5wcm90b2J1Zl91bml0dGVzdC5UZXN0TXV0dWFsUmVjdXJzaW9uQlIBYhqnAQoIU3ViR3JvdXASUwoLc3ViX21lc3NhZ2UYAyABKAsyMi5wcm90b2J1Zl91bml0dGVzdC5UZXN0TXV0dWFsUmVjdXJzaW9uQS5TdWJNZXNzYWdlUgpzdWJNZXNzYWdlEkYKD25vdF9pbl90aGlzX3NjYxgEIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IMbm90SW5UaGlzU2Nj');
 @$core.Deprecated('Use testMutualRecursionBDescriptor instead')
 const TestMutualRecursionB$json = const {
   '1': 'TestMutualRecursionB',
   '2': const [
-    const {'1': 'a', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestMutualRecursionA', '10': 'a'},
-    const {'1': 'optional_int32', '3': 2, '4': 1, '5': 5, '10': 'optionalInt32'},
+    const {
+      '1': 'a',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestMutualRecursionA',
+      '10': 'a'
+    },
+    const {
+      '1': 'optional_int32',
+      '3': 2,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt32'
+    },
   ],
 };
 
 /// Descriptor for `TestMutualRecursionB`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testMutualRecursionBDescriptor = $convert.base64Decode('ChRUZXN0TXV0dWFsUmVjdXJzaW9uQhI1CgFhGAEgASgLMicucHJvdG9idWZfdW5pdHRlc3QuVGVzdE11dHVhbFJlY3Vyc2lvbkFSAWESJQoOb3B0aW9uYWxfaW50MzIYAiABKAVSDW9wdGlvbmFsSW50MzI=');
+final $typed_data.Uint8List testMutualRecursionBDescriptor = $convert.base64Decode(
+    'ChRUZXN0TXV0dWFsUmVjdXJzaW9uQhI1CgFhGAEgASgLMicucHJvdG9idWZfdW5pdHRlc3QuVGVzdE11dHVhbFJlY3Vyc2lvbkFSAWESJQoOb3B0aW9uYWxfaW50MzIYAiABKAVSDW9wdGlvbmFsSW50MzI=');
 @$core.Deprecated('Use testIsInitializedDescriptor instead')
 const TestIsInitialized$json = const {
   '1': 'TestIsInitialized',
   '2': const [
-    const {'1': 'sub_message', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestIsInitialized.SubMessage', '10': 'subMessage'},
+    const {
+      '1': 'sub_message',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestIsInitialized.SubMessage',
+      '10': 'subMessage'
+    },
   ],
   '3': const [TestIsInitialized_SubMessage$json],
 };
@@ -806,7 +1541,14 @@ const TestIsInitialized$json = const {
 const TestIsInitialized_SubMessage$json = const {
   '1': 'SubMessage',
   '2': const [
-    const {'1': 'subgroup', '3': 1, '4': 1, '5': 10, '6': '.protobuf_unittest.TestIsInitialized.SubMessage.SubGroup', '10': 'subgroup'},
+    const {
+      '1': 'subgroup',
+      '3': 1,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestIsInitialized.SubMessage.SubGroup',
+      '10': 'subgroup'
+    },
   ],
   '3': const [TestIsInitialized_SubMessage_SubGroup$json],
 };
@@ -820,14 +1562,29 @@ const TestIsInitialized_SubMessage_SubGroup$json = const {
 };
 
 /// Descriptor for `TestIsInitialized`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testIsInitializedDescriptor = $convert.base64Decode('ChFUZXN0SXNJbml0aWFsaXplZBJQCgtzdWJfbWVzc2FnZRgBIAEoCzIvLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RJc0luaXRpYWxpemVkLlN1Yk1lc3NhZ2VSCnN1Yk1lc3NhZ2UafAoKU3ViTWVzc2FnZRJUCghzdWJncm91cBgBIAEoCjI4LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RJc0luaXRpYWxpemVkLlN1Yk1lc3NhZ2UuU3ViR3JvdXBSCHN1Ymdyb3VwGhgKCFN1Ykdyb3VwEgwKAWkYAiACKAVSAWk=');
+final $typed_data.Uint8List testIsInitializedDescriptor = $convert.base64Decode(
+    'ChFUZXN0SXNJbml0aWFsaXplZBJQCgtzdWJfbWVzc2FnZRgBIAEoCzIvLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RJc0luaXRpYWxpemVkLlN1Yk1lc3NhZ2VSCnN1Yk1lc3NhZ2UafAoKU3ViTWVzc2FnZRJUCghzdWJncm91cBgBIAEoCjI4LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RJc0luaXRpYWxpemVkLlN1Yk1lc3NhZ2UuU3ViR3JvdXBSCHN1Ymdyb3VwGhgKCFN1Ykdyb3VwEgwKAWkYAiACKAVSAWk=');
 @$core.Deprecated('Use testDupFieldNumberDescriptor instead')
 const TestDupFieldNumber$json = const {
   '1': 'TestDupFieldNumber',
   '2': const [
     const {'1': 'a', '3': 1, '4': 1, '5': 5, '10': 'a'},
-    const {'1': 'foo', '3': 2, '4': 1, '5': 10, '6': '.protobuf_unittest.TestDupFieldNumber.Foo', '10': 'foo'},
-    const {'1': 'bar', '3': 3, '4': 1, '5': 10, '6': '.protobuf_unittest.TestDupFieldNumber.Bar', '10': 'bar'},
+    const {
+      '1': 'foo',
+      '3': 2,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestDupFieldNumber.Foo',
+      '10': 'foo'
+    },
+    const {
+      '1': 'bar',
+      '3': 3,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestDupFieldNumber.Bar',
+      '10': 'bar'
+    },
   ],
   '3': const [TestDupFieldNumber_Foo$json, TestDupFieldNumber_Bar$json],
 };
@@ -849,7 +1606,8 @@ const TestDupFieldNumber_Bar$json = const {
 };
 
 /// Descriptor for `TestDupFieldNumber`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testDupFieldNumberDescriptor = $convert.base64Decode('ChJUZXN0RHVwRmllbGROdW1iZXISDAoBYRgBIAEoBVIBYRI7CgNmb28YAiABKAoyKS5wcm90b2J1Zl91bml0dGVzdC5UZXN0RHVwRmllbGROdW1iZXIuRm9vUgNmb28SOwoDYmFyGAMgASgKMikucHJvdG9idWZfdW5pdHRlc3QuVGVzdER1cEZpZWxkTnVtYmVyLkJhclIDYmFyGhMKA0ZvbxIMCgFhGAEgASgFUgFhGhMKA0JhchIMCgFhGAEgASgFUgFh');
+final $typed_data.Uint8List testDupFieldNumberDescriptor = $convert.base64Decode(
+    'ChJUZXN0RHVwRmllbGROdW1iZXISDAoBYRgBIAEoBVIBYRI7CgNmb28YAiABKAoyKS5wcm90b2J1Zl91bml0dGVzdC5UZXN0RHVwRmllbGROdW1iZXIuRm9vUgNmb28SOwoDYmFyGAMgASgKMikucHJvdG9idWZfdW5pdHRlc3QuVGVzdER1cEZpZWxkTnVtYmVyLkJhclIDYmFyGhMKA0ZvbxIMCgFhGAEgASgFUgFhGhMKA0JhchIMCgFhGAEgASgFUgFh');
 @$core.Deprecated('Use testEagerMessageDescriptor instead')
 const TestEagerMessage$json = const {
   '1': 'TestEagerMessage',
@@ -867,7 +1625,8 @@ const TestEagerMessage$json = const {
 };
 
 /// Descriptor for `TestEagerMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testEagerMessageDescriptor = $convert.base64Decode('ChBUZXN0RWFnZXJNZXNzYWdlEkQKC3N1Yl9tZXNzYWdlGAEgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzQgIoAFIKc3ViTWVzc2FnZQ==');
+final $typed_data.Uint8List testEagerMessageDescriptor = $convert.base64Decode(
+    'ChBUZXN0RWFnZXJNZXNzYWdlEkQKC3N1Yl9tZXNzYWdlGAEgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzQgIoAFIKc3ViTWVzc2FnZQ==');
 @$core.Deprecated('Use testLazyMessageDescriptor instead')
 const TestLazyMessage$json = const {
   '1': 'TestLazyMessage',
@@ -885,14 +1644,36 @@ const TestLazyMessage$json = const {
 };
 
 /// Descriptor for `TestLazyMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testLazyMessageDescriptor = $convert.base64Decode('Cg9UZXN0TGF6eU1lc3NhZ2USRAoLc3ViX21lc3NhZ2UYASABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNCAigBUgpzdWJNZXNzYWdl');
+final $typed_data.Uint8List testLazyMessageDescriptor = $convert.base64Decode(
+    'Cg9UZXN0TGF6eU1lc3NhZ2USRAoLc3ViX21lc3NhZ2UYASABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNCAigBUgpzdWJNZXNzYWdl');
 @$core.Deprecated('Use testEagerMaybeLazyDescriptor instead')
 const TestEagerMaybeLazy$json = const {
   '1': 'TestEagerMaybeLazy',
   '2': const [
-    const {'1': 'message_foo', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'messageFoo'},
-    const {'1': 'message_bar', '3': 2, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'messageBar'},
-    const {'1': 'message_baz', '3': 3, '4': 1, '5': 11, '6': '.protobuf_unittest.TestEagerMaybeLazy.NestedMessage', '10': 'messageBaz'},
+    const {
+      '1': 'message_foo',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'messageFoo'
+    },
+    const {
+      '1': 'message_bar',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'messageBar'
+    },
+    const {
+      '1': 'message_baz',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestEagerMaybeLazy.NestedMessage',
+      '10': 'messageBaz'
+    },
   ],
   '3': const [TestEagerMaybeLazy_NestedMessage$json],
 };
@@ -901,17 +1682,32 @@ const TestEagerMaybeLazy$json = const {
 const TestEagerMaybeLazy_NestedMessage$json = const {
   '1': 'NestedMessage',
   '2': const [
-    const {'1': 'packed', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestPackedTypes', '10': 'packed'},
+    const {
+      '1': 'packed',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestPackedTypes',
+      '10': 'packed'
+    },
   ],
 };
 
 /// Descriptor for `TestEagerMaybeLazy`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testEagerMaybeLazyDescriptor = $convert.base64Decode('ChJUZXN0RWFnZXJNYXliZUxhenkSQAoLbWVzc2FnZV9mb28YASABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSCm1lc3NhZ2VGb28SQAoLbWVzc2FnZV9iYXIYAiABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSCm1lc3NhZ2VCYXISVAoLbWVzc2FnZV9iYXoYAyABKAsyMy5wcm90b2J1Zl91bml0dGVzdC5UZXN0RWFnZXJNYXliZUxhenkuTmVzdGVkTWVzc2FnZVIKbWVzc2FnZUJhehpLCg1OZXN0ZWRNZXNzYWdlEjoKBnBhY2tlZBgBIAEoCzIiLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RQYWNrZWRUeXBlc1IGcGFja2Vk');
+final $typed_data.Uint8List testEagerMaybeLazyDescriptor = $convert.base64Decode(
+    'ChJUZXN0RWFnZXJNYXliZUxhenkSQAoLbWVzc2FnZV9mb28YASABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSCm1lc3NhZ2VGb28SQAoLbWVzc2FnZV9iYXIYAiABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSCm1lc3NhZ2VCYXISVAoLbWVzc2FnZV9iYXoYAyABKAsyMy5wcm90b2J1Zl91bml0dGVzdC5UZXN0RWFnZXJNYXliZUxhenkuTmVzdGVkTWVzc2FnZVIKbWVzc2FnZUJhehpLCg1OZXN0ZWRNZXNzYWdlEjoKBnBhY2tlZBgBIAEoCzIiLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RQYWNrZWRUeXBlc1IGcGFja2Vk');
 @$core.Deprecated('Use testNestedMessageHasBitsDescriptor instead')
 const TestNestedMessageHasBits$json = const {
   '1': 'TestNestedMessageHasBits',
   '2': const [
-    const {'1': 'optional_nested_message', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestNestedMessageHasBits.NestedMessage', '10': 'optionalNestedMessage'},
+    const {
+      '1': 'optional_nested_message',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestNestedMessageHasBits.NestedMessage',
+      '10': 'optionalNestedMessage'
+    },
   ],
   '3': const [TestNestedMessageHasBits_NestedMessage$json],
 };
@@ -920,21 +1716,56 @@ const TestNestedMessageHasBits$json = const {
 const TestNestedMessageHasBits_NestedMessage$json = const {
   '1': 'NestedMessage',
   '2': const [
-    const {'1': 'nestedmessage_repeated_int32', '3': 1, '4': 3, '5': 5, '10': 'nestedmessageRepeatedInt32'},
-    const {'1': 'nestedmessage_repeated_foreignmessage', '3': 2, '4': 3, '5': 11, '6': '.protobuf_unittest.ForeignMessage', '10': 'nestedmessageRepeatedForeignmessage'},
+    const {
+      '1': 'nestedmessage_repeated_int32',
+      '3': 1,
+      '4': 3,
+      '5': 5,
+      '10': 'nestedmessageRepeatedInt32'
+    },
+    const {
+      '1': 'nestedmessage_repeated_foreignmessage',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.ForeignMessage',
+      '10': 'nestedmessageRepeatedForeignmessage'
+    },
   ],
 };
 
 /// Descriptor for `TestNestedMessageHasBits`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testNestedMessageHasBitsDescriptor = $convert.base64Decode('ChhUZXN0TmVzdGVkTWVzc2FnZUhhc0JpdHMScQoXb3B0aW9uYWxfbmVzdGVkX21lc3NhZ2UYASABKAsyOS5wcm90b2J1Zl91bml0dGVzdC5UZXN0TmVzdGVkTWVzc2FnZUhhc0JpdHMuTmVzdGVkTWVzc2FnZVIVb3B0aW9uYWxOZXN0ZWRNZXNzYWdlGsgBCg1OZXN0ZWRNZXNzYWdlEkAKHG5lc3RlZG1lc3NhZ2VfcmVwZWF0ZWRfaW50MzIYASADKAVSGm5lc3RlZG1lc3NhZ2VSZXBlYXRlZEludDMyEnUKJW5lc3RlZG1lc3NhZ2VfcmVwZWF0ZWRfZm9yZWlnbm1lc3NhZ2UYAiADKAsyIS5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduTWVzc2FnZVIjbmVzdGVkbWVzc2FnZVJlcGVhdGVkRm9yZWlnbm1lc3NhZ2U=');
+final $typed_data.Uint8List testNestedMessageHasBitsDescriptor =
+    $convert.base64Decode(
+        'ChhUZXN0TmVzdGVkTWVzc2FnZUhhc0JpdHMScQoXb3B0aW9uYWxfbmVzdGVkX21lc3NhZ2UYASABKAsyOS5wcm90b2J1Zl91bml0dGVzdC5UZXN0TmVzdGVkTWVzc2FnZUhhc0JpdHMuTmVzdGVkTWVzc2FnZVIVb3B0aW9uYWxOZXN0ZWRNZXNzYWdlGsgBCg1OZXN0ZWRNZXNzYWdlEkAKHG5lc3RlZG1lc3NhZ2VfcmVwZWF0ZWRfaW50MzIYASADKAVSGm5lc3RlZG1lc3NhZ2VSZXBlYXRlZEludDMyEnUKJW5lc3RlZG1lc3NhZ2VfcmVwZWF0ZWRfZm9yZWlnbm1lc3NhZ2UYAiADKAsyIS5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduTWVzc2FnZVIjbmVzdGVkbWVzc2FnZVJlcGVhdGVkRm9yZWlnbm1lc3NhZ2U=');
 @$core.Deprecated('Use testCamelCaseFieldNamesDescriptor instead')
 const TestCamelCaseFieldNames$json = const {
   '1': 'TestCamelCaseFieldNames',
   '2': const [
-    const {'1': 'PrimitiveField', '3': 1, '4': 1, '5': 5, '10': 'PrimitiveField'},
+    const {
+      '1': 'PrimitiveField',
+      '3': 1,
+      '4': 1,
+      '5': 5,
+      '10': 'PrimitiveField'
+    },
     const {'1': 'StringField', '3': 2, '4': 1, '5': 9, '10': 'StringField'},
-    const {'1': 'EnumField', '3': 3, '4': 1, '5': 14, '6': '.protobuf_unittest.ForeignEnum', '10': 'EnumField'},
-    const {'1': 'MessageField', '3': 4, '4': 1, '5': 11, '6': '.protobuf_unittest.ForeignMessage', '10': 'MessageField'},
+    const {
+      '1': 'EnumField',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.ForeignEnum',
+      '10': 'EnumField'
+    },
+    const {
+      '1': 'MessageField',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.ForeignMessage',
+      '10': 'MessageField'
+    },
     const {
       '1': 'StringPieceField',
       '3': 5,
@@ -951,10 +1782,36 @@ const TestCamelCaseFieldNames$json = const {
       '8': const {'1': 1},
       '10': 'CordField',
     },
-    const {'1': 'RepeatedPrimitiveField', '3': 7, '4': 3, '5': 5, '10': 'RepeatedPrimitiveField'},
-    const {'1': 'RepeatedStringField', '3': 8, '4': 3, '5': 9, '10': 'RepeatedStringField'},
-    const {'1': 'RepeatedEnumField', '3': 9, '4': 3, '5': 14, '6': '.protobuf_unittest.ForeignEnum', '10': 'RepeatedEnumField'},
-    const {'1': 'RepeatedMessageField', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.ForeignMessage', '10': 'RepeatedMessageField'},
+    const {
+      '1': 'RepeatedPrimitiveField',
+      '3': 7,
+      '4': 3,
+      '5': 5,
+      '10': 'RepeatedPrimitiveField'
+    },
+    const {
+      '1': 'RepeatedStringField',
+      '3': 8,
+      '4': 3,
+      '5': 9,
+      '10': 'RepeatedStringField'
+    },
+    const {
+      '1': 'RepeatedEnumField',
+      '3': 9,
+      '4': 3,
+      '5': 14,
+      '6': '.protobuf_unittest.ForeignEnum',
+      '10': 'RepeatedEnumField'
+    },
+    const {
+      '1': 'RepeatedMessageField',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.ForeignMessage',
+      '10': 'RepeatedMessageField'
+    },
     const {
       '1': 'RepeatedStringPieceField',
       '3': 11,
@@ -975,7 +1832,9 @@ const TestCamelCaseFieldNames$json = const {
 };
 
 /// Descriptor for `TestCamelCaseFieldNames`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testCamelCaseFieldNamesDescriptor = $convert.base64Decode('ChdUZXN0Q2FtZWxDYXNlRmllbGROYW1lcxImCg5QcmltaXRpdmVGaWVsZBgBIAEoBVIOUHJpbWl0aXZlRmllbGQSIAoLU3RyaW5nRmllbGQYAiABKAlSC1N0cmluZ0ZpZWxkEjwKCUVudW1GaWVsZBgDIAEoDjIeLnByb3RvYnVmX3VuaXR0ZXN0LkZvcmVpZ25FbnVtUglFbnVtRmllbGQSRQoMTWVzc2FnZUZpZWxkGAQgASgLMiEucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbk1lc3NhZ2VSDE1lc3NhZ2VGaWVsZBIuChBTdHJpbmdQaWVjZUZpZWxkGAUgASgJQgIIAlIQU3RyaW5nUGllY2VGaWVsZBIgCglDb3JkRmllbGQYBiABKAlCAggBUglDb3JkRmllbGQSNgoWUmVwZWF0ZWRQcmltaXRpdmVGaWVsZBgHIAMoBVIWUmVwZWF0ZWRQcmltaXRpdmVGaWVsZBIwChNSZXBlYXRlZFN0cmluZ0ZpZWxkGAggAygJUhNSZXBlYXRlZFN0cmluZ0ZpZWxkEkwKEVJlcGVhdGVkRW51bUZpZWxkGAkgAygOMh4ucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbkVudW1SEVJlcGVhdGVkRW51bUZpZWxkElUKFFJlcGVhdGVkTWVzc2FnZUZpZWxkGAogAygLMiEucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbk1lc3NhZ2VSFFJlcGVhdGVkTWVzc2FnZUZpZWxkEj4KGFJlcGVhdGVkU3RyaW5nUGllY2VGaWVsZBgLIAMoCUICCAJSGFJlcGVhdGVkU3RyaW5nUGllY2VGaWVsZBIwChFSZXBlYXRlZENvcmRGaWVsZBgMIAMoCUICCAFSEVJlcGVhdGVkQ29yZEZpZWxk');
+final $typed_data.Uint8List testCamelCaseFieldNamesDescriptor =
+    $convert.base64Decode(
+        'ChdUZXN0Q2FtZWxDYXNlRmllbGROYW1lcxImCg5QcmltaXRpdmVGaWVsZBgBIAEoBVIOUHJpbWl0aXZlRmllbGQSIAoLU3RyaW5nRmllbGQYAiABKAlSC1N0cmluZ0ZpZWxkEjwKCUVudW1GaWVsZBgDIAEoDjIeLnByb3RvYnVmX3VuaXR0ZXN0LkZvcmVpZ25FbnVtUglFbnVtRmllbGQSRQoMTWVzc2FnZUZpZWxkGAQgASgLMiEucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbk1lc3NhZ2VSDE1lc3NhZ2VGaWVsZBIuChBTdHJpbmdQaWVjZUZpZWxkGAUgASgJQgIIAlIQU3RyaW5nUGllY2VGaWVsZBIgCglDb3JkRmllbGQYBiABKAlCAggBUglDb3JkRmllbGQSNgoWUmVwZWF0ZWRQcmltaXRpdmVGaWVsZBgHIAMoBVIWUmVwZWF0ZWRQcmltaXRpdmVGaWVsZBIwChNSZXBlYXRlZFN0cmluZ0ZpZWxkGAggAygJUhNSZXBlYXRlZFN0cmluZ0ZpZWxkEkwKEVJlcGVhdGVkRW51bUZpZWxkGAkgAygOMh4ucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbkVudW1SEVJlcGVhdGVkRW51bUZpZWxkElUKFFJlcGVhdGVkTWVzc2FnZUZpZWxkGAogAygLMiEucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbk1lc3NhZ2VSFFJlcGVhdGVkTWVzc2FnZUZpZWxkEj4KGFJlcGVhdGVkU3RyaW5nUGllY2VGaWVsZBgLIAMoCUICCAJSGFJlcGVhdGVkU3RyaW5nUGllY2VGaWVsZBIwChFSZXBlYXRlZENvcmRGaWVsZBgMIAMoCUICCAFSEVJlcGVhdGVkQ29yZEZpZWxk');
 @$core.Deprecated('Use testFieldOrderingsDescriptor instead')
 const TestFieldOrderings$json = const {
   '1': 'TestFieldOrderings',
@@ -983,7 +1842,14 @@ const TestFieldOrderings$json = const {
     const {'1': 'my_string', '3': 11, '4': 1, '5': 9, '10': 'myString'},
     const {'1': 'my_int', '3': 1, '4': 1, '5': 3, '10': 'myInt'},
     const {'1': 'my_float', '3': 101, '4': 1, '5': 2, '10': 'myFloat'},
-    const {'1': 'optional_nested_message', '3': 200, '4': 1, '5': 11, '6': '.protobuf_unittest.TestFieldOrderings.NestedMessage', '10': 'optionalNestedMessage'},
+    const {
+      '1': 'optional_nested_message',
+      '3': 200,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestFieldOrderings.NestedMessage',
+      '10': 'optionalNestedMessage'
+    },
   ],
   '3': const [TestFieldOrderings_NestedMessage$json],
   '5': const [
@@ -1002,7 +1868,8 @@ const TestFieldOrderings_NestedMessage$json = const {
 };
 
 /// Descriptor for `TestFieldOrderings`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testFieldOrderingsDescriptor = $convert.base64Decode('ChJUZXN0RmllbGRPcmRlcmluZ3MSGwoJbXlfc3RyaW5nGAsgASgJUghteVN0cmluZxIVCgZteV9pbnQYASABKANSBW15SW50EhkKCG15X2Zsb2F0GGUgASgCUgdteUZsb2F0EmwKF29wdGlvbmFsX25lc3RlZF9tZXNzYWdlGMgBIAEoCzIzLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RGaWVsZE9yZGVyaW5ncy5OZXN0ZWRNZXNzYWdlUhVvcHRpb25hbE5lc3RlZE1lc3NhZ2UaLwoNTmVzdGVkTWVzc2FnZRIOCgJvbxgCIAEoA1ICb28SDgoCYmIYASABKAVSAmJiKgQIAhALKgQIDBBl');
+final $typed_data.Uint8List testFieldOrderingsDescriptor = $convert.base64Decode(
+    'ChJUZXN0RmllbGRPcmRlcmluZ3MSGwoJbXlfc3RyaW5nGAsgASgJUghteVN0cmluZxIVCgZteV9pbnQYASABKANSBW15SW50EhkKCG15X2Zsb2F0GGUgASgCUgdteUZsb2F0EmwKF29wdGlvbmFsX25lc3RlZF9tZXNzYWdlGMgBIAEoCzIzLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RGaWVsZE9yZGVyaW5ncy5OZXN0ZWRNZXNzYWdlUhVvcHRpb25hbE5lc3RlZE1lc3NhZ2UaLwoNTmVzdGVkTWVzc2FnZRIOCgJvbxgCIAEoA1ICb28SDgoCYmIYASABKAVSAmJiKgQIAhALKgQIDBBl');
 @$core.Deprecated('Use testExtensionOrderings1Descriptor instead')
 const TestExtensionOrderings1$json = const {
   '1': 'TestExtensionOrderings1',
@@ -1010,12 +1877,22 @@ const TestExtensionOrderings1$json = const {
     const {'1': 'my_string', '3': 1, '4': 1, '5': 9, '10': 'myString'},
   ],
   '6': const [
-    const {'1': 'test_ext_orderings1', '2': '.protobuf_unittest.TestFieldOrderings', '3': 13, '4': 1, '5': 11, '6': '.protobuf_unittest.TestExtensionOrderings1', '10': 'testExtOrderings1'},
+    const {
+      '1': 'test_ext_orderings1',
+      '2': '.protobuf_unittest.TestFieldOrderings',
+      '3': 13,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestExtensionOrderings1',
+      '10': 'testExtOrderings1'
+    },
   ],
 };
 
 /// Descriptor for `TestExtensionOrderings1`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testExtensionOrderings1Descriptor = $convert.base64Decode('ChdUZXN0RXh0ZW5zaW9uT3JkZXJpbmdzMRIbCglteV9zdHJpbmcYASABKAlSCG15U3RyaW5nMoEBChN0ZXN0X2V4dF9vcmRlcmluZ3MxEiUucHJvdG9idWZfdW5pdHRlc3QuVGVzdEZpZWxkT3JkZXJpbmdzGA0gASgLMioucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvbk9yZGVyaW5nczFSEXRlc3RFeHRPcmRlcmluZ3Mx');
+final $typed_data.Uint8List testExtensionOrderings1Descriptor =
+    $convert.base64Decode(
+        'ChdUZXN0RXh0ZW5zaW9uT3JkZXJpbmdzMRIbCglteV9zdHJpbmcYASABKAlSCG15U3RyaW5nMoEBChN0ZXN0X2V4dF9vcmRlcmluZ3MxEiUucHJvdG9idWZfdW5pdHRlc3QuVGVzdEZpZWxkT3JkZXJpbmdzGA0gASgLMioucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvbk9yZGVyaW5nczFSEXRlc3RFeHRPcmRlcmluZ3Mx');
 @$core.Deprecated('Use testExtensionOrderings2Descriptor instead')
 const TestExtensionOrderings2$json = const {
   '1': 'TestExtensionOrderings2',
@@ -1024,7 +1901,15 @@ const TestExtensionOrderings2$json = const {
   ],
   '3': const [TestExtensionOrderings2_TestExtensionOrderings3$json],
   '6': const [
-    const {'1': 'test_ext_orderings2', '2': '.protobuf_unittest.TestFieldOrderings', '3': 12, '4': 1, '5': 11, '6': '.protobuf_unittest.TestExtensionOrderings2', '10': 'testExtOrderings2'},
+    const {
+      '1': 'test_ext_orderings2',
+      '2': '.protobuf_unittest.TestFieldOrderings',
+      '3': 12,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestExtensionOrderings2',
+      '10': 'testExtOrderings2'
+    },
   ],
 };
 
@@ -1035,40 +1920,218 @@ const TestExtensionOrderings2_TestExtensionOrderings3$json = const {
     const {'1': 'my_string', '3': 1, '4': 1, '5': 9, '10': 'myString'},
   ],
   '6': const [
-    const {'1': 'test_ext_orderings3', '2': '.protobuf_unittest.TestFieldOrderings', '3': 14, '4': 1, '5': 11, '6': '.protobuf_unittest.TestExtensionOrderings2.TestExtensionOrderings3', '10': 'testExtOrderings3'},
+    const {
+      '1': 'test_ext_orderings3',
+      '2': '.protobuf_unittest.TestFieldOrderings',
+      '3': 14,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestExtensionOrderings2.TestExtensionOrderings3',
+      '10': 'testExtOrderings3'
+    },
   ],
 };
 
 /// Descriptor for `TestExtensionOrderings2`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testExtensionOrderings2Descriptor = $convert.base64Decode('ChdUZXN0RXh0ZW5zaW9uT3JkZXJpbmdzMhIbCglteV9zdHJpbmcYASABKAlSCG15U3RyaW5nGtIBChdUZXN0RXh0ZW5zaW9uT3JkZXJpbmdzMxIbCglteV9zdHJpbmcYASABKAlSCG15U3RyaW5nMpkBChN0ZXN0X2V4dF9vcmRlcmluZ3MzEiUucHJvdG9idWZfdW5pdHRlc3QuVGVzdEZpZWxkT3JkZXJpbmdzGA4gASgLMkIucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvbk9yZGVyaW5nczIuVGVzdEV4dGVuc2lvbk9yZGVyaW5nczNSEXRlc3RFeHRPcmRlcmluZ3MzMoEBChN0ZXN0X2V4dF9vcmRlcmluZ3MyEiUucHJvdG9idWZfdW5pdHRlc3QuVGVzdEZpZWxkT3JkZXJpbmdzGAwgASgLMioucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvbk9yZGVyaW5nczJSEXRlc3RFeHRPcmRlcmluZ3My');
+final $typed_data.Uint8List testExtensionOrderings2Descriptor =
+    $convert.base64Decode(
+        'ChdUZXN0RXh0ZW5zaW9uT3JkZXJpbmdzMhIbCglteV9zdHJpbmcYASABKAlSCG15U3RyaW5nGtIBChdUZXN0RXh0ZW5zaW9uT3JkZXJpbmdzMxIbCglteV9zdHJpbmcYASABKAlSCG15U3RyaW5nMpkBChN0ZXN0X2V4dF9vcmRlcmluZ3MzEiUucHJvdG9idWZfdW5pdHRlc3QuVGVzdEZpZWxkT3JkZXJpbmdzGA4gASgLMkIucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvbk9yZGVyaW5nczIuVGVzdEV4dGVuc2lvbk9yZGVyaW5nczNSEXRlc3RFeHRPcmRlcmluZ3MzMoEBChN0ZXN0X2V4dF9vcmRlcmluZ3MyEiUucHJvdG9idWZfdW5pdHRlc3QuVGVzdEZpZWxkT3JkZXJpbmdzGAwgASgLMioucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvbk9yZGVyaW5nczJSEXRlc3RFeHRPcmRlcmluZ3My');
 @$core.Deprecated('Use testExtremeDefaultValuesDescriptor instead')
 const TestExtremeDefaultValues$json = const {
   '1': 'TestExtremeDefaultValues',
   '2': const [
-    const {'1': 'escaped_bytes', '3': 1, '4': 1, '5': 12, '7': '\\000\\001\\007\\010\\014\\n\\r\\t\\013\\\\\\\'\\"\\376', '10': 'escapedBytes'},
-    const {'1': 'large_uint32', '3': 2, '4': 1, '5': 13, '7': '4294967295', '10': 'largeUint32'},
-    const {'1': 'large_uint64', '3': 3, '4': 1, '5': 4, '7': '18446744073709551615', '10': 'largeUint64'},
-    const {'1': 'small_int32', '3': 4, '4': 1, '5': 5, '7': '-2147483647', '10': 'smallInt32'},
-    const {'1': 'small_int64', '3': 5, '4': 1, '5': 3, '7': '-9223372036854775807', '10': 'smallInt64'},
-    const {'1': 'really_small_int32', '3': 21, '4': 1, '5': 5, '7': '-2147483648', '10': 'reallySmallInt32'},
-    const {'1': 'really_small_int64', '3': 22, '4': 1, '5': 3, '7': '-9223372036854775808', '10': 'reallySmallInt64'},
-    const {'1': 'utf8_string', '3': 6, '4': 1, '5': 9, '7': 'ሴ', '10': 'utf8String'},
-    const {'1': 'zero_float', '3': 7, '4': 1, '5': 2, '7': '0', '10': 'zeroFloat'},
-    const {'1': 'one_float', '3': 8, '4': 1, '5': 2, '7': '1', '10': 'oneFloat'},
-    const {'1': 'small_float', '3': 9, '4': 1, '5': 2, '7': '1.5', '10': 'smallFloat'},
-    const {'1': 'negative_one_float', '3': 10, '4': 1, '5': 2, '7': '-1', '10': 'negativeOneFloat'},
-    const {'1': 'negative_float', '3': 11, '4': 1, '5': 2, '7': '-1.5', '10': 'negativeFloat'},
-    const {'1': 'large_float', '3': 12, '4': 1, '5': 2, '7': '2e+08', '10': 'largeFloat'},
-    const {'1': 'small_negative_float', '3': 13, '4': 1, '5': 2, '7': '-8e-28', '10': 'smallNegativeFloat'},
-    const {'1': 'inf_double', '3': 14, '4': 1, '5': 1, '7': 'inf', '10': 'infDouble'},
-    const {'1': 'neg_inf_double', '3': 15, '4': 1, '5': 1, '7': '-inf', '10': 'negInfDouble'},
-    const {'1': 'nan_double', '3': 16, '4': 1, '5': 1, '7': 'nan', '10': 'nanDouble'},
-    const {'1': 'inf_float', '3': 17, '4': 1, '5': 2, '7': 'inf', '10': 'infFloat'},
-    const {'1': 'neg_inf_float', '3': 18, '4': 1, '5': 2, '7': '-inf', '10': 'negInfFloat'},
-    const {'1': 'nan_float', '3': 19, '4': 1, '5': 2, '7': 'nan', '10': 'nanFloat'},
-    const {'1': 'cpp_trigraph', '3': 20, '4': 1, '5': 9, '7': '? ? ?? ?? ??? ??/ ??-', '10': 'cppTrigraph'},
-    const {'1': 'string_with_zero', '3': 23, '4': 1, '5': 9, '7': 'hel\x00lo', '10': 'stringWithZero'},
-    const {'1': 'bytes_with_zero', '3': 24, '4': 1, '5': 12, '7': 'wor\\000ld', '10': 'bytesWithZero'},
+    const {
+      '1': 'escaped_bytes',
+      '3': 1,
+      '4': 1,
+      '5': 12,
+      '7': '\\000\\001\\007\\010\\014\\n\\r\\t\\013\\\\\\\'\\"\\376',
+      '10': 'escapedBytes'
+    },
+    const {
+      '1': 'large_uint32',
+      '3': 2,
+      '4': 1,
+      '5': 13,
+      '7': '4294967295',
+      '10': 'largeUint32'
+    },
+    const {
+      '1': 'large_uint64',
+      '3': 3,
+      '4': 1,
+      '5': 4,
+      '7': '18446744073709551615',
+      '10': 'largeUint64'
+    },
+    const {
+      '1': 'small_int32',
+      '3': 4,
+      '4': 1,
+      '5': 5,
+      '7': '-2147483647',
+      '10': 'smallInt32'
+    },
+    const {
+      '1': 'small_int64',
+      '3': 5,
+      '4': 1,
+      '5': 3,
+      '7': '-9223372036854775807',
+      '10': 'smallInt64'
+    },
+    const {
+      '1': 'really_small_int32',
+      '3': 21,
+      '4': 1,
+      '5': 5,
+      '7': '-2147483648',
+      '10': 'reallySmallInt32'
+    },
+    const {
+      '1': 'really_small_int64',
+      '3': 22,
+      '4': 1,
+      '5': 3,
+      '7': '-9223372036854775808',
+      '10': 'reallySmallInt64'
+    },
+    const {
+      '1': 'utf8_string',
+      '3': 6,
+      '4': 1,
+      '5': 9,
+      '7': 'ሴ',
+      '10': 'utf8String'
+    },
+    const {
+      '1': 'zero_float',
+      '3': 7,
+      '4': 1,
+      '5': 2,
+      '7': '0',
+      '10': 'zeroFloat'
+    },
+    const {
+      '1': 'one_float',
+      '3': 8,
+      '4': 1,
+      '5': 2,
+      '7': '1',
+      '10': 'oneFloat'
+    },
+    const {
+      '1': 'small_float',
+      '3': 9,
+      '4': 1,
+      '5': 2,
+      '7': '1.5',
+      '10': 'smallFloat'
+    },
+    const {
+      '1': 'negative_one_float',
+      '3': 10,
+      '4': 1,
+      '5': 2,
+      '7': '-1',
+      '10': 'negativeOneFloat'
+    },
+    const {
+      '1': 'negative_float',
+      '3': 11,
+      '4': 1,
+      '5': 2,
+      '7': '-1.5',
+      '10': 'negativeFloat'
+    },
+    const {
+      '1': 'large_float',
+      '3': 12,
+      '4': 1,
+      '5': 2,
+      '7': '2e+08',
+      '10': 'largeFloat'
+    },
+    const {
+      '1': 'small_negative_float',
+      '3': 13,
+      '4': 1,
+      '5': 2,
+      '7': '-8e-28',
+      '10': 'smallNegativeFloat'
+    },
+    const {
+      '1': 'inf_double',
+      '3': 14,
+      '4': 1,
+      '5': 1,
+      '7': 'inf',
+      '10': 'infDouble'
+    },
+    const {
+      '1': 'neg_inf_double',
+      '3': 15,
+      '4': 1,
+      '5': 1,
+      '7': '-inf',
+      '10': 'negInfDouble'
+    },
+    const {
+      '1': 'nan_double',
+      '3': 16,
+      '4': 1,
+      '5': 1,
+      '7': 'nan',
+      '10': 'nanDouble'
+    },
+    const {
+      '1': 'inf_float',
+      '3': 17,
+      '4': 1,
+      '5': 2,
+      '7': 'inf',
+      '10': 'infFloat'
+    },
+    const {
+      '1': 'neg_inf_float',
+      '3': 18,
+      '4': 1,
+      '5': 2,
+      '7': '-inf',
+      '10': 'negInfFloat'
+    },
+    const {
+      '1': 'nan_float',
+      '3': 19,
+      '4': 1,
+      '5': 2,
+      '7': 'nan',
+      '10': 'nanFloat'
+    },
+    const {
+      '1': 'cpp_trigraph',
+      '3': 20,
+      '4': 1,
+      '5': 9,
+      '7': '? ? ?? ?? ??? ??/ ??-',
+      '10': 'cppTrigraph'
+    },
+    const {
+      '1': 'string_with_zero',
+      '3': 23,
+      '4': 1,
+      '5': 9,
+      '7': 'hel\x00lo',
+      '10': 'stringWithZero'
+    },
+    const {
+      '1': 'bytes_with_zero',
+      '3': 24,
+      '4': 1,
+      '5': 12,
+      '7': 'wor\\000ld',
+      '10': 'bytesWithZero'
+    },
     const {
       '1': 'string_piece_with_zero',
       '3': 25,
@@ -1087,22 +2150,39 @@ const TestExtremeDefaultValues$json = const {
       '8': const {'1': 1},
       '10': 'cordWithZero',
     },
-    const {'1': 'replacement_string', '3': 27, '4': 1, '5': 9, '7': '\${unknown}', '10': 'replacementString'},
+    const {
+      '1': 'replacement_string',
+      '3': 27,
+      '4': 1,
+      '5': 9,
+      '7': '\${unknown}',
+      '10': 'replacementString'
+    },
   ],
 };
 
 /// Descriptor for `TestExtremeDefaultValues`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testExtremeDefaultValuesDescriptor = $convert.base64Decode('ChhUZXN0RXh0cmVtZURlZmF1bHRWYWx1ZXMSTQoNZXNjYXBlZF9ieXRlcxgBIAEoDDooXDAwMFwwMDFcMDA3XDAxMFwwMTRcblxyXHRcMDEzXFxcJ1wiXDM3NlIMZXNjYXBlZEJ5dGVzEi0KDGxhcmdlX3VpbnQzMhgCIAEoDToKNDI5NDk2NzI5NVILbGFyZ2VVaW50MzISNwoMbGFyZ2VfdWludDY0GAMgASgEOhQxODQ0Njc0NDA3MzcwOTU1MTYxNVILbGFyZ2VVaW50NjQSLAoLc21hbGxfaW50MzIYBCABKAU6Cy0yMTQ3NDgzNjQ3UgpzbWFsbEludDMyEjUKC3NtYWxsX2ludDY0GAUgASgDOhQtOTIyMzM3MjAzNjg1NDc3NTgwN1IKc21hbGxJbnQ2NBI5ChJyZWFsbHlfc21hbGxfaW50MzIYFSABKAU6Cy0yMTQ3NDgzNjQ4UhByZWFsbHlTbWFsbEludDMyEkIKEnJlYWxseV9zbWFsbF9pbnQ2NBgWIAEoAzoULTkyMjMzNzIwMzY4NTQ3NzU4MDhSEHJlYWxseVNtYWxsSW50NjQSJAoLdXRmOF9zdHJpbmcYBiABKAk6A+GItFIKdXRmOFN0cmluZxIgCgp6ZXJvX2Zsb2F0GAcgASgCOgEwUgl6ZXJvRmxvYXQSHgoJb25lX2Zsb2F0GAggASgCOgExUghvbmVGbG9hdBIkCgtzbWFsbF9mbG9hdBgJIAEoAjoDMS41UgpzbWFsbEZsb2F0EjAKEm5lZ2F0aXZlX29uZV9mbG9hdBgKIAEoAjoCLTFSEG5lZ2F0aXZlT25lRmxvYXQSKwoObmVnYXRpdmVfZmxvYXQYCyABKAI6BC0xLjVSDW5lZ2F0aXZlRmxvYXQSJgoLbGFyZ2VfZmxvYXQYDCABKAI6BTJlKzA4UgpsYXJnZUZsb2F0EjgKFHNtYWxsX25lZ2F0aXZlX2Zsb2F0GA0gASgCOgYtOGUtMjhSEnNtYWxsTmVnYXRpdmVGbG9hdBIiCgppbmZfZG91YmxlGA4gASgBOgNpbmZSCWluZkRvdWJsZRIqCg5uZWdfaW5mX2RvdWJsZRgPIAEoAToELWluZlIMbmVnSW5mRG91YmxlEiIKCm5hbl9kb3VibGUYECABKAE6A25hblIJbmFuRG91YmxlEiAKCWluZl9mbG9hdBgRIAEoAjoDaW5mUghpbmZGbG9hdBIoCg1uZWdfaW5mX2Zsb2F0GBIgASgCOgQtaW5mUgtuZWdJbmZGbG9hdBIgCgluYW5fZmxvYXQYEyABKAI6A25hblIIbmFuRmxvYXQSOAoMY3BwX3RyaWdyYXBoGBQgASgJOhU/ID8gPz8gPz8gPz8/ID8/LyA/Py1SC2NwcFRyaWdyYXBoEjAKEHN0cmluZ193aXRoX3plcm8YFyABKAk6BmhlbABsb1IOc3RyaW5nV2l0aFplcm8SMQoPYnl0ZXNfd2l0aF96ZXJvGBggASgMOgl3b3JcMDAwbGRSDWJ5dGVzV2l0aFplcm8SPQoWc3RyaW5nX3BpZWNlX3dpdGhfemVybxgZIAEoCToEYWIAY0ICCAJSE3N0cmluZ1BpZWNlV2l0aFplcm8SLgoOY29yZF93aXRoX3plcm8YGiABKAk6BDEyADNCAggBUgxjb3JkV2l0aFplcm8SOQoScmVwbGFjZW1lbnRfc3RyaW5nGBsgASgJOgoke3Vua25vd259UhFyZXBsYWNlbWVudFN0cmluZw==');
+final $typed_data.Uint8List testExtremeDefaultValuesDescriptor =
+    $convert.base64Decode(
+        'ChhUZXN0RXh0cmVtZURlZmF1bHRWYWx1ZXMSTQoNZXNjYXBlZF9ieXRlcxgBIAEoDDooXDAwMFwwMDFcMDA3XDAxMFwwMTRcblxyXHRcMDEzXFxcJ1wiXDM3NlIMZXNjYXBlZEJ5dGVzEi0KDGxhcmdlX3VpbnQzMhgCIAEoDToKNDI5NDk2NzI5NVILbGFyZ2VVaW50MzISNwoMbGFyZ2VfdWludDY0GAMgASgEOhQxODQ0Njc0NDA3MzcwOTU1MTYxNVILbGFyZ2VVaW50NjQSLAoLc21hbGxfaW50MzIYBCABKAU6Cy0yMTQ3NDgzNjQ3UgpzbWFsbEludDMyEjUKC3NtYWxsX2ludDY0GAUgASgDOhQtOTIyMzM3MjAzNjg1NDc3NTgwN1IKc21hbGxJbnQ2NBI5ChJyZWFsbHlfc21hbGxfaW50MzIYFSABKAU6Cy0yMTQ3NDgzNjQ4UhByZWFsbHlTbWFsbEludDMyEkIKEnJlYWxseV9zbWFsbF9pbnQ2NBgWIAEoAzoULTkyMjMzNzIwMzY4NTQ3NzU4MDhSEHJlYWxseVNtYWxsSW50NjQSJAoLdXRmOF9zdHJpbmcYBiABKAk6A+GItFIKdXRmOFN0cmluZxIgCgp6ZXJvX2Zsb2F0GAcgASgCOgEwUgl6ZXJvRmxvYXQSHgoJb25lX2Zsb2F0GAggASgCOgExUghvbmVGbG9hdBIkCgtzbWFsbF9mbG9hdBgJIAEoAjoDMS41UgpzbWFsbEZsb2F0EjAKEm5lZ2F0aXZlX29uZV9mbG9hdBgKIAEoAjoCLTFSEG5lZ2F0aXZlT25lRmxvYXQSKwoObmVnYXRpdmVfZmxvYXQYCyABKAI6BC0xLjVSDW5lZ2F0aXZlRmxvYXQSJgoLbGFyZ2VfZmxvYXQYDCABKAI6BTJlKzA4UgpsYXJnZUZsb2F0EjgKFHNtYWxsX25lZ2F0aXZlX2Zsb2F0GA0gASgCOgYtOGUtMjhSEnNtYWxsTmVnYXRpdmVGbG9hdBIiCgppbmZfZG91YmxlGA4gASgBOgNpbmZSCWluZkRvdWJsZRIqCg5uZWdfaW5mX2RvdWJsZRgPIAEoAToELWluZlIMbmVnSW5mRG91YmxlEiIKCm5hbl9kb3VibGUYECABKAE6A25hblIJbmFuRG91YmxlEiAKCWluZl9mbG9hdBgRIAEoAjoDaW5mUghpbmZGbG9hdBIoCg1uZWdfaW5mX2Zsb2F0GBIgASgCOgQtaW5mUgtuZWdJbmZGbG9hdBIgCgluYW5fZmxvYXQYEyABKAI6A25hblIIbmFuRmxvYXQSOAoMY3BwX3RyaWdyYXBoGBQgASgJOhU/ID8gPz8gPz8gPz8/ID8/LyA/Py1SC2NwcFRyaWdyYXBoEjAKEHN0cmluZ193aXRoX3plcm8YFyABKAk6BmhlbABsb1IOc3RyaW5nV2l0aFplcm8SMQoPYnl0ZXNfd2l0aF96ZXJvGBggASgMOgl3b3JcMDAwbGRSDWJ5dGVzV2l0aFplcm8SPQoWc3RyaW5nX3BpZWNlX3dpdGhfemVybxgZIAEoCToEYWIAY0ICCAJSE3N0cmluZ1BpZWNlV2l0aFplcm8SLgoOY29yZF93aXRoX3plcm8YGiABKAk6BDEyADNCAggBUgxjb3JkV2l0aFplcm8SOQoScmVwbGFjZW1lbnRfc3RyaW5nGBsgASgJOgoke3Vua25vd259UhFyZXBsYWNlbWVudFN0cmluZw==');
 @$core.Deprecated('Use sparseEnumMessageDescriptor instead')
 const SparseEnumMessage$json = const {
   '1': 'SparseEnumMessage',
   '2': const [
-    const {'1': 'sparse_enum', '3': 1, '4': 1, '5': 14, '6': '.protobuf_unittest.TestSparseEnum', '10': 'sparseEnum'},
+    const {
+      '1': 'sparse_enum',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.TestSparseEnum',
+      '10': 'sparseEnum'
+    },
   ],
 };
 
 /// Descriptor for `SparseEnumMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List sparseEnumMessageDescriptor = $convert.base64Decode('ChFTcGFyc2VFbnVtTWVzc2FnZRJCCgtzcGFyc2VfZW51bRgBIAEoDjIhLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RTcGFyc2VFbnVtUgpzcGFyc2VFbnVt');
+final $typed_data.Uint8List sparseEnumMessageDescriptor = $convert.base64Decode(
+    'ChFTcGFyc2VFbnVtTWVzc2FnZRJCCgtzcGFyc2VfZW51bRgBIAEoDjIhLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RTcGFyc2VFbnVtUgpzcGFyc2VFbnVt');
 @$core.Deprecated('Use oneStringDescriptor instead')
 const OneString$json = const {
   '1': 'OneString',
@@ -1112,7 +2192,8 @@ const OneString$json = const {
 };
 
 /// Descriptor for `OneString`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List oneStringDescriptor = $convert.base64Decode('CglPbmVTdHJpbmcSEgoEZGF0YRgBIAEoCVIEZGF0YQ==');
+final $typed_data.Uint8List oneStringDescriptor =
+    $convert.base64Decode('CglPbmVTdHJpbmcSEgoEZGF0YRgBIAEoCVIEZGF0YQ==');
 @$core.Deprecated('Use moreStringDescriptor instead')
 const MoreString$json = const {
   '1': 'MoreString',
@@ -1122,7 +2203,8 @@ const MoreString$json = const {
 };
 
 /// Descriptor for `MoreString`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List moreStringDescriptor = $convert.base64Decode('CgpNb3JlU3RyaW5nEhIKBGRhdGEYASADKAlSBGRhdGE=');
+final $typed_data.Uint8List moreStringDescriptor =
+    $convert.base64Decode('CgpNb3JlU3RyaW5nEhIKBGRhdGEYASADKAlSBGRhdGE=');
 @$core.Deprecated('Use oneBytesDescriptor instead')
 const OneBytes$json = const {
   '1': 'OneBytes',
@@ -1132,7 +2214,8 @@ const OneBytes$json = const {
 };
 
 /// Descriptor for `OneBytes`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List oneBytesDescriptor = $convert.base64Decode('CghPbmVCeXRlcxISCgRkYXRhGAEgASgMUgRkYXRh');
+final $typed_data.Uint8List oneBytesDescriptor =
+    $convert.base64Decode('CghPbmVCeXRlcxISCgRkYXRhGAEgASgMUgRkYXRh');
 @$core.Deprecated('Use moreBytesDescriptor instead')
 const MoreBytes$json = const {
   '1': 'MoreBytes',
@@ -1142,7 +2225,8 @@ const MoreBytes$json = const {
 };
 
 /// Descriptor for `MoreBytes`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List moreBytesDescriptor = $convert.base64Decode('CglNb3JlQnl0ZXMSEgoEZGF0YRgBIAMoDFIEZGF0YQ==');
+final $typed_data.Uint8List moreBytesDescriptor =
+    $convert.base64Decode('CglNb3JlQnl0ZXMSEgoEZGF0YRgBIAMoDFIEZGF0YQ==');
 @$core.Deprecated('Use manyOptionalStringDescriptor instead')
 const ManyOptionalString$json = const {
   '1': 'ManyOptionalString',
@@ -1183,7 +2267,8 @@ const ManyOptionalString$json = const {
 };
 
 /// Descriptor for `ManyOptionalString`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List manyOptionalStringDescriptor = $convert.base64Decode('ChJNYW55T3B0aW9uYWxTdHJpbmcSEgoEc3RyMRgBIAEoCVIEc3RyMRISCgRzdHIyGAIgASgJUgRzdHIyEhIKBHN0cjMYAyABKAlSBHN0cjMSEgoEc3RyNBgEIAEoCVIEc3RyNBISCgRzdHI1GAUgASgJUgRzdHI1EhIKBHN0cjYYBiABKAlSBHN0cjYSEgoEc3RyNxgHIAEoCVIEc3RyNxISCgRzdHI4GAggASgJUgRzdHI4EhIKBHN0cjkYCSABKAlSBHN0cjkSFAoFc3RyMTAYCiABKAlSBXN0cjEwEhQKBXN0cjExGAsgASgJUgVzdHIxMRIUCgVzdHIxMhgMIAEoCVIFc3RyMTISFAoFc3RyMTMYDSABKAlSBXN0cjEzEhQKBXN0cjE0GA4gASgJUgVzdHIxNBIUCgVzdHIxNRgPIAEoCVIFc3RyMTUSFAoFc3RyMTYYECABKAlSBXN0cjE2EhQKBXN0cjE3GBEgASgJUgVzdHIxNxIUCgVzdHIxOBgSIAEoCVIFc3RyMTgSFAoFc3RyMTkYEyABKAlSBXN0cjE5EhQKBXN0cjIwGBQgASgJUgVzdHIyMBIUCgVzdHIyMRgVIAEoCVIFc3RyMjESFAoFc3RyMjIYFiABKAlSBXN0cjIyEhQKBXN0cjIzGBcgASgJUgVzdHIyMxIUCgVzdHIyNBgYIAEoCVIFc3RyMjQSFAoFc3RyMjUYGSABKAlSBXN0cjI1EhQKBXN0cjI2GBogASgJUgVzdHIyNhIUCgVzdHIyNxgbIAEoCVIFc3RyMjcSFAoFc3RyMjgYHCABKAlSBXN0cjI4EhQKBXN0cjI5GB0gASgJUgVzdHIyORIUCgVzdHIzMBgeIAEoCVIFc3RyMzASFAoFc3RyMzEYHyABKAlSBXN0cjMxEhQKBXN0cjMyGCAgASgJUgVzdHIzMg==');
+final $typed_data.Uint8List manyOptionalStringDescriptor = $convert.base64Decode(
+    'ChJNYW55T3B0aW9uYWxTdHJpbmcSEgoEc3RyMRgBIAEoCVIEc3RyMRISCgRzdHIyGAIgASgJUgRzdHIyEhIKBHN0cjMYAyABKAlSBHN0cjMSEgoEc3RyNBgEIAEoCVIEc3RyNBISCgRzdHI1GAUgASgJUgRzdHI1EhIKBHN0cjYYBiABKAlSBHN0cjYSEgoEc3RyNxgHIAEoCVIEc3RyNxISCgRzdHI4GAggASgJUgRzdHI4EhIKBHN0cjkYCSABKAlSBHN0cjkSFAoFc3RyMTAYCiABKAlSBXN0cjEwEhQKBXN0cjExGAsgASgJUgVzdHIxMRIUCgVzdHIxMhgMIAEoCVIFc3RyMTISFAoFc3RyMTMYDSABKAlSBXN0cjEzEhQKBXN0cjE0GA4gASgJUgVzdHIxNBIUCgVzdHIxNRgPIAEoCVIFc3RyMTUSFAoFc3RyMTYYECABKAlSBXN0cjE2EhQKBXN0cjE3GBEgASgJUgVzdHIxNxIUCgVzdHIxOBgSIAEoCVIFc3RyMTgSFAoFc3RyMTkYEyABKAlSBXN0cjE5EhQKBXN0cjIwGBQgASgJUgVzdHIyMBIUCgVzdHIyMRgVIAEoCVIFc3RyMjESFAoFc3RyMjIYFiABKAlSBXN0cjIyEhQKBXN0cjIzGBcgASgJUgVzdHIyMxIUCgVzdHIyNBgYIAEoCVIFc3RyMjQSFAoFc3RyMjUYGSABKAlSBXN0cjI1EhQKBXN0cjI2GBogASgJUgVzdHIyNhIUCgVzdHIyNxgbIAEoCVIFc3RyMjcSFAoFc3RyMjgYHCABKAlSBXN0cjI4EhQKBXN0cjI5GB0gASgJUgVzdHIyORIUCgVzdHIzMBgeIAEoCVIFc3RyMzASFAoFc3RyMzEYHyABKAlSBXN0cjMxEhQKBXN0cjMyGCAgASgJUgVzdHIzMg==');
 @$core.Deprecated('Use int32MessageDescriptor instead')
 const Int32Message$json = const {
   '1': 'Int32Message',
@@ -1193,7 +2278,8 @@ const Int32Message$json = const {
 };
 
 /// Descriptor for `Int32Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List int32MessageDescriptor = $convert.base64Decode('CgxJbnQzMk1lc3NhZ2USEgoEZGF0YRgBIAEoBVIEZGF0YQ==');
+final $typed_data.Uint8List int32MessageDescriptor =
+    $convert.base64Decode('CgxJbnQzMk1lc3NhZ2USEgoEZGF0YRgBIAEoBVIEZGF0YQ==');
 @$core.Deprecated('Use uint32MessageDescriptor instead')
 const Uint32Message$json = const {
   '1': 'Uint32Message',
@@ -1203,7 +2289,8 @@ const Uint32Message$json = const {
 };
 
 /// Descriptor for `Uint32Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List uint32MessageDescriptor = $convert.base64Decode('Cg1VaW50MzJNZXNzYWdlEhIKBGRhdGEYASABKA1SBGRhdGE=');
+final $typed_data.Uint8List uint32MessageDescriptor =
+    $convert.base64Decode('Cg1VaW50MzJNZXNzYWdlEhIKBGRhdGEYASABKA1SBGRhdGE=');
 @$core.Deprecated('Use int64MessageDescriptor instead')
 const Int64Message$json = const {
   '1': 'Int64Message',
@@ -1213,7 +2300,8 @@ const Int64Message$json = const {
 };
 
 /// Descriptor for `Int64Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List int64MessageDescriptor = $convert.base64Decode('CgxJbnQ2NE1lc3NhZ2USEgoEZGF0YRgBIAEoA1IEZGF0YQ==');
+final $typed_data.Uint8List int64MessageDescriptor =
+    $convert.base64Decode('CgxJbnQ2NE1lc3NhZ2USEgoEZGF0YRgBIAEoA1IEZGF0YQ==');
 @$core.Deprecated('Use uint64MessageDescriptor instead')
 const Uint64Message$json = const {
   '1': 'Uint64Message',
@@ -1223,7 +2311,8 @@ const Uint64Message$json = const {
 };
 
 /// Descriptor for `Uint64Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List uint64MessageDescriptor = $convert.base64Decode('Cg1VaW50NjRNZXNzYWdlEhIKBGRhdGEYASABKARSBGRhdGE=');
+final $typed_data.Uint8List uint64MessageDescriptor =
+    $convert.base64Decode('Cg1VaW50NjRNZXNzYWdlEhIKBGRhdGEYASABKARSBGRhdGE=');
 @$core.Deprecated('Use boolMessageDescriptor instead')
 const BoolMessage$json = const {
   '1': 'BoolMessage',
@@ -1233,15 +2322,39 @@ const BoolMessage$json = const {
 };
 
 /// Descriptor for `BoolMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List boolMessageDescriptor = $convert.base64Decode('CgtCb29sTWVzc2FnZRISCgRkYXRhGAEgASgIUgRkYXRh');
+final $typed_data.Uint8List boolMessageDescriptor =
+    $convert.base64Decode('CgtCb29sTWVzc2FnZRISCgRkYXRhGAEgASgIUgRkYXRh');
 @$core.Deprecated('Use testOneofDescriptor instead')
 const TestOneof$json = const {
   '1': 'TestOneof',
   '2': const [
     const {'1': 'foo_int', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'fooInt'},
-    const {'1': 'foo_string', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'fooString'},
-    const {'1': 'foo_message', '3': 3, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '9': 0, '10': 'fooMessage'},
-    const {'1': 'foogroup', '3': 4, '4': 1, '5': 10, '6': '.protobuf_unittest.TestOneof.FooGroup', '9': 0, '10': 'foogroup'},
+    const {
+      '1': 'foo_string',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'fooString'
+    },
+    const {
+      '1': 'foo_message',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '9': 0,
+      '10': 'fooMessage'
+    },
+    const {
+      '1': 'foogroup',
+      '3': 4,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestOneof.FooGroup',
+      '9': 0,
+      '10': 'foogroup'
+    },
   ],
   '3': const [TestOneof_FooGroup$json],
   '8': const [
@@ -1259,15 +2372,30 @@ const TestOneof_FooGroup$json = const {
 };
 
 /// Descriptor for `TestOneof`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testOneofDescriptor = $convert.base64Decode('CglUZXN0T25lb2YSGQoHZm9vX2ludBgBIAEoBUgAUgZmb29JbnQSHwoKZm9vX3N0cmluZxgCIAEoCUgAUglmb29TdHJpbmcSQgoLZm9vX21lc3NhZ2UYAyABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNIAFIKZm9vTWVzc2FnZRJDCghmb29ncm91cBgEIAEoCjIlLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RPbmVvZi5Gb29Hcm91cEgAUghmb29ncm91cBomCghGb29Hcm91cBIMCgFhGAUgASgFUgFhEgwKAWIYBiABKAlSAWJCBQoDZm9v');
+final $typed_data.Uint8List testOneofDescriptor = $convert.base64Decode(
+    'CglUZXN0T25lb2YSGQoHZm9vX2ludBgBIAEoBUgAUgZmb29JbnQSHwoKZm9vX3N0cmluZxgCIAEoCUgAUglmb29TdHJpbmcSQgoLZm9vX21lc3NhZ2UYAyABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNIAFIKZm9vTWVzc2FnZRJDCghmb29ncm91cBgEIAEoCjIlLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RPbmVvZi5Gb29Hcm91cEgAUghmb29ncm91cBomCghGb29Hcm91cBIMCgFhGAUgASgFUgFhEgwKAWIYBiABKAlSAWJCBQoDZm9v');
 @$core.Deprecated('Use testOneofBackwardsCompatibleDescriptor instead')
 const TestOneofBackwardsCompatible$json = const {
   '1': 'TestOneofBackwardsCompatible',
   '2': const [
     const {'1': 'foo_int', '3': 1, '4': 1, '5': 5, '10': 'fooInt'},
     const {'1': 'foo_string', '3': 2, '4': 1, '5': 9, '10': 'fooString'},
-    const {'1': 'foo_message', '3': 3, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'fooMessage'},
-    const {'1': 'foogroup', '3': 4, '4': 1, '5': 10, '6': '.protobuf_unittest.TestOneofBackwardsCompatible.FooGroup', '10': 'foogroup'},
+    const {
+      '1': 'foo_message',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'fooMessage'
+    },
+    const {
+      '1': 'foogroup',
+      '3': 4,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestOneofBackwardsCompatible.FooGroup',
+      '10': 'foogroup'
+    },
   ],
   '3': const [TestOneofBackwardsCompatible_FooGroup$json],
 };
@@ -1282,13 +2410,22 @@ const TestOneofBackwardsCompatible_FooGroup$json = const {
 };
 
 /// Descriptor for `TestOneofBackwardsCompatible`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testOneofBackwardsCompatibleDescriptor = $convert.base64Decode('ChxUZXN0T25lb2ZCYWNrd2FyZHNDb21wYXRpYmxlEhcKB2Zvb19pbnQYASABKAVSBmZvb0ludBIdCgpmb29fc3RyaW5nGAIgASgJUglmb29TdHJpbmcSQAoLZm9vX21lc3NhZ2UYAyABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSCmZvb01lc3NhZ2USVAoIZm9vZ3JvdXAYBCABKAoyOC5wcm90b2J1Zl91bml0dGVzdC5UZXN0T25lb2ZCYWNrd2FyZHNDb21wYXRpYmxlLkZvb0dyb3VwUghmb29ncm91cBomCghGb29Hcm91cBIMCgFhGAUgASgFUgFhEgwKAWIYBiABKAlSAWI=');
+final $typed_data.Uint8List testOneofBackwardsCompatibleDescriptor =
+    $convert.base64Decode(
+        'ChxUZXN0T25lb2ZCYWNrd2FyZHNDb21wYXRpYmxlEhcKB2Zvb19pbnQYASABKAVSBmZvb0ludBIdCgpmb29fc3RyaW5nGAIgASgJUglmb29TdHJpbmcSQAoLZm9vX21lc3NhZ2UYAyABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSCmZvb01lc3NhZ2USVAoIZm9vZ3JvdXAYBCABKAoyOC5wcm90b2J1Zl91bml0dGVzdC5UZXN0T25lb2ZCYWNrd2FyZHNDb21wYXRpYmxlLkZvb0dyb3VwUghmb29ncm91cBomCghGb29Hcm91cBIMCgFhGAUgASgFUgFhEgwKAWIYBiABKAlSAWI=');
 @$core.Deprecated('Use testOneof2Descriptor instead')
 const TestOneof2$json = const {
   '1': 'TestOneof2',
   '2': const [
     const {'1': 'foo_int', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'fooInt'},
-    const {'1': 'foo_string', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'fooString'},
+    const {
+      '1': 'foo_string',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'fooString'
+    },
     const {
       '1': 'foo_cord',
       '3': 3,
@@ -1308,9 +2445,33 @@ const TestOneof2$json = const {
       '10': 'fooStringPiece',
     },
     const {'1': 'foo_bytes', '3': 5, '4': 1, '5': 12, '9': 0, '10': 'fooBytes'},
-    const {'1': 'foo_enum', '3': 6, '4': 1, '5': 14, '6': '.protobuf_unittest.TestOneof2.NestedEnum', '9': 0, '10': 'fooEnum'},
-    const {'1': 'foo_message', '3': 7, '4': 1, '5': 11, '6': '.protobuf_unittest.TestOneof2.NestedMessage', '9': 0, '10': 'fooMessage'},
-    const {'1': 'foogroup', '3': 8, '4': 1, '5': 10, '6': '.protobuf_unittest.TestOneof2.FooGroup', '9': 0, '10': 'foogroup'},
+    const {
+      '1': 'foo_enum',
+      '3': 6,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.TestOneof2.NestedEnum',
+      '9': 0,
+      '10': 'fooEnum'
+    },
+    const {
+      '1': 'foo_message',
+      '3': 7,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestOneof2.NestedMessage',
+      '9': 0,
+      '10': 'fooMessage'
+    },
+    const {
+      '1': 'foogroup',
+      '3': 8,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestOneof2.FooGroup',
+      '9': 0,
+      '10': 'foogroup'
+    },
     const {
       '1': 'foo_lazy_message',
       '3': 11,
@@ -1321,8 +2482,24 @@ const TestOneof2$json = const {
       '9': 0,
       '10': 'fooLazyMessage',
     },
-    const {'1': 'bar_int', '3': 12, '4': 1, '5': 5, '7': '5', '9': 1, '10': 'barInt'},
-    const {'1': 'bar_string', '3': 13, '4': 1, '5': 9, '7': 'STRING', '9': 1, '10': 'barString'},
+    const {
+      '1': 'bar_int',
+      '3': 12,
+      '4': 1,
+      '5': 5,
+      '7': '5',
+      '9': 1,
+      '10': 'barInt'
+    },
+    const {
+      '1': 'bar_string',
+      '3': 13,
+      '4': 1,
+      '5': 9,
+      '7': 'STRING',
+      '9': 1,
+      '10': 'barString'
+    },
     const {
       '1': 'bar_cord',
       '3': 14,
@@ -1343,9 +2520,34 @@ const TestOneof2$json = const {
       '9': 1,
       '10': 'barStringPiece',
     },
-    const {'1': 'bar_bytes', '3': 16, '4': 1, '5': 12, '7': 'BYTES', '9': 1, '10': 'barBytes'},
-    const {'1': 'bar_enum', '3': 17, '4': 1, '5': 14, '6': '.protobuf_unittest.TestOneof2.NestedEnum', '7': 'BAR', '9': 1, '10': 'barEnum'},
-    const {'1': 'bar_string_with_empty_default', '3': 20, '4': 1, '5': 9, '7': '', '9': 1, '10': 'barStringWithEmptyDefault'},
+    const {
+      '1': 'bar_bytes',
+      '3': 16,
+      '4': 1,
+      '5': 12,
+      '7': 'BYTES',
+      '9': 1,
+      '10': 'barBytes'
+    },
+    const {
+      '1': 'bar_enum',
+      '3': 17,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.TestOneof2.NestedEnum',
+      '7': 'BAR',
+      '9': 1,
+      '10': 'barEnum'
+    },
+    const {
+      '1': 'bar_string_with_empty_default',
+      '3': 20,
+      '4': 1,
+      '5': 9,
+      '7': '',
+      '9': 1,
+      '10': 'barStringWithEmptyDefault'
+    },
     const {
       '1': 'bar_cord_with_empty_default',
       '3': 21,
@@ -1366,9 +2568,24 @@ const TestOneof2$json = const {
       '9': 1,
       '10': 'barStringPieceWithEmptyDefault',
     },
-    const {'1': 'bar_bytes_with_empty_default', '3': 23, '4': 1, '5': 12, '7': '', '9': 1, '10': 'barBytesWithEmptyDefault'},
+    const {
+      '1': 'bar_bytes_with_empty_default',
+      '3': 23,
+      '4': 1,
+      '5': 12,
+      '7': '',
+      '9': 1,
+      '10': 'barBytesWithEmptyDefault'
+    },
     const {'1': 'baz_int', '3': 18, '4': 1, '5': 5, '10': 'bazInt'},
-    const {'1': 'baz_string', '3': 19, '4': 1, '5': 9, '7': 'BAZ', '10': 'bazString'},
+    const {
+      '1': 'baz_string',
+      '3': 19,
+      '4': 1,
+      '5': 9,
+      '7': 'BAZ',
+      '10': 'bazString'
+    },
   ],
   '3': const [TestOneof2_FooGroup$json, TestOneof2_NestedMessage$json],
   '4': const [TestOneof2_NestedEnum$json],
@@ -1407,14 +2624,30 @@ const TestOneof2_NestedEnum$json = const {
 };
 
 /// Descriptor for `TestOneof2`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testOneof2Descriptor = $convert.base64Decode('CgpUZXN0T25lb2YyEhkKB2Zvb19pbnQYASABKAVIAFIGZm9vSW50Eh8KCmZvb19zdHJpbmcYAiABKAlIAFIJZm9vU3RyaW5nEh8KCGZvb19jb3JkGAMgASgJQgIIAUgAUgdmb29Db3JkEi4KEGZvb19zdHJpbmdfcGllY2UYBCABKAlCAggCSABSDmZvb1N0cmluZ1BpZWNlEh0KCWZvb19ieXRlcxgFIAEoDEgAUghmb29CeXRlcxJFCghmb29fZW51bRgGIAEoDjIoLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RPbmVvZjIuTmVzdGVkRW51bUgAUgdmb29FbnVtEk4KC2Zvb19tZXNzYWdlGAcgASgLMisucHJvdG9idWZfdW5pdHRlc3QuVGVzdE9uZW9mMi5OZXN0ZWRNZXNzYWdlSABSCmZvb01lc3NhZ2USRAoIZm9vZ3JvdXAYCCABKAoyJi5wcm90b2J1Zl91bml0dGVzdC5UZXN0T25lb2YyLkZvb0dyb3VwSABSCGZvb2dyb3VwElsKEGZvb19sYXp5X21lc3NhZ2UYCyABKAsyKy5wcm90b2J1Zl91bml0dGVzdC5UZXN0T25lb2YyLk5lc3RlZE1lc3NhZ2VCAigBSABSDmZvb0xhenlNZXNzYWdlEhwKB2Jhcl9pbnQYDCABKAU6ATVIAVIGYmFySW50EicKCmJhcl9zdHJpbmcYDSABKAk6BlNUUklOR0gBUgliYXJTdHJpbmcSJQoIYmFyX2NvcmQYDiABKAk6BENPUkRCAggBSAFSB2JhckNvcmQSNgoQYmFyX3N0cmluZ19waWVjZRgPIAEoCToGU1BJRUNFQgIIAkgBUg5iYXJTdHJpbmdQaWVjZRIkCgliYXJfYnl0ZXMYECABKAw6BUJZVEVTSAFSCGJhckJ5dGVzEkoKCGJhcl9lbnVtGBEgASgOMigucHJvdG9idWZfdW5pdHRlc3QuVGVzdE9uZW9mMi5OZXN0ZWRFbnVtOgNCQVJIAVIHYmFyRW51bRJECh1iYXJfc3RyaW5nX3dpdGhfZW1wdHlfZGVmYXVsdBgUIAEoCToASAFSGWJhclN0cmluZ1dpdGhFbXB0eURlZmF1bHQSRAobYmFyX2NvcmRfd2l0aF9lbXB0eV9kZWZhdWx0GBUgASgJOgBCAggBSAFSF2JhckNvcmRXaXRoRW1wdHlEZWZhdWx0ElMKI2Jhcl9zdHJpbmdfcGllY2Vfd2l0aF9lbXB0eV9kZWZhdWx0GBYgASgJOgBCAggCSAFSHmJhclN0cmluZ1BpZWNlV2l0aEVtcHR5RGVmYXVsdBJCChxiYXJfYnl0ZXNfd2l0aF9lbXB0eV9kZWZhdWx0GBcgASgMOgBIAVIYYmFyQnl0ZXNXaXRoRW1wdHlEZWZhdWx0EhcKB2Jhel9pbnQYEiABKAVSBmJhekludBIiCgpiYXpfc3RyaW5nGBMgASgJOgNCQVpSCWJhelN0cmluZxomCghGb29Hcm91cBIMCgFhGAkgASgFUgFhEgwKAWIYCiABKAlSAWIaRQoNTmVzdGVkTWVzc2FnZRIXCgdtb29faW50GAEgASgDUgZtb29JbnQSGwoJY29yZ2VfaW50GAIgAygFUghjb3JnZUludCInCgpOZXN0ZWRFbnVtEgcKA0ZPTxABEgcKA0JBUhACEgcKA0JBWhADQgUKA2Zvb0IFCgNiYXI=');
+final $typed_data.Uint8List testOneof2Descriptor = $convert.base64Decode(
+    'CgpUZXN0T25lb2YyEhkKB2Zvb19pbnQYASABKAVIAFIGZm9vSW50Eh8KCmZvb19zdHJpbmcYAiABKAlIAFIJZm9vU3RyaW5nEh8KCGZvb19jb3JkGAMgASgJQgIIAUgAUgdmb29Db3JkEi4KEGZvb19zdHJpbmdfcGllY2UYBCABKAlCAggCSABSDmZvb1N0cmluZ1BpZWNlEh0KCWZvb19ieXRlcxgFIAEoDEgAUghmb29CeXRlcxJFCghmb29fZW51bRgGIAEoDjIoLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RPbmVvZjIuTmVzdGVkRW51bUgAUgdmb29FbnVtEk4KC2Zvb19tZXNzYWdlGAcgASgLMisucHJvdG9idWZfdW5pdHRlc3QuVGVzdE9uZW9mMi5OZXN0ZWRNZXNzYWdlSABSCmZvb01lc3NhZ2USRAoIZm9vZ3JvdXAYCCABKAoyJi5wcm90b2J1Zl91bml0dGVzdC5UZXN0T25lb2YyLkZvb0dyb3VwSABSCGZvb2dyb3VwElsKEGZvb19sYXp5X21lc3NhZ2UYCyABKAsyKy5wcm90b2J1Zl91bml0dGVzdC5UZXN0T25lb2YyLk5lc3RlZE1lc3NhZ2VCAigBSABSDmZvb0xhenlNZXNzYWdlEhwKB2Jhcl9pbnQYDCABKAU6ATVIAVIGYmFySW50EicKCmJhcl9zdHJpbmcYDSABKAk6BlNUUklOR0gBUgliYXJTdHJpbmcSJQoIYmFyX2NvcmQYDiABKAk6BENPUkRCAggBSAFSB2JhckNvcmQSNgoQYmFyX3N0cmluZ19waWVjZRgPIAEoCToGU1BJRUNFQgIIAkgBUg5iYXJTdHJpbmdQaWVjZRIkCgliYXJfYnl0ZXMYECABKAw6BUJZVEVTSAFSCGJhckJ5dGVzEkoKCGJhcl9lbnVtGBEgASgOMigucHJvdG9idWZfdW5pdHRlc3QuVGVzdE9uZW9mMi5OZXN0ZWRFbnVtOgNCQVJIAVIHYmFyRW51bRJECh1iYXJfc3RyaW5nX3dpdGhfZW1wdHlfZGVmYXVsdBgUIAEoCToASAFSGWJhclN0cmluZ1dpdGhFbXB0eURlZmF1bHQSRAobYmFyX2NvcmRfd2l0aF9lbXB0eV9kZWZhdWx0GBUgASgJOgBCAggBSAFSF2JhckNvcmRXaXRoRW1wdHlEZWZhdWx0ElMKI2Jhcl9zdHJpbmdfcGllY2Vfd2l0aF9lbXB0eV9kZWZhdWx0GBYgASgJOgBCAggCSAFSHmJhclN0cmluZ1BpZWNlV2l0aEVtcHR5RGVmYXVsdBJCChxiYXJfYnl0ZXNfd2l0aF9lbXB0eV9kZWZhdWx0GBcgASgMOgBIAVIYYmFyQnl0ZXNXaXRoRW1wdHlEZWZhdWx0EhcKB2Jhel9pbnQYEiABKAVSBmJhekludBIiCgpiYXpfc3RyaW5nGBMgASgJOgNCQVpSCWJhelN0cmluZxomCghGb29Hcm91cBIMCgFhGAkgASgFUgFhEgwKAWIYCiABKAlSAWIaRQoNTmVzdGVkTWVzc2FnZRIXCgdtb29faW50GAEgASgDUgZtb29JbnQSGwoJY29yZ2VfaW50GAIgAygFUghjb3JnZUludCInCgpOZXN0ZWRFbnVtEgcKA0ZPTxABEgcKA0JBUhACEgcKA0JBWhADQgUKA2Zvb0IFCgNiYXI=');
 @$core.Deprecated('Use testRequiredOneofDescriptor instead')
 const TestRequiredOneof$json = const {
   '1': 'TestRequiredOneof',
   '2': const [
     const {'1': 'foo_int', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'fooInt'},
-    const {'1': 'foo_string', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'fooString'},
-    const {'1': 'foo_message', '3': 3, '4': 1, '5': 11, '6': '.protobuf_unittest.TestRequiredOneof.NestedMessage', '9': 0, '10': 'fooMessage'},
+    const {
+      '1': 'foo_string',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'fooString'
+    },
+    const {
+      '1': 'foo_message',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestRequiredOneof.NestedMessage',
+      '9': 0,
+      '10': 'fooMessage'
+    },
   ],
   '3': const [TestRequiredOneof_NestedMessage$json],
   '8': const [
@@ -1426,12 +2659,19 @@ const TestRequiredOneof$json = const {
 const TestRequiredOneof_NestedMessage$json = const {
   '1': 'NestedMessage',
   '2': const [
-    const {'1': 'required_double', '3': 1, '4': 2, '5': 1, '10': 'requiredDouble'},
+    const {
+      '1': 'required_double',
+      '3': 1,
+      '4': 2,
+      '5': 1,
+      '10': 'requiredDouble'
+    },
   ],
 };
 
 /// Descriptor for `TestRequiredOneof`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testRequiredOneofDescriptor = $convert.base64Decode('ChFUZXN0UmVxdWlyZWRPbmVvZhIZCgdmb29faW50GAEgASgFSABSBmZvb0ludBIfCgpmb29fc3RyaW5nGAIgASgJSABSCWZvb1N0cmluZxJVCgtmb29fbWVzc2FnZRgDIAEoCzIyLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RSZXF1aXJlZE9uZW9mLk5lc3RlZE1lc3NhZ2VIAFIKZm9vTWVzc2FnZRo4Cg1OZXN0ZWRNZXNzYWdlEicKD3JlcXVpcmVkX2RvdWJsZRgBIAIoAVIOcmVxdWlyZWREb3VibGVCBQoDZm9v');
+final $typed_data.Uint8List testRequiredOneofDescriptor = $convert.base64Decode(
+    'ChFUZXN0UmVxdWlyZWRPbmVvZhIZCgdmb29faW50GAEgASgFSABSBmZvb0ludBIfCgpmb29fc3RyaW5nGAIgASgJSABSCWZvb1N0cmluZxJVCgtmb29fbWVzc2FnZRgDIAEoCzIyLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RSZXF1aXJlZE9uZW9mLk5lc3RlZE1lc3NhZ2VIAFIKZm9vTWVzc2FnZRo4Cg1OZXN0ZWRNZXNzYWdlEicKD3JlcXVpcmVkX2RvdWJsZRgBIAIoAVIOcmVxdWlyZWREb3VibGVCBQoDZm9v');
 @$core.Deprecated('Use testPackedTypesDescriptor instead')
 const TestPackedTypes$json = const {
   '1': 'TestPackedTypes',
@@ -1553,7 +2793,8 @@ const TestPackedTypes$json = const {
 };
 
 /// Descriptor for `TestPackedTypes`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testPackedTypesDescriptor = $convert.base64Decode('Cg9UZXN0UGFja2VkVHlwZXMSJQoMcGFja2VkX2ludDMyGFogAygFQgIQAVILcGFja2VkSW50MzISJQoMcGFja2VkX2ludDY0GFsgAygDQgIQAVILcGFja2VkSW50NjQSJwoNcGFja2VkX3VpbnQzMhhcIAMoDUICEAFSDHBhY2tlZFVpbnQzMhInCg1wYWNrZWRfdWludDY0GF0gAygEQgIQAVIMcGFja2VkVWludDY0EicKDXBhY2tlZF9zaW50MzIYXiADKBFCAhABUgxwYWNrZWRTaW50MzISJwoNcGFja2VkX3NpbnQ2NBhfIAMoEkICEAFSDHBhY2tlZFNpbnQ2NBIpCg5wYWNrZWRfZml4ZWQzMhhgIAMoB0ICEAFSDXBhY2tlZEZpeGVkMzISKQoOcGFja2VkX2ZpeGVkNjQYYSADKAZCAhABUg1wYWNrZWRGaXhlZDY0EisKD3BhY2tlZF9zZml4ZWQzMhhiIAMoD0ICEAFSDnBhY2tlZFNmaXhlZDMyEisKD3BhY2tlZF9zZml4ZWQ2NBhjIAMoEEICEAFSDnBhY2tlZFNmaXhlZDY0EiUKDHBhY2tlZF9mbG9hdBhkIAMoAkICEAFSC3BhY2tlZEZsb2F0EicKDXBhY2tlZF9kb3VibGUYZSADKAFCAhABUgxwYWNrZWREb3VibGUSIwoLcGFja2VkX2Jvb2wYZiADKAhCAhABUgpwYWNrZWRCb29sEkMKC3BhY2tlZF9lbnVtGGcgAygOMh4ucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbkVudW1CAhABUgpwYWNrZWRFbnVt');
+final $typed_data.Uint8List testPackedTypesDescriptor = $convert.base64Decode(
+    'Cg9UZXN0UGFja2VkVHlwZXMSJQoMcGFja2VkX2ludDMyGFogAygFQgIQAVILcGFja2VkSW50MzISJQoMcGFja2VkX2ludDY0GFsgAygDQgIQAVILcGFja2VkSW50NjQSJwoNcGFja2VkX3VpbnQzMhhcIAMoDUICEAFSDHBhY2tlZFVpbnQzMhInCg1wYWNrZWRfdWludDY0GF0gAygEQgIQAVIMcGFja2VkVWludDY0EicKDXBhY2tlZF9zaW50MzIYXiADKBFCAhABUgxwYWNrZWRTaW50MzISJwoNcGFja2VkX3NpbnQ2NBhfIAMoEkICEAFSDHBhY2tlZFNpbnQ2NBIpCg5wYWNrZWRfZml4ZWQzMhhgIAMoB0ICEAFSDXBhY2tlZEZpeGVkMzISKQoOcGFja2VkX2ZpeGVkNjQYYSADKAZCAhABUg1wYWNrZWRGaXhlZDY0EisKD3BhY2tlZF9zZml4ZWQzMhhiIAMoD0ICEAFSDnBhY2tlZFNmaXhlZDMyEisKD3BhY2tlZF9zZml4ZWQ2NBhjIAMoEEICEAFSDnBhY2tlZFNmaXhlZDY0EiUKDHBhY2tlZF9mbG9hdBhkIAMoAkICEAFSC3BhY2tlZEZsb2F0EicKDXBhY2tlZF9kb3VibGUYZSADKAFCAhABUgxwYWNrZWREb3VibGUSIwoLcGFja2VkX2Jvb2wYZiADKAhCAhABUgpwYWNrZWRCb29sEkMKC3BhY2tlZF9lbnVtGGcgAygOMh4ucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbkVudW1CAhABUgpwYWNrZWRFbnVt');
 @$core.Deprecated('Use testUnpackedTypesDescriptor instead')
 const TestUnpackedTypes$json = const {
   '1': 'TestUnpackedTypes',
@@ -1675,7 +2916,8 @@ const TestUnpackedTypes$json = const {
 };
 
 /// Descriptor for `TestUnpackedTypes`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testUnpackedTypesDescriptor = $convert.base64Decode('ChFUZXN0VW5wYWNrZWRUeXBlcxIpCg51bnBhY2tlZF9pbnQzMhhaIAMoBUICEABSDXVucGFja2VkSW50MzISKQoOdW5wYWNrZWRfaW50NjQYWyADKANCAhAAUg11bnBhY2tlZEludDY0EisKD3VucGFja2VkX3VpbnQzMhhcIAMoDUICEABSDnVucGFja2VkVWludDMyEisKD3VucGFja2VkX3VpbnQ2NBhdIAMoBEICEABSDnVucGFja2VkVWludDY0EisKD3VucGFja2VkX3NpbnQzMhheIAMoEUICEABSDnVucGFja2VkU2ludDMyEisKD3VucGFja2VkX3NpbnQ2NBhfIAMoEkICEABSDnVucGFja2VkU2ludDY0Ei0KEHVucGFja2VkX2ZpeGVkMzIYYCADKAdCAhAAUg91bnBhY2tlZEZpeGVkMzISLQoQdW5wYWNrZWRfZml4ZWQ2NBhhIAMoBkICEABSD3VucGFja2VkRml4ZWQ2NBIvChF1bnBhY2tlZF9zZml4ZWQzMhhiIAMoD0ICEABSEHVucGFja2VkU2ZpeGVkMzISLwoRdW5wYWNrZWRfc2ZpeGVkNjQYYyADKBBCAhAAUhB1bnBhY2tlZFNmaXhlZDY0EikKDnVucGFja2VkX2Zsb2F0GGQgAygCQgIQAFINdW5wYWNrZWRGbG9hdBIrCg91bnBhY2tlZF9kb3VibGUYZSADKAFCAhAAUg51bnBhY2tlZERvdWJsZRInCg11bnBhY2tlZF9ib29sGGYgAygIQgIQAFIMdW5wYWNrZWRCb29sEkcKDXVucGFja2VkX2VudW0YZyADKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bUICEABSDHVucGFja2VkRW51bQ==');
+final $typed_data.Uint8List testUnpackedTypesDescriptor = $convert.base64Decode(
+    'ChFUZXN0VW5wYWNrZWRUeXBlcxIpCg51bnBhY2tlZF9pbnQzMhhaIAMoBUICEABSDXVucGFja2VkSW50MzISKQoOdW5wYWNrZWRfaW50NjQYWyADKANCAhAAUg11bnBhY2tlZEludDY0EisKD3VucGFja2VkX3VpbnQzMhhcIAMoDUICEABSDnVucGFja2VkVWludDMyEisKD3VucGFja2VkX3VpbnQ2NBhdIAMoBEICEABSDnVucGFja2VkVWludDY0EisKD3VucGFja2VkX3NpbnQzMhheIAMoEUICEABSDnVucGFja2VkU2ludDMyEisKD3VucGFja2VkX3NpbnQ2NBhfIAMoEkICEABSDnVucGFja2VkU2ludDY0Ei0KEHVucGFja2VkX2ZpeGVkMzIYYCADKAdCAhAAUg91bnBhY2tlZEZpeGVkMzISLQoQdW5wYWNrZWRfZml4ZWQ2NBhhIAMoBkICEABSD3VucGFja2VkRml4ZWQ2NBIvChF1bnBhY2tlZF9zZml4ZWQzMhhiIAMoD0ICEABSEHVucGFja2VkU2ZpeGVkMzISLwoRdW5wYWNrZWRfc2ZpeGVkNjQYYyADKBBCAhAAUhB1bnBhY2tlZFNmaXhlZDY0EikKDnVucGFja2VkX2Zsb2F0GGQgAygCQgIQAFINdW5wYWNrZWRGbG9hdBIrCg91bnBhY2tlZF9kb3VibGUYZSADKAFCAhAAUg51bnBhY2tlZERvdWJsZRInCg11bnBhY2tlZF9ib29sGGYgAygIQgIQAFIMdW5wYWNrZWRCb29sEkcKDXVucGFja2VkX2VudW0YZyADKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bUICEABSDHVucGFja2VkRW51bQ==');
 @$core.Deprecated('Use testPackedExtensionsDescriptor instead')
 const TestPackedExtensions$json = const {
   '1': 'TestPackedExtensions',
@@ -1685,7 +2927,8 @@ const TestPackedExtensions$json = const {
 };
 
 /// Descriptor for `TestPackedExtensions`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testPackedExtensionsDescriptor = $convert.base64Decode('ChRUZXN0UGFja2VkRXh0ZW5zaW9ucyoICAEQgICAgAI=');
+final $typed_data.Uint8List testPackedExtensionsDescriptor =
+    $convert.base64Decode('ChRUZXN0UGFja2VkRXh0ZW5zaW9ucyoICAEQgICAgAI=');
 @$core.Deprecated('Use testUnpackedExtensionsDescriptor instead')
 const TestUnpackedExtensions$json = const {
   '1': 'TestUnpackedExtensions',
@@ -1695,17 +2938,58 @@ const TestUnpackedExtensions$json = const {
 };
 
 /// Descriptor for `TestUnpackedExtensions`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testUnpackedExtensionsDescriptor = $convert.base64Decode('ChZUZXN0VW5wYWNrZWRFeHRlbnNpb25zKggIARCAgICAAg==');
+final $typed_data.Uint8List testUnpackedExtensionsDescriptor =
+    $convert.base64Decode('ChZUZXN0VW5wYWNrZWRFeHRlbnNpb25zKggIARCAgICAAg==');
 @$core.Deprecated('Use testDynamicExtensionsDescriptor instead')
 const TestDynamicExtensions$json = const {
   '1': 'TestDynamicExtensions',
   '2': const [
-    const {'1': 'scalar_extension', '3': 2000, '4': 1, '5': 7, '10': 'scalarExtension'},
-    const {'1': 'enum_extension', '3': 2001, '4': 1, '5': 14, '6': '.protobuf_unittest.ForeignEnum', '10': 'enumExtension'},
-    const {'1': 'dynamic_enum_extension', '3': 2002, '4': 1, '5': 14, '6': '.protobuf_unittest.TestDynamicExtensions.DynamicEnumType', '10': 'dynamicEnumExtension'},
-    const {'1': 'message_extension', '3': 2003, '4': 1, '5': 11, '6': '.protobuf_unittest.ForeignMessage', '10': 'messageExtension'},
-    const {'1': 'dynamic_message_extension', '3': 2004, '4': 1, '5': 11, '6': '.protobuf_unittest.TestDynamicExtensions.DynamicMessageType', '10': 'dynamicMessageExtension'},
-    const {'1': 'repeated_extension', '3': 2005, '4': 3, '5': 9, '10': 'repeatedExtension'},
+    const {
+      '1': 'scalar_extension',
+      '3': 2000,
+      '4': 1,
+      '5': 7,
+      '10': 'scalarExtension'
+    },
+    const {
+      '1': 'enum_extension',
+      '3': 2001,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.ForeignEnum',
+      '10': 'enumExtension'
+    },
+    const {
+      '1': 'dynamic_enum_extension',
+      '3': 2002,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.TestDynamicExtensions.DynamicEnumType',
+      '10': 'dynamicEnumExtension'
+    },
+    const {
+      '1': 'message_extension',
+      '3': 2003,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.ForeignMessage',
+      '10': 'messageExtension'
+    },
+    const {
+      '1': 'dynamic_message_extension',
+      '3': 2004,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestDynamicExtensions.DynamicMessageType',
+      '10': 'dynamicMessageExtension'
+    },
+    const {
+      '1': 'repeated_extension',
+      '3': 2005,
+      '4': 3,
+      '5': 9,
+      '10': 'repeatedExtension'
+    },
     const {
       '1': 'packed_extension',
       '3': 2006,
@@ -1723,7 +3007,13 @@ const TestDynamicExtensions$json = const {
 const TestDynamicExtensions_DynamicMessageType$json = const {
   '1': 'DynamicMessageType',
   '2': const [
-    const {'1': 'dynamic_field', '3': 2100, '4': 1, '5': 5, '10': 'dynamicField'},
+    const {
+      '1': 'dynamic_field',
+      '3': 2100,
+      '4': 1,
+      '5': 5,
+      '10': 'dynamicField'
+    },
   ],
 };
 
@@ -1738,39 +3028,133 @@ const TestDynamicExtensions_DynamicEnumType$json = const {
 };
 
 /// Descriptor for `TestDynamicExtensions`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testDynamicExtensionsDescriptor = $convert.base64Decode('ChVUZXN0RHluYW1pY0V4dGVuc2lvbnMSKgoQc2NhbGFyX2V4dGVuc2lvbhjQDyABKAdSD3NjYWxhckV4dGVuc2lvbhJGCg5lbnVtX2V4dGVuc2lvbhjRDyABKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bVINZW51bUV4dGVuc2lvbhJvChZkeW5hbWljX2VudW1fZXh0ZW5zaW9uGNIPIAEoDjI4LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3REeW5hbWljRXh0ZW5zaW9ucy5EeW5hbWljRW51bVR5cGVSFGR5bmFtaWNFbnVtRXh0ZW5zaW9uEk8KEW1lc3NhZ2VfZXh0ZW5zaW9uGNMPIAEoCzIhLnByb3RvYnVmX3VuaXR0ZXN0LkZvcmVpZ25NZXNzYWdlUhBtZXNzYWdlRXh0ZW5zaW9uEngKGWR5bmFtaWNfbWVzc2FnZV9leHRlbnNpb24Y1A8gASgLMjsucHJvdG9idWZfdW5pdHRlc3QuVGVzdER5bmFtaWNFeHRlbnNpb25zLkR5bmFtaWNNZXNzYWdlVHlwZVIXZHluYW1pY01lc3NhZ2VFeHRlbnNpb24SLgoScmVwZWF0ZWRfZXh0ZW5zaW9uGNUPIAMoCVIRcmVwZWF0ZWRFeHRlbnNpb24SLgoQcGFja2VkX2V4dGVuc2lvbhjWDyADKBFCAhABUg9wYWNrZWRFeHRlbnNpb24aOgoSRHluYW1pY01lc3NhZ2VUeXBlEiQKDWR5bmFtaWNfZmllbGQYtBAgASgFUgxkeW5hbWljRmllbGQiRwoPRHluYW1pY0VudW1UeXBlEhAKC0RZTkFNSUNfRk9PEJgREhAKC0RZTkFNSUNfQkFSEJkREhAKC0RZTkFNSUNfQkFaEJoR');
+final $typed_data.Uint8List testDynamicExtensionsDescriptor = $convert.base64Decode(
+    'ChVUZXN0RHluYW1pY0V4dGVuc2lvbnMSKgoQc2NhbGFyX2V4dGVuc2lvbhjQDyABKAdSD3NjYWxhckV4dGVuc2lvbhJGCg5lbnVtX2V4dGVuc2lvbhjRDyABKA4yHi5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduRW51bVINZW51bUV4dGVuc2lvbhJvChZkeW5hbWljX2VudW1fZXh0ZW5zaW9uGNIPIAEoDjI4LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3REeW5hbWljRXh0ZW5zaW9ucy5EeW5hbWljRW51bVR5cGVSFGR5bmFtaWNFbnVtRXh0ZW5zaW9uEk8KEW1lc3NhZ2VfZXh0ZW5zaW9uGNMPIAEoCzIhLnByb3RvYnVmX3VuaXR0ZXN0LkZvcmVpZ25NZXNzYWdlUhBtZXNzYWdlRXh0ZW5zaW9uEngKGWR5bmFtaWNfbWVzc2FnZV9leHRlbnNpb24Y1A8gASgLMjsucHJvdG9idWZfdW5pdHRlc3QuVGVzdER5bmFtaWNFeHRlbnNpb25zLkR5bmFtaWNNZXNzYWdlVHlwZVIXZHluYW1pY01lc3NhZ2VFeHRlbnNpb24SLgoScmVwZWF0ZWRfZXh0ZW5zaW9uGNUPIAMoCVIRcmVwZWF0ZWRFeHRlbnNpb24SLgoQcGFja2VkX2V4dGVuc2lvbhjWDyADKBFCAhABUg9wYWNrZWRFeHRlbnNpb24aOgoSRHluYW1pY01lc3NhZ2VUeXBlEiQKDWR5bmFtaWNfZmllbGQYtBAgASgFUgxkeW5hbWljRmllbGQiRwoPRHluYW1pY0VudW1UeXBlEhAKC0RZTkFNSUNfRk9PEJgREhAKC0RZTkFNSUNfQkFSEJkREhAKC0RZTkFNSUNfQkFaEJoR');
 @$core.Deprecated('Use testRepeatedScalarDifferentTagSizesDescriptor instead')
 const TestRepeatedScalarDifferentTagSizes$json = const {
   '1': 'TestRepeatedScalarDifferentTagSizes',
   '2': const [
-    const {'1': 'repeated_fixed32', '3': 12, '4': 3, '5': 7, '10': 'repeatedFixed32'},
-    const {'1': 'repeated_int32', '3': 13, '4': 3, '5': 5, '10': 'repeatedInt32'},
-    const {'1': 'repeated_fixed64', '3': 2046, '4': 3, '5': 6, '10': 'repeatedFixed64'},
-    const {'1': 'repeated_int64', '3': 2047, '4': 3, '5': 3, '10': 'repeatedInt64'},
-    const {'1': 'repeated_float', '3': 262142, '4': 3, '5': 2, '10': 'repeatedFloat'},
-    const {'1': 'repeated_uint64', '3': 262143, '4': 3, '5': 4, '10': 'repeatedUint64'},
+    const {
+      '1': 'repeated_fixed32',
+      '3': 12,
+      '4': 3,
+      '5': 7,
+      '10': 'repeatedFixed32'
+    },
+    const {
+      '1': 'repeated_int32',
+      '3': 13,
+      '4': 3,
+      '5': 5,
+      '10': 'repeatedInt32'
+    },
+    const {
+      '1': 'repeated_fixed64',
+      '3': 2046,
+      '4': 3,
+      '5': 6,
+      '10': 'repeatedFixed64'
+    },
+    const {
+      '1': 'repeated_int64',
+      '3': 2047,
+      '4': 3,
+      '5': 3,
+      '10': 'repeatedInt64'
+    },
+    const {
+      '1': 'repeated_float',
+      '3': 262142,
+      '4': 3,
+      '5': 2,
+      '10': 'repeatedFloat'
+    },
+    const {
+      '1': 'repeated_uint64',
+      '3': 262143,
+      '4': 3,
+      '5': 4,
+      '10': 'repeatedUint64'
+    },
   ],
 };
 
 /// Descriptor for `TestRepeatedScalarDifferentTagSizes`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testRepeatedScalarDifferentTagSizesDescriptor = $convert.base64Decode('CiNUZXN0UmVwZWF0ZWRTY2FsYXJEaWZmZXJlbnRUYWdTaXplcxIpChByZXBlYXRlZF9maXhlZDMyGAwgAygHUg9yZXBlYXRlZEZpeGVkMzISJQoOcmVwZWF0ZWRfaW50MzIYDSADKAVSDXJlcGVhdGVkSW50MzISKgoQcmVwZWF0ZWRfZml4ZWQ2NBj+DyADKAZSD3JlcGVhdGVkRml4ZWQ2NBImCg5yZXBlYXRlZF9pbnQ2NBj/DyADKANSDXJlcGVhdGVkSW50NjQSJwoOcmVwZWF0ZWRfZmxvYXQY/v8PIAMoAlINcmVwZWF0ZWRGbG9hdBIpCg9yZXBlYXRlZF91aW50NjQY//8PIAMoBFIOcmVwZWF0ZWRVaW50NjQ=');
+final $typed_data.Uint8List testRepeatedScalarDifferentTagSizesDescriptor =
+    $convert.base64Decode(
+        'CiNUZXN0UmVwZWF0ZWRTY2FsYXJEaWZmZXJlbnRUYWdTaXplcxIpChByZXBlYXRlZF9maXhlZDMyGAwgAygHUg9yZXBlYXRlZEZpeGVkMzISJQoOcmVwZWF0ZWRfaW50MzIYDSADKAVSDXJlcGVhdGVkSW50MzISKgoQcmVwZWF0ZWRfZml4ZWQ2NBj+DyADKAZSD3JlcGVhdGVkRml4ZWQ2NBImCg5yZXBlYXRlZF9pbnQ2NBj/DyADKANSDXJlcGVhdGVkSW50NjQSJwoOcmVwZWF0ZWRfZmxvYXQY/v8PIAMoAlINcmVwZWF0ZWRGbG9hdBIpCg9yZXBlYXRlZF91aW50NjQY//8PIAMoBFIOcmVwZWF0ZWRVaW50NjQ=');
 @$core.Deprecated('Use testParsingMergeDescriptor instead')
 const TestParsingMerge$json = const {
   '1': 'TestParsingMerge',
   '2': const [
-    const {'1': 'required_all_types', '3': 1, '4': 2, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'requiredAllTypes'},
-    const {'1': 'optional_all_types', '3': 2, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalAllTypes'},
-    const {'1': 'repeated_all_types', '3': 3, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedAllTypes'},
-    const {'1': 'optionalgroup', '3': 10, '4': 1, '5': 10, '6': '.protobuf_unittest.TestParsingMerge.OptionalGroup', '10': 'optionalgroup'},
-    const {'1': 'repeatedgroup', '3': 20, '4': 3, '5': 10, '6': '.protobuf_unittest.TestParsingMerge.RepeatedGroup', '10': 'repeatedgroup'},
+    const {
+      '1': 'required_all_types',
+      '3': 1,
+      '4': 2,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'requiredAllTypes'
+    },
+    const {
+      '1': 'optional_all_types',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalAllTypes'
+    },
+    const {
+      '1': 'repeated_all_types',
+      '3': 3,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedAllTypes'
+    },
+    const {
+      '1': 'optionalgroup',
+      '3': 10,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestParsingMerge.OptionalGroup',
+      '10': 'optionalgroup'
+    },
+    const {
+      '1': 'repeatedgroup',
+      '3': 20,
+      '4': 3,
+      '5': 10,
+      '6': '.protobuf_unittest.TestParsingMerge.RepeatedGroup',
+      '10': 'repeatedgroup'
+    },
   ],
-  '3': const [TestParsingMerge_RepeatedFieldsGenerator$json, TestParsingMerge_OptionalGroup$json, TestParsingMerge_RepeatedGroup$json],
+  '3': const [
+    TestParsingMerge_RepeatedFieldsGenerator$json,
+    TestParsingMerge_OptionalGroup$json,
+    TestParsingMerge_RepeatedGroup$json
+  ],
   '5': const [
     const {'1': 1000, '2': 536870912},
   ],
   '6': const [
-    const {'1': 'optional_ext', '2': '.protobuf_unittest.TestParsingMerge', '3': 1000, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalExt'},
-    const {'1': 'repeated_ext', '2': '.protobuf_unittest.TestParsingMerge', '3': 1001, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedExt'},
+    const {
+      '1': 'optional_ext',
+      '2': '.protobuf_unittest.TestParsingMerge',
+      '3': 1000,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalExt'
+    },
+    const {
+      '1': 'repeated_ext',
+      '2': '.protobuf_unittest.TestParsingMerge',
+      '3': 1001,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedExt'
+    },
   ],
 };
 
@@ -1778,22 +3162,81 @@ const TestParsingMerge$json = const {
 const TestParsingMerge_RepeatedFieldsGenerator$json = const {
   '1': 'RepeatedFieldsGenerator',
   '2': const [
-    const {'1': 'field1', '3': 1, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'field1'},
-    const {'1': 'field2', '3': 2, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'field2'},
-    const {'1': 'field3', '3': 3, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'field3'},
-    const {'1': 'group1', '3': 10, '4': 3, '5': 10, '6': '.protobuf_unittest.TestParsingMerge.RepeatedFieldsGenerator.Group1', '10': 'group1'},
-    const {'1': 'group2', '3': 20, '4': 3, '5': 10, '6': '.protobuf_unittest.TestParsingMerge.RepeatedFieldsGenerator.Group2', '10': 'group2'},
-    const {'1': 'ext1', '3': 1000, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'ext1'},
-    const {'1': 'ext2', '3': 1001, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'ext2'},
+    const {
+      '1': 'field1',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'field1'
+    },
+    const {
+      '1': 'field2',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'field2'
+    },
+    const {
+      '1': 'field3',
+      '3': 3,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'field3'
+    },
+    const {
+      '1': 'group1',
+      '3': 10,
+      '4': 3,
+      '5': 10,
+      '6': '.protobuf_unittest.TestParsingMerge.RepeatedFieldsGenerator.Group1',
+      '10': 'group1'
+    },
+    const {
+      '1': 'group2',
+      '3': 20,
+      '4': 3,
+      '5': 10,
+      '6': '.protobuf_unittest.TestParsingMerge.RepeatedFieldsGenerator.Group2',
+      '10': 'group2'
+    },
+    const {
+      '1': 'ext1',
+      '3': 1000,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'ext1'
+    },
+    const {
+      '1': 'ext2',
+      '3': 1001,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'ext2'
+    },
   ],
-  '3': const [TestParsingMerge_RepeatedFieldsGenerator_Group1$json, TestParsingMerge_RepeatedFieldsGenerator_Group2$json],
+  '3': const [
+    TestParsingMerge_RepeatedFieldsGenerator_Group1$json,
+    TestParsingMerge_RepeatedFieldsGenerator_Group2$json
+  ],
 };
 
 @$core.Deprecated('Use testParsingMergeDescriptor instead')
 const TestParsingMerge_RepeatedFieldsGenerator_Group1$json = const {
   '1': 'Group1',
   '2': const [
-    const {'1': 'field1', '3': 11, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'field1'},
+    const {
+      '1': 'field1',
+      '3': 11,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'field1'
+    },
   ],
 };
 
@@ -1801,7 +3244,14 @@ const TestParsingMerge_RepeatedFieldsGenerator_Group1$json = const {
 const TestParsingMerge_RepeatedFieldsGenerator_Group2$json = const {
   '1': 'Group2',
   '2': const [
-    const {'1': 'field1', '3': 21, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'field1'},
+    const {
+      '1': 'field1',
+      '3': 21,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'field1'
+    },
   ],
 };
 
@@ -1809,7 +3259,14 @@ const TestParsingMerge_RepeatedFieldsGenerator_Group2$json = const {
 const TestParsingMerge_OptionalGroup$json = const {
   '1': 'OptionalGroup',
   '2': const [
-    const {'1': 'optional_group_all_types', '3': 11, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalGroupAllTypes'},
+    const {
+      '1': 'optional_group_all_types',
+      '3': 11,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalGroupAllTypes'
+    },
   ],
 };
 
@@ -1817,32 +3274,57 @@ const TestParsingMerge_OptionalGroup$json = const {
 const TestParsingMerge_RepeatedGroup$json = const {
   '1': 'RepeatedGroup',
   '2': const [
-    const {'1': 'repeated_group_all_types', '3': 21, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedGroupAllTypes'},
+    const {
+      '1': 'repeated_group_all_types',
+      '3': 21,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedGroupAllTypes'
+    },
   ],
 };
 
 /// Descriptor for `TestParsingMerge`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testParsingMergeDescriptor = $convert.base64Decode('ChBUZXN0UGFyc2luZ01lcmdlEk0KEnJlcXVpcmVkX2FsbF90eXBlcxgBIAIoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQcmVxdWlyZWRBbGxUeXBlcxJNChJvcHRpb25hbF9hbGxfdHlwZXMYAiABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEG9wdGlvbmFsQWxsVHlwZXMSTQoScmVwZWF0ZWRfYWxsX3R5cGVzGAMgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUhByZXBlYXRlZEFsbFR5cGVzElcKDW9wdGlvbmFsZ3JvdXAYCiABKAoyMS5wcm90b2J1Zl91bml0dGVzdC5UZXN0UGFyc2luZ01lcmdlLk9wdGlvbmFsR3JvdXBSDW9wdGlvbmFsZ3JvdXASVwoNcmVwZWF0ZWRncm91cBgUIAMoCjIxLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RQYXJzaW5nTWVyZ2UuUmVwZWF0ZWRHcm91cFINcmVwZWF0ZWRncm91cBruBAoXUmVwZWF0ZWRGaWVsZHNHZW5lcmF0b3ISNwoGZmllbGQxGAEgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgZmaWVsZDESNwoGZmllbGQyGAIgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgZmaWVsZDISNwoGZmllbGQzGAMgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgZmaWVsZDMSWgoGZ3JvdXAxGAogAygKMkIucHJvdG9idWZfdW5pdHRlc3QuVGVzdFBhcnNpbmdNZXJnZS5SZXBlYXRlZEZpZWxkc0dlbmVyYXRvci5Hcm91cDFSBmdyb3VwMRJaCgZncm91cDIYFCADKAoyQi5wcm90b2J1Zl91bml0dGVzdC5UZXN0UGFyc2luZ01lcmdlLlJlcGVhdGVkRmllbGRzR2VuZXJhdG9yLkdyb3VwMlIGZ3JvdXAyEjQKBGV4dDEY6AcgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgRleHQxEjQKBGV4dDIY6QcgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgRleHQyGkEKBkdyb3VwMRI3CgZmaWVsZDEYCyABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSBmZpZWxkMRpBCgZHcm91cDISNwoGZmllbGQxGBUgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgZmaWVsZDEaaQoNT3B0aW9uYWxHcm91cBJYChhvcHRpb25hbF9ncm91cF9hbGxfdHlwZXMYCyABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSFW9wdGlvbmFsR3JvdXBBbGxUeXBlcxppCg1SZXBlYXRlZEdyb3VwElgKGHJlcGVhdGVkX2dyb3VwX2FsbF90eXBlcxgVIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IVcmVwZWF0ZWRHcm91cEFsbFR5cGVzKgkI6AcQgICAgAIyaAoMb3B0aW9uYWxfZXh0EiMucHJvdG9idWZfdW5pdHRlc3QuVGVzdFBhcnNpbmdNZXJnZRjoByABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSC29wdGlvbmFsRXh0MmgKDHJlcGVhdGVkX2V4dBIjLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RQYXJzaW5nTWVyZ2UY6QcgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgtyZXBlYXRlZEV4dA==');
+final $typed_data.Uint8List testParsingMergeDescriptor = $convert.base64Decode(
+    'ChBUZXN0UGFyc2luZ01lcmdlEk0KEnJlcXVpcmVkX2FsbF90eXBlcxgBIAIoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQcmVxdWlyZWRBbGxUeXBlcxJNChJvcHRpb25hbF9hbGxfdHlwZXMYAiABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEG9wdGlvbmFsQWxsVHlwZXMSTQoScmVwZWF0ZWRfYWxsX3R5cGVzGAMgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUhByZXBlYXRlZEFsbFR5cGVzElcKDW9wdGlvbmFsZ3JvdXAYCiABKAoyMS5wcm90b2J1Zl91bml0dGVzdC5UZXN0UGFyc2luZ01lcmdlLk9wdGlvbmFsR3JvdXBSDW9wdGlvbmFsZ3JvdXASVwoNcmVwZWF0ZWRncm91cBgUIAMoCjIxLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RQYXJzaW5nTWVyZ2UuUmVwZWF0ZWRHcm91cFINcmVwZWF0ZWRncm91cBruBAoXUmVwZWF0ZWRGaWVsZHNHZW5lcmF0b3ISNwoGZmllbGQxGAEgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgZmaWVsZDESNwoGZmllbGQyGAIgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgZmaWVsZDISNwoGZmllbGQzGAMgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgZmaWVsZDMSWgoGZ3JvdXAxGAogAygKMkIucHJvdG9idWZfdW5pdHRlc3QuVGVzdFBhcnNpbmdNZXJnZS5SZXBlYXRlZEZpZWxkc0dlbmVyYXRvci5Hcm91cDFSBmdyb3VwMRJaCgZncm91cDIYFCADKAoyQi5wcm90b2J1Zl91bml0dGVzdC5UZXN0UGFyc2luZ01lcmdlLlJlcGVhdGVkRmllbGRzR2VuZXJhdG9yLkdyb3VwMlIGZ3JvdXAyEjQKBGV4dDEY6AcgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgRleHQxEjQKBGV4dDIY6QcgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgRleHQyGkEKBkdyb3VwMRI3CgZmaWVsZDEYCyABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSBmZpZWxkMRpBCgZHcm91cDISNwoGZmllbGQxGBUgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgZmaWVsZDEaaQoNT3B0aW9uYWxHcm91cBJYChhvcHRpb25hbF9ncm91cF9hbGxfdHlwZXMYCyABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSFW9wdGlvbmFsR3JvdXBBbGxUeXBlcxppCg1SZXBlYXRlZEdyb3VwElgKGHJlcGVhdGVkX2dyb3VwX2FsbF90eXBlcxgVIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IVcmVwZWF0ZWRHcm91cEFsbFR5cGVzKgkI6AcQgICAgAIyaAoMb3B0aW9uYWxfZXh0EiMucHJvdG9idWZfdW5pdHRlc3QuVGVzdFBhcnNpbmdNZXJnZRjoByABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSC29wdGlvbmFsRXh0MmgKDHJlcGVhdGVkX2V4dBIjLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RQYXJzaW5nTWVyZ2UY6QcgAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUgtyZXBlYXRlZEV4dA==');
 @$core.Deprecated('Use testMergeExceptionDescriptor instead')
 const TestMergeException$json = const {
   '1': 'TestMergeException',
   '2': const [
-    const {'1': 'all_extensions', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllExtensions', '10': 'allExtensions'},
+    const {
+      '1': 'all_extensions',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllExtensions',
+      '10': 'allExtensions'
+    },
   ],
 };
 
 /// Descriptor for `TestMergeException`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testMergeExceptionDescriptor = $convert.base64Decode('ChJUZXN0TWVyZ2VFeGNlcHRpb24SSwoOYWxsX2V4dGVuc2lvbnMYASABKAsyJC5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsRXh0ZW5zaW9uc1INYWxsRXh0ZW5zaW9ucw==');
+final $typed_data.Uint8List testMergeExceptionDescriptor = $convert.base64Decode(
+    'ChJUZXN0TWVyZ2VFeGNlcHRpb24SSwoOYWxsX2V4dGVuc2lvbnMYASABKAsyJC5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsRXh0ZW5zaW9uc1INYWxsRXh0ZW5zaW9ucw==');
 @$core.Deprecated('Use testCommentInjectionMessageDescriptor instead')
 const TestCommentInjectionMessage$json = const {
   '1': 'TestCommentInjectionMessage',
   '2': const [
-    const {'1': 'a', '3': 1, '4': 1, '5': 9, '7': '*/ <- Neither should this.', '10': 'a'},
+    const {
+      '1': 'a',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '7': '*/ <- Neither should this.',
+      '10': 'a'
+    },
   ],
 };
 
 /// Descriptor for `TestCommentInjectionMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testCommentInjectionMessageDescriptor = $convert.base64Decode('ChtUZXN0Q29tbWVudEluamVjdGlvbk1lc3NhZ2USKAoBYRgBIAEoCToaKi8gPC0gTmVpdGhlciBzaG91bGQgdGhpcy5SAWE=');
+final $typed_data.Uint8List testCommentInjectionMessageDescriptor =
+    $convert.base64Decode(
+        'ChtUZXN0Q29tbWVudEluamVjdGlvbk1lc3NhZ2USKAoBYRgBIAEoCToaKi8gPC0gTmVpdGhlciBzaG91bGQgdGhpcy5SAWE=');
 @$core.Deprecated('Use testMessageSizeDescriptor instead')
 const TestMessageSize$json = const {
   '1': 'TestMessageSize',
@@ -1857,49 +3339,56 @@ const TestMessageSize$json = const {
 };
 
 /// Descriptor for `TestMessageSize`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testMessageSizeDescriptor = $convert.base64Decode('Cg9UZXN0TWVzc2FnZVNpemUSDgoCbTEYASABKAhSAm0xEg4KAm0yGAIgASgDUgJtMhIOCgJtMxgDIAEoCFICbTMSDgoCbTQYBCABKAlSAm00Eg4KAm01GAUgASgFUgJtNRIOCgJtNhgGIAEoA1ICbTY=');
+final $typed_data.Uint8List testMessageSizeDescriptor = $convert.base64Decode(
+    'Cg9UZXN0TWVzc2FnZVNpemUSDgoCbTEYASABKAhSAm0xEg4KAm0yGAIgASgDUgJtMhIOCgJtMxgDIAEoCFICbTMSDgoCbTQYBCABKAlSAm00Eg4KAm01GAUgASgFUgJtNRIOCgJtNhgGIAEoA1ICbTY=');
 @$core.Deprecated('Use fooRequestDescriptor instead')
 const FooRequest$json = const {
   '1': 'FooRequest',
 };
 
 /// Descriptor for `FooRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List fooRequestDescriptor = $convert.base64Decode('CgpGb29SZXF1ZXN0');
+final $typed_data.Uint8List fooRequestDescriptor =
+    $convert.base64Decode('CgpGb29SZXF1ZXN0');
 @$core.Deprecated('Use fooResponseDescriptor instead')
 const FooResponse$json = const {
   '1': 'FooResponse',
 };
 
 /// Descriptor for `FooResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List fooResponseDescriptor = $convert.base64Decode('CgtGb29SZXNwb25zZQ==');
+final $typed_data.Uint8List fooResponseDescriptor =
+    $convert.base64Decode('CgtGb29SZXNwb25zZQ==');
 @$core.Deprecated('Use fooClientMessageDescriptor instead')
 const FooClientMessage$json = const {
   '1': 'FooClientMessage',
 };
 
 /// Descriptor for `FooClientMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List fooClientMessageDescriptor = $convert.base64Decode('ChBGb29DbGllbnRNZXNzYWdl');
+final $typed_data.Uint8List fooClientMessageDescriptor =
+    $convert.base64Decode('ChBGb29DbGllbnRNZXNzYWdl');
 @$core.Deprecated('Use fooServerMessageDescriptor instead')
 const FooServerMessage$json = const {
   '1': 'FooServerMessage',
 };
 
 /// Descriptor for `FooServerMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List fooServerMessageDescriptor = $convert.base64Decode('ChBGb29TZXJ2ZXJNZXNzYWdl');
+final $typed_data.Uint8List fooServerMessageDescriptor =
+    $convert.base64Decode('ChBGb29TZXJ2ZXJNZXNzYWdl');
 @$core.Deprecated('Use barRequestDescriptor instead')
 const BarRequest$json = const {
   '1': 'BarRequest',
 };
 
 /// Descriptor for `BarRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List barRequestDescriptor = $convert.base64Decode('CgpCYXJSZXF1ZXN0');
+final $typed_data.Uint8List barRequestDescriptor =
+    $convert.base64Decode('CgpCYXJSZXF1ZXN0');
 @$core.Deprecated('Use barResponseDescriptor instead')
 const BarResponse$json = const {
   '1': 'BarResponse',
 };
 
 /// Descriptor for `BarResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List barResponseDescriptor = $convert.base64Decode('CgtCYXJSZXNwb25zZQ==');
+final $typed_data.Uint8List barResponseDescriptor =
+    $convert.base64Decode('CgtCYXJSZXNwb25zZQ==');
 @$core.Deprecated('Use testJsonNameDescriptor instead')
 const TestJsonName$json = const {
   '1': 'TestJsonName',
@@ -1915,12 +3404,19 @@ const TestJsonName$json = const {
 };
 
 /// Descriptor for `TestJsonName`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testJsonNameDescriptor = $convert.base64Decode('CgxUZXN0SnNvbk5hbWUSHwoLZmllbGRfbmFtZTEYASABKAVSCmZpZWxkTmFtZTESHgoKZmllbGROYW1lMhgCIAEoBVIKZmllbGROYW1lMhIeCgpGaWVsZE5hbWUzGAMgASgFUgpGaWVsZE5hbWUzEiAKDF9maWVsZF9uYW1lNBgEIAEoBVIKRmllbGROYW1lNBIfCgtGSUVMRF9OQU1FNRgFIAEoBVIKRklFTEROQU1FNRIaCgtmaWVsZF9uYW1lNhgGIAEoBVIFQHR5cGUSHgoKZmllbGRuYW1lNxgHIAEoBVIKZmllbGRuYW1lNw==');
+final $typed_data.Uint8List testJsonNameDescriptor = $convert.base64Decode(
+    'CgxUZXN0SnNvbk5hbWUSHwoLZmllbGRfbmFtZTEYASABKAVSCmZpZWxkTmFtZTESHgoKZmllbGROYW1lMhgCIAEoBVIKZmllbGROYW1lMhIeCgpGaWVsZE5hbWUzGAMgASgFUgpGaWVsZE5hbWUzEiAKDF9maWVsZF9uYW1lNBgEIAEoBVIKRmllbGROYW1lNBIfCgtGSUVMRF9OQU1FNRgFIAEoBVIKRklFTEROQU1FNRIaCgtmaWVsZF9uYW1lNhgGIAEoBVIFQHR5cGUSHgoKZmllbGRuYW1lNxgHIAEoBVIKZmllbGRuYW1lNw==');
 @$core.Deprecated('Use testHugeFieldNumbersDescriptor instead')
 const TestHugeFieldNumbers$json = const {
   '1': 'TestHugeFieldNumbers',
   '2': const [
-    const {'1': 'optional_int32', '3': 536870000, '4': 1, '5': 5, '10': 'optionalInt32'},
+    const {
+      '1': 'optional_int32',
+      '3': 536870000,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt32'
+    },
     const {'1': 'fixed_32', '3': 536870001, '4': 1, '5': 5, '10': 'fixed32'},
     const {
       '1': 'repeated_int32',
@@ -1938,18 +3434,90 @@ const TestHugeFieldNumbers$json = const {
       '8': const {'2': true},
       '10': 'packedInt32',
     },
-    const {'1': 'optional_enum', '3': 536870004, '4': 1, '5': 14, '6': '.protobuf_unittest.ForeignEnum', '10': 'optionalEnum'},
-    const {'1': 'optional_string', '3': 536870005, '4': 1, '5': 9, '10': 'optionalString'},
-    const {'1': 'optional_bytes', '3': 536870006, '4': 1, '5': 12, '10': 'optionalBytes'},
-    const {'1': 'optional_message', '3': 536870007, '4': 1, '5': 11, '6': '.protobuf_unittest.ForeignMessage', '10': 'optionalMessage'},
-    const {'1': 'optionalgroup', '3': 536870008, '4': 1, '5': 10, '6': '.protobuf_unittest.TestHugeFieldNumbers.OptionalGroup', '10': 'optionalgroup'},
-    const {'1': 'string_string_map', '3': 536870010, '4': 3, '5': 11, '6': '.protobuf_unittest.TestHugeFieldNumbers.StringStringMapEntry', '10': 'stringStringMap'},
-    const {'1': 'oneof_uint32', '3': 536870011, '4': 1, '5': 13, '9': 0, '10': 'oneofUint32'},
-    const {'1': 'oneof_test_all_types', '3': 536870012, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '9': 0, '10': 'oneofTestAllTypes'},
-    const {'1': 'oneof_string', '3': 536870013, '4': 1, '5': 9, '9': 0, '10': 'oneofString'},
-    const {'1': 'oneof_bytes', '3': 536870014, '4': 1, '5': 12, '9': 0, '10': 'oneofBytes'},
+    const {
+      '1': 'optional_enum',
+      '3': 536870004,
+      '4': 1,
+      '5': 14,
+      '6': '.protobuf_unittest.ForeignEnum',
+      '10': 'optionalEnum'
+    },
+    const {
+      '1': 'optional_string',
+      '3': 536870005,
+      '4': 1,
+      '5': 9,
+      '10': 'optionalString'
+    },
+    const {
+      '1': 'optional_bytes',
+      '3': 536870006,
+      '4': 1,
+      '5': 12,
+      '10': 'optionalBytes'
+    },
+    const {
+      '1': 'optional_message',
+      '3': 536870007,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.ForeignMessage',
+      '10': 'optionalMessage'
+    },
+    const {
+      '1': 'optionalgroup',
+      '3': 536870008,
+      '4': 1,
+      '5': 10,
+      '6': '.protobuf_unittest.TestHugeFieldNumbers.OptionalGroup',
+      '10': 'optionalgroup'
+    },
+    const {
+      '1': 'string_string_map',
+      '3': 536870010,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestHugeFieldNumbers.StringStringMapEntry',
+      '10': 'stringStringMap'
+    },
+    const {
+      '1': 'oneof_uint32',
+      '3': 536870011,
+      '4': 1,
+      '5': 13,
+      '9': 0,
+      '10': 'oneofUint32'
+    },
+    const {
+      '1': 'oneof_test_all_types',
+      '3': 536870012,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '9': 0,
+      '10': 'oneofTestAllTypes'
+    },
+    const {
+      '1': 'oneof_string',
+      '3': 536870013,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'oneofString'
+    },
+    const {
+      '1': 'oneof_bytes',
+      '3': 536870014,
+      '4': 1,
+      '5': 12,
+      '9': 0,
+      '10': 'oneofBytes'
+    },
   ],
-  '3': const [TestHugeFieldNumbers_OptionalGroup$json, TestHugeFieldNumbers_StringStringMapEntry$json],
+  '3': const [
+    TestHugeFieldNumbers_OptionalGroup$json,
+    TestHugeFieldNumbers_StringStringMapEntry$json
+  ],
   '5': const [
     const {'1': 536860000, '2': 536870000},
   ],
@@ -1977,7 +3545,8 @@ const TestHugeFieldNumbers_StringStringMapEntry$json = const {
 };
 
 /// Descriptor for `TestHugeFieldNumbers`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testHugeFieldNumbersDescriptor = $convert.base64Decode('ChRUZXN0SHVnZUZpZWxkTnVtYmVycxIpCg5vcHRpb25hbF9pbnQzMhjw+P//ASABKAVSDW9wdGlvbmFsSW50MzISHQoIZml4ZWRfMzIY8fj//wEgASgFUgdmaXhlZDMyEi0KDnJlcGVhdGVkX2ludDMyGPL4//8BIAMoBUICEABSDXJlcGVhdGVkSW50MzISKQoMcGFja2VkX2ludDMyGPP4//8BIAMoBUICEAFSC3BhY2tlZEludDMyEkcKDW9wdGlvbmFsX2VudW0Y9Pj//wEgASgOMh4ucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbkVudW1SDG9wdGlvbmFsRW51bRIrCg9vcHRpb25hbF9zdHJpbmcY9fj//wEgASgJUg5vcHRpb25hbFN0cmluZxIpCg5vcHRpb25hbF9ieXRlcxj2+P//ASABKAxSDW9wdGlvbmFsQnl0ZXMSUAoQb3B0aW9uYWxfbWVzc2FnZRj3+P//ASABKAsyIS5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduTWVzc2FnZVIPb3B0aW9uYWxNZXNzYWdlEl8KDW9wdGlvbmFsZ3JvdXAY+Pj//wEgASgKMjUucHJvdG9idWZfdW5pdHRlc3QuVGVzdEh1Z2VGaWVsZE51bWJlcnMuT3B0aW9uYWxHcm91cFINb3B0aW9uYWxncm91cBJsChFzdHJpbmdfc3RyaW5nX21hcBj6+P//ASADKAsyPC5wcm90b2J1Zl91bml0dGVzdC5UZXN0SHVnZUZpZWxkTnVtYmVycy5TdHJpbmdTdHJpbmdNYXBFbnRyeVIPc3RyaW5nU3RyaW5nTWFwEicKDG9uZW9mX3VpbnQzMhj7+P//ASABKA1IAFILb25lb2ZVaW50MzISVgoUb25lb2ZfdGVzdF9hbGxfdHlwZXMY/Pj//wEgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzSABSEW9uZW9mVGVzdEFsbFR5cGVzEicKDG9uZW9mX3N0cmluZxj9+P//ASABKAlIAFILb25lb2ZTdHJpbmcSJQoLb25lb2ZfYnl0ZXMY/vj//wEgASgMSABSCm9uZW9mQnl0ZXMaLAoNT3B0aW9uYWxHcm91cBIbCgdncm91cF9hGPn4//8BIAEoBVIGZ3JvdXBBGkIKFFN0cmluZ1N0cmluZ01hcEVudHJ5EhAKA2tleRgBIAEoCVIDa2V5EhQKBXZhbHVlGAIgASgJUgV2YWx1ZToCOAEqDAjgqv//ARDw+P//AUINCgtvbmVvZl9maWVsZA==');
+final $typed_data.Uint8List testHugeFieldNumbersDescriptor = $convert.base64Decode(
+    'ChRUZXN0SHVnZUZpZWxkTnVtYmVycxIpCg5vcHRpb25hbF9pbnQzMhjw+P//ASABKAVSDW9wdGlvbmFsSW50MzISHQoIZml4ZWRfMzIY8fj//wEgASgFUgdmaXhlZDMyEi0KDnJlcGVhdGVkX2ludDMyGPL4//8BIAMoBUICEABSDXJlcGVhdGVkSW50MzISKQoMcGFja2VkX2ludDMyGPP4//8BIAMoBUICEAFSC3BhY2tlZEludDMyEkcKDW9wdGlvbmFsX2VudW0Y9Pj//wEgASgOMh4ucHJvdG9idWZfdW5pdHRlc3QuRm9yZWlnbkVudW1SDG9wdGlvbmFsRW51bRIrCg9vcHRpb25hbF9zdHJpbmcY9fj//wEgASgJUg5vcHRpb25hbFN0cmluZxIpCg5vcHRpb25hbF9ieXRlcxj2+P//ASABKAxSDW9wdGlvbmFsQnl0ZXMSUAoQb3B0aW9uYWxfbWVzc2FnZRj3+P//ASABKAsyIS5wcm90b2J1Zl91bml0dGVzdC5Gb3JlaWduTWVzc2FnZVIPb3B0aW9uYWxNZXNzYWdlEl8KDW9wdGlvbmFsZ3JvdXAY+Pj//wEgASgKMjUucHJvdG9idWZfdW5pdHRlc3QuVGVzdEh1Z2VGaWVsZE51bWJlcnMuT3B0aW9uYWxHcm91cFINb3B0aW9uYWxncm91cBJsChFzdHJpbmdfc3RyaW5nX21hcBj6+P//ASADKAsyPC5wcm90b2J1Zl91bml0dGVzdC5UZXN0SHVnZUZpZWxkTnVtYmVycy5TdHJpbmdTdHJpbmdNYXBFbnRyeVIPc3RyaW5nU3RyaW5nTWFwEicKDG9uZW9mX3VpbnQzMhj7+P//ASABKA1IAFILb25lb2ZVaW50MzISVgoUb25lb2ZfdGVzdF9hbGxfdHlwZXMY/Pj//wEgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzSABSEW9uZW9mVGVzdEFsbFR5cGVzEicKDG9uZW9mX3N0cmluZxj9+P//ASABKAlIAFILb25lb2ZTdHJpbmcSJQoLb25lb2ZfYnl0ZXMY/vj//wEgASgMSABSCm9uZW9mQnl0ZXMaLAoNT3B0aW9uYWxHcm91cBIbCgdncm91cF9hGPn4//8BIAEoBVIGZ3JvdXBBGkIKFFN0cmluZ1N0cmluZ01hcEVudHJ5EhAKA2tleRgBIAEoCVIDa2V5EhQKBXZhbHVlGAIgASgJUgV2YWx1ZToCOAEqDAjgqv//ARDw+P//AUINCgtvbmVvZl9maWVsZA==');
 @$core.Deprecated('Use testExtensionInsideTableDescriptor instead')
 const TestExtensionInsideTable$json = const {
   '1': 'TestExtensionInsideTable',
@@ -1998,12 +3567,22 @@ const TestExtensionInsideTable$json = const {
 };
 
 /// Descriptor for `TestExtensionInsideTable`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testExtensionInsideTableDescriptor = $convert.base64Decode('ChhUZXN0RXh0ZW5zaW9uSW5zaWRlVGFibGUSFgoGZmllbGQxGAEgASgFUgZmaWVsZDESFgoGZmllbGQyGAIgASgFUgZmaWVsZDISFgoGZmllbGQzGAMgASgFUgZmaWVsZDMSFgoGZmllbGQ0GAQgASgFUgZmaWVsZDQSFgoGZmllbGQ2GAYgASgFUgZmaWVsZDYSFgoGZmllbGQ3GAcgASgFUgZmaWVsZDcSFgoGZmllbGQ4GAggASgFUgZmaWVsZDgSFgoGZmllbGQ5GAkgASgFUgZmaWVsZDkSGAoHZmllbGQxMBgKIAEoBVIHZmllbGQxMCoECAUQBg==');
+final $typed_data.Uint8List testExtensionInsideTableDescriptor =
+    $convert.base64Decode(
+        'ChhUZXN0RXh0ZW5zaW9uSW5zaWRlVGFibGUSFgoGZmllbGQxGAEgASgFUgZmaWVsZDESFgoGZmllbGQyGAIgASgFUgZmaWVsZDISFgoGZmllbGQzGAMgASgFUgZmaWVsZDMSFgoGZmllbGQ0GAQgASgFUgZmaWVsZDQSFgoGZmllbGQ2GAYgASgFUgZmaWVsZDYSFgoGZmllbGQ3GAcgASgFUgZmaWVsZDcSFgoGZmllbGQ4GAggASgFUgZmaWVsZDgSFgoGZmllbGQ5GAkgASgFUgZmaWVsZDkSGAoHZmllbGQxMBgKIAEoBVIHZmllbGQxMCoECAUQBg==');
 @$core.Deprecated('Use testNestedGroupExtensionOuterDescriptor instead')
 const TestNestedGroupExtensionOuter$json = const {
   '1': 'TestNestedGroupExtensionOuter',
   '2': const [
-    const {'1': 'layer1optionalgroup', '3': 1, '4': 1, '5': 10, '6': '.protobuf_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup', '10': 'layer1optionalgroup'},
+    const {
+      '1': 'layer1optionalgroup',
+      '3': 1,
+      '4': 1,
+      '5': 10,
+      '6':
+          '.protobuf_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup',
+      '10': 'layer1optionalgroup'
+    },
   ],
   '3': const [TestNestedGroupExtensionOuter_Layer1OptionalGroup$json],
 };
@@ -2012,14 +3591,34 @@ const TestNestedGroupExtensionOuter$json = const {
 const TestNestedGroupExtensionOuter_Layer1OptionalGroup$json = const {
   '1': 'Layer1OptionalGroup',
   '2': const [
-    const {'1': 'layer2repeatedgroup', '3': 2, '4': 3, '5': 10, '6': '.protobuf_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup', '10': 'layer2repeatedgroup'},
-    const {'1': 'layer2anotheroptionalrepeatedgroup', '3': 4, '4': 3, '5': 10, '6': '.protobuf_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup', '10': 'layer2anotheroptionalrepeatedgroup'},
+    const {
+      '1': 'layer2repeatedgroup',
+      '3': 2,
+      '4': 3,
+      '5': 10,
+      '6':
+          '.protobuf_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup',
+      '10': 'layer2repeatedgroup'
+    },
+    const {
+      '1': 'layer2anotheroptionalrepeatedgroup',
+      '3': 4,
+      '4': 3,
+      '5': 10,
+      '6':
+          '.protobuf_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup',
+      '10': 'layer2anotheroptionalrepeatedgroup'
+    },
   ],
-  '3': const [TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2RepeatedGroup$json, TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2AnotherOptionalRepeatedGroup$json],
+  '3': const [
+    TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2RepeatedGroup$json,
+    TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2AnotherOptionalRepeatedGroup$json
+  ],
 };
 
 @$core.Deprecated('Use testNestedGroupExtensionOuterDescriptor instead')
-const TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2RepeatedGroup$json = const {
+const TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2RepeatedGroup$json =
+    const {
   '1': 'Layer2RepeatedGroup',
   '2': const [
     const {'1': 'another_field', '3': 6, '4': 1, '5': 9, '10': 'anotherField'},
@@ -2030,7 +3629,8 @@ const TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2RepeatedGroup$json
 };
 
 @$core.Deprecated('Use testNestedGroupExtensionOuterDescriptor instead')
-const TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2AnotherOptionalRepeatedGroup$json = const {
+const TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2AnotherOptionalRepeatedGroup$json =
+    const {
   '1': 'Layer2AnotherOptionalRepeatedGroup',
   '2': const [
     const {'1': 'but_why_tho', '3': 5, '4': 1, '5': 9, '10': 'butWhyTho'},
@@ -2038,8 +3638,11 @@ const TestNestedGroupExtensionOuter_Layer1OptionalGroup_Layer2AnotherOptionalRep
 };
 
 /// Descriptor for `TestNestedGroupExtensionOuter`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testNestedGroupExtensionOuterDescriptor = $convert.base64Decode('Ch1UZXN0TmVzdGVkR3JvdXBFeHRlbnNpb25PdXRlchJ2ChNsYXllcjFvcHRpb25hbGdyb3VwGAEgASgKMkQucHJvdG9idWZfdW5pdHRlc3QuVGVzdE5lc3RlZEdyb3VwRXh0ZW5zaW9uT3V0ZXIuTGF5ZXIxT3B0aW9uYWxHcm91cFITbGF5ZXIxb3B0aW9uYWxncm91cBrkAwoTTGF5ZXIxT3B0aW9uYWxHcm91cBKKAQoTbGF5ZXIycmVwZWF0ZWRncm91cBgCIAMoCjJYLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3ROZXN0ZWRHcm91cEV4dGVuc2lvbk91dGVyLkxheWVyMU9wdGlvbmFsR3JvdXAuTGF5ZXIyUmVwZWF0ZWRHcm91cFITbGF5ZXIycmVwZWF0ZWRncm91cBK3AQoibGF5ZXIyYW5vdGhlcm9wdGlvbmFscmVwZWF0ZWRncm91cBgEIAMoCjJnLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3ROZXN0ZWRHcm91cEV4dGVuc2lvbk91dGVyLkxheWVyMU9wdGlvbmFsR3JvdXAuTGF5ZXIyQW5vdGhlck9wdGlvbmFsUmVwZWF0ZWRHcm91cFIibGF5ZXIyYW5vdGhlcm9wdGlvbmFscmVwZWF0ZWRncm91cBpAChNMYXllcjJSZXBlYXRlZEdyb3VwEiMKDWFub3RoZXJfZmllbGQYBiABKAlSDGFub3RoZXJGaWVsZCoECAMQBBpECiJMYXllcjJBbm90aGVyT3B0aW9uYWxSZXBlYXRlZEdyb3VwEh4KC2J1dF93aHlfdGhvGAUgASgJUglidXRXaHlUaG8=');
-@$core.Deprecated('Use testNestedGroupExtensionInnerExtensionDescriptor instead')
+final $typed_data.Uint8List testNestedGroupExtensionOuterDescriptor =
+    $convert.base64Decode(
+        'Ch1UZXN0TmVzdGVkR3JvdXBFeHRlbnNpb25PdXRlchJ2ChNsYXllcjFvcHRpb25hbGdyb3VwGAEgASgKMkQucHJvdG9idWZfdW5pdHRlc3QuVGVzdE5lc3RlZEdyb3VwRXh0ZW5zaW9uT3V0ZXIuTGF5ZXIxT3B0aW9uYWxHcm91cFITbGF5ZXIxb3B0aW9uYWxncm91cBrkAwoTTGF5ZXIxT3B0aW9uYWxHcm91cBKKAQoTbGF5ZXIycmVwZWF0ZWRncm91cBgCIAMoCjJYLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3ROZXN0ZWRHcm91cEV4dGVuc2lvbk91dGVyLkxheWVyMU9wdGlvbmFsR3JvdXAuTGF5ZXIyUmVwZWF0ZWRHcm91cFITbGF5ZXIycmVwZWF0ZWRncm91cBK3AQoibGF5ZXIyYW5vdGhlcm9wdGlvbmFscmVwZWF0ZWRncm91cBgEIAMoCjJnLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3ROZXN0ZWRHcm91cEV4dGVuc2lvbk91dGVyLkxheWVyMU9wdGlvbmFsR3JvdXAuTGF5ZXIyQW5vdGhlck9wdGlvbmFsUmVwZWF0ZWRHcm91cFIibGF5ZXIyYW5vdGhlcm9wdGlvbmFscmVwZWF0ZWRncm91cBpAChNMYXllcjJSZXBlYXRlZEdyb3VwEiMKDWFub3RoZXJfZmllbGQYBiABKAlSDGFub3RoZXJGaWVsZCoECAMQBBpECiJMYXllcjJBbm90aGVyT3B0aW9uYWxSZXBlYXRlZEdyb3VwEh4KC2J1dF93aHlfdGhvGAUgASgJUglidXRXaHlUaG8=');
+@$core
+    .Deprecated('Use testNestedGroupExtensionInnerExtensionDescriptor instead')
 const TestNestedGroupExtensionInnerExtension$json = const {
   '1': 'TestNestedGroupExtensionInnerExtension',
   '2': const [
@@ -2048,7 +3651,9 @@ const TestNestedGroupExtensionInnerExtension$json = const {
 };
 
 /// Descriptor for `TestNestedGroupExtensionInnerExtension`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testNestedGroupExtensionInnerExtensionDescriptor = $convert.base64Decode('CiZUZXN0TmVzdGVkR3JvdXBFeHRlbnNpb25Jbm5lckV4dGVuc2lvbhIdCgppbm5lcl9uYW1lGAEgASgJUglpbm5lck5hbWU=');
+final $typed_data.Uint8List testNestedGroupExtensionInnerExtensionDescriptor =
+    $convert.base64Decode(
+        'CiZUZXN0TmVzdGVkR3JvdXBFeHRlbnNpb25Jbm5lckV4dGVuc2lvbhIdCgppbm5lcl9uYW1lGAEgASgJUglpbm5lck5hbWU=');
 @$core.Deprecated('Use testExtensionRangeSerializeDescriptor instead')
 const TestExtensionRangeSerialize$json = const {
   '1': 'TestExtensionRangeSerialize',
@@ -2067,179 +3672,662 @@ const TestExtensionRangeSerialize$json = const {
     const {'1': 19, '2': 20},
   ],
   '6': const [
-    const {'1': 'bar_one', '2': '.protobuf_unittest.TestExtensionRangeSerialize', '3': 2, '4': 1, '5': 5, '10': 'barOne'},
-    const {'1': 'bar_two', '2': '.protobuf_unittest.TestExtensionRangeSerialize', '3': 4, '4': 1, '5': 5, '10': 'barTwo'},
-    const {'1': 'bar_three', '2': '.protobuf_unittest.TestExtensionRangeSerialize', '3': 10, '4': 1, '5': 5, '10': 'barThree'},
-    const {'1': 'bar_four', '2': '.protobuf_unittest.TestExtensionRangeSerialize', '3': 15, '4': 1, '5': 5, '10': 'barFour'},
-    const {'1': 'bar_five', '2': '.protobuf_unittest.TestExtensionRangeSerialize', '3': 19, '4': 1, '5': 5, '10': 'barFive'},
+    const {
+      '1': 'bar_one',
+      '2': '.protobuf_unittest.TestExtensionRangeSerialize',
+      '3': 2,
+      '4': 1,
+      '5': 5,
+      '10': 'barOne'
+    },
+    const {
+      '1': 'bar_two',
+      '2': '.protobuf_unittest.TestExtensionRangeSerialize',
+      '3': 4,
+      '4': 1,
+      '5': 5,
+      '10': 'barTwo'
+    },
+    const {
+      '1': 'bar_three',
+      '2': '.protobuf_unittest.TestExtensionRangeSerialize',
+      '3': 10,
+      '4': 1,
+      '5': 5,
+      '10': 'barThree'
+    },
+    const {
+      '1': 'bar_four',
+      '2': '.protobuf_unittest.TestExtensionRangeSerialize',
+      '3': 15,
+      '4': 1,
+      '5': 5,
+      '10': 'barFour'
+    },
+    const {
+      '1': 'bar_five',
+      '2': '.protobuf_unittest.TestExtensionRangeSerialize',
+      '3': 19,
+      '4': 1,
+      '5': 5,
+      '10': 'barFive'
+    },
   ],
 };
 
 /// Descriptor for `TestExtensionRangeSerialize`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testExtensionRangeSerializeDescriptor = $convert.base64Decode('ChtUZXN0RXh0ZW5zaW9uUmFuZ2VTZXJpYWxpemUSFwoHZm9vX29uZRgBIAEoBVIGZm9vT25lEhcKB2Zvb190d28YBiABKAVSBmZvb1R3bxIbCglmb29fdGhyZWUYByABKAVSCGZvb1RocmVlEhkKCGZvb19mb3VyGA0gASgFUgdmb29Gb3VyKgQIAhADKgQIAxAFKgQICRALKgQIDxAQKgQIERASKgQIExAUMkcKB2Jhcl9vbmUSLi5wcm90b2J1Zl91bml0dGVzdC5UZXN0RXh0ZW5zaW9uUmFuZ2VTZXJpYWxpemUYAiABKAVSBmJhck9uZTJHCgdiYXJfdHdvEi4ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvblJhbmdlU2VyaWFsaXplGAQgASgFUgZiYXJUd28ySwoJYmFyX3RocmVlEi4ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvblJhbmdlU2VyaWFsaXplGAogASgFUghiYXJUaHJlZTJJCghiYXJfZm91chIuLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RFeHRlbnNpb25SYW5nZVNlcmlhbGl6ZRgPIAEoBVIHYmFyRm91cjJJCghiYXJfZml2ZRIuLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RFeHRlbnNpb25SYW5nZVNlcmlhbGl6ZRgTIAEoBVIHYmFyRml2ZQ==');
+final $typed_data.Uint8List testExtensionRangeSerializeDescriptor =
+    $convert.base64Decode(
+        'ChtUZXN0RXh0ZW5zaW9uUmFuZ2VTZXJpYWxpemUSFwoHZm9vX29uZRgBIAEoBVIGZm9vT25lEhcKB2Zvb190d28YBiABKAVSBmZvb1R3bxIbCglmb29fdGhyZWUYByABKAVSCGZvb1RocmVlEhkKCGZvb19mb3VyGA0gASgFUgdmb29Gb3VyKgQIAhADKgQIAxAFKgQICRALKgQIDxAQKgQIERASKgQIExAUMkcKB2Jhcl9vbmUSLi5wcm90b2J1Zl91bml0dGVzdC5UZXN0RXh0ZW5zaW9uUmFuZ2VTZXJpYWxpemUYAiABKAVSBmJhck9uZTJHCgdiYXJfdHdvEi4ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvblJhbmdlU2VyaWFsaXplGAQgASgFUgZiYXJUd28ySwoJYmFyX3RocmVlEi4ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEV4dGVuc2lvblJhbmdlU2VyaWFsaXplGAogASgFUghiYXJUaHJlZTJJCghiYXJfZm91chIuLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RFeHRlbnNpb25SYW5nZVNlcmlhbGl6ZRgPIAEoBVIHYmFyRm91cjJJCghiYXJfZml2ZRIuLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RFeHRlbnNpb25SYW5nZVNlcmlhbGl6ZRgTIAEoBVIHYmFyRml2ZQ==');
 @$core.Deprecated('Use testVerifyInt32SimpleDescriptor instead')
 const TestVerifyInt32Simple$json = const {
   '1': 'TestVerifyInt32Simple',
   '2': const [
-    const {'1': 'optional_int32_1', '3': 1, '4': 1, '5': 5, '10': 'optionalInt321'},
-    const {'1': 'optional_int32_2', '3': 2, '4': 1, '5': 5, '10': 'optionalInt322'},
-    const {'1': 'optional_int32_63', '3': 63, '4': 1, '5': 5, '10': 'optionalInt3263'},
-    const {'1': 'optional_int32_64', '3': 64, '4': 1, '5': 5, '10': 'optionalInt3264'},
+    const {
+      '1': 'optional_int32_1',
+      '3': 1,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt321'
+    },
+    const {
+      '1': 'optional_int32_2',
+      '3': 2,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt322'
+    },
+    const {
+      '1': 'optional_int32_63',
+      '3': 63,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3263'
+    },
+    const {
+      '1': 'optional_int32_64',
+      '3': 64,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3264'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyInt32Simple`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyInt32SimpleDescriptor = $convert.base64Decode('ChVUZXN0VmVyaWZ5SW50MzJTaW1wbGUSKAoQb3B0aW9uYWxfaW50MzJfMRgBIAEoBVIOb3B0aW9uYWxJbnQzMjESKAoQb3B0aW9uYWxfaW50MzJfMhgCIAEoBVIOb3B0aW9uYWxJbnQzMjISKgoRb3B0aW9uYWxfaW50MzJfNjMYPyABKAVSD29wdGlvbmFsSW50MzI2MxIqChFvcHRpb25hbF9pbnQzMl82NBhAIAEoBVIPb3B0aW9uYWxJbnQzMjY0');
+final $typed_data.Uint8List testVerifyInt32SimpleDescriptor = $convert.base64Decode(
+    'ChVUZXN0VmVyaWZ5SW50MzJTaW1wbGUSKAoQb3B0aW9uYWxfaW50MzJfMRgBIAEoBVIOb3B0aW9uYWxJbnQzMjESKAoQb3B0aW9uYWxfaW50MzJfMhgCIAEoBVIOb3B0aW9uYWxJbnQzMjISKgoRb3B0aW9uYWxfaW50MzJfNjMYPyABKAVSD29wdGlvbmFsSW50MzI2MxIqChFvcHRpb25hbF9pbnQzMl82NBhAIAEoBVIPb3B0aW9uYWxJbnQzMjY0');
 @$core.Deprecated('Use testVerifyInt32Descriptor instead')
 const TestVerifyInt32$json = const {
   '1': 'TestVerifyInt32',
   '2': const [
-    const {'1': 'optional_int32_1', '3': 1, '4': 1, '5': 5, '10': 'optionalInt321'},
-    const {'1': 'optional_int32_2', '3': 2, '4': 1, '5': 5, '10': 'optionalInt322'},
-    const {'1': 'optional_int32_63', '3': 63, '4': 1, '5': 5, '10': 'optionalInt3263'},
-    const {'1': 'optional_int32_64', '3': 64, '4': 1, '5': 5, '10': 'optionalInt3264'},
-    const {'1': 'optional_all_types', '3': 9, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalAllTypes'},
-    const {'1': 'repeated_all_types', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedAllTypes'},
+    const {
+      '1': 'optional_int32_1',
+      '3': 1,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt321'
+    },
+    const {
+      '1': 'optional_int32_2',
+      '3': 2,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt322'
+    },
+    const {
+      '1': 'optional_int32_63',
+      '3': 63,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3263'
+    },
+    const {
+      '1': 'optional_int32_64',
+      '3': 64,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3264'
+    },
+    const {
+      '1': 'optional_all_types',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalAllTypes'
+    },
+    const {
+      '1': 'repeated_all_types',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedAllTypes'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyInt32`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyInt32Descriptor = $convert.base64Decode('Cg9UZXN0VmVyaWZ5SW50MzISKAoQb3B0aW9uYWxfaW50MzJfMRgBIAEoBVIOb3B0aW9uYWxJbnQzMjESKAoQb3B0aW9uYWxfaW50MzJfMhgCIAEoBVIOb3B0aW9uYWxJbnQzMjISKgoRb3B0aW9uYWxfaW50MzJfNjMYPyABKAVSD29wdGlvbmFsSW50MzI2MxIqChFvcHRpb25hbF9pbnQzMl82NBhAIAEoBVIPb3B0aW9uYWxJbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
+final $typed_data.Uint8List testVerifyInt32Descriptor = $convert.base64Decode(
+    'Cg9UZXN0VmVyaWZ5SW50MzISKAoQb3B0aW9uYWxfaW50MzJfMRgBIAEoBVIOb3B0aW9uYWxJbnQzMjESKAoQb3B0aW9uYWxfaW50MzJfMhgCIAEoBVIOb3B0aW9uYWxJbnQzMjISKgoRb3B0aW9uYWxfaW50MzJfNjMYPyABKAVSD29wdGlvbmFsSW50MzI2MxIqChFvcHRpb25hbF9pbnQzMl82NBhAIAEoBVIPb3B0aW9uYWxJbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
 @$core.Deprecated('Use testVerifyMostlyInt32Descriptor instead')
 const TestVerifyMostlyInt32$json = const {
   '1': 'TestVerifyMostlyInt32',
   '2': const [
-    const {'1': 'optional_int64_30', '3': 30, '4': 1, '5': 3, '10': 'optionalInt6430'},
-    const {'1': 'optional_int32_1', '3': 1, '4': 1, '5': 5, '10': 'optionalInt321'},
-    const {'1': 'optional_int32_2', '3': 2, '4': 1, '5': 5, '10': 'optionalInt322'},
-    const {'1': 'optional_int32_3', '3': 3, '4': 1, '5': 5, '10': 'optionalInt323'},
-    const {'1': 'optional_int32_4', '3': 4, '4': 1, '5': 5, '10': 'optionalInt324'},
-    const {'1': 'optional_int32_63', '3': 63, '4': 1, '5': 5, '10': 'optionalInt3263'},
-    const {'1': 'optional_int32_64', '3': 64, '4': 1, '5': 5, '10': 'optionalInt3264'},
-    const {'1': 'optional_all_types', '3': 9, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalAllTypes'},
-    const {'1': 'repeated_all_types', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedAllTypes'},
+    const {
+      '1': 'optional_int64_30',
+      '3': 30,
+      '4': 1,
+      '5': 3,
+      '10': 'optionalInt6430'
+    },
+    const {
+      '1': 'optional_int32_1',
+      '3': 1,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt321'
+    },
+    const {
+      '1': 'optional_int32_2',
+      '3': 2,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt322'
+    },
+    const {
+      '1': 'optional_int32_3',
+      '3': 3,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt323'
+    },
+    const {
+      '1': 'optional_int32_4',
+      '3': 4,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt324'
+    },
+    const {
+      '1': 'optional_int32_63',
+      '3': 63,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3263'
+    },
+    const {
+      '1': 'optional_int32_64',
+      '3': 64,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3264'
+    },
+    const {
+      '1': 'optional_all_types',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalAllTypes'
+    },
+    const {
+      '1': 'repeated_all_types',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedAllTypes'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyMostlyInt32`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyMostlyInt32Descriptor = $convert.base64Decode('ChVUZXN0VmVyaWZ5TW9zdGx5SW50MzISKgoRb3B0aW9uYWxfaW50NjRfMzAYHiABKANSD29wdGlvbmFsSW50NjQzMBIoChBvcHRpb25hbF9pbnQzMl8xGAEgASgFUg5vcHRpb25hbEludDMyMRIoChBvcHRpb25hbF9pbnQzMl8yGAIgASgFUg5vcHRpb25hbEludDMyMhIoChBvcHRpb25hbF9pbnQzMl8zGAMgASgFUg5vcHRpb25hbEludDMyMxIoChBvcHRpb25hbF9pbnQzMl80GAQgASgFUg5vcHRpb25hbEludDMyNBIqChFvcHRpb25hbF9pbnQzMl82Mxg/IAEoBVIPb3B0aW9uYWxJbnQzMjYzEioKEW9wdGlvbmFsX2ludDMyXzY0GEAgASgFUg9vcHRpb25hbEludDMyNjQSTQoSb3B0aW9uYWxfYWxsX3R5cGVzGAkgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUhBvcHRpb25hbEFsbFR5cGVzEk0KEnJlcGVhdGVkX2FsbF90eXBlcxgKIAMoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQcmVwZWF0ZWRBbGxUeXBlcw==');
+final $typed_data.Uint8List testVerifyMostlyInt32Descriptor = $convert.base64Decode(
+    'ChVUZXN0VmVyaWZ5TW9zdGx5SW50MzISKgoRb3B0aW9uYWxfaW50NjRfMzAYHiABKANSD29wdGlvbmFsSW50NjQzMBIoChBvcHRpb25hbF9pbnQzMl8xGAEgASgFUg5vcHRpb25hbEludDMyMRIoChBvcHRpb25hbF9pbnQzMl8yGAIgASgFUg5vcHRpb25hbEludDMyMhIoChBvcHRpb25hbF9pbnQzMl8zGAMgASgFUg5vcHRpb25hbEludDMyMxIoChBvcHRpb25hbF9pbnQzMl80GAQgASgFUg5vcHRpb25hbEludDMyNBIqChFvcHRpb25hbF9pbnQzMl82Mxg/IAEoBVIPb3B0aW9uYWxJbnQzMjYzEioKEW9wdGlvbmFsX2ludDMyXzY0GEAgASgFUg9vcHRpb25hbEludDMyNjQSTQoSb3B0aW9uYWxfYWxsX3R5cGVzGAkgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUhBvcHRpb25hbEFsbFR5cGVzEk0KEnJlcGVhdGVkX2FsbF90eXBlcxgKIAMoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQcmVwZWF0ZWRBbGxUeXBlcw==');
 @$core.Deprecated('Use testVerifyMostlyInt32BigFieldNumberDescriptor instead')
 const TestVerifyMostlyInt32BigFieldNumber$json = const {
   '1': 'TestVerifyMostlyInt32BigFieldNumber',
   '2': const [
-    const {'1': 'optional_int64_30', '3': 30, '4': 1, '5': 3, '10': 'optionalInt6430'},
-    const {'1': 'optional_int32_300', '3': 300, '4': 1, '5': 5, '10': 'optionalInt32300'},
-    const {'1': 'optional_int32_1', '3': 1, '4': 1, '5': 5, '10': 'optionalInt321'},
-    const {'1': 'optional_int32_2', '3': 2, '4': 1, '5': 5, '10': 'optionalInt322'},
-    const {'1': 'optional_int32_3', '3': 3, '4': 1, '5': 5, '10': 'optionalInt323'},
-    const {'1': 'optional_int32_4', '3': 4, '4': 1, '5': 5, '10': 'optionalInt324'},
-    const {'1': 'optional_int32_63', '3': 63, '4': 1, '5': 5, '10': 'optionalInt3263'},
-    const {'1': 'optional_int32_64', '3': 64, '4': 1, '5': 5, '10': 'optionalInt3264'},
-    const {'1': 'optional_all_types', '3': 9, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalAllTypes'},
-    const {'1': 'repeated_all_types', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedAllTypes'},
+    const {
+      '1': 'optional_int64_30',
+      '3': 30,
+      '4': 1,
+      '5': 3,
+      '10': 'optionalInt6430'
+    },
+    const {
+      '1': 'optional_int32_300',
+      '3': 300,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt32300'
+    },
+    const {
+      '1': 'optional_int32_1',
+      '3': 1,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt321'
+    },
+    const {
+      '1': 'optional_int32_2',
+      '3': 2,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt322'
+    },
+    const {
+      '1': 'optional_int32_3',
+      '3': 3,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt323'
+    },
+    const {
+      '1': 'optional_int32_4',
+      '3': 4,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt324'
+    },
+    const {
+      '1': 'optional_int32_63',
+      '3': 63,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3263'
+    },
+    const {
+      '1': 'optional_int32_64',
+      '3': 64,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3264'
+    },
+    const {
+      '1': 'optional_all_types',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalAllTypes'
+    },
+    const {
+      '1': 'repeated_all_types',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedAllTypes'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyMostlyInt32BigFieldNumber`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyMostlyInt32BigFieldNumberDescriptor = $convert.base64Decode('CiNUZXN0VmVyaWZ5TW9zdGx5SW50MzJCaWdGaWVsZE51bWJlchIqChFvcHRpb25hbF9pbnQ2NF8zMBgeIAEoA1IPb3B0aW9uYWxJbnQ2NDMwEi0KEm9wdGlvbmFsX2ludDMyXzMwMBisAiABKAVSEG9wdGlvbmFsSW50MzIzMDASKAoQb3B0aW9uYWxfaW50MzJfMRgBIAEoBVIOb3B0aW9uYWxJbnQzMjESKAoQb3B0aW9uYWxfaW50MzJfMhgCIAEoBVIOb3B0aW9uYWxJbnQzMjISKAoQb3B0aW9uYWxfaW50MzJfMxgDIAEoBVIOb3B0aW9uYWxJbnQzMjMSKAoQb3B0aW9uYWxfaW50MzJfNBgEIAEoBVIOb3B0aW9uYWxJbnQzMjQSKgoRb3B0aW9uYWxfaW50MzJfNjMYPyABKAVSD29wdGlvbmFsSW50MzI2MxIqChFvcHRpb25hbF9pbnQzMl82NBhAIAEoBVIPb3B0aW9uYWxJbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
+final $typed_data.Uint8List testVerifyMostlyInt32BigFieldNumberDescriptor =
+    $convert.base64Decode(
+        'CiNUZXN0VmVyaWZ5TW9zdGx5SW50MzJCaWdGaWVsZE51bWJlchIqChFvcHRpb25hbF9pbnQ2NF8zMBgeIAEoA1IPb3B0aW9uYWxJbnQ2NDMwEi0KEm9wdGlvbmFsX2ludDMyXzMwMBisAiABKAVSEG9wdGlvbmFsSW50MzIzMDASKAoQb3B0aW9uYWxfaW50MzJfMRgBIAEoBVIOb3B0aW9uYWxJbnQzMjESKAoQb3B0aW9uYWxfaW50MzJfMhgCIAEoBVIOb3B0aW9uYWxJbnQzMjISKAoQb3B0aW9uYWxfaW50MzJfMxgDIAEoBVIOb3B0aW9uYWxJbnQzMjMSKAoQb3B0aW9uYWxfaW50MzJfNBgEIAEoBVIOb3B0aW9uYWxJbnQzMjQSKgoRb3B0aW9uYWxfaW50MzJfNjMYPyABKAVSD29wdGlvbmFsSW50MzI2MxIqChFvcHRpb25hbF9pbnQzMl82NBhAIAEoBVIPb3B0aW9uYWxJbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
 @$core.Deprecated('Use testVerifyUint32SimpleDescriptor instead')
 const TestVerifyUint32Simple$json = const {
   '1': 'TestVerifyUint32Simple',
   '2': const [
-    const {'1': 'optional_uint32_1', '3': 1, '4': 1, '5': 13, '10': 'optionalUint321'},
-    const {'1': 'optional_uint32_2', '3': 2, '4': 1, '5': 13, '10': 'optionalUint322'},
-    const {'1': 'optional_uint32_63', '3': 63, '4': 1, '5': 13, '10': 'optionalUint3263'},
-    const {'1': 'optional_uint32_64', '3': 64, '4': 1, '5': 13, '10': 'optionalUint3264'},
+    const {
+      '1': 'optional_uint32_1',
+      '3': 1,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint321'
+    },
+    const {
+      '1': 'optional_uint32_2',
+      '3': 2,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint322'
+    },
+    const {
+      '1': 'optional_uint32_63',
+      '3': 63,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3263'
+    },
+    const {
+      '1': 'optional_uint32_64',
+      '3': 64,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3264'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyUint32Simple`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyUint32SimpleDescriptor = $convert.base64Decode('ChZUZXN0VmVyaWZ5VWludDMyU2ltcGxlEioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKgoRb3B0aW9uYWxfdWludDMyXzIYAiABKA1SD29wdGlvbmFsVWludDMyMhIsChJvcHRpb25hbF91aW50MzJfNjMYPyABKA1SEG9wdGlvbmFsVWludDMyNjMSLAoSb3B0aW9uYWxfdWludDMyXzY0GEAgASgNUhBvcHRpb25hbFVpbnQzMjY0');
+final $typed_data.Uint8List testVerifyUint32SimpleDescriptor =
+    $convert.base64Decode(
+        'ChZUZXN0VmVyaWZ5VWludDMyU2ltcGxlEioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKgoRb3B0aW9uYWxfdWludDMyXzIYAiABKA1SD29wdGlvbmFsVWludDMyMhIsChJvcHRpb25hbF91aW50MzJfNjMYPyABKA1SEG9wdGlvbmFsVWludDMyNjMSLAoSb3B0aW9uYWxfdWludDMyXzY0GEAgASgNUhBvcHRpb25hbFVpbnQzMjY0');
 @$core.Deprecated('Use testVerifyUint32Descriptor instead')
 const TestVerifyUint32$json = const {
   '1': 'TestVerifyUint32',
   '2': const [
-    const {'1': 'optional_uint32_1', '3': 1, '4': 1, '5': 13, '10': 'optionalUint321'},
-    const {'1': 'optional_uint32_2', '3': 2, '4': 1, '5': 13, '10': 'optionalUint322'},
-    const {'1': 'optional_uint32_63', '3': 63, '4': 1, '5': 13, '10': 'optionalUint3263'},
-    const {'1': 'optional_uint32_64', '3': 64, '4': 1, '5': 13, '10': 'optionalUint3264'},
-    const {'1': 'optional_all_types', '3': 9, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalAllTypes'},
-    const {'1': 'repeated_all_types', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedAllTypes'},
+    const {
+      '1': 'optional_uint32_1',
+      '3': 1,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint321'
+    },
+    const {
+      '1': 'optional_uint32_2',
+      '3': 2,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint322'
+    },
+    const {
+      '1': 'optional_uint32_63',
+      '3': 63,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3263'
+    },
+    const {
+      '1': 'optional_uint32_64',
+      '3': 64,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3264'
+    },
+    const {
+      '1': 'optional_all_types',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalAllTypes'
+    },
+    const {
+      '1': 'repeated_all_types',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedAllTypes'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyUint32`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyUint32Descriptor = $convert.base64Decode('ChBUZXN0VmVyaWZ5VWludDMyEioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKgoRb3B0aW9uYWxfdWludDMyXzIYAiABKA1SD29wdGlvbmFsVWludDMyMhIsChJvcHRpb25hbF91aW50MzJfNjMYPyABKA1SEG9wdGlvbmFsVWludDMyNjMSLAoSb3B0aW9uYWxfdWludDMyXzY0GEAgASgNUhBvcHRpb25hbFVpbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
+final $typed_data.Uint8List testVerifyUint32Descriptor = $convert.base64Decode(
+    'ChBUZXN0VmVyaWZ5VWludDMyEioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKgoRb3B0aW9uYWxfdWludDMyXzIYAiABKA1SD29wdGlvbmFsVWludDMyMhIsChJvcHRpb25hbF91aW50MzJfNjMYPyABKA1SEG9wdGlvbmFsVWludDMyNjMSLAoSb3B0aW9uYWxfdWludDMyXzY0GEAgASgNUhBvcHRpb25hbFVpbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
 @$core.Deprecated('Use testVerifyOneUint32Descriptor instead')
 const TestVerifyOneUint32$json = const {
   '1': 'TestVerifyOneUint32',
   '2': const [
-    const {'1': 'optional_uint32_1', '3': 1, '4': 1, '5': 13, '10': 'optionalUint321'},
-    const {'1': 'optional_int32_2', '3': 2, '4': 1, '5': 5, '10': 'optionalInt322'},
-    const {'1': 'optional_int32_63', '3': 63, '4': 1, '5': 5, '10': 'optionalInt3263'},
-    const {'1': 'optional_int32_64', '3': 64, '4': 1, '5': 5, '10': 'optionalInt3264'},
-    const {'1': 'optional_all_types', '3': 9, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalAllTypes'},
-    const {'1': 'repeated_all_types', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedAllTypes'},
+    const {
+      '1': 'optional_uint32_1',
+      '3': 1,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint321'
+    },
+    const {
+      '1': 'optional_int32_2',
+      '3': 2,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt322'
+    },
+    const {
+      '1': 'optional_int32_63',
+      '3': 63,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3263'
+    },
+    const {
+      '1': 'optional_int32_64',
+      '3': 64,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3264'
+    },
+    const {
+      '1': 'optional_all_types',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalAllTypes'
+    },
+    const {
+      '1': 'repeated_all_types',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedAllTypes'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyOneUint32`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyOneUint32Descriptor = $convert.base64Decode('ChNUZXN0VmVyaWZ5T25lVWludDMyEioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKAoQb3B0aW9uYWxfaW50MzJfMhgCIAEoBVIOb3B0aW9uYWxJbnQzMjISKgoRb3B0aW9uYWxfaW50MzJfNjMYPyABKAVSD29wdGlvbmFsSW50MzI2MxIqChFvcHRpb25hbF9pbnQzMl82NBhAIAEoBVIPb3B0aW9uYWxJbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
+final $typed_data.Uint8List testVerifyOneUint32Descriptor = $convert.base64Decode(
+    'ChNUZXN0VmVyaWZ5T25lVWludDMyEioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKAoQb3B0aW9uYWxfaW50MzJfMhgCIAEoBVIOb3B0aW9uYWxJbnQzMjISKgoRb3B0aW9uYWxfaW50MzJfNjMYPyABKAVSD29wdGlvbmFsSW50MzI2MxIqChFvcHRpb25hbF9pbnQzMl82NBhAIAEoBVIPb3B0aW9uYWxJbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
 @$core.Deprecated('Use testVerifyOneInt32BigFieldNumberDescriptor instead')
 const TestVerifyOneInt32BigFieldNumber$json = const {
   '1': 'TestVerifyOneInt32BigFieldNumber',
   '2': const [
-    const {'1': 'optional_int32_65', '3': 65, '4': 1, '5': 5, '10': 'optionalInt3265'},
-    const {'1': 'optional_int64_1', '3': 1, '4': 1, '5': 3, '10': 'optionalInt641'},
-    const {'1': 'optional_int64_2', '3': 2, '4': 1, '5': 3, '10': 'optionalInt642'},
-    const {'1': 'optional_int64_63', '3': 63, '4': 1, '5': 3, '10': 'optionalInt6463'},
-    const {'1': 'optional_int64_64', '3': 64, '4': 1, '5': 3, '10': 'optionalInt6464'},
-    const {'1': 'optional_all_types', '3': 9, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalAllTypes'},
-    const {'1': 'repeated_all_types', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedAllTypes'},
+    const {
+      '1': 'optional_int32_65',
+      '3': 65,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3265'
+    },
+    const {
+      '1': 'optional_int64_1',
+      '3': 1,
+      '4': 1,
+      '5': 3,
+      '10': 'optionalInt641'
+    },
+    const {
+      '1': 'optional_int64_2',
+      '3': 2,
+      '4': 1,
+      '5': 3,
+      '10': 'optionalInt642'
+    },
+    const {
+      '1': 'optional_int64_63',
+      '3': 63,
+      '4': 1,
+      '5': 3,
+      '10': 'optionalInt6463'
+    },
+    const {
+      '1': 'optional_int64_64',
+      '3': 64,
+      '4': 1,
+      '5': 3,
+      '10': 'optionalInt6464'
+    },
+    const {
+      '1': 'optional_all_types',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalAllTypes'
+    },
+    const {
+      '1': 'repeated_all_types',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedAllTypes'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyOneInt32BigFieldNumber`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyOneInt32BigFieldNumberDescriptor = $convert.base64Decode('CiBUZXN0VmVyaWZ5T25lSW50MzJCaWdGaWVsZE51bWJlchIqChFvcHRpb25hbF9pbnQzMl82NRhBIAEoBVIPb3B0aW9uYWxJbnQzMjY1EigKEG9wdGlvbmFsX2ludDY0XzEYASABKANSDm9wdGlvbmFsSW50NjQxEigKEG9wdGlvbmFsX2ludDY0XzIYAiABKANSDm9wdGlvbmFsSW50NjQyEioKEW9wdGlvbmFsX2ludDY0XzYzGD8gASgDUg9vcHRpb25hbEludDY0NjMSKgoRb3B0aW9uYWxfaW50NjRfNjQYQCABKANSD29wdGlvbmFsSW50NjQ2NBJNChJvcHRpb25hbF9hbGxfdHlwZXMYCSABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEG9wdGlvbmFsQWxsVHlwZXMSTQoScmVwZWF0ZWRfYWxsX3R5cGVzGAogAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUhByZXBlYXRlZEFsbFR5cGVz');
+final $typed_data.Uint8List testVerifyOneInt32BigFieldNumberDescriptor =
+    $convert.base64Decode(
+        'CiBUZXN0VmVyaWZ5T25lSW50MzJCaWdGaWVsZE51bWJlchIqChFvcHRpb25hbF9pbnQzMl82NRhBIAEoBVIPb3B0aW9uYWxJbnQzMjY1EigKEG9wdGlvbmFsX2ludDY0XzEYASABKANSDm9wdGlvbmFsSW50NjQxEigKEG9wdGlvbmFsX2ludDY0XzIYAiABKANSDm9wdGlvbmFsSW50NjQyEioKEW9wdGlvbmFsX2ludDY0XzYzGD8gASgDUg9vcHRpb25hbEludDY0NjMSKgoRb3B0aW9uYWxfaW50NjRfNjQYQCABKANSD29wdGlvbmFsSW50NjQ2NBJNChJvcHRpb25hbF9hbGxfdHlwZXMYCSABKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEG9wdGlvbmFsQWxsVHlwZXMSTQoScmVwZWF0ZWRfYWxsX3R5cGVzGAogAygLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUhByZXBlYXRlZEFsbFR5cGVz');
 @$core.Deprecated('Use testVerifyInt32BigFieldNumberDescriptor instead')
 const TestVerifyInt32BigFieldNumber$json = const {
   '1': 'TestVerifyInt32BigFieldNumber',
   '2': const [
-    const {'1': 'optional_int32_1000', '3': 1000, '4': 1, '5': 5, '10': 'optionalInt321000'},
-    const {'1': 'optional_int32_65', '3': 65, '4': 1, '5': 5, '10': 'optionalInt3265'},
-    const {'1': 'optional_int32_1', '3': 1, '4': 1, '5': 5, '10': 'optionalInt321'},
-    const {'1': 'optional_int32_2', '3': 2, '4': 1, '5': 5, '10': 'optionalInt322'},
-    const {'1': 'optional_int32_63', '3': 63, '4': 1, '5': 5, '10': 'optionalInt3263'},
-    const {'1': 'optional_int32_64', '3': 64, '4': 1, '5': 5, '10': 'optionalInt3264'},
-    const {'1': 'optional_all_types', '3': 9, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalAllTypes'},
-    const {'1': 'repeated_all_types', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedAllTypes'},
+    const {
+      '1': 'optional_int32_1000',
+      '3': 1000,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt321000'
+    },
+    const {
+      '1': 'optional_int32_65',
+      '3': 65,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3265'
+    },
+    const {
+      '1': 'optional_int32_1',
+      '3': 1,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt321'
+    },
+    const {
+      '1': 'optional_int32_2',
+      '3': 2,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt322'
+    },
+    const {
+      '1': 'optional_int32_63',
+      '3': 63,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3263'
+    },
+    const {
+      '1': 'optional_int32_64',
+      '3': 64,
+      '4': 1,
+      '5': 5,
+      '10': 'optionalInt3264'
+    },
+    const {
+      '1': 'optional_all_types',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalAllTypes'
+    },
+    const {
+      '1': 'repeated_all_types',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedAllTypes'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyInt32BigFieldNumber`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyInt32BigFieldNumberDescriptor = $convert.base64Decode('Ch1UZXN0VmVyaWZ5SW50MzJCaWdGaWVsZE51bWJlchIvChNvcHRpb25hbF9pbnQzMl8xMDAwGOgHIAEoBVIRb3B0aW9uYWxJbnQzMjEwMDASKgoRb3B0aW9uYWxfaW50MzJfNjUYQSABKAVSD29wdGlvbmFsSW50MzI2NRIoChBvcHRpb25hbF9pbnQzMl8xGAEgASgFUg5vcHRpb25hbEludDMyMRIoChBvcHRpb25hbF9pbnQzMl8yGAIgASgFUg5vcHRpb25hbEludDMyMhIqChFvcHRpb25hbF9pbnQzMl82Mxg/IAEoBVIPb3B0aW9uYWxJbnQzMjYzEioKEW9wdGlvbmFsX2ludDMyXzY0GEAgASgFUg9vcHRpb25hbEludDMyNjQSTQoSb3B0aW9uYWxfYWxsX3R5cGVzGAkgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUhBvcHRpb25hbEFsbFR5cGVzEk0KEnJlcGVhdGVkX2FsbF90eXBlcxgKIAMoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQcmVwZWF0ZWRBbGxUeXBlcw==');
+final $typed_data.Uint8List testVerifyInt32BigFieldNumberDescriptor =
+    $convert.base64Decode(
+        'Ch1UZXN0VmVyaWZ5SW50MzJCaWdGaWVsZE51bWJlchIvChNvcHRpb25hbF9pbnQzMl8xMDAwGOgHIAEoBVIRb3B0aW9uYWxJbnQzMjEwMDASKgoRb3B0aW9uYWxfaW50MzJfNjUYQSABKAVSD29wdGlvbmFsSW50MzI2NRIoChBvcHRpb25hbF9pbnQzMl8xGAEgASgFUg5vcHRpb25hbEludDMyMRIoChBvcHRpb25hbF9pbnQzMl8yGAIgASgFUg5vcHRpb25hbEludDMyMhIqChFvcHRpb25hbF9pbnQzMl82Mxg/IAEoBVIPb3B0aW9uYWxJbnQzMjYzEioKEW9wdGlvbmFsX2ludDMyXzY0GEAgASgFUg9vcHRpb25hbEludDMyNjQSTQoSb3B0aW9uYWxfYWxsX3R5cGVzGAkgASgLMh8ucHJvdG9idWZfdW5pdHRlc3QuVGVzdEFsbFR5cGVzUhBvcHRpb25hbEFsbFR5cGVzEk0KEnJlcGVhdGVkX2FsbF90eXBlcxgKIAMoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQcmVwZWF0ZWRBbGxUeXBlcw==');
 @$core.Deprecated('Use testVerifyUint32BigFieldNumberDescriptor instead')
 const TestVerifyUint32BigFieldNumber$json = const {
   '1': 'TestVerifyUint32BigFieldNumber',
   '2': const [
-    const {'1': 'optional_uint32_1000', '3': 1000, '4': 1, '5': 13, '10': 'optionalUint321000'},
-    const {'1': 'optional_uint32_65', '3': 65, '4': 1, '5': 13, '10': 'optionalUint3265'},
-    const {'1': 'optional_uint32_1', '3': 1, '4': 1, '5': 13, '10': 'optionalUint321'},
-    const {'1': 'optional_uint32_2', '3': 2, '4': 1, '5': 13, '10': 'optionalUint322'},
-    const {'1': 'optional_uint32_63', '3': 63, '4': 1, '5': 13, '10': 'optionalUint3263'},
-    const {'1': 'optional_uint32_64', '3': 64, '4': 1, '5': 13, '10': 'optionalUint3264'},
-    const {'1': 'optional_all_types', '3': 9, '4': 1, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'optionalAllTypes'},
-    const {'1': 'repeated_all_types', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.TestAllTypes', '10': 'repeatedAllTypes'},
+    const {
+      '1': 'optional_uint32_1000',
+      '3': 1000,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint321000'
+    },
+    const {
+      '1': 'optional_uint32_65',
+      '3': 65,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3265'
+    },
+    const {
+      '1': 'optional_uint32_1',
+      '3': 1,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint321'
+    },
+    const {
+      '1': 'optional_uint32_2',
+      '3': 2,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint322'
+    },
+    const {
+      '1': 'optional_uint32_63',
+      '3': 63,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3263'
+    },
+    const {
+      '1': 'optional_uint32_64',
+      '3': 64,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3264'
+    },
+    const {
+      '1': 'optional_all_types',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'optionalAllTypes'
+    },
+    const {
+      '1': 'repeated_all_types',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestAllTypes',
+      '10': 'repeatedAllTypes'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyUint32BigFieldNumber`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyUint32BigFieldNumberDescriptor = $convert.base64Decode('Ch5UZXN0VmVyaWZ5VWludDMyQmlnRmllbGROdW1iZXISMQoUb3B0aW9uYWxfdWludDMyXzEwMDAY6AcgASgNUhJvcHRpb25hbFVpbnQzMjEwMDASLAoSb3B0aW9uYWxfdWludDMyXzY1GEEgASgNUhBvcHRpb25hbFVpbnQzMjY1EioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKgoRb3B0aW9uYWxfdWludDMyXzIYAiABKA1SD29wdGlvbmFsVWludDMyMhIsChJvcHRpb25hbF91aW50MzJfNjMYPyABKA1SEG9wdGlvbmFsVWludDMyNjMSLAoSb3B0aW9uYWxfdWludDMyXzY0GEAgASgNUhBvcHRpb25hbFVpbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
+final $typed_data.Uint8List testVerifyUint32BigFieldNumberDescriptor =
+    $convert.base64Decode(
+        'Ch5UZXN0VmVyaWZ5VWludDMyQmlnRmllbGROdW1iZXISMQoUb3B0aW9uYWxfdWludDMyXzEwMDAY6AcgASgNUhJvcHRpb25hbFVpbnQzMjEwMDASLAoSb3B0aW9uYWxfdWludDMyXzY1GEEgASgNUhBvcHRpb25hbFVpbnQzMjY1EioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKgoRb3B0aW9uYWxfdWludDMyXzIYAiABKA1SD29wdGlvbmFsVWludDMyMhIsChJvcHRpb25hbF91aW50MzJfNjMYPyABKA1SEG9wdGlvbmFsVWludDMyNjMSLAoSb3B0aW9uYWxfdWludDMyXzY0GEAgASgNUhBvcHRpb25hbFVpbnQzMjY0Ek0KEm9wdGlvbmFsX2FsbF90eXBlcxgJIAEoCzIfLnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RBbGxUeXBlc1IQb3B0aW9uYWxBbGxUeXBlcxJNChJyZXBlYXRlZF9hbGxfdHlwZXMYCiADKAsyHy5wcm90b2J1Zl91bml0dGVzdC5UZXN0QWxsVHlwZXNSEHJlcGVhdGVkQWxsVHlwZXM=');
 @$core.Deprecated('Use testVerifyBigFieldNumberUint32Descriptor instead')
 const TestVerifyBigFieldNumberUint32$json = const {
   '1': 'TestVerifyBigFieldNumberUint32',
   '2': const [
-    const {'1': 'optional_nested', '3': 1, '4': 1, '5': 11, '6': '.protobuf_unittest.TestVerifyBigFieldNumberUint32.Nested', '10': 'optionalNested'},
+    const {
+      '1': 'optional_nested',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestVerifyBigFieldNumberUint32.Nested',
+      '10': 'optionalNested'
+    },
   ],
   '3': const [TestVerifyBigFieldNumberUint32_Nested$json],
 };
@@ -2248,31 +4336,104 @@ const TestVerifyBigFieldNumberUint32$json = const {
 const TestVerifyBigFieldNumberUint32_Nested$json = const {
   '1': 'Nested',
   '2': const [
-    const {'1': 'optional_uint32_5000', '3': 5000, '4': 1, '5': 13, '10': 'optionalUint325000'},
-    const {'1': 'optional_uint32_1000', '3': 1000, '4': 1, '5': 13, '10': 'optionalUint321000'},
-    const {'1': 'optional_uint32_66', '3': 66, '4': 1, '5': 13, '10': 'optionalUint3266'},
-    const {'1': 'optional_uint32_65', '3': 65, '4': 1, '5': 13, '10': 'optionalUint3265'},
-    const {'1': 'optional_uint32_1', '3': 1, '4': 1, '5': 13, '10': 'optionalUint321'},
-    const {'1': 'optional_uint32_2', '3': 2, '4': 1, '5': 13, '10': 'optionalUint322'},
-    const {'1': 'optional_uint32_63', '3': 63, '4': 1, '5': 13, '10': 'optionalUint3263'},
-    const {'1': 'optional_uint32_64', '3': 64, '4': 1, '5': 13, '10': 'optionalUint3264'},
-    const {'1': 'optional_nested', '3': 9, '4': 1, '5': 11, '6': '.protobuf_unittest.TestVerifyBigFieldNumberUint32.Nested', '10': 'optionalNested'},
-    const {'1': 'repeated_nested', '3': 10, '4': 3, '5': 11, '6': '.protobuf_unittest.TestVerifyBigFieldNumberUint32.Nested', '10': 'repeatedNested'},
+    const {
+      '1': 'optional_uint32_5000',
+      '3': 5000,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint325000'
+    },
+    const {
+      '1': 'optional_uint32_1000',
+      '3': 1000,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint321000'
+    },
+    const {
+      '1': 'optional_uint32_66',
+      '3': 66,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3266'
+    },
+    const {
+      '1': 'optional_uint32_65',
+      '3': 65,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3265'
+    },
+    const {
+      '1': 'optional_uint32_1',
+      '3': 1,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint321'
+    },
+    const {
+      '1': 'optional_uint32_2',
+      '3': 2,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint322'
+    },
+    const {
+      '1': 'optional_uint32_63',
+      '3': 63,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3263'
+    },
+    const {
+      '1': 'optional_uint32_64',
+      '3': 64,
+      '4': 1,
+      '5': 13,
+      '10': 'optionalUint3264'
+    },
+    const {
+      '1': 'optional_nested',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.protobuf_unittest.TestVerifyBigFieldNumberUint32.Nested',
+      '10': 'optionalNested'
+    },
+    const {
+      '1': 'repeated_nested',
+      '3': 10,
+      '4': 3,
+      '5': 11,
+      '6': '.protobuf_unittest.TestVerifyBigFieldNumberUint32.Nested',
+      '10': 'repeatedNested'
+    },
   ],
 };
 
 /// Descriptor for `TestVerifyBigFieldNumberUint32`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List testVerifyBigFieldNumberUint32Descriptor = $convert.base64Decode('Ch5UZXN0VmVyaWZ5QmlnRmllbGROdW1iZXJVaW50MzISYQoPb3B0aW9uYWxfbmVzdGVkGAEgASgLMjgucHJvdG9idWZfdW5pdHRlc3QuVGVzdFZlcmlmeUJpZ0ZpZWxkTnVtYmVyVWludDMyLk5lc3RlZFIOb3B0aW9uYWxOZXN0ZWQaxAQKBk5lc3RlZBIxChRvcHRpb25hbF91aW50MzJfNTAwMBiIJyABKA1SEm9wdGlvbmFsVWludDMyNTAwMBIxChRvcHRpb25hbF91aW50MzJfMTAwMBjoByABKA1SEm9wdGlvbmFsVWludDMyMTAwMBIsChJvcHRpb25hbF91aW50MzJfNjYYQiABKA1SEG9wdGlvbmFsVWludDMyNjYSLAoSb3B0aW9uYWxfdWludDMyXzY1GEEgASgNUhBvcHRpb25hbFVpbnQzMjY1EioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKgoRb3B0aW9uYWxfdWludDMyXzIYAiABKA1SD29wdGlvbmFsVWludDMyMhIsChJvcHRpb25hbF91aW50MzJfNjMYPyABKA1SEG9wdGlvbmFsVWludDMyNjMSLAoSb3B0aW9uYWxfdWludDMyXzY0GEAgASgNUhBvcHRpb25hbFVpbnQzMjY0EmEKD29wdGlvbmFsX25lc3RlZBgJIAEoCzI4LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RWZXJpZnlCaWdGaWVsZE51bWJlclVpbnQzMi5OZXN0ZWRSDm9wdGlvbmFsTmVzdGVkEmEKD3JlcGVhdGVkX25lc3RlZBgKIAMoCzI4LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RWZXJpZnlCaWdGaWVsZE51bWJlclVpbnQzMi5OZXN0ZWRSDnJlcGVhdGVkTmVzdGVk');
+final $typed_data.Uint8List testVerifyBigFieldNumberUint32Descriptor =
+    $convert.base64Decode(
+        'Ch5UZXN0VmVyaWZ5QmlnRmllbGROdW1iZXJVaW50MzISYQoPb3B0aW9uYWxfbmVzdGVkGAEgASgLMjgucHJvdG9idWZfdW5pdHRlc3QuVGVzdFZlcmlmeUJpZ0ZpZWxkTnVtYmVyVWludDMyLk5lc3RlZFIOb3B0aW9uYWxOZXN0ZWQaxAQKBk5lc3RlZBIxChRvcHRpb25hbF91aW50MzJfNTAwMBiIJyABKA1SEm9wdGlvbmFsVWludDMyNTAwMBIxChRvcHRpb25hbF91aW50MzJfMTAwMBjoByABKA1SEm9wdGlvbmFsVWludDMyMTAwMBIsChJvcHRpb25hbF91aW50MzJfNjYYQiABKA1SEG9wdGlvbmFsVWludDMyNjYSLAoSb3B0aW9uYWxfdWludDMyXzY1GEEgASgNUhBvcHRpb25hbFVpbnQzMjY1EioKEW9wdGlvbmFsX3VpbnQzMl8xGAEgASgNUg9vcHRpb25hbFVpbnQzMjESKgoRb3B0aW9uYWxfdWludDMyXzIYAiABKA1SD29wdGlvbmFsVWludDMyMhIsChJvcHRpb25hbF91aW50MzJfNjMYPyABKA1SEG9wdGlvbmFsVWludDMyNjMSLAoSb3B0aW9uYWxfdWludDMyXzY0GEAgASgNUhBvcHRpb25hbFVpbnQzMjY0EmEKD29wdGlvbmFsX25lc3RlZBgJIAEoCzI4LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RWZXJpZnlCaWdGaWVsZE51bWJlclVpbnQzMi5OZXN0ZWRSDm9wdGlvbmFsTmVzdGVkEmEKD3JlcGVhdGVkX25lc3RlZBgKIAMoCzI4LnByb3RvYnVmX3VuaXR0ZXN0LlRlc3RWZXJpZnlCaWdGaWVsZE51bWJlclVpbnQzMi5OZXN0ZWRSDnJlcGVhdGVkTmVzdGVk');
 const $core.Map<$core.String, $core.dynamic> TestServiceBase$json = const {
   '1': 'TestService',
   '2': const [
-    const {'1': 'Foo', '2': '.protobuf_unittest.FooRequest', '3': '.protobuf_unittest.FooResponse'},
-    const {'1': 'Bar', '2': '.protobuf_unittest.BarRequest', '3': '.protobuf_unittest.BarResponse'},
+    const {
+      '1': 'Foo',
+      '2': '.protobuf_unittest.FooRequest',
+      '3': '.protobuf_unittest.FooResponse'
+    },
+    const {
+      '1': 'Bar',
+      '2': '.protobuf_unittest.BarRequest',
+      '3': '.protobuf_unittest.BarResponse'
+    },
   ],
 };
 
 @$core.Deprecated('Use testServiceDescriptor instead')
-const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> TestServiceBase$messageJson = const {
+const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>>
+    TestServiceBase$messageJson = const {
   '.protobuf_unittest.FooRequest': FooRequest$json,
   '.protobuf_unittest.FooResponse': FooResponse$json,
   '.protobuf_unittest.BarRequest': BarRequest$json,
@@ -2280,4 +4441,5 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> TestServic
 };
 
 /// Descriptor for `TestService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
-final $typed_data.Uint8List testServiceDescriptor = $convert.base64Decode('CgtUZXN0U2VydmljZRJECgNGb28SHS5wcm90b2J1Zl91bml0dGVzdC5Gb29SZXF1ZXN0Gh4ucHJvdG9idWZfdW5pdHRlc3QuRm9vUmVzcG9uc2USRAoDQmFyEh0ucHJvdG9idWZfdW5pdHRlc3QuQmFyUmVxdWVzdBoeLnByb3RvYnVmX3VuaXR0ZXN0LkJhclJlc3BvbnNl');
+final $typed_data.Uint8List testServiceDescriptor = $convert.base64Decode(
+    'CgtUZXN0U2VydmljZRJECgNGb28SHS5wcm90b2J1Zl91bml0dGVzdC5Gb29SZXF1ZXN0Gh4ucHJvdG9idWZfdW5pdHRlc3QuRm9vUmVzcG9uc2USRAoDQmFyEh0ucHJvdG9idWZfdW5pdHRlc3QuQmFyUmVxdWVzdBoeLnByb3RvYnVmX3VuaXR0ZXN0LkJhclJlc3BvbnNl');

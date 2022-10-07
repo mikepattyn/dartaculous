@@ -24,7 +24,8 @@ class LibFirebaseAdmin {
   }
 
   late final ___ctype_get_mb_cur_maxPtr =
-      _lookup<ffi.NativeFunction<ffi.Int Function()>>('__ctype_get_mb_cur_max');
+      _lookup<ffi.NativeFunction<ffi.Size Function()>>(
+          '__ctype_get_mb_cur_max');
   late final ___ctype_get_mb_cur_max =
       ___ctype_get_mb_cur_maxPtr.asFunction<int Function()>();
 
@@ -360,7 +361,7 @@ class LibFirebaseAdmin {
   late final _initstatePtr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ffi.Char> Function(
-              ffi.UnsignedInt, ffi.Pointer<ffi.Char>, ffi.Int)>>('initstate');
+              ffi.UnsignedInt, ffi.Pointer<ffi.Char>, ffi.Size)>>('initstate');
   late final _initstate = _initstatePtr.asFunction<
       ffi.Pointer<ffi.Char> Function(int, ffi.Pointer<ffi.Char>, int)>();
 
@@ -428,7 +429,7 @@ class LibFirebaseAdmin {
 
   late final _initstate_rPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Int Function(ffi.UnsignedInt, ffi.Pointer<ffi.Char>, ffi.Int,
+          ffi.Int Function(ffi.UnsignedInt, ffi.Pointer<ffi.Char>, ffi.Size,
               ffi.Pointer<random_data>)>>('initstate_r');
   late final _initstate_r = _initstate_rPtr.asFunction<
       int Function(
@@ -766,7 +767,7 @@ class LibFirebaseAdmin {
   }
 
   late final _mallocPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Int)>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Size)>>(
           'malloc');
   late final _malloc =
       _mallocPtr.asFunction<ffi.Pointer<ffi.Void> Function(int)>();
@@ -782,8 +783,8 @@ class LibFirebaseAdmin {
   }
 
   late final _callocPtr = _lookup<
-          ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Int, ffi.Int)>>(
-      'calloc');
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Size, ffi.Size)>>('calloc');
   late final _calloc =
       _callocPtr.asFunction<ffi.Pointer<ffi.Void> Function(int, int)>();
 
@@ -800,7 +801,7 @@ class LibFirebaseAdmin {
   late final _reallocPtr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ffi.Void> Function(
-              ffi.Pointer<ffi.Void>, ffi.Int)>>('realloc');
+              ffi.Pointer<ffi.Void>, ffi.Size)>>('realloc');
   late final _realloc = _reallocPtr
       .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int)>();
 
@@ -833,7 +834,7 @@ class LibFirebaseAdmin {
   late final _reallocarrayPtr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ffi.Void> Function(
-              ffi.Pointer<ffi.Void>, ffi.Int, ffi.Int)>>('reallocarray');
+              ffi.Pointer<ffi.Void>, ffi.Size, ffi.Size)>>('reallocarray');
   late final _reallocarray = _reallocarrayPtr.asFunction<
       ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int, int)>();
 
@@ -846,7 +847,7 @@ class LibFirebaseAdmin {
   }
 
   late final _allocaPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Int)>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Size)>>(
           'alloca');
   late final _alloca =
       _allocaPtr.asFunction<ffi.Pointer<ffi.Void> Function(int)>();
@@ -860,7 +861,7 @@ class LibFirebaseAdmin {
   }
 
   late final _vallocPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Int)>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Size)>>(
           'valloc');
   late final _valloc =
       _vallocPtr.asFunction<ffi.Pointer<ffi.Void> Function(int)>();
@@ -879,8 +880,8 @@ class LibFirebaseAdmin {
 
   late final _posix_memalignPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Int Function(ffi.Pointer<ffi.Pointer<ffi.Void>>, ffi.Int,
-              ffi.Int)>>('posix_memalign');
+          ffi.Int Function(ffi.Pointer<ffi.Pointer<ffi.Void>>, ffi.Size,
+              ffi.Size)>>('posix_memalign');
   late final _posix_memalign = _posix_memalignPtr
       .asFunction<int Function(ffi.Pointer<ffi.Pointer<ffi.Void>>, int, int)>();
 
@@ -895,8 +896,8 @@ class LibFirebaseAdmin {
   }
 
   late final _aligned_allocPtr = _lookup<
-          ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Int, ffi.Int)>>(
-      'aligned_alloc');
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Size, ffi.Size)>>('aligned_alloc');
   late final _aligned_alloc =
       _aligned_allocPtr.asFunction<ffi.Pointer<ffi.Void> Function(int, int)>();
 
@@ -1182,8 +1183,8 @@ class LibFirebaseAdmin {
           ffi.Pointer<ffi.Void> Function(
               ffi.Pointer<ffi.Void>,
               ffi.Pointer<ffi.Void>,
-              ffi.Int,
-              ffi.Int,
+              ffi.Size,
+              ffi.Size,
               __compar_fn_t)>>('bsearch');
   late final _bsearch = _bsearchPtr.asFunction<
       ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>,
@@ -1205,7 +1206,7 @@ class LibFirebaseAdmin {
 
   late final _qsortPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int, ffi.Int,
+          ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Size, ffi.Size,
               __compar_fn_t)>>('qsort');
   late final _qsort = _qsortPtr.asFunction<
       void Function(ffi.Pointer<ffi.Void>, int, int, __compar_fn_t)>();
@@ -1372,8 +1373,13 @@ class LibFirebaseAdmin {
 
   late final _ecvt_rPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Int Function(ffi.Double, ffi.Int, ffi.Pointer<ffi.Int>,
-              ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Char>, ffi.Int)>>('ecvt_r');
+          ffi.Int Function(
+              ffi.Double,
+              ffi.Int,
+              ffi.Pointer<ffi.Int>,
+              ffi.Pointer<ffi.Int>,
+              ffi.Pointer<ffi.Char>,
+              ffi.Size)>>('ecvt_r');
   late final _ecvt_r = _ecvt_rPtr.asFunction<
       int Function(double, int, ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Int>,
           ffi.Pointer<ffi.Char>, int)>();
@@ -1398,8 +1404,13 @@ class LibFirebaseAdmin {
 
   late final _fcvt_rPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Int Function(ffi.Double, ffi.Int, ffi.Pointer<ffi.Int>,
-              ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Char>, ffi.Int)>>('fcvt_r');
+          ffi.Int Function(
+              ffi.Double,
+              ffi.Int,
+              ffi.Pointer<ffi.Int>,
+              ffi.Pointer<ffi.Int>,
+              ffi.Pointer<ffi.Char>,
+              ffi.Size)>>('fcvt_r');
   late final _fcvt_r = _fcvt_rPtr.asFunction<
       int Function(double, int, ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Int>,
           ffi.Pointer<ffi.Char>, int)>();
@@ -1415,13 +1426,13 @@ class LibFirebaseAdmin {
   }
 
   late final _mblenPtr = _lookup<
-          ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Char>, ffi.Int)>>(
-      'mblen');
+      ffi.NativeFunction<
+          ffi.Int Function(ffi.Pointer<ffi.Char>, ffi.Size)>>('mblen');
   late final _mblen =
       _mblenPtr.asFunction<int Function(ffi.Pointer<ffi.Char>, int)>();
 
   int mbtowc(
-    ffi.Pointer<ffi.Int> __pwc,
+    ffi.Pointer<ffi.WChar> __pwc,
     ffi.Pointer<ffi.Char> __s,
     int __n,
   ) {
@@ -1434,10 +1445,10 @@ class LibFirebaseAdmin {
 
   late final _mbtowcPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Int Function(
-              ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Char>, ffi.Int)>>('mbtowc');
+          ffi.Int Function(ffi.Pointer<ffi.WChar>, ffi.Pointer<ffi.Char>,
+              ffi.Size)>>('mbtowc');
   late final _mbtowc = _mbtowcPtr.asFunction<
-      int Function(ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Char>, int)>();
+      int Function(ffi.Pointer<ffi.WChar>, ffi.Pointer<ffi.Char>, int)>();
 
   int wctomb(
     ffi.Pointer<ffi.Char> __s,
@@ -1450,13 +1461,13 @@ class LibFirebaseAdmin {
   }
 
   late final _wctombPtr = _lookup<
-          ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Char>, ffi.Int)>>(
-      'wctomb');
+      ffi.NativeFunction<
+          ffi.Int Function(ffi.Pointer<ffi.Char>, ffi.WChar)>>('wctomb');
   late final _wctomb =
       _wctombPtr.asFunction<int Function(ffi.Pointer<ffi.Char>, int)>();
 
   int mbstowcs(
-    ffi.Pointer<ffi.Int> __pwcs,
+    ffi.Pointer<ffi.WChar> __pwcs,
     ffi.Pointer<ffi.Char> __s,
     int __n,
   ) {
@@ -1469,14 +1480,14 @@ class LibFirebaseAdmin {
 
   late final _mbstowcsPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Int Function(ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Char>,
-              ffi.Int)>>('mbstowcs');
+          ffi.Size Function(ffi.Pointer<ffi.WChar>, ffi.Pointer<ffi.Char>,
+              ffi.Size)>>('mbstowcs');
   late final _mbstowcs = _mbstowcsPtr.asFunction<
-      int Function(ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Char>, int)>();
+      int Function(ffi.Pointer<ffi.WChar>, ffi.Pointer<ffi.Char>, int)>();
 
   int wcstombs(
     ffi.Pointer<ffi.Char> __s,
-    ffi.Pointer<ffi.Int> __pwcs,
+    ffi.Pointer<ffi.WChar> __pwcs,
     int __n,
   ) {
     return _wcstombs(
@@ -1488,10 +1499,10 @@ class LibFirebaseAdmin {
 
   late final _wcstombsPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Int Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.Int>,
-              ffi.Int)>>('wcstombs');
+          ffi.Size Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.WChar>,
+              ffi.Size)>>('wcstombs');
   late final _wcstombs = _wcstombsPtr.asFunction<
-      int Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.Int>, int)>();
+      int Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.WChar>, int)>();
 
   int rpmatch(
     ffi.Pointer<ffi.Char> __response,
@@ -1824,6 +1835,17 @@ class LibFirebaseAdmin {
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 }
 
+class max_align_t extends ffi.Opaque {}
+
+class _GoString_ extends ffi.Struct {
+  external ffi.Pointer<ffi.Char> p;
+
+  @ptrdiff_t()
+  external int n;
+}
+
+typedef ptrdiff_t = ffi.Long;
+
 class div_t extends ffi.Struct {
   @ffi.Int()
   external int quot;
@@ -2138,6 +2160,8 @@ class GoSlice extends ffi.Struct {
 
 typedef GoInt = GoInt64;
 typedef GoInt64 = ffi.LongLong;
+
+const int NULL = 0;
 
 const int _FEATURES_H = 1;
 

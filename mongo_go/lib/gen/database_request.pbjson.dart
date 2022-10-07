@@ -8,14 +8,22 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use databaseRequestDescriptor instead')
 const DatabaseRequest$json = const {
   '1': 'DatabaseRequest',
   '2': const [
-    const {'1': 'connectionOid', '3': 1, '4': 1, '5': 12, '10': 'connectionOid'},
+    const {
+      '1': 'connectionOid',
+      '3': 1,
+      '4': 1,
+      '5': 12,
+      '10': 'connectionOid'
+    },
     const {'1': 'databaseName', '3': 2, '4': 1, '5': 9, '10': 'databaseName'},
   ],
 };
 
 /// Descriptor for `DatabaseRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List databaseRequestDescriptor = $convert.base64Decode('Cg9EYXRhYmFzZVJlcXVlc3QSJAoNY29ubmVjdGlvbk9pZBgBIAEoDFINY29ubmVjdGlvbk9pZBIiCgxkYXRhYmFzZU5hbWUYAiABKAlSDGRhdGFiYXNlTmFtZQ==');
+final $typed_data.Uint8List databaseRequestDescriptor = $convert.base64Decode(
+    'Cg9EYXRhYmFzZVJlcXVlc3QSJAoNY29ubmVjdGlvbk9pZBgBIAEoDFINY29ubmVjdGlvbk9pZBIiCgxkYXRhYmFzZU5hbWUYAiABKAlSDGRhdGFiYXNlTmFtZQ==');

@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use errorMessageDescriptor instead')
 const ErrorMessage$json = const {
   '1': 'ErrorMessage',
@@ -18,4 +19,5 @@ const ErrorMessage$json = const {
 };
 
 /// Descriptor for `ErrorMessage`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List errorMessageDescriptor = $convert.base64Decode('CgxFcnJvck1lc3NhZ2USGAoHbWVzc2FnZRgBIAEoCVIHbWVzc2FnZRIcCgllcnJvckNvZGUYAiABKAVSCWVycm9yQ29kZQ==');
+final $typed_data.Uint8List errorMessageDescriptor = $convert.base64Decode(
+    'CgxFcnJvck1lc3NhZ2USGAoHbWVzc2FnZRgBIAEoCVIHbWVzc2FnZRIcCgllcnJvckNvZGUYAiABKAVSCWVycm9yQ29kZQ==');

@@ -12,12 +12,31 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'request_context.pb.dart' as $24;
 
 class FindRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FindRequest', createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'collectionOid', $pb.PbFieldType.OY, protoName: 'collectionOid')
-    ..aOM<$24.RequestContext>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'context', subBuilder: $24.RequestContext.create)
-    ..a<$core.List<$core.int>>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'filter', $pb.PbFieldType.OY)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'FindRequest',
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'collectionOid',
+        $pb.PbFieldType.OY,
+        protoName: 'collectionOid')
+    ..aOM<$24.RequestContext>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'context',
+        subBuilder: $24.RequestContext.create)
+    ..a<$core.List<$core.int>>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'filter',
+        $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
 
   FindRequest._() : super();
   factory FindRequest({
@@ -37,31 +56,39 @@ class FindRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory FindRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory FindRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory FindRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory FindRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   FindRequest clone() => FindRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  FindRequest copyWith(void Function(FindRequest) updates) => super.copyWith((message) => updates(message as FindRequest)) as FindRequest; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  FindRequest copyWith(void Function(FindRequest) updates) =>
+      super.copyWith((message) => updates(message as FindRequest))
+          as FindRequest; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static FindRequest create() => FindRequest._();
   FindRequest createEmptyInstance() => create();
   static $pb.PbList<FindRequest> createRepeated() => $pb.PbList<FindRequest>();
   @$core.pragma('dart2js:noInline')
-  static FindRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FindRequest>(create);
+  static FindRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FindRequest>(create);
   static FindRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<$core.int> get collectionOid => $_getN(0);
   @$pb.TagNumber(1)
-  set collectionOid($core.List<$core.int> v) { $_setBytes(0, v); }
+  set collectionOid($core.List<$core.int> v) {
+    $_setBytes(0, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasCollectionOid() => $_has(0);
   @$pb.TagNumber(1)
@@ -70,7 +97,10 @@ class FindRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $24.RequestContext get context => $_getN(1);
   @$pb.TagNumber(2)
-  set context($24.RequestContext v) { setField(2, v); }
+  set context($24.RequestContext v) {
+    setField(2, v);
+  }
+
   @$pb.TagNumber(2)
   $core.bool hasContext() => $_has(1);
   @$pb.TagNumber(2)
@@ -81,10 +111,12 @@ class FindRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.List<$core.int> get filter => $_getN(2);
   @$pb.TagNumber(3)
-  set filter($core.List<$core.int> v) { $_setBytes(2, v); }
+  set filter($core.List<$core.int> v) {
+    $_setBytes(2, v);
+  }
+
   @$pb.TagNumber(3)
   $core.bool hasFilter() => $_has(2);
   @$pb.TagNumber(3)
   void clearFilter() => clearField(3);
 }
-

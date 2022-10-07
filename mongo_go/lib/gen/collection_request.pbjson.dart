@@ -8,14 +8,22 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use collectionRequestDescriptor instead')
 const CollectionRequest$json = const {
   '1': 'CollectionRequest',
   '2': const [
     const {'1': 'databaseOid', '3': 1, '4': 1, '5': 12, '10': 'databaseOid'},
-    const {'1': 'collectionName', '3': 2, '4': 1, '5': 9, '10': 'collectionName'},
+    const {
+      '1': 'collectionName',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '10': 'collectionName'
+    },
   ],
 };
 
 /// Descriptor for `CollectionRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List collectionRequestDescriptor = $convert.base64Decode('ChFDb2xsZWN0aW9uUmVxdWVzdBIgCgtkYXRhYmFzZU9pZBgBIAEoDFILZGF0YWJhc2VPaWQSJgoOY29sbGVjdGlvbk5hbWUYAiABKAlSDmNvbGxlY3Rpb25OYW1l');
+final $typed_data.Uint8List collectionRequestDescriptor = $convert.base64Decode(
+    'ChFDb2xsZWN0aW9uUmVxdWVzdBIgCgtkYXRhYmFzZU9pZBgBIAEoDFILZGF0YWJhc2VPaWQSJgoOY29sbGVjdGlvbk5hbWUYAiABKAlSDmNvbGxlY3Rpb25OYW1l');

@@ -528,6 +528,17 @@ class LibMongoProxy {
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 }
 
+class max_align_t extends ffi.Opaque {}
+
+class _GoString_ extends ffi.Struct {
+  external ffi.Pointer<ffi.Char> p;
+
+  @ptrdiff_t()
+  external int n;
+}
+
+typedef ptrdiff_t = ffi.Long;
+
 class GoInterface extends ffi.Struct {
   external ffi.Pointer<ffi.Void> t;
 
@@ -546,3 +557,5 @@ class GoSlice extends ffi.Struct {
 
 typedef GoInt = GoInt64;
 typedef GoInt64 = ffi.LongLong;
+
+const int NULL = 0;

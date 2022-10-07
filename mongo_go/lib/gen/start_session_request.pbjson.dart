@@ -8,13 +8,21 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use startSessionRequestDescriptor instead')
 const StartSessionRequest$json = const {
   '1': 'StartSessionRequest',
   '2': const [
-    const {'1': 'connectionOid', '3': 1, '4': 1, '5': 12, '10': 'connectionOid'},
+    const {
+      '1': 'connectionOid',
+      '3': 1,
+      '4': 1,
+      '5': 12,
+      '10': 'connectionOid'
+    },
   ],
 };
 
 /// Descriptor for `StartSessionRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List startSessionRequestDescriptor = $convert.base64Decode('ChNTdGFydFNlc3Npb25SZXF1ZXN0EiQKDWNvbm5lY3Rpb25PaWQYASABKAxSDWNvbm5lY3Rpb25PaWQ=');
+final $typed_data.Uint8List startSessionRequestDescriptor = $convert.base64Decode(
+    'ChNTdGFydFNlc3Npb25SZXF1ZXN0EiQKDWNvbm5lY3Rpb25PaWQYASABKAxSDWNvbm5lY3Rpb25PaWQ=');

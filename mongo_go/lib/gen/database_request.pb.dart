@@ -10,11 +10,25 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class DatabaseRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DatabaseRequest', createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'connectionOid', $pb.PbFieldType.OY, protoName: 'connectionOid')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'databaseName', protoName: 'databaseName')
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'DatabaseRequest',
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'connectionOid',
+        $pb.PbFieldType.OY,
+        protoName: 'connectionOid')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'databaseName',
+        protoName: 'databaseName')
+    ..hasRequiredFields = false;
 
   DatabaseRequest._() : super();
   factory DatabaseRequest({
@@ -30,31 +44,40 @@ class DatabaseRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory DatabaseRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DatabaseRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory DatabaseRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory DatabaseRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   DatabaseRequest clone() => DatabaseRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  DatabaseRequest copyWith(void Function(DatabaseRequest) updates) => super.copyWith((message) => updates(message as DatabaseRequest)) as DatabaseRequest; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  DatabaseRequest copyWith(void Function(DatabaseRequest) updates) =>
+      super.copyWith((message) => updates(message as DatabaseRequest))
+          as DatabaseRequest; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static DatabaseRequest create() => DatabaseRequest._();
   DatabaseRequest createEmptyInstance() => create();
-  static $pb.PbList<DatabaseRequest> createRepeated() => $pb.PbList<DatabaseRequest>();
+  static $pb.PbList<DatabaseRequest> createRepeated() =>
+      $pb.PbList<DatabaseRequest>();
   @$core.pragma('dart2js:noInline')
-  static DatabaseRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DatabaseRequest>(create);
+  static DatabaseRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DatabaseRequest>(create);
   static DatabaseRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<$core.int> get connectionOid => $_getN(0);
   @$pb.TagNumber(1)
-  set connectionOid($core.List<$core.int> v) { $_setBytes(0, v); }
+  set connectionOid($core.List<$core.int> v) {
+    $_setBytes(0, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasConnectionOid() => $_has(0);
   @$pb.TagNumber(1)
@@ -63,10 +86,12 @@ class DatabaseRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.String get databaseName => $_getSZ(1);
   @$pb.TagNumber(2)
-  set databaseName($core.String v) { $_setString(1, v); }
+  set databaseName($core.String v) {
+    $_setString(1, v);
+  }
+
   @$pb.TagNumber(2)
   $core.bool hasDatabaseName() => $_has(1);
   @$pb.TagNumber(2)
   void clearDatabaseName() => clearField(2);
 }
-

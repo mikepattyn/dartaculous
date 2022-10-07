@@ -21,28 +21,130 @@ import 'type.pb.dart' as $2;
 import 'wrappers.pb.dart' as $9;
 
 class TestWellKnownTypes extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TestWellKnownTypes', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protobuf_unittest'), createEmptyInstance: create)
-    ..aOM<$0.Any>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'anyField', subBuilder: $0.Any.create)
-    ..aOM<$21.Api>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiField', subBuilder: $21.Api.create)
-    ..aOM<$10.Duration>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'durationField', subBuilder: $10.Duration.create)
-    ..aOM<$22.Empty>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'emptyField', subBuilder: $22.Empty.create)
-    ..aOM<$12.FieldMask>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldMaskField', subBuilder: $12.FieldMask.create)
-    ..aOM<$1.SourceContext>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sourceContextField', subBuilder: $1.SourceContext.create)
-    ..aOM<$13.Struct>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'structField', subBuilder: $13.Struct.create)
-    ..aOM<$11.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timestampField', subBuilder: $11.Timestamp.create)
-    ..aOM<$2.Type>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'typeField', subBuilder: $2.Type.create)
-    ..aOM<$9.DoubleValue>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'doubleField', subBuilder: $9.DoubleValue.create)
-    ..aOM<$9.FloatValue>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'floatField', subBuilder: $9.FloatValue.create)
-    ..aOM<$9.Int64Value>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'int64Field', subBuilder: $9.Int64Value.create)
-    ..aOM<$9.UInt64Value>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uint64Field', subBuilder: $9.UInt64Value.create)
-    ..aOM<$9.Int32Value>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'int32Field', subBuilder: $9.Int32Value.create)
-    ..aOM<$9.UInt32Value>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uint32Field', subBuilder: $9.UInt32Value.create)
-    ..aOM<$9.BoolValue>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boolField', subBuilder: $9.BoolValue.create)
-    ..aOM<$9.StringValue>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stringField', subBuilder: $9.StringValue.create)
-    ..aOM<$9.BytesValue>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'bytesField', subBuilder: $9.BytesValue.create)
-    ..aOM<$13.Value>(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valueField', subBuilder: $13.Value.create)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'TestWellKnownTypes',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'protobuf_unittest'),
+      createEmptyInstance: create)
+    ..aOM<$0.Any>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'anyField',
+        subBuilder: $0.Any.create)
+    ..aOM<$21.Api>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'apiField',
+        subBuilder: $21.Api.create)
+    ..aOM<$10.Duration>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'durationField',
+        subBuilder: $10.Duration.create)
+    ..aOM<$22.Empty>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'emptyField',
+        subBuilder: $22.Empty.create)
+    ..aOM<$12.FieldMask>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'fieldMaskField',
+        subBuilder: $12.FieldMask.create)
+    ..aOM<$1.SourceContext>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sourceContextField',
+        subBuilder: $1.SourceContext.create)
+    ..aOM<$13.Struct>(
+        7,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'structField',
+        subBuilder: $13.Struct.create)
+    ..aOM<$11.Timestamp>(
+        8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'timestampField',
+        subBuilder: $11.Timestamp.create)
+    ..aOM<$2.Type>(
+        9,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'typeField',
+        subBuilder: $2.Type.create)
+    ..aOM<$9.DoubleValue>(
+        10,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'doubleField',
+        subBuilder: $9.DoubleValue.create)
+    ..aOM<$9.FloatValue>(
+        11,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'floatField',
+        subBuilder: $9.FloatValue.create)
+    ..aOM<$9.Int64Value>(
+        12,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'int64Field',
+        subBuilder: $9.Int64Value.create)
+    ..aOM<$9.UInt64Value>(
+        13,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uint64Field',
+        subBuilder: $9.UInt64Value.create)
+    ..aOM<$9.Int32Value>(
+        14,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'int32Field',
+        subBuilder: $9.Int32Value.create)
+    ..aOM<$9.UInt32Value>(
+        15,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uint32Field',
+        subBuilder: $9.UInt32Value.create)
+    ..aOM<$9.BoolValue>(
+        16,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'boolField',
+        subBuilder: $9.BoolValue.create)
+    ..aOM<$9.StringValue>(
+        17,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'stringField',
+        subBuilder: $9.StringValue.create)
+    ..aOM<$9.BytesValue>(
+        18,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'bytesField',
+        subBuilder: $9.BytesValue.create)
+    ..aOM<$13.Value>(
+        19,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'valueField',
+        subBuilder: $13.Value.create)
+    ..hasRequiredFields = false;
 
   TestWellKnownTypes._() : super();
   factory TestWellKnownTypes({
@@ -126,31 +228,40 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory TestWellKnownTypes.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory TestWellKnownTypes.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory TestWellKnownTypes.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory TestWellKnownTypes.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   TestWellKnownTypes clone() => TestWellKnownTypes()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  TestWellKnownTypes copyWith(void Function(TestWellKnownTypes) updates) => super.copyWith((message) => updates(message as TestWellKnownTypes)) as TestWellKnownTypes; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  TestWellKnownTypes copyWith(void Function(TestWellKnownTypes) updates) =>
+      super.copyWith((message) => updates(message as TestWellKnownTypes))
+          as TestWellKnownTypes; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static TestWellKnownTypes create() => TestWellKnownTypes._();
   TestWellKnownTypes createEmptyInstance() => create();
-  static $pb.PbList<TestWellKnownTypes> createRepeated() => $pb.PbList<TestWellKnownTypes>();
+  static $pb.PbList<TestWellKnownTypes> createRepeated() =>
+      $pb.PbList<TestWellKnownTypes>();
   @$core.pragma('dart2js:noInline')
-  static TestWellKnownTypes getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TestWellKnownTypes>(create);
+  static TestWellKnownTypes getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TestWellKnownTypes>(create);
   static TestWellKnownTypes? _defaultInstance;
 
   @$pb.TagNumber(1)
   $0.Any get anyField => $_getN(0);
   @$pb.TagNumber(1)
-  set anyField($0.Any v) { setField(1, v); }
+  set anyField($0.Any v) {
+    setField(1, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasAnyField() => $_has(0);
   @$pb.TagNumber(1)
@@ -161,7 +272,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $21.Api get apiField => $_getN(1);
   @$pb.TagNumber(2)
-  set apiField($21.Api v) { setField(2, v); }
+  set apiField($21.Api v) {
+    setField(2, v);
+  }
+
   @$pb.TagNumber(2)
   $core.bool hasApiField() => $_has(1);
   @$pb.TagNumber(2)
@@ -172,7 +286,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $10.Duration get durationField => $_getN(2);
   @$pb.TagNumber(3)
-  set durationField($10.Duration v) { setField(3, v); }
+  set durationField($10.Duration v) {
+    setField(3, v);
+  }
+
   @$pb.TagNumber(3)
   $core.bool hasDurationField() => $_has(2);
   @$pb.TagNumber(3)
@@ -183,7 +300,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $22.Empty get emptyField => $_getN(3);
   @$pb.TagNumber(4)
-  set emptyField($22.Empty v) { setField(4, v); }
+  set emptyField($22.Empty v) {
+    setField(4, v);
+  }
+
   @$pb.TagNumber(4)
   $core.bool hasEmptyField() => $_has(3);
   @$pb.TagNumber(4)
@@ -194,7 +314,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $12.FieldMask get fieldMaskField => $_getN(4);
   @$pb.TagNumber(5)
-  set fieldMaskField($12.FieldMask v) { setField(5, v); }
+  set fieldMaskField($12.FieldMask v) {
+    setField(5, v);
+  }
+
   @$pb.TagNumber(5)
   $core.bool hasFieldMaskField() => $_has(4);
   @$pb.TagNumber(5)
@@ -205,7 +328,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $1.SourceContext get sourceContextField => $_getN(5);
   @$pb.TagNumber(6)
-  set sourceContextField($1.SourceContext v) { setField(6, v); }
+  set sourceContextField($1.SourceContext v) {
+    setField(6, v);
+  }
+
   @$pb.TagNumber(6)
   $core.bool hasSourceContextField() => $_has(5);
   @$pb.TagNumber(6)
@@ -216,7 +342,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $13.Struct get structField => $_getN(6);
   @$pb.TagNumber(7)
-  set structField($13.Struct v) { setField(7, v); }
+  set structField($13.Struct v) {
+    setField(7, v);
+  }
+
   @$pb.TagNumber(7)
   $core.bool hasStructField() => $_has(6);
   @$pb.TagNumber(7)
@@ -227,7 +356,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $11.Timestamp get timestampField => $_getN(7);
   @$pb.TagNumber(8)
-  set timestampField($11.Timestamp v) { setField(8, v); }
+  set timestampField($11.Timestamp v) {
+    setField(8, v);
+  }
+
   @$pb.TagNumber(8)
   $core.bool hasTimestampField() => $_has(7);
   @$pb.TagNumber(8)
@@ -238,7 +370,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $2.Type get typeField => $_getN(8);
   @$pb.TagNumber(9)
-  set typeField($2.Type v) { setField(9, v); }
+  set typeField($2.Type v) {
+    setField(9, v);
+  }
+
   @$pb.TagNumber(9)
   $core.bool hasTypeField() => $_has(8);
   @$pb.TagNumber(9)
@@ -249,7 +384,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   $9.DoubleValue get doubleField => $_getN(9);
   @$pb.TagNumber(10)
-  set doubleField($9.DoubleValue v) { setField(10, v); }
+  set doubleField($9.DoubleValue v) {
+    setField(10, v);
+  }
+
   @$pb.TagNumber(10)
   $core.bool hasDoubleField() => $_has(9);
   @$pb.TagNumber(10)
@@ -260,7 +398,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   $9.FloatValue get floatField => $_getN(10);
   @$pb.TagNumber(11)
-  set floatField($9.FloatValue v) { setField(11, v); }
+  set floatField($9.FloatValue v) {
+    setField(11, v);
+  }
+
   @$pb.TagNumber(11)
   $core.bool hasFloatField() => $_has(10);
   @$pb.TagNumber(11)
@@ -271,7 +412,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   $9.Int64Value get int64Field => $_getN(11);
   @$pb.TagNumber(12)
-  set int64Field($9.Int64Value v) { setField(12, v); }
+  set int64Field($9.Int64Value v) {
+    setField(12, v);
+  }
+
   @$pb.TagNumber(12)
   $core.bool hasInt64Field() => $_has(11);
   @$pb.TagNumber(12)
@@ -282,7 +426,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(13)
   $9.UInt64Value get uint64Field => $_getN(12);
   @$pb.TagNumber(13)
-  set uint64Field($9.UInt64Value v) { setField(13, v); }
+  set uint64Field($9.UInt64Value v) {
+    setField(13, v);
+  }
+
   @$pb.TagNumber(13)
   $core.bool hasUint64Field() => $_has(12);
   @$pb.TagNumber(13)
@@ -293,7 +440,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(14)
   $9.Int32Value get int32Field => $_getN(13);
   @$pb.TagNumber(14)
-  set int32Field($9.Int32Value v) { setField(14, v); }
+  set int32Field($9.Int32Value v) {
+    setField(14, v);
+  }
+
   @$pb.TagNumber(14)
   $core.bool hasInt32Field() => $_has(13);
   @$pb.TagNumber(14)
@@ -304,7 +454,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(15)
   $9.UInt32Value get uint32Field => $_getN(14);
   @$pb.TagNumber(15)
-  set uint32Field($9.UInt32Value v) { setField(15, v); }
+  set uint32Field($9.UInt32Value v) {
+    setField(15, v);
+  }
+
   @$pb.TagNumber(15)
   $core.bool hasUint32Field() => $_has(14);
   @$pb.TagNumber(15)
@@ -315,7 +468,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(16)
   $9.BoolValue get boolField => $_getN(15);
   @$pb.TagNumber(16)
-  set boolField($9.BoolValue v) { setField(16, v); }
+  set boolField($9.BoolValue v) {
+    setField(16, v);
+  }
+
   @$pb.TagNumber(16)
   $core.bool hasBoolField() => $_has(15);
   @$pb.TagNumber(16)
@@ -326,7 +482,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(17)
   $9.StringValue get stringField => $_getN(16);
   @$pb.TagNumber(17)
-  set stringField($9.StringValue v) { setField(17, v); }
+  set stringField($9.StringValue v) {
+    setField(17, v);
+  }
+
   @$pb.TagNumber(17)
   $core.bool hasStringField() => $_has(16);
   @$pb.TagNumber(17)
@@ -337,7 +496,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(18)
   $9.BytesValue get bytesField => $_getN(17);
   @$pb.TagNumber(18)
-  set bytesField($9.BytesValue v) { setField(18, v); }
+  set bytesField($9.BytesValue v) {
+    setField(18, v);
+  }
+
   @$pb.TagNumber(18)
   $core.bool hasBytesField() => $_has(17);
   @$pb.TagNumber(18)
@@ -348,7 +510,10 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(19)
   $13.Value get valueField => $_getN(18);
   @$pb.TagNumber(19)
-  set valueField($13.Value v) { setField(19, v); }
+  set valueField($13.Value v) {
+    setField(19, v);
+  }
+
   @$pb.TagNumber(19)
   $core.bool hasValueField() => $_has(18);
   @$pb.TagNumber(19)
@@ -358,27 +523,142 @@ class TestWellKnownTypes extends $pb.GeneratedMessage {
 }
 
 class RepeatedWellKnownTypes extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RepeatedWellKnownTypes', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protobuf_unittest'), createEmptyInstance: create)
-    ..pc<$0.Any>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'anyField', $pb.PbFieldType.PM, subBuilder: $0.Any.create)
-    ..pc<$21.Api>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiField', $pb.PbFieldType.PM, subBuilder: $21.Api.create)
-    ..pc<$10.Duration>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'durationField', $pb.PbFieldType.PM, subBuilder: $10.Duration.create)
-    ..pc<$22.Empty>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'emptyField', $pb.PbFieldType.PM, subBuilder: $22.Empty.create)
-    ..pc<$12.FieldMask>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldMaskField', $pb.PbFieldType.PM, subBuilder: $12.FieldMask.create)
-    ..pc<$1.SourceContext>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sourceContextField', $pb.PbFieldType.PM, subBuilder: $1.SourceContext.create)
-    ..pc<$13.Struct>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'structField', $pb.PbFieldType.PM, subBuilder: $13.Struct.create)
-    ..pc<$11.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timestampField', $pb.PbFieldType.PM, subBuilder: $11.Timestamp.create)
-    ..pc<$2.Type>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'typeField', $pb.PbFieldType.PM, subBuilder: $2.Type.create)
-    ..pc<$9.DoubleValue>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'doubleField', $pb.PbFieldType.PM, subBuilder: $9.DoubleValue.create)
-    ..pc<$9.FloatValue>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'floatField', $pb.PbFieldType.PM, subBuilder: $9.FloatValue.create)
-    ..pc<$9.Int64Value>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'int64Field', $pb.PbFieldType.PM, subBuilder: $9.Int64Value.create)
-    ..pc<$9.UInt64Value>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uint64Field', $pb.PbFieldType.PM, subBuilder: $9.UInt64Value.create)
-    ..pc<$9.Int32Value>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'int32Field', $pb.PbFieldType.PM, subBuilder: $9.Int32Value.create)
-    ..pc<$9.UInt32Value>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uint32Field', $pb.PbFieldType.PM, subBuilder: $9.UInt32Value.create)
-    ..pc<$9.BoolValue>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boolField', $pb.PbFieldType.PM, subBuilder: $9.BoolValue.create)
-    ..pc<$9.StringValue>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stringField', $pb.PbFieldType.PM, subBuilder: $9.StringValue.create)
-    ..pc<$9.BytesValue>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'bytesField', $pb.PbFieldType.PM, subBuilder: $9.BytesValue.create)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'RepeatedWellKnownTypes',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'protobuf_unittest'),
+      createEmptyInstance: create)
+    ..pc<$0.Any>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'anyField',
+        $pb.PbFieldType.PM,
+        subBuilder: $0.Any.create)
+    ..pc<$21.Api>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'apiField',
+        $pb.PbFieldType.PM,
+        subBuilder: $21.Api.create)
+    ..pc<$10.Duration>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'durationField',
+        $pb.PbFieldType.PM,
+        subBuilder: $10.Duration.create)
+    ..pc<$22.Empty>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'emptyField',
+        $pb.PbFieldType.PM,
+        subBuilder: $22.Empty.create)
+    ..pc<$12.FieldMask>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'fieldMaskField',
+        $pb.PbFieldType.PM,
+        subBuilder: $12.FieldMask.create)
+    ..pc<$1.SourceContext>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sourceContextField',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.SourceContext.create)
+    ..pc<$13.Struct>(
+        7,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'structField',
+        $pb.PbFieldType.PM,
+        subBuilder: $13.Struct.create)
+    ..pc<$11.Timestamp>(
+        8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'timestampField',
+        $pb.PbFieldType.PM,
+        subBuilder: $11.Timestamp.create)
+    ..pc<$2.Type>(
+        9,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'typeField',
+        $pb.PbFieldType.PM,
+        subBuilder: $2.Type.create)
+    ..pc<$9.DoubleValue>(
+        10,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'doubleField',
+        $pb.PbFieldType.PM,
+        subBuilder: $9.DoubleValue.create)
+    ..pc<$9.FloatValue>(
+        11,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'floatField',
+        $pb.PbFieldType.PM,
+        subBuilder: $9.FloatValue.create)
+    ..pc<$9.Int64Value>(
+        12,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'int64Field',
+        $pb.PbFieldType.PM,
+        subBuilder: $9.Int64Value.create)
+    ..pc<$9.UInt64Value>(
+        13,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uint64Field',
+        $pb.PbFieldType.PM,
+        subBuilder: $9.UInt64Value.create)
+    ..pc<$9.Int32Value>(
+        14,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'int32Field',
+        $pb.PbFieldType.PM,
+        subBuilder: $9.Int32Value.create)
+    ..pc<$9.UInt32Value>(
+        15,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uint32Field',
+        $pb.PbFieldType.PM,
+        subBuilder: $9.UInt32Value.create)
+    ..pc<$9.BoolValue>(
+        16,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'boolField',
+        $pb.PbFieldType.PM,
+        subBuilder: $9.BoolValue.create)
+    ..pc<$9.StringValue>(
+        17,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'stringField',
+        $pb.PbFieldType.PM,
+        subBuilder: $9.StringValue.create)
+    ..pc<$9.BytesValue>(
+        18,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'bytesField',
+        $pb.PbFieldType.PM,
+        subBuilder: $9.BytesValue.create)
+    ..hasRequiredFields = false;
 
   RepeatedWellKnownTypes._() : super();
   factory RepeatedWellKnownTypes({
@@ -458,25 +738,33 @@ class RepeatedWellKnownTypes extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory RepeatedWellKnownTypes.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory RepeatedWellKnownTypes.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  RepeatedWellKnownTypes clone() => RepeatedWellKnownTypes()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  RepeatedWellKnownTypes copyWith(void Function(RepeatedWellKnownTypes) updates) => super.copyWith((message) => updates(message as RepeatedWellKnownTypes)) as RepeatedWellKnownTypes; // ignore: deprecated_member_use
+  factory RepeatedWellKnownTypes.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory RepeatedWellKnownTypes.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  RepeatedWellKnownTypes clone() =>
+      RepeatedWellKnownTypes()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  RepeatedWellKnownTypes copyWith(
+          void Function(RepeatedWellKnownTypes) updates) =>
+      super.copyWith((message) => updates(message as RepeatedWellKnownTypes))
+          as RepeatedWellKnownTypes; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static RepeatedWellKnownTypes create() => RepeatedWellKnownTypes._();
   RepeatedWellKnownTypes createEmptyInstance() => create();
-  static $pb.PbList<RepeatedWellKnownTypes> createRepeated() => $pb.PbList<RepeatedWellKnownTypes>();
+  static $pb.PbList<RepeatedWellKnownTypes> createRepeated() =>
+      $pb.PbList<RepeatedWellKnownTypes>();
   @$core.pragma('dart2js:noInline')
-  static RepeatedWellKnownTypes getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RepeatedWellKnownTypes>(create);
+  static RepeatedWellKnownTypes getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RepeatedWellKnownTypes>(create);
   static RepeatedWellKnownTypes? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -535,71 +823,169 @@ class RepeatedWellKnownTypes extends $pb.GeneratedMessage {
 }
 
 enum OneofWellKnownTypes_OneofField {
-  anyField, 
-  apiField, 
-  durationField, 
-  emptyField, 
-  fieldMaskField, 
-  sourceContextField, 
-  structField, 
-  timestampField, 
-  typeField, 
-  doubleField, 
-  floatField, 
-  int64Field, 
-  uint64Field, 
-  int32Field, 
-  uint32Field, 
-  boolField, 
-  stringField, 
-  bytesField, 
+  anyField,
+  apiField,
+  durationField,
+  emptyField,
+  fieldMaskField,
+  sourceContextField,
+  structField,
+  timestampField,
+  typeField,
+  doubleField,
+  floatField,
+  int64Field,
+  uint64Field,
+  int32Field,
+  uint32Field,
+  boolField,
+  stringField,
+  bytesField,
   notSet
 }
 
 class OneofWellKnownTypes extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, OneofWellKnownTypes_OneofField> _OneofWellKnownTypes_OneofFieldByTag = {
-    1 : OneofWellKnownTypes_OneofField.anyField,
-    2 : OneofWellKnownTypes_OneofField.apiField,
-    3 : OneofWellKnownTypes_OneofField.durationField,
-    4 : OneofWellKnownTypes_OneofField.emptyField,
-    5 : OneofWellKnownTypes_OneofField.fieldMaskField,
-    6 : OneofWellKnownTypes_OneofField.sourceContextField,
-    7 : OneofWellKnownTypes_OneofField.structField,
-    8 : OneofWellKnownTypes_OneofField.timestampField,
-    9 : OneofWellKnownTypes_OneofField.typeField,
-    10 : OneofWellKnownTypes_OneofField.doubleField,
-    11 : OneofWellKnownTypes_OneofField.floatField,
-    12 : OneofWellKnownTypes_OneofField.int64Field,
-    13 : OneofWellKnownTypes_OneofField.uint64Field,
-    14 : OneofWellKnownTypes_OneofField.int32Field,
-    15 : OneofWellKnownTypes_OneofField.uint32Field,
-    16 : OneofWellKnownTypes_OneofField.boolField,
-    17 : OneofWellKnownTypes_OneofField.stringField,
-    18 : OneofWellKnownTypes_OneofField.bytesField,
-    0 : OneofWellKnownTypes_OneofField.notSet
+  static const $core.Map<$core.int, OneofWellKnownTypes_OneofField>
+      _OneofWellKnownTypes_OneofFieldByTag = {
+    1: OneofWellKnownTypes_OneofField.anyField,
+    2: OneofWellKnownTypes_OneofField.apiField,
+    3: OneofWellKnownTypes_OneofField.durationField,
+    4: OneofWellKnownTypes_OneofField.emptyField,
+    5: OneofWellKnownTypes_OneofField.fieldMaskField,
+    6: OneofWellKnownTypes_OneofField.sourceContextField,
+    7: OneofWellKnownTypes_OneofField.structField,
+    8: OneofWellKnownTypes_OneofField.timestampField,
+    9: OneofWellKnownTypes_OneofField.typeField,
+    10: OneofWellKnownTypes_OneofField.doubleField,
+    11: OneofWellKnownTypes_OneofField.floatField,
+    12: OneofWellKnownTypes_OneofField.int64Field,
+    13: OneofWellKnownTypes_OneofField.uint64Field,
+    14: OneofWellKnownTypes_OneofField.int32Field,
+    15: OneofWellKnownTypes_OneofField.uint32Field,
+    16: OneofWellKnownTypes_OneofField.boolField,
+    17: OneofWellKnownTypes_OneofField.stringField,
+    18: OneofWellKnownTypes_OneofField.bytesField,
+    0: OneofWellKnownTypes_OneofField.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'OneofWellKnownTypes', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protobuf_unittest'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'OneofWellKnownTypes',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'protobuf_unittest'),
+      createEmptyInstance: create)
     ..oo(0, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])
-    ..aOM<$0.Any>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'anyField', subBuilder: $0.Any.create)
-    ..aOM<$21.Api>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiField', subBuilder: $21.Api.create)
-    ..aOM<$10.Duration>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'durationField', subBuilder: $10.Duration.create)
-    ..aOM<$22.Empty>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'emptyField', subBuilder: $22.Empty.create)
-    ..aOM<$12.FieldMask>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldMaskField', subBuilder: $12.FieldMask.create)
-    ..aOM<$1.SourceContext>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sourceContextField', subBuilder: $1.SourceContext.create)
-    ..aOM<$13.Struct>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'structField', subBuilder: $13.Struct.create)
-    ..aOM<$11.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timestampField', subBuilder: $11.Timestamp.create)
-    ..aOM<$2.Type>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'typeField', subBuilder: $2.Type.create)
-    ..aOM<$9.DoubleValue>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'doubleField', subBuilder: $9.DoubleValue.create)
-    ..aOM<$9.FloatValue>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'floatField', subBuilder: $9.FloatValue.create)
-    ..aOM<$9.Int64Value>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'int64Field', subBuilder: $9.Int64Value.create)
-    ..aOM<$9.UInt64Value>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uint64Field', subBuilder: $9.UInt64Value.create)
-    ..aOM<$9.Int32Value>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'int32Field', subBuilder: $9.Int32Value.create)
-    ..aOM<$9.UInt32Value>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uint32Field', subBuilder: $9.UInt32Value.create)
-    ..aOM<$9.BoolValue>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boolField', subBuilder: $9.BoolValue.create)
-    ..aOM<$9.StringValue>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stringField', subBuilder: $9.StringValue.create)
-    ..aOM<$9.BytesValue>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'bytesField', subBuilder: $9.BytesValue.create)
-    ..hasRequiredFields = false
-  ;
+    ..aOM<$0.Any>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'anyField',
+        subBuilder: $0.Any.create)
+    ..aOM<$21.Api>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'apiField',
+        subBuilder: $21.Api.create)
+    ..aOM<$10.Duration>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'durationField',
+        subBuilder: $10.Duration.create)
+    ..aOM<$22.Empty>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'emptyField',
+        subBuilder: $22.Empty.create)
+    ..aOM<$12.FieldMask>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'fieldMaskField',
+        subBuilder: $12.FieldMask.create)
+    ..aOM<$1.SourceContext>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sourceContextField',
+        subBuilder: $1.SourceContext.create)
+    ..aOM<$13.Struct>(
+        7,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'structField',
+        subBuilder: $13.Struct.create)
+    ..aOM<$11.Timestamp>(
+        8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'timestampField',
+        subBuilder: $11.Timestamp.create)
+    ..aOM<$2.Type>(
+        9,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'typeField',
+        subBuilder: $2.Type.create)
+    ..aOM<$9.DoubleValue>(
+        10,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'doubleField',
+        subBuilder: $9.DoubleValue.create)
+    ..aOM<$9.FloatValue>(
+        11,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'floatField',
+        subBuilder: $9.FloatValue.create)
+    ..aOM<$9.Int64Value>(
+        12,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'int64Field',
+        subBuilder: $9.Int64Value.create)
+    ..aOM<$9.UInt64Value>(
+        13,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uint64Field',
+        subBuilder: $9.UInt64Value.create)
+    ..aOM<$9.Int32Value>(
+        14,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'int32Field',
+        subBuilder: $9.Int32Value.create)
+    ..aOM<$9.UInt32Value>(
+        15,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uint32Field',
+        subBuilder: $9.UInt32Value.create)
+    ..aOM<$9.BoolValue>(
+        16,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'boolField',
+        subBuilder: $9.BoolValue.create)
+    ..aOM<$9.StringValue>(
+        17,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'stringField',
+        subBuilder: $9.StringValue.create)
+    ..aOM<$9.BytesValue>(
+        18,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'bytesField',
+        subBuilder: $9.BytesValue.create)
+    ..hasRequiredFields = false;
 
   OneofWellKnownTypes._() : super();
   factory OneofWellKnownTypes({
@@ -679,34 +1065,44 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory OneofWellKnownTypes.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory OneofWellKnownTypes.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory OneofWellKnownTypes.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory OneofWellKnownTypes.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   OneofWellKnownTypes clone() => OneofWellKnownTypes()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  OneofWellKnownTypes copyWith(void Function(OneofWellKnownTypes) updates) => super.copyWith((message) => updates(message as OneofWellKnownTypes)) as OneofWellKnownTypes; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  OneofWellKnownTypes copyWith(void Function(OneofWellKnownTypes) updates) =>
+      super.copyWith((message) => updates(message as OneofWellKnownTypes))
+          as OneofWellKnownTypes; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static OneofWellKnownTypes create() => OneofWellKnownTypes._();
   OneofWellKnownTypes createEmptyInstance() => create();
-  static $pb.PbList<OneofWellKnownTypes> createRepeated() => $pb.PbList<OneofWellKnownTypes>();
+  static $pb.PbList<OneofWellKnownTypes> createRepeated() =>
+      $pb.PbList<OneofWellKnownTypes>();
   @$core.pragma('dart2js:noInline')
-  static OneofWellKnownTypes getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OneofWellKnownTypes>(create);
+  static OneofWellKnownTypes getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<OneofWellKnownTypes>(create);
   static OneofWellKnownTypes? _defaultInstance;
 
-  OneofWellKnownTypes_OneofField whichOneofField() => _OneofWellKnownTypes_OneofFieldByTag[$_whichOneof(0)]!;
+  OneofWellKnownTypes_OneofField whichOneofField() =>
+      _OneofWellKnownTypes_OneofFieldByTag[$_whichOneof(0)]!;
   void clearOneofField() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
   $0.Any get anyField => $_getN(0);
   @$pb.TagNumber(1)
-  set anyField($0.Any v) { setField(1, v); }
+  set anyField($0.Any v) {
+    setField(1, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasAnyField() => $_has(0);
   @$pb.TagNumber(1)
@@ -717,7 +1113,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $21.Api get apiField => $_getN(1);
   @$pb.TagNumber(2)
-  set apiField($21.Api v) { setField(2, v); }
+  set apiField($21.Api v) {
+    setField(2, v);
+  }
+
   @$pb.TagNumber(2)
   $core.bool hasApiField() => $_has(1);
   @$pb.TagNumber(2)
@@ -728,7 +1127,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $10.Duration get durationField => $_getN(2);
   @$pb.TagNumber(3)
-  set durationField($10.Duration v) { setField(3, v); }
+  set durationField($10.Duration v) {
+    setField(3, v);
+  }
+
   @$pb.TagNumber(3)
   $core.bool hasDurationField() => $_has(2);
   @$pb.TagNumber(3)
@@ -739,7 +1141,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $22.Empty get emptyField => $_getN(3);
   @$pb.TagNumber(4)
-  set emptyField($22.Empty v) { setField(4, v); }
+  set emptyField($22.Empty v) {
+    setField(4, v);
+  }
+
   @$pb.TagNumber(4)
   $core.bool hasEmptyField() => $_has(3);
   @$pb.TagNumber(4)
@@ -750,7 +1155,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $12.FieldMask get fieldMaskField => $_getN(4);
   @$pb.TagNumber(5)
-  set fieldMaskField($12.FieldMask v) { setField(5, v); }
+  set fieldMaskField($12.FieldMask v) {
+    setField(5, v);
+  }
+
   @$pb.TagNumber(5)
   $core.bool hasFieldMaskField() => $_has(4);
   @$pb.TagNumber(5)
@@ -761,7 +1169,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $1.SourceContext get sourceContextField => $_getN(5);
   @$pb.TagNumber(6)
-  set sourceContextField($1.SourceContext v) { setField(6, v); }
+  set sourceContextField($1.SourceContext v) {
+    setField(6, v);
+  }
+
   @$pb.TagNumber(6)
   $core.bool hasSourceContextField() => $_has(5);
   @$pb.TagNumber(6)
@@ -772,7 +1183,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $13.Struct get structField => $_getN(6);
   @$pb.TagNumber(7)
-  set structField($13.Struct v) { setField(7, v); }
+  set structField($13.Struct v) {
+    setField(7, v);
+  }
+
   @$pb.TagNumber(7)
   $core.bool hasStructField() => $_has(6);
   @$pb.TagNumber(7)
@@ -783,7 +1197,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $11.Timestamp get timestampField => $_getN(7);
   @$pb.TagNumber(8)
-  set timestampField($11.Timestamp v) { setField(8, v); }
+  set timestampField($11.Timestamp v) {
+    setField(8, v);
+  }
+
   @$pb.TagNumber(8)
   $core.bool hasTimestampField() => $_has(7);
   @$pb.TagNumber(8)
@@ -794,7 +1211,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $2.Type get typeField => $_getN(8);
   @$pb.TagNumber(9)
-  set typeField($2.Type v) { setField(9, v); }
+  set typeField($2.Type v) {
+    setField(9, v);
+  }
+
   @$pb.TagNumber(9)
   $core.bool hasTypeField() => $_has(8);
   @$pb.TagNumber(9)
@@ -805,7 +1225,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   $9.DoubleValue get doubleField => $_getN(9);
   @$pb.TagNumber(10)
-  set doubleField($9.DoubleValue v) { setField(10, v); }
+  set doubleField($9.DoubleValue v) {
+    setField(10, v);
+  }
+
   @$pb.TagNumber(10)
   $core.bool hasDoubleField() => $_has(9);
   @$pb.TagNumber(10)
@@ -816,7 +1239,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   $9.FloatValue get floatField => $_getN(10);
   @$pb.TagNumber(11)
-  set floatField($9.FloatValue v) { setField(11, v); }
+  set floatField($9.FloatValue v) {
+    setField(11, v);
+  }
+
   @$pb.TagNumber(11)
   $core.bool hasFloatField() => $_has(10);
   @$pb.TagNumber(11)
@@ -827,7 +1253,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   $9.Int64Value get int64Field => $_getN(11);
   @$pb.TagNumber(12)
-  set int64Field($9.Int64Value v) { setField(12, v); }
+  set int64Field($9.Int64Value v) {
+    setField(12, v);
+  }
+
   @$pb.TagNumber(12)
   $core.bool hasInt64Field() => $_has(11);
   @$pb.TagNumber(12)
@@ -838,7 +1267,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(13)
   $9.UInt64Value get uint64Field => $_getN(12);
   @$pb.TagNumber(13)
-  set uint64Field($9.UInt64Value v) { setField(13, v); }
+  set uint64Field($9.UInt64Value v) {
+    setField(13, v);
+  }
+
   @$pb.TagNumber(13)
   $core.bool hasUint64Field() => $_has(12);
   @$pb.TagNumber(13)
@@ -849,7 +1281,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(14)
   $9.Int32Value get int32Field => $_getN(13);
   @$pb.TagNumber(14)
-  set int32Field($9.Int32Value v) { setField(14, v); }
+  set int32Field($9.Int32Value v) {
+    setField(14, v);
+  }
+
   @$pb.TagNumber(14)
   $core.bool hasInt32Field() => $_has(13);
   @$pb.TagNumber(14)
@@ -860,7 +1295,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(15)
   $9.UInt32Value get uint32Field => $_getN(14);
   @$pb.TagNumber(15)
-  set uint32Field($9.UInt32Value v) { setField(15, v); }
+  set uint32Field($9.UInt32Value v) {
+    setField(15, v);
+  }
+
   @$pb.TagNumber(15)
   $core.bool hasUint32Field() => $_has(14);
   @$pb.TagNumber(15)
@@ -871,7 +1309,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(16)
   $9.BoolValue get boolField => $_getN(15);
   @$pb.TagNumber(16)
-  set boolField($9.BoolValue v) { setField(16, v); }
+  set boolField($9.BoolValue v) {
+    setField(16, v);
+  }
+
   @$pb.TagNumber(16)
   $core.bool hasBoolField() => $_has(15);
   @$pb.TagNumber(16)
@@ -882,7 +1323,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(17)
   $9.StringValue get stringField => $_getN(16);
   @$pb.TagNumber(17)
-  set stringField($9.StringValue v) { setField(17, v); }
+  set stringField($9.StringValue v) {
+    setField(17, v);
+  }
+
   @$pb.TagNumber(17)
   $core.bool hasStringField() => $_has(16);
   @$pb.TagNumber(17)
@@ -893,7 +1337,10 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(18)
   $9.BytesValue get bytesField => $_getN(17);
   @$pb.TagNumber(18)
-  set bytesField($9.BytesValue v) { setField(18, v); }
+  set bytesField($9.BytesValue v) {
+    setField(18, v);
+  }
+
   @$pb.TagNumber(18)
   $core.bool hasBytesField() => $_has(17);
   @$pb.TagNumber(18)
@@ -903,27 +1350,196 @@ class OneofWellKnownTypes extends $pb.GeneratedMessage {
 }
 
 class MapWellKnownTypes extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MapWellKnownTypes', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protobuf_unittest'), createEmptyInstance: create)
-    ..m<$core.int, $0.Any>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'anyField', entryClassName: 'MapWellKnownTypes.AnyFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $0.Any.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $21.Api>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiField', entryClassName: 'MapWellKnownTypes.ApiFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $21.Api.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $10.Duration>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'durationField', entryClassName: 'MapWellKnownTypes.DurationFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $10.Duration.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $22.Empty>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'emptyField', entryClassName: 'MapWellKnownTypes.EmptyFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $22.Empty.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $12.FieldMask>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldMaskField', entryClassName: 'MapWellKnownTypes.FieldMaskFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $12.FieldMask.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $1.SourceContext>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sourceContextField', entryClassName: 'MapWellKnownTypes.SourceContextFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $1.SourceContext.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $13.Struct>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'structField', entryClassName: 'MapWellKnownTypes.StructFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $13.Struct.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $11.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timestampField', entryClassName: 'MapWellKnownTypes.TimestampFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $11.Timestamp.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $2.Type>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'typeField', entryClassName: 'MapWellKnownTypes.TypeFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $2.Type.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $9.DoubleValue>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'doubleField', entryClassName: 'MapWellKnownTypes.DoubleFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $9.DoubleValue.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $9.FloatValue>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'floatField', entryClassName: 'MapWellKnownTypes.FloatFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $9.FloatValue.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $9.Int64Value>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'int64Field', entryClassName: 'MapWellKnownTypes.Int64FieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $9.Int64Value.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $9.UInt64Value>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uint64Field', entryClassName: 'MapWellKnownTypes.Uint64FieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $9.UInt64Value.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $9.Int32Value>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'int32Field', entryClassName: 'MapWellKnownTypes.Int32FieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $9.Int32Value.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $9.UInt32Value>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uint32Field', entryClassName: 'MapWellKnownTypes.Uint32FieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $9.UInt32Value.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $9.BoolValue>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boolField', entryClassName: 'MapWellKnownTypes.BoolFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $9.BoolValue.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $9.StringValue>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stringField', entryClassName: 'MapWellKnownTypes.StringFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $9.StringValue.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..m<$core.int, $9.BytesValue>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'bytesField', entryClassName: 'MapWellKnownTypes.BytesFieldEntry', keyFieldType: $pb.PbFieldType.O3, valueFieldType: $pb.PbFieldType.OM, valueCreator: $9.BytesValue.create, packageName: const $pb.PackageName('protobuf_unittest'))
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'MapWellKnownTypes',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'protobuf_unittest'),
+      createEmptyInstance: create)
+    ..m<$core.int, $0.Any>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'anyField',
+        entryClassName: 'MapWellKnownTypes.AnyFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $0.Any.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $21.Api>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'apiField',
+        entryClassName: 'MapWellKnownTypes.ApiFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $21.Api.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $10.Duration>(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'durationField',
+        entryClassName: 'MapWellKnownTypes.DurationFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $10.Duration.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $22.Empty>(
+        4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'emptyField',
+        entryClassName: 'MapWellKnownTypes.EmptyFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $22.Empty.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $12.FieldMask>(
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'fieldMaskField',
+        entryClassName: 'MapWellKnownTypes.FieldMaskFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $12.FieldMask.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $1.SourceContext>(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'sourceContextField',
+        entryClassName: 'MapWellKnownTypes.SourceContextFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $1.SourceContext.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $13.Struct>(
+        7,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'structField',
+        entryClassName: 'MapWellKnownTypes.StructFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $13.Struct.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $11.Timestamp>(
+        8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'timestampField',
+        entryClassName: 'MapWellKnownTypes.TimestampFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $11.Timestamp.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $2.Type>(
+        9,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'typeField',
+        entryClassName: 'MapWellKnownTypes.TypeFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $2.Type.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $9.DoubleValue>(
+        10,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'doubleField',
+        entryClassName: 'MapWellKnownTypes.DoubleFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $9.DoubleValue.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $9.FloatValue>(
+        11,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'floatField',
+        entryClassName: 'MapWellKnownTypes.FloatFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $9.FloatValue.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $9.Int64Value>(
+        12,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'int64Field',
+        entryClassName: 'MapWellKnownTypes.Int64FieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $9.Int64Value.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $9.UInt64Value>(
+        13,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uint64Field',
+        entryClassName: 'MapWellKnownTypes.Uint64FieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $9.UInt64Value.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $9.Int32Value>(
+        14,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'int32Field',
+        entryClassName: 'MapWellKnownTypes.Int32FieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $9.Int32Value.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $9.UInt32Value>(
+        15,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uint32Field',
+        entryClassName: 'MapWellKnownTypes.Uint32FieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $9.UInt32Value.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $9.BoolValue>(
+        16,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'boolField',
+        entryClassName: 'MapWellKnownTypes.BoolFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $9.BoolValue.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $9.StringValue>(
+        17,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'stringField',
+        entryClassName: 'MapWellKnownTypes.StringFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $9.StringValue.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..m<$core.int, $9.BytesValue>(
+        18,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'bytesField',
+        entryClassName: 'MapWellKnownTypes.BytesFieldEntry',
+        keyFieldType: $pb.PbFieldType.O3,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $9.BytesValue.create,
+        packageName: const $pb.PackageName('protobuf_unittest'))
+    ..hasRequiredFields = false;
 
   MapWellKnownTypes._() : super();
   factory MapWellKnownTypes({
@@ -1003,25 +1619,31 @@ class MapWellKnownTypes extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory MapWellKnownTypes.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory MapWellKnownTypes.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
+  factory MapWellKnownTypes.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory MapWellKnownTypes.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   MapWellKnownTypes clone() => MapWellKnownTypes()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  MapWellKnownTypes copyWith(void Function(MapWellKnownTypes) updates) => super.copyWith((message) => updates(message as MapWellKnownTypes)) as MapWellKnownTypes; // ignore: deprecated_member_use
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  MapWellKnownTypes copyWith(void Function(MapWellKnownTypes) updates) =>
+      super.copyWith((message) => updates(message as MapWellKnownTypes))
+          as MapWellKnownTypes; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static MapWellKnownTypes create() => MapWellKnownTypes._();
   MapWellKnownTypes createEmptyInstance() => create();
-  static $pb.PbList<MapWellKnownTypes> createRepeated() => $pb.PbList<MapWellKnownTypes>();
+  static $pb.PbList<MapWellKnownTypes> createRepeated() =>
+      $pb.PbList<MapWellKnownTypes>();
   @$core.pragma('dart2js:noInline')
-  static MapWellKnownTypes getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MapWellKnownTypes>(create);
+  static MapWellKnownTypes getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MapWellKnownTypes>(create);
   static MapWellKnownTypes? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1078,4 +1700,3 @@ class MapWellKnownTypes extends $pb.GeneratedMessage {
   @$pb.TagNumber(18)
   $core.Map<$core.int, $9.BytesValue> get bytesField => $_getMap(17);
 }
-

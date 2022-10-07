@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use dropDatabaseRequestDescriptor instead')
 const DropDatabaseRequest$json = const {
   '1': 'DropDatabaseRequest',
@@ -17,4 +18,5 @@ const DropDatabaseRequest$json = const {
 };
 
 /// Descriptor for `DropDatabaseRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dropDatabaseRequestDescriptor = $convert.base64Decode('ChNEcm9wRGF0YWJhc2VSZXF1ZXN0EiAKC2RhdGFiYXNlT2lkGAEgASgMUgtkYXRhYmFzZU9pZA==');
+final $typed_data.Uint8List dropDatabaseRequestDescriptor = $convert.base64Decode(
+    'ChNEcm9wRGF0YWJhc2VSZXF1ZXN0EiAKC2RhdGFiYXNlT2lkGAEgASgMUgtkYXRhYmFzZU9pZA==');
