@@ -1,3 +1,9 @@
+## 4.3.0
+
+ - **FIX**: Improved ffi generated code.
+ - **FEAT**: Added direct parameter to Connection.connectWithString.
+ - **FEAT**: Add support for direct connection.
+
 ## 4.2.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

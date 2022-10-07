@@ -1,3 +1,7 @@
+## 0.11.1+1
+
+ - **FIX**: Improved ffi generated code.
+
 ## 0.11.1
 
  - **FIX**: Minor fix to README file.
