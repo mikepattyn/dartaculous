@@ -4,8 +4,6 @@ CPATH:="$(shell eval clang -v 2>&1 | grep "Selected GCC installation" | rev | cu
 
 lib: .PHONY
 	cd go && make
-	
-
 
 proto: .PHONY
 	protoc --dart_out=./lib/gen -Igo/proto go/proto/google/protobuf/*.proto go/proto/*.proto
@@ -13,7 +11,7 @@ proto: .PHONY
 ffi: lib
 	CPATH=$(CPATH) dart run ffigen
 
-build: proto lib
+build: proto lib ffi
 	dart format .
 
 clean: .PHONY

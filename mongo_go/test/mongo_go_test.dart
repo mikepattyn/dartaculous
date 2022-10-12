@@ -6,7 +6,7 @@ import 'package:mongo_go/mongo_go.dart';
 import 'package:test/test.dart';
 import 'package:tuple/tuple.dart';
 
-const connectionString = "mongodb://localhost:27021/";
+const connectionString = "mongodb://localhost:27017/";
 const testDatabase = "dart_mongo_test_db";
 const testCollection = "test_collection";
 
@@ -19,7 +19,6 @@ void main() {
     late Collection collection;
 
     setUpAll(() async {
-      // Connection.initialize();
       connection = await Connection.connectWithString(connectionString);
       database = await connection.database(testDatabase);
       await database.drop();
@@ -91,6 +90,14 @@ void main() {
           'name': 'Charles',
         });
       }, throwsA(const TypeMatcher<MongoNoDocumentsError>()));
+    });
+
+    test('Count Documents', () async {
+      await collection.insertOne({'name': 'Alice', "test": "cntDocs"});
+      await collection.insertOne({'name': 'Bob', "test": "cntDocs"});
+
+      final cnt = await collection.countDocuments({'test': 'cntDocs'});
+      expect(cnt, 2);
     });
 
     test(

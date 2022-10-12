@@ -146,3 +146,9 @@ func (c *CollectionProxy) DropOneIndex(ctx context.Context, name string) ([]byte
 func (c *CollectionProxy) DropAllIndexes(ctx context.Context) ([]byte, error) {
 	return c.col.Indexes().DropAll(ctx)
 }
+
+func (c *CollectionProxy) CountDocuments(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) (int64, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (int64, error) {
+		return c.col.CountDocuments(ctx, filter)
+	})
+}

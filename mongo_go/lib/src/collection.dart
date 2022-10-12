@@ -169,6 +169,22 @@ class Collection {
     return ret;
   }
 
+  Future<int> countDocuments(
+    Map<String, dynamic> filter, {
+    Transaction? transaction,
+  }) async {
+    final bson = BSON();
+    final bytes = bson.serialize(filter);
+
+    final result = await p.countDocuments(
+      collectionId,
+      bytes,
+      requestContext: transaction?.requestContext,
+    );
+
+    return result;
+  }
+
   Stream<Map<String, dynamic>> aggregate(
     List<Map<String, dynamic>> pipeline, {
     Transaction? transaction,

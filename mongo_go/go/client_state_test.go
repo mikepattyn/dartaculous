@@ -21,7 +21,7 @@ var mongoClient *mongo.Client
 var mongoDatabase *mongo.Database
 var mongoCollection *mongo.Collection
 
-const connectionString string = "mongodb://localhost:27021/"
+const connectionString string = "mongodb://localhost:27017/"
 const testDatabaseName string = "go_mongo_test_db"
 const testCollectionName string = "test_collection"
 

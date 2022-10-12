@@ -526,6 +526,25 @@ class LibMongoProxy {
               GoInt64, ffi.Pointer<ffi.UnsignedChar>, GoInt)>>('bulkWrite');
   late final _bulkWrite = _bulkWritePtr
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
+
+  void countDocuments(
+    int port,
+    ffi.Pointer<ffi.UnsignedChar> buffer,
+    int size,
+  ) {
+    return _countDocuments(
+      port,
+      buffer,
+      size,
+    );
+  }
+
+  late final _countDocumentsPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
+              GoInt)>>('countDocuments');
+  late final _countDocuments = _countDocumentsPtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 }
 
 class max_align_t extends ffi.Opaque {}

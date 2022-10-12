@@ -449,3 +449,21 @@ Future<BulkWriteResult> bulkWrite(
   );
   return response;
 }
+
+Future<int> countDocuments(
+  ObjectId collectionOid,
+  BsonBinary filter, {
+  RequestContext? requestContext,
+}) async {
+  final oid = collectionOid.toByteList();
+  final ctx = _getRequestContext(requestContext);
+
+  final request = CountDocumentsRequest(
+      collectionOid: oid, context: ctx, filter: filter.byteList);
+  final response = await callGoFunc(
+    request: request,
+    goFunc: nl.countDocuments,
+    responseToFill: CountDocumentsResult(),
+  );
+  return response.cnt.toInt();
+}

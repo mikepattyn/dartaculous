@@ -101,6 +101,7 @@ extern void listIndexes(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void dropOneIndex(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void dropAllIndexes(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void bulkWrite(GoInt64 port, unsigned char* buffer, GoInt size);
+extern void countDocuments(GoInt64 port, unsigned char* buffer, GoInt size);
 
 #ifdef __cplusplus
 }
