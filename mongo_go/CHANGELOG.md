@@ -1,3 +1,8 @@
+## 4.4.0
+
+ - **FEAT**: Added Collection.estimatedDocumentCount method.
+ - **FEAT**: Added Collection.countDocuments method.
+
 ## 4.3.0
 
  - **FIX**: Improved ffi generated code.
