@@ -125,6 +125,99 @@ class CountDocumentsRequest extends $pb.GeneratedMessage {
   void clearFilter() => clearField(3);
 }
 
+class EstimatedDocumentCountRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'EstimatedDocumentCountRequest',
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'collectionOid',
+        $pb.PbFieldType.OY,
+        protoName: 'collectionOid')
+    ..aOM<$24.RequestContext>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'context',
+        subBuilder: $24.RequestContext.create)
+    ..hasRequiredFields = false;
+
+  EstimatedDocumentCountRequest._() : super();
+  factory EstimatedDocumentCountRequest({
+    $core.List<$core.int>? collectionOid,
+    $24.RequestContext? context,
+  }) {
+    final _result = create();
+    if (collectionOid != null) {
+      _result.collectionOid = collectionOid;
+    }
+    if (context != null) {
+      _result.context = context;
+    }
+    return _result;
+  }
+  factory EstimatedDocumentCountRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory EstimatedDocumentCountRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  EstimatedDocumentCountRequest clone() =>
+      EstimatedDocumentCountRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  EstimatedDocumentCountRequest copyWith(
+          void Function(EstimatedDocumentCountRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as EstimatedDocumentCountRequest))
+          as EstimatedDocumentCountRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static EstimatedDocumentCountRequest create() =>
+      EstimatedDocumentCountRequest._();
+  EstimatedDocumentCountRequest createEmptyInstance() => create();
+  static $pb.PbList<EstimatedDocumentCountRequest> createRepeated() =>
+      $pb.PbList<EstimatedDocumentCountRequest>();
+  @$core.pragma('dart2js:noInline')
+  static EstimatedDocumentCountRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EstimatedDocumentCountRequest>(create);
+  static EstimatedDocumentCountRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get collectionOid => $_getN(0);
+  @$pb.TagNumber(1)
+  set collectionOid($core.List<$core.int> v) {
+    $_setBytes(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionOid() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionOid() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $24.RequestContext get context => $_getN(1);
+  @$pb.TagNumber(2)
+  set context($24.RequestContext v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasContext() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearContext() => clearField(2);
+  @$pb.TagNumber(2)
+  $24.RequestContext ensureContext() => $_ensure(1);
+}
+
 class CountDocumentsResult extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')

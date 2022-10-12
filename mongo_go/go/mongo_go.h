@@ -94,6 +94,8 @@ extern void deleteOne(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void deleteMany(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void findOne(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void find(GoInt64 port, unsigned char* buffer, GoInt size);
+extern void countDocuments(GoInt64 port, unsigned char* buffer, GoInt size);
+extern void estimatedDocumentCount(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void aggregate(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void watch(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void createOneIndex(GoInt64 port, unsigned char* buffer, GoInt size);
@@ -101,7 +103,6 @@ extern void listIndexes(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void dropOneIndex(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void dropAllIndexes(GoInt64 port, unsigned char* buffer, GoInt size);
 extern void bulkWrite(GoInt64 port, unsigned char* buffer, GoInt size);
-extern void countDocuments(GoInt64 port, unsigned char* buffer, GoInt size);
 
 #ifdef __cplusplus
 }

@@ -394,6 +394,44 @@ class LibMongoProxy {
   late final _find = _findPtr
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 
+  void countDocuments(
+    int port,
+    ffi.Pointer<ffi.UnsignedChar> buffer,
+    int size,
+  ) {
+    return _countDocuments(
+      port,
+      buffer,
+      size,
+    );
+  }
+
+  late final _countDocumentsPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
+              GoInt)>>('countDocuments');
+  late final _countDocuments = _countDocumentsPtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
+
+  void estimatedDocumentCount(
+    int port,
+    ffi.Pointer<ffi.UnsignedChar> buffer,
+    int size,
+  ) {
+    return _estimatedDocumentCount(
+      port,
+      buffer,
+      size,
+    );
+  }
+
+  late final _estimatedDocumentCountPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
+              GoInt)>>('estimatedDocumentCount');
+  late final _estimatedDocumentCount = _estimatedDocumentCountPtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
+
   void aggregate(
     int port,
     ffi.Pointer<ffi.UnsignedChar> buffer,
@@ -525,25 +563,6 @@ class LibMongoProxy {
           ffi.Void Function(
               GoInt64, ffi.Pointer<ffi.UnsignedChar>, GoInt)>>('bulkWrite');
   late final _bulkWrite = _bulkWritePtr
-      .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
-
-  void countDocuments(
-    int port,
-    ffi.Pointer<ffi.UnsignedChar> buffer,
-    int size,
-  ) {
-    return _countDocuments(
-      port,
-      buffer,
-      size,
-    );
-  }
-
-  late final _countDocumentsPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
-              GoInt)>>('countDocuments');
-  late final _countDocuments = _countDocumentsPtr
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 }
 

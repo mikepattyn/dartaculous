@@ -10,6 +10,11 @@ message CountDocumentsRequest {
   bytes filter = 3;
 }
 
+message EstimatedDocumentCountRequest {
+  bytes collectionOid = 1;
+  RequestContext context = 2;
+}
+
 message CountDocumentsResult {
   int64 cnt = 1;
 }

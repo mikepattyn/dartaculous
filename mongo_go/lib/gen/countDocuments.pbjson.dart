@@ -35,6 +35,32 @@ const CountDocumentsRequest$json = const {
 /// Descriptor for `CountDocumentsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List countDocumentsRequestDescriptor = $convert.base64Decode(
     'ChVDb3VudERvY3VtZW50c1JlcXVlc3QSJAoNY29sbGVjdGlvbk9pZBgBIAEoDFINY29sbGVjdGlvbk9pZBIpCgdjb250ZXh0GAIgASgLMg8uUmVxdWVzdENvbnRleHRSB2NvbnRleHQSFgoGZmlsdGVyGAMgASgMUgZmaWx0ZXI=');
+@$core.Deprecated('Use estimatedDocumentCountRequestDescriptor instead')
+const EstimatedDocumentCountRequest$json = const {
+  '1': 'EstimatedDocumentCountRequest',
+  '2': const [
+    const {
+      '1': 'collectionOid',
+      '3': 1,
+      '4': 1,
+      '5': 12,
+      '10': 'collectionOid'
+    },
+    const {
+      '1': 'context',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.RequestContext',
+      '10': 'context'
+    },
+  ],
+};
+
+/// Descriptor for `EstimatedDocumentCountRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List estimatedDocumentCountRequestDescriptor =
+    $convert.base64Decode(
+        'Ch1Fc3RpbWF0ZWREb2N1bWVudENvdW50UmVxdWVzdBIkCg1jb2xsZWN0aW9uT2lkGAEgASgMUg1jb2xsZWN0aW9uT2lkEikKB2NvbnRleHQYAiABKAsyDy5SZXF1ZXN0Q29udGV4dFIHY29udGV4dA==');
 @$core.Deprecated('Use countDocumentsResultDescriptor instead')
 const CountDocumentsResult$json = const {
   '1': 'CountDocumentsResult',

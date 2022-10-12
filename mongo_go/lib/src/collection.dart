@@ -185,6 +185,17 @@ class Collection {
     return result;
   }
 
+  Future<int> estimatedDocumentCount({
+    Transaction? transaction,
+  }) async {
+    final result = await p.estimatedDocumentCount(
+      collectionId,
+      requestContext: transaction?.requestContext,
+    );
+
+    return result;
+  }
+
   Stream<Map<String, dynamic>> aggregate(
     List<Map<String, dynamic>> pipeline, {
     Transaction? transaction,

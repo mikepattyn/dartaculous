@@ -83,6 +83,61 @@ func (x *CountDocumentsRequest) GetFilter() []byte {
 	return nil
 }
 
+type EstimatedDocumentCountRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CollectionOid []byte          `protobuf:"bytes,1,opt,name=collectionOid,proto3" json:"collectionOid,omitempty"`
+	Context       *RequestContext `protobuf:"bytes,2,opt,name=context,proto3" json:"context,omitempty"`
+}
+
+func (x *EstimatedDocumentCountRequest) Reset() {
+	*x = EstimatedDocumentCountRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_countDocuments_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EstimatedDocumentCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EstimatedDocumentCountRequest) ProtoMessage() {}
+
+func (x *EstimatedDocumentCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_countDocuments_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EstimatedDocumentCountRequest.ProtoReflect.Descriptor instead.
+func (*EstimatedDocumentCountRequest) Descriptor() ([]byte, []int) {
+	return file_countDocuments_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *EstimatedDocumentCountRequest) GetCollectionOid() []byte {
+	if x != nil {
+		return x.CollectionOid
+	}
+	return nil
+}
+
+func (x *EstimatedDocumentCountRequest) GetContext() *RequestContext {
+	if x != nil {
+		return x.Context
+	}
+	return nil
+}
+
 type CountDocumentsResult struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -94,7 +149,7 @@ type CountDocumentsResult struct {
 func (x *CountDocumentsResult) Reset() {
 	*x = CountDocumentsResult{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_countDocuments_proto_msgTypes[1]
+		mi := &file_countDocuments_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -107,7 +162,7 @@ func (x *CountDocumentsResult) String() string {
 func (*CountDocumentsResult) ProtoMessage() {}
 
 func (x *CountDocumentsResult) ProtoReflect() protoreflect.Message {
-	mi := &file_countDocuments_proto_msgTypes[1]
+	mi := &file_countDocuments_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -120,7 +175,7 @@ func (x *CountDocumentsResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CountDocumentsResult.ProtoReflect.Descriptor instead.
 func (*CountDocumentsResult) Descriptor() ([]byte, []int) {
-	return file_countDocuments_proto_rawDescGZIP(), []int{1}
+	return file_countDocuments_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CountDocumentsResult) GetCnt() int64 {
@@ -144,11 +199,18 @@ var file_countDocuments_proto_rawDesc = []byte{
 	0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x52,
 	0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x66, 0x69, 0x6c, 0x74,
 	0x65, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x06, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72,
-	0x22, 0x28, 0x0a, 0x14, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x44, 0x6f, 0x63, 0x75, 0x6d, 0x65, 0x6e,
-	0x74, 0x73, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x63, 0x6e, 0x74, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x03, 0x63, 0x6e, 0x74, 0x42, 0x0f, 0x5a, 0x0d, 0x2e, 0x2f,
-	0x6d, 0x6f, 0x6e, 0x67, 0x6f, 0x5f, 0x73, 0x74, 0x75, 0x62, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x22, 0x70, 0x0a, 0x1d, 0x45, 0x73, 0x74, 0x69, 0x6d, 0x61, 0x74, 0x65, 0x64, 0x44, 0x6f, 0x63,
+	0x75, 0x6d, 0x65, 0x6e, 0x74, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x24, 0x0a, 0x0d, 0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4f,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x0d, 0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63,
+	0x74, 0x69, 0x6f, 0x6e, 0x4f, 0x69, 0x64, 0x12, 0x29, 0x0a, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65,
+	0x78, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0f, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x52, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65,
+	0x78, 0x74, 0x22, 0x28, 0x0a, 0x14, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x44, 0x6f, 0x63, 0x75, 0x6d,
+	0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x63, 0x6e,
+	0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x03, 0x63, 0x6e, 0x74, 0x42, 0x0f, 0x5a, 0x0d,
+	0x2e, 0x2f, 0x6d, 0x6f, 0x6e, 0x67, 0x6f, 0x5f, 0x73, 0x74, 0x75, 0x62, 0x73, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -163,19 +225,21 @@ func file_countDocuments_proto_rawDescGZIP() []byte {
 	return file_countDocuments_proto_rawDescData
 }
 
-var file_countDocuments_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_countDocuments_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_countDocuments_proto_goTypes = []interface{}{
-	(*CountDocumentsRequest)(nil), // 0: CountDocumentsRequest
-	(*CountDocumentsResult)(nil),  // 1: CountDocumentsResult
-	(*RequestContext)(nil),        // 2: RequestContext
+	(*CountDocumentsRequest)(nil),         // 0: CountDocumentsRequest
+	(*EstimatedDocumentCountRequest)(nil), // 1: EstimatedDocumentCountRequest
+	(*CountDocumentsResult)(nil),          // 2: CountDocumentsResult
+	(*RequestContext)(nil),                // 3: RequestContext
 }
 var file_countDocuments_proto_depIdxs = []int32{
-	2, // 0: CountDocumentsRequest.context:type_name -> RequestContext
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	3, // 0: CountDocumentsRequest.context:type_name -> RequestContext
+	3, // 1: EstimatedDocumentCountRequest.context:type_name -> RequestContext
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_countDocuments_proto_init() }
@@ -198,6 +262,18 @@ func file_countDocuments_proto_init() {
 			}
 		}
 		file_countDocuments_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EstimatedDocumentCountRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_countDocuments_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CountDocumentsResult); i {
 			case 0:
 				return &v.state
@@ -216,7 +292,7 @@ func file_countDocuments_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_countDocuments_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

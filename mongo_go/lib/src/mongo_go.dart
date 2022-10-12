@@ -467,3 +467,20 @@ Future<int> countDocuments(
   );
   return response.cnt.toInt();
 }
+
+Future<int> estimatedDocumentCount(
+  ObjectId collectionOid, {
+  RequestContext? requestContext,
+}) async {
+  final oid = collectionOid.toByteList();
+  final ctx = _getRequestContext(requestContext);
+
+  final request =
+      EstimatedDocumentCountRequest(collectionOid: oid, context: ctx);
+  final response = await callGoFunc(
+    request: request,
+    goFunc: nl.estimatedDocumentCount,
+    responseToFill: CountDocumentsResult(),
+  );
+  return response.cnt.toInt();
+}

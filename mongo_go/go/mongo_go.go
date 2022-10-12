@@ -607,6 +607,39 @@ func countDocuments(port int64, buffer *C.uchar, size int) {
 	}()
 }
 
+//export estimatedDocumentCount
+func estimatedDocumentCount(port int64, buffer *C.uchar, size int) {
+	var request mongo_stubs.EstimatedDocumentCountRequest
+	ffi.Unmarshal(unsafe.Pointer(buffer), size, &request)
+
+	go func() {
+		ctx := context.Background()
+		oid := helpers.BytesToOid(request.CollectionOid)
+
+		coll, err := cs.GetCollectionProxy(oid)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+		cnt, err := coll.EstimatedDocumentCount(ctx, trxProxy)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+
+		m := &mongo_stubs.CountDocumentsResult{
+			Cnt: cnt,
+		}
+
+		ffi.SendMessage(port, m)
+	}()
+}
+
 //export aggregate
 func aggregate(port int64, buffer *C.uchar, size int) {
 	var request mongo_stubs.AggregateRequest

@@ -6,9 +6,9 @@ import 'package:mongo_go/mongo_go.dart';
 import 'package:test/test.dart';
 import 'package:tuple/tuple.dart';
 
-const connectionString = "mongodb://localhost:27017/";
-const testDatabase = "dart_mongo_test_db";
-const testCollection = "test_collection";
+const connectionString = 'mongodb://localhost:27017/';
+const testDatabase = 'dart_mongo_test_db';
+const testCollection = 'test_collection';
 
 typedef WatchIsolateMessage = Tuple2<Collection, SendPort>;
 
@@ -31,7 +31,7 @@ void main() {
 
     test('Insert Document', () async {
       final result = await collection
-          .insertOne({'name': 'Alice', 'age': 40, "test": "insertOne"});
+          .insertOne({'name': 'Alice', 'age': 40, 'test': 'insertOne'});
 
       expect(result.insertedId, isA<ObjectId>());
     });
@@ -39,7 +39,7 @@ void main() {
     test('Insert Document with client generated objectId', () async {
       final id = ObjectId(clientMode: true);
       final result = await collection.insertOne(
-          {'_id': id, 'name': 'Bob', 'age': 41, "test": "insertOne_oid"});
+          {'_id': id, 'name': 'Bob', 'age': 41, 'test': 'insertOne_oid'});
       expect(result.insertedId, isA<ObjectId>());
     });
     test(
@@ -66,23 +66,23 @@ void main() {
         }
 
         expect(results.item1, n);
-        expect(results.item2["name"], "Person 0");
-        expect(results.item3["name"], "Person ${n - 1}");
+        expect(results.item2['name'], 'Person 0');
+        expect(results.item3['name'], 'Person ${n - 1}');
       },
       timeout: Timeout(Duration(minutes: 5)),
     );
 
     test('FindOne Document', () async {
-      await collection.insertOne({'name': 'Alice', "test": "findOne"});
-      await collection.insertOne({'name': 'Bob', "test": "findOne"});
+      await collection.insertOne({'name': 'Alice', 'test': 'findOne'});
+      await collection.insertOne({'name': 'Bob', 'test': 'findOne'});
 
       final doc = await collection.findOne({'test': 'findOne'});
       expect(doc['name'], 'Alice');
     });
 
     test('FindNone Document', () async {
-      await collection.insertOne({'name': 'Alice', "test": "findNone"});
-      await collection.insertOne({'name': 'Bob', "test": "findNone"});
+      await collection.insertOne({'name': 'Alice', 'test': 'findNone'});
+      await collection.insertOne({'name': 'Bob', 'test': 'findNone'});
 
       expect(() async {
         await collection.findOne({
@@ -93,11 +93,19 @@ void main() {
     });
 
     test('Count Documents', () async {
-      await collection.insertOne({'name': 'Alice', "test": "cntDocs"});
-      await collection.insertOne({'name': 'Bob', "test": "cntDocs"});
+      await collection.insertOne({'name': 'Alice', 'test': 'cntDocs'});
+      await collection.insertOne({'name': 'Bob', 'test': 'cntDocs'});
 
       final cnt = await collection.countDocuments({'test': 'cntDocs'});
       expect(cnt, 2);
+    });
+
+    test('Estimated Count', () async {
+      await collection.insertOne({'name': 'Alice', 'test': 'estCntDocs'});
+      await collection.insertOne({'name': 'Bob', 'test': 'estCntDocs'});
+
+      final cnt = await collection.estimatedDocumentCount();
+      expect(cnt, greaterThanOrEqualTo(2));
     });
 
     test(
@@ -118,8 +126,8 @@ void main() {
         ]);
         final resultList = await resultStream.toList();
         expect(resultList.length, 4);
-        expect(resultList[0]["name"], 'Person 0');
-        expect(resultList[3]["name"], 'Person 3');
+        expect(resultList[0]['name'], 'Person 0');
+        expect(resultList[3]['name'], 'Person 3');
         expect(resultList[0].containsKey('age'), false);
         expect(resultList[0].containsKey('test'), false);
       },
@@ -153,10 +161,10 @@ void main() {
         ]);
         final resultList = await resultStream.toList();
         expect(resultList.length, 4);
-        expect(resultList[0]["name"], 'Alice');
-        expect(resultList[1]["name"], 'alice');
-        expect(resultList[2]["name"], 'aLice');
-        expect(resultList[3]["name"], 'ALICE');
+        expect(resultList[0]['name'], 'Alice');
+        expect(resultList[1]['name'], 'alice');
+        expect(resultList[2]['name'], 'aLice');
+        expect(resultList[3]['name'], 'ALICE');
       },
       timeout: Timeout(Duration(minutes: 5)),
     );
@@ -207,11 +215,11 @@ void main() {
     );
 
     test('UpdateOne Document', () async {
-      await collection.insertOne({'name': 'Alice', "test": "updateOne"});
-      await collection.insertOne({'name': 'Bob', "test": "updateOne"});
+      await collection.insertOne({'name': 'Alice', 'test': 'updateOne'});
+      await collection.insertOne({'name': 'Bob', 'test': 'updateOne'});
 
       await collection.updateOne({
-        "test": "updateOne"
+        'test': 'updateOne'
       }, {
         r'$set': {'name': 'Updated'},
       });
@@ -222,11 +230,11 @@ void main() {
     });
 
     test('UpdateTwo Document', () async {
-      await collection.insertOne({'name': 'Alice', "test": "updateTwo"});
-      await collection.insertOne({'name': 'Bob', "test": "updateTwo"});
+      await collection.insertOne({'name': 'Alice', 'test': 'updateTwo'});
+      await collection.insertOne({'name': 'Bob', 'test': 'updateTwo'});
 
       await collection.updateMany({
-        "test": "updateTwo"
+        'test': 'updateTwo'
       }, {
         r'$set': {'name': 'Updated 2'},
       });
@@ -237,8 +245,8 @@ void main() {
     });
 
     test('Replace One Document', () async {
-      await collection.insertOne({'name': 'Alice', "test": "replaceOne"});
-      await collection.insertOne({'name': 'Bob', "test": "replaceOne"});
+      await collection.insertOne({'name': 'Alice', 'test': 'replaceOne'});
+      await collection.insertOne({'name': 'Bob', 'test': 'replaceOne'});
 
       await collection.replaceOne(
         {'test': 'replaceOne'},
@@ -251,8 +259,8 @@ void main() {
     });
 
     test('Delete One Document', () async {
-      await collection.insertOne({'name': 'Alice', "test": "deleteOne"});
-      await collection.insertOne({'name': 'Bob', "test": "deleteOne"});
+      await collection.insertOne({'name': 'Alice', 'test': 'deleteOne'});
+      await collection.insertOne({'name': 'Bob', 'test': 'deleteOne'});
 
       await collection.deleteOne(
         {'test': 'deleteOne'},
@@ -266,11 +274,11 @@ void main() {
       await connection.withTransaction(
         (transaction) async {
           await collection.insertOne(
-            {'name': 'Alice', "test": "trxTwo"},
+            {'name': 'Alice', 'test': 'trxTwo'},
             transaction: transaction,
           );
           await collection.insertOne(
-            {'name': 'Bob', "test": "trxTwo"},
+            {'name': 'Bob', 'test': 'trxTwo'},
             transaction: transaction,
           );
         },
@@ -285,11 +293,11 @@ void main() {
         await connection.withTransaction(
           (transaction) async {
             await collection.insertOne(
-              {'name': 'Alice', "test": "trxFail"},
+              {'name': 'Alice', 'test': 'trxFail'},
               transaction: transaction,
             );
             await collection.insertOne(
-              {'name': 'Bob', "test": "trxFail"},
+              {'name': 'Bob', 'test': 'trxFail'},
               transaction: transaction,
             );
             throw 'oops';
@@ -309,8 +317,8 @@ void main() {
     });
 
     test('Delete Many Documents', () async {
-      await collection.insertOne({'name': 'Alice', "test": "deleteMany"});
-      await collection.insertOne({'name': 'Bob', "test": "deleteMany"});
+      await collection.insertOne({'name': 'Alice', 'test': 'deleteMany'});
+      await collection.insertOne({'name': 'Bob', 'test': 'deleteMany'});
 
       await collection.deleteMany(
         {'test': 'deleteMany'},
@@ -328,7 +336,7 @@ void main() {
         },
         indexOptions: IndexOptions(name: 'first_index'),
       );
-      expect(result, "first_index");
+      expect(result, 'first_index');
     });
 
     test('Create Index with weights', () async {
@@ -343,7 +351,7 @@ void main() {
           weights: {'name': 10, 'age': 5},
         ),
       );
-      expect(result, "weighted");
+      expect(result, 'weighted');
     });
 
     test('Create Unique One', () async {
@@ -433,8 +441,8 @@ void main() {
 
     test('Bulk insert two documents', () async {
       final writeModels = [
-        InsertOneModel(document: {'name': 'Alice', "test": "bulk_insert"}),
-        InsertOneModel(document: {'name': 'Bob', "test": "bulk_insert"}),
+        InsertOneModel(document: {'name': 'Alice', 'test': 'bulk_insert'}),
+        InsertOneModel(document: {'name': 'Bob', 'test': 'bulk_insert'}),
       ];
       final result = await collection.bulkWrite(writeModels);
       final lst = await collection.find({'test': 'bulk_insert'}).toList();
@@ -448,9 +456,9 @@ void main() {
         (transaction) async {
           final writeModels = [
             InsertOneModel(
-                document: {'name': 'Alice', "test": "bulk_insert_trx"}),
+                document: {'name': 'Alice', 'test': 'bulk_insert_trx'}),
             InsertOneModel(
-                document: {'name': 'Bob', "test": "bulk_insert_trx"}),
+                document: {'name': 'Bob', 'test': 'bulk_insert_trx'}),
           ];
           await collection.bulkWrite(writeModels);
         },
@@ -466,9 +474,9 @@ void main() {
           (transaction) async {
             final writeModels = [
               InsertOneModel(
-                  document: {'name': 'Alice', "test": "bulk_insert_trx_fail"}),
+                  document: {'name': 'Alice', 'test': 'bulk_insert_trx_fail'}),
               InsertOneModel(
-                  document: {'name': 'Bob', "test": "bulk_insert_trx_fail"}),
+                  document: {'name': 'Bob', 'test': 'bulk_insert_trx_fail'}),
             ];
             await collection.bulkWrite(writeModels);
 
@@ -493,9 +501,9 @@ void main() {
       final aId = ObjectId();
       final writeModels = [
         InsertOneModel(
-            document: {'_id': aId, 'name': 'Alice', "test": "bulk_insert_id"}),
+            document: {'_id': aId, 'name': 'Alice', 'test': 'bulk_insert_id'}),
         InsertOneModel(
-            document: {'_id': 'bob', 'name': 'Bob', "test": "bulk_insert_id"}),
+            document: {'_id': 'bob', 'name': 'Bob', 'test': 'bulk_insert_id'}),
       ];
       final result = await collection.bulkWrite(writeModels);
       final lst = await collection.find({'test': 'bulk_insert_id'}).toList();
@@ -514,11 +522,11 @@ void main() {
         ReplaceOneModel(
             isUpsert: true,
             filter: {'qualifier': 'a'},
-            replacement: {'name': 'Alice', "test": "bulk_upsert"}),
+            replacement: {'name': 'Alice', 'test': 'bulk_upsert'}),
         ReplaceOneModel(
             isUpsert: true,
             filter: {'qualifier': 'b'},
-            replacement: {'name': 'Bob', "test": "bulk_upsert"}),
+            replacement: {'name': 'Bob', 'test': 'bulk_upsert'}),
       ];
       final result = await collection.bulkWrite(writeModels);
       final lst = await collection.find({'test': 'bulk_upsert'}).toList();
@@ -540,14 +548,14 @@ void main() {
           'qualifier': 'a'
         }, replacement: {
           'name': 'Alice',
-          "test": "bulk_upsert2",
+          'test': 'bulk_upsert2',
           'qualifier': 'a',
         }),
         ReplaceOneModel(isUpsert: true, filter: {
           'qualifier': 'b'
         }, replacement: {
           'name': 'Charles',
-          "test": "bulk_upsert2",
+          'test': 'bulk_upsert2',
           'qualifier': 'b',
         }),
       ];
@@ -695,7 +703,7 @@ Future<DoFindRet> _doFind(
   Collection collection, [
   int? throwOnThreshold,
 ]) async {
-  final results = collection.find({"test": "stream"});
+  final results = collection.find({'test': 'stream'});
 
   int cnt = 0;
   Map<String, dynamic> firstItem = {};
