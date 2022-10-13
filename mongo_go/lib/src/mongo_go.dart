@@ -286,6 +286,79 @@ Future<BsonBinary> findOne(
   return bin;
 }
 
+Future<BsonBinary> findOneAndDelete(
+  ObjectId collectionOid,
+  BsonBinary filter, {
+  RequestContext? requestContext,
+}) async {
+  final oid = collectionOid.toByteList();
+  final ctx = _getRequestContext(requestContext);
+
+  final request =
+      FindOneRequest(collectionOid: oid, context: ctx, filter: filter.byteList);
+  final response = await callGoFunc(
+    request: request,
+    goFunc: nl.findOneAndDelete,
+    responseToFill: ByteArrayMessage(),
+  );
+  final bin = BsonBinary.from(response.value);
+  return bin;
+}
+
+Future<BsonBinary> findOneAndUpdate(
+  ObjectId collectionOid,
+  BsonBinary filter,
+  BsonBinary update, {
+  UpdateOptions? options,
+  RequestContext? requestContext,
+}) async {
+  final oid = collectionOid.toByteList();
+  final ctx = _getRequestContext(requestContext);
+
+  final request = UpdateRequest(
+    collectionOid: oid,
+    context: ctx,
+    filter: filter.byteList,
+    update: update.byteList,
+    isUpsert: options?.isUpsert ?? false,
+  );
+
+  final response = await callGoFunc(
+    request: request,
+    goFunc: nl.findOneAndUpdate,
+    responseToFill: ByteArrayMessage(),
+  );
+  final bin = BsonBinary.from(response.value);
+  return bin;
+}
+
+Future<BsonBinary> findOneAndReplace(
+  ObjectId collectionOid,
+  BsonBinary filter,
+  BsonBinary replacement, {
+  UpdateOptions? options,
+  RequestContext? requestContext,
+}) async {
+  final oid = collectionOid.toByteList();
+  final ctx = _getRequestContext(requestContext);
+
+  final request = ReplaceRequest(
+    collectionOid: oid,
+    context: ctx,
+    filter: filter.byteList,
+    replacement: replacement.byteList,
+    isUpsert: options?.isUpsert ?? false,
+  );
+
+  final response = await callGoFunc(
+    request: request,
+    goFunc: nl.findOneAndReplace,
+    responseToFill: ByteArrayMessage(),
+  );
+  final bin = BsonBinary.from(response.value);
+  return bin;
+}
+
 Stream<Map<String, dynamic>> aggregate(
   ObjectId collectionOid,
   List<BsonBinary> pipeline, {

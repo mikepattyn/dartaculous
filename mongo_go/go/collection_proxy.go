@@ -103,6 +103,39 @@ func (c *CollectionProxy) FindOne(ctx context.Context, transactionProxy *Transac
 	})
 }
 
+func (c *CollectionProxy) FindOneAndDelete(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) ([]byte, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
+		sr := c.col.FindOneAndDelete(ctx, filter)
+		bytes, err := sr.DecodeBytes()
+		if err != nil {
+			return nil, err
+		}
+		return bytes, nil
+	})
+}
+
+func (c *CollectionProxy) FindOneAndUpdate(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.FindOneAndUpdateOptions) ([]byte, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
+		sr := c.col.FindOneAndUpdate(ctx, filter, update, opts...)
+		bytes, err := sr.DecodeBytes()
+		if err != nil {
+			return nil, err
+		}
+		return bytes, nil
+	})
+}
+
+func (c *CollectionProxy) FindOneAndReplace(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.FindOneAndReplaceOptions) ([]byte, error) {
+	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
+		sr := c.col.FindOneAndReplace(ctx, filter, update, opts...)
+		bytes, err := sr.DecodeBytes()
+		if err != nil {
+			return nil, err
+		}
+		return bytes, nil
+	})
+}
+
 func (c *CollectionProxy) Find(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) (*mongo.Cursor, error) {
 	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.Cursor, error) {
 		return c.col.Find(ctx, filter)

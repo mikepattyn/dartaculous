@@ -375,6 +375,63 @@ class LibMongoProxy {
   late final _findOne = _findOnePtr
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 
+  void findOneAndDelete(
+    int port,
+    ffi.Pointer<ffi.UnsignedChar> buffer,
+    int size,
+  ) {
+    return _findOneAndDelete(
+      port,
+      buffer,
+      size,
+    );
+  }
+
+  late final _findOneAndDeletePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
+              GoInt)>>('findOneAndDelete');
+  late final _findOneAndDelete = _findOneAndDeletePtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
+
+  void findOneAndUpdate(
+    int port,
+    ffi.Pointer<ffi.UnsignedChar> buffer,
+    int size,
+  ) {
+    return _findOneAndUpdate(
+      port,
+      buffer,
+      size,
+    );
+  }
+
+  late final _findOneAndUpdatePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
+              GoInt)>>('findOneAndUpdate');
+  late final _findOneAndUpdate = _findOneAndUpdatePtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
+
+  void findOneAndReplace(
+    int port,
+    ffi.Pointer<ffi.UnsignedChar> buffer,
+    int size,
+  ) {
+    return _findOneAndReplace(
+      port,
+      buffer,
+      size,
+    );
+  }
+
+  late final _findOneAndReplacePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
+              GoInt)>>('findOneAndReplace');
+  late final _findOneAndReplace = _findOneAndReplacePtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
+
   void find(
     int port,
     ffi.Pointer<ffi.UnsignedChar> buffer,

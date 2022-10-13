@@ -92,6 +92,87 @@ void main() {
       }, throwsA(const TypeMatcher<MongoNoDocumentsError>()));
     });
 
+    test('FindOneAndDelete Document', () async {
+      await collection.insertOne({'name': 'Alice', 'test': 'findOneAndDelete'});
+      await collection.insertOne({
+        'name': 'Bob',
+        'test': 'findOneAndDelete',
+        'height': 170,
+      });
+      await collection
+          .insertOne({'name': 'Charles', 'test': 'findOneAndDelete'});
+
+      final doc = await collection
+          .findOneAndDelete({'name': 'Bob', 'test': 'findOneAndDelete'});
+      final remaining =
+          await collection.find({'test': 'findOneAndDelete'}).toList();
+
+      expect(doc['name'], 'Bob');
+      expect(doc['height'], 170);
+      expect(remaining.length, 2);
+      expect(remaining.first['name'], 'Alice');
+      expect(remaining.last['name'], 'Charles');
+    });
+
+    test('FindOneAndUpdate Document', () async {
+      await collection.insertOne({'name': 'Alice', 'test': 'findOneAndUpdate'});
+      await collection.insertOne({
+        'name': 'Bob',
+        'test': 'findOneAndUpdate',
+        'height': 180,
+      });
+      await collection
+          .insertOne({'name': 'Charles', 'test': 'findOneAndUpdate'});
+
+      final doc = await collection.findOneAndUpdate({
+        'name': 'Bob',
+        'test': 'findOneAndUpdate'
+      }, {
+        r'$set': {'height': 190},
+      });
+      final all = await collection.find({'test': 'findOneAndUpdate'}).toList();
+
+      expect(doc['name'], 'Bob');
+      expect(doc['height'], 180);
+
+      expect(all.length, 3);
+      expect(all[0]['name'], 'Alice');
+      expect(all[1]['name'], 'Bob');
+      expect(all[1]['height'], 190);
+      expect(all[2]['name'], 'Charles');
+    });
+
+    test('FindOneAndReplace Document', () async {
+      await collection
+          .insertOne({'name': 'Alice', 'test': 'findOneAndReplace'});
+      await collection.insertOne({
+        'name': 'Bob',
+        'test': 'findOneAndReplace',
+        'height': 160,
+      });
+      await collection
+          .insertOne({'name': 'Charles', 'test': 'findOneAndReplace'});
+
+      final doc = await collection.findOneAndReplace({
+        'name': 'Bob',
+        'test': 'findOneAndReplace'
+      }, {
+        'name': 'Bob',
+        'test': 'findOneAndReplace',
+        'height': 150,
+      });
+      final all = await collection.find({'test': 'findOneAndReplace'}).toList();
+
+      expect(doc['name'], 'Bob');
+      expect(doc['height'], 160);
+
+      expect(all.length, 3);
+      expect(all[0]['name'], 'Alice');
+      expect(all[1]['name'], 'Bob');
+      expect(all[1]['height'], 150);
+      expect(all[2]['name'], 'Charles');
+    });
+
     test('Count Documents', () async {
       await collection.insertOne({'name': 'Alice', 'test': 'cntDocs'});
       await collection.insertOne({'name': 'Bob', 'test': 'cntDocs'});
@@ -669,7 +750,7 @@ void main() {
       expect(result.upsertedIds.length, 0);
     });
 
-    test('Bulk update one documents', () async {
+    test('Bulk update many documents', () async {
       await collection.insertOne({'name': 'Alice', 'test': 'bulk_update_many'});
       await collection.insertOne({'name': 'Bob', 'test': 'bulk_update_many'});
       await collection

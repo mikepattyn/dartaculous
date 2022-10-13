@@ -196,6 +196,64 @@ class Collection {
     return result;
   }
 
+  Future<Map<String, dynamic>> findOneAndDelete(
+    Map<String, dynamic> filter, {
+    Transaction? transaction,
+  }) async {
+    final bson = BSON();
+    final bytes = bson.serialize(filter);
+
+    final result = await p.findOneAndDelete(
+      collectionId,
+      bytes,
+      requestContext: transaction?.requestContext,
+    );
+
+    final ret = bson.deserialize(result);
+    return ret;
+  }
+
+  Future<Map<String, dynamic>> findOneAndUpdate(
+    Map<String, dynamic> filter,
+    Map<String, dynamic> update, {
+    UpdateOptions? options,
+    Transaction? transaction,
+  }) async {
+    final bson = BSON();
+    final filterBytes = bson.serialize(filter);
+    final updateBytes = bson.serialize(update);
+    final result = await p.findOneAndUpdate(
+      collectionId,
+      filterBytes,
+      updateBytes,
+      options: options,
+      requestContext: transaction?.requestContext,
+    );
+
+    final ret = bson.deserialize(result);
+    return ret;
+  }
+
+  Future<Map<String, dynamic>> findOneAndReplace(
+    Map<String, dynamic> filter,
+    Map<String, dynamic> update, {
+    UpdateOptions? options,
+    Transaction? transaction,
+  }) async {
+    final bson = BSON();
+    final filterBytes = bson.serialize(filter);
+    final updateBytes = bson.serialize(update);
+    final result = await p.findOneAndReplace(
+      collectionId,
+      filterBytes,
+      updateBytes,
+      options: options,
+      requestContext: transaction?.requestContext,
+    );
+    final ret = bson.deserialize(result);
+    return ret;
+  }
+
   Stream<Map<String, dynamic>> aggregate(
     List<Map<String, dynamic>> pipeline, {
     Transaction? transaction,

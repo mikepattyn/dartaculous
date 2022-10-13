@@ -425,9 +425,16 @@ func getUpdateOptions(request *mongo_stubs.UpdateRequest) *options.UpdateOptions
 		return nil
 	}
 	var t bool = true
-	opts := &options.UpdateOptions{
-		Upsert: &t,
+	opts := &options.UpdateOptions{Upsert: &t}
+	return opts
+}
+
+func getFindOneAndUpdateOptions(request *mongo_stubs.UpdateRequest) *options.FindOneAndUpdateOptions {
+	if !request.IsUpsert {
+		return nil
 	}
+	var t bool = true
+	opts := &options.FindOneAndUpdateOptions{Upsert: &t}
 	return opts
 }
 
@@ -437,6 +444,17 @@ func getReplaceOptions(request *mongo_stubs.ReplaceRequest) *options.ReplaceOpti
 	}
 	var t bool = true
 	opts := &options.ReplaceOptions{
+		Upsert: &t,
+	}
+	return opts
+}
+
+func getFindOneAndReplaceOptions(request *mongo_stubs.ReplaceRequest) *options.FindOneAndReplaceOptions {
+	if !request.IsUpsert {
+		return nil
+	}
+	var t bool = true
+	opts := &options.FindOneAndReplaceOptions{
 		Upsert: &t,
 	}
 	return opts
@@ -539,6 +557,97 @@ func findOne(port int64, buffer *C.uchar, size int) {
 		}
 
 		ffi.SendByteArrayMessage(port, bytes)
+	}()
+}
+
+//export findOneAndDelete
+func findOneAndDelete(port int64, buffer *C.uchar, size int) {
+	var request mongo_stubs.FindOneRequest
+	ffi.Unmarshal(unsafe.Pointer(buffer), size, &request)
+
+	go func() {
+		ctx := context.Background()
+		oid := helpers.BytesToOid(request.CollectionOid)
+
+		coll, err := cs.GetCollectionProxy(oid)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+		bytes, err := coll.FindOneAndDelete(ctx, trxProxy, request.Filter)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendByteArrayMessage(port, bytes)
+	}()
+}
+
+//export findOneAndUpdate
+func findOneAndUpdate(port int64, buffer *C.uchar, size int) {
+	var request mongo_stubs.UpdateRequest
+	ffi.Unmarshal(unsafe.Pointer(buffer), size, &request)
+
+	go func() {
+		ctx := context.Background()
+		oid := helpers.BytesToOid(request.CollectionOid)
+
+		coll, err := cs.GetCollectionProxy(oid)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+		opts := getFindOneAndUpdateOptions(&request)
+		bytes, err := coll.FindOneAndUpdate(ctx, trxProxy, request.Filter, request.Update, opts)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendByteArrayMessage(port, bytes)
+
+	}()
+}
+
+//export findOneAndReplace
+func findOneAndReplace(port int64, buffer *C.uchar, size int) {
+	var request mongo_stubs.ReplaceRequest
+	ffi.Unmarshal(unsafe.Pointer(buffer), size, &request)
+
+	go func() {
+		ctx := context.Background()
+		oid := helpers.BytesToOid(request.CollectionOid)
+
+		coll, err := cs.GetCollectionProxy(oid)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+		opts := getFindOneAndReplaceOptions(&request)
+		bytes, err := coll.FindOneAndReplace(ctx, trxProxy, request.Filter, request.Replacement, opts)
+		if err != nil {
+			helpers.SendErrorMessage(port, err)
+			return
+		}
+
+		ffi.SendByteArrayMessage(port, bytes)
+
 	}()
 }
 
