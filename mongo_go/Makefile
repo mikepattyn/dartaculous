@@ -18,6 +18,6 @@ clean: .PHONY
 	rm -rf ./lib/gen/*
 
 test: build
-	dart test
+	dart test -j1
 
 .PHONY:
