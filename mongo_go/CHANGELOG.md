@@ -1,3 +1,7 @@
+## 4.5.1
+
+ - **FIX**: Improved package description.
+
 ## 4.5.0
 
  - **FEAT**: Added findOneAndDelete, findOneAndUpdate findOneAndReplace.
