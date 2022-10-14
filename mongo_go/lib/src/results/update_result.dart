@@ -4,11 +4,22 @@ import 'package:meta/meta.dart';
 
 import '../proto.dart' as p;
 
+/// The result type returned from UpdateOne, UpdateMany, and
+/// ReplaceOne operations.
+///
+/// ## Reference
+/// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#UpdateResult.
 class UpdateResult {
+  /// The _id field of the upserted document, or null if no upsert was done.
   final dynamic upsertedId;
 
+  /// The number of documents matched by the filter.
   final int matchedCount;
+
+  /// The number of documents modified by the operation.
   final int modifiedCount;
+
+  /// The number of documents upserted by the operation.
   final int upsertedCount;
 
   UpdateResult({

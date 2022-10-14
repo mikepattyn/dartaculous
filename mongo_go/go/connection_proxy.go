@@ -108,6 +108,8 @@ func (c *ConnectionProxy) CloseSession(sessionOid primitive.ObjectID) error {
 	if !ok {
 		return errors.New("session not found")
 	}
+
+
 	delete(c.sessionProxies, sessionOid)
 	sess.Close()
 	return nil

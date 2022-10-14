@@ -1,6 +1,4 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+/// MongoDB driver based on the official GO SDK via Dart FFI meant to be used in Dart server-side code.
 library mongo_go;
 
 export 'src/connection.dart';

@@ -5,6 +5,11 @@ import '../proto.dart' as p;
 import 'bulk_write_model.dart';
 import '../extensions.dart';
 
+/// UpdateManyModel is used to update multiple documents in a BulkWrite
+/// operation.
+///
+/// ## Reference
+/// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#UpdateManyModel.
 class UpdateManyModel extends BulkWriteModel {
   bool? isUpsert;
   final Map<String, dynamic> update;

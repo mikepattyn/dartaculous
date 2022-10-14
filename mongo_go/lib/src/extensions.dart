@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:bson/bson.dart';
-import 'package:mongo_go/gen/google/protobuf/wrappers.pb.dart';
+import 'gen/google/protobuf/wrappers.pb.dart';
 import 'package:mongo_go/mongo_go.dart';
 import 'proto.dart' as p;
 

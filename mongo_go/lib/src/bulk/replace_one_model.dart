@@ -5,6 +5,11 @@ import '../proto.dart' as p;
 import 'bulk_write_model.dart';
 import '../extensions.dart';
 
+/// ReplaceOneModel is used to replace at most one document in a BulkWrite
+/// operation.
+///
+/// ## Reference
+/// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#ReplaceOneModel.
 class ReplaceOneModel extends BulkWriteModel {
   bool? isUpsert;
   final Map<String, dynamic> replacement;

@@ -4,6 +4,11 @@ import 'package:meta/meta.dart';
 import '../proto.dart' as p;
 import 'bulk_write_model.dart';
 
+/// DeleteOneModel is used to delete at most one document in a
+/// BulkWriteOperation.
+///
+/// ## Reference
+/// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#DeleteOneModel.
 class DeleteOneModel extends BulkWriteModel {
   final Map<String, dynamic>? filter;
   final Map<String, dynamic>? hint;

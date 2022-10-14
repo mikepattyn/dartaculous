@@ -6,6 +6,9 @@ import 'package:mongo_go/src/extensions.dart';
 import 'package:mongo_go/src/mongo_go.dart' as p;
 import 'proto.dart';
 
+/// Represents a transaction.
+///
+/// Use this transaction as a token to represent a transaction context.
 class Transaction {
   final ObjectId transactionId;
   final Session session;

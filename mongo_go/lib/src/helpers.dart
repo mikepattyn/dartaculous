@@ -1,5 +1,5 @@
 import 'dart:ffi';
-import 'package:mongo_go/gen/google/protobuf/wrappers.pb.dart';
+import 'gen/google/protobuf/wrappers.pb.dart';
 import 'package:mongo_go/mongo_go.dart';
 import 'package:mongo_go/src/proto.dart' as p;
 import 'package:protobuf/protobuf.dart';

@@ -29,6 +29,13 @@ type SessionProxy struct {
 }
 
 func (s *SessionProxy) Close() {
+	resultChan := make(chan interface{})
+	s.callbackChannel <- func(sess mongo.Session) {
+		sess.EndSession(context.Background())
+		resultChan <- true
+	}
+	<-resultChan
+
 	close(s.callbackChannel)
 }
 

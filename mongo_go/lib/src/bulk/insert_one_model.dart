@@ -4,6 +4,10 @@ import 'package:meta/meta.dart';
 import '../proto.dart' as p;
 import 'bulk_write_model.dart';
 
+/// InsertOneModel is used to insert a single document in a BulkWrite operation.
+///
+/// ## Reference
+/// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#InsertOneModel.
 class InsertOneModel extends BulkWriteModel {
   final Map<String, dynamic> document;
   InsertOneModel({

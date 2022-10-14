@@ -3,6 +3,10 @@ import 'package:meta/meta.dart';
 
 import '../proto.dart' as p;
 
+/// The result type returned by an InsertOne operation.
+///
+/// ## Reference
+/// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#InsertOneResult.
 class InsertOneResult {
   final dynamic insertedId;
   InsertOneResult({

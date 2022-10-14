@@ -22,7 +22,7 @@ include: package:lints/recommended.yaml
 analyzer:
   exclude:
     - 'lib/src/lib_mongo_go.dart'
-    - 'lib/gen/**.dart'
+    - 'lib/src/gen/**.dart'
 
 # For more information about the core and recommended set of lints, see
 # https://dart.dev/go/core-lints
