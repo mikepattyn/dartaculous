@@ -1,3 +1,7 @@
+## 4.5.0
+
+ - **FEAT**: Added findOneAndDelete, findOneAndUpdate findOneAndReplace.
+
 ## 4.4.0
 
  - **FEAT**: Added Collection.estimatedDocumentCount method.
