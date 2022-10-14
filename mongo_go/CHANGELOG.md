@@ -1,3 +1,7 @@
+## 4.6.0
+
+ - **FEAT**: Added documentation to mongo_go.
+
 ## 4.5.1
 
  - **FIX**: Improved package description.
