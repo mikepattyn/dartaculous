@@ -110,3 +110,10 @@ enum MessageStatus {
   processing,
   processed
 }
+
+@mapMapped
+class MessageRecord {
+
+  late Map<String, Message> messages;
+
+}

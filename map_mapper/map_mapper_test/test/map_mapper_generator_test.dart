@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:decimal/decimal.dart';
 import 'package:map_mapper_generator_test/map_mapper_generator_test.dart';
+import 'package:map_mapper_generator_test/src/events.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -247,6 +250,35 @@ void main() {
       expect(map['ingredients'][0]['_key'], recipe.ingredients.first.key);
       expect(map['ingredients'][0]['mainComponentKey'],
           recipe.ingredients.first.mainComponentKey);
+    });
+  });
+
+  group('Map<?,?> field tests', () {
+
+    test('toMap() should be "json encodable"', () {
+      final record = MessageRecord();
+      record.messages = {
+        "test": Event(
+            messageId: "messageId",
+            timestamp: DateTime.now(),
+            aggregateId: AggregateId.of("id", "type"),
+            payloadType: "payloadType",
+            payload: "payload",
+            status: MessageStatus.notProcessed)
+      };
+      final map = record.toMap();
+      final jsonMap = json.encode(map);
+      expect(jsonMap, isNotEmpty);
+      expect(jsonMap, contains(r'{"messages":{"test":{"$type":"Event","messageId":"messageId"'));
+    });
+
+    test('fromMap() should be able to process json string decoded maps', () {
+      final jsonMap = jsonDecode(r'{"messages":{"test":{"$type":"Event","messageId":"messageId","aggregateId":{"id":"id","type":"type"},"timestamp":1666185218300228,"payloadType":"payloadType","payload":"payload","status":"notProcessed"}}}');
+      final record = $MessageRecordMapMapper().fromMap(jsonMap);
+      expect(record.messages, contains('test'));
+      expect(record.messages['test']!.aggregateId!.id, equals("id"));
+      expect(record.messages['test']!.payloadType, equals('payloadType'));
+      expect(record.messages['test']!.payload, equals('payload'));
     });
   });
 }

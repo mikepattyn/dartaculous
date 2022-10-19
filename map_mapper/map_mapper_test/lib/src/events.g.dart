@@ -437,6 +437,56 @@ class $IntegrationEventFieldNames {
   String toString() => fieldName;
 }
 
+class $MessageRecordMapMapper extends MapMapper<MessageRecord> {
+  const $MessageRecordMapMapper();
+  static const $type = 'MessageRecord';
+
+  @override
+  MessageRecord fromMap(Map<String, dynamic> map) {
+    return MessageRecord()
+      ..messages = (map['messages'] as Map<String, dynamic>)
+          .map((k, v) => MapEntry(k, $MessageMapMapper().fromMap(v)));
+  }
+
+  @override
+  Map<String, dynamic> toMap(MessageRecord instance) {
+    final map = <String, dynamic>{};
+
+    map['messages'] = instance.messages
+        .map((k, v) => MapEntry(k, $MessageMapMapper().toMap(v)));
+
+    return map;
+  }
+}
+
+extension $MessageRecordMapExtension on MessageRecord {
+  Map<String, dynamic> toMap() => const $MessageRecordMapMapper().toMap(this);
+  static MessageRecord fromMap(Map<String, dynamic> map) =>
+      const $MessageRecordMapMapper().fromMap(map);
+}
+
+extension $MapMessageRecordExtension on Map<String, dynamic> {
+  MessageRecord toMessageRecord() =>
+      const $MessageRecordMapMapper().fromMap(this);
+}
+
+class $MessageRecordFieldNames {
+  final String fieldName;
+  final String prefix;
+
+  $MessageRecordFieldNames.sub(this.fieldName) : prefix = '$fieldName.';
+
+  const $MessageRecordFieldNames()
+      : fieldName = '',
+        prefix = '';
+
+  static const _messages = 'messages';
+  String get messages => prefix + _messages;
+
+  @override
+  String toString() => fieldName;
+}
+
 class $MessageStatusMapMapper {
   const $MessageStatusMapMapper();
   MessageStatus fromMap(dynamic e) => MessageStatus.values[e];

@@ -1,6 +1,7 @@
 import 'package:decimal/decimal.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:map_mapper_generator/src/field_code_generators/key_field_code_generator.dart';
+import 'package:map_mapper_generator/src/field_code_generators/map_field_code_generator.dart';
 import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 import 'field_code_generators/date_time/iso8601_date_time_field_code_generator.dart';
 import 'field_code_generators/date_time/microseconds_date_time_field_code_generator.dart';
@@ -104,6 +105,9 @@ abstract class FieldCodeGenerator {
     }
     if (fieldDescriptor.typeHasMapMapAnnotation) {
       return EntityFieldCodeGenerator(fieldDescriptor, hasDefaultsProvider);
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreMap) {
+      return MapFieldCodeGenerator(fieldDescriptor, hasDefaultsProvider);
     }
     if (fieldDescriptor.fieldElementType.isDartCoreSet) {
       return SetFieldCodeGenerator(fieldDescriptor, hasDefaultsProvider);
