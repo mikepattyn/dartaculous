@@ -444,16 +444,26 @@ class $MessageRecordMapMapper extends MapMapper<MessageRecord> {
   @override
   MessageRecord fromMap(Map<String, dynamic> map) {
     return MessageRecord()
-      ..messages = (map['messages'] as Map<String, dynamic>)
-          .map((k, v) => MapEntry(k, $MessageMapMapper().fromMap(v)));
+      ..messageMap = (map['messageMap'] as Map<String, dynamic>)
+          .map((k, v) => MapEntry(k, $MessageMapMapper().fromMap(v)))
+      ..messageList = List<Message>.unmodifiable(
+          map['messageList'].map((e) => const $MessageMapMapper().fromMap(e)))
+      ..messageSet = Set<Message>.unmodifiable(List<Message>.from(
+          map['messageSet'].map((e) => const $MessageMapMapper().fromMap(e))));
   }
 
   @override
   Map<String, dynamic> toMap(MessageRecord instance) {
     final map = <String, dynamic>{};
 
-    map['messages'] = instance.messages
+    map['messageMap'] = instance.messageMap
         .map((k, v) => MapEntry(k, $MessageMapMapper().toMap(v)));
+    map['messageList'] = instance.messageList
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
+    map['messageSet'] = instance.messageSet
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
 
     return map;
   }
@@ -480,8 +490,285 @@ class $MessageRecordFieldNames {
       : fieldName = '',
         prefix = '';
 
-  static const _messages = 'messages';
-  String get messages => prefix + _messages;
+  static const _messageMap = 'messageMap';
+  String get messageMap => prefix + _messageMap;
+  static const _messageList = 'messageList';
+  $MessageFieldNames get messageList =>
+      $MessageFieldNames.sub(prefix + _messageList);
+
+  static const _messageSet = 'messageSet';
+  $MessageFieldNames get messageSet =>
+      $MessageFieldNames.sub(prefix + _messageSet);
+
+  @override
+  String toString() => fieldName;
+}
+
+class $MessageRecord2MapMapper extends MapMapper<MessageRecord2> {
+  const $MessageRecord2MapMapper();
+  static const $type = 'MessageRecord2';
+
+  @override
+  MessageRecord2 fromMap(Map<String, dynamic> map) {
+    return MessageRecord2()
+      ..messageMap = (map['messageMap'] as Map<String, dynamic>)
+          .map((k, v) => MapEntry(k, $MessageMapMapper().fromMap(v)))
+      ..messageList = List<Message>.unmodifiable(
+          map['messageList'].map((e) => const $MessageMapMapper().fromMap(e)))
+      ..messageSet = Set<Message>.unmodifiable(List<Message>.from(
+          map['messageSet'].map((e) => const $MessageMapMapper().fromMap(e))));
+  }
+
+  @override
+  Map<String, dynamic> toMap(MessageRecord2 instance) {
+    final map = <String, dynamic>{};
+
+    map['messageMap'] = instance.messageMap
+        .map((k, v) => MapEntry(k, $MessageMapMapper().toMap(v)));
+    map['messageList'] = instance.messageList
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
+    map['messageSet'] = instance.messageSet
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
+
+    return map;
+  }
+}
+
+extension $MessageRecord2MapExtension on MessageRecord2 {
+  Map<String, dynamic> toMap() => const $MessageRecord2MapMapper().toMap(this);
+  static MessageRecord2 fromMap(Map<String, dynamic> map) =>
+      const $MessageRecord2MapMapper().fromMap(map);
+}
+
+extension $MapMessageRecord2Extension on Map<String, dynamic> {
+  MessageRecord2 toMessageRecord2() =>
+      const $MessageRecord2MapMapper().fromMap(this);
+}
+
+class $MessageRecord2FieldNames {
+  final String fieldName;
+  final String prefix;
+
+  $MessageRecord2FieldNames.sub(this.fieldName) : prefix = '$fieldName.';
+
+  const $MessageRecord2FieldNames()
+      : fieldName = '',
+        prefix = '';
+
+  static const _messageMap = 'messageMap';
+  String get messageMap => prefix + _messageMap;
+  static const _messageList = 'messageList';
+  $MessageFieldNames get messageList =>
+      $MessageFieldNames.sub(prefix + _messageList);
+
+  static const _messageSet = 'messageSet';
+  $MessageFieldNames get messageSet =>
+      $MessageFieldNames.sub(prefix + _messageSet);
+
+  @override
+  String toString() => fieldName;
+}
+
+class $MessageRecord3MapMapper extends MapMapper<MessageRecord3> {
+  const $MessageRecord3MapMapper();
+  static const $type = 'MessageRecord3';
+
+  @override
+  MessageRecord3 fromMap(Map<String, dynamic> map) {
+    return MessageRecord3()
+      ..messageMap.addAll((map['messageMap'] as Map<String, dynamic>)
+          .map((k, v) => MapEntry(k, $MessageMapMapper().fromMap(v))))
+      ..messageList.addAll(List<Message>.unmodifiable(
+          map['messageList'].map((e) => const $MessageMapMapper().fromMap(e))))
+      ..messageSet.addAll(Set<Message>.unmodifiable(List<Message>.from(
+          map['messageSet'].map((e) => const $MessageMapMapper().fromMap(e)))));
+  }
+
+  @override
+  Map<String, dynamic> toMap(MessageRecord3 instance) {
+    final map = <String, dynamic>{};
+
+    map['messageMap'] = instance.messageMap
+        .map((k, v) => MapEntry(k, $MessageMapMapper().toMap(v)));
+    map['messageList'] = instance.messageList
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
+    map['messageSet'] = instance.messageSet
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
+
+    return map;
+  }
+}
+
+extension $MessageRecord3MapExtension on MessageRecord3 {
+  Map<String, dynamic> toMap() => const $MessageRecord3MapMapper().toMap(this);
+  static MessageRecord3 fromMap(Map<String, dynamic> map) =>
+      const $MessageRecord3MapMapper().fromMap(map);
+}
+
+extension $MapMessageRecord3Extension on Map<String, dynamic> {
+  MessageRecord3 toMessageRecord3() =>
+      const $MessageRecord3MapMapper().fromMap(this);
+}
+
+class $MessageRecord3FieldNames {
+  final String fieldName;
+  final String prefix;
+
+  $MessageRecord3FieldNames.sub(this.fieldName) : prefix = '$fieldName.';
+
+  const $MessageRecord3FieldNames()
+      : fieldName = '',
+        prefix = '';
+
+  static const _messageMap = 'messageMap';
+  String get messageMap => prefix + _messageMap;
+  static const _messageList = 'messageList';
+  $MessageFieldNames get messageList =>
+      $MessageFieldNames.sub(prefix + _messageList);
+
+  static const _messageSet = 'messageSet';
+  $MessageFieldNames get messageSet =>
+      $MessageFieldNames.sub(prefix + _messageSet);
+
+  @override
+  String toString() => fieldName;
+}
+
+class $MessageRecord4MapMapper extends MapMapper<MessageRecord4> {
+  const $MessageRecord4MapMapper();
+  static const $type = 'MessageRecord4';
+
+  @override
+  MessageRecord4 fromMap(Map<String, dynamic> map) {
+    return MessageRecord4(
+      (map['messageMap'] as Map<String, dynamic>)
+          .map((k, v) => MapEntry(k, $MessageMapMapper().fromMap(v))),
+      List<Message>.unmodifiable(
+          map['messageList'].map((e) => const $MessageMapMapper().fromMap(e))),
+      Set<Message>.unmodifiable(List<Message>.from(
+          map['messageSet'].map((e) => const $MessageMapMapper().fromMap(e)))),
+    );
+  }
+
+  @override
+  Map<String, dynamic> toMap(MessageRecord4 instance) {
+    final map = <String, dynamic>{};
+
+    map['messageMap'] = instance.messageMap
+        .map((k, v) => MapEntry(k, $MessageMapMapper().toMap(v)));
+    map['messageList'] = instance.messageList
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
+    map['messageSet'] = instance.messageSet
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
+
+    return map;
+  }
+}
+
+extension $MessageRecord4MapExtension on MessageRecord4 {
+  Map<String, dynamic> toMap() => const $MessageRecord4MapMapper().toMap(this);
+  static MessageRecord4 fromMap(Map<String, dynamic> map) =>
+      const $MessageRecord4MapMapper().fromMap(map);
+}
+
+extension $MapMessageRecord4Extension on Map<String, dynamic> {
+  MessageRecord4 toMessageRecord4() =>
+      const $MessageRecord4MapMapper().fromMap(this);
+}
+
+class $MessageRecord4FieldNames {
+  final String fieldName;
+  final String prefix;
+
+  $MessageRecord4FieldNames.sub(this.fieldName) : prefix = '$fieldName.';
+
+  const $MessageRecord4FieldNames()
+      : fieldName = '',
+        prefix = '';
+
+  static const _messageMap = 'messageMap';
+  String get messageMap => prefix + _messageMap;
+  static const _messageList = 'messageList';
+  $MessageFieldNames get messageList =>
+      $MessageFieldNames.sub(prefix + _messageList);
+
+  static const _messageSet = 'messageSet';
+  $MessageFieldNames get messageSet =>
+      $MessageFieldNames.sub(prefix + _messageSet);
+
+  @override
+  String toString() => fieldName;
+}
+
+class $MessageRecord5MapMapper extends MapMapper<MessageRecord5> {
+  const $MessageRecord5MapMapper();
+  static const $type = 'MessageRecord5';
+
+  @override
+  MessageRecord5 fromMap(Map<String, dynamic> map) {
+    return MessageRecord5(
+      messageMap: (map['messageMap'] as Map<String, dynamic>)
+          .map((k, v) => MapEntry(k, $MessageMapMapper().fromMap(v))),
+      messageList: List<Message>.unmodifiable(
+          map['messageList'].map((e) => const $MessageMapMapper().fromMap(e))),
+      messageSet: Set<Message>.unmodifiable(List<Message>.from(
+          map['messageSet'].map((e) => const $MessageMapMapper().fromMap(e)))),
+    );
+  }
+
+  @override
+  Map<String, dynamic> toMap(MessageRecord5 instance) {
+    final map = <String, dynamic>{};
+
+    map['messageMap'] = instance.messageMap
+        .map((k, v) => MapEntry(k, $MessageMapMapper().toMap(v)));
+    map['messageList'] = instance.messageList
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
+    map['messageSet'] = instance.messageSet
+        .map((e) => const $MessageMapMapper().toMap(e))
+        .toList();
+
+    return map;
+  }
+}
+
+extension $MessageRecord5MapExtension on MessageRecord5 {
+  Map<String, dynamic> toMap() => const $MessageRecord5MapMapper().toMap(this);
+  static MessageRecord5 fromMap(Map<String, dynamic> map) =>
+      const $MessageRecord5MapMapper().fromMap(map);
+}
+
+extension $MapMessageRecord5Extension on Map<String, dynamic> {
+  MessageRecord5 toMessageRecord5() =>
+      const $MessageRecord5MapMapper().fromMap(this);
+}
+
+class $MessageRecord5FieldNames {
+  final String fieldName;
+  final String prefix;
+
+  $MessageRecord5FieldNames.sub(this.fieldName) : prefix = '$fieldName.';
+
+  const $MessageRecord5FieldNames()
+      : fieldName = '',
+        prefix = '';
+
+  static const _messageMap = 'messageMap';
+  String get messageMap => prefix + _messageMap;
+  static const _messageList = 'messageList';
+  $MessageFieldNames get messageList =>
+      $MessageFieldNames.sub(prefix + _messageList);
+
+  static const _messageSet = 'messageSet';
+  $MessageFieldNames get messageSet =>
+      $MessageFieldNames.sub(prefix + _messageSet);
 
   @override
   String toString() => fieldName;

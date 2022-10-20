@@ -86,15 +86,27 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       var toMapMap = fieldCodeGenerator.toMapMap;
       toMapFieldBuffer.writeln(toMapMap);
 
-      if (fieldDescriptor.isFinal) {
-        // Skip final fields
-      } else if (constructor.parameters
-          .where((p) => p.name == fieldDescriptor.name)
-          .isNotEmpty) {
-        // Skip fields that are already set in the constructor
-      } else {
+      // Skip the field in fromMap() if already set in the constructor, or if final
+      var setInConstructor = _fieldAlreadySetInConstructor(constructor, fieldDescriptor);
+      bool skipField = fieldDescriptor.isFinal || setInConstructor;
+      if (!skipField) {
         var fromMapMap = fieldCodeGenerator.fromMapMap;
         fromMapFieldBuffer.writeln(fromMapMap);
+      } else if (!setInConstructor) {
+        // final fields that aren't yet set in the constructor, can still be late
+        if (fieldDescriptor.isLate) {
+          var fromMapMap = fieldCodeGenerator.fromMapMap;
+          fromMapFieldBuffer.writeln(fromMapMap);
+        } else {
+          // or already an initialized map, list or set to which we can append
+          if (fieldDescriptor.hasInitializer &&
+              (fieldDescriptor.fieldElementType.isDartCoreMap ||
+                  fieldDescriptor.fieldElementType.isDartCoreList ||
+                  fieldDescriptor.fieldElementType.isDartCoreSet)) {
+            final fromMapMap = fieldCodeGenerator.fromMapMap.replaceAll(' = ', '.addAll(');
+            fromMapFieldBuffer.writeln('$fromMapMap)');
+          }
+        }
       }
 
       fieldNamesBuffer.writeln(fieldCodeGenerator.fieldNamesClassFieldName);
@@ -114,6 +126,12 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     );
 
     return ret;
+  }
+
+  bool _fieldAlreadySetInConstructor(ConstructorElement constructor, FieldDescriptor fieldDescriptor) {
+    return constructor.parameters
+        .where((p) => p.name == fieldDescriptor.name)
+        .isNotEmpty;
   }
 
   String _renderMapper(

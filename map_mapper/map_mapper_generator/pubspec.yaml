@@ -20,6 +20,6 @@ dev_dependencies:
   lints: ^2.0.0
 
 
-# dependency_overrides:
-#   map_mapper_annotations:
-#       path: ../map_mapper_annotations
+dependency_overrides:
+  squarealfa_generators_common:
+    path: ../../generators_common

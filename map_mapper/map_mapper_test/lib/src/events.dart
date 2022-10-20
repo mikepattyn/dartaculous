@@ -114,6 +114,48 @@ enum MessageStatus {
 @mapMapped
 class MessageRecord {
 
-  late Map<String, Message> messages;
+  late Map<String, Message> messageMap;
+  late List<Message> messageList;
+  late Set<Message> messageSet;
+
+}
+
+@mapMapped
+class MessageRecord2 {
+
+  late final Map<String, Message> messageMap;
+  late final List<Message> messageList;
+  late final Set<Message> messageSet;
+
+}
+
+@mapMapped
+class MessageRecord3 {
+
+  final Map<String, Message> messageMap = {};
+  final List<Message> messageList = [];
+  final Set<Message> messageSet = {};
+
+}
+
+@mapMapped
+class MessageRecord4 {
+
+  final Map<String, Message> messageMap;
+  final List<Message> messageList;
+  final Set<Message> messageSet;
+
+  MessageRecord4(this.messageMap, this.messageList, this.messageSet);
+
+}
+
+@mapMapped
+class MessageRecord5 {
+
+  final Map<String, Message> messageMap;
+  final List<Message> messageList;
+  final Set<Message> messageSet;
+
+  MessageRecord5({required this.messageMap, required this.messageList, required this.messageSet});
 
 }
