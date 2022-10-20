@@ -154,6 +154,8 @@ abstract class ${serviceClassName}ClientBase implements $className {
         ),
         displayName: parm.displayName,
         isFinal: true,
+        isLate: false,
+        hasInitializer: false,
         name: parm.name,
         fieldElementType: type,
       );
@@ -213,6 +215,8 @@ abstract class ${serviceClassName}ClientBase implements $className {
       ),
       displayName: 'value',
       isFinal: true,
+      isLate: false,
+      hasInitializer: false,
       name: 'value',
       fieldElementType: futureType,
     );

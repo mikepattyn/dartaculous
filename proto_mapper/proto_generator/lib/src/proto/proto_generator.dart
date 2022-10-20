@@ -223,6 +223,8 @@ message Nullable$prefix$className
           name: ksc.getDisplayString(withNullability: false),
           fieldElementType: ksc,
           isFinal: true,
+          isLate: false,
+          hasInitializer: false,
           protoFieldAnnotation: ProtoField(number: lineNumber++),
         );
         return fd;
