@@ -61,41 +61,33 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     var declareKh = false;
 
     // let's get all the constructors which cover all non-nullable final fields
-    final missingFields = <String>{};
-    final constructors = classElement.getConstructorsMatchingFields(
-        fieldDescriptors: fieldDescriptors,
-        allowMissingFields: true,
-        missingFields: missingFields);
-    // let's just pick the first of the valid constructors
-    final constructor = constructors.isEmpty
-        ? throw InvalidGenerationSourceError(
-            'Cannot generate proto mapper for class ${classElement.name} because it is missing a constructor that covers all final properties.\n'
-            '\tMissing fields: $missingFields')
-        : constructors.first;
+    final constructor = _getConstructor(classElement, fieldDescriptors);
 
     // Set up constructor
     // final constructorFieldBuffer = StringBuffer();
-    _buildConstructorBuffer(constructor, fieldDescriptors.toList(),
-        constructorFieldBuffer, readAnnotation.mapMapped.useDefaultsProvider);
+    _buildConstructorBuffer(
+      constructor,
+      fieldDescriptors.toList(),
+      constructorFieldBuffer,
+      readAnnotation.mapMapped.useDefaultsProvider,
+    );
 
     for (var fieldDescriptor in fieldDescriptors) {
-      var fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
-          fieldDescriptor, hasDefaultsProvider);
-      declareKh = declareKh || fieldCodeGenerator.usesKh;
+      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+        fieldDescriptor,
+        hasDefaultsProvider,
+      );
+      declareKh |= fieldCodeGenerator.usesKh;
 
       var toMapMap = fieldCodeGenerator.toMapMap;
       toMapFieldBuffer.writeln(toMapMap);
 
-      if (fieldDescriptor.isFinal) {
-        // Skip final fields
-      } else if (constructor.parameters
-          .where((p) => p.name == fieldDescriptor.name)
-          .isNotEmpty) {
-        // Skip fields that are already set in the constructor
-      } else {
-        var fromMapMap = fieldCodeGenerator.fromMapMap;
-        fromMapFieldBuffer.writeln(fromMapMap);
-      }
+      _writeFieldToFromMapFieldBuffer(
+        constructor,
+        fieldDescriptor,
+        fieldCodeGenerator,
+        fromMapFieldBuffer,
+      );
 
       fieldNamesBuffer.writeln(fieldCodeGenerator.fieldNamesClassFieldName);
       fieldNamesBuffer.writeln(fieldCodeGenerator.fieldNamesClassGetter);
@@ -114,6 +106,65 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     );
 
     return ret;
+  }
+
+  void _writeFieldToFromMapFieldBuffer(
+    ConstructorElement constructor,
+    FieldDescriptor fieldDescriptor,
+    FieldCodeGenerator fieldCodeGenerator,
+    StringBuffer fromMapFieldBuffer,
+  ) {
+    // Skip the field in fromMap() if already set in the constructor, or if final
+    final setInConstructor =
+        _fieldAlreadySetInConstructor(constructor, fieldDescriptor);
+
+    if (setInConstructor) return;
+
+    if (!fieldDescriptor.isFinal) {
+      var fromMapMap = fieldCodeGenerator.fromMapMap;
+      fromMapFieldBuffer.writeln(fromMapMap);
+      return;
+    }
+
+    // final fields that aren't yet set in the constructor, can still be late
+    if (fieldDescriptor.isLate) {
+      var fromMapMap = fieldCodeGenerator.fromMapMap;
+      fromMapFieldBuffer.writeln(fromMapMap);
+      return;
+    }
+
+    // or already an initialized map, list or set to which we can append
+    if (fieldDescriptor.hasInitializer &&
+        (fieldDescriptor.fieldElementType.isDartCoreMap ||
+            fieldDescriptor.fieldElementType.isDartCoreList ||
+            fieldDescriptor.fieldElementType.isDartCoreSet)) {
+      final fromMapMap =
+          fieldCodeGenerator.fromMapMap.replaceAll(' = ', '.addAll(');
+      fromMapFieldBuffer.writeln('$fromMapMap)');
+    }
+  }
+
+  ConstructorElement _getConstructor(
+      ClassElement classElement, Iterable<FieldDescriptor> fieldDescriptors) {
+    final missingFields = <String>{};
+    final constructors = classElement.getConstructorsMatchingFields(
+        fieldDescriptors: fieldDescriptors,
+        allowMissingFields: true,
+        missingFields: missingFields);
+    // let's just pick the first of the valid constructors
+    final constructor = constructors.isEmpty
+        ? throw InvalidGenerationSourceError(
+            'Cannot generate proto mapper for class ${classElement.name} because it is missing a constructor that covers all final properties.\n'
+            '\tMissing fields: $missingFields')
+        : constructors.first;
+    return constructor;
+  }
+
+  bool _fieldAlreadySetInConstructor(
+      ConstructorElement constructor, FieldDescriptor fieldDescriptor) {
+    return constructor.parameters
+        .where((p) => p.name == fieldDescriptor.name)
+        .isNotEmpty;
   }
 
   String _renderMapper(
@@ -230,10 +281,11 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
   }
 
   void _buildConstructorBuffer(
-      ConstructorElement constructor,
-      List<FieldDescriptor> fromFieldDescriptors,
-      StringBuffer constructorFieldBuffer,
-      bool hasDefaultsProvider) {
+    ConstructorElement constructor,
+    List<FieldDescriptor> fromFieldDescriptors,
+    StringBuffer constructorFieldBuffer,
+    bool hasDefaultsProvider,
+  ) {
     for (var constructorParameter in constructor.parameters) {
       final fieldDescriptorList = fromFieldDescriptors
           .where((element) => element.name == constructorParameter.name);

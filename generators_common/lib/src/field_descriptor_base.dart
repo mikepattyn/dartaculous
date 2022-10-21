@@ -8,12 +8,16 @@ class FieldDescriptorBase {
       : displayName = fieldElement.displayName,
         name = fieldElement.name,
         isFinal = fieldElement.isFinal,
+        isLate = fieldElement.isLate,
+        hasInitializer = fieldElement.hasInitializer,
         fieldElementType = fieldElement.type;
 
   FieldDescriptorBase({
     required this.displayName,
     required this.name,
     required this.isFinal,
+    required this.isLate,
+    required this.hasInitializer,
     required this.fieldElementType,
   });
 
@@ -23,6 +27,10 @@ class FieldDescriptorBase {
   final String name;
 
   final bool isFinal;
+
+  final bool isLate;
+
+  final bool hasInitializer;
 
   /// Gets a non-nullable value representation of the field.
   ///

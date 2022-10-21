@@ -17,6 +17,8 @@ class FieldDescriptor extends FieldDescriptorBase {
     required String displayName,
     required String name,
     required bool isFinal,
+    required bool isLate,
+    required bool hasInitializer,
     required DartType fieldElementType,
     this.protoFieldAnnotation,
     this.protoIgnoreAnnotation,
@@ -25,6 +27,8 @@ class FieldDescriptor extends FieldDescriptorBase {
           displayName: displayName,
           name: name,
           isFinal: isFinal,
+          isLate: isLate,
+          hasInitializer: hasInitializer,
           fieldElementType: fieldElementType,
         );
 

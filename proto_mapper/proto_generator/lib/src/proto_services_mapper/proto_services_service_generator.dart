@@ -191,6 +191,8 @@ class _Generator extends ProtoServicesGeneratorBase {
       ),
       displayName: 'value',
       isFinal: true,
+      isLate: false,
+      hasInitializer: false,
       name: 'value',
       fieldElementType: futureType,
     );
@@ -237,6 +239,8 @@ class _Generator extends ProtoServicesGeneratorBase {
         ),
         displayName: parm.displayName,
         isFinal: true,
+        isLate: false,
+        hasInitializer: false,
         name: parm.name,
         fieldElementType: type,
       );

@@ -78,18 +78,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     final constructorFieldBuffer = StringBuffer();
 
     // let's get all the constructors which cover all non-nullable final fields
-    final missingFields = <String>{};
-    final constructors = classElement.getConstructorsMatchingFields(
-      fieldDescriptors: fieldDescriptors,
-      allowMissingFields: mapProto.allowMissingFields,
-      missingFields: missingFields,
-    );
-    // let's just pick the first of the valid constructors
-    final constructor = constructors.isEmpty
-        ? throw InvalidGenerationSourceError(
-            'Cannot generate proto mapper for class ${classElement.name} because it is missing a constructor that covers all final properties.\n'
-            '\tMissing fields: $missingFields')
-        : constructors.first;
+    final constructor = _getConstructor(classElement, fieldDescriptors, mapProto);
 
     // generate the mapping for the constructor, consuming all
     // the fields that are set by the constructor
@@ -128,6 +117,22 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       fromKnownSubclasses: fromKnownSubClasses,
     );
     return renderParms;
+  }
+
+  ConstructorElement _getConstructor(ClassElement classElement, Iterable<FieldDescriptor> fieldDescriptors, MapProto mapProto) {
+    final missingFields = <String>{};
+    final constructors = classElement.getConstructorsMatchingFields(
+      fieldDescriptors: fieldDescriptors,
+      allowMissingFields: mapProto.allowMissingFields,
+      missingFields: missingFields,
+    );
+    // let's just pick the first of the valid constructors
+    final constructor = constructors.isEmpty
+        ? throw InvalidGenerationSourceError(
+            'Cannot generate proto mapper for class ${classElement.name} because it is missing a constructor that covers all final properties.\n'
+            '\tMissing fields: $missingFields')
+        : constructors.first;
+    return constructor;
   }
 
   void _buildConstructorBuffer(

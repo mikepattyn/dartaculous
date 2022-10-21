@@ -203,6 +203,8 @@ $fieldDeclarations}
       ),
       displayName: 'value',
       isFinal: true,
+      isLate: false,
+      hasInitializer: false,
       name: 'value',
       fieldElementType: type,
     );
@@ -223,6 +225,8 @@ $fieldDeclarations}
               displayName: p.displayName,
               fieldElementType: p.type,
               isFinal: true,
+              isLate: false,
+              hasInitializer: false,
               name: p.name,
             ))
         .toList();
