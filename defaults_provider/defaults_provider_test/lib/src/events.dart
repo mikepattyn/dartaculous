@@ -139,3 +139,15 @@ abstract class Payload {
 class ConcretePayload {
   late String value;
 }
+
+/// Abstract parent class without any (constructor) fields should not result in
+/// `_superDefaultsProvider` being generated for children...
+@defaultsProvider
+abstract class ParentWithoutFields {
+  String get one;
+}
+
+@defaultsProvider
+class ChildOfParentWithoutFields extends ParentWithoutFields {
+  late String one;
+}

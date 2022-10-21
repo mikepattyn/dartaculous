@@ -29,13 +29,16 @@ class DefaultsProviderGenerator
   static String generateDefaultsProvider(
       Element element, bool createBaseClass) {
     if (element is EnumElement) return '';
-    var classElement = element.asClassElement();
-    var superTypeElement = classElement.supertype!.element2;
+    final classElement = element.asClassElement();
+    final superTypeElement = classElement.supertype!.element2;
 
-    var annotation = TypeChecker.fromRuntime(DefaultsProvider)
+    final superTypeAnnotation = TypeChecker.fromRuntime(DefaultsProvider)
         .firstAnnotationOf(superTypeElement);
 
-    final superClassHasDefaultsProvider = annotation != null;
+    final superClassConstructorFields = _getFieldDescriptors(superTypeElement,
+        'Object' != superTypeElement.displayName);
+    final superClassHasDefaultsProvider = superTypeAnnotation != null &&
+        superClassConstructorFields.isNotEmpty;
 
     final className = classElement.name;
 

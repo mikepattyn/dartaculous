@@ -171,3 +171,19 @@ class $ConcretePayloadDefaultsProvider {
 
   String get value => '';
 }
+
+class $ParentWithoutFieldsDefaultsProvider {
+  const $ParentWithoutFieldsDefaultsProvider();
+}
+
+class $ChildOfParentWithoutFieldsDefaultsProvider {
+  const $ChildOfParentWithoutFieldsDefaultsProvider();
+
+  ChildOfParentWithoutFields createWithDefaults({
+    String? one,
+  }) {
+    return ChildOfParentWithoutFields();
+  }
+
+  String get one => '';
+}
