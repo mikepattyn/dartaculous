@@ -1,3 +1,8 @@
+## 3.5.0
+
+ - **FEAT**: improved support for late, final, pre-initialized Map, List and Set fields of @MapMapped annotated classes.
+ - **FEAT**: added "isLate" and "hasInitializer" to FieldDescriptor.
+
 ## 3.4.2
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

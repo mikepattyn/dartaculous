@@ -1,3 +1,7 @@
+## 2.7.0
+
+ - **FEAT**: added "isLate" and "hasInitializer" to FieldDescriptor.
+
 ## 2.6.1
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

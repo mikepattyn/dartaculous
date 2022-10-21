@@ -1,3 +1,8 @@
+## 3.7.0
+
+ - **FEAT**: improved support for late, final, pre-initialized Map, List and Set fields of @MapMapped annotated classes.
+ - **FEAT**: @mapMapped should use the correct MapMapper for values of annotated Map<k,v> fields in toMap() and fromMap().
+
 ## 3.6.2
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
