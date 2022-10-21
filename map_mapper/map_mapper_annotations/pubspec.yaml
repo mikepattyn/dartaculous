@@ -4,14 +4,13 @@ description:
   used to interact with document databases
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/map_mapper/map_mapper_annotations
 repository: https://gitlab.com/squarealfa/dart_framework
-version: 3.2.0
+version: 3.2.1
 
 environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies: 
-  squarealfa_common_types: ^1.1.1
-
+  squarealfa_common_types: ^1.2.0
 dev_dependencies:
   lints: ^2.0.0
 

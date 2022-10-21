@@ -1,3 +1,7 @@
+## 3.7.1
+
+ - Update a dependency to the latest release.
+
 ## 3.7.0
 
  - **FEAT**: improved support for late, final, pre-initialized Map, List and Set fields of @MapMapped annotated classes.

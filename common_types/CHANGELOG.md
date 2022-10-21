@@ -1,3 +1,7 @@
+## 1.2.0
+
+ - **FEAT**: Added dateTime to DateTimeRepresentation enum.
+
 ## 1.1.1
 
 - Updated dependencies

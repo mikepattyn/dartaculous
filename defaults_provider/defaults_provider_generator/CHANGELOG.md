@@ -1,3 +1,7 @@
+## 2.3.4
+
+ - Update a dependency to the latest release.
+
 ## 2.3.3
 
  - **FIX**: when a parent DefaultsProvider has no actual (constructor) fields, don't generate an (unused) `static const _superDefaultsProvider`.

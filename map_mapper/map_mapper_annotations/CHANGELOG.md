@@ -1,3 +1,7 @@
+## 3.2.1
+
+ - Update a dependency to the latest release.
+
 ## 3.2.0
 
  - **FEAT**: Added isKey field to MapField annotation.
