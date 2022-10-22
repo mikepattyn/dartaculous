@@ -378,7 +378,9 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
 }
 
 Iterable<FieldDescriptor> _getFieldDescriptors(
-    InterfaceElement classElement, MapMapped annotation) {
+  InterfaceElement classElement,
+  MapMapped annotation,
+) {
   final fieldSet = classElement.getSortedFieldSet();
   final fieldDescriptors = fieldSet
       .map((fieldElement) => FieldDescriptor.fromFieldElement(

@@ -23,6 +23,7 @@ variables:
 
 
 before_script:
+  - apt update && apt install -y make
   - export PATH="$PATH:$HOME/.pub-cache/bin"
   - dart pub global activate protoc_plugin
   - dart pub global activate melos

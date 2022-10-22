@@ -84,6 +84,9 @@ abstract class FieldCodeGenerator {
         case DateTimeRepresentation.microsecondsSinceEpoch:
           return MicrosecondsDateTimeFieldCodeGenerator(
               fieldDescriptor, hasDefaultsProvider);
+        case DateTimeRepresentation.dateTime:
+          return GenericFieldCodeGenerator(
+              fieldDescriptor, hasDefaultsProvider);
         default:
           throw UnimplementedError();
       }

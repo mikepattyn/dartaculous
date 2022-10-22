@@ -1,7 +1,0 @@
-targets:
-  $default:
-    builders:
-      map_mapper_generator:map_map_generator:
-        options:
-          keyHandler: MongoKeyHandler
-
