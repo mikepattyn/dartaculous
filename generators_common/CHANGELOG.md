@@ -1,3 +1,7 @@
+## 2.8.0
+
+ - **FEAT**: added dateTime support in ConstantReaderDateTimeRepresentationExtension.
+
 ## 2.7.1
 
  - Update a dependency to the latest release.
