@@ -16,6 +16,9 @@ extension ConstantReaderDateTimeRepresentationExtension on ConstantReader {
     if (accessor.endsWith('iso8601String')) {
       return DateTimeRepresentation.iso8601String;
     }
+    if (accessor.endsWith('dateTime')) {
+      return DateTimeRepresentation.dateTime;
+    }
     throw UnimplementedError();
   }
 }
