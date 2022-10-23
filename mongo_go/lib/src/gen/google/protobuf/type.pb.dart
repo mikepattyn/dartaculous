@@ -9,8 +9,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'source_context.pb.dart' as $1;
-import 'any.pb.dart' as $0;
+import 'source_context.pb.dart' as $0;
+import 'any.pb.dart' as $1;
 
 import 'type.pbenum.dart';
 
@@ -50,12 +50,12 @@ class Type extends $pb.GeneratedMessage {
             : 'options',
         $pb.PbFieldType.PM,
         subBuilder: Option.create)
-    ..aOM<$1.SourceContext>(
+    ..aOM<$0.SourceContext>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'sourceContext',
-        subBuilder: $1.SourceContext.create)
+        subBuilder: $0.SourceContext.create)
     ..e<Syntax>(
         6,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -73,7 +73,7 @@ class Type extends $pb.GeneratedMessage {
     $core.Iterable<Field>? fields,
     $core.Iterable<$core.String>? oneofs,
     $core.Iterable<Option>? options,
-    $1.SourceContext? sourceContext,
+    $0.SourceContext? sourceContext,
     Syntax? syntax,
   }) {
     final _result = create();
@@ -145,9 +145,9 @@ class Type extends $pb.GeneratedMessage {
   $core.List<Option> get options => $_getList(3);
 
   @$pb.TagNumber(5)
-  $1.SourceContext get sourceContext => $_getN(4);
+  $0.SourceContext get sourceContext => $_getN(4);
   @$pb.TagNumber(5)
-  set sourceContext($1.SourceContext v) {
+  set sourceContext($0.SourceContext v) {
     setField(5, v);
   }
 
@@ -156,7 +156,7 @@ class Type extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearSourceContext() => clearField(5);
   @$pb.TagNumber(5)
-  $1.SourceContext ensureSourceContext() => $_ensure(4);
+  $0.SourceContext ensureSourceContext() => $_ensure(4);
 
   @$pb.TagNumber(6)
   Syntax get syntax => $_getN(5);
@@ -458,12 +458,12 @@ class Enum extends $pb.GeneratedMessage {
             : 'options',
         $pb.PbFieldType.PM,
         subBuilder: Option.create)
-    ..aOM<$1.SourceContext>(
+    ..aOM<$0.SourceContext>(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'sourceContext',
-        subBuilder: $1.SourceContext.create)
+        subBuilder: $0.SourceContext.create)
     ..e<Syntax>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -480,7 +480,7 @@ class Enum extends $pb.GeneratedMessage {
     $core.String? name,
     $core.Iterable<EnumValue>? enumvalue,
     $core.Iterable<Option>? options,
-    $1.SourceContext? sourceContext,
+    $0.SourceContext? sourceContext,
     Syntax? syntax,
   }) {
     final _result = create();
@@ -546,9 +546,9 @@ class Enum extends $pb.GeneratedMessage {
   $core.List<Option> get options => $_getList(2);
 
   @$pb.TagNumber(4)
-  $1.SourceContext get sourceContext => $_getN(3);
+  $0.SourceContext get sourceContext => $_getN(3);
   @$pb.TagNumber(4)
-  set sourceContext($1.SourceContext v) {
+  set sourceContext($0.SourceContext v) {
     setField(4, v);
   }
 
@@ -557,7 +557,7 @@ class Enum extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearSourceContext() => clearField(4);
   @$pb.TagNumber(4)
-  $1.SourceContext ensureSourceContext() => $_ensure(3);
+  $0.SourceContext ensureSourceContext() => $_ensure(3);
 
   @$pb.TagNumber(5)
   Syntax get syntax => $_getN(4);
@@ -689,18 +689,18 @@ class Option extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'name')
-    ..aOM<$0.Any>(
+    ..aOM<$1.Any>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'value',
-        subBuilder: $0.Any.create)
+        subBuilder: $1.Any.create)
     ..hasRequiredFields = false;
 
   Option._() : super();
   factory Option({
     $core.String? name,
-    $0.Any? value,
+    $1.Any? value,
   }) {
     final _result = create();
     if (name != null) {
@@ -750,9 +750,9 @@ class Option extends $pb.GeneratedMessage {
   void clearName() => clearField(1);
 
   @$pb.TagNumber(2)
-  $0.Any get value => $_getN(1);
+  $1.Any get value => $_getN(1);
   @$pb.TagNumber(2)
-  set value($0.Any v) {
+  set value($1.Any v) {
     setField(2, v);
   }
 
@@ -761,5 +761,5 @@ class Option extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearValue() => clearField(2);
   @$pb.TagNumber(2)
-  $0.Any ensureValue() => $_ensure(1);
+  $1.Any ensureValue() => $_ensure(1);
 }

@@ -11,5 +11,14 @@ mongo_go.so:  proto $(go_files)
 proto: $(proto_files)
 	protoc --go_out=. -Iproto proto/*.proto
 
+install-proto: .PHONY
+	sudo dnf install -y protobuf-devel
+
+upgrade-wellknown: install-proto
+	rm -rf proto/google/protobuf/** 
+	cp /usr/include/google/protobuf/*.proto proto/google/protobuf
+
 clean:
 	rm mongo_go.so mongo_stubs/*
+
+.PHONY:

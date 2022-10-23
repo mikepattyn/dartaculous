@@ -10,7 +10,7 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'type.pb.dart' as $2;
-import 'source_context.pb.dart' as $1;
+import 'source_context.pb.dart' as $0;
 
 import 'type.pbenum.dart' as $2;
 
@@ -48,12 +48,12 @@ class Api extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'version')
-    ..aOM<$1.SourceContext>(
+    ..aOM<$0.SourceContext>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'sourceContext',
-        subBuilder: $1.SourceContext.create)
+        subBuilder: $0.SourceContext.create)
     ..pc<Mixin>(
         6,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -78,7 +78,7 @@ class Api extends $pb.GeneratedMessage {
     $core.Iterable<Method>? methods,
     $core.Iterable<$2.Option>? options,
     $core.String? version,
-    $1.SourceContext? sourceContext,
+    $0.SourceContext? sourceContext,
     $core.Iterable<Mixin>? mixins,
     $2.Syntax? syntax,
   }) {
@@ -163,9 +163,9 @@ class Api extends $pb.GeneratedMessage {
   void clearVersion() => clearField(4);
 
   @$pb.TagNumber(5)
-  $1.SourceContext get sourceContext => $_getN(4);
+  $0.SourceContext get sourceContext => $_getN(4);
   @$pb.TagNumber(5)
-  set sourceContext($1.SourceContext v) {
+  set sourceContext($0.SourceContext v) {
     setField(5, v);
   }
 
@@ -174,7 +174,7 @@ class Api extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearSourceContext() => clearField(5);
   @$pb.TagNumber(5)
-  $1.SourceContext ensureSourceContext() => $_ensure(4);
+  $0.SourceContext ensureSourceContext() => $_ensure(4);
 
   @$pb.TagNumber(6)
   $core.List<Mixin> get mixins => $_getList(5);

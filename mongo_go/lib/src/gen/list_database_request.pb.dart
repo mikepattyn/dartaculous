@@ -9,7 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'google/protobuf/wrappers.pb.dart' as $9;
+import 'google/protobuf/wrappers.pb.dart' as $6;
 
 class ListDatabasesRequest_Request extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -23,27 +23,27 @@ class ListDatabasesRequest_Request extends $pb.GeneratedMessage {
             ? ''
             : 'filter',
         $pb.PbFieldType.OY)
-    ..aOM<$9.BoolValue>(
+    ..aOM<$6.BoolValue>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'nameOnly',
         protoName: 'nameOnly',
-        subBuilder: $9.BoolValue.create)
-    ..aOM<$9.BoolValue>(
+        subBuilder: $6.BoolValue.create)
+    ..aOM<$6.BoolValue>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'authorizedDatabases',
         protoName: 'authorizedDatabases',
-        subBuilder: $9.BoolValue.create)
+        subBuilder: $6.BoolValue.create)
     ..hasRequiredFields = false;
 
   ListDatabasesRequest_Request._() : super();
   factory ListDatabasesRequest_Request({
     $core.List<$core.int>? filter,
-    $9.BoolValue? nameOnly,
-    $9.BoolValue? authorizedDatabases,
+    $6.BoolValue? nameOnly,
+    $6.BoolValue? authorizedDatabases,
   }) {
     final _result = create();
     if (filter != null) {
@@ -101,9 +101,9 @@ class ListDatabasesRequest_Request extends $pb.GeneratedMessage {
   void clearFilter() => clearField(1);
 
   @$pb.TagNumber(2)
-  $9.BoolValue get nameOnly => $_getN(1);
+  $6.BoolValue get nameOnly => $_getN(1);
   @$pb.TagNumber(2)
-  set nameOnly($9.BoolValue v) {
+  set nameOnly($6.BoolValue v) {
     setField(2, v);
   }
 
@@ -112,12 +112,12 @@ class ListDatabasesRequest_Request extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearNameOnly() => clearField(2);
   @$pb.TagNumber(2)
-  $9.BoolValue ensureNameOnly() => $_ensure(1);
+  $6.BoolValue ensureNameOnly() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $9.BoolValue get authorizedDatabases => $_getN(2);
+  $6.BoolValue get authorizedDatabases => $_getN(2);
   @$pb.TagNumber(3)
-  set authorizedDatabases($9.BoolValue v) {
+  set authorizedDatabases($6.BoolValue v) {
     setField(3, v);
   }
 
@@ -126,7 +126,7 @@ class ListDatabasesRequest_Request extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearAuthorizedDatabases() => clearField(3);
   @$pb.TagNumber(3)
-  $9.BoolValue ensureAuthorizedDatabases() => $_ensure(2);
+  $6.BoolValue ensureAuthorizedDatabases() => $_ensure(2);
 }
 
 class ListDatabasesRequest extends $pb.GeneratedMessage {

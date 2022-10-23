@@ -2483,11 +2483,6 @@ class FieldOptions extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'weak')
-    ..aOB(
-        15,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'unverifiedLazy')
     ..pc<UninterpretedOption>(
         999,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -2505,7 +2500,6 @@ class FieldOptions extends $pb.GeneratedMessage {
     $core.bool? lazy,
     FieldOptions_JSType? jstype,
     $core.bool? weak,
-    $core.bool? unverifiedLazy,
     $core.Iterable<UninterpretedOption>? uninterpretedOption,
   }) {
     final _result = create();
@@ -2526,9 +2520,6 @@ class FieldOptions extends $pb.GeneratedMessage {
     }
     if (weak != null) {
       _result.weak = weak;
-    }
-    if (unverifiedLazy != null) {
-      _result.unverifiedLazy = unverifiedLazy;
     }
     if (uninterpretedOption != null) {
       _result.uninterpretedOption.addAll(uninterpretedOption);
@@ -2634,20 +2625,8 @@ class FieldOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   void clearWeak() => clearField(10);
 
-  @$pb.TagNumber(15)
-  $core.bool get unverifiedLazy => $_getBF(6);
-  @$pb.TagNumber(15)
-  set unverifiedLazy($core.bool v) {
-    $_setBool(6, v);
-  }
-
-  @$pb.TagNumber(15)
-  $core.bool hasUnverifiedLazy() => $_has(6);
-  @$pb.TagNumber(15)
-  void clearUnverifiedLazy() => clearField(15);
-
   @$pb.TagNumber(999)
-  $core.List<UninterpretedOption> get uninterpretedOption => $_getList(7);
+  $core.List<UninterpretedOption> get uninterpretedOption => $_getList(6);
 }
 
 class OneofOptions extends $pb.GeneratedMessage {

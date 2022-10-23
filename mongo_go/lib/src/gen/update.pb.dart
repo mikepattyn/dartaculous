@@ -10,7 +10,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'request_context.pb.dart' as $24;
+import 'request_context.pb.dart' as $5;
 
 class UpdateRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -25,12 +25,12 @@ class UpdateRequest extends $pb.GeneratedMessage {
             : 'collectionOid',
         $pb.PbFieldType.OY,
         protoName: 'collectionOid')
-    ..aOM<$24.RequestContext>(
+    ..aOM<$5.RequestContext>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'context',
-        subBuilder: $24.RequestContext.create)
+        subBuilder: $5.RequestContext.create)
     ..a<$core.List<$core.int>>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -54,7 +54,7 @@ class UpdateRequest extends $pb.GeneratedMessage {
   UpdateRequest._() : super();
   factory UpdateRequest({
     $core.List<$core.int>? collectionOid,
-    $24.RequestContext? context,
+    $5.RequestContext? context,
     $core.List<$core.int>? filter,
     $core.List<$core.int>? update,
     $core.bool? isUpsert,
@@ -117,9 +117,9 @@ class UpdateRequest extends $pb.GeneratedMessage {
   void clearCollectionOid() => clearField(1);
 
   @$pb.TagNumber(2)
-  $24.RequestContext get context => $_getN(1);
+  $5.RequestContext get context => $_getN(1);
   @$pb.TagNumber(2)
-  set context($24.RequestContext v) {
+  set context($5.RequestContext v) {
     setField(2, v);
   }
 
@@ -128,7 +128,7 @@ class UpdateRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearContext() => clearField(2);
   @$pb.TagNumber(2)
-  $24.RequestContext ensureContext() => $_ensure(1);
+  $5.RequestContext ensureContext() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.List<$core.int> get filter => $_getN(2);

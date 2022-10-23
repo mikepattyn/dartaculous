@@ -9,8 +9,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'google/protobuf/empty.pb.dart' as $22;
-import 'transaction_identifier.pb.dart' as $23;
+import 'google/protobuf/empty.pb.dart' as $3;
+import 'transaction_identifier.pb.dart' as $4;
 
 enum RequestContext_Types { empty, withTransaction, notSet }
 
@@ -27,25 +27,25 @@ class RequestContext extends $pb.GeneratedMessage {
           : 'RequestContext',
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<$22.Empty>(
+    ..aOM<$3.Empty>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'empty',
-        subBuilder: $22.Empty.create)
-    ..aOM<$23.TransactionIdentifier>(
+        subBuilder: $3.Empty.create)
+    ..aOM<$4.TransactionIdentifier>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'withTransaction',
         protoName: 'withTransaction',
-        subBuilder: $23.TransactionIdentifier.create)
+        subBuilder: $4.TransactionIdentifier.create)
     ..hasRequiredFields = false;
 
   RequestContext._() : super();
   factory RequestContext({
-    $22.Empty? empty,
-    $23.TransactionIdentifier? withTransaction,
+    $3.Empty? empty,
+    $4.TransactionIdentifier? withTransaction,
   }) {
     final _result = create();
     if (empty != null) {
@@ -88,9 +88,9 @@ class RequestContext extends $pb.GeneratedMessage {
   void clearTypes() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  $22.Empty get empty => $_getN(0);
+  $3.Empty get empty => $_getN(0);
   @$pb.TagNumber(1)
-  set empty($22.Empty v) {
+  set empty($3.Empty v) {
     setField(1, v);
   }
 
@@ -99,12 +99,12 @@ class RequestContext extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearEmpty() => clearField(1);
   @$pb.TagNumber(1)
-  $22.Empty ensureEmpty() => $_ensure(0);
+  $3.Empty ensureEmpty() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $23.TransactionIdentifier get withTransaction => $_getN(1);
+  $4.TransactionIdentifier get withTransaction => $_getN(1);
   @$pb.TagNumber(2)
-  set withTransaction($23.TransactionIdentifier v) {
+  set withTransaction($4.TransactionIdentifier v) {
     setField(2, v);
   }
 
@@ -113,5 +113,5 @@ class RequestContext extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearWithTransaction() => clearField(2);
   @$pb.TagNumber(2)
-  $23.TransactionIdentifier ensureWithTransaction() => $_ensure(1);
+  $4.TransactionIdentifier ensureWithTransaction() => $_ensure(1);
 }
