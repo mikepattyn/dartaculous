@@ -8,7 +8,7 @@ image: dart:latest
 pipelines:
   default:
     - step:
-        name: "Install tools"
+        name: "Test"
         script:
           - apt update && apt install -y make
           - apt install -y protobuf-compiler
@@ -17,8 +17,4 @@ pipelines:
           - dart pub global activate protoc_plugin
           - dart pub global activate melos
           - melos bootstrap
-
-    - step:
-        name: 'Test'
-        script:
           - make test
