@@ -73,12 +73,18 @@ message GListOfConstructObject5
   repeated GConstructObject5 items = 1;
 }
 
+import "google/protobuf/wrappers.proto";
+
+
+
+
+
+
+  
 message GConstructObject6
 {
-  string name = 1;
-  bool name_has_value = 2;
-  int32 number = 3;
-  bool number_has_value = 4;
+  google.protobuf.StringValue name = 1;
+  google.protobuf.Int32Value number = 3;
 
 }   
 
@@ -89,8 +95,7 @@ message GListOfConstructObject6
 
 message GConstructObject7
 {
-  int32 number = 1;
-  bool number_has_value = 2;
+  google.protobuf.Int32Value number = 1;
   string name = 3;
 
 }   
@@ -102,8 +107,7 @@ message GListOfConstructObject7
 
 message GConstructObject8
 {
-  int32 number = 1;
-  bool number_has_value = 2;
+  google.protobuf.Int32Value number = 1;
   string name = 3;
 
 }   

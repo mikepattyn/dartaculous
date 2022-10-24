@@ -10,31 +10,19 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class AFoodCategory extends $pb.ProtobufEnum {
-  static const AFoodCategory A_FOOD_CATEGORY_VEGETABLES = AFoodCategory._(
-      0,
-      $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'A_FOOD_CATEGORY_VEGETABLES');
-  static const AFoodCategory A_FOOD_CATEGORY_MEAT = AFoodCategory._(
-      1,
-      $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'A_FOOD_CATEGORY_MEAT');
-  static const AFoodCategory A_FOOD_CATEGORY_OTHER = AFoodCategory._(
-      2,
-      $core.bool.fromEnvironment('protobuf.omit_enum_names')
-          ? ''
-          : 'A_FOOD_CATEGORY_OTHER');
+  static const AFoodCategory A_FOOD_CATEGORY_VEGETABLES = AFoodCategory._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'A_FOOD_CATEGORY_VEGETABLES');
+  static const AFoodCategory A_FOOD_CATEGORY_MEAT = AFoodCategory._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'A_FOOD_CATEGORY_MEAT');
+  static const AFoodCategory A_FOOD_CATEGORY_OTHER = AFoodCategory._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'A_FOOD_CATEGORY_OTHER');
 
-  static const $core.List<AFoodCategory> values = <AFoodCategory>[
+  static const $core.List<AFoodCategory> values = <AFoodCategory> [
     A_FOOD_CATEGORY_VEGETABLES,
     A_FOOD_CATEGORY_MEAT,
     A_FOOD_CATEGORY_OTHER,
   ];
 
-  static final $core.Map<$core.int, AFoodCategory> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, AFoodCategory> _byValue = $pb.ProtobufEnum.initByValue(values);
   static AFoodCategory? valueOf($core.int value) => _byValue[value];
 
   const AFoodCategory._($core.int v, $core.String n) : super(v, n);
 }
+

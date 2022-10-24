@@ -2,6 +2,10 @@ import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/appliance_type.pbenum.dart';
 import 'package:proto_generator_test/grpc/utensils.pb.dart';
 import 'package:squarealfa_common_types/squarealfa_common_types.dart';
+import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
+    as $wellknown_duration;
+import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
+    as $wellknown_timestamp;
 
 import 'appliance_type.dart';
 import 'recipe.dart';

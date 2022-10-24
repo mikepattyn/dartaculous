@@ -10,17 +10,10 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class GEntity extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GEntity',
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'key')
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GEntity', createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
+    ..hasRequiredFields = false
+  ;
 
   GEntity._() : super();
   factory GEntity({
@@ -32,39 +25,31 @@ class GEntity extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GEntity.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory GEntity.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory GEntity.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GEntity.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   GEntity clone() => GEntity()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  GEntity copyWith(void Function(GEntity) updates) =>
-      super.copyWith((message) => updates(message as GEntity))
-          as GEntity; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GEntity copyWith(void Function(GEntity) updates) => super.copyWith((message) => updates(message as GEntity)) as GEntity; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static GEntity create() => GEntity._();
   GEntity createEmptyInstance() => create();
   static $pb.PbList<GEntity> createRepeated() => $pb.PbList<GEntity>();
   @$core.pragma('dart2js:noInline')
-  static GEntity getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GEntity>(create);
+  static GEntity getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GEntity>(create);
   static GEntity? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get key => $_getSZ(0);
   @$pb.TagNumber(1)
-  set key($core.String v) {
-    $_setString(0, v);
-  }
-
+  set key($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasKey() => $_has(0);
   @$pb.TagNumber(1)
@@ -72,19 +57,10 @@ class GEntity extends $pb.GeneratedMessage {
 }
 
 class GListOfEntity extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GListOfEntity',
-      createEmptyInstance: create)
-    ..pc<GEntity>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'items',
-        $pb.PbFieldType.PM,
-        subBuilder: GEntity.create)
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GListOfEntity', createEmptyInstance: create)
+    ..pc<GEntity>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'items', $pb.PbFieldType.PM, subBuilder: GEntity.create)
+    ..hasRequiredFields = false
+  ;
 
   GListOfEntity._() : super();
   factory GListOfEntity({
@@ -96,33 +72,28 @@ class GListOfEntity extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GListOfEntity.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory GListOfEntity.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory GListOfEntity.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GListOfEntity.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   GListOfEntity clone() => GListOfEntity()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  GListOfEntity copyWith(void Function(GListOfEntity) updates) =>
-      super.copyWith((message) => updates(message as GListOfEntity))
-          as GListOfEntity; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GListOfEntity copyWith(void Function(GListOfEntity) updates) => super.copyWith((message) => updates(message as GListOfEntity)) as GListOfEntity; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static GListOfEntity create() => GListOfEntity._();
   GListOfEntity createEmptyInstance() => create();
-  static $pb.PbList<GListOfEntity> createRepeated() =>
-      $pb.PbList<GListOfEntity>();
+  static $pb.PbList<GListOfEntity> createRepeated() => $pb.PbList<GListOfEntity>();
   @$core.pragma('dart2js:noInline')
-  static GListOfEntity getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GListOfEntity>(create);
+  static GListOfEntity getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GListOfEntity>(create);
   static GListOfEntity? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<GEntity> get items => $_getList(0);
 }
+

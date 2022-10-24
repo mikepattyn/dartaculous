@@ -30,15 +30,18 @@ Kitchen _kitchen() {
 
 Recipe _recipe() {
   return Recipe(
-      title: 'Recipe 1',
-      category: Category(
-          title: 'Category',
-          mainComponent: Component(description: 'Description'),
-          otherComponents: []),
-      ingredients: [],
-      publishDate: DateTime.now(),
-      preparationDuration: Duration(),
-      isPublished: true,
-      mainApplianceType: ApplianceType.cold,
-      tags: []);
+    title: 'Recipe 1',
+    category: Category(
+        title: 'Category',
+        mainComponent: Component(description: 'Description'),
+        otherComponents: []),
+    ingredients: [],
+    publishDate: DateTime.now(),
+    preparationDuration: Duration(),
+    isPublished: true,
+    mainApplianceType: ApplianceType.cold,
+    tags: [],
+    grossWeight: 195.65,
+    netWeight: null,
+  );
 }

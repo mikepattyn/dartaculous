@@ -5,8 +5,10 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class MapFieldCodeGenerator extends FieldCodeGenerator {
+  final bool useWellKnownTypes;
   MapFieldCodeGenerator(
     FieldDescriptor fieldDescriptor, {
+    required this.useWellKnownTypes,
     String refName = FieldCodeGenerator.defaultRefName,
     String protoRefName = FieldCodeGenerator.defaultProtoRefName,
   }) : super(
@@ -35,7 +37,11 @@ class MapFieldCodeGenerator extends FieldCodeGenerator {
       return parameterName;
     }
     return collectionValueToProto(
-        fieldDescriptor, parameterType, parameterName);
+      fieldDescriptor,
+      parameterType,
+      parameterName,
+      useWellKnownTypes: useWellKnownTypes,
+    );
   }
 
   String get _toProtoConversion {
@@ -63,7 +69,11 @@ class MapFieldCodeGenerator extends FieldCodeGenerator {
       return parameterName;
     }
     return collectionProtoToValue(
-        fieldDescriptor, parameterType, parameterName);
+      fieldDescriptor,
+      parameterType,
+      parameterName,
+      useWellKnownTypes: useWellKnownTypes,
+    );
   }
 
   String get _protoToValue {

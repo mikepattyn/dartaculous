@@ -8,29 +8,26 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-
 @$core.Deprecated('Use gAirplaneDescriptor instead')
-const GAirplane$json = {
+const GAirplane$json = const {
   '1': 'GAirplane',
-  '2': [
-    {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
-    {'1': 'service_ceiling', '3': 2, '4': 1, '5': 5, '10': 'serviceCeiling'},
-    {'1': 'wingspan', '3': 3, '4': 1, '5': 5, '10': 'wingspan'},
-    {'1': 'key', '3': 4, '4': 1, '5': 9, '10': 'key'},
+  '2': const [
+    const {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
+    const {'1': 'service_ceiling', '3': 2, '4': 1, '5': 5, '10': 'serviceCeiling'},
+    const {'1': 'wingspan', '3': 3, '4': 1, '5': 5, '10': 'wingspan'},
+    const {'1': 'key', '3': 4, '4': 1, '5': 9, '10': 'key'},
   ],
 };
 
 /// Descriptor for `GAirplane`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gAirplaneDescriptor = $convert.base64Decode(
-    'CglHQWlycGxhbmUSFgoGd2VpZ2h0GAEgASgFUgZ3ZWlnaHQSJwoPc2VydmljZV9jZWlsaW5nGAIgASgFUg5zZXJ2aWNlQ2VpbGluZxIaCgh3aW5nc3BhbhgDIAEoBVIId2luZ3NwYW4SEAoDa2V5GAQgASgJUgNrZXk=');
+final $typed_data.Uint8List gAirplaneDescriptor = $convert.base64Decode('CglHQWlycGxhbmUSFgoGd2VpZ2h0GAEgASgFUgZ3ZWlnaHQSJwoPc2VydmljZV9jZWlsaW5nGAIgASgFUg5zZXJ2aWNlQ2VpbGluZxIaCgh3aW5nc3BhbhgDIAEoBVIId2luZ3NwYW4SEAoDa2V5GAQgASgJUgNrZXk=');
 @$core.Deprecated('Use gListOfAirplaneDescriptor instead')
-const GListOfAirplane$json = {
+const GListOfAirplane$json = const {
   '1': 'GListOfAirplane',
-  '2': [
-    {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.GAirplane', '10': 'items'},
+  '2': const [
+    const {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.GAirplane', '10': 'items'},
   ],
 };
 
 /// Descriptor for `GListOfAirplane`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gListOfAirplaneDescriptor = $convert.base64Decode(
-    'Cg9HTGlzdE9mQWlycGxhbmUSIAoFaXRlbXMYASADKAsyCi5HQWlycGxhbmVSBWl0ZW1z');
+final $typed_data.Uint8List gListOfAirplaneDescriptor = $convert.base64Decode('Cg9HTGlzdE9mQWlycGxhbmUSIAoFaXRlbXMYASADKAsyCi5HQWlycGxhbmVSBWl0ZW1z');

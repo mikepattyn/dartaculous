@@ -1,5 +1,6 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/constructors_host.pb.dart';
+import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
 
 part 'constructors_host.g.dart';
 

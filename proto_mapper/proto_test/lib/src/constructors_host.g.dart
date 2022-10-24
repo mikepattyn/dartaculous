@@ -301,23 +301,17 @@ class $ConstructObject6ProtoMapper
 GConstructObject6 _$ConstructObject6ToProto(ConstructObject6 instance) {
   var proto = GConstructObject6();
 
-  if (instance.name != null) {
-    proto.name = instance.name!;
-  }
-  proto.nameHasValue = instance.name != null;
+  proto.name = StringValue(value: instance.name);
 
-  if (instance.number != null) {
-    proto.number = instance.number!;
-  }
-  proto.numberHasValue = instance.number != null;
+  proto.number = Int32Value(value: instance.number);
 
   return proto;
 }
 
 ConstructObject6 _$ConstructObject6FromProto(GConstructObject6 instance) =>
     ConstructObject6(
-      name: (instance.nameHasValue ? (instance.name) : null),
-    )..number = (instance.numberHasValue ? (instance.number) : null);
+      name: (instance.name.hasValue() ? instance.name.value : null),
+    )..number = (instance.number.hasValue() ? instance.number.value : null);
 
 extension $ConstructObject6ProtoExtension on ConstructObject6 {
   GConstructObject6 toProto() => _$ConstructObject6ToProto(this);
@@ -361,10 +355,7 @@ class $ConstructObject7ProtoMapper
 GConstructObject7 _$ConstructObject7ToProto(ConstructObject7 instance) {
   var proto = GConstructObject7();
 
-  if (instance.number != null) {
-    proto.number = instance.number!;
-  }
-  proto.numberHasValue = instance.number != null;
+  proto.number = Int32Value(value: instance.number);
 
   proto.name = instance.name;
 
@@ -374,7 +365,7 @@ GConstructObject7 _$ConstructObject7ToProto(ConstructObject7 instance) {
 ConstructObject7 _$ConstructObject7FromProto(GConstructObject7 instance) =>
     ConstructObject7.name(
       instance.name,
-      (instance.numberHasValue ? (instance.number) : null),
+      (instance.number.hasValue() ? instance.number.value : null),
     );
 
 extension $ConstructObject7ProtoExtension on ConstructObject7 {
@@ -419,10 +410,7 @@ class $ConstructObject8ProtoMapper
 GConstructObject8 _$ConstructObject8ToProto(ConstructObject8 instance) {
   var proto = GConstructObject8();
 
-  if (instance.number != null) {
-    proto.number = instance.number!;
-  }
-  proto.numberHasValue = instance.number != null;
+  proto.number = Int32Value(value: instance.number);
 
   proto.name = instance.name;
 

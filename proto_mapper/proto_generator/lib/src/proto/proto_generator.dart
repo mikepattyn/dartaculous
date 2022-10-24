@@ -13,19 +13,20 @@ import 'proto_reflected.dart';
 
 class ProtoGenerator extends GeneratorForAnnotation<Proto> {
   final BuilderOptions options;
-  late String _prefix;
-  late String _defaultPackage;
-  late bool _useProtoFieldNamingConventions;
-  String? prevBuildStepPath;
+  final String _prefix;
+  final String _defaultPackage;
+  final bool _useProtoFieldNamingConventions;
+  final bool _useWellKnownTypes;
   final Set<String> alreadyImported = {};
+  String? prevBuildStepPath;
 
-  ProtoGenerator(this.options) {
-    var config = options.config;
-    _prefix = config['prefix'] as String? ?? 'G';
-    _defaultPackage = config['package'] as String? ?? '';
-    _useProtoFieldNamingConventions =
-        config['useProtoFieldNamingConventions'] as bool? ?? true;
-  }
+  ProtoGenerator(this.options)
+      : _prefix = options.config['prefix'] as String? ?? 'G',
+        _defaultPackage = options.config['package'] as String? ?? '',
+        _useProtoFieldNamingConventions =
+            options.config['useProtoFieldNamingConventions'] as bool? ?? true,
+        _useWellKnownTypes =
+            options.config['useWellknowntypes'] as bool? ?? false;
 
   @override
   String generateForAnnotatedElement(
@@ -41,7 +42,6 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
 
     final proto = readAnnotation.proto;
 
-    //var classElement = element.asInterfaceElement();
     var packageName = proto.packageName != '' ? '' : _defaultPackage;
 
     final packageDeclaration = packageName != '' ? 'package $packageName;' : '';
@@ -86,7 +86,8 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
         _getFieldDescriptors(classElement, proto, _prefix, forEnum: false);
     final fieldDeclarations = classElement.isAbstract
         ? ''
-        : createFieldDeclarations(fieldDescriptors, externalProtoNames);
+        : createFieldDeclarations(
+            fieldDescriptors, externalProtoNames, _useWellKnownTypes);
 
     final prefix = proto.prefix ?? _prefix;
     final className = classElement.name;
@@ -231,8 +232,8 @@ message Nullable$prefix$className
       }),
     ];
 
-    final fds =
-        createFieldDeclarations(fieldDescriptors, externalProtoNames, '    ');
+    final fds = createFieldDeclarations(
+        fieldDescriptors, externalProtoNames, _useWellKnownTypes, '    ');
 
     final ret = '''
   oneof props {

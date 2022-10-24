@@ -15,14 +15,15 @@ import 'method_descriptor.dart';
 class ProtoServicesServiceGenerator
     extends GeneratorForAnnotation<MapProtoServices> {
   final BuilderOptions options;
-  late String _prefix;
-  late String _defaultPackage;
+  final String _prefix;
+  final String _defaultPackage;
+  final bool _useWellKnownTypes;
 
-  ProtoServicesServiceGenerator(this.options) {
-    var config = options.config;
-    _prefix = config['prefix'] as String? ?? 'G';
-    _defaultPackage = config['package'] as String? ?? '';
-  }
+  ProtoServicesServiceGenerator(this.options)
+      : _prefix = options.config['prefix'] as String? ?? 'G',
+        _defaultPackage = options.config['package'] as String? ?? '',
+        _useWellKnownTypes =
+            options.config['useWellknowntypes'] as bool? ?? false;
 
   @override
   String generateForAnnotatedElement(
@@ -39,6 +40,7 @@ class ProtoServicesServiceGenerator
       annotation: readAnnotation,
       packageName: readAnnotation.packageName != '' ? '' : _defaultPackage,
       prefix: _prefix,
+      useWellKnownTypes: _useWellKnownTypes,
     );
     final ret = generator.generateForClass();
 
@@ -51,12 +53,14 @@ class _Generator extends ProtoServicesGeneratorBase {
   final String packageName;
   final String packageDeclaration;
   final bool withAuthenticator;
+  final bool useWellKnownTypes;
 
   _Generator({
     required this.annotation,
     required String prefix,
     required InterfaceElement classElement,
     required this.packageName,
+    required this.useWellKnownTypes,
   })  : packageDeclaration = packageName != '' ? 'package $packageName;' : '',
         withAuthenticator = annotation.withAuthenticator,
         super(classElement: classElement, prefix: prefix);
@@ -200,6 +204,7 @@ class _Generator extends ProtoServicesGeneratorBase {
     final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
       fd,
       refName: '',
+      useWellKnownTypes: useWellKnownTypes,
     );
 
     pResultBuffer.write('final value = ');
@@ -247,6 +252,7 @@ class _Generator extends ProtoServicesGeneratorBase {
       final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
         fd,
         refName: 'request',
+        useWellKnownTypes: useWellKnownTypes,
       );
 
       final expression = fieldCodeGenerator.fromProtoExpression;

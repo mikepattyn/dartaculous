@@ -55,24 +55,27 @@ Inventory _inventory() {
 
 Recipe _recipe() {
   var lasagnaRecipe = Recipe(
-      title: "Lasagna",
-      category: Category(
-          title: "Sauce",
+    title: "Lasagna",
+    category: Category(
+        title: "Sauce",
+        mainComponent: Component(description: "Red sauce"),
+        otherComponents: []),
+    ingredients: [
+      Ingredient(
+          description: "Tomatoes",
+          quantity: Decimal.ten,
+          precision: 1.2,
+          cookingDuration: Duration(minutes: 5),
           mainComponent: Component(description: "Red sauce"),
-          otherComponents: []),
-      ingredients: [
-        Ingredient(
-            description: "Tomatoes",
-            quantity: Decimal.ten,
-            precision: 1.2,
-            cookingDuration: Duration(minutes: 5),
-            mainComponent: Component(description: "Red sauce"),
-            otherComponents: [])
-      ],
-      publishDate: DateTime.now(),
-      preparationDuration: Duration(days: 10),
-      isPublished: false,
-      mainApplianceType: ApplianceType.heat,
-      tags: []);
+          otherComponents: [])
+    ],
+    publishDate: DateTime.now(),
+    preparationDuration: Duration(days: 10),
+    isPublished: false,
+    mainApplianceType: ApplianceType.heat,
+    tags: [],
+    grossWeight: 195.65,
+    netWeight: null,
+  );
   return lasagnaRecipe;
 }

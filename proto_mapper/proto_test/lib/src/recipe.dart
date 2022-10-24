@@ -1,7 +1,13 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/appliance_type.pbenum.dart';
+import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
 import 'package:proto_generator_test/grpc/recipe.pb.dart';
 import 'package:proto_generator_test/src/appliance_type.dart';
+import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
+    as $wellknown_duration;
+import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
+    as $wellknown_timestamp;
+
 import 'category.dart';
 import 'ingredient.dart';
 
@@ -20,6 +26,8 @@ class Recipe {
   final Duration? totalDuration;
   final bool isPublished;
   final bool? requiresRobot;
+  final double? grossWeight;
+  final double? netWeight;
 
   final ApplianceType mainApplianceType;
   final ApplianceType? secondaryApplianceType;
@@ -36,11 +44,13 @@ class Recipe {
     required this.isPublished,
     required this.mainApplianceType,
     required this.tags,
+    required this.grossWeight,
     this.description,
     this.expiryDate,
     this.totalDuration,
     this.requiresRobot,
     this.secondaryApplianceType,
     this.extraTags,
+    this.netWeight,
   });
 }

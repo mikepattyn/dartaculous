@@ -8,54 +8,27 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-
 @$core.Deprecated('Use gAbstractVehicleDescriptor instead')
-const GAbstractVehicle$json = {
+const GAbstractVehicle$json = const {
   '1': 'GAbstractVehicle',
-  '2': [
-    {
-      '1': 'bicycle',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.GBicycle',
-      '9': 0,
-      '10': 'bicycle'
-    },
-    {
-      '1': 'scooter',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.GScooter',
-      '9': 0,
-      '10': 'scooter'
-    },
+  '2': const [
+    const {'1': 'bicycle', '3': 1, '4': 1, '5': 11, '6': '.GBicycle', '9': 0, '10': 'bicycle'},
+    const {'1': 'scooter', '3': 2, '4': 1, '5': 11, '6': '.GScooter', '9': 0, '10': 'scooter'},
   ],
-  '8': [
-    {'1': 'props'},
+  '8': const [
+    const {'1': 'props'},
   ],
 };
 
 /// Descriptor for `GAbstractVehicle`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gAbstractVehicleDescriptor = $convert.base64Decode(
-    'ChBHQWJzdHJhY3RWZWhpY2xlEiUKB2JpY3ljbGUYASABKAsyCS5HQmljeWNsZUgAUgdiaWN5Y2xlEiUKB3Njb290ZXIYAiABKAsyCS5HU2Nvb3RlckgAUgdzY29vdGVyQgcKBXByb3Bz');
+final $typed_data.Uint8List gAbstractVehicleDescriptor = $convert.base64Decode('ChBHQWJzdHJhY3RWZWhpY2xlEiUKB2JpY3ljbGUYASABKAsyCS5HQmljeWNsZUgAUgdiaWN5Y2xlEiUKB3Njb290ZXIYAiABKAsyCS5HU2Nvb3RlckgAUgdzY29vdGVyQgcKBXByb3Bz');
 @$core.Deprecated('Use gListOfAbstractVehicleDescriptor instead')
-const GListOfAbstractVehicle$json = {
+const GListOfAbstractVehicle$json = const {
   '1': 'GListOfAbstractVehicle',
-  '2': [
-    {
-      '1': 'items',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.GAbstractVehicle',
-      '10': 'items'
-    },
+  '2': const [
+    const {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.GAbstractVehicle', '10': 'items'},
   ],
 };
 
 /// Descriptor for `GListOfAbstractVehicle`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gListOfAbstractVehicleDescriptor =
-    $convert.base64Decode(
-        'ChZHTGlzdE9mQWJzdHJhY3RWZWhpY2xlEicKBWl0ZW1zGAEgAygLMhEuR0Fic3RyYWN0VmVoaWNsZVIFaXRlbXM=');
+final $typed_data.Uint8List gListOfAbstractVehicleDescriptor = $convert.base64Decode('ChZHTGlzdE9mQWJzdHJhY3RWZWhpY2xlEicKBWl0ZW1zGAEgAygLMhEuR0Fic3RyYWN0VmVoaWNsZVIFaXRlbXM=');

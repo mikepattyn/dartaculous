@@ -131,7 +131,7 @@ GKitchen _$KitchenToProto(Kitchen instance) {
       .map((k, v) => MapEntry(k, const $RecipeProtoMapper().toProto(v))));
 
   proto.nextInspectionDate =
-      Int64(instance.nextInspectionDate.millisecondsSinceEpoch);
+      $wellknown_timestamp.Timestamp.fromDateTime(instance.nextInspectionDate);
 
   return proto;
 }
@@ -141,8 +141,7 @@ Kitchen _$KitchenFromProto(GKitchen instance) => Kitchen(
           .map((e) => const $RecipeProtoMapper().fromProto(e))),
       recipeMap: instance.recipeMap
           .map((k, v) => MapEntry(k, const $RecipeProtoMapper().fromProto(v))),
-      nextInspectionDate: DateTime.fromMillisecondsSinceEpoch(
-          instance.nextInspectionDate.toInt()),
+      nextInspectionDate: instance.nextInspectionDate.toDateTime(toLocal: true),
     );
 
 extension $KitchenProtoExtension on Kitchen {
@@ -196,9 +195,14 @@ GChef _$ChefToProto(Chef instance) {
       GApplianceType.valueOf(instance.favoriteApplianceType.index)!;
   proto.favoriteWords.addAll(instance.favoriteWords);
 
-  proto.birthdate = Int64(instance.birthdate.microsecondsSinceEpoch);
+  proto.birthdate =
+      $wellknown_timestamp.Timestamp.fromDateTime(instance.birthdate);
   if (instance.shelfLife != null) {
-    proto.shelfLife = instance.shelfLife!.inMilliseconds.toDouble();
+    proto.shelfLife = $wellknown_duration.Duration(
+        seconds: Int64(instance.shelfLife!.inSeconds),
+        nanos: (instance.shelfLife!.inMicroseconds -
+                instance.shelfLife!.inSeconds * 1000000) *
+            1000);
   }
   proto.shelfLifeHasValue = instance.shelfLife != null;
 
@@ -216,10 +220,11 @@ Chef _$ChefFromProto(GChef instance) => Chef(
           ApplianceType.values[instance.favoriteApplianceType.value],
       favoriteWords:
           List<String>.unmodifiable(instance.favoriteWords.map((e) => e)),
-      birthdate:
-          DateTime.fromMicrosecondsSinceEpoch(instance.birthdate.toInt()),
+      birthdate: instance.birthdate.toDateTime(toLocal: true),
       shelfLife: (instance.shelfLifeHasValue
-          ? (Duration(milliseconds: instance.shelfLife.toInt()))
+          ? (Duration(
+              seconds: instance.shelfLife.seconds.toInt(),
+              microseconds: (instance.shelfLife.nanos ~/ 1000).toInt()))
           : null),
     );
 
@@ -274,9 +279,14 @@ GSousChef _$SousChefToProto(SousChef instance) {
       GApplianceType.valueOf(instance.favoriteApplianceType.index)!;
   proto.favoriteWords.addAll(instance.favoriteWords);
 
-  proto.birthdate = Int64(instance.birthdate.microsecondsSinceEpoch);
+  proto.birthdate =
+      $wellknown_timestamp.Timestamp.fromDateTime(instance.birthdate);
   if (instance.shelfLife != null) {
-    proto.shelfLife = instance.shelfLife!.inMicroseconds.toDouble();
+    proto.shelfLife = $wellknown_duration.Duration(
+        seconds: Int64(instance.shelfLife!.inSeconds),
+        nanos: (instance.shelfLife!.inMicroseconds -
+                instance.shelfLife!.inSeconds * 1000000) *
+            1000);
   }
   proto.shelfLifeHasValue = instance.shelfLife != null;
 
@@ -286,8 +296,7 @@ GSousChef _$SousChefToProto(SousChef instance) {
 SousChef _$SousChefFromProto(GSousChef instance) => SousChef(
       favoriteApplianceType:
           ApplianceType.values[instance.favoriteApplianceType.value],
-      birthdate:
-          DateTime.fromMicrosecondsSinceEpoch(instance.birthdate.toInt()),
+      birthdate: instance.birthdate.toDateTime(toLocal: true),
       favoriteWords:
           List<String>.unmodifiable(instance.favoriteWords.map((e) => e)),
     );
@@ -341,9 +350,14 @@ GKnifeMaster _$KnifeMasterToProto(KnifeMaster instance) {
       GApplianceType.valueOf(instance.favoriteApplianceType.index)!;
   proto.favoriteWords.addAll(instance.favoriteWords);
 
-  proto.birthdate = Int64(instance.birthdate.millisecondsSinceEpoch);
+  proto.birthdate =
+      $wellknown_timestamp.Timestamp.fromDateTime(instance.birthdate);
   if (instance.shelfLife != null) {
-    proto.shelfLife = instance.shelfLife!.inMicroseconds.toDouble();
+    proto.shelfLife = $wellknown_duration.Duration(
+        seconds: Int64(instance.shelfLife!.inSeconds),
+        nanos: (instance.shelfLife!.inMicroseconds -
+                instance.shelfLife!.inSeconds * 1000000) *
+            1000);
   }
   proto.shelfLifeHasValue = instance.shelfLife != null;
 
@@ -358,8 +372,7 @@ KnifeMaster _$KnifeMasterFromProto(GKnifeMaster instance) => KnifeMaster(
           const $KnifeProtoMapper().fromProto(instance.favoriteKnife),
       favoriteApplianceType:
           ApplianceType.values[instance.favoriteApplianceType.value],
-      birthdate:
-          DateTime.fromMillisecondsSinceEpoch(instance.birthdate.toInt()),
+      birthdate: instance.birthdate.toDateTime(toLocal: true),
     );
 
 extension $KnifeMasterProtoExtension on KnifeMaster {
@@ -406,7 +419,11 @@ GInventory _$InventoryToProto(Inventory instance) {
       .map((k, v) => MapEntry(k, const $RecipeProtoMapper().toProto(v))));
 
   if (instance.timeSpan != null) {
-    proto.timeSpan = instance.timeSpan!.inMicroseconds.toDouble();
+    proto.timeSpan = $wellknown_duration.Duration(
+        seconds: Int64(instance.timeSpan!.inSeconds),
+        nanos: (instance.timeSpan!.inMicroseconds -
+                instance.timeSpan!.inSeconds * 1000000) *
+            1000);
   }
   proto.timeSpanHasValue = instance.timeSpan != null;
 
@@ -418,7 +435,9 @@ Inventory _$InventoryFromProto(GInventory instance) => Inventory(
       recipesByName: instance.recipesByName
           .map((k, v) => MapEntry(k, const $RecipeProtoMapper().fromProto(v))),
       timeSpan: (instance.timeSpanHasValue
-          ? (Duration(microseconds: instance.timeSpan.toInt()))
+          ? (Duration(
+              seconds: instance.timeSpan.seconds.toInt(),
+              microseconds: (instance.timeSpan.nanos ~/ 1000).toInt()))
           : null),
     );
 
@@ -463,18 +482,23 @@ class $PrecisionSubjectProtoMapper
 GPrecisionSubject _$PrecisionSubjectToProto(PrecisionSubject instance) {
   var proto = GPrecisionSubject();
 
-  proto.dateProperty = Int64(instance.dateProperty.microsecondsSinceEpoch);
-  proto.durationProperty = instance.durationProperty.inMicroseconds.toDouble();
+  proto.dateProperty =
+      $wellknown_timestamp.Timestamp.fromDateTime(instance.dateProperty);
+  proto.durationProperty = $wellknown_duration.Duration(
+      seconds: Int64(instance.durationProperty.inSeconds),
+      nanos: (instance.durationProperty.inMicroseconds -
+              instance.durationProperty.inSeconds * 1000000) *
+          1000);
 
   return proto;
 }
 
 PrecisionSubject _$PrecisionSubjectFromProto(GPrecisionSubject instance) =>
     PrecisionSubject(
-      dateProperty:
-          DateTime.fromMicrosecondsSinceEpoch(instance.dateProperty.toInt()),
-      durationProperty:
-          Duration(microseconds: instance.durationProperty.toInt()),
+      dateProperty: instance.dateProperty.toDateTime(toLocal: true),
+      durationProperty: Duration(
+          seconds: instance.durationProperty.seconds.toInt(),
+          microseconds: (instance.durationProperty.nanos ~/ 1000).toInt()),
     );
 
 extension $PrecisionSubjectProtoExtension on PrecisionSubject {

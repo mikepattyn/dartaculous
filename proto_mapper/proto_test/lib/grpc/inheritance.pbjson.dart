@@ -8,117 +8,92 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-
 @$core.Deprecated('Use tFieldsOfBranchDescriptor instead')
-const TFieldsOfBranch$json = {
+const TFieldsOfBranch$json = const {
   '1': 'TFieldsOfBranch',
-  '2': [
-    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+  '2': const [
+    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
   ],
 };
 
 /// Descriptor for `TFieldsOfBranch`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List tFieldsOfBranchDescriptor = $convert
-    .base64Decode('Cg9URmllbGRzT2ZCcmFuY2gSEgoEbmFtZRgBIAEoCVIEbmFtZQ==');
+final $typed_data.Uint8List tFieldsOfBranchDescriptor = $convert.base64Decode('Cg9URmllbGRzT2ZCcmFuY2gSEgoEbmFtZRgBIAEoCVIEbmFtZQ==');
 @$core.Deprecated('Use tBranchDescriptor instead')
-const TBranch$json = {
+const TBranch$json = const {
   '1': 'TBranch',
-  '2': [
-    {
-      '1': 'branch',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.TFieldsOfBranch',
-      '9': 0,
-      '10': 'branch'
-    },
-    {'1': 'twig', '3': 2, '4': 1, '5': 11, '6': '.LTwig', '9': 0, '10': 'twig'},
-    {'1': 'leaf', '3': 3, '4': 1, '5': 11, '6': '.TLeaf', '9': 0, '10': 'leaf'},
+  '2': const [
+    const {'1': 'branch', '3': 1, '4': 1, '5': 11, '6': '.TFieldsOfBranch', '9': 0, '10': 'branch'},
+    const {'1': 'twig', '3': 2, '4': 1, '5': 11, '6': '.LTwig', '9': 0, '10': 'twig'},
+    const {'1': 'leaf', '3': 3, '4': 1, '5': 11, '6': '.TLeaf', '9': 0, '10': 'leaf'},
   ],
-  '8': [
-    {'1': 'props'},
+  '8': const [
+    const {'1': 'props'},
   ],
 };
 
 /// Descriptor for `TBranch`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List tBranchDescriptor = $convert.base64Decode(
-    'CgdUQnJhbmNoEioKBmJyYW5jaBgBIAEoCzIQLlRGaWVsZHNPZkJyYW5jaEgAUgZicmFuY2gSHAoEdHdpZxgCIAEoCzIGLkxUd2lnSABSBHR3aWcSHAoEbGVhZhgDIAEoCzIGLlRMZWFmSABSBGxlYWZCBwoFcHJvcHM=');
+final $typed_data.Uint8List tBranchDescriptor = $convert.base64Decode('CgdUQnJhbmNoEioKBmJyYW5jaBgBIAEoCzIQLlRGaWVsZHNPZkJyYW5jaEgAUgZicmFuY2gSHAoEdHdpZxgCIAEoCzIGLkxUd2lnSABSBHR3aWcSHAoEbGVhZhgDIAEoCzIGLlRMZWFmSABSBGxlYWZCBwoFcHJvcHM=');
 @$core.Deprecated('Use tListOfBranchDescriptor instead')
-const TListOfBranch$json = {
+const TListOfBranch$json = const {
   '1': 'TListOfBranch',
-  '2': [
-    {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.TBranch', '10': 'items'},
+  '2': const [
+    const {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.TBranch', '10': 'items'},
   ],
 };
 
 /// Descriptor for `TListOfBranch`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List tListOfBranchDescriptor = $convert.base64Decode(
-    'Cg1UTGlzdE9mQnJhbmNoEh4KBWl0ZW1zGAEgAygLMgguVEJyYW5jaFIFaXRlbXM=');
+final $typed_data.Uint8List tListOfBranchDescriptor = $convert.base64Decode('Cg1UTGlzdE9mQnJhbmNoEh4KBWl0ZW1zGAEgAygLMgguVEJyYW5jaFIFaXRlbXM=');
 @$core.Deprecated('Use lFieldsOfTwigDescriptor instead')
-const LFieldsOfTwig$json = {
+const LFieldsOfTwig$json = const {
   '1': 'LFieldsOfTwig',
-  '2': [
-    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+  '2': const [
+    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
   ],
 };
 
 /// Descriptor for `LFieldsOfTwig`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List lFieldsOfTwigDescriptor =
-    $convert.base64Decode('Cg1MRmllbGRzT2ZUd2lnEhIKBG5hbWUYASABKAlSBG5hbWU=');
+final $typed_data.Uint8List lFieldsOfTwigDescriptor = $convert.base64Decode('Cg1MRmllbGRzT2ZUd2lnEhIKBG5hbWUYASABKAlSBG5hbWU=');
 @$core.Deprecated('Use lTwigDescriptor instead')
-const LTwig$json = {
+const LTwig$json = const {
   '1': 'LTwig',
-  '2': [
-    {
-      '1': 'twig',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.LFieldsOfTwig',
-      '9': 0,
-      '10': 'twig'
-    },
-    {'1': 'leaf', '3': 2, '4': 1, '5': 11, '6': '.TLeaf', '9': 0, '10': 'leaf'},
+  '2': const [
+    const {'1': 'twig', '3': 1, '4': 1, '5': 11, '6': '.LFieldsOfTwig', '9': 0, '10': 'twig'},
+    const {'1': 'leaf', '3': 2, '4': 1, '5': 11, '6': '.TLeaf', '9': 0, '10': 'leaf'},
   ],
-  '8': [
-    {'1': 'props'},
+  '8': const [
+    const {'1': 'props'},
   ],
 };
 
 /// Descriptor for `LTwig`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List lTwigDescriptor = $convert.base64Decode(
-    'CgVMVHdpZxIkCgR0d2lnGAEgASgLMg4uTEZpZWxkc09mVHdpZ0gAUgR0d2lnEhwKBGxlYWYYAiABKAsyBi5UTGVhZkgAUgRsZWFmQgcKBXByb3Bz');
+final $typed_data.Uint8List lTwigDescriptor = $convert.base64Decode('CgVMVHdpZxIkCgR0d2lnGAEgASgLMg4uTEZpZWxkc09mVHdpZ0gAUgR0d2lnEhwKBGxlYWYYAiABKAsyBi5UTGVhZkgAUgRsZWFmQgcKBXByb3Bz');
 @$core.Deprecated('Use lListOfTwigDescriptor instead')
-const LListOfTwig$json = {
+const LListOfTwig$json = const {
   '1': 'LListOfTwig',
-  '2': [
-    {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.LTwig', '10': 'items'},
+  '2': const [
+    const {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.LTwig', '10': 'items'},
   ],
 };
 
 /// Descriptor for `LListOfTwig`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List lListOfTwigDescriptor = $convert.base64Decode(
-    'CgtMTGlzdE9mVHdpZxIcCgVpdGVtcxgBIAMoCzIGLkxUd2lnUgVpdGVtcw==');
+final $typed_data.Uint8List lListOfTwigDescriptor = $convert.base64Decode('CgtMTGlzdE9mVHdpZxIcCgVpdGVtcxgBIAMoCzIGLkxUd2lnUgVpdGVtcw==');
 @$core.Deprecated('Use tLeafDescriptor instead')
-const TLeaf$json = {
+const TLeaf$json = const {
   '1': 'TLeaf',
-  '2': [
-    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+  '2': const [
+    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
   ],
 };
 
 /// Descriptor for `TLeaf`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List tLeafDescriptor =
-    $convert.base64Decode('CgVUTGVhZhISCgRuYW1lGAEgASgJUgRuYW1l');
+final $typed_data.Uint8List tLeafDescriptor = $convert.base64Decode('CgVUTGVhZhISCgRuYW1lGAEgASgJUgRuYW1l');
 @$core.Deprecated('Use tListOfLeafDescriptor instead')
-const TListOfLeaf$json = {
+const TListOfLeaf$json = const {
   '1': 'TListOfLeaf',
-  '2': [
-    {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.TLeaf', '10': 'items'},
+  '2': const [
+    const {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.TLeaf', '10': 'items'},
   ],
 };
 
 /// Descriptor for `TListOfLeaf`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List tListOfLeafDescriptor = $convert.base64Decode(
-    'CgtUTGlzdE9mTGVhZhIcCgVpdGVtcxgBIAMoCzIGLlRMZWFmUgVpdGVtcw==');
+final $typed_data.Uint8List tListOfLeafDescriptor = $convert.base64Decode('CgtUTGlzdE9mTGVhZhIcCgVpdGVtcxgBIAMoCzIGLlRMZWFmUgVpdGVtcw==');

@@ -19,22 +19,4 @@ packages:
   - mongo_go/**
   - firebase_go_admin/**
 
-ignore:
-  - arango_driver/test/**
-  - arango_repository/test/**
-  - map_mapper/test/**
-  - defaults_provider/example/*
-  - entity_adapter/example/*
 
-scripts:
-  analyze: melos exec -- "dart analyze ."
-
-  gen:
-    run: melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --file-exists="gen.sh" -- "./gen.sh"
-
-  make:
-    run: echo "Making"
-
-  test:
-    run: 
-      make test && melos exec --dir-exists="test" --ignore="*firebase*admin*" --ignore="*mongo*" --ignore="*arango*" --ignore="*firebase_go_admin*" -- "dart test" 

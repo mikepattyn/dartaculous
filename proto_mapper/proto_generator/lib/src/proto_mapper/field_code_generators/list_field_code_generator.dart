@@ -4,10 +4,12 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class ListFieldCodeGenerator extends FieldCodeGenerator {
+  final bool useWellKnownTypes;
   ListFieldCodeGenerator(
     FieldDescriptor fieldDescriptor, {
     String refName = FieldCodeGenerator.defaultRefName,
     String protoRefName = FieldCodeGenerator.defaultProtoRefName,
+    required this.useWellKnownTypes,
   }) : super(
           fieldDescriptor,
           refName: refName,
@@ -16,7 +18,8 @@ class ListFieldCodeGenerator extends FieldCodeGenerator {
 
   String get _valueToProto {
     return collectionValueToProto(
-        fieldDescriptor, fieldDescriptor.listParameterType!, 'e');
+        fieldDescriptor, fieldDescriptor.listParameterType!, 'e',
+        useWellKnownTypes: useWellKnownTypes);
   }
 
   String get _toProtoConversion {
@@ -52,7 +55,12 @@ class ListFieldCodeGenerator extends FieldCodeGenerator {
         listParameterType.isDartCoreString) {
       return 'e';
     }
-    return collectionProtoToValue(fieldDescriptor, listParameterType, 'e');
+    return collectionProtoToValue(
+      fieldDescriptor,
+      listParameterType,
+      'e',
+      useWellKnownTypes: useWellKnownTypes,
+    );
   }
 
   @override

@@ -8,46 +8,27 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-
 @$core.Deprecated('Use gRotorcraftDescriptor instead')
-const GRotorcraft$json = {
+const GRotorcraft$json = const {
   '1': 'GRotorcraft',
-  '2': [
-    {
-      '1': 'helicopter',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.GHelicopter',
-      '9': 0,
-      '10': 'helicopter'
-    },
-    {
-      '1': 'gyrocopter',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.GGyrocopter',
-      '9': 0,
-      '10': 'gyrocopter'
-    },
+  '2': const [
+    const {'1': 'helicopter', '3': 1, '4': 1, '5': 11, '6': '.GHelicopter', '9': 0, '10': 'helicopter'},
+    const {'1': 'gyrocopter', '3': 2, '4': 1, '5': 11, '6': '.GGyrocopter', '9': 0, '10': 'gyrocopter'},
   ],
-  '8': [
-    {'1': 'props'},
+  '8': const [
+    const {'1': 'props'},
   ],
 };
 
 /// Descriptor for `GRotorcraft`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gRotorcraftDescriptor = $convert.base64Decode(
-    'CgtHUm90b3JjcmFmdBIuCgpoZWxpY29wdGVyGAEgASgLMgwuR0hlbGljb3B0ZXJIAFIKaGVsaWNvcHRlchIuCgpneXJvY29wdGVyGAIgASgLMgwuR0d5cm9jb3B0ZXJIAFIKZ3lyb2NvcHRlckIHCgVwcm9wcw==');
+final $typed_data.Uint8List gRotorcraftDescriptor = $convert.base64Decode('CgtHUm90b3JjcmFmdBIuCgpoZWxpY29wdGVyGAEgASgLMgwuR0hlbGljb3B0ZXJIAFIKaGVsaWNvcHRlchIuCgpneXJvY29wdGVyGAIgASgLMgwuR0d5cm9jb3B0ZXJIAFIKZ3lyb2NvcHRlckIHCgVwcm9wcw==');
 @$core.Deprecated('Use gListOfRotorcraftDescriptor instead')
-const GListOfRotorcraft$json = {
+const GListOfRotorcraft$json = const {
   '1': 'GListOfRotorcraft',
-  '2': [
-    {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.GRotorcraft', '10': 'items'},
+  '2': const [
+    const {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.GRotorcraft', '10': 'items'},
   ],
 };
 
 /// Descriptor for `GListOfRotorcraft`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gListOfRotorcraftDescriptor = $convert.base64Decode(
-    'ChFHTGlzdE9mUm90b3JjcmFmdBIiCgVpdGVtcxgBIAMoCzIMLkdSb3RvcmNyYWZ0UgVpdGVtcw==');
+final $typed_data.Uint8List gListOfRotorcraftDescriptor = $convert.base64Decode('ChFHTGlzdE9mUm90b3JjcmFmdBIiCgVpdGVtcxgBIAMoCzIMLkdSb3RvcmNyYWZ0UgVpdGVtcw==');

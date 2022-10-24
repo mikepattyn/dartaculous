@@ -38,6 +38,7 @@ message GListOfGarlicPress
 }
 
 import "recipe.proto";
+import "google/protobuf/timestamp.proto";
 
 
 
@@ -49,7 +50,7 @@ message GKitchen
 {
   repeated GRecipe recipeList = 1;
   map<string, GRecipe> recipeMap = 2;
-  int64 nextInspectionDate = 3;
+  google.protobuf.Timestamp nextInspectionDate = 3;
 
 }   
 
@@ -59,6 +60,7 @@ message GListOfKitchen
 }
 
 import "appliance_type.proto";
+import "google/protobuf/duration.proto";
 
 
 
@@ -74,8 +76,8 @@ message GChef
   bool favorite_knife_has_value = 4;
   GApplianceType favorite_appliance_type = 5;
   repeated string favorite_words = 6;
-  int64 birthdate = 7;
-  double shelf_life = 8;
+  google.protobuf.Timestamp birthdate = 7;
+  google.protobuf.Duration shelf_life = 8;
   bool shelf_life_has_value = 9;
 
 }   
@@ -93,8 +95,8 @@ message GSousChef
   bool favorite_knife_has_value = 4;
   GApplianceType favorite_appliance_type = 5;
   repeated string favorite_words = 6;
-  int64 birthdate = 7;
-  double shelf_life = 8;
+  google.protobuf.Timestamp birthdate = 7;
+  google.protobuf.Duration shelf_life = 8;
   bool shelf_life_has_value = 9;
 
 }   
@@ -110,8 +112,8 @@ message GKnifeMaster
   bool favorite_recipe_has_value = 2;
   GApplianceType favorite_appliance_type = 3;
   repeated string favorite_words = 4;
-  int64 birthdate = 5;
-  double shelf_life = 6;
+  google.protobuf.Timestamp birthdate = 5;
+  google.protobuf.Duration shelf_life = 6;
   bool shelf_life_has_value = 7;
   GKnife favorite_knife = 8;
 
@@ -126,7 +128,7 @@ message GInventory
 {
   map<string, int32> number_of_things = 1;
   map<string, GRecipe> recipes_by_name = 2;
-  double time_span = 3;
+  google.protobuf.Duration time_span = 3;
   bool time_span_has_value = 4;
 
 }   
@@ -138,8 +140,8 @@ message GListOfInventory
 
 message GPrecisionSubject
 {
-  int64 date_property = 1;
-  double duration_property = 2;
+  google.protobuf.Timestamp date_property = 1;
+  google.protobuf.Duration duration_property = 2;
 
 }   
 

@@ -15,10 +15,13 @@ class ProtoServicesGenerator extends GeneratorForAnnotation<ProtoServices> {
   final BuilderOptions options;
   final String _prefix;
   final String _defaultPackage;
+  final bool _useWellKnownTypes;
 
   ProtoServicesGenerator(this.options)
       : _prefix = options.config['prefix'] as String? ?? 'G',
-        _defaultPackage = options.config['package'] as String? ?? '';
+        _defaultPackage = options.config['package'] as String? ?? '',
+        _useWellKnownTypes =
+            options.config['useWellknowntypes'] as bool? ?? false;
 
   @override
   String generateForAnnotatedElement(
@@ -38,6 +41,7 @@ class ProtoServicesGenerator extends GeneratorForAnnotation<ProtoServices> {
       classElement: classElement,
       prefix: _prefix,
       packageName: packageName,
+      useWellKnownTypes: _useWellKnownTypes,
     );
 
     final ret = generator.generateForClass();
@@ -50,12 +54,14 @@ class _Generator extends ProtoServicesGeneratorBase {
   final ProtoServices annotation;
   final String packageName;
   final String packageDeclaration;
+  final bool useWellKnownTypes;
 
   _Generator({
     required this.annotation,
     required String prefix,
     required InterfaceElement classElement,
     required this.packageName,
+    required this.useWellKnownTypes,
   })  : packageDeclaration = packageName != '' ? 'package $packageName;' : '',
         super(classElement: classElement, prefix: prefix);
 
@@ -208,7 +214,11 @@ $fieldDeclarations}
       name: 'value',
       fieldElementType: type,
     );
-    final fieldDeclarations = createFieldDeclarations([fd], externalProtoNames);
+    final fieldDeclarations = createFieldDeclarations(
+      [fd],
+      externalProtoNames,
+      useWellKnownTypes,
+    );
     return fieldDeclarations;
   }
 
@@ -231,7 +241,11 @@ $fieldDeclarations}
             ))
         .toList();
 
-    final fieldDeclarations = createFieldDeclarations(fds, externalProtoNames);
+    final fieldDeclarations = createFieldDeclarations(
+      fds,
+      externalProtoNames,
+      useWellKnownTypes,
+    );
     return fieldDeclarations;
   }
 

@@ -14,14 +14,15 @@ import 'method_descriptor.dart';
 class ProtoServicesClientGenerator
     extends GeneratorForAnnotation<MapProtoServices> {
   final BuilderOptions options;
-  late String _prefix;
-  late String _defaultPackage;
+  final String _prefix;
+  final String _defaultPackage;
+  final bool _useWellKnownTypes;
 
-  ProtoServicesClientGenerator(this.options) {
-    var config = options.config;
-    _prefix = config['prefix'] as String? ?? 'G';
-    _defaultPackage = config['package'] as String? ?? '';
-  }
+  ProtoServicesClientGenerator(this.options)
+      : _prefix = options.config['prefix'] as String? ?? 'G',
+        _defaultPackage = options.config['package'] as String? ?? '',
+        _useWellKnownTypes =
+            options.config['useWellknowntypes'] as bool? ?? false;
 
   @override
   String generateForAnnotatedElement(
@@ -33,11 +34,11 @@ class ProtoServicesClientGenerator
 
     final classElement = element.asInterfaceElement();
     final generator = _Generator(
-      annotation: readAnnotation,
-      classElement: classElement,
-      prefix: _prefix,
-      packageName: readAnnotation.packageName != '' ? '' : _defaultPackage,
-    );
+        annotation: readAnnotation,
+        classElement: classElement,
+        prefix: _prefix,
+        packageName: readAnnotation.packageName != '' ? '' : _defaultPackage,
+        useWellKnownTypes: _useWellKnownTypes);
 
     var ret = generator.generateForClass();
 
@@ -49,12 +50,14 @@ class _Generator extends ProtoServicesGeneratorBase {
   final MapProtoServices annotation;
   final Iterable<MethodDescriptor> methodDescriptors;
   final String packageName;
+  final bool useWellKnownTypes;
 
   _Generator({
     required this.annotation,
     required String prefix,
     required InterfaceElement classElement,
     required this.packageName,
+    required this.useWellKnownTypes,
   })  : methodDescriptors = _getMethodDescriptors(classElement, annotation),
         super(classElement: classElement, prefix: prefix);
 
@@ -163,6 +166,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
         fd,
         refName: '',
         protoRefName: '\$parm',
+        useWellKnownTypes: useWellKnownTypes,
       );
 
       final expression = fieldCodeGenerator.toProtoMap;
@@ -224,6 +228,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
     final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
       fd,
       refName: '\$result',
+      useWellKnownTypes: useWellKnownTypes,
     );
 
     resultBuffer.write(r'final $result = ');

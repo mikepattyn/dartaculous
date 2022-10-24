@@ -6,6 +6,7 @@
 
 syntax = "proto3";
       
+import "google/protobuf/wrappers.proto";
 
 
 
@@ -17,10 +18,8 @@ message GCalcParameters
 {
   int32 parameter1 = 2;
   int32 parameter2 = 1;
-  int32 parameter3 = 3;
-  bool parameter3_has_value = 4;
-  int32 parameter4 = 5;
-  bool parameter4_has_value = 6;
+  google.protobuf.Int32Value parameter3 = 3;
+  google.protobuf.Int32Value parameter4 = 5;
   int32 parameter5 = 9;
 
 }   

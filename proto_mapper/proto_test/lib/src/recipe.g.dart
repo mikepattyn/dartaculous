@@ -29,33 +29,40 @@ GRecipe _$RecipeToProto(Recipe instance) {
   var proto = GRecipe();
 
   proto.title = instance.title;
-  if (instance.description != null) {
-    proto.description = instance.description!;
-  }
-  proto.descriptionHasValue = instance.description != null;
+  proto.description = StringValue(value: instance.description);
 
   proto.category = const $CategoryProtoMapper().toProto(instance.category);
   proto.ingredients.addAll(instance.ingredients
       .map((e) => const $IngredientProtoMapper().toProto(e)));
 
-  proto.publishDate = Int64(instance.publishDate.microsecondsSinceEpoch);
+  proto.publishDate =
+      $wellknown_timestamp.Timestamp.fromDateTime(instance.publishDate);
   if (instance.expiryDate != null) {
-    proto.expiryDate = Int64(instance.expiryDate!.microsecondsSinceEpoch);
+    proto.expiryDate =
+        $wellknown_timestamp.Timestamp.fromDateTime(instance.expiryDate!);
   }
   proto.expiryDateHasValue = instance.expiryDate != null;
 
-  proto.preparationDuration =
-      instance.preparationDuration.inMicroseconds.toDouble();
+  proto.preparationDuration = $wellknown_duration.Duration(
+      seconds: Int64(instance.preparationDuration.inSeconds),
+      nanos: (instance.preparationDuration.inMicroseconds -
+              instance.preparationDuration.inSeconds * 1000000) *
+          1000);
   if (instance.totalDuration != null) {
-    proto.totalDuration = instance.totalDuration!.inMicroseconds.toDouble();
+    proto.totalDuration = $wellknown_duration.Duration(
+        seconds: Int64(instance.totalDuration!.inSeconds),
+        nanos: (instance.totalDuration!.inMicroseconds -
+                instance.totalDuration!.inSeconds * 1000000) *
+            1000);
   }
   proto.totalDurationHasValue = instance.totalDuration != null;
 
   proto.isPublished = instance.isPublished;
-  if (instance.requiresRobot != null) {
-    proto.requiresRobot = instance.requiresRobot!;
-  }
-  proto.requiresRobotHasValue = instance.requiresRobot != null;
+  proto.requiresRobot = BoolValue(value: instance.requiresRobot);
+
+  proto.grossWeight = DoubleValue(value: instance.grossWeight);
+
+  proto.netWeight = DoubleValue(value: instance.netWeight);
 
   proto.mainApplianceType =
       GApplianceType.valueOf(instance.mainApplianceType.index)!;
@@ -79,29 +86,36 @@ Recipe _$RecipeFromProto(GRecipe instance) => Recipe(
       category: const $CategoryProtoMapper().fromProto(instance.category),
       ingredients: List<Ingredient>.unmodifiable(instance.ingredients
           .map((e) => const $IngredientProtoMapper().fromProto(e))),
-      publishDate:
-          DateTime.fromMicrosecondsSinceEpoch(instance.publishDate.toInt()),
-      preparationDuration:
-          Duration(microseconds: instance.preparationDuration.toInt()),
+      publishDate: instance.publishDate.toDateTime(toLocal: true),
+      preparationDuration: Duration(
+          seconds: instance.preparationDuration.seconds.toInt(),
+          microseconds: (instance.preparationDuration.nanos ~/ 1000).toInt()),
       isPublished: instance.isPublished,
       mainApplianceType: ApplianceType.values[instance.mainApplianceType.value],
       tags: List<String>.unmodifiable(instance.tags.map((e) => e)),
+      grossWeight:
+          (instance.grossWeight.hasValue() ? instance.grossWeight.value : null),
       description:
-          (instance.descriptionHasValue ? (instance.description) : null),
+          (instance.description.hasValue() ? instance.description.value : null),
       expiryDate: (instance.expiryDateHasValue
-          ? (DateTime.fromMicrosecondsSinceEpoch(instance.expiryDate.toInt()))
+          ? (instance.expiryDate.toDateTime(toLocal: true))
           : null),
       totalDuration: (instance.totalDurationHasValue
-          ? (Duration(microseconds: instance.totalDuration.toInt()))
+          ? (Duration(
+              seconds: instance.totalDuration.seconds.toInt(),
+              microseconds: (instance.totalDuration.nanos ~/ 1000).toInt()))
           : null),
-      requiresRobot:
-          (instance.requiresRobotHasValue ? (instance.requiresRobot) : null),
+      requiresRobot: (instance.requiresRobot.hasValue()
+          ? instance.requiresRobot.value
+          : null),
       secondaryApplianceType: (instance.secondaryApplianceTypeHasValue
           ? (ApplianceType.values[instance.secondaryApplianceType.value])
           : null),
       extraTags: (instance.extraTagsHasValue
           ? (List<String>.unmodifiable(instance.extraTags.map((e) => e)))
           : null),
+      netWeight:
+          (instance.netWeight.hasValue() ? instance.netWeight.value : null),
     );
 
 extension $RecipeProtoExtension on Recipe {

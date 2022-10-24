@@ -7,156 +7,41 @@
 
 import 'dart:core' as $core;
 
-import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'appliance_type.pbenum.dart' as $5;
+import 'google/protobuf/duration.pb.dart' as $6;
+import 'google/protobuf/timestamp.pb.dart' as $7;
+
+import 'appliance_type.pbenum.dart' as $8;
 
 class GListsHost extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GListsHost',
-      createEmptyInstance: create)
-    ..p<$core.bool>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vbools',
-        $pb.PbFieldType.KB)
-    ..p<$core.bool>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvbools',
-        $pb.PbFieldType.KB)
-    ..aOB(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvboolsHasValue')
-    ..pPS(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vstrings')
-    ..pPS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvstrings')
-    ..aOB(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvstringsHasValue')
-    ..p<$core.double>(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vdurations',
-        $pb.PbFieldType.KD)
-    ..p<$core.double>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvdurations',
-        $pb.PbFieldType.KD)
-    ..aOB(
-        9,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvdurationsHasValue')
-    ..p<$fixnum.Int64>(
-        10,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vdatetimes',
-        $pb.PbFieldType.K6)
-    ..p<$fixnum.Int64>(
-        11,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvdatetimes',
-        $pb.PbFieldType.K6)
-    ..aOB(
-        12,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvdatetimesHasValue')
-    ..pPS(
-        13,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vdecimals')
-    ..pPS(
-        14,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvdecimals')
-    ..aOB(
-        15,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvdecimalsHasValue')
-    ..p<$core.int>(
-        16,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vints',
-        $pb.PbFieldType.K3)
-    ..p<$core.int>(
-        17,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvints',
-        $pb.PbFieldType.K3)
-    ..aOB(
-        18,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvintsHasValue')
-    ..p<$core.double>(
-        19,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vdoubles',
-        $pb.PbFieldType.KD)
-    ..p<$core.double>(
-        20,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvdoubles',
-        $pb.PbFieldType.KD)
-    ..aOB(
-        21,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvdoublesHasValue')
-    ..pc<$5.GApplianceType>(
-        22,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'vapplianceTypes',
-        $pb.PbFieldType.KE,
-        valueOf: $5.GApplianceType.valueOf,
-        enumValues: $5.GApplianceType.values,
-        defaultEnumValue: $5.GApplianceType.G_APPLIANCE_TYPE_HEAT)
-    ..pc<$5.GApplianceType>(
-        23,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvapplianceTypes',
-        $pb.PbFieldType.KE,
-        valueOf: $5.GApplianceType.valueOf,
-        enumValues: $5.GApplianceType.values,
-        defaultEnumValue: $5.GApplianceType.G_APPLIANCE_TYPE_HEAT)
-    ..aOB(
-        24,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'nvapplianceTypesHasValue')
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GListsHost', createEmptyInstance: create)
+    ..p<$core.bool>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vbools', $pb.PbFieldType.KB)
+    ..p<$core.bool>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvbools', $pb.PbFieldType.KB)
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvboolsHasValue')
+    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vstrings')
+    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvstrings')
+    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvstringsHasValue')
+    ..pc<$6.Duration>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdurations', $pb.PbFieldType.PM, subBuilder: $6.Duration.create)
+    ..pc<$6.Duration>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdurations', $pb.PbFieldType.PM, subBuilder: $6.Duration.create)
+    ..aOB(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdurationsHasValue')
+    ..pc<$7.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdatetimes', $pb.PbFieldType.PM, subBuilder: $7.Timestamp.create)
+    ..pc<$7.Timestamp>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimes', $pb.PbFieldType.PM, subBuilder: $7.Timestamp.create)
+    ..aOB(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimesHasValue')
+    ..pPS(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdecimals')
+    ..pPS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimals')
+    ..aOB(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimalsHasValue')
+    ..p<$core.int>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vints', $pb.PbFieldType.K3)
+    ..p<$core.int>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvints', $pb.PbFieldType.K3)
+    ..aOB(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvintsHasValue')
+    ..p<$core.double>(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdoubles', $pb.PbFieldType.KD)
+    ..p<$core.double>(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdoubles', $pb.PbFieldType.KD)
+    ..aOB(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdoublesHasValue')
+    ..pc<$8.GApplianceType>(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vapplianceTypes', $pb.PbFieldType.KE, valueOf: $8.GApplianceType.valueOf, enumValues: $8.GApplianceType.values, defaultEnumValue: $8.GApplianceType.G_APPLIANCE_TYPE_HEAT)
+    ..pc<$8.GApplianceType>(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvapplianceTypes', $pb.PbFieldType.KE, valueOf: $8.GApplianceType.valueOf, enumValues: $8.GApplianceType.values, defaultEnumValue: $8.GApplianceType.G_APPLIANCE_TYPE_HEAT)
+    ..aOB(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvapplianceTypesHasValue')
+    ..hasRequiredFields = false
+  ;
 
   GListsHost._() : super();
   factory GListsHost({
@@ -166,11 +51,11 @@ class GListsHost extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? vstrings,
     $core.Iterable<$core.String>? nvstrings,
     $core.bool? nvstringsHasValue,
-    $core.Iterable<$core.double>? vdurations,
-    $core.Iterable<$core.double>? nvdurations,
+    $core.Iterable<$6.Duration>? vdurations,
+    $core.Iterable<$6.Duration>? nvdurations,
     $core.bool? nvdurationsHasValue,
-    $core.Iterable<$fixnum.Int64>? vdatetimes,
-    $core.Iterable<$fixnum.Int64>? nvdatetimes,
+    $core.Iterable<$7.Timestamp>? vdatetimes,
+    $core.Iterable<$7.Timestamp>? nvdatetimes,
     $core.bool? nvdatetimesHasValue,
     $core.Iterable<$core.String>? vdecimals,
     $core.Iterable<$core.String>? nvdecimals,
@@ -181,8 +66,8 @@ class GListsHost extends $pb.GeneratedMessage {
     $core.Iterable<$core.double>? vdoubles,
     $core.Iterable<$core.double>? nvdoubles,
     $core.bool? nvdoublesHasValue,
-    $core.Iterable<$5.GApplianceType>? vapplianceTypes,
-    $core.Iterable<$5.GApplianceType>? nvapplianceTypes,
+    $core.Iterable<$8.GApplianceType>? vapplianceTypes,
+    $core.Iterable<$8.GApplianceType>? nvapplianceTypes,
     $core.bool? nvapplianceTypesHasValue,
   }) {
     final _result = create();
@@ -260,30 +145,25 @@ class GListsHost extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GListsHost.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory GListsHost.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory GListsHost.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GListsHost.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   GListsHost clone() => GListsHost()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  GListsHost copyWith(void Function(GListsHost) updates) =>
-      super.copyWith((message) => updates(message as GListsHost))
-          as GListsHost; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GListsHost copyWith(void Function(GListsHost) updates) => super.copyWith((message) => updates(message as GListsHost)) as GListsHost; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static GListsHost create() => GListsHost._();
   GListsHost createEmptyInstance() => create();
   static $pb.PbList<GListsHost> createRepeated() => $pb.PbList<GListsHost>();
   @$core.pragma('dart2js:noInline')
-  static GListsHost getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GListsHost>(create);
+  static GListsHost getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GListsHost>(create);
   static GListsHost? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -295,10 +175,7 @@ class GListsHost extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool get nvboolsHasValue => $_getBF(2);
   @$pb.TagNumber(3)
-  set nvboolsHasValue($core.bool v) {
-    $_setBool(2, v);
-  }
-
+  set nvboolsHasValue($core.bool v) { $_setBool(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasNvboolsHasValue() => $_has(2);
   @$pb.TagNumber(3)
@@ -313,46 +190,37 @@ class GListsHost extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool get nvstringsHasValue => $_getBF(5);
   @$pb.TagNumber(6)
-  set nvstringsHasValue($core.bool v) {
-    $_setBool(5, v);
-  }
-
+  set nvstringsHasValue($core.bool v) { $_setBool(5, v); }
   @$pb.TagNumber(6)
   $core.bool hasNvstringsHasValue() => $_has(5);
   @$pb.TagNumber(6)
   void clearNvstringsHasValue() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.List<$core.double> get vdurations => $_getList(6);
+  $core.List<$6.Duration> get vdurations => $_getList(6);
 
   @$pb.TagNumber(8)
-  $core.List<$core.double> get nvdurations => $_getList(7);
+  $core.List<$6.Duration> get nvdurations => $_getList(7);
 
   @$pb.TagNumber(9)
   $core.bool get nvdurationsHasValue => $_getBF(8);
   @$pb.TagNumber(9)
-  set nvdurationsHasValue($core.bool v) {
-    $_setBool(8, v);
-  }
-
+  set nvdurationsHasValue($core.bool v) { $_setBool(8, v); }
   @$pb.TagNumber(9)
   $core.bool hasNvdurationsHasValue() => $_has(8);
   @$pb.TagNumber(9)
   void clearNvdurationsHasValue() => clearField(9);
 
   @$pb.TagNumber(10)
-  $core.List<$fixnum.Int64> get vdatetimes => $_getList(9);
+  $core.List<$7.Timestamp> get vdatetimes => $_getList(9);
 
   @$pb.TagNumber(11)
-  $core.List<$fixnum.Int64> get nvdatetimes => $_getList(10);
+  $core.List<$7.Timestamp> get nvdatetimes => $_getList(10);
 
   @$pb.TagNumber(12)
   $core.bool get nvdatetimesHasValue => $_getBF(11);
   @$pb.TagNumber(12)
-  set nvdatetimesHasValue($core.bool v) {
-    $_setBool(11, v);
-  }
-
+  set nvdatetimesHasValue($core.bool v) { $_setBool(11, v); }
   @$pb.TagNumber(12)
   $core.bool hasNvdatetimesHasValue() => $_has(11);
   @$pb.TagNumber(12)
@@ -367,10 +235,7 @@ class GListsHost extends $pb.GeneratedMessage {
   @$pb.TagNumber(15)
   $core.bool get nvdecimalsHasValue => $_getBF(14);
   @$pb.TagNumber(15)
-  set nvdecimalsHasValue($core.bool v) {
-    $_setBool(14, v);
-  }
-
+  set nvdecimalsHasValue($core.bool v) { $_setBool(14, v); }
   @$pb.TagNumber(15)
   $core.bool hasNvdecimalsHasValue() => $_has(14);
   @$pb.TagNumber(15)
@@ -385,10 +250,7 @@ class GListsHost extends $pb.GeneratedMessage {
   @$pb.TagNumber(18)
   $core.bool get nvintsHasValue => $_getBF(17);
   @$pb.TagNumber(18)
-  set nvintsHasValue($core.bool v) {
-    $_setBool(17, v);
-  }
-
+  set nvintsHasValue($core.bool v) { $_setBool(17, v); }
   @$pb.TagNumber(18)
   $core.bool hasNvintsHasValue() => $_has(17);
   @$pb.TagNumber(18)
@@ -403,28 +265,22 @@ class GListsHost extends $pb.GeneratedMessage {
   @$pb.TagNumber(21)
   $core.bool get nvdoublesHasValue => $_getBF(20);
   @$pb.TagNumber(21)
-  set nvdoublesHasValue($core.bool v) {
-    $_setBool(20, v);
-  }
-
+  set nvdoublesHasValue($core.bool v) { $_setBool(20, v); }
   @$pb.TagNumber(21)
   $core.bool hasNvdoublesHasValue() => $_has(20);
   @$pb.TagNumber(21)
   void clearNvdoublesHasValue() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.List<$5.GApplianceType> get vapplianceTypes => $_getList(21);
+  $core.List<$8.GApplianceType> get vapplianceTypes => $_getList(21);
 
   @$pb.TagNumber(23)
-  $core.List<$5.GApplianceType> get nvapplianceTypes => $_getList(22);
+  $core.List<$8.GApplianceType> get nvapplianceTypes => $_getList(22);
 
   @$pb.TagNumber(24)
   $core.bool get nvapplianceTypesHasValue => $_getBF(23);
   @$pb.TagNumber(24)
-  set nvapplianceTypesHasValue($core.bool v) {
-    $_setBool(23, v);
-  }
-
+  set nvapplianceTypesHasValue($core.bool v) { $_setBool(23, v); }
   @$pb.TagNumber(24)
   $core.bool hasNvapplianceTypesHasValue() => $_has(23);
   @$pb.TagNumber(24)
@@ -432,19 +288,10 @@ class GListsHost extends $pb.GeneratedMessage {
 }
 
 class GListOfListsHost extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GListOfListsHost',
-      createEmptyInstance: create)
-    ..pc<GListsHost>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'items',
-        $pb.PbFieldType.PM,
-        subBuilder: GListsHost.create)
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GListOfListsHost', createEmptyInstance: create)
+    ..pc<GListsHost>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'items', $pb.PbFieldType.PM, subBuilder: GListsHost.create)
+    ..hasRequiredFields = false
+  ;
 
   GListOfListsHost._() : super();
   factory GListOfListsHost({
@@ -456,33 +303,28 @@ class GListOfListsHost extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GListOfListsHost.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory GListOfListsHost.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory GListOfListsHost.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GListOfListsHost.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   GListOfListsHost clone() => GListOfListsHost()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  GListOfListsHost copyWith(void Function(GListOfListsHost) updates) =>
-      super.copyWith((message) => updates(message as GListOfListsHost))
-          as GListOfListsHost; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GListOfListsHost copyWith(void Function(GListOfListsHost) updates) => super.copyWith((message) => updates(message as GListOfListsHost)) as GListOfListsHost; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static GListOfListsHost create() => GListOfListsHost._();
   GListOfListsHost createEmptyInstance() => create();
-  static $pb.PbList<GListOfListsHost> createRepeated() =>
-      $pb.PbList<GListOfListsHost>();
+  static $pb.PbList<GListOfListsHost> createRepeated() => $pb.PbList<GListOfListsHost>();
   @$core.pragma('dart2js:noInline')
-  static GListOfListsHost getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GListOfListsHost>(create);
+  static GListOfListsHost getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GListOfListsHost>(create);
   static GListOfListsHost? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<GListsHost> get items => $_getList(0);
 }
+

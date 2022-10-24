@@ -89,6 +89,8 @@ Recipe _scrambledEggsRecipe({
       secondaryApplianceType: secondaryApplianceType,
       tags: ['tag1', 'tag2'],
       extraTags: extraTags,
+      grossWeight: 195.65,
+      netWeight: null,
     );
 
 Category _eggsCategory({

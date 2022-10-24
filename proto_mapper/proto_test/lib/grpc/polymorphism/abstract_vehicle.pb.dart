@@ -9,42 +9,32 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'bicycle.pb.dart' as $8;
-import 'scooter.pb.dart' as $9;
+import 'bicycle.pb.dart' as $11;
+import 'scooter.pb.dart' as $12;
 
-enum GAbstractVehicle_Props { bicycle, scooter, notSet }
+enum GAbstractVehicle_Props {
+  bicycle, 
+  scooter, 
+  notSet
+}
 
 class GAbstractVehicle extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, GAbstractVehicle_Props>
-      _GAbstractVehicle_PropsByTag = {
-    1: GAbstractVehicle_Props.bicycle,
-    2: GAbstractVehicle_Props.scooter,
-    0: GAbstractVehicle_Props.notSet
+  static const $core.Map<$core.int, GAbstractVehicle_Props> _GAbstractVehicle_PropsByTag = {
+    1 : GAbstractVehicle_Props.bicycle,
+    2 : GAbstractVehicle_Props.scooter,
+    0 : GAbstractVehicle_Props.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GAbstractVehicle',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAbstractVehicle', createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<$8.GBicycle>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'bicycle',
-        subBuilder: $8.GBicycle.create)
-    ..aOM<$9.GScooter>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'scooter',
-        subBuilder: $9.GScooter.create)
-    ..hasRequiredFields = false;
+    ..aOM<$11.GBicycle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'bicycle', subBuilder: $11.GBicycle.create)
+    ..aOM<$12.GScooter>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scooter', subBuilder: $12.GScooter.create)
+    ..hasRequiredFields = false
+  ;
 
   GAbstractVehicle._() : super();
   factory GAbstractVehicle({
-    $8.GBicycle? bicycle,
-    $9.GScooter? scooter,
+    $11.GBicycle? bicycle,
+    $12.GScooter? scooter,
   }) {
     final _result = create();
     if (bicycle != null) {
@@ -55,80 +45,58 @@ class GAbstractVehicle extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GAbstractVehicle.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory GAbstractVehicle.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory GAbstractVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GAbstractVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   GAbstractVehicle clone() => GAbstractVehicle()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  GAbstractVehicle copyWith(void Function(GAbstractVehicle) updates) =>
-      super.copyWith((message) => updates(message as GAbstractVehicle))
-          as GAbstractVehicle; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GAbstractVehicle copyWith(void Function(GAbstractVehicle) updates) => super.copyWith((message) => updates(message as GAbstractVehicle)) as GAbstractVehicle; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static GAbstractVehicle create() => GAbstractVehicle._();
   GAbstractVehicle createEmptyInstance() => create();
-  static $pb.PbList<GAbstractVehicle> createRepeated() =>
-      $pb.PbList<GAbstractVehicle>();
+  static $pb.PbList<GAbstractVehicle> createRepeated() => $pb.PbList<GAbstractVehicle>();
   @$core.pragma('dart2js:noInline')
-  static GAbstractVehicle getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GAbstractVehicle>(create);
+  static GAbstractVehicle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GAbstractVehicle>(create);
   static GAbstractVehicle? _defaultInstance;
 
-  GAbstractVehicle_Props whichProps() =>
-      _GAbstractVehicle_PropsByTag[$_whichOneof(0)]!;
+  GAbstractVehicle_Props whichProps() => _GAbstractVehicle_PropsByTag[$_whichOneof(0)]!;
   void clearProps() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  $8.GBicycle get bicycle => $_getN(0);
+  $11.GBicycle get bicycle => $_getN(0);
   @$pb.TagNumber(1)
-  set bicycle($8.GBicycle v) {
-    setField(1, v);
-  }
-
+  set bicycle($11.GBicycle v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasBicycle() => $_has(0);
   @$pb.TagNumber(1)
   void clearBicycle() => clearField(1);
   @$pb.TagNumber(1)
-  $8.GBicycle ensureBicycle() => $_ensure(0);
+  $11.GBicycle ensureBicycle() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $9.GScooter get scooter => $_getN(1);
+  $12.GScooter get scooter => $_getN(1);
   @$pb.TagNumber(2)
-  set scooter($9.GScooter v) {
-    setField(2, v);
-  }
-
+  set scooter($12.GScooter v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasScooter() => $_has(1);
   @$pb.TagNumber(2)
   void clearScooter() => clearField(2);
   @$pb.TagNumber(2)
-  $9.GScooter ensureScooter() => $_ensure(1);
+  $12.GScooter ensureScooter() => $_ensure(1);
 }
 
 class GListOfAbstractVehicle extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'GListOfAbstractVehicle',
-      createEmptyInstance: create)
-    ..pc<GAbstractVehicle>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'items',
-        $pb.PbFieldType.PM,
-        subBuilder: GAbstractVehicle.create)
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GListOfAbstractVehicle', createEmptyInstance: create)
+    ..pc<GAbstractVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'items', $pb.PbFieldType.PM, subBuilder: GAbstractVehicle.create)
+    ..hasRequiredFields = false
+  ;
 
   GListOfAbstractVehicle._() : super();
   factory GListOfAbstractVehicle({
@@ -140,35 +108,28 @@ class GListOfAbstractVehicle extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GListOfAbstractVehicle.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory GListOfAbstractVehicle.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  GListOfAbstractVehicle clone() =>
-      GListOfAbstractVehicle()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  GListOfAbstractVehicle copyWith(
-          void Function(GListOfAbstractVehicle) updates) =>
-      super.copyWith((message) => updates(message as GListOfAbstractVehicle))
-          as GListOfAbstractVehicle; // ignore: deprecated_member_use
+  factory GListOfAbstractVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GListOfAbstractVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GListOfAbstractVehicle clone() => GListOfAbstractVehicle()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GListOfAbstractVehicle copyWith(void Function(GListOfAbstractVehicle) updates) => super.copyWith((message) => updates(message as GListOfAbstractVehicle)) as GListOfAbstractVehicle; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static GListOfAbstractVehicle create() => GListOfAbstractVehicle._();
   GListOfAbstractVehicle createEmptyInstance() => create();
-  static $pb.PbList<GListOfAbstractVehicle> createRepeated() =>
-      $pb.PbList<GListOfAbstractVehicle>();
+  static $pb.PbList<GListOfAbstractVehicle> createRepeated() => $pb.PbList<GListOfAbstractVehicle>();
   @$core.pragma('dart2js:noInline')
-  static GListOfAbstractVehicle getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<GListOfAbstractVehicle>(create);
+  static GListOfAbstractVehicle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GListOfAbstractVehicle>(create);
   static GListOfAbstractVehicle? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<GAbstractVehicle> get items => $_getList(0);
 }
+

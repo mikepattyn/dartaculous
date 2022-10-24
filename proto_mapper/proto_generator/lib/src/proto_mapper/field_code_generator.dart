@@ -9,7 +9,13 @@ import 'field_code_generators/duration/microseconds_duration_field_code_generato
 import 'field_code_generators/duration/milliseconds_duration_field_code_generator.dart';
 import 'field_code_generators/entity_field_code_generator.dart';
 import 'field_code_generators/enum_field_code_generator.dart';
+import 'field_code_generators/gbool_field_code_generator.dart';
+import 'field_code_generators/gdouble_field_code_generator.dart';
+import 'field_code_generators/duration/gduration_field_code_generator.dart';
+import 'field_code_generators/gdatetime_field_code_generator.dart';
 import 'field_code_generators/generic_field_code_generator.dart';
+import 'field_code_generators/gint_field_code_generator.dart';
+import 'field_code_generators/gstring_field_code_generator.dart';
 import 'field_code_generators/int_field_code_generator.dart';
 import 'field_code_generators/iterable_field_code_generator.dart';
 import 'field_code_generators/list_field_code_generator.dart';
@@ -24,9 +30,10 @@ abstract class FieldCodeGenerator {
 
   final FieldDescriptor fieldDescriptor;
   final String refName;
+  final String protoRefName;
+
   String get ref => refName.isEmpty ? '' : '$refName.';
   String get protoRef => protoRefName.isEmpty ? '' : '$protoRefName.';
-  final String protoRefName;
 
   FieldCodeGenerator(
     this.fieldDescriptor, {
@@ -73,33 +80,61 @@ abstract class FieldCodeGenerator {
     FieldDescriptor fieldDescriptor, {
     String refName = FieldCodeGenerator.defaultRefName,
     String protoRefName = FieldCodeGenerator.defaultProtoRefName,
+    required bool useWellKnownTypes,
   }) {
     if (fieldDescriptor.fieldElementType.isDartCoreString) {
-      return StringFieldCodeGenerator(
-        fieldDescriptor,
-        refName: refName,
-        protoRefName: protoRefName,
-      );
+      return useWellKnownTypes
+          ? GStringFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            )
+          : StringFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreBool) {
-      return BoolFieldCodeGenerator(
+      return useWellKnownTypes
+          ? GBoolFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            )
+          : BoolFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            );
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreDouble &&
+        useWellKnownTypes) {
+      return GDoubleFieldCodeGenerator(
         fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreInt) {
-      return IntFieldCodeGenerator(
-        fieldDescriptor,
-        refName: refName,
-        protoRefName: protoRefName,
-      );
+      return useWellKnownTypes
+          ? GIntFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            )
+          : IntFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreList) {
       return ListFieldCodeGenerator(
         fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
+        useWellKnownTypes: useWellKnownTypes,
       );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreMap) {
@@ -107,6 +142,7 @@ abstract class FieldCodeGenerator {
         fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
+        useWellKnownTypes: useWellKnownTypes,
       );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreSet) {
@@ -114,6 +150,7 @@ abstract class FieldCodeGenerator {
         fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
+        useWellKnownTypes: useWellKnownTypes,
       );
     }
     if (fieldDescriptor.typeIsEnum) {
@@ -124,6 +161,13 @@ abstract class FieldCodeGenerator {
       );
     }
     if (fieldDescriptor.fieldElementTypeName == (DateTime).toString()) {
+      if (useWellKnownTypes) {
+        return GDateTimeFieldCodeGenerator(
+          fieldDescriptor,
+          refName: refName,
+          protoRefName: protoRefName,
+        );
+      }
       return DateTimeFieldCodeGenerator(
         fieldDescriptor,
         refName: refName,
@@ -138,6 +182,13 @@ abstract class FieldCodeGenerator {
       );
     }
     if (fieldDescriptor.fieldElementTypeName == (Duration).toString()) {
+      if (useWellKnownTypes) {
+        return GDurationFieldCodeGenerator(
+          fieldDescriptor,
+          refName: refName,
+          protoRefName: protoRefName,
+        );
+      }
       switch (fieldDescriptor.durationPrecision) {
         case TimePrecision.milliseconds:
           return MillisecondsDurationFieldCodeGenerator(
@@ -168,6 +219,7 @@ abstract class FieldCodeGenerator {
         fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
+        useWellKnownTypes: useWellKnownTypes,
       );
     }
 

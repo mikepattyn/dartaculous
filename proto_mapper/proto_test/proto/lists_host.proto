@@ -6,6 +6,8 @@
 
 syntax = "proto3";
       
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
 import "appliance_type.proto";
 
 
@@ -22,11 +24,11 @@ message GListsHost
   repeated string vstrings = 4;
   repeated string nvstrings = 5;
   bool nvstrings_has_value = 6;
-  repeated double vdurations = 7;
-  repeated double nvdurations = 8;
+  repeated google.protobuf.Duration vdurations = 7;
+  repeated google.protobuf.Duration nvdurations = 8;
   bool nvdurations_has_value = 9;
-  repeated int64 vdatetimes = 10;
-  repeated int64 nvdatetimes = 11;
+  repeated google.protobuf.Timestamp vdatetimes = 10;
+  repeated google.protobuf.Timestamp nvdatetimes = 11;
   bool nvdatetimes_has_value = 12;
   repeated string vdecimals = 13;
   repeated string nvdecimals = 14;

@@ -4,8 +4,10 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class IterableFieldCodeGenerator extends FieldCodeGenerator {
+  final bool useWellKnownTypes;
   IterableFieldCodeGenerator(
     FieldDescriptor fieldDescriptor, {
+    required this.useWellKnownTypes,
     String refName = FieldCodeGenerator.defaultRefName,
     String protoRefName = FieldCodeGenerator.defaultProtoRefName,
   }) : super(
@@ -16,7 +18,11 @@ class IterableFieldCodeGenerator extends FieldCodeGenerator {
 
   String get _valueToProto {
     return collectionValueToProto(
-        fieldDescriptor, fieldDescriptor.iterableParameterType!, 'e');
+      fieldDescriptor,
+      fieldDescriptor.iterableParameterType!,
+      'e',
+      useWellKnownTypes: useWellKnownTypes,
+    );
   }
 
   String get _toProtoConversion {
@@ -52,7 +58,12 @@ class IterableFieldCodeGenerator extends FieldCodeGenerator {
         iterableParameterType.isDartCoreString) {
       return 'e';
     }
-    return collectionProtoToValue(fieldDescriptor, iterableParameterType, 'e');
+    return collectionProtoToValue(
+      fieldDescriptor,
+      iterableParameterType,
+      'e',
+      useWellKnownTypes: useWellKnownTypes,
+    );
   }
 
   @override

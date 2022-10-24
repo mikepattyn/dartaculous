@@ -131,6 +131,22 @@ void main() {
       );
     });
 
+    test('double nullable precision', () {
+      final recipe = _scrambledEggsRecipe();
+
+      final proto = recipe.toProto();
+      final recipe2 = proto.toRecipe();
+
+      expect(
+        recipe2.grossWeight,
+        recipe.grossWeight,
+      );
+      expect(
+        recipe2.netWeight,
+        null,
+      );
+    });
+
     test('mainComponent', () {
       final recipe = _scrambledEggsRecipe();
 
@@ -287,4 +303,6 @@ Recipe _scrambledEggsRecipe({
       secondaryApplianceType: secondaryApplianceType,
       tags: ['tag1', 'tag2'],
       extraTags: extraTags,
+      grossWeight: 195.65,
+      netWeight: null,
     );

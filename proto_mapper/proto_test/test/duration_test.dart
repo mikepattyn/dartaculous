@@ -4,6 +4,8 @@ import 'package:proto_generator_test/grpc/utensils.pb.dart';
 
 import 'package:test/test.dart';
 
+import 'common.dart';
+
 /// Currently, dates are only stored up to the milliseconds, preferrable this should also be possible up to the microseconds.
 void main() {
   group('Durations', () {
@@ -17,12 +19,21 @@ void main() {
       );
       final serialized = chef.toJson();
       final deserialized = GChef.fromJson(serialized).toChef();
-      expect(
-          deserialized.shelfLife,
-          equals(Duration(
-            milliseconds: 10,
-            microseconds: 0,
-          )));
+      if (usesWellKnownTypes) {
+        expect(
+            deserialized.shelfLife,
+            equals(Duration(
+              milliseconds: 10,
+              microseconds: 3,
+            )));
+      } else {
+        expect(
+            deserialized.shelfLife,
+            equals(Duration(
+              milliseconds: 10,
+              microseconds: 0,
+            )));
+      }
     });
 
     test('Microseconds precision', () {

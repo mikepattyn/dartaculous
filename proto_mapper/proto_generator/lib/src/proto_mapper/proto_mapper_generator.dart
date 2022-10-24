@@ -15,27 +15,22 @@ part 'proto_mapper_generator.helpers.dart';
 
 class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   final BuilderOptions options;
-  late String _prefix;
+  final String _prefix;
+  final TimePrecision _dateTimePrecision;
+  final TimePrecision _durationPrecision;
+  final bool _allowMissingFields;
+  final bool _useWellKnownTypes;
 
-  late TimePrecision _dateTimePrecision;
-  late TimePrecision _durationPrecision;
-  late bool _allowMissingFields;
-
-  // InterfaceElement? _classElement;
-
-  // InterfaceElement? get classElement => _classElement;
-
-  // String? get className => _classElement?.name;
-
-  ProtoMapperGenerator(this.options) {
-    var config = options.config;
-    _prefix = config['prefix'] as String? ?? 'G';
-    _dateTimePrecision = _getTimePrecision(
-        config['dateTimePrecision'] as String? ?? 'microseconds');
-    _durationPrecision = _getTimePrecision(
-        config['durationPrecision'] as String? ?? 'microseconds');
-    _allowMissingFields = (config['allowMissingFields'] as bool? ?? false);
-  }
+  ProtoMapperGenerator(this.options)
+      : _prefix = options.config['prefix'] as String? ?? 'G',
+        _dateTimePrecision = _getTimePrecision(
+            options.config['dateTimePrecision'] as String? ?? 'microseconds'),
+        _durationPrecision = _getTimePrecision(
+            options.config['durationPrecision'] as String? ?? 'microseconds'),
+        _allowMissingFields =
+            (options.config['allowMissingFields'] as bool? ?? false),
+        _useWellKnownTypes =
+            options.config['useWellknowntypes'] as bool? ?? false;
 
   @override
   String generateForAnnotatedElement(
@@ -78,7 +73,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     final constructorFieldBuffer = StringBuffer();
 
     // let's get all the constructors which cover all non-nullable final fields
-    final constructor = _getConstructor(classElement, fieldDescriptors, mapProto);
+    final constructor =
+        _getConstructor(classElement, fieldDescriptors, mapProto);
 
     // generate the mapping for the constructor, consuming all
     // the fields that are set by the constructor
@@ -89,16 +85,20 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     // (that where not set by the constructor)
     for (var fieldDescriptor
         in fromFieldDescriptors.where((fd) => !fd.isFinal)) {
-      final fieldCodeGenerator =
-          FieldCodeGenerator.fromFieldDescriptor(fieldDescriptor);
+      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+        fieldDescriptor,
+        useWellKnownTypes: _useWellKnownTypes,
+      );
       var fromProtoMap = fieldCodeGenerator.fromProtoMap;
       fromProtoFieldBuffer.writeln('  ..$fromProtoMap');
     }
 
     // assign the to proto field assignments
     for (var fieldDescriptor in fieldDescriptors) {
-      final fieldCodeGenerator =
-          FieldCodeGenerator.fromFieldDescriptor(fieldDescriptor);
+      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+        fieldDescriptor,
+        useWellKnownTypes: _useWellKnownTypes,
+      );
       toProtoFieldBuffer.writeln(fieldCodeGenerator.toProtoMap);
     }
 
@@ -119,7 +119,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     return renderParms;
   }
 
-  ConstructorElement _getConstructor(ClassElement classElement, Iterable<FieldDescriptor> fieldDescriptors, MapProto mapProto) {
+  ConstructorElement _getConstructor(ClassElement classElement,
+      Iterable<FieldDescriptor> fieldDescriptors, MapProto mapProto) {
     final missingFields = <String>{};
     final constructors = classElement.getConstructorsMatchingFields(
       fieldDescriptors: fieldDescriptors,
@@ -150,8 +151,10 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       final fieldDescriptor = fieldDescriptorList.first;
       fromFieldDescriptors.remove(fieldDescriptor);
 
-      final fieldCodeGenerator =
-          FieldCodeGenerator.fromFieldDescriptor(fieldDescriptor);
+      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+        fieldDescriptor,
+        useWellKnownTypes: _useWellKnownTypes,
+      );
       // INLINE
       final constructorMap = constructorParameter.isNamed
           ? fieldCodeGenerator.constructorMap

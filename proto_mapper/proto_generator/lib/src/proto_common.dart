@@ -13,7 +13,8 @@ import 'proto/field_code_generators/external_proto_name.dart';
 
 String createFieldDeclarations(
   Iterable<protofield.FieldDescriptor> fieldDescriptors,
-  List<String> externalProtoNames, [
+  List<String> externalProtoNames,
+  bool useWellKnownTypes, [
   String indent = '  ',
 ]) {
   final fieldBuffer = StringBuffer();
@@ -27,13 +28,13 @@ String createFieldDeclarations(
       .toList();
 
   for (var fieldDescriptor in fieldDescriptors) {
-    var fieldCodeGenerator =
-        FieldCodeGenerator.fromFieldDescriptor(fieldDescriptor, lineNumbers);
+    var fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+        fieldDescriptor, lineNumbers, useWellKnownTypes);
 
     var fieldLine = fieldCodeGenerator.fieldLine;
     fieldBuffer.writeln(
         '$indent${fieldDescriptor.isRepeated ? 'repeated ' : ''}$fieldLine');
-    if (fieldDescriptor.isNullable) {
+    if (fieldDescriptor.isNullable && fieldCodeGenerator.hasValueLine != null) {
       fieldBuffer.writeln('  ${fieldCodeGenerator.hasValueLine}');
     }
 
@@ -111,19 +112,31 @@ extension ProtoMethodElementExtension on MethodElement {
   }
 }
 
-String collectionProtoToValue(mapperfield.FieldDescriptor fieldDescriptor,
-    DartType parameterType, String parameterName) {
+String collectionProtoToValue(
+  mapperfield.FieldDescriptor fieldDescriptor,
+  DartType parameterType,
+  String parameterName, {
+  required bool useWellKnownTypes,
+}) {
   final fieldTypeName = parameterType.getDisplayString(withNullability: false);
   if (fieldTypeName == (Decimal).toString()) {
     return 'Decimal.parse($parameterName)';
   }
   if (fieldTypeName == (DateTime).toString()) {
+    if (useWellKnownTypes) {
+      return '''$parameterName.toDateTime(toLocal: true)''';
+    }
     if (fieldDescriptor.dateTimePrecision == TimePrecision.microseconds) {
       return 'DateTime.fromMicrosecondsSinceEpoch($parameterName.toInt())';
     }
     return 'DateTime.fromMillisecondsSinceEpoch($parameterName.toInt())';
   }
   if (fieldTypeName == (Duration).toString()) {
+    if (useWellKnownTypes) {
+      return '''Duration(
+      seconds: $parameterName.seconds.toInt(),
+      microseconds: ($parameterName.nanos ~/ 1000).toInt())''';
+    }
     if (fieldDescriptor.durationPrecision == TimePrecision.microseconds) {
       return 'Duration(microseconds: $parameterName.toInt())';
     }
@@ -132,19 +145,31 @@ String collectionProtoToValue(mapperfield.FieldDescriptor fieldDescriptor,
   return ''' const \$${fieldTypeName}ProtoMapper().fromProto($parameterName)''';
 }
 
-String collectionValueToProto(mapperfield.FieldDescriptor fieldDescriptor,
-    DartType parameterType, String parameterName) {
+String collectionValueToProto(
+  mapperfield.FieldDescriptor fieldDescriptor,
+  DartType parameterType,
+  String parameterName, {
+  required bool useWellKnownTypes,
+}) {
   final fieldTypeName = parameterType.getDisplayString(withNullability: false);
   if (fieldTypeName == (Decimal).toString()) {
     return '$parameterName.toString()';
   }
   if (fieldTypeName == (DateTime).toString()) {
+    if (useWellKnownTypes) {
+      return '''\$wellknown_timestamp.Timestamp.fromDateTime($parameterName)''';
+    }
     if (fieldDescriptor.dateTimePrecision == TimePrecision.microseconds) {
       return 'Int64($parameterName.microsecondsSinceEpoch)';
     }
     return 'Int64($parameterName.millisecondsSinceEpoch)';
   }
   if (fieldTypeName == (Duration).toString()) {
+    if (useWellKnownTypes) {
+      return '''\$wellknown_duration.Duration(
+        seconds: Int64($parameterName.inSeconds),
+        nanos: ($parameterName.inMicroseconds - $parameterName.inSeconds * 1000000) * 1000)''';
+    }
     if (fieldDescriptor.durationPrecision == TimePrecision.microseconds) {
       return '$parameterName.inMicroseconds.toDouble()';
     }
