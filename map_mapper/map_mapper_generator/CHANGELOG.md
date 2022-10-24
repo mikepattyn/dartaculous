@@ -1,3 +1,7 @@
+## 3.8.1
+
+ - Update a dependency to the latest release.
+
 ## 3.8.0
 
  - **FEAT**: Added support for direct dateTime map mapping.

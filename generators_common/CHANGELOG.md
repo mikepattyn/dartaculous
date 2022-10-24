@@ -1,3 +1,7 @@
+## 2.9.0
+
+ - **FEAT**: Added optional support for usage of Google ProtoBuf Well-Known types.
+
 ## 2.8.0
 
  - **FEAT**: added dateTime support in ConstantReaderDateTimeRepresentationExtension.

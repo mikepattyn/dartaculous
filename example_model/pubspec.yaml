@@ -15,8 +15,8 @@ dependencies:
 dev_dependencies:
   build_runner: ^2.1.2
   lints: ^2.0.0
-  map_mapper_generator: ^3.8.0
-  proto_generator: ^3.5.2
+  map_mapper_generator: ^3.8.1
+  proto_generator: ^3.6.0
   test: ^1.21.1
 
 

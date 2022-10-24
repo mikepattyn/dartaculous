@@ -1,3 +1,7 @@
+## 2.2.0
+
+ - **FEAT**: Added optional support for usage of Google ProtoBuf Well-Known types.
+
 ## 2.1.4
 
  - **FIX**: Fixed all pending warnings.

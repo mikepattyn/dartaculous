@@ -1,3 +1,7 @@
+## 3.6.0
+
+ - **FEAT**: Added optional support for usage of Google ProtoBuf Well-Known types.
+
 ## 3.5.2
 
  - Update a dependency to the latest release.
