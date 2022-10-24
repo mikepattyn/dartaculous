@@ -56,7 +56,7 @@ If you need help getting started, join our Discord server at https://discord.gg/
 
 > ### Legal Notice <!-- omit in toc -->
 > When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project license.
-> The license adopted for this project is the Mozilla Public License, version 2.0. A sub-project, mongo_go, is licensed with the Apache License Version 2.
+> The license adopted for this project is the Mozilla Public License, version 2.0. A sub-project, mongo_go, is licensed with the Apache License, version 2.
 
 ### Reporting Bugs
 
@@ -127,14 +127,8 @@ Here are the tools you will need:
   - Go protocol buffer compiler plugin, by running ```go install google.golang.org/protobuf/cmd/protoc-gen-go@latest```.
 
 #### Versioning
-This project uses [Melos](https://melos.invertase.dev/) to help manage and publish updated versions of its packages. Please do not increment version numbers on pubspec.yaml, nor change CHANGELOG files manually. All you need to do is give hints to melos on your commit messages, by typing [conventional commit messages](https://www.conventionalcommits.org/en/v1.0.0/). See https://www.conventionalcommits.org/en/v1.0.0. As a guideline, you may format your commit messages, for non-breaking changes as follows:
-- ```fix: [message]``` for bug fixes that do not introduce new features.
-- ```feat: [message]``` for commits that introduce new features.
-- ```chore: [message]``` for improvements to the code that will neither fix bugs nor introduce features (for instance, when refactoring code to cleanup, make it more readably, without actually changing its behaviour).
+This project uses [Melos](https://melos.invertase.dev/) to help manage and publish updated versions of its packages. Please do not increment version numbers on pubspec.yaml, nor change CHANGELOG files manually. Instead, Melos drives those via your [commit messages](#commit-messages).
 
-For commits that contain breaking changes, you may simply add an exclamation mark to the ```fix``` and ```feat``` prefixes, thus formatting the messages as ```fix!: [message]``` or ```feat!: [message]```. Please do be diligent in identifying when your changes are breaking. It is a complete no-no to introduce a breaking change without identifying it as such. In fact, an attempt should be made not to outright break. Instead, try to introduce new versions of your interfaces and add a ```@deprecated``` annotation to identify interface elements that will be removed on a later version. This will allow our users for an adaptation period, where the new version of the interface is already available, but while the client code still runs, albeit with deprecation warnings.
-
-You may use all other features from conventional commits.
 
 
 
@@ -151,9 +145,14 @@ You are welcome to:
 
 ## Styleguides
 ### Commit Messages
-<!-- TODO
+All you need to do is give hints to melos on your commit messages, by typing [conventional commit messages](https://www.conventionalcommits.org/en/v1.0.0/). See https://www.conventionalcommits.org/en/v1.0.0. As a guideline, you may format your commit messages, for non-breaking changes as follows:
+- ```fix: [message]``` for bug fixes that do not introduce new features.
+- ```feat: [message]``` for commits that introduce new features.
+- ```chore: [message]``` for improvements to the code that will neither fix bugs nor introduce features (for instance, when refactoring code to cleanup, make it more readably, without actually changing its behaviour).
 
--->
+For commits that contain breaking changes, you may simply add an exclamation mark to the ```fix``` and ```feat``` prefixes, thus formatting the messages as ```fix!: [message]``` or ```feat!: [message]```. Please do be diligent in identifying when your changes are breaking. It is a complete no-no to introduce a breaking change without identifying it as such. In fact, an attempt should be made not to outright break. Instead, try to introduce new versions of your interfaces and add a ```@deprecated``` annotation to identify interface elements that will be removed on a later version. This will allow our users for an adaptation period, where the new version of the interface is already available, but while the client code still runs, albeit with deprecation warnings.
+
+You may use all other features from conventional commits.
 
 ## Join The Project Team
 Join our Discord server at https://discord.gg/EwWADep5Kh.
