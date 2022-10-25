@@ -23,7 +23,7 @@ dependencies:
   pubspec: ^2.3.0
   
 dev_dependencies:
-  ffigen: ^6.1.2
+  ffigen: ^7.2.0
   lints: ^2.0.0
   test: ^1.16.0
   build_runner: ^2.2.0
