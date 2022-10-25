@@ -126,7 +126,7 @@ Kitchen _$KitchenFromProto(GKitchen instance) => Kitchen(
           .map((e) => const $RecipeProtoMapper().fromProto(e))),
       recipeMap: instance.recipeMap
           .map((k, v) => MapEntry(k, const $RecipeProtoMapper().fromProto(v))),
-      nextInspectionDate: instance.nextInspectionDate.toDateTime(toLocal: true),
+      nextInspectionDate: instance.nextInspectionDate.toDateTime(),
     );
 
 extension $KitchenProtoExtension on Kitchen {
@@ -200,7 +200,7 @@ Chef _$ChefFromProto(GChef instance) => Chef(
           ApplianceType.values[instance.favoriteApplianceType.value],
       favoriteWords:
           List<String>.unmodifiable(instance.favoriteWords.map((e) => e)),
-      birthdate: instance.birthdate.toDateTime(toLocal: true),
+      birthdate: instance.birthdate.toDateTime(),
       shelfLife: (instance.shelfLifeHasValue
           ? (Duration(
               seconds: instance.shelfLife.seconds.toInt(),
@@ -271,7 +271,7 @@ GSousChef _$SousChefToProto(SousChef instance) {
 SousChef _$SousChefFromProto(GSousChef instance) => SousChef(
       favoriteApplianceType:
           ApplianceType.values[instance.favoriteApplianceType.value],
-      birthdate: instance.birthdate.toDateTime(toLocal: true),
+      birthdate: instance.birthdate.toDateTime(),
       favoriteWords:
           List<String>.unmodifiable(instance.favoriteWords.map((e) => e)),
     );
@@ -341,7 +341,7 @@ KnifeMaster _$KnifeMasterFromProto(GKnifeMaster instance) => KnifeMaster(
           const $KnifeProtoMapper().fromProto(instance.favoriteKnife),
       favoriteApplianceType:
           ApplianceType.values[instance.favoriteApplianceType.value],
-      birthdate: instance.birthdate.toDateTime(toLocal: true),
+      birthdate: instance.birthdate.toDateTime(),
     );
 
 extension $KnifeMasterProtoExtension on KnifeMaster {
@@ -454,7 +454,7 @@ GPrecisionSubject _$PrecisionSubjectToProto(PrecisionSubject instance) {
 
 PrecisionSubject _$PrecisionSubjectFromProto(GPrecisionSubject instance) =>
     PrecisionSubject(
-      dateProperty: instance.dateProperty.toDateTime(toLocal: true),
+      dateProperty: instance.dateProperty.toDateTime(),
       durationProperty: Duration(
           seconds: instance.durationProperty.seconds.toInt(),
           microseconds: (instance.durationProperty.nanos ~/ 1000).toInt()),

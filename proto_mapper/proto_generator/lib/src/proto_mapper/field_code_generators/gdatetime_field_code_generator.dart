@@ -18,5 +18,5 @@ class GDateTimeFieldCodeGenerator extends FieldCodeGenerator {
 
   @override
   String get fromProtoNonNullableExpression =>
-      '''instance.$fieldName.toDateTime(toLocal: true)''';
+      '''instance.$fieldName.toDateTime()''';
 }

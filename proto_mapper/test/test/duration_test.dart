@@ -9,7 +9,7 @@ import 'common.dart';
 /// Currently, dates are only stored up to the milliseconds, preferrable this should also be possible up to the microseconds.
 void main() {
   group('Durations', () {
-    test('Milliseconds precision', () {
+    test('Milliseconds precision', () async {
       final chef = Chef(
         favoriteApplianceType: ApplianceType.cutlery,
         favoriteKnife: null,
@@ -19,7 +19,7 @@ void main() {
       );
       final serialized = chef.toJson();
       final deserialized = GChef.fromJson(serialized).toChef();
-      if (usesWellKnownTypes) {
+      if (await usesWellKnownTypes) {
         expect(
             deserialized.shelfLife,
             equals(Duration(

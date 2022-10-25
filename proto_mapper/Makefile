@@ -1,13 +1,13 @@
 build: .PHONY
-	cd proto_test && make build
+	cd test && make build
 
 test: .PHONY
-	cd proto_test && make test
+	cd test && make test
 
 _test: .PHONY
-	cd proto_test && make _test
+	cd test && make _test
 
 clean: .PHONY
-	cd proto_test && make clean
+	cd test && make clean
 
 .PHONY:

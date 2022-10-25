@@ -89,7 +89,7 @@ ListsHost _$ListsHostFromProto(GListsHost instance) => ListsHost(
               seconds: e.seconds.toInt(),
               microseconds: (e.nanos ~/ 1000).toInt()))),
       vdatetimes: List<DateTime>.unmodifiable(
-          instance.vdatetimes.map((e) => e.toDateTime(toLocal: true))),
+          instance.vdatetimes.map((e) => e.toDateTime())),
       vdecimals: List<Decimal>.unmodifiable(
           instance.vdecimals.map((e) => Decimal.parse(e))),
       vints: List<int>.unmodifiable(instance.vints.map((e) => e)),
@@ -110,7 +110,7 @@ ListsHost _$ListsHostFromProto(GListsHost instance) => ListsHost(
           : null),
       nvdatetimes: (instance.nvdatetimesHasValue
           ? (List<DateTime>.unmodifiable(
-              instance.nvdatetimes.map((e) => e.toDateTime(toLocal: true))))
+              instance.nvdatetimes.map((e) => e.toDateTime())))
           : null),
       nvdecimals: (instance.nvdecimalsHasValue
           ? (List<Decimal>.unmodifiable(

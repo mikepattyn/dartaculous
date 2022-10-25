@@ -17,24 +17,24 @@ void main() {
           birthdate: DateTime(2000, 1, 2, 3, 4, 5, 6, 7));
       final serialized = chef.toJson();
       final deserialized = GChef.fromJson(serialized).toChef();
-      expect(chef.birthdate, equals(deserialized.birthdate));
+      expect(chef.birthdate, equals(deserialized.birthdate.toLocal()));
     });
 
-    test('Milliseconds', () {
+    test('Milliseconds', () async {
       final kitchen = Kitchen(
           recipeList: [],
           recipeMap: {},
           nextInspectionDate: DateTime(2000, 1, 2, 3, 4, 5, 6, 7));
       final serialized = kitchen.toJson();
       final deserialized = GKitchen.fromJson(serialized).toKitchen();
-      if (usesWellKnownTypes) {
-        expect(DateTime(2000, 1, 2, 3, 4, 5, 6, 7),
-            equals(deserialized.nextInspectionDate));
+      if (await usesWellKnownTypes) {
+        expect(deserialized.nextInspectionDate.toLocal(),
+            equals(DateTime(2000, 1, 2, 3, 4, 5, 6, 7)));
       } else {
-        expect(kitchen.nextInspectionDate,
-            isNot(equals(deserialized.nextInspectionDate)));
-        expect(DateTime(2000, 1, 2, 3, 4, 5, 6),
-            equals(deserialized.nextInspectionDate));
+        expect(deserialized.nextInspectionDate,
+            isNot(equals(kitchen.nextInspectionDate)));
+        expect(deserialized.nextInspectionDate,
+            equals(DateTime(2000, 1, 2, 3, 4, 5, 6)));
       }
     });
   });

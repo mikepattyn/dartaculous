@@ -124,7 +124,7 @@ String collectionProtoToValue(
   }
   if (fieldTypeName == (DateTime).toString()) {
     if (useWellKnownTypes) {
-      return '''$parameterName.toDateTime(toLocal: true)''';
+      return '''$parameterName.toDateTime()''';
     }
     if (fieldDescriptor.dateTimePrecision == TimePrecision.microseconds) {
       return 'DateTime.fromMicrosecondsSinceEpoch($parameterName.toInt())';

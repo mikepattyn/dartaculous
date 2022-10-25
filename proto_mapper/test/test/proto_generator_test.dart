@@ -25,7 +25,7 @@ void main() {
       final proto = recipe.toProto();
       final recipe2 = proto.toRecipe();
 
-      expect(recipe2.publishDate, recipe.publishDate);
+      expect(recipe2.publishDate.toLocal(), recipe.publishDate);
     });
 
     test('null expiry date', () {
@@ -44,7 +44,7 @@ void main() {
       final proto = recipe.toProto();
       final recipe2 = proto.toRecipe();
 
-      expect(recipe2.expiryDate, recipe.expiryDate);
+      expect(recipe2.expiryDate?.toLocal(), recipe.expiryDate);
     });
 
     test('ingredient.duration property', () {

@@ -82,7 +82,7 @@ Recipe _$RecipeFromProto(GRecipe instance) => Recipe(
       category: const $CategoryProtoMapper().fromProto(instance.category),
       ingredients: List<Ingredient>.unmodifiable(instance.ingredients
           .map((e) => const $IngredientProtoMapper().fromProto(e))),
-      publishDate: instance.publishDate.toDateTime(toLocal: true),
+      publishDate: instance.publishDate.toDateTime(),
       preparationDuration: Duration(
           seconds: instance.preparationDuration.seconds.toInt(),
           microseconds: (instance.preparationDuration.nanos ~/ 1000).toInt()),
@@ -94,7 +94,7 @@ Recipe _$RecipeFromProto(GRecipe instance) => Recipe(
       description:
           (instance.description.hasValue() ? instance.description.value : null),
       expiryDate: (instance.expiryDateHasValue
-          ? (instance.expiryDate.toDateTime(toLocal: true))
+          ? (instance.expiryDate.toDateTime())
           : null),
       totalDuration: (instance.totalDurationHasValue
           ? (Duration(

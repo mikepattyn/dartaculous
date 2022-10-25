@@ -13,7 +13,8 @@ void main() {
 
       expect(listshosts2.vapplianceTypes, listshost.vapplianceTypes);
       expect(listshosts2.vbools, listshost.vbools);
-      expect(listshosts2.vdatetimes, listshost.vdatetimes);
+      expect(listshosts2.vdatetimes.map((e) => e.toLocal()).toList(),
+          listshost.vdatetimes);
       expect(listshosts2.vdecimals, listshost.vdecimals);
       expect(listshosts2.vdoubles, listshost.vdoubles);
       expect(listshosts2.vdurations, listshost.vdurations);
@@ -53,7 +54,8 @@ void main() {
 
       expect(listshosts2.nvapplianceTypes, listshost.nvapplianceTypes);
       expect(listshosts2.nvbools, listshost.nvbools);
-      expect(listshosts2.nvdatetimes, listshost.nvdatetimes);
+      expect(listshosts2.nvdatetimes?.map((e) => e.toLocal()).toList(),
+          listshost.nvdatetimes);
       expect(listshosts2.nvdecimals, listshost.nvdecimals);
       expect(listshosts2.nvdoubles, listshost.nvdoubles);
       expect(listshosts2.nvdurations, listshost.nvdurations);
