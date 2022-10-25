@@ -1,3 +1,7 @@
+## 5.1.0
+
+ - **FEAT**: Upgraded dependencies.
+
 ## 5.0.0
 
 > Note: This release has breaking changes.

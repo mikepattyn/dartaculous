@@ -1,3 +1,7 @@
+## 3.7.1
+
+ - **FIX**: Not converting DateTime when mapping from proto with well known types.
+
 ## 3.7.0
 
  - **FEAT**: Made useWellKnownTypes option more consistent.
