@@ -1,3 +1,7 @@
+## 3.7.0
+
+ - **FEAT**: Made useWellKnownTypes option more consistent.
+
 ## 3.6.0
 
  - **FEAT**: Added optional support for usage of Google ProtoBuf Well-Known types.
