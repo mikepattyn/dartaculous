@@ -2,34 +2,19 @@ package main
 
 import (
 	"context"
-	"errors"
-	"sync"
 
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type SessionCallback func(mongo.Session)
-type TransactionCallback func(mongo.SessionContext)
-type TransactionResult struct {
-	result interface{}
-	err    error
-}
-
-type TransactionProxy struct {
-	callbackChannel chan TransactionCallback
-	doneChannel     chan TransactionResult
-	resultChannel   chan TransactionResult
-}
 
 type SessionProxy struct {
-	callbackChannel        chan SessionCallback
-	transactionProxies     map[primitive.ObjectID]*TransactionProxy
-	transactionProxiesLock sync.RWMutex
+	callbackChannel chan SessionCallback
 }
 
 func (s *SessionProxy) Close() {
 	resultChan := make(chan interface{})
+
 	s.callbackChannel <- func(sess mongo.Session) {
 		sess.EndSession(context.Background())
 		resultChan <- true
@@ -39,68 +24,42 @@ func (s *SessionProxy) Close() {
 	close(s.callbackChannel)
 }
 
-func (s *SessionProxy) WithTransaction() primitive.ObjectID {
-
-	in := make(chan TransactionCallback)
-	done := make(chan TransactionResult)
-	resultChan := make(chan TransactionResult)
+func (s *SessionProxy) WithSession(fn func(mongo.SessionContext) error) error {
+	resultChan := make(chan error)
 
 	s.callbackChannel <- func(sess mongo.Session) {
-		r, err := sess.WithTransaction(context.Background(), func(ctx mongo.SessionContext) (interface{}, error) {
-			for {
-				select {
-				case f := <-in:
-					f(ctx)
-				case r := <-done:
-
-					return r.result, r.err
-				}
-			}
-		})
-		resultChan <- TransactionResult{result: r, err: err}
+		resultChan <- mongo.WithSession(context.Background(), sess, fn)
 	}
 
-	trxOid := s.createTransactionProxy(in, done, resultChan)
-
-	return trxOid
+	err := <-resultChan
+	return err
 }
 
-func (s *SessionProxy) createTransactionProxy(callbackChannel chan TransactionCallback, doneChannel chan TransactionResult, resultChannel chan TransactionResult) primitive.ObjectID {
-	proxy := TransactionProxy{
-		callbackChannel: callbackChannel,
-		doneChannel:     doneChannel,
-		resultChannel:   resultChannel,
+func (s *SessionProxy) StartTransaction() error {
+
+	resultChan := make(chan error)
+	s.callbackChannel <- func(sess mongo.Session) {
+		resultChan <- sess.StartTransaction()
 	}
-
-	trxOid := primitive.NewObjectID()
-
-	s.transactionProxiesLock.Lock()
-	defer s.transactionProxiesLock.Unlock()
-	s.transactionProxies[trxOid] = &proxy
-	return trxOid
+	err := <-resultChan
+	return err
 }
 
-func (s *SessionProxy) GetTransactionProxy(transactionOid primitive.ObjectID) (*TransactionProxy, error) {
-	s.transactionProxiesLock.RLock()
-	defer s.transactionProxiesLock.RUnlock()
-	transactionProxy, ok := s.transactionProxies[transactionOid]
-	if !ok {
-		return nil, errors.New("transaction not found")
+func (s *SessionProxy) CommitTransaction() error {
+
+	resultChan := make(chan error)
+	s.callbackChannel <- func(sess mongo.Session) {
+		resultChan <- sess.CommitTransaction(context.Background())
 	}
-	return transactionProxy, nil
+	err := <-resultChan
+	return err
 }
 
-func (s *SessionProxy) EndTransaction(transactionOid primitive.ObjectID, result TransactionResult) error {
-	s.transactionProxiesLock.Lock()
-	defer s.transactionProxiesLock.Unlock()
-
-	trx, ok := s.transactionProxies[transactionOid]
-	if !ok {
-		return errors.New("transaction not found")
+func (s *SessionProxy) AbortTransaction() error {
+	resultChan := make(chan error)
+	s.callbackChannel <- func(sess mongo.Session) {
+		resultChan <- sess.AbortTransaction(context.Background())
 	}
-	delete(s.transactionProxies, transactionOid)
-
-	trx.doneChannel <- result
-	r := <-trx.resultChannel
-	return r.err
+	err := <-resultChan
+	return err
 }

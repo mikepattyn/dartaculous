@@ -20,14 +20,7 @@ const BulkWriteRequest$json = const {
       '5': 12,
       '10': 'collectionOid'
     },
-    const {
-      '1': 'context',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.RequestContext',
-      '10': 'context'
-    },
+    const {'1': 'sessionOid', '3': 2, '4': 1, '5': 12, '10': 'sessionOid'},
     const {
       '1': 'writeModels',
       '3': 3,
@@ -53,7 +46,7 @@ const BulkWriteRequest$json = const {
 
 /// Descriptor for `BulkWriteRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List bulkWriteRequestDescriptor = $convert.base64Decode(
-    'ChBCdWxrV3JpdGVSZXF1ZXN0EiQKDWNvbGxlY3Rpb25PaWQYASABKAxSDWNvbGxlY3Rpb25PaWQSKQoHY29udGV4dBgCIAEoCzIPLlJlcXVlc3RDb250ZXh0Ugdjb250ZXh0Ei0KC3dyaXRlTW9kZWxzGAMgAygLMgsuV3JpdGVNb2RlbFILd3JpdGVNb2RlbHMSLQoHb3B0aW9ucxgFIAEoCzIRLkJ1bGtXcml0ZU9wdGlvbnNIAFIHb3B0aW9uc0IGCgRvcHRz');
+    'ChBCdWxrV3JpdGVSZXF1ZXN0EiQKDWNvbGxlY3Rpb25PaWQYASABKAxSDWNvbGxlY3Rpb25PaWQSHgoKc2Vzc2lvbk9pZBgCIAEoDFIKc2Vzc2lvbk9pZBItCgt3cml0ZU1vZGVscxgDIAMoCzILLldyaXRlTW9kZWxSC3dyaXRlTW9kZWxzEi0KB29wdGlvbnMYBSABKAsyES5CdWxrV3JpdGVPcHRpb25zSABSB29wdGlvbnNCBgoEb3B0cw==');
 @$core.Deprecated('Use bulkWriteOptionsDescriptor instead')
 const BulkWriteOptions$json = const {
   '1': 'BulkWriteOptions',

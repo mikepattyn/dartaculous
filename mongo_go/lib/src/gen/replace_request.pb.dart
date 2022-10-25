@@ -9,8 +9,6 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'request_context.pb.dart' as $5;
-
 class ReplaceRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
@@ -24,12 +22,13 @@ class ReplaceRequest extends $pb.GeneratedMessage {
             : 'collectionOid',
         $pb.PbFieldType.OY,
         protoName: 'collectionOid')
-    ..aOM<$5.RequestContext>(
+    ..a<$core.List<$core.int>>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'context',
-        subBuilder: $5.RequestContext.create)
+            : 'sessionOid',
+        $pb.PbFieldType.OY,
+        protoName: 'sessionOid')
     ..a<$core.List<$core.int>>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -53,7 +52,7 @@ class ReplaceRequest extends $pb.GeneratedMessage {
   ReplaceRequest._() : super();
   factory ReplaceRequest({
     $core.List<$core.int>? collectionOid,
-    $5.RequestContext? context,
+    $core.List<$core.int>? sessionOid,
     $core.List<$core.int>? filter,
     $core.List<$core.int>? replacement,
     $core.bool? isUpsert,
@@ -62,8 +61,8 @@ class ReplaceRequest extends $pb.GeneratedMessage {
     if (collectionOid != null) {
       _result.collectionOid = collectionOid;
     }
-    if (context != null) {
-      _result.context = context;
+    if (sessionOid != null) {
+      _result.sessionOid = sessionOid;
     }
     if (filter != null) {
       _result.filter = filter;
@@ -116,18 +115,16 @@ class ReplaceRequest extends $pb.GeneratedMessage {
   void clearCollectionOid() => clearField(1);
 
   @$pb.TagNumber(2)
-  $5.RequestContext get context => $_getN(1);
+  $core.List<$core.int> get sessionOid => $_getN(1);
   @$pb.TagNumber(2)
-  set context($5.RequestContext v) {
-    setField(2, v);
+  set sessionOid($core.List<$core.int> v) {
+    $_setBytes(1, v);
   }
 
   @$pb.TagNumber(2)
-  $core.bool hasContext() => $_has(1);
+  $core.bool hasSessionOid() => $_has(1);
   @$pb.TagNumber(2)
-  void clearContext() => clearField(2);
-  @$pb.TagNumber(2)
-  $5.RequestContext ensureContext() => $_ensure(1);
+  void clearSessionOid() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.List<$core.int> get filter => $_getN(2);

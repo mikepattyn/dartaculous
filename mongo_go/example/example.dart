@@ -20,14 +20,14 @@ void main() async {
 
   try {
     await connection.withTransaction(
-      (transaction) async {
+      (session) async {
         await collection.insertOne(
           {'name': 'Charles', "test": "trxFail"},
-          transaction: transaction,
+          session: session,
         );
         await collection.insertOne(
           {'name': 'Bob', "test": "trxFail"},
-          transaction: transaction,
+          session: session,
         );
         throw 'oops';
       },

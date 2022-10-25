@@ -20,21 +20,14 @@ const InsertManyRequest$json = const {
       '5': 12,
       '10': 'collectionOid'
     },
-    const {
-      '1': 'context',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.RequestContext',
-      '10': 'context'
-    },
+    const {'1': 'sessionOid', '3': 2, '4': 1, '5': 12, '10': 'sessionOid'},
     const {'1': 'documents', '3': 3, '4': 3, '5': 12, '10': 'documents'},
   ],
 };
 
 /// Descriptor for `InsertManyRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List insertManyRequestDescriptor = $convert.base64Decode(
-    'ChFJbnNlcnRNYW55UmVxdWVzdBIkCg1jb2xsZWN0aW9uT2lkGAEgASgMUg1jb2xsZWN0aW9uT2lkEikKB2NvbnRleHQYAiABKAsyDy5SZXF1ZXN0Q29udGV4dFIHY29udGV4dBIcCglkb2N1bWVudHMYAyADKAxSCWRvY3VtZW50cw==');
+    'ChFJbnNlcnRNYW55UmVxdWVzdBIkCg1jb2xsZWN0aW9uT2lkGAEgASgMUg1jb2xsZWN0aW9uT2lkEh4KCnNlc3Npb25PaWQYAiABKAxSCnNlc3Npb25PaWQSHAoJZG9jdW1lbnRzGAMgAygMUglkb2N1bWVudHM=');
 @$core.Deprecated('Use insertManyResultDescriptor instead')
 const InsertManyResult$json = const {
   '1': 'InsertManyResult',

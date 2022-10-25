@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"mongo_go/mongo_stubs"
 	"os"
 	"sync"
@@ -35,6 +36,7 @@ func TestMain(m *testing.M) {
 
 	err = assertStateCleaned()
 	if err != nil {
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
@@ -143,68 +145,6 @@ func Test_InsertOne(t *testing.T) {
 	}
 }
 
-func Test_InsertTwoTrxError(t *testing.T) {
-	ctx := context.Background()
-
-	startCount, err := mongoCollection.CountDocuments(ctx, bson.D{})
-	if err != nil {
-		t.Error(err)
-	}
-
-	coll, err := cs.GetCollectionProxy(collOid)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	sessionOid, err := cs.StartSession(ctx, connectionOid)
-	if err != nil {
-		t.Error("Could not start session", err)
-	}
-
-	trxOid, err := cs.WithTransaction(ctx, connectionOid, sessionOid)
-	if err != nil {
-		t.Error("Could not start transaction", err)
-	}
-	transactionProxy, err := cs.GetTransactionProxy(context.Background(), connectionOid, sessionOid, trxOid)
-	if err != nil {
-		t.Error("Could not get transaction proxy ", err)
-	}
-
-	doc := bson.D{{Key: "name", Value: "David"}, {Key: "score", Value: "16"}}
-
-	bytes, err := bson.Marshal(doc)
-	if err != nil {
-		t.Error("Could not marshal document to insert")
-	}
-	doc2 := bson.D{{Key: "name", Value: "Edward"}, {Key: "score", Value: "17"}}
-
-	bytes2, err := bson.Marshal(doc2)
-	if err != nil {
-		t.Error("Could not marshal document to insert")
-	}
-
-	_, err = coll.InsertOne(ctx, transactionProxy, bytes)
-	if err != nil {
-		t.Error(err)
-	}
-	_, err = coll.InsertOne(ctx, transactionProxy, bytes2)
-	if err != nil {
-		t.Error(err)
-	}
-
-	tr := TransactionResult{err: errors.New("oops")}
-	cs.EndTransaction(ctx, connectionOid, sessionOid, trxOid, tr)
-	cs.CloseSession(ctx, connectionOid, sessionOid)
-	endCount, err := mongoCollection.CountDocuments(ctx, bson.D{})
-	if err != nil {
-		t.Error(err)
-	}
-
-	if startCount != endCount {
-		t.Error("Transaction error should have restored the document count")
-	}
-}
-
 func assertStateCleaned() error {
 	cproxy, err := cs.GetConnectionProxy(connectionOid)
 	if err != nil {
@@ -293,16 +233,12 @@ func Test_InsertOneTrx(t *testing.T) {
 
 	sessionOid, err := cs.StartSession(ctx, connectionOid)
 	if err != nil {
-		t.Error("Could not start session", err)
+		t.Fatal("Could not start session", err)
 	}
 
-	trxOid, err := cs.WithTransaction(ctx, connectionOid, sessionOid)
+	err = cs.StartTransaction(ctx, connectionOid, sessionOid)
 	if err != nil {
-		t.Error("Could not start transaction", err)
-	}
-	transactionProxy, err := cs.GetTransactionProxy(context.Background(), connectionOid, sessionOid, trxOid)
-	if err != nil {
-		t.Error("Could not get transaction proxy ", err)
+		t.Fatal("Could not start stransaction ", err)
 	}
 
 	doc := bson.D{{Key: "name", Value: "Bob"}, {Key: "score", Value: "16"}}
@@ -317,17 +253,21 @@ func Test_InsertOneTrx(t *testing.T) {
 	if err != nil {
 		t.Error("Could not marshal document to insert")
 	}
+	sessionProxy, err := cs.GetSessionProxy(ctx, connectionOid, sessionOid)
+	if err != nil {
+		t.Fatal("Could not get session proxy", err)
+	}
 
-	_, err = coll.InsertOne(ctx, transactionProxy, bytes)
+	_, err = coll.InsertOne(ctx, sessionProxy, bytes)
 	if err != nil {
 		t.Error(err)
 	}
-	_, err = coll.InsertOne(ctx, transactionProxy, bytes2)
+	_, err = coll.InsertOne(ctx, sessionProxy, bytes2)
 	if err != nil {
 		t.Error(err)
 	}
 
-	cs.EndTransaction(ctx, connectionOid, sessionOid, trxOid, TransactionResult{})
+	cs.CommitTransaction(ctx, connectionOid, sessionOid)
 	cs.CloseSession(ctx, connectionOid, sessionOid)
 
 	endCount, err := mongoCollection.CountDocuments(ctx, bson.D{})
@@ -339,6 +279,68 @@ func Test_InsertOneTrx(t *testing.T) {
 		t.Error("Should have increased 2 the number of items")
 	}
 
+}
+
+func Test_InsertTwoTrxError(t *testing.T) {
+	ctx := context.Background()
+
+	startCount, err := mongoCollection.CountDocuments(ctx, bson.D{})
+	if err != nil {
+		t.Error(err)
+	}
+
+	coll, err := cs.GetCollectionProxy(collOid)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	sessionOid, err := cs.StartSession(ctx, connectionOid)
+	if err != nil {
+		t.Fatal("Could not start session")
+	}
+
+	err = cs.StartTransaction(ctx, connectionOid, sessionOid)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	doc := bson.D{{Key: "name", Value: "David"}, {Key: "score", Value: "16"}}
+
+	bytes, err := bson.Marshal(doc)
+	if err != nil {
+		t.Fatal("Could not marshal document to insert")
+	}
+	doc2 := bson.D{{Key: "name", Value: "Edward"}, {Key: "score", Value: "17"}}
+
+	bytes2, err := bson.Marshal(doc2)
+	if err != nil {
+		t.Error("Could not marshal document to insert")
+	}
+
+	sessionProxy, err := cs.GetSessionProxy(context.Background(), connectionOid, sessionOid)
+	if err != nil {
+		t.Fatal("Could not get session proxy ", err)
+	}
+
+	_, err = coll.InsertOne(ctx, sessionProxy, bytes)
+	if err != nil {
+		t.Error(err)
+	}
+	_, err = coll.InsertOne(ctx, sessionProxy, bytes2)
+	if err != nil {
+		t.Error(err)
+	}
+
+	cs.AbortTransaction(ctx, connectionOid, sessionOid)
+	cs.CloseSession(ctx, connectionOid, sessionOid)
+	endCount, err := mongoCollection.CountDocuments(ctx, bson.D{})
+	if err != nil {
+		t.Error(err)
+	}
+
+	if startCount != endCount {
+		t.Error("Transaction error should have restored the document count")
+	}
 }
 
 func Test_InsertDeleteMany(t *testing.T) {

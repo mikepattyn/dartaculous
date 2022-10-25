@@ -68,28 +68,9 @@ func (c *ConnectionProxy) GetSessionProxy(sessionOid primitive.ObjectID) (*Sessi
 
 }
 
-func (c *ConnectionProxy) WithTransaction(sessionOid primitive.ObjectID) (primitive.ObjectID, error) {
-	sessionProxy, err := c.GetSessionProxy(sessionOid)
-	if err != nil {
-		return primitive.ObjectID{}, err
-	}
-	transactionOid := sessionProxy.WithTransaction()
-	return transactionOid, nil
-}
-
-func (c *ConnectionProxy) GetTransactionProxy(sessionOid primitive.ObjectID, transactionOid primitive.ObjectID) (*TransactionProxy, error) {
-	sessionProxy, err := c.GetSessionProxy(sessionOid)
-	if err != nil {
-		return nil, err
-	}
-	transactionProxy, err := sessionProxy.GetTransactionProxy(transactionOid)
-	return transactionProxy, err
-}
-
 func (c *ConnectionProxy) createSessionProxy(inChan chan SessionCallback, session *mongo.Session) primitive.ObjectID {
 	proxy := SessionProxy{
-		callbackChannel:    inChan,
-		transactionProxies: make(map[primitive.ObjectID]*TransactionProxy),
+		callbackChannel: inChan,
 	}
 
 	sessOid := primitive.NewObjectID()
@@ -109,18 +90,35 @@ func (c *ConnectionProxy) CloseSession(sessionOid primitive.ObjectID) error {
 		return errors.New("session not found")
 	}
 
-
 	delete(c.sessionProxies, sessionOid)
 	sess.Close()
 	return nil
 }
 
-func (c *ConnectionProxy) EndTransaction(sessionOid primitive.ObjectID, transactionOid primitive.ObjectID, result TransactionResult) error {
+func (c *ConnectionProxy) StartTransaction(sessionOid primitive.ObjectID) error {
 	sessionProxy, err := c.GetSessionProxy(sessionOid)
 	if err != nil {
 		return err
 	}
-	err = sessionProxy.EndTransaction(transactionOid, result)
+	err = sessionProxy.StartTransaction()
+	return err
+}
+
+func (c *ConnectionProxy) CommitTransaction(sessionOid primitive.ObjectID) error {
+	sessionProxy, err := c.GetSessionProxy(sessionOid)
+	if err != nil {
+		return err
+	}
+	err = sessionProxy.CommitTransaction()
+	return err
+}
+
+func (c *ConnectionProxy) AbortTransaction(sessionOid primitive.ObjectID) error {
+	sessionProxy, err := c.GetSessionProxy(sessionOid)
+	if err != nil {
+		return err
+	}
+	err = sessionProxy.AbortTransaction()
 	return err
 }
 

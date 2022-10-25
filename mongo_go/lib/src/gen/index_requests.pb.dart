@@ -9,7 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'google/protobuf/wrappers.pb.dart' as $6;
+import 'google/protobuf/wrappers.pb.dart' as $3;
 
 class Collation extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -257,31 +257,31 @@ class IndexOptions extends $pb.GeneratedMessage {
           ? ''
           : 'IndexOptions',
       createEmptyInstance: create)
-    ..aOM<$6.BoolValue>(
+    ..aOM<$3.BoolValue>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'background',
-        subBuilder: $6.BoolValue.create)
-    ..aOM<$6.Int32Value>(
+        subBuilder: $3.BoolValue.create)
+    ..aOM<$3.Int32Value>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'expireAfterSeconds',
         protoName: 'expireAfterSeconds',
-        subBuilder: $6.Int32Value.create)
-    ..aOM<$6.StringValue>(
+        subBuilder: $3.Int32Value.create)
+    ..aOM<$3.StringValue>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'name',
-        subBuilder: $6.StringValue.create)
-    ..aOM<$6.BoolValue>(
+        subBuilder: $3.StringValue.create)
+    ..aOM<$3.BoolValue>(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'sparse',
-        subBuilder: $6.BoolValue.create)
+        subBuilder: $3.BoolValue.create)
     ..a<$core.List<$core.int>>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -289,77 +289,77 @@ class IndexOptions extends $pb.GeneratedMessage {
             : 'storageEngine',
         $pb.PbFieldType.OY,
         protoName: 'storageEngine')
-    ..aOM<$6.BoolValue>(
+    ..aOM<$3.BoolValue>(
         6,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'unique',
-        subBuilder: $6.BoolValue.create)
-    ..aOM<$6.Int32Value>(
+        subBuilder: $3.BoolValue.create)
+    ..aOM<$3.Int32Value>(
         7,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'version',
-        subBuilder: $6.Int32Value.create)
-    ..aOM<$6.StringValue>(
+        subBuilder: $3.Int32Value.create)
+    ..aOM<$3.StringValue>(
         8,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'defaultLanguage',
         protoName: 'defaultLanguage',
-        subBuilder: $6.StringValue.create)
-    ..aOM<$6.StringValue>(
+        subBuilder: $3.StringValue.create)
+    ..aOM<$3.StringValue>(
         9,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'languageOverride',
         protoName: 'languageOverride',
-        subBuilder: $6.StringValue.create)
-    ..aOM<$6.Int32Value>(
+        subBuilder: $3.StringValue.create)
+    ..aOM<$3.Int32Value>(
         10,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'textVersion',
         protoName: 'textVersion',
-        subBuilder: $6.Int32Value.create)
+        subBuilder: $3.Int32Value.create)
     ..a<$core.List<$core.int>>(
         11,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'weights',
         $pb.PbFieldType.OY)
-    ..aOM<$6.Int32Value>(
+    ..aOM<$3.Int32Value>(
         12,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'sphereVersion',
         protoName: 'sphereVersion',
-        subBuilder: $6.Int32Value.create)
-    ..aOM<$6.Int32Value>(
+        subBuilder: $3.Int32Value.create)
+    ..aOM<$3.Int32Value>(
         13,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'bits',
-        subBuilder: $6.Int32Value.create)
-    ..aOM<$6.DoubleValue>(
+        subBuilder: $3.Int32Value.create)
+    ..aOM<$3.DoubleValue>(
         14,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'max',
-        subBuilder: $6.DoubleValue.create)
-    ..aOM<$6.DoubleValue>(
+        subBuilder: $3.DoubleValue.create)
+    ..aOM<$3.DoubleValue>(
         15,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'min',
-        subBuilder: $6.DoubleValue.create)
-    ..aOM<$6.Int32Value>(
+        subBuilder: $3.DoubleValue.create)
+    ..aOM<$3.Int32Value>(
         16,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'bucketSize',
         protoName: 'bucketSize',
-        subBuilder: $6.Int32Value.create)
+        subBuilder: $3.Int32Value.create)
     ..a<$core.List<$core.int>>(
         17,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -380,36 +380,36 @@ class IndexOptions extends $pb.GeneratedMessage {
             : 'wildcardProjection',
         $pb.PbFieldType.OY,
         protoName: 'wildcardProjection')
-    ..aOM<$6.BoolValue>(
+    ..aOM<$3.BoolValue>(
         20,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'hidden',
-        subBuilder: $6.BoolValue.create)
+        subBuilder: $3.BoolValue.create)
     ..hasRequiredFields = false;
 
   IndexOptions._() : super();
   factory IndexOptions({
-    $6.BoolValue? background,
-    $6.Int32Value? expireAfterSeconds,
-    $6.StringValue? name,
-    $6.BoolValue? sparse,
+    $3.BoolValue? background,
+    $3.Int32Value? expireAfterSeconds,
+    $3.StringValue? name,
+    $3.BoolValue? sparse,
     $core.List<$core.int>? storageEngine,
-    $6.BoolValue? unique,
-    $6.Int32Value? version,
-    $6.StringValue? defaultLanguage,
-    $6.StringValue? languageOverride,
-    $6.Int32Value? textVersion,
+    $3.BoolValue? unique,
+    $3.Int32Value? version,
+    $3.StringValue? defaultLanguage,
+    $3.StringValue? languageOverride,
+    $3.Int32Value? textVersion,
     $core.List<$core.int>? weights,
-    $6.Int32Value? sphereVersion,
-    $6.Int32Value? bits,
-    $6.DoubleValue? max,
-    $6.DoubleValue? min,
-    $6.Int32Value? bucketSize,
+    $3.Int32Value? sphereVersion,
+    $3.Int32Value? bits,
+    $3.DoubleValue? max,
+    $3.DoubleValue? min,
+    $3.Int32Value? bucketSize,
     $core.List<$core.int>? partialFilterExpression,
     $core.List<$core.int>? collation,
     $core.List<$core.int>? wildcardProjection,
-    $6.BoolValue? hidden,
+    $3.BoolValue? hidden,
   }) {
     final _result = create();
     if (background != null) {
@@ -502,9 +502,9 @@ class IndexOptions extends $pb.GeneratedMessage {
   static IndexOptions? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $6.BoolValue get background => $_getN(0);
+  $3.BoolValue get background => $_getN(0);
   @$pb.TagNumber(1)
-  set background($6.BoolValue v) {
+  set background($3.BoolValue v) {
     setField(1, v);
   }
 
@@ -513,12 +513,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearBackground() => clearField(1);
   @$pb.TagNumber(1)
-  $6.BoolValue ensureBackground() => $_ensure(0);
+  $3.BoolValue ensureBackground() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $6.Int32Value get expireAfterSeconds => $_getN(1);
+  $3.Int32Value get expireAfterSeconds => $_getN(1);
   @$pb.TagNumber(2)
-  set expireAfterSeconds($6.Int32Value v) {
+  set expireAfterSeconds($3.Int32Value v) {
     setField(2, v);
   }
 
@@ -527,12 +527,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearExpireAfterSeconds() => clearField(2);
   @$pb.TagNumber(2)
-  $6.Int32Value ensureExpireAfterSeconds() => $_ensure(1);
+  $3.Int32Value ensureExpireAfterSeconds() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $6.StringValue get name => $_getN(2);
+  $3.StringValue get name => $_getN(2);
   @$pb.TagNumber(3)
-  set name($6.StringValue v) {
+  set name($3.StringValue v) {
     setField(3, v);
   }
 
@@ -541,12 +541,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearName() => clearField(3);
   @$pb.TagNumber(3)
-  $6.StringValue ensureName() => $_ensure(2);
+  $3.StringValue ensureName() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $6.BoolValue get sparse => $_getN(3);
+  $3.BoolValue get sparse => $_getN(3);
   @$pb.TagNumber(4)
-  set sparse($6.BoolValue v) {
+  set sparse($3.BoolValue v) {
     setField(4, v);
   }
 
@@ -555,7 +555,7 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearSparse() => clearField(4);
   @$pb.TagNumber(4)
-  $6.BoolValue ensureSparse() => $_ensure(3);
+  $3.BoolValue ensureSparse() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.List<$core.int> get storageEngine => $_getN(4);
@@ -570,9 +570,9 @@ class IndexOptions extends $pb.GeneratedMessage {
   void clearStorageEngine() => clearField(5);
 
   @$pb.TagNumber(6)
-  $6.BoolValue get unique => $_getN(5);
+  $3.BoolValue get unique => $_getN(5);
   @$pb.TagNumber(6)
-  set unique($6.BoolValue v) {
+  set unique($3.BoolValue v) {
     setField(6, v);
   }
 
@@ -581,12 +581,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   void clearUnique() => clearField(6);
   @$pb.TagNumber(6)
-  $6.BoolValue ensureUnique() => $_ensure(5);
+  $3.BoolValue ensureUnique() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $6.Int32Value get version => $_getN(6);
+  $3.Int32Value get version => $_getN(6);
   @$pb.TagNumber(7)
-  set version($6.Int32Value v) {
+  set version($3.Int32Value v) {
     setField(7, v);
   }
 
@@ -595,12 +595,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   void clearVersion() => clearField(7);
   @$pb.TagNumber(7)
-  $6.Int32Value ensureVersion() => $_ensure(6);
+  $3.Int32Value ensureVersion() => $_ensure(6);
 
   @$pb.TagNumber(8)
-  $6.StringValue get defaultLanguage => $_getN(7);
+  $3.StringValue get defaultLanguage => $_getN(7);
   @$pb.TagNumber(8)
-  set defaultLanguage($6.StringValue v) {
+  set defaultLanguage($3.StringValue v) {
     setField(8, v);
   }
 
@@ -609,12 +609,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearDefaultLanguage() => clearField(8);
   @$pb.TagNumber(8)
-  $6.StringValue ensureDefaultLanguage() => $_ensure(7);
+  $3.StringValue ensureDefaultLanguage() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $6.StringValue get languageOverride => $_getN(8);
+  $3.StringValue get languageOverride => $_getN(8);
   @$pb.TagNumber(9)
-  set languageOverride($6.StringValue v) {
+  set languageOverride($3.StringValue v) {
     setField(9, v);
   }
 
@@ -623,12 +623,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   void clearLanguageOverride() => clearField(9);
   @$pb.TagNumber(9)
-  $6.StringValue ensureLanguageOverride() => $_ensure(8);
+  $3.StringValue ensureLanguageOverride() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $6.Int32Value get textVersion => $_getN(9);
+  $3.Int32Value get textVersion => $_getN(9);
   @$pb.TagNumber(10)
-  set textVersion($6.Int32Value v) {
+  set textVersion($3.Int32Value v) {
     setField(10, v);
   }
 
@@ -637,7 +637,7 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   void clearTextVersion() => clearField(10);
   @$pb.TagNumber(10)
-  $6.Int32Value ensureTextVersion() => $_ensure(9);
+  $3.Int32Value ensureTextVersion() => $_ensure(9);
 
   @$pb.TagNumber(11)
   $core.List<$core.int> get weights => $_getN(10);
@@ -652,9 +652,9 @@ class IndexOptions extends $pb.GeneratedMessage {
   void clearWeights() => clearField(11);
 
   @$pb.TagNumber(12)
-  $6.Int32Value get sphereVersion => $_getN(11);
+  $3.Int32Value get sphereVersion => $_getN(11);
   @$pb.TagNumber(12)
-  set sphereVersion($6.Int32Value v) {
+  set sphereVersion($3.Int32Value v) {
     setField(12, v);
   }
 
@@ -663,12 +663,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   void clearSphereVersion() => clearField(12);
   @$pb.TagNumber(12)
-  $6.Int32Value ensureSphereVersion() => $_ensure(11);
+  $3.Int32Value ensureSphereVersion() => $_ensure(11);
 
   @$pb.TagNumber(13)
-  $6.Int32Value get bits => $_getN(12);
+  $3.Int32Value get bits => $_getN(12);
   @$pb.TagNumber(13)
-  set bits($6.Int32Value v) {
+  set bits($3.Int32Value v) {
     setField(13, v);
   }
 
@@ -677,12 +677,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(13)
   void clearBits() => clearField(13);
   @$pb.TagNumber(13)
-  $6.Int32Value ensureBits() => $_ensure(12);
+  $3.Int32Value ensureBits() => $_ensure(12);
 
   @$pb.TagNumber(14)
-  $6.DoubleValue get max => $_getN(13);
+  $3.DoubleValue get max => $_getN(13);
   @$pb.TagNumber(14)
-  set max($6.DoubleValue v) {
+  set max($3.DoubleValue v) {
     setField(14, v);
   }
 
@@ -691,12 +691,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(14)
   void clearMax() => clearField(14);
   @$pb.TagNumber(14)
-  $6.DoubleValue ensureMax() => $_ensure(13);
+  $3.DoubleValue ensureMax() => $_ensure(13);
 
   @$pb.TagNumber(15)
-  $6.DoubleValue get min => $_getN(14);
+  $3.DoubleValue get min => $_getN(14);
   @$pb.TagNumber(15)
-  set min($6.DoubleValue v) {
+  set min($3.DoubleValue v) {
     setField(15, v);
   }
 
@@ -705,12 +705,12 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(15)
   void clearMin() => clearField(15);
   @$pb.TagNumber(15)
-  $6.DoubleValue ensureMin() => $_ensure(14);
+  $3.DoubleValue ensureMin() => $_ensure(14);
 
   @$pb.TagNumber(16)
-  $6.Int32Value get bucketSize => $_getN(15);
+  $3.Int32Value get bucketSize => $_getN(15);
   @$pb.TagNumber(16)
-  set bucketSize($6.Int32Value v) {
+  set bucketSize($3.Int32Value v) {
     setField(16, v);
   }
 
@@ -719,7 +719,7 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(16)
   void clearBucketSize() => clearField(16);
   @$pb.TagNumber(16)
-  $6.Int32Value ensureBucketSize() => $_ensure(15);
+  $3.Int32Value ensureBucketSize() => $_ensure(15);
 
   @$pb.TagNumber(17)
   $core.List<$core.int> get partialFilterExpression => $_getN(16);
@@ -758,9 +758,9 @@ class IndexOptions extends $pb.GeneratedMessage {
   void clearWildcardProjection() => clearField(19);
 
   @$pb.TagNumber(20)
-  $6.BoolValue get hidden => $_getN(19);
+  $3.BoolValue get hidden => $_getN(19);
   @$pb.TagNumber(20)
-  set hidden($6.BoolValue v) {
+  set hidden($3.BoolValue v) {
     setField(20, v);
   }
 
@@ -769,7 +769,7 @@ class IndexOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(20)
   void clearHidden() => clearField(20);
   @$pb.TagNumber(20)
-  $6.BoolValue ensureHidden() => $_ensure(19);
+  $3.BoolValue ensureHidden() => $_ensure(19);
 }
 
 class CreateIndexRequest extends $pb.GeneratedMessage {

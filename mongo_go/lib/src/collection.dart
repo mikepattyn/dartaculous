@@ -44,7 +44,7 @@ class Collection {
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.InsertOne.
   Future<InsertOneResult> insertOne(
     Map<String, dynamic> document, {
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final bytes = bson.serialize(document);
@@ -52,7 +52,7 @@ class Collection {
     final result = await p.insertOne(
       collectionId,
       bytes,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     final ret = InsertOneResult.fromProto(result);
     return ret;
@@ -75,7 +75,7 @@ class Collection {
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.InsertMany.
   Future<InsertManyResult> insertMany(
     List<Map<String, dynamic>> documents, {
-    Transaction? transaction,
+    Session? session,
   }) async {
     final docs = documents.map((e) {
       final bson = BSON();
@@ -86,7 +86,7 @@ class Collection {
     final result = await p.insertMany(
       collectionId,
       docs,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     final ret = InsertManyResult.fromProto(result);
     return ret;
@@ -115,7 +115,7 @@ class Collection {
     Map<String, dynamic> filter,
     Map<String, dynamic> update, {
     UpdateOptions? options,
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
@@ -125,7 +125,7 @@ class Collection {
       filterBytes,
       updateBytes,
       options: options,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     final ret = UpdateResult.fromProto(result);
     return ret;
@@ -155,7 +155,7 @@ class Collection {
     Map<String, dynamic> filter,
     Map<String, dynamic> update, {
     UpdateOptions? options,
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
@@ -165,7 +165,7 @@ class Collection {
       filterBytes,
       updateBytes,
       options: options,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     final ret = UpdateResult.fromProto(result);
     return ret;
@@ -196,7 +196,7 @@ class Collection {
     Map<String, dynamic> filter,
     Map<String, dynamic> update, {
     UpdateOptions? options,
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
@@ -206,7 +206,7 @@ class Collection {
       filterBytes,
       updateBytes,
       options: options,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     final ret = UpdateResult.fromProto(result);
     return ret;
@@ -229,14 +229,14 @@ class Collection {
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.DeleteOne.
   Future<DeleteResult> deleteOne(
     Map<String, dynamic> filter, {
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
     final result = await p.deleteOne(
       collectionId,
       filterBytes,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     final ret = DeleteResult.fromProto(result);
     return ret;
@@ -258,14 +258,14 @@ class Collection {
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.DeleteMany.
   Future<DeleteResult> deleteMany(
     Map<String, dynamic> filter, {
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
     final result = await p.deleteMany(
       collectionId,
       filterBytes,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     final ret = DeleteResult.fromProto(result);
     return ret;
@@ -285,7 +285,7 @@ class Collection {
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.Find
   Stream<Map<String, dynamic>> find(
     Map<String, dynamic> filter, {
-    Transaction? transaction,
+    Session? session,
   }) {
     final bson = BSON();
     final bytes = bson.serialize(filter);
@@ -293,7 +293,7 @@ class Collection {
     final ret = p.find(
       collectionId,
       bytes,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     return ret;
   }
@@ -313,7 +313,7 @@ class Collection {
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.FindOne.
   Future<Map<String, dynamic>> findOne(
     Map<String, dynamic> filter, {
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final bytes = bson.serialize(filter);
@@ -321,7 +321,7 @@ class Collection {
     final result = await p.findOne(
       collectionId,
       bytes,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
 
     final ret = bson.deserialize(result);
@@ -343,7 +343,7 @@ class Collection {
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.CountDocuments.
   Future<int> countDocuments(
     Map<String, dynamic> filter, {
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final bytes = bson.serialize(filter);
@@ -351,7 +351,7 @@ class Collection {
     final result = await p.countDocuments(
       collectionId,
       bytes,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
 
     return result;
@@ -366,11 +366,11 @@ class Collection {
   /// ## Reference
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.EstimatedDocumentCount.
   Future<int> estimatedDocumentCount({
-    Transaction? transaction,
+    Session? session,
   }) async {
     final result = await p.estimatedDocumentCount(
       collectionId,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
 
     return result;
@@ -392,7 +392,7 @@ class Collection {
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.FindOneAndDelete.
   Future<Map<String, dynamic>> findOneAndDelete(
     Map<String, dynamic> filter, {
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final bytes = bson.serialize(filter);
@@ -400,7 +400,7 @@ class Collection {
     final result = await p.findOneAndDelete(
       collectionId,
       bytes,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
 
     final ret = bson.deserialize(result);
@@ -433,7 +433,7 @@ class Collection {
     Map<String, dynamic> filter,
     Map<String, dynamic> update, {
     UpdateOptions? options,
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
@@ -443,7 +443,7 @@ class Collection {
       filterBytes,
       updateBytes,
       options: options,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
 
     final ret = bson.deserialize(result);
@@ -475,7 +475,7 @@ class Collection {
     Map<String, dynamic> filter,
     Map<String, dynamic> replacement, {
     UpdateOptions? options,
-    Transaction? transaction,
+    Session? session,
   }) async {
     final bson = BSON();
     final filterBytes = bson.serialize(filter);
@@ -485,7 +485,7 @@ class Collection {
       filterBytes,
       updateBytes,
       options: options,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     final ret = bson.deserialize(result);
     return ret;
@@ -506,7 +506,7 @@ class Collection {
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Collection.Aggregate.
   Stream<Map<String, dynamic>> aggregate(
     List<Map<String, dynamic>> pipeline, {
-    Transaction? transaction,
+    Session? session,
   }) {
     final bytesList = pipeline.map(
       (e) {
@@ -518,7 +518,7 @@ class Collection {
     final ret = p.aggregate(
       collectionId,
       bytesList,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
     );
     return ret;
   }
@@ -612,7 +612,7 @@ class Collection {
   Future<BulkWriteResult> bulkWrite(
     List<BulkWriteModel> models, {
     BulkWriteOptions? options,
-    Transaction? transaction,
+    Session? session,
   }) async {
     final wms = models.map((p) => p.toProto()).toList();
     final opts = options?.toProto();
@@ -620,7 +620,7 @@ class Collection {
     final result = await p.bulkWrite(
       collectionId,
       wms,
-      requestContext: transaction?.requestContext,
+      sessionOid: session?.sessionId,
       options: opts,
     );
     final ret = BulkWriteResult.fromProto(result);

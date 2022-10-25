@@ -12,8 +12,6 @@ import (
 	"gitlab.com/squarealfa/dart_bridge/stubs"
 	"go.mongodb.org/mongo-driver/mongo/options"
 
-	"errors"
-
 	"golang.org/x/net/context"
 )
 import "sync"
@@ -90,7 +88,7 @@ func startSession(port int64, buffer *C.uchar, size int) {
 
 //export closeSession
 func closeSession(port int64, buffer *C.uchar, size int) {
-	request := &mongo_stubs.CloseSessionRequest{}
+	request := &mongo_stubs.SessionRequest{}
 	ffi.Unmarshal(unsafe.Pointer(buffer), size, request)
 
 	go func() {
@@ -102,61 +100,59 @@ func closeSession(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		helpers.SendObjectId(port, sessionOid)
+		ffi.SendEmptyMessage(port)
 	}()
 }
 
-//export withTransaction
-func withTransaction(port int64, buffer *C.uchar, size int) {
-	request := &mongo_stubs.WithTransactionRequest{}
+//export startTransaction
+func startTransaction(port int64, buffer *C.uchar, size int) {
+	request := &mongo_stubs.SessionRequest{}
 	ffi.Unmarshal(unsafe.Pointer(buffer), size, request)
 
 	go func() {
+		ctx := context.Background()
 		connectionOid := helpers.BytesToOid(request.ConnectionOid)
 		sessionOid := helpers.BytesToOid(request.SessionOid)
-		connectionProxy, err := cs.GetConnectionProxy(connectionOid)
+		err := cs.StartTransaction(ctx, connectionOid, sessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxOid, err := connectionProxy.WithTransaction(sessionOid)
-
-		if err != nil {
-			helpers.SendErrorMessage(port, err)
-		}
-
-		helpers.SendObjectId(port, trxOid)
+		ffi.SendEmptyMessage(port)
 	}()
 }
 
-//export endTransaction
-func endTransaction(port int64, buffer *C.uchar, size int) {
-	request := &mongo_stubs.EndTransactionRequest{}
+//export commitTransaction
+func commitTransaction(port int64, buffer *C.uchar, size int) {
+	request := &mongo_stubs.SessionRequest{}
 	ffi.Unmarshal(unsafe.Pointer(buffer), size, request)
 
 	go func() {
+		ctx := context.Background()
 		connectionOid := helpers.BytesToOid(request.ConnectionOid)
 		sessionOid := helpers.BytesToOid(request.SessionOid)
-		transactionOid := helpers.BytesToOid(request.TransactionOid)
-		connectionProxy, err := cs.GetConnectionProxy(connectionOid)
+		err := cs.CommitTransaction(ctx, connectionOid, sessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		sessionProxy, err := connectionProxy.GetSessionProxy(sessionOid)
+		ffi.SendEmptyMessage(port)
+	}()
+}
+
+//export abortTransaction
+func abortTransaction(port int64, buffer *C.uchar, size int) {
+	request := &mongo_stubs.SessionRequest{}
+	ffi.Unmarshal(unsafe.Pointer(buffer), size, request)
+
+	go func() {
+		ctx := context.Background()
+		connectionOid := helpers.BytesToOid(request.ConnectionOid)
+		sessionOid := helpers.BytesToOid(request.SessionOid)
+		err := cs.AbortTransaction(ctx, connectionOid, sessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
-		}
-		var resultError error
-		if request.ErrorMessage != "" {
-			resultError = errors.New(request.ErrorMessage)
-		}
-		err = sessionProxy.EndTransaction(transactionOid, TransactionResult{
-			result: nil,
-			err:    resultError,
-		})
-		if err != nil {
-			helpers.SendErrorMessage(port, err)
+			return
 		}
 		ffi.SendEmptyMessage(port)
 	}()
@@ -254,7 +250,7 @@ func insertOne(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -289,7 +285,7 @@ func insertMany(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -325,7 +321,7 @@ func updateOne(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -361,7 +357,7 @@ func updateMany(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -398,7 +394,7 @@ func replaceOne(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -474,7 +470,7 @@ func deleteOne(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -509,7 +505,7 @@ func deleteMany(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -545,7 +541,7 @@ func findOne(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -574,7 +570,7 @@ func findOneAndDelete(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -603,7 +599,7 @@ func findOneAndUpdate(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -634,7 +630,7 @@ func findOneAndReplace(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -665,7 +661,7 @@ func find(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -697,7 +693,7 @@ func countDocuments(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -730,7 +726,7 @@ func estimatedDocumentCount(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -763,7 +759,7 @@ func aggregate(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -795,7 +791,7 @@ func watch(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -929,7 +925,7 @@ func bulkWrite(port int64, buffer *C.uchar, size int) {
 			helpers.SendErrorMessage(port, err)
 			return
 		}
-		trxProxy, err := _getTransactionProxy(coll.databaseProxy.connectionProxy, request.Context)
+		trxProxy, err := _getSessionProxy(coll.databaseProxy.connectionProxy, request.SessionOid)
 		if err != nil {
 			helpers.SendErrorMessage(port, err)
 			return
@@ -960,19 +956,11 @@ func bulkWrite(port int64, buffer *C.uchar, size int) {
 	}()
 }
 
-func _getTransactionProxy(connectionProxy *ConnectionProxy, requestContext *mongo_stubs.RequestContext) (*TransactionProxy, error) {
-	switch requestContext.Types.(type) {
-	case *mongo_stubs.RequestContext_Empty:
+func _getSessionProxy(connectionProxy *ConnectionProxy, sessionOid []byte) (*SessionProxy, error) {
+	if len(sessionOid) == 0 {
 		return nil, nil
-	case *mongo_stubs.RequestContext_WithTransaction:
-		trxId := requestContext.GetWithTransaction()
-		sessionId := helpers.BytesToOid(trxId.SessionOid)
-		transactionId := helpers.BytesToOid(trxId.TransactionId)
-		proxy, err := connectionProxy.GetTransactionProxy(sessionId, transactionId)
-		return proxy, err
-
-	default:
-		return nil, errors.New("request context type still not supported")
 	}
-
+	sessionId := helpers.BytesToOid(sessionOid)
+	proxy, err := connectionProxy.GetSessionProxy(sessionId)
+	return proxy, err
 }

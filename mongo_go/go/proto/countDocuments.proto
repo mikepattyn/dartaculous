@@ -2,17 +2,16 @@ syntax = "proto3";
 
 option go_package = "./mongo_stubs";
 
-import "request_context.proto";
 
 message CountDocumentsRequest {
   bytes collectionOid = 1;
-  RequestContext context = 2;
+  bytes sessionOid = 2;
   bytes filter = 3;
 }
 
 message EstimatedDocumentCountRequest {
   bytes collectionOid = 1;
-  RequestContext context = 2;
+  bytes sessionOid = 2;
 }
 
 message CountDocumentsResult {

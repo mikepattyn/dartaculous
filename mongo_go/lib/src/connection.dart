@@ -129,12 +129,18 @@ class Connection {
   /// ## Reference
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Session.WithTransaction.
   Future<TResult> withTransaction<TResult>(
-    Future<TResult> Function(Transaction transaction) work,
+    Future<TResult> Function(Session session) work,
   ) async {
     final session = await startSession();
+    await session.startTransaction();
+
     try {
-      final r = await session.withTransaction(work);
+      final r = await work(session);
+      await session.commitTransaction();
       return r;
+    } catch (_) {
+      await session.abortTransaction();
+      rethrow;
     } finally {
       session.dispose();
     }

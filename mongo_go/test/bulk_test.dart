@@ -74,8 +74,8 @@ void main() {
         );
       },
           throwsA(
-            const TypeMatcher<MongoError>().having(
-              (p0) => p0.message,
+            const TypeMatcher<String>().having(
+              (p0) => p0,
               'Exception is BasicErrorMessage with sent message',
               'oops',
             ),

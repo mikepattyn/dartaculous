@@ -20,21 +20,14 @@ const InsertOneRequest$json = const {
       '5': 12,
       '10': 'collectionOid'
     },
-    const {
-      '1': 'context',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.RequestContext',
-      '10': 'context'
-    },
+    const {'1': 'sessionOid', '3': 2, '4': 1, '5': 12, '10': 'sessionOid'},
     const {'1': 'document', '3': 3, '4': 1, '5': 12, '10': 'document'},
   ],
 };
 
 /// Descriptor for `InsertOneRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List insertOneRequestDescriptor = $convert.base64Decode(
-    'ChBJbnNlcnRPbmVSZXF1ZXN0EiQKDWNvbGxlY3Rpb25PaWQYASABKAxSDWNvbGxlY3Rpb25PaWQSKQoHY29udGV4dBgCIAEoCzIPLlJlcXVlc3RDb250ZXh0Ugdjb250ZXh0EhoKCGRvY3VtZW50GAMgASgMUghkb2N1bWVudA==');
+    'ChBJbnNlcnRPbmVSZXF1ZXN0EiQKDWNvbGxlY3Rpb25PaWQYASABKAxSDWNvbGxlY3Rpb25PaWQSHgoKc2Vzc2lvbk9pZBgCIAEoDFIKc2Vzc2lvbk9pZBIaCghkb2N1bWVudBgDIAEoDFIIZG9jdW1lbnQ=');
 @$core.Deprecated('Use insertOneResultDescriptor instead')
 const InsertOneResult$json = const {
   '1': 'InsertOneResult',

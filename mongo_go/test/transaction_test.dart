@@ -29,14 +29,14 @@ void main() {
   group('Transaction Tests', () {
     test('Insert two documents with transaction', () async {
       await connection.withTransaction(
-        (transaction) async {
+        (session) async {
           await collection.insertOne(
             {'name': 'Alice', 'test': 'trxTwo'},
-            transaction: transaction,
+            session: session,
           );
           await collection.insertOne(
             {'name': 'Bob', 'test': 'trxTwo'},
-            transaction: transaction,
+            session: session,
           );
         },
       );
@@ -48,22 +48,22 @@ void main() {
     test('Insert two documents with failed transaction', () async {
       expect(() async {
         await connection.withTransaction(
-          (transaction) async {
+          (session) async {
             await collection.insertOne(
               {'name': 'Alice', 'test': 'trxFail'},
-              transaction: transaction,
+              session: session,
             );
             await collection.insertOne(
               {'name': 'Bob', 'test': 'trxFail'},
-              transaction: transaction,
+              session: session,
             );
             throw 'oops';
           },
         );
       },
           throwsA(
-            const TypeMatcher<MongoError>().having(
-              (p0) => p0.message,
+            const TypeMatcher<String>().having(
+              (p0) => p0,
               'Exception is BasicErrorMessage with sent message',
               'oops',
             ),

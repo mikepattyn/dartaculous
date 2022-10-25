@@ -19,6 +19,12 @@ extension ObjectIdExtensions on ObjectId {
   }
 }
 
+// extension ObjectIdExtensions on ObjectId {
+//   Uint8List toByteList() {
+//     return id.byteList;
+//   }
+// }
+
 extension ConnectionSettingsExtension on ConnectionSettings {
   p.ConnectionRequest toConnectionRequest() {
     return p.ConnectionRequest(

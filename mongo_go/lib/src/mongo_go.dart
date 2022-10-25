@@ -6,7 +6,6 @@ import 'proto.dart';
 import 'helpers.dart';
 
 final nl = getNativeLibrary();
-final emptyRequestContext = RequestContext(empty: Empty());
 
 void initialize() {
   nl.initialize(NativeApi.initializeApiDLData);
@@ -57,42 +56,65 @@ Future<ObjectId> startSession(StartSessionRequest request) async {
   return response.toObjectId();
 }
 
-Future<ObjectId> closeSession(CloseSessionRequest request) async {
-  final response = await callGoFunc(
-    request: request,
-    goFunc: nl.closeSession,
-    responseToFill: ByteArrayMessage(),
-  );
-  return response.toObjectId();
-}
-
-Future<ObjectId> withTransaction(WithTransactionRequest request) async {
-  final response = await callGoFunc(
-    request: request,
-    goFunc: nl.withTransaction,
-    responseToFill: ByteArrayMessage(),
-  );
-  return response.toObjectId();
-}
-
-Future<void> endTransaction(EndTransactionRequest request) async {
+Future<void> closeSession(SessionRequest request) async {
   await callGoFunc(
     request: request,
-    goFunc: nl.endTransaction,
+    goFunc: nl.closeSession,
     responseToFill: Empty(),
   );
 }
 
+Future<void> startTransaction(SessionRequest request) async {
+  await callGoFunc(
+    request: request,
+    goFunc: nl.startTransaction,
+    responseToFill: Empty(),
+  );
+}
+
+Future<void> commitTransaction(SessionRequest request) async {
+  await callGoFunc(
+    request: request,
+    goFunc: nl.commitTransaction,
+    responseToFill: Empty(),
+  );
+}
+
+Future<void> abortTransaction(SessionRequest request) async {
+  await callGoFunc(
+    request: request,
+    goFunc: nl.abortTransaction,
+    responseToFill: Empty(),
+  );
+}
+
+// Future<ObjectId> withTransaction(WithTransactionRequest request) async {
+//   final response = await callGoFunc(
+//     request: request,
+//     goFunc: nl.withTransaction,
+//     responseToFill: ByteArrayMessage(),
+//   );
+//   return response.toObjectId();
+// }
+
+// Future<void> endTransaction(EndTransactionRequest request) async {
+//   await callGoFunc(
+//     request: request,
+//     goFunc: nl.endTransaction,
+//     responseToFill: Empty(),
+//   );
+// }
+
 Future<InsertOneResult> insertOne(
   ObjectId collectionOid,
   BsonBinary document, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = InsertOneRequest(
-      collectionOid: oid, context: ctx, document: document.byteList);
+      collectionOid: oid, sessionOid: soid, document: document.byteList);
   final response = await callGoFunc(
     request: request,
     goFunc: nl.insertOne,
@@ -104,14 +126,14 @@ Future<InsertOneResult> insertOne(
 Future<InsertManyResult> insertMany(
   ObjectId collectionOid,
   List<BsonBinary> document, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = InsertManyRequest(
     collectionOid: oid,
-    context: ctx,
+    sessionOid: soid,
     documents: document.map((e) => e.byteList),
   );
   final response = await callGoFunc(
@@ -122,22 +144,19 @@ Future<InsertManyResult> insertMany(
   return response;
 }
 
-RequestContext _getRequestContext(RequestContext? transactionContext) =>
-    transactionContext ?? emptyRequestContext;
-
 Future<UpdateResult> updateOne(
   ObjectId collectionOid,
   BsonBinary filter,
   BsonBinary update, {
   UpdateOptions? options,
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = UpdateRequest(
     collectionOid: oid,
-    context: ctx,
+    sessionOid: soid,
     filter: filter.byteList,
     update: update.byteList,
     isUpsert: options?.isUpsert ?? false,
@@ -155,14 +174,14 @@ Future<UpdateResult> updateMany(
   BsonBinary filter,
   BsonBinary update, {
   UpdateOptions? options,
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = UpdateRequest(
     collectionOid: oid,
-    context: ctx,
+    sessionOid: soid,
     filter: filter.byteList,
     update: update.byteList,
     isUpsert: options?.isUpsert ?? false,
@@ -180,14 +199,14 @@ Future<UpdateResult> replaceOne(
   BsonBinary filter,
   BsonBinary replacement, {
   UpdateOptions? options,
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = ReplaceRequest(
     collectionOid: oid,
-    context: ctx,
+    sessionOid: soid,
     filter: filter.byteList,
     replacement: replacement.byteList,
     isUpsert: options?.isUpsert ?? false,
@@ -203,14 +222,14 @@ Future<UpdateResult> replaceOne(
 Future<DeleteResult> deleteOne(
   ObjectId collectionOid,
   BsonBinary filter, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = DeleteRequest(
     collectionOid: oid,
-    context: ctx,
+    sessionOid: soid,
     filter: filter.byteList,
   );
   final response = await callGoFunc(
@@ -224,14 +243,14 @@ Future<DeleteResult> deleteOne(
 Future<DeleteResult> deleteMany(
   ObjectId collectionOid,
   BsonBinary filter, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = DeleteRequest(
     collectionOid: oid,
-    context: ctx,
+    sessionOid: soid,
     filter: filter.byteList,
   );
   final response = await callGoFunc(
@@ -245,13 +264,16 @@ Future<DeleteResult> deleteMany(
 Stream<Map<String, dynamic>> find(
   ObjectId collectionOid,
   BsonBinary filter, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
-  final request =
-      FindRequest(collectionOid: oid, context: ctx, filter: filter.byteList);
+  final request = FindRequest(
+    collectionOid: oid,
+    sessionOid: soid,
+    filter: filter.byteList,
+  );
   final goStream = getGoStream(
     request: request,
     goFunc: nl.find,
@@ -270,13 +292,16 @@ Stream<Map<String, dynamic>> find(
 Future<BsonBinary> findOne(
   ObjectId collectionOid,
   BsonBinary filter, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
-  final request =
-      FindRequest(collectionOid: oid, context: ctx, filter: filter.byteList);
+  final request = FindRequest(
+    collectionOid: oid,
+    sessionOid: soid,
+    filter: filter.byteList,
+  );
   final response = await callGoFunc(
     request: request,
     goFunc: nl.findOne,
@@ -289,13 +314,16 @@ Future<BsonBinary> findOne(
 Future<BsonBinary> findOneAndDelete(
   ObjectId collectionOid,
   BsonBinary filter, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
-  final request =
-      FindOneRequest(collectionOid: oid, context: ctx, filter: filter.byteList);
+  final request = FindOneRequest(
+    collectionOid: oid,
+    sessionOid: soid,
+    filter: filter.byteList,
+  );
   final response = await callGoFunc(
     request: request,
     goFunc: nl.findOneAndDelete,
@@ -310,14 +338,14 @@ Future<BsonBinary> findOneAndUpdate(
   BsonBinary filter,
   BsonBinary update, {
   UpdateOptions? options,
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = UpdateRequest(
     collectionOid: oid,
-    context: ctx,
+    sessionOid: soid,
     filter: filter.byteList,
     update: update.byteList,
     isUpsert: options?.isUpsert ?? false,
@@ -337,14 +365,14 @@ Future<BsonBinary> findOneAndReplace(
   BsonBinary filter,
   BsonBinary replacement, {
   UpdateOptions? options,
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = ReplaceRequest(
     collectionOid: oid,
-    context: ctx,
+    sessionOid: soid,
     filter: filter.byteList,
     replacement: replacement.byteList,
     isUpsert: options?.isUpsert ?? false,
@@ -362,14 +390,14 @@ Future<BsonBinary> findOneAndReplace(
 Stream<Map<String, dynamic>> aggregate(
   ObjectId collectionOid,
   List<BsonBinary> pipeline, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = AggregateRequest(
       collectionOid: oid,
-      context: ctx,
+      sessionOid: soid,
       pipeline: pipeline.map(
         (e) => e.byteList,
       ));
@@ -391,14 +419,14 @@ Stream<Map<String, dynamic>> aggregate(
 Stream<Map<String, dynamic>> watch(
   ObjectId collectionOid,
   List<BsonBinary> pipeline, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = AggregateRequest(
       collectionOid: oid,
-      context: ctx,
+      sessionOid: soid,
       pipeline: pipeline.map(
         (e) => e.byteList,
       ));
@@ -503,15 +531,15 @@ Future<Map<String, dynamic>> dropAllIndexes(ObjectId collectionOid) async {
 Future<BulkWriteResult> bulkWrite(
   ObjectId collectionOid,
   List<WriteModel> writeModels, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
   BulkWriteOptions? options,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = BulkWriteRequest(
     collectionOid: oid,
-    context: ctx,
+    sessionOid: soid,
     writeModels: writeModels,
     options: options,
   );
@@ -526,13 +554,16 @@ Future<BulkWriteResult> bulkWrite(
 Future<int> countDocuments(
   ObjectId collectionOid,
   BsonBinary filter, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
   final request = CountDocumentsRequest(
-      collectionOid: oid, context: ctx, filter: filter.byteList);
+    collectionOid: oid,
+    sessionOid: soid,
+    filter: filter.byteList,
+  );
   final response = await callGoFunc(
     request: request,
     goFunc: nl.countDocuments,
@@ -543,13 +574,15 @@ Future<int> countDocuments(
 
 Future<int> estimatedDocumentCount(
   ObjectId collectionOid, {
-  RequestContext? requestContext,
+  ObjectId? sessionOid,
 }) async {
   final oid = collectionOid.toByteList();
-  final ctx = _getRequestContext(requestContext);
+  final soid = sessionOid?.toByteList();
 
-  final request =
-      EstimatedDocumentCountRequest(collectionOid: oid, context: ctx);
+  final request = EstimatedDocumentCountRequest(
+    collectionOid: oid,
+    sessionOid: soid,
+  );
   final response = await callGoFunc(
     request: request,
     goFunc: nl.estimatedDocumentCount,

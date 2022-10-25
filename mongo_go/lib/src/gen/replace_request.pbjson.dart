@@ -20,14 +20,7 @@ const ReplaceRequest$json = const {
       '5': 12,
       '10': 'collectionOid'
     },
-    const {
-      '1': 'context',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.RequestContext',
-      '10': 'context'
-    },
+    const {'1': 'sessionOid', '3': 2, '4': 1, '5': 12, '10': 'sessionOid'},
     const {'1': 'filter', '3': 3, '4': 1, '5': 12, '10': 'filter'},
     const {'1': 'replacement', '3': 4, '4': 1, '5': 12, '10': 'replacement'},
     const {'1': 'isUpsert', '3': 5, '4': 1, '5': 8, '10': 'isUpsert'},
@@ -36,4 +29,4 @@ const ReplaceRequest$json = const {
 
 /// Descriptor for `ReplaceRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List replaceRequestDescriptor = $convert.base64Decode(
-    'Cg5SZXBsYWNlUmVxdWVzdBIkCg1jb2xsZWN0aW9uT2lkGAEgASgMUg1jb2xsZWN0aW9uT2lkEikKB2NvbnRleHQYAiABKAsyDy5SZXF1ZXN0Q29udGV4dFIHY29udGV4dBIWCgZmaWx0ZXIYAyABKAxSBmZpbHRlchIgCgtyZXBsYWNlbWVudBgEIAEoDFILcmVwbGFjZW1lbnQSGgoIaXNVcHNlcnQYBSABKAhSCGlzVXBzZXJ0');
+    'Cg5SZXBsYWNlUmVxdWVzdBIkCg1jb2xsZWN0aW9uT2lkGAEgASgMUg1jb2xsZWN0aW9uT2lkEh4KCnNlc3Npb25PaWQYAiABKAxSCnNlc3Npb25PaWQSFgoGZmlsdGVyGAMgASgMUgZmaWx0ZXISIAoLcmVwbGFjZW1lbnQYBCABKAxSC3JlcGxhY2VtZW50EhoKCGlzVXBzZXJ0GAUgASgIUghpc1Vwc2VydA==');

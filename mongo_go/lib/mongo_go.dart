@@ -5,7 +5,6 @@ export 'src/connection.dart';
 export 'src/database.dart';
 export 'src/collection.dart';
 export 'src/session.dart';
-export 'src/transaction.dart';
 export 'src/index_options.dart';
 export 'src/collation.dart';
 export 'src/bulk/bulk.dart';

@@ -13,87 +13,82 @@ type CollectionProxy struct {
 	databaseProxy *DatabaseProxy
 }
 
-func runInTransaction[TResult any](ctx context.Context, transactionProxy *TransactionProxy, callback func(context.Context) (TResult, error)) (TResult, error) {
-	if transactionProxy == nil {
+func runInSession[TResult any](ctx context.Context, sessionProxy *SessionProxy, callback func(context.Context) (TResult, error)) (TResult, error) {
+	if sessionProxy == nil {
 		return callback(ctx)
 	}
-	done := make(chan struct {
-		result TResult
-		err    error
+
+	var result TResult
+	var err error
+
+	sessionProxy.WithSession(func(ctx mongo.SessionContext) error {
+		result, err = callback(ctx)
+		return err
 	})
 
-	transactionProxy.callbackChannel <- func(ctx mongo.SessionContext) {
-		r, e := callback(ctx)
-		done <- struct {
-			result TResult
-			err    error
-		}{result: r, err: e}
-	}
-
-	result := <-done
-	return result.result, result.err
+	return result, err
 }
 
-func (c *CollectionProxy) InsertOne(ctx context.Context, transactionProxy *TransactionProxy, document []byte) (*mongo.InsertOneResult, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.InsertOneResult, error) {
+func (c *CollectionProxy) InsertOne(ctx context.Context, sessionProxy *SessionProxy, document []byte) (*mongo.InsertOneResult, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.InsertOneResult, error) {
 		return c.col.InsertOne(ctx, document)
 	})
 }
 
-func (c *CollectionProxy) InsertMany(ctx context.Context, transactionProxy *TransactionProxy, documents [][]byte) (*mongo.InsertManyResult, error) {
+func (c *CollectionProxy) InsertMany(ctx context.Context, sessionProxy *SessionProxy, documents [][]byte) (*mongo.InsertManyResult, error) {
 	docs := make([]interface{}, len(documents))
 	for i, v := range documents {
 		docs[i] = v
 	}
 
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.InsertManyResult, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.InsertManyResult, error) {
 		return c.col.InsertMany(ctx, docs)
 	})
 }
 
 func (c *CollectionProxy) BulkWrite(
 	ctx context.Context,
-	transactionProxy *TransactionProxy,
+	sessionProxy *SessionProxy,
 	writeModels []mongo.WriteModel,
 	opts ...*options.BulkWriteOptions) (*mongo.BulkWriteResult, error) {
 
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.BulkWriteResult, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.BulkWriteResult, error) {
 		return c.col.BulkWrite(ctx, writeModels, opts...)
 	})
 }
 
-func (c *CollectionProxy) DeleteOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) (*mongo.DeleteResult, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.DeleteResult, error) {
+func (c *CollectionProxy) DeleteOne(ctx context.Context, sessionProxy *SessionProxy, filter []byte) (*mongo.DeleteResult, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.DeleteResult, error) {
 		return c.col.DeleteOne(ctx, filter)
 	})
 }
 
-func (c *CollectionProxy) DeleteMany(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) (*mongo.DeleteResult, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.DeleteResult, error) {
+func (c *CollectionProxy) DeleteMany(ctx context.Context, sessionProxy *SessionProxy, filter []byte) (*mongo.DeleteResult, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.DeleteResult, error) {
 		return c.col.DeleteMany(ctx, filter)
 	})
 }
 
-func (c *CollectionProxy) UpdateOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.UpdateOptions) (*mongo.UpdateResult, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.UpdateResult, error) {
+func (c *CollectionProxy) UpdateOne(ctx context.Context, sessionProxy *SessionProxy, filter []byte, update []byte, opts ...*options.UpdateOptions) (*mongo.UpdateResult, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.UpdateResult, error) {
 		return c.col.UpdateOne(ctx, filter, update, opts...)
 	})
 }
 
-func (c *CollectionProxy) UpdateMany(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.UpdateOptions) (*mongo.UpdateResult, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.UpdateResult, error) {
+func (c *CollectionProxy) UpdateMany(ctx context.Context, sessionProxy *SessionProxy, filter []byte, update []byte, opts ...*options.UpdateOptions) (*mongo.UpdateResult, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.UpdateResult, error) {
 		return c.col.UpdateMany(ctx, filter, update, opts...)
 	})
 }
 
-func (c *CollectionProxy) ReplaceOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, replacement []byte, opts ...*options.ReplaceOptions) (*mongo.UpdateResult, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.UpdateResult, error) {
+func (c *CollectionProxy) ReplaceOne(ctx context.Context, sessionProxy *SessionProxy, filter []byte, replacement []byte, opts ...*options.ReplaceOptions) (*mongo.UpdateResult, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.UpdateResult, error) {
 		return c.col.ReplaceOne(ctx, filter, replacement, opts...)
 	})
 }
 
-func (c *CollectionProxy) FindOne(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
+func (c *CollectionProxy) FindOne(ctx context.Context, sessionProxy *SessionProxy, filter []byte) ([]byte, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) ([]byte, error) {
 		sr := c.col.FindOne(ctx, filter)
 		bytes, err := sr.DecodeBytes()
 		if err != nil {
@@ -103,8 +98,8 @@ func (c *CollectionProxy) FindOne(ctx context.Context, transactionProxy *Transac
 	})
 }
 
-func (c *CollectionProxy) FindOneAndDelete(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
+func (c *CollectionProxy) FindOneAndDelete(ctx context.Context, sessionProxy *SessionProxy, filter []byte) ([]byte, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) ([]byte, error) {
 		sr := c.col.FindOneAndDelete(ctx, filter)
 		bytes, err := sr.DecodeBytes()
 		if err != nil {
@@ -114,8 +109,8 @@ func (c *CollectionProxy) FindOneAndDelete(ctx context.Context, transactionProxy
 	})
 }
 
-func (c *CollectionProxy) FindOneAndUpdate(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.FindOneAndUpdateOptions) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
+func (c *CollectionProxy) FindOneAndUpdate(ctx context.Context, sessionProxy *SessionProxy, filter []byte, update []byte, opts ...*options.FindOneAndUpdateOptions) ([]byte, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) ([]byte, error) {
 		sr := c.col.FindOneAndUpdate(ctx, filter, update, opts...)
 		bytes, err := sr.DecodeBytes()
 		if err != nil {
@@ -125,8 +120,8 @@ func (c *CollectionProxy) FindOneAndUpdate(ctx context.Context, transactionProxy
 	})
 }
 
-func (c *CollectionProxy) FindOneAndReplace(ctx context.Context, transactionProxy *TransactionProxy, filter []byte, update []byte, opts ...*options.FindOneAndReplaceOptions) ([]byte, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) ([]byte, error) {
+func (c *CollectionProxy) FindOneAndReplace(ctx context.Context, sessionProxy *SessionProxy, filter []byte, update []byte, opts ...*options.FindOneAndReplaceOptions) ([]byte, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) ([]byte, error) {
 		sr := c.col.FindOneAndReplace(ctx, filter, update, opts...)
 		bytes, err := sr.DecodeBytes()
 		if err != nil {
@@ -136,42 +131,42 @@ func (c *CollectionProxy) FindOneAndReplace(ctx context.Context, transactionProx
 	})
 }
 
-func (c *CollectionProxy) Find(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) (*mongo.Cursor, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.Cursor, error) {
+func (c *CollectionProxy) Find(ctx context.Context, sessionProxy *SessionProxy, filter []byte) (*mongo.Cursor, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.Cursor, error) {
 		return c.col.Find(ctx, filter)
 	})
 }
 
-func (c *CollectionProxy) CountDocuments(ctx context.Context, transactionProxy *TransactionProxy, filter []byte) (int64, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (int64, error) {
+func (c *CollectionProxy) CountDocuments(ctx context.Context, sessionProxy *SessionProxy, filter []byte) (int64, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (int64, error) {
 		return c.col.CountDocuments(ctx, filter)
 	})
 }
 
-func (c *CollectionProxy) EstimatedDocumentCount(ctx context.Context, transactionProxy *TransactionProxy) (int64, error) {
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (int64, error) {
+func (c *CollectionProxy) EstimatedDocumentCount(ctx context.Context, sessionProxy *SessionProxy) (int64, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (int64, error) {
 		return c.col.EstimatedDocumentCount(ctx)
 	})
 }
 
-func (c *CollectionProxy) Aggregate(ctx context.Context, transactionProxy *TransactionProxy, pipeline [][]byte) (*mongo.Cursor, error) {
+func (c *CollectionProxy) Aggregate(ctx context.Context, sessionProxy *SessionProxy, pipeline [][]byte) (*mongo.Cursor, error) {
 	stages := make([]interface{}, len(pipeline))
 	for i, v := range pipeline {
 		stages[i] = v
 	}
 
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.Cursor, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.Cursor, error) {
 		return c.col.Aggregate(ctx, stages)
 	})
 }
 
-func (c *CollectionProxy) Watch(ctx context.Context, transactionProxy *TransactionProxy, pipeline [][]byte) (*mongo.ChangeStream, error) {
+func (c *CollectionProxy) Watch(ctx context.Context, sessionProxy *SessionProxy, pipeline [][]byte) (*mongo.ChangeStream, error) {
 	stages := make([]interface{}, len(pipeline))
 	for i, v := range pipeline {
 		stages[i] = v
 	}
 
-	return runInTransaction(ctx, transactionProxy, func(ctx context.Context) (*mongo.ChangeStream, error) {
+	return runInSession(ctx, sessionProxy, func(ctx context.Context) (*mongo.ChangeStream, error) {
 		return c.col.Watch(ctx, stages)
 	})
 }

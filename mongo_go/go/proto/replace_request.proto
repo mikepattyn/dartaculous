@@ -1,12 +1,11 @@
 syntax = "proto3";
 
 option go_package = "./mongo_stubs";
-import "request_context.proto";
 
 
 message ReplaceRequest {
   bytes collectionOid = 1;
-  RequestContext context = 2;
+  bytes sessionOid = 2;
   bytes filter = 3;
   bytes replacement = 4;
   bool isUpsert = 5;

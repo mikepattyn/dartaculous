@@ -27,12 +27,17 @@ class Session {
   /// The connection from which this session was created
   final Connection connection;
 
+  final SessionRequest _sessionRequest;
+
   /// For internal use of this package.
   @internal
   Session({
     required this.connection,
     required this.sessionId,
-  });
+  }) : _sessionRequest = SessionRequest(
+          connectionOid: connection.connectionId.toByteList(),
+          sessionOid: sessionId.toByteList(),
+        );
 
   /// Starts a new transaction, configured with the given options,
   /// on this session. This method will throw an error if there is already a
@@ -40,47 +45,56 @@ class Session {
   ///
   /// ## Reference
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Session.StartTransaction.
-  Future<Transaction> startTransaction() async {
-    final transactionId = await p.withTransaction(WithTransactionRequest(
-      connectionOid: connection.connectionId.toByteList(),
-      sessionOid: sessionId.toByteList(),
-    ));
-
-    final transaction =
-        Transaction(session: this, transactionId: transactionId);
-    return transaction;
+  Future<void> startTransaction() async {
+    await p.startTransaction(_sessionRequest);
   }
 
-  /// Does work, represented by the [work] parameter inside a transaction.
-  ///
-  /// This method creates a new transaction in this session. It performs the
-  /// work given to it within the context of that transaction.
-  ///
-  /// If the work throws an exception, the transaction is aborted and
-  /// the exception is rethrown (i.e. ultimately it is not handled, so
-  /// the caller is able to handle it or otherwise keep propagating).
-  ///
-  /// If the work does not throw an exception, the transaction is committed.
-  ///
-  /// The transaction created internally by this method is automatically
-  /// disposed, so the caller does not need to worry about disposing it.
+  // /// Does work, represented by the [work] parameter inside a transaction.
+  // ///
+  // /// This method creates a new transaction in this session. It performs the
+  // /// work given to it within the context of that transaction.
+  // ///
+  // /// If the work throws an exception, the transaction is aborted and
+  // /// the exception is rethrown (i.e. ultimately it is not handled, so
+  // /// the caller is able to handle it or otherwise keep propagating).
+  // ///
+  // /// If the work does not throw an exception, the transaction is committed.
+  // ///
+  // /// The transaction created internally by this method is automatically
+  // /// disposed, so the caller does not need to worry about disposing it.
+  // ///
+  // /// ## Reference
+  // /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Session.WithTransaction.
+
+  // Future<TResult> withTransaction<TResult>(
+  //     Future<TResult> Function(Session session) work) async {
+  //   final transaction = await startTransaction();
+  //   try {
+  //     final result = await work(transaction);
+  //     await transaction.commit();
+  //     return result;
+  //   } catch (ex) {
+  //     await transaction.abort(errorMessage: ex.toString());
+  //     rethrow;
+  //   } finally {
+  //     await transaction.dispose();
+  //   }
+  // }
+
+  /// Commits the transaction
   ///
   /// ## Reference
-  /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Session.WithTransaction.
+  /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Session.CommitTransaction.
+  Future<void> commitTransaction() async {
+    await p.commitTransaction(_sessionRequest);
+  }
 
-  Future<TResult> withTransaction<TResult>(
-      Future<TResult> Function(Transaction transaction) work) async {
-    final transaction = await startTransaction();
-    try {
-      final result = await work(transaction);
-      await transaction.commit();
-      return result;
-    } catch (ex) {
-      await transaction.abort(errorMessage: ex.toString());
-      rethrow;
-    } finally {
-      await transaction.dispose();
-    }
+  /// Abort transaction
+  ///
+  /// ## Reference
+  /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Session.AbortTransaction.
+  Future<void> abortTransaction() async {
+    await p.abortTransaction(_sessionRequest);
   }
 
   /// Closes this session.
@@ -88,9 +102,6 @@ class Session {
   /// ## Reference
   /// See https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.10.3/mongo#Session.EndSession.
   Future<void> dispose() async {
-    await p.closeSession(CloseSessionRequest(
-      connectionOid: connection.connectionId.toByteList(),
-      sessionOid: sessionId.toByteList(),
-    ));
+    await p.closeSession(_sessionRequest);
   }
 }

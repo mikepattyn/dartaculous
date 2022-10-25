@@ -20,21 +20,14 @@ const CountDocumentsRequest$json = const {
       '5': 12,
       '10': 'collectionOid'
     },
-    const {
-      '1': 'context',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.RequestContext',
-      '10': 'context'
-    },
+    const {'1': 'sessionOid', '3': 2, '4': 1, '5': 12, '10': 'sessionOid'},
     const {'1': 'filter', '3': 3, '4': 1, '5': 12, '10': 'filter'},
   ],
 };
 
 /// Descriptor for `CountDocumentsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List countDocumentsRequestDescriptor = $convert.base64Decode(
-    'ChVDb3VudERvY3VtZW50c1JlcXVlc3QSJAoNY29sbGVjdGlvbk9pZBgBIAEoDFINY29sbGVjdGlvbk9pZBIpCgdjb250ZXh0GAIgASgLMg8uUmVxdWVzdENvbnRleHRSB2NvbnRleHQSFgoGZmlsdGVyGAMgASgMUgZmaWx0ZXI=');
+    'ChVDb3VudERvY3VtZW50c1JlcXVlc3QSJAoNY29sbGVjdGlvbk9pZBgBIAEoDFINY29sbGVjdGlvbk9pZBIeCgpzZXNzaW9uT2lkGAIgASgMUgpzZXNzaW9uT2lkEhYKBmZpbHRlchgDIAEoDFIGZmlsdGVy');
 @$core.Deprecated('Use estimatedDocumentCountRequestDescriptor instead')
 const EstimatedDocumentCountRequest$json = const {
   '1': 'EstimatedDocumentCountRequest',
@@ -46,21 +39,14 @@ const EstimatedDocumentCountRequest$json = const {
       '5': 12,
       '10': 'collectionOid'
     },
-    const {
-      '1': 'context',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.RequestContext',
-      '10': 'context'
-    },
+    const {'1': 'sessionOid', '3': 2, '4': 1, '5': 12, '10': 'sessionOid'},
   ],
 };
 
 /// Descriptor for `EstimatedDocumentCountRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List estimatedDocumentCountRequestDescriptor =
     $convert.base64Decode(
-        'Ch1Fc3RpbWF0ZWREb2N1bWVudENvdW50UmVxdWVzdBIkCg1jb2xsZWN0aW9uT2lkGAEgASgMUg1jb2xsZWN0aW9uT2lkEikKB2NvbnRleHQYAiABKAsyDy5SZXF1ZXN0Q29udGV4dFIHY29udGV4dA==');
+        'Ch1Fc3RpbWF0ZWREb2N1bWVudENvdW50UmVxdWVzdBIkCg1jb2xsZWN0aW9uT2lkGAEgASgMUg1jb2xsZWN0aW9uT2lkEh4KCnNlc3Npb25PaWQYAiABKAxSCnNlc3Npb25PaWQ=');
 @$core.Deprecated('Use countDocumentsResultDescriptor instead')
 const CountDocumentsResult$json = const {
   '1': 'CountDocumentsResult',

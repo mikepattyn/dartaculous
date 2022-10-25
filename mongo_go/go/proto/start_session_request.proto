@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-option go_package = "./mongo_stubs";
-
-message StartSessionRequest { 
-    bytes connectionOid = 1; 
-}

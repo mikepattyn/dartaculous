@@ -20,21 +20,14 @@ const DeleteRequest$json = const {
       '5': 12,
       '10': 'collectionOid'
     },
-    const {
-      '1': 'context',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.RequestContext',
-      '10': 'context'
-    },
+    const {'1': 'sessionOid', '3': 2, '4': 1, '5': 12, '10': 'sessionOid'},
     const {'1': 'filter', '3': 3, '4': 1, '5': 12, '10': 'filter'},
   ],
 };
 
 /// Descriptor for `DeleteRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteRequestDescriptor = $convert.base64Decode(
-    'Cg1EZWxldGVSZXF1ZXN0EiQKDWNvbGxlY3Rpb25PaWQYASABKAxSDWNvbGxlY3Rpb25PaWQSKQoHY29udGV4dBgCIAEoCzIPLlJlcXVlc3RDb250ZXh0Ugdjb250ZXh0EhYKBmZpbHRlchgDIAEoDFIGZmlsdGVy');
+    'Cg1EZWxldGVSZXF1ZXN0EiQKDWNvbGxlY3Rpb25PaWQYASABKAxSDWNvbGxlY3Rpb25PaWQSHgoKc2Vzc2lvbk9pZBgCIAEoDFIKc2Vzc2lvbk9pZBIWCgZmaWx0ZXIYAyABKAxSBmZpbHRlcg==');
 @$core.Deprecated('Use deleteResultDescriptor instead')
 const DeleteResult$json = const {
   '1': 'DeleteResult',

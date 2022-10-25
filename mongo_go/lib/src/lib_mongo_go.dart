@@ -109,42 +109,61 @@ class LibMongoProxy {
   late final _closeSession = _closeSessionPtr
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 
-  void withTransaction(
+  void startTransaction(
     int port,
     ffi.Pointer<ffi.UnsignedChar> buffer,
     int size,
   ) {
-    return _withTransaction(
+    return _startTransaction(
       port,
       buffer,
       size,
     );
   }
 
-  late final _withTransactionPtr = _lookup<
+  late final _startTransactionPtr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
-              GoInt)>>('withTransaction');
-  late final _withTransaction = _withTransactionPtr
+              GoInt)>>('startTransaction');
+  late final _startTransaction = _startTransactionPtr
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 
-  void endTransaction(
+  void commitTransaction(
     int port,
     ffi.Pointer<ffi.UnsignedChar> buffer,
     int size,
   ) {
-    return _endTransaction(
+    return _commitTransaction(
       port,
       buffer,
       size,
     );
   }
 
-  late final _endTransactionPtr = _lookup<
+  late final _commitTransactionPtr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
-              GoInt)>>('endTransaction');
-  late final _endTransaction = _endTransactionPtr
+              GoInt)>>('commitTransaction');
+  late final _commitTransaction = _commitTransactionPtr
+      .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
+
+  void abortTransaction(
+    int port,
+    ffi.Pointer<ffi.UnsignedChar> buffer,
+    int size,
+  ) {
+    return _abortTransaction(
+      port,
+      buffer,
+      size,
+    );
+  }
+
+  late final _abortTransactionPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(GoInt64, ffi.Pointer<ffi.UnsignedChar>,
+              GoInt)>>('abortTransaction');
+  late final _abortTransaction = _abortTransactionPtr
       .asFunction<void Function(int, ffi.Pointer<ffi.UnsignedChar>, int)>();
 
   void database(

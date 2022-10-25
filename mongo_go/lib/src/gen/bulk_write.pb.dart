@@ -10,8 +10,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'request_context.pb.dart' as $5;
-import 'google/protobuf/wrappers.pb.dart' as $6;
+import 'google/protobuf/wrappers.pb.dart' as $3;
 
 enum BulkWriteRequest_Opts { options, notSet }
 
@@ -34,12 +33,13 @@ class BulkWriteRequest extends $pb.GeneratedMessage {
             : 'collectionOid',
         $pb.PbFieldType.OY,
         protoName: 'collectionOid')
-    ..aOM<$5.RequestContext>(
+    ..a<$core.List<$core.int>>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'context',
-        subBuilder: $5.RequestContext.create)
+            : 'sessionOid',
+        $pb.PbFieldType.OY,
+        protoName: 'sessionOid')
     ..pc<WriteModel>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -59,7 +59,7 @@ class BulkWriteRequest extends $pb.GeneratedMessage {
   BulkWriteRequest._() : super();
   factory BulkWriteRequest({
     $core.List<$core.int>? collectionOid,
-    $5.RequestContext? context,
+    $core.List<$core.int>? sessionOid,
     $core.Iterable<WriteModel>? writeModels,
     BulkWriteOptions? options,
   }) {
@@ -67,8 +67,8 @@ class BulkWriteRequest extends $pb.GeneratedMessage {
     if (collectionOid != null) {
       _result.collectionOid = collectionOid;
     }
-    if (context != null) {
-      _result.context = context;
+    if (sessionOid != null) {
+      _result.sessionOid = sessionOid;
     }
     if (writeModels != null) {
       _result.writeModels.addAll(writeModels);
@@ -122,18 +122,16 @@ class BulkWriteRequest extends $pb.GeneratedMessage {
   void clearCollectionOid() => clearField(1);
 
   @$pb.TagNumber(2)
-  $5.RequestContext get context => $_getN(1);
+  $core.List<$core.int> get sessionOid => $_getN(1);
   @$pb.TagNumber(2)
-  set context($5.RequestContext v) {
-    setField(2, v);
+  set sessionOid($core.List<$core.int> v) {
+    $_setBytes(1, v);
   }
 
   @$pb.TagNumber(2)
-  $core.bool hasContext() => $_has(1);
+  $core.bool hasSessionOid() => $_has(1);
   @$pb.TagNumber(2)
-  void clearContext() => clearField(2);
-  @$pb.TagNumber(2)
-  $5.RequestContext ensureContext() => $_ensure(1);
+  void clearSessionOid() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.List<WriteModel> get writeModels => $_getList(2);
@@ -159,24 +157,24 @@ class BulkWriteOptions extends $pb.GeneratedMessage {
           ? ''
           : 'BulkWriteOptions',
       createEmptyInstance: create)
-    ..aOM<$6.BoolValue>(
+    ..aOM<$3.BoolValue>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'bypassDocumentValidation',
-        subBuilder: $6.BoolValue.create)
+        subBuilder: $3.BoolValue.create)
     ..a<$core.List<$core.int>>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'comment',
         $pb.PbFieldType.OY)
-    ..aOM<$6.BoolValue>(
+    ..aOM<$3.BoolValue>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'ordered',
-        subBuilder: $6.BoolValue.create)
+        subBuilder: $3.BoolValue.create)
     ..a<$core.List<$core.int>>(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -187,9 +185,9 @@ class BulkWriteOptions extends $pb.GeneratedMessage {
 
   BulkWriteOptions._() : super();
   factory BulkWriteOptions({
-    $6.BoolValue? bypassDocumentValidation,
+    $3.BoolValue? bypassDocumentValidation,
     $core.List<$core.int>? comment,
-    $6.BoolValue? ordered,
+    $3.BoolValue? ordered,
     $core.List<$core.int>? let,
   }) {
     final _result = create();
@@ -235,9 +233,9 @@ class BulkWriteOptions extends $pb.GeneratedMessage {
   static BulkWriteOptions? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $6.BoolValue get bypassDocumentValidation => $_getN(0);
+  $3.BoolValue get bypassDocumentValidation => $_getN(0);
   @$pb.TagNumber(1)
-  set bypassDocumentValidation($6.BoolValue v) {
+  set bypassDocumentValidation($3.BoolValue v) {
     setField(1, v);
   }
 
@@ -246,7 +244,7 @@ class BulkWriteOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearBypassDocumentValidation() => clearField(1);
   @$pb.TagNumber(1)
-  $6.BoolValue ensureBypassDocumentValidation() => $_ensure(0);
+  $3.BoolValue ensureBypassDocumentValidation() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<$core.int> get comment => $_getN(1);
@@ -261,9 +259,9 @@ class BulkWriteOptions extends $pb.GeneratedMessage {
   void clearComment() => clearField(2);
 
   @$pb.TagNumber(3)
-  $6.BoolValue get ordered => $_getN(2);
+  $3.BoolValue get ordered => $_getN(2);
   @$pb.TagNumber(3)
-  set ordered($6.BoolValue v) {
+  set ordered($3.BoolValue v) {
     setField(3, v);
   }
 
@@ -272,7 +270,7 @@ class BulkWriteOptions extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearOrdered() => clearField(3);
   @$pb.TagNumber(3)
-  $6.BoolValue ensureOrdered() => $_ensure(2);
+  $3.BoolValue ensureOrdered() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.List<$core.int> get let => $_getN(3);
@@ -743,12 +741,12 @@ class ReplaceOneModel extends $pb.GeneratedMessage {
           ? ''
           : 'ReplaceOneModel',
       createEmptyInstance: create)
-    ..aOM<$6.BoolValue>(
+    ..aOM<$3.BoolValue>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'upsert',
-        subBuilder: $6.BoolValue.create)
+        subBuilder: $3.BoolValue.create)
     ..a<$core.List<$core.int>>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -771,7 +769,7 @@ class ReplaceOneModel extends $pb.GeneratedMessage {
 
   ReplaceOneModel._() : super();
   factory ReplaceOneModel({
-    $6.BoolValue? upsert,
+    $3.BoolValue? upsert,
     $core.List<$core.int>? filter,
     $core.List<$core.int>? replacement,
     $core.List<$core.int>? hint,
@@ -819,9 +817,9 @@ class ReplaceOneModel extends $pb.GeneratedMessage {
   static ReplaceOneModel? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $6.BoolValue get upsert => $_getN(0);
+  $3.BoolValue get upsert => $_getN(0);
   @$pb.TagNumber(1)
-  set upsert($6.BoolValue v) {
+  set upsert($3.BoolValue v) {
     setField(1, v);
   }
 
@@ -830,7 +828,7 @@ class ReplaceOneModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearUpsert() => clearField(1);
   @$pb.TagNumber(1)
-  $6.BoolValue ensureUpsert() => $_ensure(0);
+  $3.BoolValue ensureUpsert() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<$core.int> get filter => $_getN(1);
@@ -875,12 +873,12 @@ class UpdateOneModel extends $pb.GeneratedMessage {
           ? ''
           : 'UpdateOneModel',
       createEmptyInstance: create)
-    ..aOM<$6.BoolValue>(
+    ..aOM<$3.BoolValue>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'upsert',
-        subBuilder: $6.BoolValue.create)
+        subBuilder: $3.BoolValue.create)
     ..a<$core.List<$core.int>>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -903,7 +901,7 @@ class UpdateOneModel extends $pb.GeneratedMessage {
 
   UpdateOneModel._() : super();
   factory UpdateOneModel({
-    $6.BoolValue? upsert,
+    $3.BoolValue? upsert,
     $core.List<$core.int>? filter,
     $core.List<$core.int>? update,
     $core.List<$core.int>? hint,
@@ -951,9 +949,9 @@ class UpdateOneModel extends $pb.GeneratedMessage {
   static UpdateOneModel? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $6.BoolValue get upsert => $_getN(0);
+  $3.BoolValue get upsert => $_getN(0);
   @$pb.TagNumber(1)
-  set upsert($6.BoolValue v) {
+  set upsert($3.BoolValue v) {
     setField(1, v);
   }
 
@@ -962,7 +960,7 @@ class UpdateOneModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearUpsert() => clearField(1);
   @$pb.TagNumber(1)
-  $6.BoolValue ensureUpsert() => $_ensure(0);
+  $3.BoolValue ensureUpsert() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<$core.int> get filter => $_getN(1);
@@ -1007,12 +1005,12 @@ class UpdateManyModel extends $pb.GeneratedMessage {
           ? ''
           : 'UpdateManyModel',
       createEmptyInstance: create)
-    ..aOM<$6.BoolValue>(
+    ..aOM<$3.BoolValue>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'upsert',
-        subBuilder: $6.BoolValue.create)
+        subBuilder: $3.BoolValue.create)
     ..a<$core.List<$core.int>>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -1035,7 +1033,7 @@ class UpdateManyModel extends $pb.GeneratedMessage {
 
   UpdateManyModel._() : super();
   factory UpdateManyModel({
-    $6.BoolValue? upsert,
+    $3.BoolValue? upsert,
     $core.List<$core.int>? filter,
     $core.List<$core.int>? update,
     $core.List<$core.int>? hint,
@@ -1083,9 +1081,9 @@ class UpdateManyModel extends $pb.GeneratedMessage {
   static UpdateManyModel? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $6.BoolValue get upsert => $_getN(0);
+  $3.BoolValue get upsert => $_getN(0);
   @$pb.TagNumber(1)
-  set upsert($6.BoolValue v) {
+  set upsert($3.BoolValue v) {
     setField(1, v);
   }
 
@@ -1094,7 +1092,7 @@ class UpdateManyModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearUpsert() => clearField(1);
   @$pb.TagNumber(1)
-  $6.BoolValue ensureUpsert() => $_ensure(0);
+  $3.BoolValue ensureUpsert() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<$core.int> get filter => $_getN(1);

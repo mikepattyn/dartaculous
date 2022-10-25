@@ -112,30 +112,30 @@ func (cs *ClientState) CloseSession(ctx context.Context, connectionOid primitive
 	return err
 }
 
-func (cs *ClientState) WithTransaction(ctx context.Context, connectionOid primitive.ObjectID, sessionOid primitive.ObjectID) (primitive.ObjectID, error) {
-	connection, err := cs.GetConnectionProxy(connectionOid)
-	if err != nil {
-		return primitive.ObjectID{}, err
-	}
-	transactionOid, err := connection.WithTransaction(sessionOid)
-	return transactionOid, err
-}
-
-func (cs *ClientState) GetTransactionProxy(ctx context.Context, connectionOid primitive.ObjectID, sessionOid primitive.ObjectID, transactionOid primitive.ObjectID) (*TransactionProxy, error) {
-	connection, err := cs.GetConnectionProxy(connectionOid)
-	if err != nil {
-		return nil, err
-	}
-	transactionProxy, err := connection.GetTransactionProxy(sessionOid, transactionOid)
-	return transactionProxy, err
-}
-
-func (cs *ClientState) EndTransaction(ctx context.Context, connectionOid primitive.ObjectID, sessionOid primitive.ObjectID, transactionOid primitive.ObjectID, result TransactionResult) error {
+func (cs *ClientState) StartTransaction(ctx context.Context, connectionOid primitive.ObjectID, sessionOid primitive.ObjectID) error {
 	connection, err := cs.GetConnectionProxy(connectionOid)
 	if err != nil {
 		return err
 	}
-	err = connection.EndTransaction(sessionOid, transactionOid, result)
+	err = connection.StartTransaction(sessionOid)
+	return err
+}
+
+func (cs *ClientState) CommitTransaction(ctx context.Context, connectionOid primitive.ObjectID, sessionOid primitive.ObjectID) error {
+	connection, err := cs.GetConnectionProxy(connectionOid)
+	if err != nil {
+		return err
+	}
+	err = connection.CommitTransaction(sessionOid)
+	return err
+}
+
+func (cs *ClientState) AbortTransaction(ctx context.Context, connectionOid primitive.ObjectID, sessionOid primitive.ObjectID) error {
+	connection, err := cs.GetConnectionProxy(connectionOid)
+	if err != nil {
+		return err
+	}
+	err = connection.AbortTransaction(sessionOid)
 	return err
 }
 
@@ -188,4 +188,13 @@ func (cs *ClientState) GetCollectionProxy(oid primitive.ObjectID) (*CollectionPr
 		return nil, errors.New("collection not found")
 	}
 	return collection, nil
+}
+
+func (cs *ClientState) GetSessionProxy(ctx context.Context, connectionOid primitive.ObjectID, sessionOid primitive.ObjectID) (*SessionProxy, error) {
+	connection, err := cs.GetConnectionProxy(connectionOid)
+	if err != nil {
+		return nil, err
+	}
+	sessionProxy, err := connection.GetSessionProxy(sessionOid)
+	return sessionProxy, err
 }
