@@ -1,3 +1,9 @@
+## 5.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Simplified API to perform transactions.
+
 ## 4.6.1
 
  - Update a dependency to the latest release.
