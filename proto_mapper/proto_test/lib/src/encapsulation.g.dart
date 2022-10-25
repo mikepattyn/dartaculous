@@ -13,23 +13,19 @@ class $EncapsulatedFieldsClassProtoMapper
   @override
   EncapsulatedFieldsClass fromProto(GEncapsulatedFieldsClass proto) =>
       _$EncapsulatedFieldsClassFromProto(proto);
-
   @override
   GEncapsulatedFieldsClass toProto(EncapsulatedFieldsClass entity) =>
       _$EncapsulatedFieldsClassToProto(entity);
-
   EncapsulatedFieldsClass fromJson(String json) =>
       _$EncapsulatedFieldsClassFromProto(
           GEncapsulatedFieldsClass.fromJson(json));
   String toJson(EncapsulatedFieldsClass entity) =>
       _$EncapsulatedFieldsClassToProto(entity).writeToJson();
-
   String toBase64Proto(EncapsulatedFieldsClass entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   EncapsulatedFieldsClass fromBase64Proto(String base64Proto) =>
-      GEncapsulatedFieldsClass.fromJson(utf8.decode(base64Decode(base64Proto)))
-          .toEncapsulatedFieldsClass();
+      _$EncapsulatedFieldsClassFromProto(GEncapsulatedFieldsClass.fromJson(
+          utf8.decode(base64Decode(base64Proto))));
 }
 
 GEncapsulatedFieldsClass _$EncapsulatedFieldsClassToProto(
@@ -55,7 +51,6 @@ EncapsulatedFieldsClass _$EncapsulatedFieldsClassFromProto(
 extension $EncapsulatedFieldsClassProtoExtension on EncapsulatedFieldsClass {
   GEncapsulatedFieldsClass toProto() => _$EncapsulatedFieldsClassToProto(this);
   String toJson() => _$EncapsulatedFieldsClassToProto(this).writeToJson();
-
   static EncapsulatedFieldsClass fromProto(GEncapsulatedFieldsClass proto) =>
       _$EncapsulatedFieldsClassFromProto(proto);
   static EncapsulatedFieldsClass fromJson(String json) =>

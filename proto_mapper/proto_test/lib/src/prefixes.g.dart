@@ -11,23 +11,18 @@ class $StaffProtoMapper implements ProtoMapper<Staff, BStaff> {
 
   @override
   Staff fromProto(BStaff proto) => _$StaffFromProto(proto);
-
   @override
   BStaff toProto(Staff entity) => _$StaffToProto(entity);
-
   Staff fromJson(String json) => _$StaffFromProto(BStaff.fromJson(json));
   String toJson(Staff entity) => _$StaffToProto(entity).writeToJson();
-
   String toBase64Proto(Staff entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   Staff fromBase64Proto(String base64Proto) =>
-      BStaff.fromJson(utf8.decode(base64Decode(base64Proto))).toStaff();
+      _$StaffFromProto(BStaff.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 BStaff _$StaffToProto(Staff instance) {
   var uproto = BStaff();
-
   if (instance is Chef) {
     uproto.chef = (const $ChefProtoMapper()).toProto(instance);
     return uproto;
@@ -58,14 +53,12 @@ Staff _$StaffFromProto(BStaff sInstance) {
   if (sInstance.hasManager()) {
     return sInstance.manager.toManager();
   }
-
   throw UnimplementedError();
 }
 
 extension $StaffProtoExtension on Staff {
   BStaff toProto() => _$StaffToProto(this);
   String toJson() => _$StaffToProto(this).writeToJson();
-
   static Staff fromProto(BStaff proto) => _$StaffFromProto(proto);
   static Staff fromJson(String json) => _$StaffFromProto(BStaff.fromJson(json));
 }
@@ -79,18 +72,14 @@ class $ChefProtoMapper implements ProtoMapper<Chef, CChef> {
 
   @override
   Chef fromProto(CChef proto) => _$ChefFromProto(proto);
-
   @override
   CChef toProto(Chef entity) => _$ChefToProto(entity);
-
   Chef fromJson(String json) => _$ChefFromProto(CChef.fromJson(json));
   String toJson(Chef entity) => _$ChefToProto(entity).writeToJson();
-
   String toBase64Proto(Chef entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   Chef fromBase64Proto(String base64Proto) =>
-      CChef.fromJson(utf8.decode(base64Decode(base64Proto))).toChef();
+      _$ChefFromProto(CChef.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 CChef _$ChefToProto(Chef instance) {
@@ -111,7 +100,6 @@ Chef _$ChefFromProto(CChef instance) => Chef()
 extension $ChefProtoExtension on Chef {
   CChef toProto() => _$ChefToProto(this);
   String toJson() => _$ChefToProto(this).writeToJson();
-
   static Chef fromProto(CChef proto) => _$ChefFromProto(proto);
   static Chef fromJson(String json) => _$ChefFromProto(CChef.fromJson(json));
 }
@@ -125,18 +113,14 @@ class $WaiterProtoMapper implements ProtoMapper<Waiter, GWaiter> {
 
   @override
   Waiter fromProto(GWaiter proto) => _$WaiterFromProto(proto);
-
   @override
   GWaiter toProto(Waiter entity) => _$WaiterToProto(entity);
-
   Waiter fromJson(String json) => _$WaiterFromProto(GWaiter.fromJson(json));
   String toJson(Waiter entity) => _$WaiterToProto(entity).writeToJson();
-
   String toBase64Proto(Waiter entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Waiter fromBase64Proto(String base64Proto) =>
-      GWaiter.fromJson(utf8.decode(base64Decode(base64Proto))).toWaiter();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Waiter fromBase64Proto(String base64Proto) => _$WaiterFromProto(
+      GWaiter.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GWaiter _$WaiterToProto(Waiter instance) {
@@ -161,7 +145,6 @@ Waiter _$WaiterFromProto(GWaiter instance) => Waiter()
 extension $WaiterProtoExtension on Waiter {
   GWaiter toProto() => _$WaiterToProto(this);
   String toJson() => _$WaiterToProto(this).writeToJson();
-
   static Waiter fromProto(GWaiter proto) => _$WaiterFromProto(proto);
   static Waiter fromJson(String json) =>
       _$WaiterFromProto(GWaiter.fromJson(json));
@@ -176,18 +159,14 @@ class $ManagerProtoMapper implements ProtoMapper<Manager, MManager> {
 
   @override
   Manager fromProto(MManager proto) => _$ManagerFromProto(proto);
-
   @override
   MManager toProto(Manager entity) => _$ManagerToProto(entity);
-
   Manager fromJson(String json) => _$ManagerFromProto(MManager.fromJson(json));
   String toJson(Manager entity) => _$ManagerToProto(entity).writeToJson();
-
   String toBase64Proto(Manager entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Manager fromBase64Proto(String base64Proto) =>
-      MManager.fromJson(utf8.decode(base64Decode(base64Proto))).toManager();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Manager fromBase64Proto(String base64Proto) => _$ManagerFromProto(
+      MManager.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 MManager _$ManagerToProto(Manager instance) {
@@ -206,7 +185,6 @@ Manager _$ManagerFromProto(MManager instance) => Manager()
 extension $ManagerProtoExtension on Manager {
   MManager toProto() => _$ManagerToProto(this);
   String toJson() => _$ManagerToProto(this).writeToJson();
-
   static Manager fromProto(MManager proto) => _$ManagerFromProto(proto);
   static Manager fromJson(String json) =>
       _$ManagerFromProto(MManager.fromJson(json));
@@ -221,18 +199,14 @@ class $TableProtoMapper implements ProtoMapper<Table, TTable> {
 
   @override
   Table fromProto(TTable proto) => _$TableFromProto(proto);
-
   @override
   TTable toProto(Table entity) => _$TableToProto(entity);
-
   Table fromJson(String json) => _$TableFromProto(TTable.fromJson(json));
   String toJson(Table entity) => _$TableToProto(entity).writeToJson();
-
   String toBase64Proto(Table entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   Table fromBase64Proto(String base64Proto) =>
-      TTable.fromJson(utf8.decode(base64Decode(base64Proto))).toTable();
+      _$TableFromProto(TTable.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 TTable _$TableToProto(Table instance) {
@@ -248,7 +222,6 @@ Table _$TableFromProto(TTable instance) => Table()..number = instance.number;
 extension $TableProtoExtension on Table {
   TTable toProto() => _$TableToProto(this);
   String toJson() => _$TableToProto(this).writeToJson();
-
   static Table fromProto(TTable proto) => _$TableFromProto(proto);
   static Table fromJson(String json) => _$TableFromProto(TTable.fromJson(json));
 }
@@ -262,20 +235,15 @@ class $RestaurantProtoMapper implements ProtoMapper<Restaurant, RRestaurant> {
 
   @override
   Restaurant fromProto(RRestaurant proto) => _$RestaurantFromProto(proto);
-
   @override
   RRestaurant toProto(Restaurant entity) => _$RestaurantToProto(entity);
-
   Restaurant fromJson(String json) =>
       _$RestaurantFromProto(RRestaurant.fromJson(json));
   String toJson(Restaurant entity) => _$RestaurantToProto(entity).writeToJson();
-
   String toBase64Proto(Restaurant entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Restaurant fromBase64Proto(String base64Proto) =>
-      RRestaurant.fromJson(utf8.decode(base64Decode(base64Proto)))
-          .toRestaurant();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Restaurant fromBase64Proto(String base64Proto) => _$RestaurantFromProto(
+      RRestaurant.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 RRestaurant _$RestaurantToProto(Restaurant instance) {
@@ -299,7 +267,6 @@ Restaurant _$RestaurantFromProto(RRestaurant instance) => Restaurant()
 extension $RestaurantProtoExtension on Restaurant {
   RRestaurant toProto() => _$RestaurantToProto(this);
   String toJson() => _$RestaurantToProto(this).writeToJson();
-
   static Restaurant fromProto(RRestaurant proto) =>
       _$RestaurantFromProto(proto);
   static Restaurant fromJson(String json) =>
@@ -315,19 +282,15 @@ class $CustomerProtoMapper implements ProtoMapper<Customer, WCustomer> {
 
   @override
   Customer fromProto(WCustomer proto) => _$CustomerFromProto(proto);
-
   @override
   WCustomer toProto(Customer entity) => _$CustomerToProto(entity);
-
   Customer fromJson(String json) =>
       _$CustomerFromProto(WCustomer.fromJson(json));
   String toJson(Customer entity) => _$CustomerToProto(entity).writeToJson();
-
   String toBase64Proto(Customer entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Customer fromBase64Proto(String base64Proto) =>
-      WCustomer.fromJson(utf8.decode(base64Decode(base64Proto))).toCustomer();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Customer fromBase64Proto(String base64Proto) => _$CustomerFromProto(
+      WCustomer.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 WCustomer _$CustomerToProto(Customer instance) {
@@ -348,7 +311,6 @@ Customer _$CustomerFromProto(WCustomer instance) => Customer()
 extension $CustomerProtoExtension on Customer {
   WCustomer toProto() => _$CustomerToProto(this);
   String toJson() => _$CustomerToProto(this).writeToJson();
-
   static Customer fromProto(WCustomer proto) => _$CustomerFromProto(proto);
   static Customer fromJson(String json) =>
       _$CustomerFromProto(WCustomer.fromJson(json));
@@ -365,7 +327,6 @@ class $FoodCategoryProtoMapper
   @override
   FoodCategory fromProto(AFoodCategory proto) =>
       FoodCategory.values[proto.value];
-
   @override
   AFoodCategory toProto(FoodCategory entity) =>
       AFoodCategory.valueOf(entity.index)!;

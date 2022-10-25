@@ -26,7 +26,7 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
         _useProtoFieldNamingConventions =
             options.config['useProtoFieldNamingConventions'] as bool? ?? true,
         _useWellKnownTypes =
-            options.config['useWellknowntypes'] as bool? ?? false;
+            options.config['useWellKnownTypes'] as bool? ?? false;
 
   @override
   String generateForAnnotatedElement(

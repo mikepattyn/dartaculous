@@ -11,19 +11,15 @@ class $CategoryProtoMapper implements ProtoMapper<Category, GCategory> {
 
   @override
   Category fromProto(GCategory proto) => _$CategoryFromProto(proto);
-
   @override
   GCategory toProto(Category entity) => _$CategoryToProto(entity);
-
   Category fromJson(String json) =>
       _$CategoryFromProto(GCategory.fromJson(json));
   String toJson(Category entity) => _$CategoryToProto(entity).writeToJson();
-
   String toBase64Proto(Category entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Category fromBase64Proto(String base64Proto) =>
-      GCategory.fromJson(utf8.decode(base64Decode(base64Proto))).toCategory();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Category fromBase64Proto(String base64Proto) => _$CategoryFromProto(
+      GCategory.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GCategory _$CategoryToProto(Category instance) {
@@ -68,7 +64,6 @@ Category _$CategoryFromProto(GCategory instance) => Category(
 extension $CategoryProtoExtension on Category {
   GCategory toProto() => _$CategoryToProto(this);
   String toJson() => _$CategoryToProto(this).writeToJson();
-
   static Category fromProto(GCategory proto) => _$CategoryFromProto(proto);
   static Category fromJson(String json) =>
       _$CategoryFromProto(GCategory.fromJson(json));
