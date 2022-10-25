@@ -88,7 +88,7 @@ void main() {
       expect(sub2.prop2, null);
     });
 
-    test('standard precision', () {
+    test('standard precision', () async {
       var sub = StandardPrecision(
         prop1: Duration(seconds: 27, milliseconds: 13, microseconds: 9),
         prop2: Duration(seconds: 28, milliseconds: 14, microseconds: 13),
@@ -98,7 +98,7 @@ void main() {
       var psub = sub.toMap();
       var sub2 = psub.toStandardPrecision();
 
-      if (isMillisecondPrecision) {
+      if (await isMillisecondPrecision) {
         expect(
             sub2.prop1.inMilliseconds,
             Duration(seconds: 27, milliseconds: 13, microseconds: 9)
@@ -115,7 +115,7 @@ void main() {
       }
     });
 
-    test('standard precision prop2 null', () {
+    test('standard precision prop2 null', () async {
       var sub = StandardPrecision(
         prop1: Duration(seconds: 27, milliseconds: 13, microseconds: 9),
         someOther: '',
@@ -124,7 +124,7 @@ void main() {
       var psub = sub.toMap();
       var sub2 = psub.toStandardPrecision();
 
-      if (isMillisecondPrecision) {
+      if (await isMillisecondPrecision) {
         expect(
             sub2.prop1.inMilliseconds,
             Duration(seconds: 27, milliseconds: 13, microseconds: 9)

@@ -6,7 +6,7 @@ import 'common.dart';
 void main() {
   // print(args.length);
   group('datetime representation tests', () {
-    test('default dt', () {
+    test('default dt', () async {
       var sub = DefaultDt(
         prop1: DateTime(2022, 1, 14, 10, 34, 7, 13, 17),
         prop2: DateTime(2022, 1, 14, 10, 34, 7, 14, 19),
@@ -16,7 +16,7 @@ void main() {
       var psub = sub.toMap();
       var sub2 = psub.toDefaultDt();
 
-      if (isMillisecondPrecision) {
+      if (await isMillisecondPrecision) {
         expect(sub2.prop1.millisecondsSinceEpoch,
             DateTime(2022, 1, 14, 10, 34, 7, 13, 17).millisecondsSinceEpoch);
         expect(sub2.prop2?.millisecondsSinceEpoch,
@@ -27,7 +27,7 @@ void main() {
       }
     });
 
-    test('default dt with null prop2', () {
+    test('default dt with null prop2', () async {
       var sub = DefaultDt(
         prop1: DateTime(2022, 1, 14, 10, 34, 7, 13, 17),
         someOther: '',
@@ -36,7 +36,7 @@ void main() {
       var psub = sub.toMap();
       var sub2 = psub.toDefaultDt();
 
-      if (isMillisecondPrecision) {
+      if (await isMillisecondPrecision) {
         expect(sub2.prop1.millisecondsSinceEpoch,
             DateTime(2022, 1, 14, 10, 34, 7, 13, 17).millisecondsSinceEpoch);
       } else {
