@@ -11,19 +11,15 @@ class $ListsHostProtoMapper implements ProtoMapper<ListsHost, GListsHost> {
 
   @override
   ListsHost fromProto(GListsHost proto) => _$ListsHostFromProto(proto);
-
   @override
   GListsHost toProto(ListsHost entity) => _$ListsHostToProto(entity);
-
   ListsHost fromJson(String json) =>
       _$ListsHostFromProto(GListsHost.fromJson(json));
   String toJson(ListsHost entity) => _$ListsHostToProto(entity).writeToJson();
-
   String toBase64Proto(ListsHost entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  ListsHost fromBase64Proto(String base64Proto) =>
-      GListsHost.fromJson(utf8.decode(base64Decode(base64Proto))).toListsHost();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  ListsHost fromBase64Proto(String base64Proto) => _$ListsHostFromProto(
+      GListsHost.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GListsHost _$ListsHostToProto(ListsHost instance) {
@@ -135,7 +131,6 @@ ListsHost _$ListsHostFromProto(GListsHost instance) => ListsHost(
 extension $ListsHostProtoExtension on ListsHost {
   GListsHost toProto() => _$ListsHostToProto(this);
   String toJson() => _$ListsHostToProto(this).writeToJson();
-
   static ListsHost fromProto(GListsHost proto) => _$ListsHostFromProto(proto);
   static ListsHost fromJson(String json) =>
       _$ListsHostFromProto(GListsHost.fromJson(json));

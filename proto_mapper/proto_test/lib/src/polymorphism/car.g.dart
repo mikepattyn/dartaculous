@@ -11,18 +11,14 @@ class $CarProtoMapper implements ProtoMapper<Car, GCar> {
 
   @override
   Car fromProto(GCar proto) => _$CarFromProto(proto);
-
   @override
   GCar toProto(Car entity) => _$CarToProto(entity);
-
   Car fromJson(String json) => _$CarFromProto(GCar.fromJson(json));
   String toJson(Car entity) => _$CarToProto(entity).writeToJson();
-
   String toBase64Proto(Car entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   Car fromBase64Proto(String base64Proto) =>
-      GCar.fromJson(utf8.decode(base64Decode(base64Proto))).toCar();
+      _$CarFromProto(GCar.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GCar _$CarToProto(Car instance) {
@@ -42,7 +38,6 @@ Car _$CarFromProto(GCar instance) => Car(
 extension $CarProtoExtension on Car {
   GCar toProto() => _$CarToProto(this);
   String toJson() => _$CarToProto(this).writeToJson();
-
   static Car fromProto(GCar proto) => _$CarFromProto(proto);
   static Car fromJson(String json) => _$CarFromProto(GCar.fromJson(json));
 }

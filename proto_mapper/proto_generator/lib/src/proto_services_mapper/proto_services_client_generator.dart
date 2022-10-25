@@ -22,7 +22,7 @@ class ProtoServicesClientGenerator
       : _prefix = options.config['prefix'] as String? ?? 'G',
         _defaultPackage = options.config['package'] as String? ?? '',
         _useWellKnownTypes =
-            options.config['useWellknowntypes'] as bool? ?? false;
+            options.config['useWellKnownTypes'] as bool? ?? false;
 
   @override
   String generateForAnnotatedElement(

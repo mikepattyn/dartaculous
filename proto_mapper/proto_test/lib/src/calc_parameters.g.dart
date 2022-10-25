@@ -13,22 +13,18 @@ class $CalcParametersProtoMapper
   @override
   CalcParameters fromProto(GCalcParameters proto) =>
       _$CalcParametersFromProto(proto);
-
   @override
   GCalcParameters toProto(CalcParameters entity) =>
       _$CalcParametersToProto(entity);
-
   CalcParameters fromJson(String json) =>
       _$CalcParametersFromProto(GCalcParameters.fromJson(json));
   String toJson(CalcParameters entity) =>
       _$CalcParametersToProto(entity).writeToJson();
-
   String toBase64Proto(CalcParameters entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   CalcParameters fromBase64Proto(String base64Proto) =>
-      GCalcParameters.fromJson(utf8.decode(base64Decode(base64Proto)))
-          .toCalcParameters();
+      _$CalcParametersFromProto(
+          GCalcParameters.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GCalcParameters _$CalcParametersToProto(CalcParameters instance) {
@@ -59,7 +55,6 @@ CalcParameters _$CalcParametersFromProto(GCalcParameters instance) =>
 extension $CalcParametersProtoExtension on CalcParameters {
   GCalcParameters toProto() => _$CalcParametersToProto(this);
   String toJson() => _$CalcParametersToProto(this).writeToJson();
-
   static CalcParameters fromProto(GCalcParameters proto) =>
       _$CalcParametersFromProto(proto);
   static CalcParameters fromJson(String json) =>

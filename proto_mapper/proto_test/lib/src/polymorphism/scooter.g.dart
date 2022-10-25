@@ -11,18 +11,14 @@ class $ScooterProtoMapper implements ProtoMapper<Scooter, GScooter> {
 
   @override
   Scooter fromProto(GScooter proto) => _$ScooterFromProto(proto);
-
   @override
   GScooter toProto(Scooter entity) => _$ScooterToProto(entity);
-
   Scooter fromJson(String json) => _$ScooterFromProto(GScooter.fromJson(json));
   String toJson(Scooter entity) => _$ScooterToProto(entity).writeToJson();
-
   String toBase64Proto(Scooter entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Scooter fromBase64Proto(String base64Proto) =>
-      GScooter.fromJson(utf8.decode(base64Decode(base64Proto))).toScooter();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Scooter fromBase64Proto(String base64Proto) => _$ScooterFromProto(
+      GScooter.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GScooter _$ScooterToProto(Scooter instance) {
@@ -42,7 +38,6 @@ Scooter _$ScooterFromProto(GScooter instance) => Scooter(
 extension $ScooterProtoExtension on Scooter {
   GScooter toProto() => _$ScooterToProto(this);
   String toJson() => _$ScooterToProto(this).writeToJson();
-
   static Scooter fromProto(GScooter proto) => _$ScooterFromProto(proto);
   static Scooter fromJson(String json) =>
       _$ScooterFromProto(GScooter.fromJson(json));

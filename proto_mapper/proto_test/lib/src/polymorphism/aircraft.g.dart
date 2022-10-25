@@ -11,24 +11,19 @@ class $AircraftProtoMapper implements ProtoMapper<Aircraft, GAircraft> {
 
   @override
   Aircraft fromProto(GAircraft proto) => _$AircraftFromProto(proto);
-
   @override
   GAircraft toProto(Aircraft entity) => _$AircraftToProto(entity);
-
   Aircraft fromJson(String json) =>
       _$AircraftFromProto(GAircraft.fromJson(json));
   String toJson(Aircraft entity) => _$AircraftToProto(entity).writeToJson();
-
   String toBase64Proto(Aircraft entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Aircraft fromBase64Proto(String base64Proto) =>
-      GAircraft.fromJson(utf8.decode(base64Decode(base64Proto))).toAircraft();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Aircraft fromBase64Proto(String base64Proto) => _$AircraftFromProto(
+      GAircraft.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GAircraft _$AircraftToProto(Aircraft instance) {
   var uproto = GAircraft();
-
   if (instance is Airplane) {
     uproto.airplane = (const $AirplaneProtoMapper()).toProto(instance);
     return uproto;
@@ -68,14 +63,12 @@ Aircraft _$AircraftFromProto(GAircraft sInstance) {
   if (sInstance.hasBalloon()) {
     return sInstance.balloon.toBalloon();
   }
-
   throw UnimplementedError();
 }
 
 extension $AircraftProtoExtension on Aircraft {
   GAircraft toProto() => _$AircraftToProto(this);
   String toJson() => _$AircraftToProto(this).writeToJson();
-
   static Aircraft fromProto(GAircraft proto) => _$AircraftFromProto(proto);
   static Aircraft fromJson(String json) =>
       _$AircraftFromProto(GAircraft.fromJson(json));

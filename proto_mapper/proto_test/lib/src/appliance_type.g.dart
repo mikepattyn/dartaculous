@@ -13,7 +13,6 @@ class $ApplianceTypeProtoMapper
   @override
   ApplianceType fromProto(GApplianceType proto) =>
       ApplianceType.values[proto.value];
-
   @override
   GApplianceType toProto(ApplianceType entity) =>
       GApplianceType.valueOf(entity.index)!;

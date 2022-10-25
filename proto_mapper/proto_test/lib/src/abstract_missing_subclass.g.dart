@@ -13,22 +13,18 @@ class $AbstractParentClass1ProtoMapper
   @override
   AbstractParentClass1 fromProto(GAbstractParentClass1 proto) =>
       _$AbstractParentClass1FromProto(proto);
-
   @override
   GAbstractParentClass1 toProto(AbstractParentClass1 entity) =>
       _$AbstractParentClass1ToProto(entity);
-
   AbstractParentClass1 fromJson(String json) =>
       _$AbstractParentClass1FromProto(GAbstractParentClass1.fromJson(json));
   String toJson(AbstractParentClass1 entity) =>
       _$AbstractParentClass1ToProto(entity).writeToJson();
-
   String toBase64Proto(AbstractParentClass1 entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   AbstractParentClass1 fromBase64Proto(String base64Proto) =>
-      GAbstractParentClass1.fromJson(utf8.decode(base64Decode(base64Proto)))
-          .toAbstractParentClass1();
+      _$AbstractParentClass1FromProto(GAbstractParentClass1.fromJson(
+          utf8.decode(base64Decode(base64Proto))));
 }
 
 GAbstractParentClass1 _$AbstractParentClass1ToProto(
@@ -44,7 +40,6 @@ AbstractParentClass1 _$AbstractParentClass1FromProto(
 extension $AbstractParentClass1ProtoExtension on AbstractParentClass1 {
   GAbstractParentClass1 toProto() => _$AbstractParentClass1ToProto(this);
   String toJson() => _$AbstractParentClass1ToProto(this).writeToJson();
-
   static AbstractParentClass1 fromProto(GAbstractParentClass1 proto) =>
       _$AbstractParentClass1FromProto(proto);
   static AbstractParentClass1 fromJson(String json) =>
@@ -63,28 +58,23 @@ class $AbstractParentClass2ProtoMapper
   @override
   AbstractParentClass2 fromProto(GAbstractParentClass2 proto) =>
       _$AbstractParentClass2FromProto(proto);
-
   @override
   GAbstractParentClass2 toProto(AbstractParentClass2 entity) =>
       _$AbstractParentClass2ToProto(entity);
-
   AbstractParentClass2 fromJson(String json) =>
       _$AbstractParentClass2FromProto(GAbstractParentClass2.fromJson(json));
   String toJson(AbstractParentClass2 entity) =>
       _$AbstractParentClass2ToProto(entity).writeToJson();
-
   String toBase64Proto(AbstractParentClass2 entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   AbstractParentClass2 fromBase64Proto(String base64Proto) =>
-      GAbstractParentClass2.fromJson(utf8.decode(base64Decode(base64Proto)))
-          .toAbstractParentClass2();
+      _$AbstractParentClass2FromProto(GAbstractParentClass2.fromJson(
+          utf8.decode(base64Decode(base64Proto))));
 }
 
 GAbstractParentClass2 _$AbstractParentClass2ToProto(
     AbstractParentClass2 instance) {
   var uproto = GAbstractParentClass2();
-
   if (instance is SubClass1) {
     uproto.subClass1 = (const $SubClass1ProtoMapper()).toProto(instance);
     return uproto;
@@ -98,14 +88,12 @@ AbstractParentClass2 _$AbstractParentClass2FromProto(
   if (sInstance.hasSubClass1()) {
     return sInstance.subClass1.toSubClass1();
   }
-
   throw UnimplementedError();
 }
 
 extension $AbstractParentClass2ProtoExtension on AbstractParentClass2 {
   GAbstractParentClass2 toProto() => _$AbstractParentClass2ToProto(this);
   String toJson() => _$AbstractParentClass2ToProto(this).writeToJson();
-
   static AbstractParentClass2 fromProto(GAbstractParentClass2 proto) =>
       _$AbstractParentClass2FromProto(proto);
   static AbstractParentClass2 fromJson(String json) =>
@@ -122,19 +110,15 @@ class $SubClass1ProtoMapper implements ProtoMapper<SubClass1, GSubClass1> {
 
   @override
   SubClass1 fromProto(GSubClass1 proto) => _$SubClass1FromProto(proto);
-
   @override
   GSubClass1 toProto(SubClass1 entity) => _$SubClass1ToProto(entity);
-
   SubClass1 fromJson(String json) =>
       _$SubClass1FromProto(GSubClass1.fromJson(json));
   String toJson(SubClass1 entity) => _$SubClass1ToProto(entity).writeToJson();
-
   String toBase64Proto(SubClass1 entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  SubClass1 fromBase64Proto(String base64Proto) =>
-      GSubClass1.fromJson(utf8.decode(base64Decode(base64Proto))).toSubClass1();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  SubClass1 fromBase64Proto(String base64Proto) => _$SubClass1FromProto(
+      GSubClass1.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GSubClass1 _$SubClass1ToProto(SubClass1 instance) {
@@ -148,7 +132,6 @@ SubClass1 _$SubClass1FromProto(GSubClass1 instance) => SubClass1();
 extension $SubClass1ProtoExtension on SubClass1 {
   GSubClass1 toProto() => _$SubClass1ToProto(this);
   String toJson() => _$SubClass1ToProto(this).writeToJson();
-
   static SubClass1 fromProto(GSubClass1 proto) => _$SubClass1FromProto(proto);
   static SubClass1 fromJson(String json) =>
       _$SubClass1FromProto(GSubClass1.fromJson(json));

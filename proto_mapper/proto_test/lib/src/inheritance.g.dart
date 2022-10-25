@@ -11,23 +11,18 @@ class $BranchProtoMapper implements ProtoMapper<Branch, TBranch> {
 
   @override
   Branch fromProto(TBranch proto) => _$BranchFromProto(proto);
-
   @override
   TBranch toProto(Branch entity) => _$BranchToProto(entity);
-
   Branch fromJson(String json) => _$BranchFromProto(TBranch.fromJson(json));
   String toJson(Branch entity) => _$BranchToProto(entity).writeToJson();
-
   String toBase64Proto(Branch entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Branch fromBase64Proto(String base64Proto) =>
-      TBranch.fromJson(utf8.decode(base64Decode(base64Proto))).toBranch();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Branch fromBase64Proto(String base64Proto) => _$BranchFromProto(
+      TBranch.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 TBranch _$BranchToProto(Branch instance) {
   var uproto = TBranch();
-
   if (instance is Twig) {
     uproto.twig = (const $TwigProtoMapper()).toProto(instance);
     return uproto;
@@ -39,7 +34,6 @@ TBranch _$BranchToProto(Branch instance) {
   }
 
   final proto = uproto.branch = TFieldsOfBranch();
-
   proto.name = instance.name;
 
   return uproto;
@@ -53,17 +47,14 @@ Branch _$BranchFromProto(TBranch sInstance) {
   if (sInstance.hasLeaf()) {
     return sInstance.leaf.toLeaf();
   }
-
   final instance = sInstance.branch;
   final ret = Branch()..name = instance.name;
-
   return ret;
 }
 
 extension $BranchProtoExtension on Branch {
   TBranch toProto() => _$BranchToProto(this);
   String toJson() => _$BranchToProto(this).writeToJson();
-
   static Branch fromProto(TBranch proto) => _$BranchFromProto(proto);
   static Branch fromJson(String json) =>
       _$BranchFromProto(TBranch.fromJson(json));
@@ -78,30 +69,24 @@ class $TwigProtoMapper implements ProtoMapper<Twig, LTwig> {
 
   @override
   Twig fromProto(LTwig proto) => _$TwigFromProto(proto);
-
   @override
   LTwig toProto(Twig entity) => _$TwigToProto(entity);
-
   Twig fromJson(String json) => _$TwigFromProto(LTwig.fromJson(json));
   String toJson(Twig entity) => _$TwigToProto(entity).writeToJson();
-
   String toBase64Proto(Twig entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   Twig fromBase64Proto(String base64Proto) =>
-      LTwig.fromJson(utf8.decode(base64Decode(base64Proto))).toTwig();
+      _$TwigFromProto(LTwig.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 LTwig _$TwigToProto(Twig instance) {
   var uproto = LTwig();
-
   if (instance is Leaf) {
     uproto.leaf = (const $LeafProtoMapper()).toProto(instance);
     return uproto;
   }
 
   final proto = uproto.twig = LFieldsOfTwig();
-
   proto.name = instance.name;
 
   return uproto;
@@ -111,17 +96,14 @@ Twig _$TwigFromProto(LTwig sInstance) {
   if (sInstance.hasLeaf()) {
     return sInstance.leaf.toLeaf();
   }
-
   final instance = sInstance.twig;
   final ret = Twig()..name = instance.name;
-
   return ret;
 }
 
 extension $TwigProtoExtension on Twig {
   LTwig toProto() => _$TwigToProto(this);
   String toJson() => _$TwigToProto(this).writeToJson();
-
   static Twig fromProto(LTwig proto) => _$TwigFromProto(proto);
   static Twig fromJson(String json) => _$TwigFromProto(LTwig.fromJson(json));
 }
@@ -135,18 +117,14 @@ class $LeafProtoMapper implements ProtoMapper<Leaf, TLeaf> {
 
   @override
   Leaf fromProto(TLeaf proto) => _$LeafFromProto(proto);
-
   @override
   TLeaf toProto(Leaf entity) => _$LeafToProto(entity);
-
   Leaf fromJson(String json) => _$LeafFromProto(TLeaf.fromJson(json));
   String toJson(Leaf entity) => _$LeafToProto(entity).writeToJson();
-
   String toBase64Proto(Leaf entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   Leaf fromBase64Proto(String base64Proto) =>
-      TLeaf.fromJson(utf8.decode(base64Decode(base64Proto))).toLeaf();
+      _$LeafFromProto(TLeaf.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 TLeaf _$LeafToProto(Leaf instance) {
@@ -162,7 +140,6 @@ Leaf _$LeafFromProto(TLeaf instance) => Leaf()..name = instance.name;
 extension $LeafProtoExtension on Leaf {
   TLeaf toProto() => _$LeafToProto(this);
   String toJson() => _$LeafToProto(this).writeToJson();
-
   static Leaf fromProto(TLeaf proto) => _$LeafFromProto(proto);
   static Leaf fromJson(String json) => _$LeafFromProto(TLeaf.fromJson(json));
 }

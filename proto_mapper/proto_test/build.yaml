@@ -4,10 +4,10 @@ targets:
     builders:
       proto_generator:proto_generator:
         options:
-          useWellknowntypes: true
+          useWellKnownTypes: true
           # useProtoFieldNamingConventions: true
       proto_generator:proto_mapper_generator:
         options:
           dateTimePrecision: microseconds
           durationPrecision: microseconds
-          useWellknowntypes: true
+          useWellKnownTypes: true

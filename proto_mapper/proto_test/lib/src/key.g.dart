@@ -11,18 +11,14 @@ class $KeyProtoMapper implements ProtoMapper<Key, GKey> {
 
   @override
   Key fromProto(GKey proto) => _$KeyFromProto(proto);
-
   @override
   GKey toProto(Key entity) => _$KeyToProto(entity);
-
   Key fromJson(String json) => _$KeyFromProto(GKey.fromJson(json));
   String toJson(Key entity) => _$KeyToProto(entity).writeToJson();
-
   String toBase64Proto(Key entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   Key fromBase64Proto(String base64Proto) =>
-      GKey.fromJson(utf8.decode(base64Decode(base64Proto))).toKey();
+      _$KeyFromProto(GKey.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GKey _$KeyToProto(Key instance) {
@@ -40,7 +36,6 @@ Key _$KeyFromProto(GKey instance) => Key(
 extension $KeyProtoExtension on Key {
   GKey toProto() => _$KeyToProto(this);
   String toJson() => _$KeyToProto(this).writeToJson();
-
   static Key fromProto(GKey proto) => _$KeyFromProto(proto);
   static Key fromJson(String json) => _$KeyFromProto(GKey.fromJson(json));
 }
