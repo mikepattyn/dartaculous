@@ -67,20 +67,15 @@ class $IngredientProtoMapper implements ProtoMapper<Ingredient, GIngredient> {
 
   @override
   Ingredient fromProto(GIngredient proto) => _$IngredientFromProto(proto);
-
   @override
   GIngredient toProto(Ingredient entity) => _$IngredientToProto(entity);
-
   Ingredient fromJson(String json) =>
       _$IngredientFromProto(GIngredient.fromJson(json));
   String toJson(Ingredient entity) => _$IngredientToProto(entity).writeToJson();
-
   String toBase64Proto(Ingredient entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Ingredient fromBase64Proto(String base64Proto) =>
-      GIngredient.fromJson(utf8.decode(base64Decode(base64Proto)))
-          .toIngredient();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Ingredient fromBase64Proto(String base64Proto) => _$IngredientFromProto(
+      GIngredient.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GIngredient _$IngredientToProto(Ingredient instance) {
@@ -100,7 +95,6 @@ Ingredient _$IngredientFromProto(GIngredient instance) => Ingredient(
 extension $IngredientProtoExtension on Ingredient {
   GIngredient toProto() => _$IngredientToProto(this);
   String toJson() => _$IngredientToProto(this).writeToJson();
-
   static Ingredient fromProto(GIngredient proto) =>
       _$IngredientFromProto(proto);
   static Ingredient fromJson(String json) =>
