@@ -1,3 +1,7 @@
+## 3.7.2
+
+ - **FIX**: Fixed proto generation of multiple classes in shared proto.
+
 ## 3.7.1
 
  - **FIX**: Not converting DateTime when mapping from proto with well known types.
