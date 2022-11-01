@@ -17,8 +17,8 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
   final String _defaultPackage;
   final bool _useProtoFieldNamingConventions;
   final bool _useWellKnownTypes;
-  final Set<String> alreadyImported = {};
-  String? prevBuildStepPath;
+  final _alreadyImported = <String>{};
+  final _builtPaths = <String>{};
 
   ProtoGenerator(this.options)
       : _prefix = options.config['prefix'] as String? ?? 'G',
@@ -42,19 +42,11 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
 
     final proto = readAnnotation.proto;
 
+    final header = _buildSyntax(buildStep);
+
     var packageName = proto.packageName != '' ? '' : _defaultPackage;
 
     final packageDeclaration = packageName != '' ? 'package $packageName;' : '';
-
-    var syntax = '';
-    if (buildStep.inputId.path != prevBuildStepPath) {
-      prevBuildStepPath = buildStep.inputId.path;
-      syntax = '''syntax = "proto3";
-      ''';
-      alreadyImported.clear();
-      alreadyImported.addAll(buildStep.allowedOutputs
-          .map((e) => e.path.substring(e.path.lastIndexOf('/') + 1)));
-    }
 
     var ret = element is EnumElement
         ? _generateForEnum(
@@ -68,7 +60,7 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
             packageDeclaration,
           );
 
-    ret = '$syntax$ret';
+    ret = '$header$ret';
     return ret;
   }
 
@@ -152,9 +144,9 @@ message ${prefix}FieldsOf$className
     var imports = StringBuffer();
     for (var externalProtoName in externalProtoNames) {
       // Prevent .proto file from importing itself or multiple imports
-      if (!alreadyImported.contains(externalProtoName)) {
+      if (!_alreadyImported.contains(externalProtoName)) {
         imports.writeln('import "$externalProtoName";');
-        alreadyImported.add(externalProtoName);
+        _alreadyImported.add(externalProtoName);
       }
     }
     return imports;
@@ -241,6 +233,19 @@ $fieldsOf$fds
   }
     ''';
     return ret;
+  }
+
+  String _buildSyntax(BuildStep buildStep) {
+    final currentPath = buildStep.inputId.path;
+    if (_builtPaths.contains(currentPath)) {
+      return '';
+    }
+    _builtPaths.add(currentPath);
+    _alreadyImported.clear();
+    _alreadyImported.addAll(buildStep.allowedOutputs
+        .map((e) => e.path.substring(e.path.lastIndexOf('/') + 1)));
+    return '''syntax = "proto3";
+      ''';
   }
 }
 
