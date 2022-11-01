@@ -12,7 +12,6 @@ pipelines:
         script:
           - apt update && apt install -y make
           - apt install -y protobuf-compiler
-          - apt install -y libprotobuf-dev
           - export PATH="$PATH:$HOME/.pub-cache/bin"
           - dart pub global activate protoc_plugin
           - dart pub global activate melos
