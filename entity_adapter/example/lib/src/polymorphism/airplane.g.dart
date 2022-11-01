@@ -168,19 +168,15 @@ class $AirplaneProtoMapper implements ProtoMapper<Airplane, GAirplane> {
 
   @override
   Airplane fromProto(GAirplane proto) => _$AirplaneFromProto(proto);
-
   @override
   GAirplane toProto(Airplane entity) => _$AirplaneToProto(entity);
-
   Airplane fromJson(String json) =>
       _$AirplaneFromProto(GAirplane.fromJson(json));
   String toJson(Airplane entity) => _$AirplaneToProto(entity).writeToJson();
-
   String toBase64Proto(Airplane entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
-  Airplane fromBase64Proto(String base64Proto) =>
-      GAirplane.fromJson(utf8.decode(base64Decode(base64Proto))).toAirplane();
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Airplane fromBase64Proto(String base64Proto) => _$AirplaneFromProto(
+      GAirplane.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GAirplane _$AirplaneToProto(Airplane instance) {
@@ -200,7 +196,6 @@ Airplane _$AirplaneFromProto(GAirplane instance) => Airplane(
 extension $AirplaneProtoExtension on Airplane {
   GAirplane toProto() => _$AirplaneToProto(this);
   String toJson() => _$AirplaneToProto(this).writeToJson();
-
   static Airplane fromProto(GAirplane proto) => _$AirplaneFromProto(proto);
   static Airplane fromJson(String json) =>
       _$AirplaneFromProto(GAirplane.fromJson(json));

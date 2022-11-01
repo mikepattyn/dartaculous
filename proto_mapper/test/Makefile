@@ -17,7 +17,7 @@ build: .PHONY
 	rm -rf ./lib/grpc
 	mkdir ./lib/grpc
 
-	protoc --dart_out=grpc:lib/grpc/ -Iproto/ -I/usr/include/ ./proto/*.proto ./proto/polymorphism/*.proto /usr/include/google/protobuf/*.proto
+	protoc --dart_out=grpc:lib/grpc/ -Iproto/ -I../../include/ ./proto/*.proto ./proto/polymorphism/*.proto ../../include/google/protobuf/*.proto
 
 test: $(configurations)
 

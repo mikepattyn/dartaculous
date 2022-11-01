@@ -166,18 +166,14 @@ class $AssetProtoMapper implements ProtoMapper<Asset, GAsset> {
 
   @override
   Asset fromProto(GAsset proto) => _$AssetFromProto(proto);
-
   @override
   GAsset toProto(Asset entity) => _$AssetToProto(entity);
-
   Asset fromJson(String json) => _$AssetFromProto(GAsset.fromJson(json));
   String toJson(Asset entity) => _$AssetToProto(entity).writeToJson();
-
   String toBase64Proto(Asset entity) =>
-      base64Encode(utf8.encode(entity.toProto().writeToJson()));
-
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
   Asset fromBase64Proto(String base64Proto) =>
-      GAsset.fromJson(utf8.decode(base64Decode(base64Proto))).toAsset();
+      _$AssetFromProto(GAsset.fromJson(utf8.decode(base64Decode(base64Proto))));
 }
 
 GAsset _$AssetToProto(Asset instance) {
@@ -197,7 +193,6 @@ Asset _$AssetFromProto(GAsset instance) => Asset(
 extension $AssetProtoExtension on Asset {
   GAsset toProto() => _$AssetToProto(this);
   String toJson() => _$AssetToProto(this).writeToJson();
-
   static Asset fromProto(GAsset proto) => _$AssetFromProto(proto);
   static Asset fromJson(String json) => _$AssetFromProto(GAsset.fromJson(json));
 }
