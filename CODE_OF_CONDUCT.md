@@ -1,4 +1,4 @@
-# Code of Conduct - SquareAlfa Dart Framework
+# Code of Conduct - Dartaculous
 
 ## Our Pledge
 
