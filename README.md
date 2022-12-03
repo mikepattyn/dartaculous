@@ -1,6 +1,5 @@
-
-# SquareAlfa Dart Framework
-This repository contains SquareAlfa's Dart Framework. 
+# Dartaculous
+This repository contains a framework to support the development of Dart full-stack applications. 
 
 ## Introduction
 
