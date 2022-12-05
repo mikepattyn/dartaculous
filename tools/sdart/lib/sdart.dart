@@ -5,8 +5,6 @@ import 'package:path/path.dart' as path;
 import 'package:yaml_edit/yaml_edit.dart';
 
 class ProtoProject {
-
-
   Future<String> createProject(
     String packageName, {
     Map<String, String> dependencies = const {},
@@ -23,8 +21,10 @@ class ProtoProject {
     if (devDependencies.isNotEmpty) {
       await _addDevDependencies(rootPath, devDependencies);
     }
-    await _runDart(['pub', 'upgrade', '--major-versions'],
-        workingDirectory: rootPath);
+    await _runDart(
+      ['pub', 'upgrade', '--major-versions'],
+      workingDirectory: rootPath,
+    );
     return rootPath;
   }
 
