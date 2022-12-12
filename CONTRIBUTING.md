@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Contributing to SquareAlfa Dart Framework
+# Contributing to Dartaculous
 
 First off, thanks for taking the time to contribute! ❤️
 
@@ -31,7 +31,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the
-[SquareAlfa Dart Framework Code of Conduct](https://gitlab.com/squarealfa/dart_framework/-/blob/main/CODE_OF_CONDUCT.md).
+[Dartaculous Code of Conduct](https://gitlab.com/squarealfa/dart_framework/-/blob/main/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report unacceptable behavior
 to info at squarealfa.com.
 
@@ -109,7 +109,7 @@ Enhancement suggestions are tracked as [GitHub issues](https://gitlab.com/square
 - Use a **clear and descriptive title** for the issue to identify the suggestion.
 - Provide a **step-by-step description of the suggested enhancement** in as many details as possible.
 - **Describe the current behavior** and **explain which behavior you expected to see instead** and why. At this point you can also tell which alternatives do not work for you.
-- **Explain why this enhancement would be useful** to most SquareAlfa Dart Framework users. You may also want to point out the other projects that solved it better and which could serve as inspiration.
+- **Explain why this enhancement would be useful** to most Dartaculous users. You may also want to point out the other projects that solved it better and which could serve as inspiration.
 
 ### Your First Code Contribution
 
@@ -134,7 +134,7 @@ This project uses [Melos](https://melos.invertase.dev/) to help manage and publi
 
 
 ### Improving The Documentation
-The SquareAlfa Dart Framework has a really big set of features and cover most features that are needed to use Dart as a fullstack language. Documentation is the single most important aspect of this project where we really could use a lot of help.
+Dartaculous has a really big set of features and cover most features that are needed to use Dart as a fullstack language. Documentation is the single most important aspect of this project where we really could use a lot of help.
 
 You are welcome to:
 - Add comments to the code with the intent of rendering those with ```dart doc```. Most of the packages in this project are very poorly documented at this point. However, one of the packages, mongo_go, is actually well documented and you can use it as a reference on the intended style.
