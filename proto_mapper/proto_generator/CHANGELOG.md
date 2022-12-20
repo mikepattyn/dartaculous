@@ -1,3 +1,7 @@
+## 3.8.1
+
+ - **FIX**: BigInt nullable unmarshalling fixed.
+
 ## 3.8.0
 
  - **FEAT**: Support for BigInt.

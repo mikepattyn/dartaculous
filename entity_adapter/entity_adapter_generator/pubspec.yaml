@@ -3,7 +3,7 @@ description: Generates a facade to several SquareAlfa framework services that ar
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/entity_adapter/entity_adapter_generator
 repository: https://gitlab.com/squarealfa/dart_framework/
 
-version: 3.4.0
+version: 3.4.1
 
 
 environment:
@@ -13,7 +13,7 @@ dependencies:
   source_gen: ^1.2.1
   squarealfa_entity_adapter: ^3.1.9
   map_mapper_generator: ^3.9.0
-  proto_generator: ^3.8.0
+  proto_generator: ^3.8.1
   defaults_provider_generator: ^2.4.0
   squarealfa_entity_generator: ^2.2.0
   squarealfa_generators_common: ^2.10.0
