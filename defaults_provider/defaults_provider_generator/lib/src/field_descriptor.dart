@@ -13,7 +13,7 @@ class FieldDescriptor extends FieldDescriptorBase {
 
   bool get typeHasDefaultsProvider {
     var annotation = TypeChecker.fromRuntime(DefaultsProvider)
-        .firstAnnotationOf(fieldElementType.element2!);
+        .firstAnnotationOf(fieldElementType.element!);
     return annotation != null;
   }
 }

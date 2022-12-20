@@ -20,7 +20,7 @@ class AdaptedEntityGenerator extends GeneratorForAnnotation<AdaptedEntity> {
     final classElement = element.asInterfaceElement();
 
     final type = annotation.read('rootEntityType').typeValue;
-    if (!classElement.allSupertypes.any((st) => st.element2 == type.element2)) {
+    if (!classElement.allSupertypes.any((st) => st.element == type.element)) {
       return '';
     }
 

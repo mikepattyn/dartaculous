@@ -77,23 +77,23 @@ void main() {
 
 extension ProtoDartTypeExtension on DartType {
   bool get hasMapProto {
-    if (element2 == null) return false;
+    if (element == null) return false;
     final ret =
-        TypeChecker.fromRuntime(MapProto).firstAnnotationOf(element2!) != null;
+        TypeChecker.fromRuntime(MapProto).firstAnnotationOf(element!) != null;
     return ret;
   }
 
   bool get hasProto {
-    if (element2 == null) return false;
+    if (element == null) return false;
     final ret =
-        TypeChecker.fromRuntime(Proto).firstAnnotationOf(element2!) != null;
+        TypeChecker.fromRuntime(Proto).firstAnnotationOf(element!) != null;
     return ret;
   }
 
   String get packageName {
-    final element = element2;
-    if (element == null) return '';
-    var annotation = TypeChecker.fromRuntime(Proto).firstAnnotationOf(element);
+    final el = element;
+    if (el == null) return '';
+    var annotation = TypeChecker.fromRuntime(Proto).firstAnnotationOf(el);
 
     var packageName =
         annotation?.getField('packageName')?.toStringValue() ?? '';

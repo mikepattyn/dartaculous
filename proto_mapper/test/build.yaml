@@ -8,6 +8,6 @@ targets:
           # useProtoFieldNamingConventions: true
       proto_generator:proto_mapper_generator:
         options:
-          dateTimePrecision: microseconds
-          durationPrecision: microseconds
+          # dateTimePrecision: microseconds
+          # durationPrecision: microseconds
           useWellKnownTypes: true

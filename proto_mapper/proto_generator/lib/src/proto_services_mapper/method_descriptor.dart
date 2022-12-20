@@ -42,7 +42,7 @@ class MethodDescriptor extends MethodDescriptorBase {
 
   @override
   bool get returnParameterTypeIsEnum =>
-      returnParameterType.element2!.kind == ElementKind.ENUM;
+      returnParameterType.element!.kind == ElementKind.ENUM;
 }
 
 const _protoIgnoreChecker = TypeChecker.fromRuntime(ProtoIgnore);

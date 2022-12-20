@@ -249,7 +249,7 @@ String _getProtoMappedReturnType(
   final returnType = methodDescriptor.returnType;
   final finalType = returnType.finalType;
   if (finalType.isVoid) return '';
-  if (finalType.element2?.kind == ElementKind.ENUM) return '';
+  if (finalType.element?.kind == ElementKind.ENUM) return '';
   if (!finalType.hasMapProto) return '';
   if (returnType.futureType.nullabilitySuffix == NullabilitySuffix.question) {
     return '';

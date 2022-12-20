@@ -8,9 +8,9 @@ class EntityFieldCodeGenerator extends FieldCodeGenerator {
       : super(fieldDescriptor, isAbstract);
 
   @override
-  String get defaultExpression => fieldDescriptor.fieldElementType.element2
+  String get defaultExpression => fieldDescriptor.fieldElementType.element
               is ClassElement &&
-          (fieldDescriptor.fieldElementType.element2 as ClassElement).isAbstract
+          (fieldDescriptor.fieldElementType.element as ClassElement).isAbstract
       ? '''throw UnimplementedError()'''
       : '''\$${fieldDescriptor.fieldElementTypeName}DefaultsProvider().createWithDefaults()''';
 }

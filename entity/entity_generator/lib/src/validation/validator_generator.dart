@@ -33,7 +33,7 @@ class ValidatorGenerator extends GeneratorForAnnotation<Validatable> {
   static String generateValidator(Element element, bool createBaseClass) {
     if (element is EnumElement) return '';
     var classElement = element.asInterfaceElement();
-    var superTypeElement = classElement.supertype!.element2;
+    var superTypeElement = classElement.supertype!.element;
 
     var annotation = TypeChecker.fromRuntime(Validatable)
         .firstAnnotationOf(superTypeElement);

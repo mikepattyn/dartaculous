@@ -41,7 +41,7 @@ class MapFieldCodeGenerator extends FieldCodeGenerator
           argumentType.isDartCoreBool) {
         continue;
       }
-      final segments = argumentType.element2!.source!.uri.pathSegments.toList();
+      final segments = argumentType.element!.source!.uri.pathSegments.toList();
       final lastSrc = segments.lastIndexOf('src');
       if (lastSrc != -1) segments.removeRange(0, lastSrc + 1);
       var fileName = segments[segments.length - 1];

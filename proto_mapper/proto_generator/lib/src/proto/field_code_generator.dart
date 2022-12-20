@@ -1,3 +1,4 @@
+import 'package:proto_generator/src/proto/field_code_generators/bigint_field_code_generator.dart';
 import 'package:proto_generator/src/proto_common.dart';
 
 import 'field_code_generators/bool_field_code_generator.dart';
@@ -74,6 +75,9 @@ abstract class FieldCodeGenerator {
               useWellKnownTypes
           ? GDoubleFieldCodeGenerator(fieldDescriptor, lineNumbers)
           : DoubleFieldCodeGenerator(fieldDescriptor, lineNumbers);
+    }
+    if (typeName == (BigInt).toString()) {
+      return BigIntFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (typeName == (DateTime).toString()) {
       return useWellKnownTypes

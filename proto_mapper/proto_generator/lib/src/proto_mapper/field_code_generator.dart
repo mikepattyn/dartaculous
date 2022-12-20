@@ -1,5 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator/src/proto_mapper/field_code_generators/bigint_field_code_generator.dart';
 import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
 import 'field_code_generators/bool_field_code_generator.dart';
@@ -169,6 +170,13 @@ abstract class FieldCodeGenerator {
         );
       }
       return DateTimeFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
+    }
+    if (fieldDescriptor.fieldElementTypeName == (BigInt).toString()) {
+      return BigIntFieldCodeGenerator(
         fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,

@@ -2,7 +2,7 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 
 Iterable<ElementAnnotation> getAnnotationsByName(DartType dartType, String annotationName) {
-  return dartType.element2!.metadata.where((m) {
+  return dartType.element!.metadata.where((m) {
     DartType annotationType;
     if (m.element! is PropertyAccessorElement) {
       annotationType = (m.element! as PropertyAccessorElement).returnType;

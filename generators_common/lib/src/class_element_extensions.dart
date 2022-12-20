@@ -29,7 +29,7 @@ extension ClassElementFieldExtension on InterfaceElement {
     if (includeInherited) {
       for (final v in manager.getInheritedMap2(this).values) {
         assert(v is! FieldElement);
-        if (_dartCoreObjectChecker.isExactly(v.enclosingElement3)) {
+        if (_dartCoreObjectChecker.isExactly(v.enclosingElement)) {
           continue;
         }
 
@@ -75,7 +75,7 @@ extension ClassElementFieldExtension on InterfaceElement {
     if (includeInherited) {
       for (final v in manager.getInheritedConcreteMap2(this).values) {
         assert(v is! FieldElement);
-        if (_dartCoreObjectChecker.isExactly(v.enclosingElement3)) {
+        if (_dartCoreObjectChecker.isExactly(v.enclosingElement)) {
           continue;
         }
 

@@ -9,7 +9,7 @@ List<DartType> getKnownSubclasses(
     return lst;
   }
   for (final subClass in subClasses) {
-    final element = subClass.element2 as ClassElement;
+    final element = subClass.element as ClassElement;
     final reader =
         TypeChecker.fromRuntime(annotationType).firstAnnotationOf(element);
     if (reader == null) {

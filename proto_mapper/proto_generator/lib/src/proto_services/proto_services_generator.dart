@@ -156,7 +156,7 @@ $fieldDeclarations}
     final returnType = methodDescriptor.returnType;
     final finalType = returnType.finalType;
     if (finalType.isVoid) return '';
-    if (finalType.element2?.kind == ElementKind.ENUM) return '';
+    if (finalType.element?.kind == ElementKind.ENUM) return '';
     if (!finalType.hasProto) return '';
     if (returnType.futureType.nullabilitySuffix == NullabilitySuffix.question) {
       return '';
@@ -303,7 +303,7 @@ ProtoServices _hydrateAnnotation(ConstantReader reader, {String prefix = ''}) {
 
 String _getExternalProtoName(DartType type) {
   var fieldElementType = type.finalType;
-  var segments = fieldElementType.element2?.source?.uri.pathSegments.toList();
+  var segments = fieldElementType.element?.source?.uri.pathSegments.toList();
   if (segments == null) {
     return '';
   }

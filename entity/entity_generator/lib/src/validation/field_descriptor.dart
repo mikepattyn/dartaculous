@@ -17,13 +17,13 @@ class FieldDescriptor extends FieldElementDescriptorBase {
 
   bool get typeIsValidatable {
     var annotation = TypeChecker.fromRuntime(Validatable)
-        .firstAnnotationOf(fieldElementType.element2!);
+        .firstAnnotationOf(fieldElementType.element!);
     return annotation != null;
   }
 
   bool get parameterTypeIsValidatable {
     var annotation = TypeChecker.fromRuntime(Validatable)
-        .firstAnnotationOf(parameterType.element2!);
+        .firstAnnotationOf(parameterType.element!);
     return annotation != null;
   }
 }

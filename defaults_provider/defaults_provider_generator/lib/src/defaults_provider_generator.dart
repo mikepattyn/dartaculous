@@ -30,7 +30,7 @@ class DefaultsProviderGenerator
       Element element, bool createBaseClass) {
     if (element is EnumElement) return '';
     final classElement = element.asClassElement();
-    final superTypeElement = classElement.supertype!.element2;
+    final superTypeElement = classElement.supertype!.element;
 
     final superTypeAnnotation = TypeChecker.fromRuntime(DefaultsProvider)
         .firstAnnotationOf(superTypeElement);
