@@ -35,7 +35,8 @@ GStarship _$StarshipToProto(Starship instance) {
 Starship _$StarshipFromProto(GStarship instance) => Starship(
       range: $BigIntProtoExtension.$fromProtoBytes(instance.range),
       engineNumber: instance.engineNumber,
-      odometer: $BigIntProtoExtension.$fromProtoBytes(instance.odometer),
+      odometer:
+          $NullableBigIntProtoExtension.$fromProtoBytes(instance.odometer),
     );
 
 extension $StarshipProtoExtension on Starship {

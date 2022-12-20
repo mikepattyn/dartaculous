@@ -18,5 +18,5 @@ class BigIntFieldCodeGenerator extends FieldCodeGenerator {
 
   @override
   String get fromProtoExpression =>
-      '\$BigIntProtoExtension.\$fromProtoBytes($ref$protoFieldName)';
+      '${fieldDescriptor.isNullable ? '\$NullableBigIntProtoExtension' : '\$BigIntProtoExtension'}.\$fromProtoBytes($ref$protoFieldName)';
 }
