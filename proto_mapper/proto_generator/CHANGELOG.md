@@ -1,3 +1,7 @@
+## 3.8.0
+
+ - **FEAT**: Support for BigInt.
+
 ## 3.7.3
 
  - **FIX**: Fixed proto generation of multiple classes in shared proto.

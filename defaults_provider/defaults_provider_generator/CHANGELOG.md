@@ -1,3 +1,7 @@
+## 2.4.0
+
+ - **FEAT**: Support for BigInt.
+
 ## 2.3.6
 
  - Update a dependency to the latest release.

@@ -1,3 +1,7 @@
+## 2.3.0
+
+ - **FEAT**: Support for BigInt.
+
 ## 2.2.0
 
  - **FEAT**: Added BigIntProtoExtension.

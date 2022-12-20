@@ -1,3 +1,7 @@
+## 2.10.0
+
+ - **FEAT**: Support for BigInt.
+
 ## 2.9.0
 
  - **FEAT**: Added optional support for usage of Google ProtoBuf Well-Known types.
