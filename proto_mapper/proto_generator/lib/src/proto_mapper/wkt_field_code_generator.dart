@@ -12,7 +12,7 @@ import 'wkt/gstring_field_code_generator.dart';
 import 'field_code_generator.dart';
 import 'field_descriptor.dart';
 
-abstract class WKTFieldCodeGenerator implements FCG {
+abstract class WKTFieldCodeGenerator implements FieldCodeGenerator {
   static const defaultRefName = 'instance';
   static const defaultProtoRefName = 'proto';
 

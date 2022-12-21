@@ -4,13 +4,13 @@ import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
 import 'field_descriptor.dart';
 import 'standalone_field_code_generator.dart';
 
-abstract class FCG {
+abstract class FieldCodeGenerator {
   String get fromProtoMap;
   String get toProtoMap;
   String get constructorMap;
   String get fromProtoExpression;
 
-  factory FCG.fromFieldDescriptor(
+  factory FieldCodeGenerator.fromFieldDescriptor(
     FieldDescriptor fieldDescriptor, {
     String refName = StandaloneFieldCodeGenerator.defaultRefName,
     String protoRefName = StandaloneFieldCodeGenerator.defaultProtoRefName,

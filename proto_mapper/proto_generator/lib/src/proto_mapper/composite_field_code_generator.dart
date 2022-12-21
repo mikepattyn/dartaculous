@@ -10,7 +10,7 @@ import 'field_code_generators/map_field_code_generator.dart';
 import 'field_code_generators/set_field_code_generator.dart';
 import 'field_descriptor.dart';
 
-abstract class CompositeFieldCodeGenerator implements FCG {
+abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
   static const defaultRefName = 'instance';
   static const defaultProtoRefName = 'proto';
 

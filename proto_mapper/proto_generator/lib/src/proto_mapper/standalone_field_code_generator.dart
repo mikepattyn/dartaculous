@@ -11,11 +11,9 @@ import 'field_code_generator.dart';
 import 'standalone/int_field_code_generator.dart';
 import 'standalone/decimal_field_code_generator.dart';
 import 'standalone/duration/milliseconds_duration_field_code_generator.dart';
-import 'field_code_generators/list_field_code_generator.dart';
-import 'field_code_generators/map_field_code_generator.dart';
 import 'field_descriptor.dart';
 
-abstract class StandaloneFieldCodeGenerator implements FCG {
+abstract class StandaloneFieldCodeGenerator implements FieldCodeGenerator {
   static const defaultRefName = 'instance';
   static const defaultProtoRefName = 'proto';
 

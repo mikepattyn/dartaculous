@@ -31,7 +31,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
         _durationPrecision = _getTimePrecision(
             options.config['durationPrecision'] as String? ?? 'microseconds'),
         _allowMissingFields =
-        (options.config['allowMissingFields'] as bool? ?? false),
+            (options.config['allowMissingFields'] as bool? ?? false),
         _useWellKnownTypes =
             options.config['useWellKnownTypes'] as bool? ?? false;
 
@@ -42,16 +42,19 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     BuildStep buildStep,
   ) {
     final builders = getBuilders(element as InterfaceElement, annotation);
-    final emitter = DartEmitter.scoped(useNullSafetySyntax: true, orderDirectives: true);
-    final code = builders.fold('', (String previousValue, b.Builder builder) =>
-        '$previousValue\n\n${(builder.build() as Spec).accept(emitter).toString()}'
-    );
+    final emitter =
+        DartEmitter.scoped(useNullSafetySyntax: true, orderDirectives: true);
+    final code = builders.fold(
+        '',
+        (String previousValue, b.Builder builder) =>
+            '$previousValue\n\n${(builder.build() as Spec).accept(emitter).toString()}');
     return code;
   }
 
   /// Create [ClassBuilder], [MethodBuilder] and [ExtensionBuilder] instances
   /// required for the generator
-  List<b.Builder> getBuilders(InterfaceElement interfaceElement, ConstantReader annotation) {
+  List<b.Builder> getBuilders(
+      InterfaceElement interfaceElement, ConstantReader annotation) {
     List<b.Builder> builders = [];
     final mapProtoReflected = _hydrateAnnotation(
       annotation,
@@ -61,7 +64,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       allowMissingFields: _allowMissingFields,
     );
 
-    RenderMapperBuffers renderParams = _createRenderBuffers(interfaceElement, mapProtoReflected);
+    RenderMapperBuffers renderParams =
+        _createRenderBuffers(interfaceElement, mapProtoReflected);
     builders.add(_mapperClassBuilder(interfaceElement, renderParams));
     if (interfaceElement is ClassElement) {
       builders.addAll(_extraMethods(interfaceElement, renderParams));
@@ -71,10 +75,12 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     return builders;
   }
 
-  ClassBuilder _mapperClassBuilder(InterfaceElement classElement, RenderMapperBuffers renderParams) {
+  ClassBuilder _mapperClassBuilder(
+      InterfaceElement classElement, RenderMapperBuffers renderParams) {
     final classBuilder = ClassBuilder()
       ..name = '\$${renderParams.className}ProtoMapper'
-      ..implements.add(Reference('ProtoMapper<${renderParams.className}, ${renderParams.protoClassName}>'));
+      ..implements.add(Reference(
+          'ProtoMapper<${renderParams.className}, ${renderParams.protoClassName}>'));
     final constructor = ConstructorBuilder()..constant = true;
     classBuilder.constructors.add(constructor.build());
 
@@ -104,7 +110,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       ..type = Reference(renderParams.className);
     toProto.requiredParameters.add(entityParam.build());
     if (classElement is EnumElement) {
-      toProto.body = Code('${renderParams.protoClassName}.valueOf(entity.index)!');
+      toProto.body =
+          Code('${renderParams.protoClassName}.valueOf(entity.index)!');
     } else {
       toProto.body = Code('_\$${renderParams.className}ToProto(entity)');
     }
@@ -121,7 +128,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
         ..name = 'json'
         ..type = Reference('String');
       fromJson.requiredParameters.add(stringParam.build());
-      fromJson.body = Code('_\$${renderParams.className}FromProto(${renderParams.protoClassName}.fromJson(json))');
+      fromJson.body = Code(
+          '_\$${renderParams.className}FromProto(${renderParams.protoClassName}.fromJson(json))');
       fromJson.lambda = true;
       classBuilder.methods.add(fromJson.build());
 
@@ -130,7 +138,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
         ..name = 'toJson'
         ..returns = Reference('String');
       toJson.requiredParameters.add(entityParam.build());
-      toJson.body = Code('_\$${renderParams.className}ToProto(entity).writeToJson()');
+      toJson.body =
+          Code('_\$${renderParams.className}ToProto(entity).writeToJson()');
       toJson.lambda = true;
       classBuilder.methods.add(toJson.build());
 
@@ -139,7 +148,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
         ..name = 'toBase64Proto'
         ..returns = Reference('String');
       toBase64Proto.requiredParameters.add(entityParam.build());
-      toBase64Proto.body = Code('base64Encode(utf8.encode(toProto(entity).writeToJson()))');
+      toBase64Proto.body =
+          Code('base64Encode(utf8.encode(toProto(entity).writeToJson()))');
       toBase64Proto.lambda = true;
       classBuilder.methods.add(toBase64Proto.build());
 
@@ -151,7 +161,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
         ..name = 'base64Proto'
         ..type = Reference('String');
       fromBase64Proto.requiredParameters.add(base64Param.build());
-      fromBase64Proto.body = Code('_\$${renderParams.className}FromProto(${renderParams.protoClassName}.fromJson(utf8.decode(base64Decode(base64Proto))))');
+      fromBase64Proto.body = Code(
+          '_\$${renderParams.className}FromProto(${renderParams.protoClassName}.fromJson(utf8.decode(base64Decode(base64Proto))))');
       fromBase64Proto.lambda = true;
       classBuilder.methods.add(fromBase64Proto.build());
     }
@@ -159,7 +170,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     return classBuilder;
   }
 
-  ExtensionBuilder _classExtension(ClassElement classElement, RenderMapperBuffers renderParams) {
+  ExtensionBuilder _classExtension(
+      ClassElement classElement, RenderMapperBuffers renderParams) {
     // $[CLASSNAME]ProtoExtension
     final classExtension = ExtensionBuilder()
       ..name = '\$${renderParams.className}ProtoExtension'
@@ -193,7 +205,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       ..returns = Reference(renderParams.className)
       ..lambda = true
       ..static = true
-      ..body = Code('_\$${renderParams.className}FromProto(${renderParams.protoClassName}.fromJson(json))');
+      ..body = Code(
+          '_\$${renderParams.className}FromProto(${renderParams.protoClassName}.fromJson(json))');
     final jsonParam = ParameterBuilder()
       ..name = 'json'
       ..type = Reference('String');
@@ -203,7 +216,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     return classExtension;
   }
 
-  ExtensionBuilder _protoClassExtension(InterfaceElement classElement, RenderMapperBuffers renderParams) {
+  ExtensionBuilder _protoClassExtension(
+      InterfaceElement classElement, RenderMapperBuffers renderParams) {
     // $[PROTOCLASSNAME]ProtoExtension
     final protoClassExtension = ExtensionBuilder()
       ..name = '\$${renderParams.protoClassName}ProtoExtension'
@@ -213,16 +227,16 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       ..name = 'to${renderParams.className}'
       ..returns = Reference(renderParams.className)
       ..lambda = true;
-    final body = classElement is ClassElement ?
-      '_\$${renderParams.className}FromProto(this)' :
-      'const \$${renderParams.className}ProtoMapper().fromProto(this)';
+    final body = classElement is ClassElement
+        ? '_\$${renderParams.className}FromProto(this)'
+        : 'const \$${renderParams.className}ProtoMapper().fromProto(this)';
     toClass.body = Code(body);
     protoClassExtension.methods.add(toClass.build());
     return protoClassExtension;
   }
 
-  List<MethodBuilder> _extraMethods(ClassElement classElement,
-      RenderMapperBuffers renderParams) {
+  List<MethodBuilder> _extraMethods(
+      ClassElement classElement, RenderMapperBuffers renderParams) {
     List<MethodBuilder> methods = [];
     // _$[CLASSNAME]ToProto(instance)
     final instanceToProto = MethodBuilder()
@@ -240,13 +254,11 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
             ${renderParams.toProtoFieldBuffer}
             return $toVar;
           ''';
-    instanceToProto.body = Code(
-        '''
+    instanceToProto.body = Code('''
       ${((classElement.isAbstract) && (renderParams.toKnownSubclasses ?? '').isEmpty) ? '' : 'var $toVar = ${renderParams.protoClassName}();'}
       ${renderParams.toKnownSubclasses ?? ''}
       $toReturn
-      '''
-    );
+      ''');
     methods.add(instanceToProto);
 
     // _$[CLASSNAME]FromProto(sInstance)
@@ -315,7 +327,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     // (that where not set by the constructor)
     for (var fieldDescriptor
         in fromFieldDescriptors.where((fd) => !fd.isFinal)) {
-      final fieldCodeGenerator = FCG.fromFieldDescriptor(
+      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor,
         useWellKnownTypes: _useWellKnownTypes,
       );
@@ -325,7 +337,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
     // assign the to proto field assignments
     for (var fieldDescriptor in fieldDescriptors) {
-      final fieldCodeGenerator = FCG.fromFieldDescriptor(
+      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor,
         useWellKnownTypes: _useWellKnownTypes,
       );
@@ -386,7 +398,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       final fieldDescriptor = fieldDescriptorList.first;
       fromFieldDescriptors.remove(fieldDescriptor);
 
-      final fieldCodeGenerator = FCG.fromFieldDescriptor(
+      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor,
         useWellKnownTypes: _useWellKnownTypes,
       );
