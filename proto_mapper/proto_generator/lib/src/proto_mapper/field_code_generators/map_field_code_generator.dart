@@ -1,16 +1,17 @@
 import 'package:analyzer/dart/element/type.dart';
 import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 
-import '../field_code_generator.dart';
 import '../field_descriptor.dart';
+import '../standalone_field_code_generator.dart';
 
-class MapFieldCodeGenerator extends FieldCodeGenerator {
+class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
   final bool useWellKnownTypes;
   MapFieldCodeGenerator(
     FieldDescriptor fieldDescriptor, {
     required this.useWellKnownTypes,
-    String refName = FieldCodeGenerator.defaultRefName,
-    String protoRefName = FieldCodeGenerator.defaultProtoRefName,
+    String refName = StandaloneFieldCodeGenerator.defaultRefName,
+    String protoRefName = StandaloneFieldCodeGenerator.defaultProtoRefName,
   }) : super(
           fieldDescriptor,
           refName: refName,

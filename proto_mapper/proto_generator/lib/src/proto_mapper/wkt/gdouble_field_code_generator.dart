@@ -1,11 +1,13 @@
-import '../field_code_generator.dart';
-import '../field_descriptor.dart';
+import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
 
-class GBoolFieldCodeGenerator extends FieldCodeGenerator {
-  GBoolFieldCodeGenerator(
+import '../field_descriptor.dart';
+import '../standalone_field_code_generator.dart';
+
+class GDoubleFieldCodeGenerator extends WKTFieldCodeGenerator {
+  GDoubleFieldCodeGenerator(
     FieldDescriptor fieldDescriptor, {
-    String refName = FieldCodeGenerator.defaultRefName,
-    String protoRefName = FieldCodeGenerator.defaultProtoRefName,
+    String refName = StandaloneFieldCodeGenerator.defaultRefName,
+    String protoRefName = StandaloneFieldCodeGenerator.defaultProtoRefName,
   }) : super(
           fieldDescriptor,
           refName: refName,
@@ -17,7 +19,7 @@ class GBoolFieldCodeGenerator extends FieldCodeGenerator {
 
   @override
   String get toProtoNullableExpression =>
-      'BoolValue(value: $toProtoExpression)';
+      'DoubleValue(value: $toProtoExpression)';
 
   @override
   String get toProtoMap => fieldDescriptor.isNullable

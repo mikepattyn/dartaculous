@@ -1,11 +1,13 @@
-import '../field_code_generator.dart';
-import '../field_descriptor.dart';
+import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 
-class EnumFieldCodeGenerator extends FieldCodeGenerator {
+import '../field_descriptor.dart';
+import '../standalone_field_code_generator.dart';
+
+class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
   EnumFieldCodeGenerator(
     FieldDescriptor fieldDescriptor, {
-    String refName = FieldCodeGenerator.defaultRefName,
-    String protoRefName = FieldCodeGenerator.defaultProtoRefName,
+    String refName = StandaloneFieldCodeGenerator.defaultRefName,
+    String protoRefName = StandaloneFieldCodeGenerator.defaultProtoRefName,
   }) : super(
           fieldDescriptor,
           refName: refName,

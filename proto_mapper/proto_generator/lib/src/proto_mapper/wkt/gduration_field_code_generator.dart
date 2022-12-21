@@ -1,13 +1,13 @@
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
-import '../../field_code_generator.dart';
-import '../../field_descriptor.dart';
+import '../field_descriptor.dart';
+import '../wkt_field_code_generator.dart';
 
-class GDurationFieldCodeGenerator extends FieldCodeGenerator {
+class GDurationFieldCodeGenerator extends WKTFieldCodeGenerator {
   GDurationFieldCodeGenerator(
     FieldDescriptor fieldDescriptor, {
-    String refName = FieldCodeGenerator.defaultRefName,
-    String protoRefName = FieldCodeGenerator.defaultProtoRefName,
+    required String refName,
+    required String protoRefName,
   }) : super(
           fieldDescriptor,
           refName: refName,

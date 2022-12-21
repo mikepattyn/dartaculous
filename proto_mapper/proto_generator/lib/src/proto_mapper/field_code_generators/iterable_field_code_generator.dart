@@ -1,15 +1,16 @@
 import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 
-import '../field_code_generator.dart';
 import '../field_descriptor.dart';
+import '../standalone_field_code_generator.dart';
 
-class IterableFieldCodeGenerator extends FieldCodeGenerator {
+class IterableFieldCodeGenerator extends CompositeFieldCodeGenerator {
   final bool useWellKnownTypes;
   IterableFieldCodeGenerator(
     FieldDescriptor fieldDescriptor, {
     required this.useWellKnownTypes,
-    String refName = FieldCodeGenerator.defaultRefName,
-    String protoRefName = FieldCodeGenerator.defaultProtoRefName,
+    String refName = StandaloneFieldCodeGenerator.defaultRefName,
+    String protoRefName = StandaloneFieldCodeGenerator.defaultProtoRefName,
   }) : super(
           fieldDescriptor,
           refName: refName,
