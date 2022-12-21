@@ -7,7 +7,7 @@ import 'abstract_vehicle.dart';
 
 part 'bicycle.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class Bicycle extends AbstractVehicle {
   final Decimal wheelDiamater;

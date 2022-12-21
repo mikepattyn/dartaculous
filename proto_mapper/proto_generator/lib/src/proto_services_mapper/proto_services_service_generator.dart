@@ -201,7 +201,7 @@ class _Generator extends ProtoServicesGeneratorBase {
       fieldElementType: futureType,
     );
 
-    final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+    final fieldCodeGenerator = FCG.fromFieldDescriptor(
       fd,
       refName: '',
       useWellKnownTypes: useWellKnownTypes,
@@ -249,7 +249,7 @@ class _Generator extends ProtoServicesGeneratorBase {
         name: parm.name,
         fieldElementType: type,
       );
-      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+      final fieldCodeGenerator = FCG.fromFieldDescriptor(
         fd,
         refName: 'request',
         useWellKnownTypes: useWellKnownTypes,

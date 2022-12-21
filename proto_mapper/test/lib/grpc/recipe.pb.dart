@@ -25,10 +25,8 @@ class GRecipe extends $pb.GeneratedMessage {
     ..pc<$9.GIngredient>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ingredients', $pb.PbFieldType.PM, subBuilder: $9.GIngredient.create)
     ..aOM<$7.Timestamp>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishDate', subBuilder: $7.Timestamp.create)
     ..aOM<$7.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiryDate', subBuilder: $7.Timestamp.create)
-    ..aOB(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiryDateHasValue')
     ..aOM<$6.Duration>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'preparationDuration', subBuilder: $6.Duration.create)
     ..aOM<$6.Duration>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'totalDuration', subBuilder: $6.Duration.create)
-    ..aOB(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'totalDurationHasValue')
     ..aOB(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isPublished')
     ..aOM<$4.BoolValue>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requiresRobot', subBuilder: $4.BoolValue.create)
     ..aOM<$4.DoubleValue>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grossWeight', subBuilder: $4.DoubleValue.create)
@@ -50,10 +48,8 @@ class GRecipe extends $pb.GeneratedMessage {
     $core.Iterable<$9.GIngredient>? ingredients,
     $7.Timestamp? publishDate,
     $7.Timestamp? expiryDate,
-    $core.bool? expiryDateHasValue,
     $6.Duration? preparationDuration,
     $6.Duration? totalDuration,
-    $core.bool? totalDurationHasValue,
     $core.bool? isPublished,
     $4.BoolValue? requiresRobot,
     $4.DoubleValue? grossWeight,
@@ -84,17 +80,11 @@ class GRecipe extends $pb.GeneratedMessage {
     if (expiryDate != null) {
       _result.expiryDate = expiryDate;
     }
-    if (expiryDateHasValue != null) {
-      _result.expiryDateHasValue = expiryDateHasValue;
-    }
     if (preparationDuration != null) {
       _result.preparationDuration = preparationDuration;
     }
     if (totalDuration != null) {
       _result.totalDuration = totalDuration;
-    }
-    if (totalDurationHasValue != null) {
-      _result.totalDurationHasValue = totalDurationHasValue;
     }
     if (isPublished != null) {
       _result.isPublished = isPublished;
@@ -205,127 +195,109 @@ class GRecipe extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $7.Timestamp ensureExpiryDate() => $_ensure(5);
 
-  @$pb.TagNumber(8)
-  $core.bool get expiryDateHasValue => $_getBF(6);
-  @$pb.TagNumber(8)
-  set expiryDateHasValue($core.bool v) { $_setBool(6, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasExpiryDateHasValue() => $_has(6);
-  @$pb.TagNumber(8)
-  void clearExpiryDateHasValue() => clearField(8);
-
   @$pb.TagNumber(9)
-  $6.Duration get preparationDuration => $_getN(7);
+  $6.Duration get preparationDuration => $_getN(6);
   @$pb.TagNumber(9)
   set preparationDuration($6.Duration v) { setField(9, v); }
   @$pb.TagNumber(9)
-  $core.bool hasPreparationDuration() => $_has(7);
+  $core.bool hasPreparationDuration() => $_has(6);
   @$pb.TagNumber(9)
   void clearPreparationDuration() => clearField(9);
   @$pb.TagNumber(9)
-  $6.Duration ensurePreparationDuration() => $_ensure(7);
+  $6.Duration ensurePreparationDuration() => $_ensure(6);
 
   @$pb.TagNumber(10)
-  $6.Duration get totalDuration => $_getN(8);
+  $6.Duration get totalDuration => $_getN(7);
   @$pb.TagNumber(10)
   set totalDuration($6.Duration v) { setField(10, v); }
   @$pb.TagNumber(10)
-  $core.bool hasTotalDuration() => $_has(8);
+  $core.bool hasTotalDuration() => $_has(7);
   @$pb.TagNumber(10)
   void clearTotalDuration() => clearField(10);
   @$pb.TagNumber(10)
-  $6.Duration ensureTotalDuration() => $_ensure(8);
-
-  @$pb.TagNumber(11)
-  $core.bool get totalDurationHasValue => $_getBF(9);
-  @$pb.TagNumber(11)
-  set totalDurationHasValue($core.bool v) { $_setBool(9, v); }
-  @$pb.TagNumber(11)
-  $core.bool hasTotalDurationHasValue() => $_has(9);
-  @$pb.TagNumber(11)
-  void clearTotalDurationHasValue() => clearField(11);
+  $6.Duration ensureTotalDuration() => $_ensure(7);
 
   @$pb.TagNumber(12)
-  $core.bool get isPublished => $_getBF(10);
+  $core.bool get isPublished => $_getBF(8);
   @$pb.TagNumber(12)
-  set isPublished($core.bool v) { $_setBool(10, v); }
+  set isPublished($core.bool v) { $_setBool(8, v); }
   @$pb.TagNumber(12)
-  $core.bool hasIsPublished() => $_has(10);
+  $core.bool hasIsPublished() => $_has(8);
   @$pb.TagNumber(12)
   void clearIsPublished() => clearField(12);
 
   @$pb.TagNumber(13)
-  $4.BoolValue get requiresRobot => $_getN(11);
+  $4.BoolValue get requiresRobot => $_getN(9);
   @$pb.TagNumber(13)
   set requiresRobot($4.BoolValue v) { setField(13, v); }
   @$pb.TagNumber(13)
-  $core.bool hasRequiresRobot() => $_has(11);
+  $core.bool hasRequiresRobot() => $_has(9);
   @$pb.TagNumber(13)
   void clearRequiresRobot() => clearField(13);
   @$pb.TagNumber(13)
-  $4.BoolValue ensureRequiresRobot() => $_ensure(11);
+  $4.BoolValue ensureRequiresRobot() => $_ensure(9);
 
   @$pb.TagNumber(15)
-  $4.DoubleValue get grossWeight => $_getN(12);
+  $4.DoubleValue get grossWeight => $_getN(10);
   @$pb.TagNumber(15)
   set grossWeight($4.DoubleValue v) { setField(15, v); }
   @$pb.TagNumber(15)
-  $core.bool hasGrossWeight() => $_has(12);
+  $core.bool hasGrossWeight() => $_has(10);
   @$pb.TagNumber(15)
   void clearGrossWeight() => clearField(15);
   @$pb.TagNumber(15)
-  $4.DoubleValue ensureGrossWeight() => $_ensure(12);
+  $4.DoubleValue ensureGrossWeight() => $_ensure(10);
 
   @$pb.TagNumber(17)
-  $4.DoubleValue get netWeight => $_getN(13);
+  $4.DoubleValue get netWeight => $_getN(11);
   @$pb.TagNumber(17)
   set netWeight($4.DoubleValue v) { setField(17, v); }
   @$pb.TagNumber(17)
-  $core.bool hasNetWeight() => $_has(13);
+  $core.bool hasNetWeight() => $_has(11);
   @$pb.TagNumber(17)
   void clearNetWeight() => clearField(17);
   @$pb.TagNumber(17)
-  $4.DoubleValue ensureNetWeight() => $_ensure(13);
+  $4.DoubleValue ensureNetWeight() => $_ensure(11);
 
   @$pb.TagNumber(19)
-  $8.GApplianceType get mainApplianceType => $_getN(14);
+  $8.GApplianceType get mainApplianceType => $_getN(12);
   @$pb.TagNumber(19)
   set mainApplianceType($8.GApplianceType v) { setField(19, v); }
   @$pb.TagNumber(19)
-  $core.bool hasMainApplianceType() => $_has(14);
+  $core.bool hasMainApplianceType() => $_has(12);
   @$pb.TagNumber(19)
   void clearMainApplianceType() => clearField(19);
 
   @$pb.TagNumber(20)
-  $8.GApplianceType get secondaryApplianceType => $_getN(15);
+  $8.GApplianceType get secondaryApplianceType => $_getN(13);
   @$pb.TagNumber(20)
   set secondaryApplianceType($8.GApplianceType v) { setField(20, v); }
   @$pb.TagNumber(20)
-  $core.bool hasSecondaryApplianceType() => $_has(15);
+  $core.bool hasSecondaryApplianceType() => $_has(13);
   @$pb.TagNumber(20)
   void clearSecondaryApplianceType() => clearField(20);
 
   @$pb.TagNumber(21)
-  $core.bool get secondaryApplianceTypeHasValue => $_getBF(16);
+  $core.bool get secondaryApplianceTypeHasValue => $_getBF(14);
   @$pb.TagNumber(21)
-  set secondaryApplianceTypeHasValue($core.bool v) { $_setBool(16, v); }
+  set secondaryApplianceTypeHasValue($core.bool v) { $_setBool(14, v); }
   @$pb.TagNumber(21)
-  $core.bool hasSecondaryApplianceTypeHasValue() => $_has(16);
+  $core.bool hasSecondaryApplianceTypeHasValue() => $_has(14);
   @$pb.TagNumber(21)
   void clearSecondaryApplianceTypeHasValue() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.List<$core.String> get tags => $_getList(17);
+  $core.List<$core.String> get tags => $_getList(15);
 
   @$pb.TagNumber(23)
-  $core.List<$core.String> get extraTags => $_getList(18);
+  $core.List<$core.String> get extraTags => $_getList(16);
 
   @$pb.TagNumber(24)
-  $core.bool get extraTagsHasValue => $_getBF(19);
+  $core.bool get extraTagsHasValue => $_getBF(17);
   @$pb.TagNumber(24)
-  set extraTagsHasValue($core.bool v) { $_setBool(19, v); }
+  set extraTagsHasValue($core.bool v) { $_setBool(17, v); }
   @$pb.TagNumber(24)
-  $core.bool hasExtraTagsHasValue() => $_has(19);
+  $core.bool hasExtraTagsHasValue() => $_has(17);
   @$pb.TagNumber(24)
   void clearExtraTagsHasValue() => clearField(24);
 }

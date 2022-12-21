@@ -1,6 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
+import 'string_extensions.dart';
 
 /// Enhanced information over a [FieldElement]
 class MethodDescriptorBase {
@@ -65,10 +66,7 @@ class MethodDescriptorBase {
 
   /// Returns the name of the field using a Pascal Case
   String get pascalName {
-    if (name == '') {
-      return name;
-    }
-    return '${name.substring(0, 1).toUpperCase()}${name.substring(1)}';
+    return name.pascalName;
   }
 
   /// When the field element type is a generic, returns

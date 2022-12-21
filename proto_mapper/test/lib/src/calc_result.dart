@@ -3,7 +3,7 @@ import 'package:proto_generator_test/grpc/calc_result.pb.dart';
 
 part 'calc_result.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class CalcResult {
   final int result;

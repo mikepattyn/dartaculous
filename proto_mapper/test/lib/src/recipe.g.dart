@@ -37,7 +37,6 @@ GRecipe _$RecipeToProto(Recipe instance) {
     proto.expiryDate =
         $wellknown_timestamp.Timestamp.fromDateTime(instance.expiryDate!);
   }
-  proto.expiryDateHasValue = instance.expiryDate != null;
 
   proto.preparationDuration = $wellknown_duration.Duration(
       seconds: Int64(instance.preparationDuration.inSeconds),
@@ -51,7 +50,6 @@ GRecipe _$RecipeToProto(Recipe instance) {
                 instance.totalDuration!.inSeconds * 1000000) *
             1000);
   }
-  proto.totalDurationHasValue = instance.totalDuration != null;
 
   proto.isPublished = instance.isPublished;
   proto.requiresRobot = BoolValue(value: instance.requiresRobot);
@@ -93,10 +91,10 @@ Recipe _$RecipeFromProto(GRecipe instance) => Recipe(
           (instance.grossWeight.hasValue() ? instance.grossWeight.value : null),
       description:
           (instance.description.hasValue() ? instance.description.value : null),
-      expiryDate: (instance.expiryDateHasValue
+      expiryDate: (instance.hasExpiryDate()
           ? (instance.expiryDate.toDateTime())
           : null),
-      totalDuration: (instance.totalDurationHasValue
+      totalDuration: (instance.hasTotalDuration()
           ? (Duration(
               seconds: instance.totalDuration.seconds.toInt(),
               microseconds: (instance.totalDuration.nanos ~/ 1000).toInt()))

@@ -315,7 +315,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     // (that where not set by the constructor)
     for (var fieldDescriptor
         in fromFieldDescriptors.where((fd) => !fd.isFinal)) {
-      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+      final fieldCodeGenerator = FCG.fromFieldDescriptor(
         fieldDescriptor,
         useWellKnownTypes: _useWellKnownTypes,
       );
@@ -325,7 +325,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
     // assign the to proto field assignments
     for (var fieldDescriptor in fieldDescriptors) {
-      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+      final fieldCodeGenerator = FCG.fromFieldDescriptor(
         fieldDescriptor,
         useWellKnownTypes: _useWellKnownTypes,
       );
@@ -386,7 +386,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       final fieldDescriptor = fieldDescriptorList.first;
       fromFieldDescriptors.remove(fieldDescriptor);
 
-      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+      final fieldCodeGenerator = FCG.fromFieldDescriptor(
         fieldDescriptor,
         useWellKnownTypes: _useWellKnownTypes,
       );

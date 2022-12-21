@@ -5,7 +5,7 @@ import 'vehicle.dart';
 
 part 'car.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class Car extends Vehicle {
   Car({

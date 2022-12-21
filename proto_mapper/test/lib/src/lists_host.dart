@@ -7,10 +7,9 @@ import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
 import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
     as $wellknown_timestamp;
 
-
 part 'lists_host.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class ListsHost {
   final List<bool> vbools;

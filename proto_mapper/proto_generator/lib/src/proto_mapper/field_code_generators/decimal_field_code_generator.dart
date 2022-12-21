@@ -13,9 +13,10 @@ class DecimalFieldCodeGenerator extends FieldCodeGenerator {
         );
 
   @override
-  String get toProtoExpression => '$instanceReference.toString()';
+  String get toProtoMap =>
+      '$protoRef$protoFieldName = $ref$fieldName.\$toProtoBytes();';
 
   @override
-  String get fromProtoNonNullableExpression =>
-      'Decimal.parse(instance.$protoFieldName)';
+  String get fromProtoExpression =>
+      '${fieldDescriptor.isNullable ? '\$NullableDecimalProtoExtension' : '\$DecimalProtoExtension'}.\$fromProtoBytes($ref$protoFieldName)';
 }

@@ -3,7 +3,7 @@ import 'package:proto_generator_test/grpc/appliance_type.pbenum.dart';
 
 part 'appliance_type.g.dart';
 
-@proto
+@Proto.forEnum()
 @mapProto
 enum ApplianceType {
   heat,

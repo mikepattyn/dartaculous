@@ -3,7 +3,7 @@ import 'package:proto_generator_test/grpc/starship.pb.dart';
 
 part 'starship.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class Starship {
   final BigInt range;

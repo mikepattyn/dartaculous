@@ -30,8 +30,8 @@ message GListsHost
   repeated google.protobuf.Timestamp vdatetimes = 10;
   repeated google.protobuf.Timestamp nvdatetimes = 11;
   bool nvdatetimes_has_value = 12;
-  repeated string vdecimals = 13;
-  repeated string nvdecimals = 14;
+  repeated bytes vdecimals = 13;
+  repeated bytes nvdecimals = 14;
   bool nvdecimals_has_value = 15;
   repeated int32 vints = 16;
   repeated int32 nvints = 17;

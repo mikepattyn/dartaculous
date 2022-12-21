@@ -25,14 +25,15 @@ GBicycle _$BicycleToProto(Bicycle instance) {
   var proto = GBicycle();
 
   proto.weight = instance.weight;
-  proto.wheelDiamater = instance.wheelDiamater.toString();
+  proto.wheelDiamater = instance.wheelDiamater.$toProtoBytes();
   proto.key = instance.key;
 
   return proto;
 }
 
 Bicycle _$BicycleFromProto(GBicycle instance) => Bicycle(
-      wheelDiamater: Decimal.parse(instance.wheelDiamater),
+      wheelDiamater:
+          $DecimalProtoExtension.$fromProtoBytes(instance.wheelDiamater),
       weight: instance.weight,
       key: instance.key,
     );

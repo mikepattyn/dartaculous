@@ -19,10 +19,7 @@ dependencies:
   squarealfa_generators_common: ^2.10.0
   code_builder: ^4.3.0
   built_value: ^8.4.1
+  
 dev_dependencies:
   lints: ^2.0.0
   test: ^1.17.0
-
-# dependency_overrides:
-#   squarealfa_generators_common:
-#     path: ../../generators_common

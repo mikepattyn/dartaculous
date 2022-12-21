@@ -162,7 +162,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
         name: parm.name,
         fieldElementType: type,
       );
-      final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+      final fieldCodeGenerator = FCG.fromFieldDescriptor(
         fd,
         refName: '',
         protoRefName: '\$parm',
@@ -225,7 +225,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
       fieldElementType: futureType,
     );
 
-    final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+    final fieldCodeGenerator = FCG.fromFieldDescriptor(
       fd,
       refName: '\$result',
       useWellKnownTypes: useWellKnownTypes,

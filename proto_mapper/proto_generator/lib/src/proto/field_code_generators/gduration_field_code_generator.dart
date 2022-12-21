@@ -12,6 +12,10 @@ class GDurationFieldCodeGenerator extends FieldCodeGenerator
   String get fieldType => 'google.protobuf.Duration';
 
   @override
+  String? get hasValueLine =>
+      super.fieldDescriptor.isRepeated ? super.hasValueLine : null;
+
+  @override
   Iterable<String>? get externalProtoNames {
     return ['google/protobuf/duration.proto'];
   }

@@ -203,7 +203,7 @@ $fieldDeclarations}
   ) {
     if (type.isVoid) return '';
     final fd = FieldDescriptor(
-      Proto(
+      Proto.auto(
         prefix: prefix,
         packageName: packageName,
       ),
@@ -228,7 +228,7 @@ $fieldDeclarations}
   ) {
     final fds = methodDescriptor.methodElement.parameters
         .map((p) => FieldDescriptor(
-              Proto(
+              Proto.auto(
                 prefix: prefix,
                 packageName: packageName,
               ),

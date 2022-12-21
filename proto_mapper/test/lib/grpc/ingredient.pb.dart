@@ -15,7 +15,7 @@ import 'component.pb.dart' as $5;
 class GIngredient extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GIngredient', createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'quantity')
+    ..a<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'quantity', $pb.PbFieldType.OY)
     ..a<$core.double>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'precision', $pb.PbFieldType.OD)
     ..aOM<$6.Duration>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cookingDuration', subBuilder: $6.Duration.create)
     ..aOM<$5.GComponent>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mainComponent', subBuilder: $5.GComponent.create)
@@ -30,7 +30,7 @@ class GIngredient extends $pb.GeneratedMessage {
   GIngredient._() : super();
   factory GIngredient({
     $core.String? description,
-    $core.String? quantity,
+    $core.List<$core.int>? quantity,
     $core.double? precision,
     $6.Duration? cookingDuration,
     $5.GComponent? mainComponent,
@@ -104,9 +104,9 @@ class GIngredient extends $pb.GeneratedMessage {
   void clearDescription() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get quantity => $_getSZ(1);
+  $core.List<$core.int> get quantity => $_getN(1);
   @$pb.TagNumber(2)
-  set quantity($core.String v) { $_setString(1, v); }
+  set quantity($core.List<$core.int> v) { $_setBytes(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasQuantity() => $_has(1);
   @$pb.TagNumber(2)

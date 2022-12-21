@@ -338,7 +338,6 @@ class GChef extends $pb.GeneratedMessage {
     ..pPS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteWords')
     ..aOM<$7.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'birthdate', subBuilder: $7.Timestamp.create)
     ..aOM<$6.Duration>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLife', subBuilder: $6.Duration.create)
-    ..aOB(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLifeHasValue')
     ..hasRequiredFields = false
   ;
 
@@ -352,7 +351,6 @@ class GChef extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? favoriteWords,
     $7.Timestamp? birthdate,
     $6.Duration? shelfLife,
-    $core.bool? shelfLifeHasValue,
   }) {
     final _result = create();
     if (favoriteRecipe != null) {
@@ -378,9 +376,6 @@ class GChef extends $pb.GeneratedMessage {
     }
     if (shelfLife != null) {
       _result.shelfLife = shelfLife;
-    }
-    if (shelfLifeHasValue != null) {
-      _result.shelfLifeHasValue = shelfLifeHasValue;
     }
     return _result;
   }
@@ -478,15 +473,6 @@ class GChef extends $pb.GeneratedMessage {
   void clearShelfLife() => clearField(8);
   @$pb.TagNumber(8)
   $6.Duration ensureShelfLife() => $_ensure(7);
-
-  @$pb.TagNumber(9)
-  $core.bool get shelfLifeHasValue => $_getBF(8);
-  @$pb.TagNumber(9)
-  set shelfLifeHasValue($core.bool v) { $_setBool(8, v); }
-  @$pb.TagNumber(9)
-  $core.bool hasShelfLifeHasValue() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearShelfLifeHasValue() => clearField(9);
 }
 
 class GListOfChef extends $pb.GeneratedMessage {
@@ -540,7 +526,6 @@ class GSousChef extends $pb.GeneratedMessage {
     ..pPS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteWords')
     ..aOM<$7.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'birthdate', subBuilder: $7.Timestamp.create)
     ..aOM<$6.Duration>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLife', subBuilder: $6.Duration.create)
-    ..aOB(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLifeHasValue')
     ..hasRequiredFields = false
   ;
 
@@ -554,7 +539,6 @@ class GSousChef extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? favoriteWords,
     $7.Timestamp? birthdate,
     $6.Duration? shelfLife,
-    $core.bool? shelfLifeHasValue,
   }) {
     final _result = create();
     if (favoriteRecipe != null) {
@@ -580,9 +564,6 @@ class GSousChef extends $pb.GeneratedMessage {
     }
     if (shelfLife != null) {
       _result.shelfLife = shelfLife;
-    }
-    if (shelfLifeHasValue != null) {
-      _result.shelfLifeHasValue = shelfLifeHasValue;
     }
     return _result;
   }
@@ -680,15 +661,6 @@ class GSousChef extends $pb.GeneratedMessage {
   void clearShelfLife() => clearField(8);
   @$pb.TagNumber(8)
   $6.Duration ensureShelfLife() => $_ensure(7);
-
-  @$pb.TagNumber(9)
-  $core.bool get shelfLifeHasValue => $_getBF(8);
-  @$pb.TagNumber(9)
-  set shelfLifeHasValue($core.bool v) { $_setBool(8, v); }
-  @$pb.TagNumber(9)
-  $core.bool hasShelfLifeHasValue() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearShelfLifeHasValue() => clearField(9);
 }
 
 class GListOfSousChef extends $pb.GeneratedMessage {
@@ -740,7 +712,6 @@ class GKnifeMaster extends $pb.GeneratedMessage {
     ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteWords')
     ..aOM<$7.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'birthdate', subBuilder: $7.Timestamp.create)
     ..aOM<$6.Duration>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLife', subBuilder: $6.Duration.create)
-    ..aOB(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLifeHasValue')
     ..aOM<GKnife>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
     ..hasRequiredFields = false
   ;
@@ -753,7 +724,6 @@ class GKnifeMaster extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? favoriteWords,
     $7.Timestamp? birthdate,
     $6.Duration? shelfLife,
-    $core.bool? shelfLifeHasValue,
     GKnife? favoriteKnife,
   }) {
     final _result = create();
@@ -774,9 +744,6 @@ class GKnifeMaster extends $pb.GeneratedMessage {
     }
     if (shelfLife != null) {
       _result.shelfLife = shelfLife;
-    }
-    if (shelfLifeHasValue != null) {
-      _result.shelfLifeHasValue = shelfLifeHasValue;
     }
     if (favoriteKnife != null) {
       _result.favoriteKnife = favoriteKnife;
@@ -858,25 +825,16 @@ class GKnifeMaster extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $6.Duration ensureShelfLife() => $_ensure(5);
 
-  @$pb.TagNumber(7)
-  $core.bool get shelfLifeHasValue => $_getBF(6);
-  @$pb.TagNumber(7)
-  set shelfLifeHasValue($core.bool v) { $_setBool(6, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasShelfLifeHasValue() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearShelfLifeHasValue() => clearField(7);
-
   @$pb.TagNumber(8)
-  GKnife get favoriteKnife => $_getN(7);
+  GKnife get favoriteKnife => $_getN(6);
   @$pb.TagNumber(8)
   set favoriteKnife(GKnife v) { setField(8, v); }
   @$pb.TagNumber(8)
-  $core.bool hasFavoriteKnife() => $_has(7);
+  $core.bool hasFavoriteKnife() => $_has(6);
   @$pb.TagNumber(8)
   void clearFavoriteKnife() => clearField(8);
   @$pb.TagNumber(8)
-  GKnife ensureFavoriteKnife() => $_ensure(7);
+  GKnife ensureFavoriteKnife() => $_ensure(6);
 }
 
 class GListOfKnifeMaster extends $pb.GeneratedMessage {
@@ -925,7 +883,6 @@ class GInventory extends $pb.GeneratedMessage {
     ..m<$core.String, $core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfThings', entryClassName: 'GInventory.NumberOfThingsEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.O3)
     ..m<$core.String, $0.GRecipe>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'recipesByName', entryClassName: 'GInventory.RecipesByNameEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OM, valueCreator: $0.GRecipe.create)
     ..aOM<$6.Duration>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timeSpan', subBuilder: $6.Duration.create)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timeSpanHasValue')
     ..hasRequiredFields = false
   ;
 
@@ -934,7 +891,6 @@ class GInventory extends $pb.GeneratedMessage {
     $core.Map<$core.String, $core.int>? numberOfThings,
     $core.Map<$core.String, $0.GRecipe>? recipesByName,
     $6.Duration? timeSpan,
-    $core.bool? timeSpanHasValue,
   }) {
     final _result = create();
     if (numberOfThings != null) {
@@ -945,9 +901,6 @@ class GInventory extends $pb.GeneratedMessage {
     }
     if (timeSpan != null) {
       _result.timeSpan = timeSpan;
-    }
-    if (timeSpanHasValue != null) {
-      _result.timeSpanHasValue = timeSpanHasValue;
     }
     return _result;
   }
@@ -988,15 +941,6 @@ class GInventory extends $pb.GeneratedMessage {
   void clearTimeSpan() => clearField(3);
   @$pb.TagNumber(3)
   $6.Duration ensureTimeSpan() => $_ensure(2);
-
-  @$pb.TagNumber(4)
-  $core.bool get timeSpanHasValue => $_getBF(3);
-  @$pb.TagNumber(4)
-  set timeSpanHasValue($core.bool v) { $_setBool(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasTimeSpanHasValue() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearTimeSpanHasValue() => clearField(4);
 }
 
 class GListOfInventory extends $pb.GeneratedMessage {

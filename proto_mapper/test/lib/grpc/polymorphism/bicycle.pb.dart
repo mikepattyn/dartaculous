@@ -12,7 +12,7 @@ import 'package:protobuf/protobuf.dart' as $pb;
 class GBicycle extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GBicycle', createEmptyInstance: create)
     ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'weight', $pb.PbFieldType.O3)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wheelDiamater')
+    ..a<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wheelDiamater', $pb.PbFieldType.OY)
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
     ..hasRequiredFields = false
   ;
@@ -20,7 +20,7 @@ class GBicycle extends $pb.GeneratedMessage {
   GBicycle._() : super();
   factory GBicycle({
     $core.int? weight,
-    $core.String? wheelDiamater,
+    $core.List<$core.int>? wheelDiamater,
     $core.String? key,
   }) {
     final _result = create();
@@ -66,9 +66,9 @@ class GBicycle extends $pb.GeneratedMessage {
   void clearWeight() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get wheelDiamater => $_getSZ(1);
+  $core.List<$core.int> get wheelDiamater => $_getN(1);
   @$pb.TagNumber(2)
-  set wheelDiamater($core.String v) { $_setString(1, v); }
+  set wheelDiamater($core.List<$core.int> v) { $_setBytes(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasWheelDiamater() => $_has(1);
   @$pb.TagNumber(2)

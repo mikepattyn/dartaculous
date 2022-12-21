@@ -55,9 +55,10 @@ GListsHost _$ListsHostToProto(ListsHost instance) {
       []);
   proto.nvdatetimesHasValue = instance.nvdatetimes != null;
 
-  proto.vdecimals.addAll(instance.vdecimals.map((e) => e.toString()));
+  proto.vdecimals.addAll(instance.vdecimals.map((e) => e.$toProtoBytes()));
 
-  proto.nvdecimals.addAll(instance.nvdecimals?.map((e) => e.toString()) ?? []);
+  proto.nvdecimals
+      .addAll(instance.nvdecimals?.map((e) => e.$toProtoBytes()) ?? []);
   proto.nvdecimalsHasValue = instance.nvdecimals != null;
 
   proto.vints.addAll(instance.vints);
@@ -90,8 +91,8 @@ ListsHost _$ListsHostFromProto(GListsHost instance) => ListsHost(
               microseconds: (e.nanos ~/ 1000).toInt()))),
       vdatetimes: List<DateTime>.unmodifiable(
           instance.vdatetimes.map((e) => e.toDateTime())),
-      vdecimals: List<Decimal>.unmodifiable(
-          instance.vdecimals.map((e) => Decimal.parse(e))),
+      vdecimals: List<Decimal>.unmodifiable(instance.vdecimals
+          .map((e) => $DecimalProtoExtension.$fromProtoBytes(e))),
       vints: List<int>.unmodifiable(instance.vints.map((e) => e)),
       vdoubles: List<double>.unmodifiable(instance.vdoubles.map((e) => e)),
       vapplianceTypes: List<ApplianceType>.unmodifiable(instance.vapplianceTypes
@@ -113,8 +114,8 @@ ListsHost _$ListsHostFromProto(GListsHost instance) => ListsHost(
               instance.nvdatetimes.map((e) => e.toDateTime())))
           : null),
       nvdecimals: (instance.nvdecimalsHasValue
-          ? (List<Decimal>.unmodifiable(
-              instance.nvdecimals.map((e) => Decimal.parse(e))))
+          ? (List<Decimal>.unmodifiable(instance.nvdecimals
+              .map((e) => $DecimalProtoExtension.$fromProtoBytes(e))))
           : null),
       nvints: (instance.nvintsHasValue
           ? (List<int>.unmodifiable(instance.nvints.map((e) => e)))

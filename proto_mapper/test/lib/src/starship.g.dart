@@ -25,8 +25,8 @@ class $StarshipProtoMapper implements ProtoMapper<Starship, GStarship> {
 GStarship _$StarshipToProto(Starship instance) {
   var proto = GStarship();
 
-  proto.range = instance.range.$bigIntToProtoBytes();
-  proto.odometer = instance.odometer.$bigIntToProtoBytes();
+  proto.range = instance.range.$toProtoBytes();
+  proto.odometer = instance.odometer.$toProtoBytes();
   proto.engineNumber = instance.engineNumber;
 
   return proto;

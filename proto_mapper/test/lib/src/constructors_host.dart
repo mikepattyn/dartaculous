@@ -4,7 +4,7 @@ import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
 
 part 'constructors_host.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class ConstructObject1 {
   late String name;
@@ -28,7 +28,7 @@ class ConstructObject1 {
   }
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class ConstructObject2 {
   String name;
@@ -54,7 +54,7 @@ class ConstructObject2 {
   }
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class ConstructObject3 {
   final String name;
@@ -80,7 +80,7 @@ class ConstructObject3 {
   }
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class ConstructObject4 {
   final String name;
@@ -106,7 +106,7 @@ class ConstructObject4 {
   }
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class ConstructObject5 {
   final String name;
@@ -132,7 +132,7 @@ class ConstructObject5 {
   }
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class ConstructObject6 {
   final String? name;
@@ -158,7 +158,7 @@ class ConstructObject6 {
   }
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class ConstructObject7 {
   final int? number;
@@ -184,7 +184,7 @@ class ConstructObject7 {
   }
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class ConstructObject8 {
   final int? number;

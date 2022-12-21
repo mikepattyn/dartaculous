@@ -26,7 +26,7 @@ class Chef extends Staff {
 }
 
 /// Should use the default "G" prefix
-@proto
+@Proto.auto()
 @mapProto
 class Waiter extends Staff {
   late Manager manager;

@@ -120,7 +120,10 @@ String collectionProtoToValue(
 }) {
   final fieldTypeName = parameterType.getDisplayString(withNullability: false);
   if (fieldTypeName == (Decimal).toString()) {
-    return 'Decimal.parse($parameterName)';
+    return '\$DecimalProtoExtension.\$fromProtoBytes($parameterName)';
+  }
+  if (fieldTypeName == (BigInt).toString()) {
+    return '\$BigIntProtoExtension.\$fromProtoBytes($parameterName)';
   }
   if (fieldTypeName == (DateTime).toString()) {
     if (useWellKnownTypes) {
@@ -153,7 +156,10 @@ String collectionValueToProto(
 }) {
   final fieldTypeName = parameterType.getDisplayString(withNullability: false);
   if (fieldTypeName == (Decimal).toString()) {
-    return '$parameterName.toString()';
+    return '$parameterName.\$toProtoBytes()';
+  }
+  if (fieldTypeName == (BigInt).toString()) {
+    return '$parameterName.\$toProtoBytes()';
   }
   if (fieldTypeName == (DateTime).toString()) {
     if (useWellKnownTypes) {

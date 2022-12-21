@@ -5,7 +5,7 @@ import 'aircraft.dart';
 
 part 'balloon.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class Balloon implements Aircraft {
   Balloon({

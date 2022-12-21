@@ -14,7 +14,8 @@ class GDoubleFieldCodeGenerator extends FieldCodeGenerator
       fieldDescriptor.isNullable ? 'google.protobuf.DoubleValue' : 'double';
 
   @override
-  String? get hasValueLine => null;
+  String? get hasValueLine =>
+      super.fieldDescriptor.isRepeated ? super.hasValueLine : null;
 
   @override
   Iterable<String>? get externalProtoNames {

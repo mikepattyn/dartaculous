@@ -13,13 +13,13 @@ const GBicycle$json = const {
   '1': 'GBicycle',
   '2': const [
     const {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
-    const {'1': 'wheel_diamater', '3': 2, '4': 1, '5': 9, '10': 'wheelDiamater'},
+    const {'1': 'wheel_diamater', '3': 2, '4': 1, '5': 12, '10': 'wheelDiamater'},
     const {'1': 'key', '3': 3, '4': 1, '5': 9, '10': 'key'},
   ],
 };
 
 /// Descriptor for `GBicycle`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gBicycleDescriptor = $convert.base64Decode('CghHQmljeWNsZRIWCgZ3ZWlnaHQYASABKAVSBndlaWdodBIlCg53aGVlbF9kaWFtYXRlchgCIAEoCVINd2hlZWxEaWFtYXRlchIQCgNrZXkYAyABKAlSA2tleQ==');
+final $typed_data.Uint8List gBicycleDescriptor = $convert.base64Decode('CghHQmljeWNsZRIWCgZ3ZWlnaHQYASABKAVSBndlaWdodBIlCg53aGVlbF9kaWFtYXRlchgCIAEoDFINd2hlZWxEaWFtYXRlchIQCgNrZXkYAyABKAlSA2tleQ==');
 @$core.Deprecated('Use gListOfBicycleDescriptor instead')
 const GListOfBicycle$json = const {
   '1': 'GListOfBicycle',

@@ -14,7 +14,7 @@ class BigIntFieldCodeGenerator extends FieldCodeGenerator {
 
   @override
   String get toProtoMap =>
-      '$protoRef$protoFieldName = $ref$fieldName.\$bigIntToProtoBytes();';
+      '$protoRef$protoFieldName = $ref$fieldName.\$toProtoBytes();';
 
   @override
   String get fromProtoExpression =>

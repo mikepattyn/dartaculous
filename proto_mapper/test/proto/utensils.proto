@@ -78,7 +78,6 @@ message GChef
   repeated string favorite_words = 6;
   google.protobuf.Timestamp birthdate = 7;
   google.protobuf.Duration shelf_life = 8;
-  bool shelf_life_has_value = 9;
 
 }   
 
@@ -97,7 +96,6 @@ message GSousChef
   repeated string favorite_words = 6;
   google.protobuf.Timestamp birthdate = 7;
   google.protobuf.Duration shelf_life = 8;
-  bool shelf_life_has_value = 9;
 
 }   
 
@@ -114,7 +112,6 @@ message GKnifeMaster
   repeated string favorite_words = 4;
   google.protobuf.Timestamp birthdate = 5;
   google.protobuf.Duration shelf_life = 6;
-  bool shelf_life_has_value = 7;
   GKnife favorite_knife = 8;
 
 }   
@@ -129,7 +126,6 @@ message GInventory
   map<string, int32> number_of_things = 1;
   map<string, GRecipe> recipes_by_name = 2;
   google.protobuf.Duration time_span = 3;
-  bool time_span_has_value = 4;
 
 }   
 

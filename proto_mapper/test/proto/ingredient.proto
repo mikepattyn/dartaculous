@@ -18,7 +18,7 @@ import "component.proto";
 message GIngredient
 {
   string description = 1;
-  string quantity = 2;
+  bytes quantity = 2;
   double precision = 3;
   google.protobuf.Duration cooking_duration = 4;
   GComponent main_component = 5;

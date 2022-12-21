@@ -25,7 +25,175 @@ import 'field_code_generators/set_field_code_generator.dart';
 import 'field_code_generators/string_field_code_generator.dart';
 import 'field_descriptor.dart';
 
-abstract class FieldCodeGenerator {
+abstract class FCG {
+  String get fromProtoMap;
+  String get toProtoMap;
+  String get constructorMap;
+  String get fromProtoExpression;
+
+  factory FCG.fromFieldDescriptor(
+    FieldDescriptor fieldDescriptor, {
+    String refName = FieldCodeGenerator.defaultRefName,
+    String protoRefName = FieldCodeGenerator.defaultProtoRefName,
+    required bool useWellKnownTypes,
+  }) {
+    if (fieldDescriptor.fieldElementType.isDartCoreString) {
+      return useWellKnownTypes
+          ? GStringFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            )
+          : StringFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            );
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreBool) {
+      return useWellKnownTypes
+          ? GBoolFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            )
+          : BoolFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            );
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreDouble &&
+        useWellKnownTypes) {
+      return GDoubleFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreInt) {
+      return useWellKnownTypes
+          ? GIntFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            )
+          : IntFieldCodeGenerator(
+              fieldDescriptor,
+              refName: refName,
+              protoRefName: protoRefName,
+            );
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreList) {
+      return ListFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+        useWellKnownTypes: useWellKnownTypes,
+      );
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreMap) {
+      return MapFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+        useWellKnownTypes: useWellKnownTypes,
+      );
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreSet) {
+      return SetFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+        useWellKnownTypes: useWellKnownTypes,
+      );
+    }
+    if (fieldDescriptor.typeIsEnum) {
+      return EnumFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
+    }
+    if (fieldDescriptor.fieldElementTypeName == (DateTime).toString()) {
+      if (useWellKnownTypes) {
+        return GDateTimeFieldCodeGenerator(
+          fieldDescriptor,
+          refName: refName,
+          protoRefName: protoRefName,
+        );
+      }
+      return DateTimeFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
+    }
+    if (fieldDescriptor.fieldElementTypeName == (BigInt).toString()) {
+      return BigIntFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
+    }
+    if (fieldDescriptor.fieldElementTypeName == (Decimal).toString()) {
+      return DecimalFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
+    }
+    if (fieldDescriptor.fieldElementTypeName == (Duration).toString()) {
+      if (useWellKnownTypes) {
+        return GDurationFieldCodeGenerator(
+          fieldDescriptor,
+          refName: refName,
+          protoRefName: protoRefName,
+        );
+      }
+      switch (fieldDescriptor.durationPrecision) {
+        case TimePrecision.milliseconds:
+          return MillisecondsDurationFieldCodeGenerator(
+            fieldDescriptor,
+            refName: refName,
+            protoRefName: protoRefName,
+          );
+        case TimePrecision.microseconds:
+          return MicrosecondsDurationFieldCodeGenerator(
+            fieldDescriptor,
+            refName: refName,
+            protoRefName: protoRefName,
+          );
+        default:
+          throw UnimplementedError();
+      }
+    }
+    if (fieldDescriptor.typeHasMapProtoAnnotation) {
+      return EntityFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreIterable &&
+        fieldDescriptor.iterableParameterType != null) {
+      return IterableFieldCodeGenerator(
+        fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+        useWellKnownTypes: useWellKnownTypes,
+      );
+    }
+
+    return GenericFieldCodeGenerator(
+      fieldDescriptor,
+      refName: refName,
+      protoRefName: protoRefName,
+    );
+  }
+}
+
+abstract class FieldCodeGenerator implements FCG {
   static const defaultRefName = 'instance';
   static const defaultProtoRefName = 'proto';
 
@@ -44,12 +212,13 @@ abstract class FieldCodeGenerator {
 
   MapProto get mapProtoBase => fieldDescriptor.protoMapperAnnotation;
 
+  @override
   String get toProtoMap => fieldDescriptor.isNullable
       ? '''
         if ($ref$fieldName != null) {
           $protoRef$protoFieldName = $toProtoNullableExpression; 
         }
-        $hasValueToProtoMap;
+        ${hasValueToProtoMap.isEmpty ? '' : '$hasValueToProtoMap;'}
       '''
       : '$protoRef$protoFieldName = $toProtoExpression;';
 
@@ -61,9 +230,12 @@ abstract class FieldCodeGenerator {
   String get toProtoExpression => instanceReference;
   String get toProtoNullableExpression => toProtoExpression;
 
+  @override
   String get fromProtoMap => '$fieldName = $fromProtoExpression';
+  @override
   String get constructorMap => '$fieldName: $fromProtoExpression, ';
 
+  @override
   String get fromProtoExpression {
     if (fieldDescriptor.isNullable) return fromProtoNullableExpression;
     return fromProtoNonNullableExpression;
@@ -77,7 +249,7 @@ abstract class FieldCodeGenerator {
   String get fieldName => fieldDescriptor.displayName;
   String get protoFieldName => fieldDescriptor.protoFieldName;
 
-  factory FieldCodeGenerator.fromFieldDescriptor(
+  factory FieldCodeGenerator.fromFieldDescriptor2(
     FieldDescriptor fieldDescriptor, {
     String refName = FieldCodeGenerator.defaultRefName,
     String protoRefName = FieldCodeGenerator.defaultProtoRefName,

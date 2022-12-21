@@ -218,7 +218,7 @@ message Nullable$prefix$className
           isFinal: true,
           isLate: false,
           hasInitializer: false,
-          protoFieldAnnotation: ProtoField(number: lineNumber++),
+          protoFieldAnnotation: ProtoField.auto(number: lineNumber++),
         );
         return fd;
       }),
@@ -287,15 +287,23 @@ ProtoReflected _hydrateAnnotation(
   String prefix = '',
   required bool useProtoFieldNamingConventions,
 }) {
-  final proto = Proto(
-    prefix: reader.read('prefix').literalValue as String? ?? prefix,
-    includeFieldsByDefault:
-        reader.read('includeFieldsByDefault').literalValue as bool,
-    packageName: reader.read('packageName').literalValue as String? ?? '',
-    useProtoFieldNamingConventions:
-        reader.read('useProtoFieldNamingConventions').literalValue as bool? ??
-            useProtoFieldNamingConventions,
-  );
+  final useAuto = reader.read('includeFieldsByDefault').literalValue as bool;
+  final pfx = reader.read('prefix').literalValue as String? ?? prefix;
+  final packageName = reader.read('packageName').literalValue as String? ?? '';
+  final usePFNConventions =
+      reader.read('useProtoFieldNamingConventions').literalValue as bool? ??
+          useProtoFieldNamingConventions;
+  final proto = useAuto
+      ? Proto.auto(
+          prefix: pfx,
+          packageName: packageName,
+          useProtoFieldNamingConventions: usePFNConventions,
+        )
+      : Proto.numbered(
+          prefix: pfx,
+          packageName: packageName,
+          useProtoFieldNamingConventions: usePFNConventions,
+        );
 
   final kscReader = reader.read('knownSubClasses');
   final kscs = kscReader.isNull

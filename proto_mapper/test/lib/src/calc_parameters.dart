@@ -4,7 +4,7 @@ import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
 
 part 'calc_parameters.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class CalcParameters {
   @ProtoField(number: 2)

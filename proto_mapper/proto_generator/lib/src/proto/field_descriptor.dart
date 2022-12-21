@@ -96,7 +96,7 @@ ProtoField? _getProtoFieldAnnotation(FieldElement fieldElement) {
   final hasValueNumber =
       hasValueNumberObj.isNull ? null : hasValueNumberObj.toIntValue();
 
-  var ret = ProtoField(
+  var ret = ProtoField.auto(
     name: name,
     number: number,
     hasValueNumber: hasValueNumber,

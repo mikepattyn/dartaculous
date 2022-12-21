@@ -184,7 +184,6 @@ GChef _$ChefToProto(Chef instance) {
                 instance.shelfLife!.inSeconds * 1000000) *
             1000);
   }
-  proto.shelfLifeHasValue = instance.shelfLife != null;
 
   return proto;
 }
@@ -201,7 +200,7 @@ Chef _$ChefFromProto(GChef instance) => Chef(
       favoriteWords:
           List<String>.unmodifiable(instance.favoriteWords.map((e) => e)),
       birthdate: instance.birthdate.toDateTime(),
-      shelfLife: (instance.shelfLifeHasValue
+      shelfLife: (instance.hasShelfLife()
           ? (Duration(
               seconds: instance.shelfLife.seconds.toInt(),
               microseconds: (instance.shelfLife.nanos ~/ 1000).toInt()))
@@ -263,7 +262,6 @@ GSousChef _$SousChefToProto(SousChef instance) {
                 instance.shelfLife!.inSeconds * 1000000) *
             1000);
   }
-  proto.shelfLifeHasValue = instance.shelfLife != null;
 
   return proto;
 }
@@ -328,7 +326,6 @@ GKnifeMaster _$KnifeMasterToProto(KnifeMaster instance) {
                 instance.shelfLife!.inSeconds * 1000000) *
             1000);
   }
-  proto.shelfLifeHasValue = instance.shelfLife != null;
 
   proto.favoriteKnife =
       const $KnifeProtoMapper().toProto(instance.favoriteKnife);
@@ -389,7 +386,6 @@ GInventory _$InventoryToProto(Inventory instance) {
                 instance.timeSpan!.inSeconds * 1000000) *
             1000);
   }
-  proto.timeSpanHasValue = instance.timeSpan != null;
 
   return proto;
 }
@@ -398,7 +394,7 @@ Inventory _$InventoryFromProto(GInventory instance) => Inventory(
       numberOfThings: instance.numberOfThings.map((k, v) => MapEntry(k, v)),
       recipesByName: instance.recipesByName
           .map((k, v) => MapEntry(k, const $RecipeProtoMapper().fromProto(v))),
-      timeSpan: (instance.timeSpanHasValue
+      timeSpan: (instance.hasTimeSpan()
           ? (Duration(
               seconds: instance.timeSpan.seconds.toInt(),
               microseconds: (instance.timeSpan.nanos ~/ 1000).toInt()))

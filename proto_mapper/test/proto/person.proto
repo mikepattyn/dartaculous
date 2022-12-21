@@ -6,6 +6,7 @@
 
 syntax = "proto3";
       
+import "google/protobuf/wrappers.proto";
 
 
 
@@ -13,15 +14,14 @@ syntax = "proto3";
 
 
   
-message GBicycle
+message GPerson
 {
-  int32 weight = 1;
-  bytes wheel_diamater = 2;
-  string key = 3;
+  google.protobuf.BoolValue bool_value = 1;
+  bytes dec_val = 2;
 
 }   
 
-message GListOfBicycle
+message GListOfPerson
 {
-  repeated GBicycle items = 1;
+  repeated GPerson items = 1;
 }

@@ -5,7 +5,7 @@ import 'rotorcraft.dart';
 
 part 'helicopter.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class Helicopter extends Rotorcraft {
   Helicopter({

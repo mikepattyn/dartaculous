@@ -5,7 +5,7 @@ import 'aircraft.dart';
 
 part 'airplane.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class Airplane extends Aircraft {
   Airplane({

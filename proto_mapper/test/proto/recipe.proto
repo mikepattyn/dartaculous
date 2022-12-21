@@ -27,10 +27,8 @@ message GRecipe
   repeated GIngredient ingredients = 5;
   google.protobuf.Timestamp publish_date = 6;
   google.protobuf.Timestamp expiry_date = 7;
-  bool expiry_date_has_value = 8;
   google.protobuf.Duration preparation_duration = 9;
   google.protobuf.Duration total_duration = 10;
-  bool total_duration_has_value = 11;
   bool is_published = 12;
   google.protobuf.BoolValue requires_robot = 13;
   google.protobuf.DoubleValue gross_weight = 15;

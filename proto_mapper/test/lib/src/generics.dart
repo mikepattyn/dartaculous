@@ -12,14 +12,14 @@ abstract class ScheduleConstraint<T> {
   Set<String> validate(T instance);
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class ConstraintAdded {
   late String contestScheduleId;
   late ScheduleConstraint constraint;
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class ContestConstraint extends ScheduleConstraint<Contest> {
 

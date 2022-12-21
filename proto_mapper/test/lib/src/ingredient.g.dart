@@ -26,7 +26,7 @@ GIngredient _$IngredientToProto(Ingredient instance) {
   var proto = GIngredient();
 
   proto.description = instance.description;
-  proto.quantity = instance.quantity.toString();
+  proto.quantity = instance.quantity.$toProtoBytes();
   proto.precision = instance.precision;
   proto.cookingDuration = $wellknown_duration.Duration(
       seconds: Int64(instance.cookingDuration.inSeconds),
@@ -54,7 +54,7 @@ GIngredient _$IngredientToProto(Ingredient instance) {
 
 Ingredient _$IngredientFromProto(GIngredient instance) => Ingredient(
       description: instance.description,
-      quantity: Decimal.parse(instance.quantity),
+      quantity: $DecimalProtoExtension.$fromProtoBytes(instance.quantity),
       precision: instance.precision,
       cookingDuration: Duration(
           seconds: instance.cookingDuration.seconds.toInt(),

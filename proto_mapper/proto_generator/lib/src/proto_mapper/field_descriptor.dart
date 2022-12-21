@@ -70,7 +70,7 @@ ProtoField? _getProtoFieldAnnotation(FieldElement fieldElement) {
   var annotation = _protoFieldChecker.getFieldAnnotation(fieldElement);
   if (annotation == null) return null;
   var name = annotation.getField('name')!.toStringValue();
-  var ret = ProtoField(name: name);
+  var ret = ProtoField.auto(name: name);
   return ret;
 }
 

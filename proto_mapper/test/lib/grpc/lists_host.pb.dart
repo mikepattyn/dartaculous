@@ -28,8 +28,8 @@ class GListsHost extends $pb.GeneratedMessage {
     ..pc<$7.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdatetimes', $pb.PbFieldType.PM, subBuilder: $7.Timestamp.create)
     ..pc<$7.Timestamp>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimes', $pb.PbFieldType.PM, subBuilder: $7.Timestamp.create)
     ..aOB(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimesHasValue')
-    ..pPS(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdecimals')
-    ..pPS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimals')
+    ..p<$core.List<$core.int>>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdecimals', $pb.PbFieldType.PY)
+    ..p<$core.List<$core.int>>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimals', $pb.PbFieldType.PY)
     ..aOB(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimalsHasValue')
     ..p<$core.int>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vints', $pb.PbFieldType.K3)
     ..p<$core.int>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvints', $pb.PbFieldType.K3)
@@ -57,8 +57,8 @@ class GListsHost extends $pb.GeneratedMessage {
     $core.Iterable<$7.Timestamp>? vdatetimes,
     $core.Iterable<$7.Timestamp>? nvdatetimes,
     $core.bool? nvdatetimesHasValue,
-    $core.Iterable<$core.String>? vdecimals,
-    $core.Iterable<$core.String>? nvdecimals,
+    $core.Iterable<$core.List<$core.int>>? vdecimals,
+    $core.Iterable<$core.List<$core.int>>? nvdecimals,
     $core.bool? nvdecimalsHasValue,
     $core.Iterable<$core.int>? vints,
     $core.Iterable<$core.int>? nvints,
@@ -227,10 +227,10 @@ class GListsHost extends $pb.GeneratedMessage {
   void clearNvdatetimesHasValue() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.List<$core.String> get vdecimals => $_getList(12);
+  $core.List<$core.List<$core.int>> get vdecimals => $_getList(12);
 
   @$pb.TagNumber(14)
-  $core.List<$core.String> get nvdecimals => $_getList(13);
+  $core.List<$core.List<$core.int>> get nvdecimals => $_getList(13);
 
   @$pb.TagNumber(15)
   $core.bool get nvdecimalsHasValue => $_getBF(14);

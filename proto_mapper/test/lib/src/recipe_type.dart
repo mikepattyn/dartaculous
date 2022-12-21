@@ -3,7 +3,7 @@ import 'package:proto_generator_test/grpc/recipe_type.pbenum.dart';
 
 part 'recipe_type.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 enum RecipeTypes {
   cook,

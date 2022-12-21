@@ -20,7 +20,7 @@ enum KnifeType {
   breadKnife,
 }
 
-@proto
+@Proto.auto()
 @mapProto
 enum ChefType {
   seniorChef,
@@ -29,7 +29,7 @@ enum ChefType {
   fishChef,
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class Knife {
   final String name;
@@ -38,7 +38,7 @@ class Knife {
   Knife({required this.name, required this.type});
 }
 
-@proto
+@Proto.auto()
 @mapProto
 class GarlicPress {
   final String name;
@@ -89,15 +89,13 @@ class Chef {
 /// when looking for the FieldDescriptors of an entity,
 /// and rely on the fact that the constructor will properly
 /// set the required parameters(s).
-@proto
+@Proto.auto()
 @mapProto
 class SousChef extends Chef {
-
   SousChef(
       {required ApplianceType favoriteApplianceType,
       required DateTime birthdate,
-      List<String> favoriteWords = const []
-      })
+      List<String> favoriteWords = const []})
       : super(
             favoriteKnife: null,
             favoriteApplianceType: favoriteApplianceType,
@@ -110,10 +108,10 @@ class SousChef extends Chef {
 /// defined in the parent class.
 /// We also know his favorite words, so no need to put them in the constructor.
 /// This requires addition of the "allowMissingFields" annotation property.
-@proto
-@MapProto(allowMissingFields: true, dateTimePrecision: TimePrecision.milliseconds)
+@Proto.auto()
+@MapProto(
+    allowMissingFields: true, dateTimePrecision: TimePrecision.milliseconds)
 class KnifeMaster extends Chef {
-
   @override
   // ignore: overridden_fields
   Knife favoriteKnife;
@@ -129,7 +127,7 @@ class KnifeMaster extends Chef {
             birthdate: birthdate);
 }
 
-@proto
+@Proto.auto()
 @MapProto(durationPrecision: TimePrecision.microseconds)
 class Inventory {
   final Map<String, int> numberOfThings;
@@ -143,7 +141,7 @@ class Inventory {
   });
 }
 
-@proto
+@Proto.auto()
 @MapProto()
 class PrecisionSubject {
   final DateTime dateProperty;

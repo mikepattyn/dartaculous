@@ -1,15 +1,16 @@
-// import '../field_code_generator.dart';
-// import '../field_descriptor.dart';
-// import 'external_proto_name.dart';
+import '../field_code_generator.dart';
+import '../field_descriptor.dart';
 
-// class DecimalFieldCodeGenerator extends FieldCodeGenerator
-//     implements ExternalProtoName {
-//   DecimalFieldCodeGenerator(FieldDescriptor fieldDescriptor, int lineNumber)
-//       : super(fieldDescriptor, lineNumber);
+class DecimalFieldCodeGenerator extends FieldCodeGenerator {
+  DecimalFieldCodeGenerator(
+    FieldDescriptor fieldDescriptor,
+    List<int> lineNumbers,
+  ) : super(fieldDescriptor, lineNumbers);
 
-//   @override
-//   String get fieldType => 'common_types.DecimalValue';
+  @override
+  String get fieldType => 'bytes';
 
-//   @override
-//   String get externalProtoName => 'common/common_types.proto';
-// }
+  @override
+  String? get hasValueLine =>
+      super.fieldDescriptor.isRepeated ? super.hasValueLine : null;
+}

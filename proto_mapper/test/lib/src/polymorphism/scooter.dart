@@ -5,7 +5,7 @@ import 'abstract_vehicle.dart';
 
 part 'scooter.g.dart';
 
-@proto
+@Proto.auto()
 @mapProto
 class Scooter extends AbstractVehicle {
   @override
