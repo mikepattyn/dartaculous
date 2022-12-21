@@ -32,9 +32,13 @@ GCalcParameters _$CalcParametersToProto(CalcParameters instance) {
 
   proto.parameter1 = instance.parameter1;
   proto.parameter2 = instance.parameter2;
-  proto.parameter3 = Int32Value(value: instance.parameter3);
+  if (instance.parameter3 != null) {
+    proto.parameter3 = Int32Value(value: instance.parameter3);
+  }
 
-  proto.parameter4 = Int32Value(value: instance.parameter4);
+  if (instance.parameter4 != null) {
+    proto.parameter4 = Int32Value(value: instance.parameter4);
+  }
 
   proto.parameter5 = instance.parameter5;
 

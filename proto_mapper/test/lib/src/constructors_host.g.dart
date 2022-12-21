@@ -272,9 +272,13 @@ class $ConstructObject6ProtoMapper
 GConstructObject6 _$ConstructObject6ToProto(ConstructObject6 instance) {
   var proto = GConstructObject6();
 
-  proto.name = StringValue(value: instance.name);
+  if (instance.name != null) {
+    proto.name = StringValue(value: instance.name);
+  }
 
-  proto.number = Int32Value(value: instance.number);
+  if (instance.number != null) {
+    proto.number = Int32Value(value: instance.number);
+  }
 
   return proto;
 }
@@ -321,7 +325,9 @@ class $ConstructObject7ProtoMapper
 GConstructObject7 _$ConstructObject7ToProto(ConstructObject7 instance) {
   var proto = GConstructObject7();
 
-  proto.number = Int32Value(value: instance.number);
+  if (instance.number != null) {
+    proto.number = Int32Value(value: instance.number);
+  }
 
   proto.name = instance.name;
 
@@ -371,7 +377,9 @@ class $ConstructObject8ProtoMapper
 GConstructObject8 _$ConstructObject8ToProto(ConstructObject8 instance) {
   var proto = GConstructObject8();
 
-  proto.number = Int32Value(value: instance.number);
+  if (instance.number != null) {
+    proto.number = Int32Value(value: instance.number);
+  }
 
   proto.name = instance.name;
 

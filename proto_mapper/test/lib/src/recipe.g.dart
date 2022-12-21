@@ -25,7 +25,9 @@ GRecipe _$RecipeToProto(Recipe instance) {
   var proto = GRecipe();
 
   proto.title = instance.title;
-  proto.description = StringValue(value: instance.description);
+  if (instance.description != null) {
+    proto.description = StringValue(value: instance.description);
+  }
 
   proto.category = const $CategoryProtoMapper().toProto(instance.category);
   proto.ingredients.addAll(instance.ingredients
@@ -52,11 +54,17 @@ GRecipe _$RecipeToProto(Recipe instance) {
   }
 
   proto.isPublished = instance.isPublished;
-  proto.requiresRobot = BoolValue(value: instance.requiresRobot);
+  if (instance.requiresRobot != null) {
+    proto.requiresRobot = BoolValue(value: instance.requiresRobot);
+  }
 
-  proto.grossWeight = DoubleValue(value: instance.grossWeight);
+  if (instance.grossWeight != null) {
+    proto.grossWeight = DoubleValue(value: instance.grossWeight);
+  }
 
-  proto.netWeight = DoubleValue(value: instance.netWeight);
+  if (instance.netWeight != null) {
+    proto.netWeight = DoubleValue(value: instance.netWeight);
+  }
 
   proto.mainApplianceType =
       GApplianceType.valueOf(instance.mainApplianceType.index)!;

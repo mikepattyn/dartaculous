@@ -24,7 +24,9 @@ class $PersonProtoMapper implements ProtoMapper<Person, GPerson> {
 GPerson _$PersonToProto(Person instance) {
   var proto = GPerson();
 
-  proto.boolValue = BoolValue(value: instance.boolValue);
+  if (instance.boolValue != null) {
+    proto.boolValue = BoolValue(value: instance.boolValue);
+  }
 
   proto.decVal = instance.decVal.$toProtoBytes();
 

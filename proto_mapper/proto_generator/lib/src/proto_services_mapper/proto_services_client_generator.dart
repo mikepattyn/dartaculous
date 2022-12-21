@@ -233,8 +233,8 @@ abstract class ${serviceClassName}ClientBase implements $className {
 
     resultBuffer.write(r'final $result = ');
 
-    final assignment = fieldCodeGenerator.fromProtoExpression;
-    returnBuffer.writeln('final \$ret = $assignment;');
+    returnBuffer
+        .writeln('final \$ret = ${fieldCodeGenerator.fromProtoExpression};');
     returnBuffer.writeln(r'return $ret;');
 
     return rType;

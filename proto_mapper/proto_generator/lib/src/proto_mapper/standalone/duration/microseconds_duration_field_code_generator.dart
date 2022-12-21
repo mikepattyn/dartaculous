@@ -3,12 +3,12 @@ import '../../standalone_field_code_generator.dart';
 
 class MicrosecondsDurationFieldCodeGenerator
     extends StandaloneFieldCodeGenerator {
-  MicrosecondsDurationFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor, {
-    String refName = StandaloneFieldCodeGenerator.defaultRefName,
-    String protoRefName = StandaloneFieldCodeGenerator.defaultProtoRefName,
+  MicrosecondsDurationFieldCodeGenerator({
+    required FieldDescriptor fieldDescriptor,
+    required String refName,
+    required String protoRefName,
   }) : super(
-          fieldDescriptor,
+          fieldDescriptor: fieldDescriptor,
           refName: refName,
           protoRefName: protoRefName,
         );

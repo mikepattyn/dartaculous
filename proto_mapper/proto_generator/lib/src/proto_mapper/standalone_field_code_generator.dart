@@ -1,22 +1,16 @@
-import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
-import 'standalone/bigint_field_code_generator.dart';
 import 'standalone/bool_field_code_generator.dart';
 import 'standalone/datetime_field_code_generator.dart';
 import 'standalone/duration/microseconds_duration_field_code_generator.dart';
 import 'standalone/string_field_code_generator.dart';
 import 'field_code_generator.dart';
 import 'standalone/int_field_code_generator.dart';
-import 'standalone/decimal_field_code_generator.dart';
 import 'standalone/duration/milliseconds_duration_field_code_generator.dart';
 import 'field_descriptor.dart';
 
 abstract class StandaloneFieldCodeGenerator implements FieldCodeGenerator {
-  static const defaultRefName = 'instance';
-  static const defaultProtoRefName = 'proto';
-
   final FieldDescriptor fieldDescriptor;
   final String refName;
   final String protoRefName;
@@ -24,10 +18,10 @@ abstract class StandaloneFieldCodeGenerator implements FieldCodeGenerator {
   String get ref => refName.isEmpty ? '' : '$refName.';
   String get protoRef => protoRefName.isEmpty ? '' : '$protoRefName.';
 
-  StandaloneFieldCodeGenerator(
-    this.fieldDescriptor, {
-    this.refName = defaultRefName,
-    this.protoRefName = defaultProtoRefName,
+  StandaloneFieldCodeGenerator({
+    required this.fieldDescriptor,
+    required this.refName,
+    required this.protoRefName,
   });
 
   MapProto get mapProtoBase => fieldDescriptor.protoMapperAnnotation;
@@ -51,11 +45,6 @@ abstract class StandaloneFieldCodeGenerator implements FieldCodeGenerator {
   String get toProtoNullableExpression => toProtoExpression;
 
   @override
-  String get fromProtoMap => '$fieldName = $fromProtoExpression';
-  @override
-  String get constructorMap => '$fieldName: $fromProtoExpression, ';
-
-  @override
   String get fromProtoExpression {
     if (fieldDescriptor.isNullable) return fromProtoNullableExpression;
     return fromProtoNonNullableExpression;
@@ -71,47 +60,33 @@ abstract class StandaloneFieldCodeGenerator implements FieldCodeGenerator {
 
   static StandaloneFieldCodeGenerator? fromFieldDescriptor({
     required FieldDescriptor fieldDescriptor,
-    String refName = StandaloneFieldCodeGenerator.defaultRefName,
-    String protoRefName = StandaloneFieldCodeGenerator.defaultProtoRefName,
+    required String refName,
+    required String protoRefName,
   }) {
     if (fieldDescriptor.fieldElementType.isDartCoreString) {
       return StringFieldCodeGenerator(
-        fieldDescriptor,
+        fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreBool) {
       return BoolFieldCodeGenerator(
-        fieldDescriptor,
+        fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreInt) {
       return IntFieldCodeGenerator(
-        fieldDescriptor,
+        fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
     }
     if (fieldDescriptor.fieldElementTypeName == (DateTime).toString()) {
       return DateTimeFieldCodeGenerator(
-        fieldDescriptor,
-        refName: refName,
-        protoRefName: protoRefName,
-      );
-    }
-    if (fieldDescriptor.fieldElementTypeName == (BigInt).toString()) {
-      return BigIntFieldCodeGenerator(
-        fieldDescriptor,
-        refName: refName,
-        protoRefName: protoRefName,
-      );
-    }
-    if (fieldDescriptor.fieldElementTypeName == (Decimal).toString()) {
-      return DecimalFieldCodeGenerator(
-        fieldDescriptor,
+        fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
@@ -120,13 +95,13 @@ abstract class StandaloneFieldCodeGenerator implements FieldCodeGenerator {
       switch (fieldDescriptor.durationPrecision) {
         case TimePrecision.milliseconds:
           return MillisecondsDurationFieldCodeGenerator(
-            fieldDescriptor,
+            fieldDescriptor: fieldDescriptor,
             refName: refName,
             protoRefName: protoRefName,
           );
         case TimePrecision.microseconds:
           return MicrosecondsDurationFieldCodeGenerator(
-            fieldDescriptor,
+            fieldDescriptor: fieldDescriptor,
             refName: refName,
             protoRefName: protoRefName,
           );
