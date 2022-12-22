@@ -112,10 +112,8 @@ final $typed_data.Uint8List gListOfKitchenDescriptor = $convert.base64Decode('Cg
 const GChef$json = const {
   '1': 'GChef',
   '2': const [
-    const {'1': 'favorite_recipe', '3': 1, '4': 1, '5': 11, '6': '.GRecipe', '10': 'favoriteRecipe'},
-    const {'1': 'favorite_recipe_has_value', '3': 2, '4': 1, '5': 8, '10': 'favoriteRecipeHasValue'},
-    const {'1': 'favorite_knife', '3': 3, '4': 1, '5': 11, '6': '.GKnife', '10': 'favoriteKnife'},
-    const {'1': 'favorite_knife_has_value', '3': 4, '4': 1, '5': 8, '10': 'favoriteKnifeHasValue'},
+    const {'1': 'favorite_recipe', '3': 2, '4': 1, '5': 11, '6': '.GRecipe', '10': 'favoriteRecipe'},
+    const {'1': 'favorite_knife', '3': 4, '4': 1, '5': 11, '6': '.GKnife', '10': 'favoriteKnife'},
     const {'1': 'favorite_appliance_type', '3': 5, '4': 1, '5': 14, '6': '.GApplianceType', '10': 'favoriteApplianceType'},
     const {'1': 'favorite_words', '3': 6, '4': 3, '5': 9, '10': 'favoriteWords'},
     const {'1': 'birthdate', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'birthdate'},
@@ -124,7 +122,7 @@ const GChef$json = const {
 };
 
 /// Descriptor for `GChef`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gChefDescriptor = $convert.base64Decode('CgVHQ2hlZhIxCg9mYXZvcml0ZV9yZWNpcGUYASABKAsyCC5HUmVjaXBlUg5mYXZvcml0ZVJlY2lwZRI5ChlmYXZvcml0ZV9yZWNpcGVfaGFzX3ZhbHVlGAIgASgIUhZmYXZvcml0ZVJlY2lwZUhhc1ZhbHVlEi4KDmZhdm9yaXRlX2tuaWZlGAMgASgLMgcuR0tuaWZlUg1mYXZvcml0ZUtuaWZlEjcKGGZhdm9yaXRlX2tuaWZlX2hhc192YWx1ZRgEIAEoCFIVZmF2b3JpdGVLbmlmZUhhc1ZhbHVlEkcKF2Zhdm9yaXRlX2FwcGxpYW5jZV90eXBlGAUgASgOMg8uR0FwcGxpYW5jZVR5cGVSFWZhdm9yaXRlQXBwbGlhbmNlVHlwZRIlCg5mYXZvcml0ZV93b3JkcxgGIAMoCVINZmF2b3JpdGVXb3JkcxI4CgliaXJ0aGRhdGUYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgliaXJ0aGRhdGUSOAoKc2hlbGZfbGlmZRgIIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvblIJc2hlbGZMaWZl');
+final $typed_data.Uint8List gChefDescriptor = $convert.base64Decode('CgVHQ2hlZhIxCg9mYXZvcml0ZV9yZWNpcGUYAiABKAsyCC5HUmVjaXBlUg5mYXZvcml0ZVJlY2lwZRIuCg5mYXZvcml0ZV9rbmlmZRgEIAEoCzIHLkdLbmlmZVINZmF2b3JpdGVLbmlmZRJHChdmYXZvcml0ZV9hcHBsaWFuY2VfdHlwZRgFIAEoDjIPLkdBcHBsaWFuY2VUeXBlUhVmYXZvcml0ZUFwcGxpYW5jZVR5cGUSJQoOZmF2b3JpdGVfd29yZHMYBiADKAlSDWZhdm9yaXRlV29yZHMSOAoJYmlydGhkYXRlGAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJYmlydGhkYXRlEjgKCnNoZWxmX2xpZmUYCCABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SCXNoZWxmTGlmZQ==');
 @$core.Deprecated('Use gListOfChefDescriptor instead')
 const GListOfChef$json = const {
   '1': 'GListOfChef',
@@ -139,10 +137,8 @@ final $typed_data.Uint8List gListOfChefDescriptor = $convert.base64Decode('CgtHT
 const GSousChef$json = const {
   '1': 'GSousChef',
   '2': const [
-    const {'1': 'favorite_recipe', '3': 1, '4': 1, '5': 11, '6': '.GRecipe', '10': 'favoriteRecipe'},
-    const {'1': 'favorite_recipe_has_value', '3': 2, '4': 1, '5': 8, '10': 'favoriteRecipeHasValue'},
-    const {'1': 'favorite_knife', '3': 3, '4': 1, '5': 11, '6': '.GKnife', '10': 'favoriteKnife'},
-    const {'1': 'favorite_knife_has_value', '3': 4, '4': 1, '5': 8, '10': 'favoriteKnifeHasValue'},
+    const {'1': 'favorite_recipe', '3': 2, '4': 1, '5': 11, '6': '.GRecipe', '10': 'favoriteRecipe'},
+    const {'1': 'favorite_knife', '3': 4, '4': 1, '5': 11, '6': '.GKnife', '10': 'favoriteKnife'},
     const {'1': 'favorite_appliance_type', '3': 5, '4': 1, '5': 14, '6': '.GApplianceType', '10': 'favoriteApplianceType'},
     const {'1': 'favorite_words', '3': 6, '4': 3, '5': 9, '10': 'favoriteWords'},
     const {'1': 'birthdate', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'birthdate'},
@@ -151,7 +147,7 @@ const GSousChef$json = const {
 };
 
 /// Descriptor for `GSousChef`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gSousChefDescriptor = $convert.base64Decode('CglHU291c0NoZWYSMQoPZmF2b3JpdGVfcmVjaXBlGAEgASgLMgguR1JlY2lwZVIOZmF2b3JpdGVSZWNpcGUSOQoZZmF2b3JpdGVfcmVjaXBlX2hhc192YWx1ZRgCIAEoCFIWZmF2b3JpdGVSZWNpcGVIYXNWYWx1ZRIuCg5mYXZvcml0ZV9rbmlmZRgDIAEoCzIHLkdLbmlmZVINZmF2b3JpdGVLbmlmZRI3ChhmYXZvcml0ZV9rbmlmZV9oYXNfdmFsdWUYBCABKAhSFWZhdm9yaXRlS25pZmVIYXNWYWx1ZRJHChdmYXZvcml0ZV9hcHBsaWFuY2VfdHlwZRgFIAEoDjIPLkdBcHBsaWFuY2VUeXBlUhVmYXZvcml0ZUFwcGxpYW5jZVR5cGUSJQoOZmF2b3JpdGVfd29yZHMYBiADKAlSDWZhdm9yaXRlV29yZHMSOAoJYmlydGhkYXRlGAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJYmlydGhkYXRlEjgKCnNoZWxmX2xpZmUYCCABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SCXNoZWxmTGlmZQ==');
+final $typed_data.Uint8List gSousChefDescriptor = $convert.base64Decode('CglHU291c0NoZWYSMQoPZmF2b3JpdGVfcmVjaXBlGAIgASgLMgguR1JlY2lwZVIOZmF2b3JpdGVSZWNpcGUSLgoOZmF2b3JpdGVfa25pZmUYBCABKAsyBy5HS25pZmVSDWZhdm9yaXRlS25pZmUSRwoXZmF2b3JpdGVfYXBwbGlhbmNlX3R5cGUYBSABKA4yDy5HQXBwbGlhbmNlVHlwZVIVZmF2b3JpdGVBcHBsaWFuY2VUeXBlEiUKDmZhdm9yaXRlX3dvcmRzGAYgAygJUg1mYXZvcml0ZVdvcmRzEjgKCWJpcnRoZGF0ZRgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWJpcnRoZGF0ZRI4CgpzaGVsZl9saWZlGAggASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uUglzaGVsZkxpZmU=');
 @$core.Deprecated('Use gListOfSousChefDescriptor instead')
 const GListOfSousChef$json = const {
   '1': 'GListOfSousChef',
@@ -166,18 +162,17 @@ final $typed_data.Uint8List gListOfSousChefDescriptor = $convert.base64Decode('C
 const GKnifeMaster$json = const {
   '1': 'GKnifeMaster',
   '2': const [
-    const {'1': 'favorite_recipe', '3': 1, '4': 1, '5': 11, '6': '.GRecipe', '10': 'favoriteRecipe'},
-    const {'1': 'favorite_recipe_has_value', '3': 2, '4': 1, '5': 8, '10': 'favoriteRecipeHasValue'},
+    const {'1': 'favorite_recipe', '3': 2, '4': 1, '5': 11, '6': '.GRecipe', '10': 'favoriteRecipe'},
     const {'1': 'favorite_appliance_type', '3': 3, '4': 1, '5': 14, '6': '.GApplianceType', '10': 'favoriteApplianceType'},
     const {'1': 'favorite_words', '3': 4, '4': 3, '5': 9, '10': 'favoriteWords'},
     const {'1': 'birthdate', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'birthdate'},
     const {'1': 'shelf_life', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Duration', '10': 'shelfLife'},
-    const {'1': 'favorite_knife', '3': 8, '4': 1, '5': 11, '6': '.GKnife', '10': 'favoriteKnife'},
+    const {'1': 'favorite_knife', '3': 7, '4': 1, '5': 11, '6': '.GKnife', '10': 'favoriteKnife'},
   ],
 };
 
 /// Descriptor for `GKnifeMaster`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gKnifeMasterDescriptor = $convert.base64Decode('CgxHS25pZmVNYXN0ZXISMQoPZmF2b3JpdGVfcmVjaXBlGAEgASgLMgguR1JlY2lwZVIOZmF2b3JpdGVSZWNpcGUSOQoZZmF2b3JpdGVfcmVjaXBlX2hhc192YWx1ZRgCIAEoCFIWZmF2b3JpdGVSZWNpcGVIYXNWYWx1ZRJHChdmYXZvcml0ZV9hcHBsaWFuY2VfdHlwZRgDIAEoDjIPLkdBcHBsaWFuY2VUeXBlUhVmYXZvcml0ZUFwcGxpYW5jZVR5cGUSJQoOZmF2b3JpdGVfd29yZHMYBCADKAlSDWZhdm9yaXRlV29yZHMSOAoJYmlydGhkYXRlGAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJYmlydGhkYXRlEjgKCnNoZWxmX2xpZmUYBiABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SCXNoZWxmTGlmZRIuCg5mYXZvcml0ZV9rbmlmZRgIIAEoCzIHLkdLbmlmZVINZmF2b3JpdGVLbmlmZQ==');
+final $typed_data.Uint8List gKnifeMasterDescriptor = $convert.base64Decode('CgxHS25pZmVNYXN0ZXISMQoPZmF2b3JpdGVfcmVjaXBlGAIgASgLMgguR1JlY2lwZVIOZmF2b3JpdGVSZWNpcGUSRwoXZmF2b3JpdGVfYXBwbGlhbmNlX3R5cGUYAyABKA4yDy5HQXBwbGlhbmNlVHlwZVIVZmF2b3JpdGVBcHBsaWFuY2VUeXBlEiUKDmZhdm9yaXRlX3dvcmRzGAQgAygJUg1mYXZvcml0ZVdvcmRzEjgKCWJpcnRoZGF0ZRgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWJpcnRoZGF0ZRI4CgpzaGVsZl9saWZlGAYgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uUglzaGVsZkxpZmUSLgoOZmF2b3JpdGVfa25pZmUYByABKAsyBy5HS25pZmVSDWZhdm9yaXRlS25pZmU=');
 @$core.Deprecated('Use gListOfKnifeMasterDescriptor instead')
 const GListOfKnifeMaster$json = const {
   '1': 'GListOfKnifeMaster',
@@ -252,25 +247,23 @@ const GListOfPrecisionSubject$json = const {
 
 /// Descriptor for `GListOfPrecisionSubject`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gListOfPrecisionSubjectDescriptor = $convert.base64Decode('ChdHTGlzdE9mUHJlY2lzaW9uU3ViamVjdBIoCgVpdGVtcxgBIAMoCzISLkdQcmVjaXNpb25TdWJqZWN0UgVpdGVtcw==');
-@$core.Deprecated('Use nullableGKnifeTypeDescriptor instead')
-const NullableGKnifeType$json = const {
-  '1': 'NullableGKnifeType',
+@$core.Deprecated('Use gKnifeType_MessageDescriptor instead')
+const GKnifeType_Message$json = const {
+  '1': 'GKnifeType_Message',
   '2': const [
-    const {'1': 'has_value', '3': 1, '4': 1, '5': 8, '10': 'hasValue'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 14, '6': '.GKnifeType', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 1, '5': 14, '6': '.GKnifeType', '10': 'value'},
   ],
 };
 
-/// Descriptor for `NullableGKnifeType`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List nullableGKnifeTypeDescriptor = $convert.base64Decode('ChJOdWxsYWJsZUdLbmlmZVR5cGUSGwoJaGFzX3ZhbHVlGAEgASgIUghoYXNWYWx1ZRIhCgV2YWx1ZRgCIAEoDjILLkdLbmlmZVR5cGVSBXZhbHVl');
-@$core.Deprecated('Use nullableGChefTypeDescriptor instead')
-const NullableGChefType$json = const {
-  '1': 'NullableGChefType',
+/// Descriptor for `GKnifeType_Message`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gKnifeType_MessageDescriptor = $convert.base64Decode('ChJHS25pZmVUeXBlX01lc3NhZ2USIQoFdmFsdWUYASABKA4yCy5HS25pZmVUeXBlUgV2YWx1ZQ==');
+@$core.Deprecated('Use gChefType_MessageDescriptor instead')
+const GChefType_Message$json = const {
+  '1': 'GChefType_Message',
   '2': const [
-    const {'1': 'has_value', '3': 1, '4': 1, '5': 8, '10': 'hasValue'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 14, '6': '.GChefType', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 1, '5': 14, '6': '.GChefType', '10': 'value'},
   ],
 };
 
-/// Descriptor for `NullableGChefType`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List nullableGChefTypeDescriptor = $convert.base64Decode('ChFOdWxsYWJsZUdDaGVmVHlwZRIbCgloYXNfdmFsdWUYASABKAhSCGhhc1ZhbHVlEiAKBXZhbHVlGAIgASgOMgouR0NoZWZUeXBlUgV2YWx1ZQ==');
+/// Descriptor for `GChefType_Message`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gChefType_MessageDescriptor = $convert.base64Decode('ChFHQ2hlZlR5cGVfTWVzc2FnZRIgCgV2YWx1ZRgBIAEoDjIKLkdDaGVmVHlwZVIFdmFsdWU=');

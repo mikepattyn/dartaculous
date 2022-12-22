@@ -39,7 +39,6 @@ class ListFieldCodeGenerator extends CompositeFieldCodeGenerator {
       ? '''        
       $protoRef$protoFieldName
         .addAll($ref$fieldName${_toProtoConversion != '' ? '?' : ''}$_toProtoConversion ?? []);
-        $hasValueToProtoMap;
       '''
       : '''
         $protoRef$protoFieldName
@@ -64,6 +63,9 @@ class ListFieldCodeGenerator extends CompositeFieldCodeGenerator {
   }
 
   @override
-  String get fromProtoNonNullableExpression =>
+  String get fromProtoNullableExpression => fromProtoExpression;
+
+  @override
+  String get fromProtoExpression =>
       '''List<${fieldDescriptor.parameterTypeName}>.unmodifiable($ref$protoFieldName.map((e) => $_protoToValue))''';
 }

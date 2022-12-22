@@ -1,7 +1,8 @@
-import '../field_descriptor.dart';
-import 'generic_field_code_generator.dart';
+import 'package:proto_generator/src/proto/field_code_generator.dart';
 
-class StringFieldCodeGenerator extends GenericFieldCodeGenerator {
+import '../field_descriptor.dart';
+
+class StringFieldCodeGenerator extends StandaloneFieldCodeGenerator {
   StringFieldCodeGenerator(
     FieldDescriptor fieldDescriptor,
     List<int> lineNumbers,
@@ -9,4 +10,7 @@ class StringFieldCodeGenerator extends GenericFieldCodeGenerator {
           fieldDescriptor,
           lineNumbers,
         );
+
+  @override
+  String get fieldType => 'string';
 }

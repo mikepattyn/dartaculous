@@ -9,6 +9,7 @@ import 'package:proto_generator_test/src/crud_services_base.dart';
 import 'package:proto_generator_test/src/key.dart';
 import 'package:proto_generator_test/src/recipe_type.dart';
 
+import '../grpc/recipe_type.pb.dart';
 import '../proto_generator_test.dart';
 
 part 'recipe_services_base.g.dart';

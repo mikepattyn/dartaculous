@@ -12,11 +12,10 @@ import 'proto/field_code_generator.dart';
 import 'proto/field_code_generators/external_proto_name.dart';
 
 String createFieldDeclarations(
-  Iterable<protofield.FieldDescriptor> fieldDescriptors,
-  List<String> externalProtoNames,
-  bool useWellKnownTypes, [
-  String indent = '  ',
-]) {
+    Iterable<protofield.FieldDescriptor> fieldDescriptors,
+    List<String> externalProtoNames,
+    bool useWellKnownTypes,
+    String indent) {
   final fieldBuffer = StringBuffer();
   final lineNumbers = fieldDescriptors
       .where((fd) =>
@@ -31,17 +30,13 @@ String createFieldDeclarations(
     var fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor, lineNumbers, useWellKnownTypes);
 
-    var fieldLine = fieldCodeGenerator.fieldLine;
-    fieldBuffer.writeln(
-        '$indent${fieldDescriptor.isRepeated ? 'repeated ' : ''}$fieldLine');
-    if (fieldDescriptor.isNullable && fieldCodeGenerator.hasValueLine != null) {
-      fieldBuffer.writeln('  ${fieldCodeGenerator.hasValueLine}');
-    }
+    var renderField = fieldCodeGenerator.render(indent);
+    fieldBuffer.writeln(renderField);
 
     if (fieldCodeGenerator is! ExternalProtoNames) continue;
     var fieldExternalProtoNames =
         (fieldCodeGenerator as ExternalProtoNames).externalProtoNames;
-    if (fieldExternalProtoNames != null) {
+    if (fieldExternalProtoNames.isNotEmpty) {
       for (String externalProtoName in fieldExternalProtoNames) {
         if (!externalProtoNames.contains(externalProtoName)) {
           externalProtoNames.add(externalProtoName);
@@ -51,28 +46,6 @@ String createFieldDeclarations(
   }
 
   return fieldBuffer.toString();
-}
-
-_nextAvailable(List<int> numbers) {
-  // Compute XOR of all the elements in the array
-  int xor = 0;
-  for (final i in numbers) {
-    xor = xor ^ i;
-  }
-
-  // Compute XOR of all the elements from 1 to `n+1`
-  final n = numbers.length;
-  for (int i = 1; i <= n + 1; i++) {
-    xor = xor ^ i;
-  }
-
-  return xor;
-}
-
-void main() {
-  final x = <int>[];
-  final avail = _nextAvailable(x);
-  print(avail);
 }
 
 extension ProtoDartTypeExtension on DartType {

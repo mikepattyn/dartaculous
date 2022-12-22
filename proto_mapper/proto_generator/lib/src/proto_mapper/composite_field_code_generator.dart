@@ -1,7 +1,7 @@
 import 'package:proto_annotations/proto_annotations.dart';
 
 import 'composites/entity_field_code_generator.dart';
-import 'composites/generic_field_code_generator.dart';
+// import 'composites/generic_field_code_generator.dart';
 import 'composites/iterable_field_code_generator.dart';
 import 'field_code_generator.dart';
 import 'composites/enum_field_code_generator.dart';
@@ -30,17 +30,13 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
   MapProto get mapProtoBase => fieldDescriptor.protoMapperAnnotation;
 
   @override
-  String get toProtoMap => fieldDescriptor.isNullable
+  String get toProtoMap => fieldDescriptor.renderNullable
       ? '''
         if ($ref$fieldName != null) {
           $protoRef$protoFieldName = $toProtoNullableExpression; 
         }
-        ${hasValueToProtoMap.isEmpty ? '' : '$hasValueToProtoMap;'}
       '''
       : '$protoRef$protoFieldName = $toProtoExpression;';
-
-  String get hasValueToProtoMap =>
-      '$protoRef${protoFieldName}HasValue = $ref$fieldName != null';
 
   String get instanceReference =>
       '$ref$fieldName${fieldDescriptor.isNullable && ref.isNotEmpty ? '!' : ''}';
@@ -48,15 +44,20 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
   String get toProtoNullableExpression => toProtoExpression;
 
   @override
-  String get fromProtoExpression {
-    if (fieldDescriptor.isNullable) return fromProtoNullableExpression;
-    return fromProtoNonNullableExpression;
+  String get fromProtoMap {
+    if (fieldDescriptor.renderNullable) {
+      return fromProtoNullableExpression;
+    }
+    return fromProtoExpression;
   }
 
-  String get fromProtoNullableExpression =>
-      '''($ref${protoFieldName}HasValue ? ($fromProtoNonNullableExpression) : null)''';
+  String get fromProtoExpression;
+  String get fromProtoNullableExpression;
 
-  String get fromProtoNonNullableExpression => '$ref$protoFieldName';
+  // String get fromProtoNullableExpression =>
+  //     '''($ref${protoFieldName}HasValue ? ($fromProtoExpression) : null)''';
+
+  // String get fromProtoExpression => '$ref$protoFieldName';
 
   String get fieldName => fieldDescriptor.displayName;
   String get protoFieldName => fieldDescriptor.protoFieldName;
@@ -124,10 +125,12 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
       );
     }
 
-    return GenericFieldCodeGenerator(
-      fieldDescriptor: fieldDescriptor,
-      refName: refName,
-      protoRefName: protoRefName,
-    );
+    throw UnimplementedError(
+        'Unsupported type ${fieldDescriptor.fieldElementType}');
+    // return GenericFieldCodeGenerator(
+    //   fieldDescriptor: fieldDescriptor,
+    //   refName: refName,
+    //   protoRefName: protoRefName,
+    // );
   }
 }

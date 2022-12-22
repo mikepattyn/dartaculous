@@ -20,10 +20,8 @@ class GIngredient extends $pb.GeneratedMessage {
     ..aOM<$6.Duration>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cookingDuration', subBuilder: $6.Duration.create)
     ..aOM<$5.GComponent>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mainComponent', subBuilder: $5.GComponent.create)
     ..pc<$5.GComponent>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'otherComponents', $pb.PbFieldType.PM, subBuilder: $5.GComponent.create)
-    ..aOM<$5.GComponent>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'alternativeComponent', subBuilder: $5.GComponent.create)
-    ..aOB(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'alternativeComponentHasValue')
-    ..pc<$5.GComponent>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondaryComponents', $pb.PbFieldType.PM, subBuilder: $5.GComponent.create)
-    ..aOB(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondaryComponentsHasValue')
+    ..aOM<$5.GComponent>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'alternativeComponent', subBuilder: $5.GComponent.create)
+    ..pc<$5.GComponent>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondaryComponents', $pb.PbFieldType.PM, subBuilder: $5.GComponent.create)
     ..hasRequiredFields = false
   ;
 
@@ -36,9 +34,7 @@ class GIngredient extends $pb.GeneratedMessage {
     $5.GComponent? mainComponent,
     $core.Iterable<$5.GComponent>? otherComponents,
     $5.GComponent? alternativeComponent,
-    $core.bool? alternativeComponentHasValue,
     $core.Iterable<$5.GComponent>? secondaryComponents,
-    $core.bool? secondaryComponentsHasValue,
   }) {
     final _result = create();
     if (description != null) {
@@ -62,14 +58,8 @@ class GIngredient extends $pb.GeneratedMessage {
     if (alternativeComponent != null) {
       _result.alternativeComponent = alternativeComponent;
     }
-    if (alternativeComponentHasValue != null) {
-      _result.alternativeComponentHasValue = alternativeComponentHasValue;
-    }
     if (secondaryComponents != null) {
       _result.secondaryComponents.addAll(secondaryComponents);
-    }
-    if (secondaryComponentsHasValue != null) {
-      _result.secondaryComponentsHasValue = secondaryComponentsHasValue;
     }
     return _result;
   }
@@ -146,37 +136,19 @@ class GIngredient extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.List<$5.GComponent> get otherComponents => $_getList(5);
 
-  @$pb.TagNumber(7)
+  @$pb.TagNumber(8)
   $5.GComponent get alternativeComponent => $_getN(6);
-  @$pb.TagNumber(7)
-  set alternativeComponent($5.GComponent v) { setField(7, v); }
-  @$pb.TagNumber(7)
+  @$pb.TagNumber(8)
+  set alternativeComponent($5.GComponent v) { setField(8, v); }
+  @$pb.TagNumber(8)
   $core.bool hasAlternativeComponent() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearAlternativeComponent() => clearField(7);
-  @$pb.TagNumber(7)
+  @$pb.TagNumber(8)
+  void clearAlternativeComponent() => clearField(8);
+  @$pb.TagNumber(8)
   $5.GComponent ensureAlternativeComponent() => $_ensure(6);
 
-  @$pb.TagNumber(8)
-  $core.bool get alternativeComponentHasValue => $_getBF(7);
-  @$pb.TagNumber(8)
-  set alternativeComponentHasValue($core.bool v) { $_setBool(7, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasAlternativeComponentHasValue() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearAlternativeComponentHasValue() => clearField(8);
-
-  @$pb.TagNumber(9)
-  $core.List<$5.GComponent> get secondaryComponents => $_getList(8);
-
   @$pb.TagNumber(10)
-  $core.bool get secondaryComponentsHasValue => $_getBF(9);
-  @$pb.TagNumber(10)
-  set secondaryComponentsHasValue($core.bool v) { $_setBool(9, v); }
-  @$pb.TagNumber(10)
-  $core.bool hasSecondaryComponentsHasValue() => $_has(9);
-  @$pb.TagNumber(10)
-  void clearSecondaryComponentsHasValue() => clearField(10);
+  $core.List<$5.GComponent> get secondaryComponents => $_getList(7);
 }
 
 class GListOfIngredient extends $pb.GeneratedMessage {

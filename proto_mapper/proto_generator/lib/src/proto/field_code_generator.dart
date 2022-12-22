@@ -1,52 +1,33 @@
 import 'package:decimal/decimal.dart';
 import 'package:proto_generator/src/proto/field_code_generators/bigint_field_code_generator.dart';
+import 'package:proto_generator/src/proto/field_code_generators/enum_field_code_generator.dart';
 import 'package:proto_generator/src/proto_common.dart';
-
 import 'field_code_generators/bool_field_code_generator.dart';
 import 'field_code_generators/datetime_field_code_generator.dart';
 import 'field_code_generators/decimal_field_code_generator.dart';
 import 'field_code_generators/double_field_code_generator.dart';
 import 'field_code_generators/duration_field_code_generator.dart';
 import 'field_code_generators/entity_field_code_generator.dart';
-import 'field_code_generators/gbool_field_code_generator.dart';
-import 'field_code_generators/gdatetime_field_code_generator.dart';
-import 'field_code_generators/gdouble_field_code_generator.dart';
-import 'field_code_generators/gduration_field_code_generator.dart';
-import 'field_code_generators/generic_field_code_generator.dart';
-import 'field_code_generators/gint_field_code_generator.dart';
-import 'field_code_generators/gstring_field_code_generator.dart';
+import 'wkt_field_code_generators/gbool_field_code_generator.dart';
+import 'wkt_field_code_generators/gdatetime_field_code_generator.dart';
+import 'wkt_field_code_generators/gdouble_field_code_generator.dart';
+import 'wkt_field_code_generators/gduration_field_code_generator.dart';
+import 'wkt_field_code_generators/gint_field_code_generator.dart';
+import 'wkt_field_code_generators/gstring_field_code_generator.dart';
 import 'field_code_generators/int_field_code_generator.dart';
 import 'field_code_generators/map_field_code_generator.dart';
 import 'field_code_generators/string_field_code_generator.dart';
 import 'field_descriptor.dart';
 
+part 'standalone_field_code_generator.dart';
+part 'composite_field_code_generator.dart';
+part 'field_code_generator_mixin.dart';
+part 'wkt_field_code_generator.dart';
+
 abstract class FieldCodeGenerator {
-  final FieldDescriptor fieldDescriptor;
-  late final int lineNumber;
-  late final int? hasValueLineNumber;
+  String render(String indent);
 
-  FieldCodeGenerator(
-    this.fieldDescriptor,
-    List<int> lineNumbers,
-  ) {
-    lineNumber = fieldDescriptor.number ?? _nextAvailable(lineNumbers);
-    final hasValueLineNum = fieldDescriptor.isNullable
-        ? (fieldDescriptor.hasValueNumber ?? _nextAvailable(lineNumbers))
-        : null;
-    hasValueLineNumber = hasValueLineNum;
-  }
-
-  String get fieldLine =>
-      '$fieldType ${fieldDescriptor.protoFieldName} = $lineNumber;';
-
-  String? get hasValueLine => hasValueLineNumber != null
-      ? 'bool ${fieldDescriptor.protoFieldName}'
-          '${fieldDescriptor.useProtoFieldNamingConventions ? '_has_value' : 'HasValue'} = $hasValueLineNumber;'
-      : null;
-
-  String? get fieldType;
-
-  factory FieldCodeGenerator.fromFieldDescriptor(
+  static FieldCodeGenerator fromFieldDescriptor(
     FieldDescriptor fieldDescriptor,
     List<int> lineNumbers,
     bool useWellKnownTypes,
@@ -55,28 +36,38 @@ abstract class FieldCodeGenerator {
     final typeName =
         fieldDescriptor.itemType.getDisplayString(withNullability: false);
 
+    if (useWellKnownTypes) {
+      if (type.isDartCoreString) {
+        return GStringFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      }
+      if (type.isDartCoreBool) {
+        return GBoolFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      }
+      if (type.isDartCoreInt) {
+        return GIntFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      }
+      if (type.isDartCoreDouble) {
+        return GDoubleFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      }
+      if (typeName == (DateTime).toString()) {
+        return GDateTimeFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      }
+      if (typeName == (Duration).toString()) {
+        return GDurationFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      }
+    }
+
     if (type.isDartCoreString) {
-      return fieldDescriptor.fieldElementType.isDartCoreString &&
-              useWellKnownTypes
-          ? GStringFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : StringFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      StringFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (type.isDartCoreBool) {
-      return fieldDescriptor.fieldElementType.isDartCoreBool &&
-              useWellKnownTypes
-          ? GBoolFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : BoolFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return BoolFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (type.isDartCoreInt) {
-      return fieldDescriptor.fieldElementType.isDartCoreInt && useWellKnownTypes
-          ? GIntFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : IntFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return IntFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (type.isDartCoreDouble) {
-      return fieldDescriptor.fieldElementType.isDartCoreDouble &&
-              useWellKnownTypes
-          ? GDoubleFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : DoubleFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return DoubleFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (typeName == (BigInt).toString()) {
       return BigIntFieldCodeGenerator(fieldDescriptor, lineNumbers);
@@ -85,14 +76,13 @@ abstract class FieldCodeGenerator {
       return DecimalFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (typeName == (DateTime).toString()) {
-      return useWellKnownTypes
-          ? GDateTimeFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : DateTimeFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return DateTimeFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (typeName == (Duration).toString()) {
-      return useWellKnownTypes
-          ? GDurationFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : DurationFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return DurationFieldCodeGenerator(fieldDescriptor, lineNumbers);
+    }
+    if (fieldDescriptor.typeIsEnum) {
+      return EnumFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (type.hasProto) {
       return EntityFieldCodeGenerator(fieldDescriptor, lineNumbers);
@@ -100,13 +90,6 @@ abstract class FieldCodeGenerator {
     if (type.isDartCoreMap) {
       return MapFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
-    return GenericFieldCodeGenerator(fieldDescriptor, lineNumbers);
+    throw UnimplementedError('Type not supported ${fieldDescriptor.itemType}');
   }
-}
-
-int _nextAvailable(List<int> numbers) {
-  int i = 0;
-  while (numbers.contains(++i)) {}
-  numbers.add(i);
-  return i;
 }

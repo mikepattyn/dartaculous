@@ -44,6 +44,7 @@ class FieldDescriptor extends FieldDescriptorBase {
   bool get isRepeated => listParameterType != null;
   bool get _hasProtoIgnore => protoIgnoreAnnotation != null;
   bool get _hasProtoField => protoFieldAnnotation != null;
+  bool get renderNullable => isNullable && !isRepeated;
 
   String get protoFieldName => protoFieldAnnotation?.name ?? displayName;
 

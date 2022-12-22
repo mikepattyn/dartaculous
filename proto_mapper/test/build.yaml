@@ -11,3 +11,6 @@ targets:
           # dateTimePrecision: microseconds
           # durationPrecision: microseconds
           useWellKnownTypes: true
+      proto_generator:proto_services_generator:
+        options:
+          useWellKnownTypes: true

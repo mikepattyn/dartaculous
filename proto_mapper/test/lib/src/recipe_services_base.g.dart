@@ -102,7 +102,6 @@ class GRecipeService extends GRecipeServiceBase {
     final proto = G_GRecipeService_SearchNullable_Return();
     proto.value
         .addAll(value?.map((e) => const $RecipeProtoMapper().toProto(e)) ?? []);
-    proto.valueHasValue = value != null;
 
     return proto;
   }
@@ -133,7 +132,6 @@ class GRecipeService extends GRecipeServiceBase {
     if (value != null) {
       proto.value = const $RecipeProtoMapper().toProto(value);
     }
-    proto.valueHasValue = value != null;
 
     return proto;
   }
@@ -208,9 +206,9 @@ class GRecipeService extends GRecipeServiceBase {
     final value = await service.getMainRecipeTypeNullable();
     final proto = G_GRecipeService_GetMainRecipeTypeNullable_Return();
     if (value != null) {
-      proto.value = GRecipeTypes.valueOf(value.index)!;
+      proto.value =
+          GRecipeTypes_Message(value: GRecipeTypes.valueOf(value.index)!);
     }
-    proto.valueHasValue = value != null;
 
     return proto;
   }
@@ -242,7 +240,6 @@ class GRecipeService extends GRecipeServiceBase {
     final proto = G_GRecipeService_GetRecipeTypeListNullable_Return();
     proto.value.addAll(
         value?.map((e) => const $RecipeTypesProtoMapper().toProto(e)) ?? []);
-    proto.valueHasValue = value != null;
 
     return proto;
   }
@@ -271,7 +268,6 @@ class GRecipeService extends GRecipeServiceBase {
     final value = await service.getListOfIntsNullable();
     final proto = G_GRecipeService_GetListOfIntsNullable_Return();
     proto.value.addAll(value ?? []);
-    proto.valueHasValue = value != null;
 
     return proto;
   }
@@ -383,54 +379,31 @@ class GRecipeService extends GRecipeServiceBase {
 
     final p0 = (request.pStringHasValue ? (request.pString) : null);
     final p1 = (request.pIntHasValue ? (request.pInt) : null);
-    final p2 = (request.pRecipeTypesHasValue
-        ? (RecipeTypes.values[request.pRecipeTypes.value])
+    final p2 = (request.hasPRecipeTypes()
+        ? (RecipeTypes.values[request.pRecipeTypes.value.value])
         : null);
-    final p3 = (request.pRecipeHasValue
-        ? (const $RecipeProtoMapper().fromProto(request.pRecipe))
+    final p3 = (request.hasPRecipe()
+        ? const $RecipeProtoMapper().fromProto(request.pRecipe)
         : null);
-    final p4 = (request.pListStringsHasValue
-        ? (List<String>.unmodifiable(request.pListStrings.map((e) => e)))
-        : null);
-    final p5 = (request.pListIntsHasValue
-        ? (List<int>.unmodifiable(request.pListInts.map((e) => e)))
-        : null);
-    final p6 = (request.pListRecipeTypesHasValue
-        ? (List<RecipeTypes>.unmodifiable(request.pListRecipeTypes
-            .map((e) => const $RecipeTypesProtoMapper().fromProto(e))))
-        : null);
-    final p7 = (request.pListRecipesHasValue
-        ? (List<Recipe>.unmodifiable(request.pListRecipes
-            .map((e) => const $RecipeProtoMapper().fromProto(e))))
-        : null);
-    final p8 = (request.pSetStringHasValue
-        ? (Set<String>.unmodifiable(request.pSetString.map((e) => e)))
-        : null);
-    final p9 = (request.pSetIntHasValue
-        ? (Set<int>.unmodifiable(request.pSetInt.map((e) => e)))
-        : null);
-    final p10 = (request.pSetRecipeTypesHasValue
-        ? (Set<RecipeTypes>.unmodifiable(request.pSetRecipeTypes
-            .map((e) => const $RecipeTypesProtoMapper().fromProto(e))))
-        : null);
-    final p11 = (request.pSetRecipeHasValue
-        ? (Set<Recipe>.unmodifiable(request.pSetRecipe
-            .map((e) => const $RecipeProtoMapper().fromProto(e))))
-        : null);
-    final p12 = (request.pIterableStringHasValue
-        ? (List<String>.unmodifiable(request.pIterableString.map((e) => e)))
-        : null);
-    final p13 = (request.pIterableIntHasValue
-        ? (List<int>.unmodifiable(request.pIterableInt.map((e) => e)))
-        : null);
-    final p14 = (request.pIterableRecipeTypesHasValue
-        ? (List<RecipeTypes>.unmodifiable(request.pIterableRecipeTypes
-            .map((e) => const $RecipeTypesProtoMapper().fromProto(e))))
-        : null);
-    final p15 = (request.pIterableRecipeHasValue
-        ? (List<Recipe>.unmodifiable(request.pIterableRecipe
-            .map((e) => const $RecipeProtoMapper().fromProto(e))))
-        : null);
+    final p4 = List<String>.unmodifiable(request.pListStrings.map((e) => e));
+    final p5 = List<int>.unmodifiable(request.pListInts.map((e) => e));
+    final p6 = List<RecipeTypes>.unmodifiable(request.pListRecipeTypes
+        .map((e) => const $RecipeTypesProtoMapper().fromProto(e)));
+    final p7 = List<Recipe>.unmodifiable(request.pListRecipes
+        .map((e) => const $RecipeProtoMapper().fromProto(e)));
+    final p8 = Set<String>.unmodifiable(request.pSetString.map((e) => e));
+    final p9 = Set<int>.unmodifiable(request.pSetInt.map((e) => e));
+    final p10 = Set<RecipeTypes>.unmodifiable(request.pSetRecipeTypes
+        .map((e) => const $RecipeTypesProtoMapper().fromProto(e)));
+    final p11 = Set<Recipe>.unmodifiable(
+        request.pSetRecipe.map((e) => const $RecipeProtoMapper().fromProto(e)));
+    final p12 =
+        List<String>.unmodifiable(request.pIterableString.map((e) => e));
+    final p13 = List<int>.unmodifiable(request.pIterableInt.map((e) => e));
+    final p14 = List<RecipeTypes>.unmodifiable(request.pIterableRecipeTypes
+        .map((e) => const $RecipeTypesProtoMapper().fromProto(e)));
+    final p15 = List<Recipe>.unmodifiable(request.pIterableRecipe
+        .map((e) => const $RecipeProtoMapper().fromProto(e)));
 
     final value = await service.receiveLotsOfNullableArgs(
       p0,
@@ -531,10 +504,8 @@ abstract class RecipeServiceClientBase implements RecipeServiceBase {
 
     final $result = await serviceClient.searchNullable($parm);
 
-    final $ret = ($result.valueHasValue
-        ? (List<Recipe>.unmodifiable(
-            $result.value.map((e) => const $RecipeProtoMapper().fromProto(e))))
-        : null);
+    final $ret = List<Recipe>.unmodifiable(
+        $result.value.map((e) => const $RecipeProtoMapper().fromProto(e)));
     return $ret;
   }
 
@@ -555,8 +526,8 @@ abstract class RecipeServiceClientBase implements RecipeServiceBase {
 
     final $result = await serviceClient.getNullable($parm);
 
-    final $ret = ($result.valueHasValue
-        ? (const $RecipeProtoMapper().fromProto($result.value))
+    final $ret = ($result.hasValue()
+        ? const $RecipeProtoMapper().fromProto($result.value)
         : null);
     return $ret;
   }
@@ -613,8 +584,8 @@ abstract class RecipeServiceClientBase implements RecipeServiceBase {
 
     final $result = await serviceClient.getMainRecipeTypeNullable($parm);
 
-    final $ret = ($result.valueHasValue
-        ? (RecipeTypes.values[$result.value.value])
+    final $ret = ($result.hasValue()
+        ? (RecipeTypes.values[$result.value.value.value])
         : null);
     return $ret;
   }
@@ -638,10 +609,8 @@ abstract class RecipeServiceClientBase implements RecipeServiceBase {
 
     final $result = await serviceClient.getRecipeTypeListNullable($parm);
 
-    final $ret = ($result.valueHasValue
-        ? (List<RecipeTypes>.unmodifiable($result.value
-            .map((e) => const $RecipeTypesProtoMapper().fromProto(e))))
-        : null);
+    final $ret = List<RecipeTypes>.unmodifiable(
+        $result.value.map((e) => const $RecipeTypesProtoMapper().fromProto(e)));
     return $ret;
   }
 
@@ -663,9 +632,7 @@ abstract class RecipeServiceClientBase implements RecipeServiceBase {
 
     final $result = await serviceClient.getListOfIntsNullable($parm);
 
-    final $ret = ($result.valueHasValue
-        ? (List<int>.unmodifiable($result.value.map((e) => e)))
-        : null);
+    final $ret = List<int>.unmodifiable($result.value.map((e) => e));
     return $ret;
   }
 
@@ -795,60 +762,47 @@ abstract class RecipeServiceClientBase implements RecipeServiceBase {
     $parm.pIntHasValue = pInt != null;
 
     if (pRecipeTypes != null) {
-      $parm.pRecipeTypes = GRecipeTypes.valueOf(pRecipeTypes.index)!;
+      $parm.pRecipeTypes = GRecipeTypes_Message(
+          value: GRecipeTypes.valueOf(pRecipeTypes.index)!);
     }
-    $parm.pRecipeTypesHasValue = pRecipeTypes != null;
 
     if (pRecipe != null) {
       $parm.pRecipe = const $RecipeProtoMapper().toProto(pRecipe);
     }
-    $parm.pRecipeHasValue = pRecipe != null;
 
     $parm.pListStrings.addAll(pListStrings ?? []);
-    $parm.pListStringsHasValue = pListStrings != null;
 
     $parm.pListInts.addAll(pListInts ?? []);
-    $parm.pListIntsHasValue = pListInts != null;
 
     $parm.pListRecipeTypes.addAll(pListRecipeTypes
             ?.map((e) => const $RecipeTypesProtoMapper().toProto(e)) ??
         []);
-    $parm.pListRecipeTypesHasValue = pListRecipeTypes != null;
 
     $parm.pListRecipes.addAll(
         pListRecipes?.map((e) => const $RecipeProtoMapper().toProto(e)) ?? []);
-    $parm.pListRecipesHasValue = pListRecipes != null;
 
     $parm.pSetString.addAll(pSetString ?? []);
-    $parm.pSetStringHasValue = pSetString != null;
 
     $parm.pSetInt.addAll(pSetInt ?? []);
-    $parm.pSetIntHasValue = pSetInt != null;
 
     $parm.pSetRecipeTypes.addAll(pSetRecipeTypes
             ?.map((e) => const $RecipeTypesProtoMapper().toProto(e)) ??
         []);
-    $parm.pSetRecipeTypesHasValue = pSetRecipeTypes != null;
 
     $parm.pSetRecipe.addAll(
         pSetRecipe?.map((e) => const $RecipeProtoMapper().toProto(e)) ?? []);
-    $parm.pSetRecipeHasValue = pSetRecipe != null;
 
     $parm.pIterableString.addAll(pIterableString ?? []);
-    $parm.pIterableStringHasValue = pIterableString != null;
 
     $parm.pIterableInt.addAll(pIterableInt ?? []);
-    $parm.pIterableIntHasValue = pIterableInt != null;
 
     $parm.pIterableRecipeTypes.addAll(pIterableRecipeTypes
             ?.map((e) => const $RecipeTypesProtoMapper().toProto(e)) ??
         []);
-    $parm.pIterableRecipeTypesHasValue = pIterableRecipeTypes != null;
 
     $parm.pIterableRecipe.addAll(
         pIterableRecipe?.map((e) => const $RecipeProtoMapper().toProto(e)) ??
             []);
-    $parm.pIterableRecipeHasValue = pIterableRecipe != null;
 
     final $result = await serviceClient.receiveLotsOfNullableArgs($parm);
 

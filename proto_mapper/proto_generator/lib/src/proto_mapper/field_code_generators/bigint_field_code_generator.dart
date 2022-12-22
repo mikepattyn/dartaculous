@@ -1,20 +1,10 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
+import 'field_code_generator_identifiers.dart';
 
-mixin X {
-  FieldDescriptor get fieldDescriptor;
-  String get refName;
-  String get protoRefName;
-  String get fromProtoExpression;
-
-  String get fieldName => fieldDescriptor.displayName;
-  String get ref => refName.isEmpty ? '' : '$refName.';
-  String get protoRef => protoRefName.isEmpty ? '' : '$protoRefName.';
-  String get protoFieldName => fieldDescriptor.protoFieldName;
-
-}
-
-class BigIntFieldCodeGenerator with X implements FieldCodeGenerator {
+class BigIntFieldCodeGenerator
+    with FieldCodeGeneratorIdentifiers
+    implements FieldCodeGenerator {
   BigIntFieldCodeGenerator({
     required this.fieldDescriptor,
     required this.refName,
@@ -33,6 +23,6 @@ class BigIntFieldCodeGenerator with X implements FieldCodeGenerator {
       '$protoRef$protoFieldName = $ref$fieldName.\$toProtoBytes();';
 
   @override
-  String get fromProtoExpression =>
+  String get fromProtoMap =>
       '${fieldDescriptor.isNullable ? '\$NullableBigIntProtoExtension' : '\$BigIntProtoExtension'}.\$fromProtoBytes($ref$protoFieldName)';
 }

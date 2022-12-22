@@ -42,12 +42,10 @@ GIngredient _$IngredientToProto(Ingredient instance) {
     proto.alternativeComponent =
         const $ComponentProtoMapper().toProto(instance.alternativeComponent!);
   }
-  proto.alternativeComponentHasValue = instance.alternativeComponent != null;
 
   proto.secondaryComponents.addAll(instance.secondaryComponents
           ?.map((e) => const $ComponentProtoMapper().toProto(e)) ??
       []);
-  proto.secondaryComponentsHasValue = instance.secondaryComponents != null;
 
   return proto;
 }
@@ -63,14 +61,13 @@ Ingredient _$IngredientFromProto(GIngredient instance) => Ingredient(
           const $ComponentProtoMapper().fromProto(instance.mainComponent),
       otherComponents: List<Component>.unmodifiable(instance.otherComponents
           .map((e) => const $ComponentProtoMapper().fromProto(e))),
-      alternativeComponent: (instance.alternativeComponentHasValue
-          ? (const $ComponentProtoMapper()
-              .fromProto(instance.alternativeComponent))
+      alternativeComponent: (instance.hasAlternativeComponent()
+          ? const $ComponentProtoMapper()
+              .fromProto(instance.alternativeComponent)
           : null),
-      secondaryComponents: (instance.secondaryComponentsHasValue
-          ? (List<Component>.unmodifiable(instance.secondaryComponents
-              .map((e) => const $ComponentProtoMapper().fromProto(e))))
-          : null),
+      secondaryComponents: List<Component>.unmodifiable(instance
+          .secondaryComponents
+          .map((e) => const $ComponentProtoMapper().fromProto(e))),
     );
 
 extension $IngredientProtoExtension on Ingredient {

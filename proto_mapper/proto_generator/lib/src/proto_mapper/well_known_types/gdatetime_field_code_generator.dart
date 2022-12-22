@@ -27,7 +27,7 @@ class GDateTimeFieldCodeGenerator extends WKTFieldCodeGenerator {
       '''(${ref}has${protoFieldName.pascalName}() ? ($fromProtoNonNullableExpression) : null)''';
 
   @override
-  String get fromProtoExpression {
+  String get fromProtoMap {
     if (fieldDescriptor.isNullable) return fromProtoNullableExpression;
     return fromProtoNonNullableExpression;
   }

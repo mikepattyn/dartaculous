@@ -13,64 +13,50 @@ import 'recipe_type.pbenum.dart';
 
 export 'recipe_type.pbenum.dart';
 
-class NullableGRecipeTypes extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'NullableGRecipeTypes', createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hasValue')
-    ..e<GRecipeTypes>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GRecipeTypes.G_RECIPE_TYPES_COOK, valueOf: GRecipeTypes.valueOf, enumValues: GRecipeTypes.values)
+class GRecipeTypes_Message extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GRecipeTypes_Message', createEmptyInstance: create)
+    ..e<GRecipeTypes>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GRecipeTypes.G_RECIPE_TYPES_COOK, valueOf: GRecipeTypes.valueOf, enumValues: GRecipeTypes.values)
     ..hasRequiredFields = false
   ;
 
-  NullableGRecipeTypes._() : super();
-  factory NullableGRecipeTypes({
-    $core.bool? hasValue,
-    GRecipeTypes? value_2,
+  GRecipeTypes_Message._() : super();
+  factory GRecipeTypes_Message({
+    GRecipeTypes? value,
   }) {
     final _result = create();
-    if (hasValue != null) {
-      _result.hasValue = hasValue;
-    }
-    if (value_2 != null) {
-      _result.value_2 = value_2;
+    if (value != null) {
+      _result.value = value;
     }
     return _result;
   }
-  factory NullableGRecipeTypes.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory NullableGRecipeTypes.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory GRecipeTypes_Message.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GRecipeTypes_Message.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  NullableGRecipeTypes clone() => NullableGRecipeTypes()..mergeFromMessage(this);
+  GRecipeTypes_Message clone() => GRecipeTypes_Message()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  NullableGRecipeTypes copyWith(void Function(NullableGRecipeTypes) updates) => super.copyWith((message) => updates(message as NullableGRecipeTypes)) as NullableGRecipeTypes; // ignore: deprecated_member_use
+  GRecipeTypes_Message copyWith(void Function(GRecipeTypes_Message) updates) => super.copyWith((message) => updates(message as GRecipeTypes_Message)) as GRecipeTypes_Message; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static NullableGRecipeTypes create() => NullableGRecipeTypes._();
-  NullableGRecipeTypes createEmptyInstance() => create();
-  static $pb.PbList<NullableGRecipeTypes> createRepeated() => $pb.PbList<NullableGRecipeTypes>();
+  static GRecipeTypes_Message create() => GRecipeTypes_Message._();
+  GRecipeTypes_Message createEmptyInstance() => create();
+  static $pb.PbList<GRecipeTypes_Message> createRepeated() => $pb.PbList<GRecipeTypes_Message>();
   @$core.pragma('dart2js:noInline')
-  static NullableGRecipeTypes getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NullableGRecipeTypes>(create);
-  static NullableGRecipeTypes? _defaultInstance;
+  static GRecipeTypes_Message getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GRecipeTypes_Message>(create);
+  static GRecipeTypes_Message? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get hasValue => $_getBF(0);
+  GRecipeTypes get value => $_getN(0);
   @$pb.TagNumber(1)
-  set hasValue($core.bool v) { $_setBool(0, v); }
+  set value(GRecipeTypes v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasHasValue() => $_has(0);
+  $core.bool hasValue() => $_has(0);
   @$pb.TagNumber(1)
-  void clearHasValue() => clearField(1);
-
-  @$pb.TagNumber(2)
-  GRecipeTypes get value_2 => $_getN(1);
-  @$pb.TagNumber(2)
-  set value_2(GRecipeTypes v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValue_2() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValue_2() => clearField(2);
+  void clearValue() => clearField(1);
 }
 

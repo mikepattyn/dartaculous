@@ -20,14 +20,13 @@ const GApplianceType$json = const {
 
 /// Descriptor for `GApplianceType`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List gApplianceTypeDescriptor = $convert.base64Decode('Cg5HQXBwbGlhbmNlVHlwZRIZChVHX0FQUExJQU5DRV9UWVBFX0hFQVQQABIZChVHX0FQUExJQU5DRV9UWVBFX0NPTEQQARIcChhHX0FQUExJQU5DRV9UWVBFX0NVVExFUlkQAg==');
-@$core.Deprecated('Use nullableGApplianceTypeDescriptor instead')
-const NullableGApplianceType$json = const {
-  '1': 'NullableGApplianceType',
+@$core.Deprecated('Use gApplianceType_MessageDescriptor instead')
+const GApplianceType_Message$json = const {
+  '1': 'GApplianceType_Message',
   '2': const [
-    const {'1': 'has_value', '3': 1, '4': 1, '5': 8, '10': 'hasValue'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 14, '6': '.GApplianceType', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 1, '5': 14, '6': '.GApplianceType', '10': 'value'},
   ],
 };
 
-/// Descriptor for `NullableGApplianceType`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List nullableGApplianceTypeDescriptor = $convert.base64Decode('ChZOdWxsYWJsZUdBcHBsaWFuY2VUeXBlEhsKCWhhc192YWx1ZRgBIAEoCFIIaGFzVmFsdWUSJQoFdmFsdWUYAiABKA4yDy5HQXBwbGlhbmNlVHlwZVIFdmFsdWU=');
+/// Descriptor for `GApplianceType_Message`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gApplianceType_MessageDescriptor = $convert.base64Decode('ChZHQXBwbGlhbmNlVHlwZV9NZXNzYWdlEiUKBXZhbHVlGAEgASgOMg8uR0FwcGxpYW5jZVR5cGVSBXZhbHVl');

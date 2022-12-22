@@ -5,7 +5,7 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 import 'external_proto_name.dart';
 
-class MapFieldCodeGenerator extends FieldCodeGenerator
+class MapFieldCodeGenerator extends CompositeFieldCodeGenerator
     implements ExternalProtoNames {
   MapFieldCodeGenerator(FieldDescriptor fieldDescriptor, List<int> lineNumbers)
       : super(fieldDescriptor, lineNumbers) {
@@ -29,7 +29,7 @@ class MapFieldCodeGenerator extends FieldCodeGenerator
     _externalProtoNames = _initExternalProtoNames(fieldDescriptor);
   }
 
-  Iterable<String>? _initExternalProtoNames(FieldDescriptor fieldDescriptor) {
+  Iterable<String> _initExternalProtoNames(FieldDescriptor fieldDescriptor) {
     final names = <String>[];
     final argumentTypes =
         (fieldDescriptor.fieldElementType as InterfaceType).typeArguments;
@@ -52,13 +52,13 @@ class MapFieldCodeGenerator extends FieldCodeGenerator
     return names;
   }
 
-  Iterable<String>? _externalProtoNames;
+  late Iterable<String> _externalProtoNames;
   @override
-  Iterable<String>? get externalProtoNames => _externalProtoNames;
+  Iterable<String> get externalProtoNames => _externalProtoNames;
 
-  String? _fieldType;
+  late String _fieldType;
   @override
-  String? get fieldType => _fieldType;
+  String get fieldType => _fieldType;
 
   String _fieldTypeName(DartType keyType, String prefix) {
     if (keyType.isDartCoreString) {

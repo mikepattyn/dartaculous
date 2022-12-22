@@ -79,7 +79,7 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
     final fieldDeclarations = classElement.isAbstract
         ? ''
         : createFieldDeclarations(
-            fieldDescriptors, externalProtoNames, _useWellKnownTypes);
+            fieldDescriptors, externalProtoNames, _useWellKnownTypes, '  ');
 
     final prefix = proto.prefix ?? _prefix;
     final className = classElement.name;
@@ -172,16 +172,13 @@ message ${prefix}FieldsOf$className
     
 $packageDeclaration
     
-enum $prefix$className
-{
+enum $prefix$className {
 $fieldBuffer}   
-     
-message Nullable$prefix$className
-{
-  bool ${(annotation.useProtoFieldNamingConventions ?? true) ? 'has_value' : 'hasValue'} = 1;
-  $prefix$className value = 2;
+
+message $prefix${className}_Message {
+  $prefix$className value = 1;
 }
- 
+     
 ''';
 
     return ret;

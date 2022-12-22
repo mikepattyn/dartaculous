@@ -70,10 +70,8 @@ import "google/protobuf/duration.proto";
   
 message GChef
 {
-  GRecipe favorite_recipe = 1;
-  bool favorite_recipe_has_value = 2;
-  GKnife favorite_knife = 3;
-  bool favorite_knife_has_value = 4;
+  GRecipe favorite_recipe = 2;
+  GKnife favorite_knife = 4;
   GApplianceType favorite_appliance_type = 5;
   repeated string favorite_words = 6;
   google.protobuf.Timestamp birthdate = 7;
@@ -88,10 +86,8 @@ message GListOfChef
 
 message GSousChef
 {
-  GRecipe favorite_recipe = 1;
-  bool favorite_recipe_has_value = 2;
-  GKnife favorite_knife = 3;
-  bool favorite_knife_has_value = 4;
+  GRecipe favorite_recipe = 2;
+  GKnife favorite_knife = 4;
   GApplianceType favorite_appliance_type = 5;
   repeated string favorite_words = 6;
   google.protobuf.Timestamp birthdate = 7;
@@ -106,13 +102,12 @@ message GListOfSousChef
 
 message GKnifeMaster
 {
-  GRecipe favorite_recipe = 1;
-  bool favorite_recipe_has_value = 2;
+  GRecipe favorite_recipe = 2;
   GApplianceType favorite_appliance_type = 3;
   repeated string favorite_words = 4;
   google.protobuf.Timestamp birthdate = 5;
   google.protobuf.Duration shelf_life = 6;
-  GKnife favorite_knife = 8;
+  GKnife favorite_knife = 7;
 
 }   
 
@@ -146,29 +141,23 @@ message GListOfPrecisionSubject
   repeated GPrecisionSubject items = 1;
 }
 
-enum GKnifeType
-{
+enum GKnifeType {
   G_KNIFE_TYPE_CHEFS_KNIFE = 0;
   G_KNIFE_TYPE_PARING_KNIFE = 1;
   G_KNIFE_TYPE_BREAD_KNIFE = 2;
 }   
-     
-message NullableGKnifeType
-{
-  bool has_value = 1;
-  GKnifeType value = 2;
+
+message GKnifeType_Message {
+  GKnifeType value = 1;
 }
 
-enum GChefType
-{
+enum GChefType {
   G_CHEF_TYPE_SENIOR_CHEF = 0;
   G_CHEF_TYPE_SOUS_CHEF = 1;
   G_CHEF_TYPE_PASTRY_CHEF = 2;
   G_CHEF_TYPE_FISH_CHEF = 3;
 }   
-     
-message NullableGChefType
-{
-  bool has_value = 1;
-  GChefType value = 2;
+
+message GChefType_Message {
+  GChefType value = 1;
 }

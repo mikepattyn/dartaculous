@@ -1,7 +1,7 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
-class DecimalFieldCodeGenerator extends FieldCodeGenerator {
+class DecimalFieldCodeGenerator extends CompositeFieldCodeGenerator {
   DecimalFieldCodeGenerator(
     FieldDescriptor fieldDescriptor,
     List<int> lineNumbers,
@@ -9,8 +9,4 @@ class DecimalFieldCodeGenerator extends FieldCodeGenerator {
 
   @override
   String get fieldType => 'bytes';
-
-  @override
-  String? get hasValueLine =>
-      super.fieldDescriptor.isRepeated ? super.hasValueLine : null;
 }

@@ -21,14 +21,13 @@ const GRecipeTypes$json = const {
 
 /// Descriptor for `GRecipeTypes`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List gRecipeTypesDescriptor = $convert.base64Decode('CgxHUmVjaXBlVHlwZXMSFwoTR19SRUNJUEVfVFlQRVNfQ09PSxAAEhgKFEdfUkVDSVBFX1RZUEVTX0dSSUxMEAESFgoSR19SRUNJUEVfVFlQRVNfRlJZEAISFwoTR19SRUNJUEVfVFlQRVNfU1RFVxAD');
-@$core.Deprecated('Use nullableGRecipeTypesDescriptor instead')
-const NullableGRecipeTypes$json = const {
-  '1': 'NullableGRecipeTypes',
+@$core.Deprecated('Use gRecipeTypes_MessageDescriptor instead')
+const GRecipeTypes_Message$json = const {
+  '1': 'GRecipeTypes_Message',
   '2': const [
-    const {'1': 'has_value', '3': 1, '4': 1, '5': 8, '10': 'hasValue'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 14, '6': '.GRecipeTypes', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 1, '5': 14, '6': '.GRecipeTypes', '10': 'value'},
   ],
 };
 
-/// Descriptor for `NullableGRecipeTypes`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List nullableGRecipeTypesDescriptor = $convert.base64Decode('ChROdWxsYWJsZUdSZWNpcGVUeXBlcxIbCgloYXNfdmFsdWUYASABKAhSCGhhc1ZhbHVlEiMKBXZhbHVlGAIgASgOMg0uR1JlY2lwZVR5cGVzUgV2YWx1ZQ==');
+/// Descriptor for `GRecipeTypes_Message`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gRecipeTypes_MessageDescriptor = $convert.base64Decode('ChRHUmVjaXBlVHlwZXNfTWVzc2FnZRIjCgV2YWx1ZRgBIAEoDjINLkdSZWNpcGVUeXBlc1IFdmFsdWU=');

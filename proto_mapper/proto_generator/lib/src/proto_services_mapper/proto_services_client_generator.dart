@@ -233,8 +233,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
 
     resultBuffer.write(r'final $result = ');
 
-    returnBuffer
-        .writeln('final \$ret = ${fieldCodeGenerator.fromProtoExpression};');
+    returnBuffer.writeln('final \$ret = ${fieldCodeGenerator.fromProtoMap};');
     returnBuffer.writeln(r'return $ret;');
 
     return rType;

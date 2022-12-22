@@ -163,13 +163,11 @@ GChef _$ChefToProto(Chef instance) {
     proto.favoriteRecipe =
         const $RecipeProtoMapper().toProto(instance.favoriteRecipe!);
   }
-  proto.favoriteRecipeHasValue = instance.favoriteRecipe != null;
 
   if (instance.favoriteKnife != null) {
     proto.favoriteKnife =
         const $KnifeProtoMapper().toProto(instance.favoriteKnife!);
   }
-  proto.favoriteKnifeHasValue = instance.favoriteKnife != null;
 
   proto.favoriteApplianceType =
       GApplianceType.valueOf(instance.favoriteApplianceType.index)!;
@@ -189,11 +187,11 @@ GChef _$ChefToProto(Chef instance) {
 }
 
 Chef _$ChefFromProto(GChef instance) => Chef(
-      favoriteRecipe: (instance.favoriteRecipeHasValue
-          ? (const $RecipeProtoMapper().fromProto(instance.favoriteRecipe))
+      favoriteRecipe: (instance.hasFavoriteRecipe()
+          ? const $RecipeProtoMapper().fromProto(instance.favoriteRecipe)
           : null),
-      favoriteKnife: (instance.favoriteKnifeHasValue
-          ? (const $KnifeProtoMapper().fromProto(instance.favoriteKnife))
+      favoriteKnife: (instance.hasFavoriteKnife()
+          ? const $KnifeProtoMapper().fromProto(instance.favoriteKnife)
           : null),
       favoriteApplianceType:
           ApplianceType.values[instance.favoriteApplianceType.value],
@@ -241,13 +239,11 @@ GSousChef _$SousChefToProto(SousChef instance) {
     proto.favoriteRecipe =
         const $RecipeProtoMapper().toProto(instance.favoriteRecipe!);
   }
-  proto.favoriteRecipeHasValue = instance.favoriteRecipe != null;
 
   if (instance.favoriteKnife != null) {
     proto.favoriteKnife =
         const $KnifeProtoMapper().toProto(instance.favoriteKnife!);
   }
-  proto.favoriteKnifeHasValue = instance.favoriteKnife != null;
 
   proto.favoriteApplianceType =
       GApplianceType.valueOf(instance.favoriteApplianceType.index)!;
@@ -311,7 +307,6 @@ GKnifeMaster _$KnifeMasterToProto(KnifeMaster instance) {
     proto.favoriteRecipe =
         const $RecipeProtoMapper().toProto(instance.favoriteRecipe!);
   }
-  proto.favoriteRecipeHasValue = instance.favoriteRecipe != null;
 
   proto.favoriteApplianceType =
       GApplianceType.valueOf(instance.favoriteApplianceType.index)!;

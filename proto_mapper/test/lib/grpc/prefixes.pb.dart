@@ -782,64 +782,50 @@ class WListOfCustomer extends $pb.GeneratedMessage {
   $core.List<WCustomer> get items => $_getList(0);
 }
 
-class NullableAFoodCategory extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'NullableAFoodCategory', createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hasValue')
-    ..e<AFoodCategory>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: AFoodCategory.A_FOOD_CATEGORY_VEGETABLES, valueOf: AFoodCategory.valueOf, enumValues: AFoodCategory.values)
+class AFoodCategory_Message extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AFoodCategory_Message', createEmptyInstance: create)
+    ..e<AFoodCategory>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: AFoodCategory.A_FOOD_CATEGORY_VEGETABLES, valueOf: AFoodCategory.valueOf, enumValues: AFoodCategory.values)
     ..hasRequiredFields = false
   ;
 
-  NullableAFoodCategory._() : super();
-  factory NullableAFoodCategory({
-    $core.bool? hasValue,
-    AFoodCategory? value_2,
+  AFoodCategory_Message._() : super();
+  factory AFoodCategory_Message({
+    AFoodCategory? value,
   }) {
     final _result = create();
-    if (hasValue != null) {
-      _result.hasValue = hasValue;
-    }
-    if (value_2 != null) {
-      _result.value_2 = value_2;
+    if (value != null) {
+      _result.value = value;
     }
     return _result;
   }
-  factory NullableAFoodCategory.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory NullableAFoodCategory.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory AFoodCategory_Message.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory AFoodCategory_Message.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  NullableAFoodCategory clone() => NullableAFoodCategory()..mergeFromMessage(this);
+  AFoodCategory_Message clone() => AFoodCategory_Message()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  NullableAFoodCategory copyWith(void Function(NullableAFoodCategory) updates) => super.copyWith((message) => updates(message as NullableAFoodCategory)) as NullableAFoodCategory; // ignore: deprecated_member_use
+  AFoodCategory_Message copyWith(void Function(AFoodCategory_Message) updates) => super.copyWith((message) => updates(message as AFoodCategory_Message)) as AFoodCategory_Message; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static NullableAFoodCategory create() => NullableAFoodCategory._();
-  NullableAFoodCategory createEmptyInstance() => create();
-  static $pb.PbList<NullableAFoodCategory> createRepeated() => $pb.PbList<NullableAFoodCategory>();
+  static AFoodCategory_Message create() => AFoodCategory_Message._();
+  AFoodCategory_Message createEmptyInstance() => create();
+  static $pb.PbList<AFoodCategory_Message> createRepeated() => $pb.PbList<AFoodCategory_Message>();
   @$core.pragma('dart2js:noInline')
-  static NullableAFoodCategory getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NullableAFoodCategory>(create);
-  static NullableAFoodCategory? _defaultInstance;
+  static AFoodCategory_Message getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AFoodCategory_Message>(create);
+  static AFoodCategory_Message? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get hasValue => $_getBF(0);
+  AFoodCategory get value => $_getN(0);
   @$pb.TagNumber(1)
-  set hasValue($core.bool v) { $_setBool(0, v); }
+  set value(AFoodCategory v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasHasValue() => $_has(0);
+  $core.bool hasValue() => $_has(0);
   @$pb.TagNumber(1)
-  void clearHasValue() => clearField(1);
-
-  @$pb.TagNumber(2)
-  AFoodCategory get value_2 => $_getN(1);
-  @$pb.TagNumber(2)
-  set value_2(AFoodCategory v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValue_2() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValue_2() => clearField(2);
+  void clearValue() => clearField(1);
 }
 

@@ -1,7 +1,7 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
-class BigIntFieldCodeGenerator extends FieldCodeGenerator {
+class BigIntFieldCodeGenerator extends CompositeFieldCodeGenerator {
   BigIntFieldCodeGenerator(
     FieldDescriptor fieldDescriptor,
     List<int> lineNumbers,
@@ -9,7 +9,4 @@ class BigIntFieldCodeGenerator extends FieldCodeGenerator {
 
   @override
   String get fieldType => 'bytes';
-
-  @override
-  final String? hasValueLine = null;
 }

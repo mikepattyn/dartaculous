@@ -23,7 +23,7 @@ class GBoolFieldCodeGenerator extends WKTFieldCodeGenerator {
       : '$protoRef$protoFieldName = $ref$fieldName;';
 
   @override
-  String get fromProtoExpression {
+  String get fromProtoMap {
     if (fieldDescriptor.isNullable) {
       return '''($ref$protoFieldName.hasValue() ? $ref$protoFieldName.value : null)''';
     }

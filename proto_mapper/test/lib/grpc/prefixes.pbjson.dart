@@ -173,14 +173,13 @@ const WListOfCustomer$json = const {
 
 /// Descriptor for `WListOfCustomer`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List wListOfCustomerDescriptor = $convert.base64Decode('Cg9XTGlzdE9mQ3VzdG9tZXISIAoFaXRlbXMYASADKAsyCi5XQ3VzdG9tZXJSBWl0ZW1z');
-@$core.Deprecated('Use nullableAFoodCategoryDescriptor instead')
-const NullableAFoodCategory$json = const {
-  '1': 'NullableAFoodCategory',
+@$core.Deprecated('Use aFoodCategory_MessageDescriptor instead')
+const AFoodCategory_Message$json = const {
+  '1': 'AFoodCategory_Message',
   '2': const [
-    const {'1': 'has_value', '3': 1, '4': 1, '5': 8, '10': 'hasValue'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 14, '6': '.AFoodCategory', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 1, '5': 14, '6': '.AFoodCategory', '10': 'value'},
   ],
 };
 
-/// Descriptor for `NullableAFoodCategory`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List nullableAFoodCategoryDescriptor = $convert.base64Decode('ChVOdWxsYWJsZUFGb29kQ2F0ZWdvcnkSGwoJaGFzX3ZhbHVlGAEgASgIUghoYXNWYWx1ZRIkCgV2YWx1ZRgCIAEoDjIOLkFGb29kQ2F0ZWdvcnlSBXZhbHVl');
+/// Descriptor for `AFoodCategory_Message`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List aFoodCategory_MessageDescriptor = $convert.base64Decode('ChVBRm9vZENhdGVnb3J5X01lc3NhZ2USJAoFdmFsdWUYASABKA4yDi5BRm9vZENhdGVnb3J5UgV2YWx1ZQ==');

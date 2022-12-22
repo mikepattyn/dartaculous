@@ -53,7 +53,6 @@ class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
       ? '''        
       $protoRef$protoFieldName
         .addAll($ref$fieldName${_toProtoConversion != '' ? '?' : ''}$_toProtoConversion ?? {});
-        $hasValueToProtoMap;
       '''
       : '''
         $protoRef$protoFieldName
@@ -89,7 +88,9 @@ class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
   }
 
   @override
-  String get fromProtoNonNullableExpression =>
-      // '''List<${fieldDescriptor.parameterTypeName}>.unmodifiable($ref$protoFieldName.map((e) => $_protoToValue))''';
+  String get fromProtoExpression =>
       '''$ref$protoFieldName.map((k, v) => $_protoToValue)''';
+
+  @override
+  String get fromProtoNullableExpression => fromProtoExpression;
 }

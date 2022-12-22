@@ -10,6 +10,8 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'recipe.pb.dart' as $0;
+import 'google/protobuf/wrappers.pb.dart' as $4;
+import 'recipe_type.pb.dart' as $10;
 
 import 'recipe_type.pbenum.dart' as $10;
 
@@ -102,22 +104,17 @@ class G_GRecipeService_SearchNullable_Parameters extends $pb.GeneratedMessage {
 
 class G_GRecipeService_SearchNullable_Return extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'G_GRecipeService_SearchNullable_Return', createEmptyInstance: create)
-    ..pc<$0.GRecipe>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.PM, subBuilder: $0.GRecipe.create)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valueHasValue')
+    ..pc<$0.GRecipe>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.PM, subBuilder: $0.GRecipe.create)
     ..hasRequiredFields = false
   ;
 
   G_GRecipeService_SearchNullable_Return._() : super();
   factory G_GRecipeService_SearchNullable_Return({
     $core.Iterable<$0.GRecipe>? value,
-    $core.bool? valueHasValue,
   }) {
     final _result = create();
     if (value != null) {
       _result.value.addAll(value);
-    }
-    if (valueHasValue != null) {
-      _result.valueHasValue = valueHasValue;
     }
     return _result;
   }
@@ -142,17 +139,8 @@ class G_GRecipeService_SearchNullable_Return extends $pb.GeneratedMessage {
   static G_GRecipeService_SearchNullable_Return getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<G_GRecipeService_SearchNullable_Return>(create);
   static G_GRecipeService_SearchNullable_Return? _defaultInstance;
 
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
   $core.List<$0.GRecipe> get value => $_getList(0);
-
-  @$pb.TagNumber(2)
-  $core.bool get valueHasValue => $_getBF(1);
-  @$pb.TagNumber(2)
-  set valueHasValue($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValueHasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValueHasValue() => clearField(2);
 }
 
 class G_GRecipeService_InsertMany_Return extends $pb.GeneratedMessage {
@@ -215,22 +203,17 @@ class G_GRecipeService_GetNullable_Parameters extends $pb.GeneratedMessage {
 
 class G_GRecipeService_GetNullable_Return extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'G_GRecipeService_GetNullable_Return', createEmptyInstance: create)
-    ..aOM<$0.GRecipe>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', subBuilder: $0.GRecipe.create)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valueHasValue')
+    ..aOM<$0.GRecipe>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', subBuilder: $0.GRecipe.create)
     ..hasRequiredFields = false
   ;
 
   G_GRecipeService_GetNullable_Return._() : super();
   factory G_GRecipeService_GetNullable_Return({
     $0.GRecipe? value,
-    $core.bool? valueHasValue,
   }) {
     final _result = create();
     if (value != null) {
       _result.value = value;
-    }
-    if (valueHasValue != null) {
-      _result.valueHasValue = valueHasValue;
     }
     return _result;
   }
@@ -255,25 +238,16 @@ class G_GRecipeService_GetNullable_Return extends $pb.GeneratedMessage {
   static G_GRecipeService_GetNullable_Return getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<G_GRecipeService_GetNullable_Return>(create);
   static G_GRecipeService_GetNullable_Return? _defaultInstance;
 
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
   $0.GRecipe get value => $_getN(0);
-  @$pb.TagNumber(1)
-  set value($0.GRecipe v) { setField(1, v); }
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  set value($0.GRecipe v) { setField(2, v); }
+  @$pb.TagNumber(2)
   $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearValue() => clearField(2);
+  @$pb.TagNumber(2)
   $0.GRecipe ensureValue() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  $core.bool get valueHasValue => $_getBF(1);
-  @$pb.TagNumber(2)
-  set valueHasValue($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValueHasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValueHasValue() => clearField(2);
 }
 
 class G_GRecipeService_Count_Parameters extends $pb.GeneratedMessage {
@@ -401,22 +375,17 @@ class G_GRecipeService_CountNullable_Parameters extends $pb.GeneratedMessage {
 
 class G_GRecipeService_CountNullable_Return extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'G_GRecipeService_CountNullable_Return', createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.O3)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valueHasValue')
+    ..aOM<$4.Int32Value>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', subBuilder: $4.Int32Value.create)
     ..hasRequiredFields = false
   ;
 
   G_GRecipeService_CountNullable_Return._() : super();
   factory G_GRecipeService_CountNullable_Return({
-    $core.int? value,
-    $core.bool? valueHasValue,
+    $4.Int32Value? value,
   }) {
     final _result = create();
     if (value != null) {
       _result.value = value;
-    }
-    if (valueHasValue != null) {
-      _result.valueHasValue = valueHasValue;
     }
     return _result;
   }
@@ -442,22 +411,15 @@ class G_GRecipeService_CountNullable_Return extends $pb.GeneratedMessage {
   static G_GRecipeService_CountNullable_Return? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get value => $_getIZ(0);
+  $4.Int32Value get value => $_getN(0);
   @$pb.TagNumber(1)
-  set value($core.int v) { $_setSignedInt32(0, v); }
+  set value($4.Int32Value v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasValue() => $_has(0);
   @$pb.TagNumber(1)
   void clearValue() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.bool get valueHasValue => $_getBF(1);
-  @$pb.TagNumber(2)
-  set valueHasValue($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValueHasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValueHasValue() => clearField(2);
+  @$pb.TagNumber(1)
+  $4.Int32Value ensureValue() => $_ensure(0);
 }
 
 class G_GRecipeService_Reindex_Parameters extends $pb.GeneratedMessage {
@@ -625,22 +587,17 @@ class G_GRecipeService_GetMainRecipeTypeNullable_Parameters extends $pb.Generate
 
 class G_GRecipeService_GetMainRecipeTypeNullable_Return extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'G_GRecipeService_GetMainRecipeTypeNullable_Return', createEmptyInstance: create)
-    ..e<$10.GRecipeTypes>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: $10.GRecipeTypes.G_RECIPE_TYPES_COOK, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valueHasValue')
+    ..aOM<$10.GRecipeTypes_Message>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', subBuilder: $10.GRecipeTypes_Message.create)
     ..hasRequiredFields = false
   ;
 
   G_GRecipeService_GetMainRecipeTypeNullable_Return._() : super();
   factory G_GRecipeService_GetMainRecipeTypeNullable_Return({
-    $10.GRecipeTypes? value,
-    $core.bool? valueHasValue,
+    $10.GRecipeTypes_Message? value,
   }) {
     final _result = create();
     if (value != null) {
       _result.value = value;
-    }
-    if (valueHasValue != null) {
-      _result.valueHasValue = valueHasValue;
     }
     return _result;
   }
@@ -665,23 +622,16 @@ class G_GRecipeService_GetMainRecipeTypeNullable_Return extends $pb.GeneratedMes
   static G_GRecipeService_GetMainRecipeTypeNullable_Return getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<G_GRecipeService_GetMainRecipeTypeNullable_Return>(create);
   static G_GRecipeService_GetMainRecipeTypeNullable_Return? _defaultInstance;
 
-  @$pb.TagNumber(1)
-  $10.GRecipeTypes get value => $_getN(0);
-  @$pb.TagNumber(1)
-  set value($10.GRecipeTypes v) { setField(1, v); }
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  $10.GRecipeTypes_Message get value => $_getN(0);
+  @$pb.TagNumber(2)
+  set value($10.GRecipeTypes_Message v) { setField(2, v); }
+  @$pb.TagNumber(2)
   $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-
   @$pb.TagNumber(2)
-  $core.bool get valueHasValue => $_getBF(1);
+  void clearValue() => clearField(2);
   @$pb.TagNumber(2)
-  set valueHasValue($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValueHasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValueHasValue() => clearField(2);
+  $10.GRecipeTypes_Message ensureValue() => $_ensure(0);
 }
 
 class G_GRecipeService_GetRecipeTypeList_Parameters extends $pb.GeneratedMessage {
@@ -785,22 +735,17 @@ class G_GRecipeService_GetRecipeTypeListNullable_Parameters extends $pb.Generate
 
 class G_GRecipeService_GetRecipeTypeListNullable_Return extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'G_GRecipeService_GetRecipeTypeListNullable_Return', createEmptyInstance: create)
-    ..pc<$10.GRecipeTypes>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.KE, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values, defaultEnumValue: $10.GRecipeTypes.G_RECIPE_TYPES_COOK)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valueHasValue')
+    ..pc<$10.GRecipeTypes>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.KE, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values, defaultEnumValue: $10.GRecipeTypes.G_RECIPE_TYPES_COOK)
     ..hasRequiredFields = false
   ;
 
   G_GRecipeService_GetRecipeTypeListNullable_Return._() : super();
   factory G_GRecipeService_GetRecipeTypeListNullable_Return({
     $core.Iterable<$10.GRecipeTypes>? value,
-    $core.bool? valueHasValue,
   }) {
     final _result = create();
     if (value != null) {
       _result.value.addAll(value);
-    }
-    if (valueHasValue != null) {
-      _result.valueHasValue = valueHasValue;
     }
     return _result;
   }
@@ -825,17 +770,8 @@ class G_GRecipeService_GetRecipeTypeListNullable_Return extends $pb.GeneratedMes
   static G_GRecipeService_GetRecipeTypeListNullable_Return getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<G_GRecipeService_GetRecipeTypeListNullable_Return>(create);
   static G_GRecipeService_GetRecipeTypeListNullable_Return? _defaultInstance;
 
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
   $core.List<$10.GRecipeTypes> get value => $_getList(0);
-
-  @$pb.TagNumber(2)
-  $core.bool get valueHasValue => $_getBF(1);
-  @$pb.TagNumber(2)
-  set valueHasValue($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValueHasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValueHasValue() => clearField(2);
 }
 
 class G_GRecipeService_GetListOfInts_Parameters extends $pb.GeneratedMessage {
@@ -940,21 +876,16 @@ class G_GRecipeService_GetListOfIntsNullable_Parameters extends $pb.GeneratedMes
 class G_GRecipeService_GetListOfIntsNullable_Return extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'G_GRecipeService_GetListOfIntsNullable_Return', createEmptyInstance: create)
     ..p<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.K3)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valueHasValue')
     ..hasRequiredFields = false
   ;
 
   G_GRecipeService_GetListOfIntsNullable_Return._() : super();
   factory G_GRecipeService_GetListOfIntsNullable_Return({
     $core.Iterable<$core.int>? value,
-    $core.bool? valueHasValue,
   }) {
     final _result = create();
     if (value != null) {
       _result.value.addAll(value);
-    }
-    if (valueHasValue != null) {
-      _result.valueHasValue = valueHasValue;
     }
     return _result;
   }
@@ -981,15 +912,6 @@ class G_GRecipeService_GetListOfIntsNullable_Return extends $pb.GeneratedMessage
 
   @$pb.TagNumber(1)
   $core.List<$core.int> get value => $_getList(0);
-
-  @$pb.TagNumber(2)
-  $core.bool get valueHasValue => $_getBF(1);
-  @$pb.TagNumber(2)
-  set valueHasValue($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValueHasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValueHasValue() => clearField(2);
 }
 
 class G_GRecipeService_SearchRecipeStream_Parameters extends $pb.GeneratedMessage {
@@ -1268,172 +1190,92 @@ class G_GRecipeService_ReceiveLotsOfArgs_Return extends $pb.GeneratedMessage {
 
 class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters', createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pString')
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pStringHasValue')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pInt', $pb.PbFieldType.O3)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIntHasValue')
-    ..e<$10.GRecipeTypes>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pRecipeTypes', $pb.PbFieldType.OE, defaultOrMaker: $10.GRecipeTypes.G_RECIPE_TYPES_COOK, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values)
-    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pRecipeTypesHasValue')
-    ..aOM<$0.GRecipe>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pRecipe', subBuilder: $0.GRecipe.create)
-    ..aOB(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pRecipeHasValue')
-    ..pPS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListStrings')
-    ..aOB(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListStringsHasValue')
-    ..p<$core.int>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListInts', $pb.PbFieldType.K3)
-    ..aOB(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListIntsHasValue')
-    ..pc<$10.GRecipeTypes>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListRecipeTypes', $pb.PbFieldType.KE, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values, defaultEnumValue: $10.GRecipeTypes.G_RECIPE_TYPES_COOK)
-    ..aOB(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListRecipeTypesHasValue')
-    ..pc<$0.GRecipe>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListRecipes', $pb.PbFieldType.PM, subBuilder: $0.GRecipe.create)
-    ..aOB(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListRecipesHasValue')
-    ..pPS(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetString')
-    ..aOB(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetStringHasValue')
-    ..p<$core.int>(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetInt', $pb.PbFieldType.K3)
-    ..aOB(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetIntHasValue')
-    ..pc<$10.GRecipeTypes>(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetRecipeTypes', $pb.PbFieldType.KE, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values, defaultEnumValue: $10.GRecipeTypes.G_RECIPE_TYPES_COOK)
-    ..aOB(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetRecipeTypesHasValue')
-    ..pc<$0.GRecipe>(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetRecipe', $pb.PbFieldType.PM, subBuilder: $0.GRecipe.create)
-    ..aOB(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetRecipeHasValue')
-    ..pPS(25, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableString')
-    ..aOB(26, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableStringHasValue')
-    ..p<$core.int>(27, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableInt', $pb.PbFieldType.K3)
-    ..aOB(28, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableIntHasValue')
-    ..pc<$10.GRecipeTypes>(29, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableRecipeTypes', $pb.PbFieldType.KE, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values, defaultEnumValue: $10.GRecipeTypes.G_RECIPE_TYPES_COOK)
-    ..aOB(30, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableRecipeTypesHasValue')
-    ..pc<$0.GRecipe>(31, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableRecipe', $pb.PbFieldType.PM, subBuilder: $0.GRecipe.create)
-    ..aOB(32, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableRecipeHasValue')
+    ..aOM<$4.StringValue>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pString', subBuilder: $4.StringValue.create)
+    ..aOM<$4.Int32Value>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pInt', subBuilder: $4.Int32Value.create)
+    ..aOM<$10.GRecipeTypes_Message>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pRecipeTypes', subBuilder: $10.GRecipeTypes_Message.create)
+    ..aOM<$0.GRecipe>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pRecipe', subBuilder: $0.GRecipe.create)
+    ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListStrings')
+    ..p<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListInts', $pb.PbFieldType.K3)
+    ..pc<$10.GRecipeTypes>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListRecipeTypes', $pb.PbFieldType.KE, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values, defaultEnumValue: $10.GRecipeTypes.G_RECIPE_TYPES_COOK)
+    ..pc<$0.GRecipe>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListRecipes', $pb.PbFieldType.PM, subBuilder: $0.GRecipe.create)
+    ..pPS(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetString')
+    ..p<$core.int>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetInt', $pb.PbFieldType.K3)
+    ..pc<$10.GRecipeTypes>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetRecipeTypes', $pb.PbFieldType.KE, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values, defaultEnumValue: $10.GRecipeTypes.G_RECIPE_TYPES_COOK)
+    ..pc<$0.GRecipe>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pSetRecipe', $pb.PbFieldType.PM, subBuilder: $0.GRecipe.create)
+    ..pPS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableString')
+    ..p<$core.int>(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableInt', $pb.PbFieldType.K3)
+    ..pc<$10.GRecipeTypes>(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableRecipeTypes', $pb.PbFieldType.KE, valueOf: $10.GRecipeTypes.valueOf, enumValues: $10.GRecipeTypes.values, defaultEnumValue: $10.GRecipeTypes.G_RECIPE_TYPES_COOK)
+    ..pc<$0.GRecipe>(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pIterableRecipe', $pb.PbFieldType.PM, subBuilder: $0.GRecipe.create)
     ..hasRequiredFields = false
   ;
 
   G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters._() : super();
   factory G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters({
-    $core.String? pString,
-    $core.bool? pStringHasValue,
-    $core.int? pInt,
-    $core.bool? pIntHasValue,
-    $10.GRecipeTypes? pRecipeTypes,
-    $core.bool? pRecipeTypesHasValue,
+    $4.StringValue? pString,
+    $4.Int32Value? pInt,
+    $10.GRecipeTypes_Message? pRecipeTypes,
     $0.GRecipe? pRecipe,
-    $core.bool? pRecipeHasValue,
     $core.Iterable<$core.String>? pListStrings,
-    $core.bool? pListStringsHasValue,
     $core.Iterable<$core.int>? pListInts,
-    $core.bool? pListIntsHasValue,
     $core.Iterable<$10.GRecipeTypes>? pListRecipeTypes,
-    $core.bool? pListRecipeTypesHasValue,
     $core.Iterable<$0.GRecipe>? pListRecipes,
-    $core.bool? pListRecipesHasValue,
     $core.Iterable<$core.String>? pSetString,
-    $core.bool? pSetStringHasValue,
     $core.Iterable<$core.int>? pSetInt,
-    $core.bool? pSetIntHasValue,
     $core.Iterable<$10.GRecipeTypes>? pSetRecipeTypes,
-    $core.bool? pSetRecipeTypesHasValue,
     $core.Iterable<$0.GRecipe>? pSetRecipe,
-    $core.bool? pSetRecipeHasValue,
     $core.Iterable<$core.String>? pIterableString,
-    $core.bool? pIterableStringHasValue,
     $core.Iterable<$core.int>? pIterableInt,
-    $core.bool? pIterableIntHasValue,
     $core.Iterable<$10.GRecipeTypes>? pIterableRecipeTypes,
-    $core.bool? pIterableRecipeTypesHasValue,
     $core.Iterable<$0.GRecipe>? pIterableRecipe,
-    $core.bool? pIterableRecipeHasValue,
   }) {
     final _result = create();
     if (pString != null) {
       _result.pString = pString;
     }
-    if (pStringHasValue != null) {
-      _result.pStringHasValue = pStringHasValue;
-    }
     if (pInt != null) {
       _result.pInt = pInt;
-    }
-    if (pIntHasValue != null) {
-      _result.pIntHasValue = pIntHasValue;
     }
     if (pRecipeTypes != null) {
       _result.pRecipeTypes = pRecipeTypes;
     }
-    if (pRecipeTypesHasValue != null) {
-      _result.pRecipeTypesHasValue = pRecipeTypesHasValue;
-    }
     if (pRecipe != null) {
       _result.pRecipe = pRecipe;
-    }
-    if (pRecipeHasValue != null) {
-      _result.pRecipeHasValue = pRecipeHasValue;
     }
     if (pListStrings != null) {
       _result.pListStrings.addAll(pListStrings);
     }
-    if (pListStringsHasValue != null) {
-      _result.pListStringsHasValue = pListStringsHasValue;
-    }
     if (pListInts != null) {
       _result.pListInts.addAll(pListInts);
-    }
-    if (pListIntsHasValue != null) {
-      _result.pListIntsHasValue = pListIntsHasValue;
     }
     if (pListRecipeTypes != null) {
       _result.pListRecipeTypes.addAll(pListRecipeTypes);
     }
-    if (pListRecipeTypesHasValue != null) {
-      _result.pListRecipeTypesHasValue = pListRecipeTypesHasValue;
-    }
     if (pListRecipes != null) {
       _result.pListRecipes.addAll(pListRecipes);
-    }
-    if (pListRecipesHasValue != null) {
-      _result.pListRecipesHasValue = pListRecipesHasValue;
     }
     if (pSetString != null) {
       _result.pSetString.addAll(pSetString);
     }
-    if (pSetStringHasValue != null) {
-      _result.pSetStringHasValue = pSetStringHasValue;
-    }
     if (pSetInt != null) {
       _result.pSetInt.addAll(pSetInt);
-    }
-    if (pSetIntHasValue != null) {
-      _result.pSetIntHasValue = pSetIntHasValue;
     }
     if (pSetRecipeTypes != null) {
       _result.pSetRecipeTypes.addAll(pSetRecipeTypes);
     }
-    if (pSetRecipeTypesHasValue != null) {
-      _result.pSetRecipeTypesHasValue = pSetRecipeTypesHasValue;
-    }
     if (pSetRecipe != null) {
       _result.pSetRecipe.addAll(pSetRecipe);
-    }
-    if (pSetRecipeHasValue != null) {
-      _result.pSetRecipeHasValue = pSetRecipeHasValue;
     }
     if (pIterableString != null) {
       _result.pIterableString.addAll(pIterableString);
     }
-    if (pIterableStringHasValue != null) {
-      _result.pIterableStringHasValue = pIterableStringHasValue;
-    }
     if (pIterableInt != null) {
       _result.pIterableInt.addAll(pIterableInt);
-    }
-    if (pIterableIntHasValue != null) {
-      _result.pIterableIntHasValue = pIterableIntHasValue;
     }
     if (pIterableRecipeTypes != null) {
       _result.pIterableRecipeTypes.addAll(pIterableRecipeTypes);
     }
-    if (pIterableRecipeTypesHasValue != null) {
-      _result.pIterableRecipeTypesHasValue = pIterableRecipeTypesHasValue;
-    }
     if (pIterableRecipe != null) {
       _result.pIterableRecipe.addAll(pIterableRecipe);
-    }
-    if (pIterableRecipeHasValue != null) {
-      _result.pIterableRecipeHasValue = pIterableRecipeHasValue;
     }
     return _result;
   }
@@ -1459,222 +1301,84 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters extends $pb.Generate
   static G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get pString => $_getSZ(0);
+  $4.StringValue get pString => $_getN(0);
   @$pb.TagNumber(1)
-  set pString($core.String v) { $_setString(0, v); }
+  set pString($4.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasPString() => $_has(0);
   @$pb.TagNumber(1)
   void clearPString() => clearField(1);
+  @$pb.TagNumber(1)
+  $4.StringValue ensurePString() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.bool get pStringHasValue => $_getBF(1);
+  $4.Int32Value get pInt => $_getN(1);
   @$pb.TagNumber(2)
-  set pStringHasValue($core.bool v) { $_setBool(1, v); }
+  set pInt($4.Int32Value v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPStringHasValue() => $_has(1);
+  $core.bool hasPInt() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPStringHasValue() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.int get pInt => $_getIZ(2);
-  @$pb.TagNumber(3)
-  set pInt($core.int v) { $_setSignedInt32(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasPInt() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearPInt() => clearField(3);
+  void clearPInt() => clearField(2);
+  @$pb.TagNumber(2)
+  $4.Int32Value ensurePInt() => $_ensure(1);
 
   @$pb.TagNumber(4)
-  $core.bool get pIntHasValue => $_getBF(3);
+  $10.GRecipeTypes_Message get pRecipeTypes => $_getN(2);
   @$pb.TagNumber(4)
-  set pIntHasValue($core.bool v) { $_setBool(3, v); }
+  set pRecipeTypes($10.GRecipeTypes_Message v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasPIntHasValue() => $_has(3);
+  $core.bool hasPRecipeTypes() => $_has(2);
   @$pb.TagNumber(4)
-  void clearPIntHasValue() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $10.GRecipeTypes get pRecipeTypes => $_getN(4);
-  @$pb.TagNumber(5)
-  set pRecipeTypes($10.GRecipeTypes v) { setField(5, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasPRecipeTypes() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearPRecipeTypes() => clearField(5);
+  void clearPRecipeTypes() => clearField(4);
+  @$pb.TagNumber(4)
+  $10.GRecipeTypes_Message ensurePRecipeTypes() => $_ensure(2);
 
   @$pb.TagNumber(6)
-  $core.bool get pRecipeTypesHasValue => $_getBF(5);
+  $0.GRecipe get pRecipe => $_getN(3);
   @$pb.TagNumber(6)
-  set pRecipeTypesHasValue($core.bool v) { $_setBool(5, v); }
+  set pRecipe($0.GRecipe v) { setField(6, v); }
   @$pb.TagNumber(6)
-  $core.bool hasPRecipeTypesHasValue() => $_has(5);
+  $core.bool hasPRecipe() => $_has(3);
   @$pb.TagNumber(6)
-  void clearPRecipeTypesHasValue() => clearField(6);
+  void clearPRecipe() => clearField(6);
+  @$pb.TagNumber(6)
+  $0.GRecipe ensurePRecipe() => $_ensure(3);
 
   @$pb.TagNumber(7)
-  $0.GRecipe get pRecipe => $_getN(6);
-  @$pb.TagNumber(7)
-  set pRecipe($0.GRecipe v) { setField(7, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasPRecipe() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearPRecipe() => clearField(7);
-  @$pb.TagNumber(7)
-  $0.GRecipe ensurePRecipe() => $_ensure(6);
+  $core.List<$core.String> get pListStrings => $_getList(4);
 
   @$pb.TagNumber(8)
-  $core.bool get pRecipeHasValue => $_getBF(7);
-  @$pb.TagNumber(8)
-  set pRecipeHasValue($core.bool v) { $_setBool(7, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasPRecipeHasValue() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearPRecipeHasValue() => clearField(8);
-
-  @$pb.TagNumber(9)
-  $core.List<$core.String> get pListStrings => $_getList(8);
+  $core.List<$core.int> get pListInts => $_getList(5);
 
   @$pb.TagNumber(10)
-  $core.bool get pListStringsHasValue => $_getBF(9);
-  @$pb.TagNumber(10)
-  set pListStringsHasValue($core.bool v) { $_setBool(9, v); }
-  @$pb.TagNumber(10)
-  $core.bool hasPListStringsHasValue() => $_has(9);
-  @$pb.TagNumber(10)
-  void clearPListStringsHasValue() => clearField(10);
-
-  @$pb.TagNumber(11)
-  $core.List<$core.int> get pListInts => $_getList(10);
+  $core.List<$10.GRecipeTypes> get pListRecipeTypes => $_getList(6);
 
   @$pb.TagNumber(12)
-  $core.bool get pListIntsHasValue => $_getBF(11);
-  @$pb.TagNumber(12)
-  set pListIntsHasValue($core.bool v) { $_setBool(11, v); }
-  @$pb.TagNumber(12)
-  $core.bool hasPListIntsHasValue() => $_has(11);
-  @$pb.TagNumber(12)
-  void clearPListIntsHasValue() => clearField(12);
+  $core.List<$0.GRecipe> get pListRecipes => $_getList(7);
 
   @$pb.TagNumber(13)
-  $core.List<$10.GRecipeTypes> get pListRecipeTypes => $_getList(12);
+  $core.List<$core.String> get pSetString => $_getList(8);
 
   @$pb.TagNumber(14)
-  $core.bool get pListRecipeTypesHasValue => $_getBF(13);
-  @$pb.TagNumber(14)
-  set pListRecipeTypesHasValue($core.bool v) { $_setBool(13, v); }
-  @$pb.TagNumber(14)
-  $core.bool hasPListRecipeTypesHasValue() => $_has(13);
-  @$pb.TagNumber(14)
-  void clearPListRecipeTypesHasValue() => clearField(14);
-
-  @$pb.TagNumber(15)
-  $core.List<$0.GRecipe> get pListRecipes => $_getList(14);
+  $core.List<$core.int> get pSetInt => $_getList(9);
 
   @$pb.TagNumber(16)
-  $core.bool get pListRecipesHasValue => $_getBF(15);
-  @$pb.TagNumber(16)
-  set pListRecipesHasValue($core.bool v) { $_setBool(15, v); }
-  @$pb.TagNumber(16)
-  $core.bool hasPListRecipesHasValue() => $_has(15);
-  @$pb.TagNumber(16)
-  void clearPListRecipesHasValue() => clearField(16);
-
-  @$pb.TagNumber(17)
-  $core.List<$core.String> get pSetString => $_getList(16);
+  $core.List<$10.GRecipeTypes> get pSetRecipeTypes => $_getList(10);
 
   @$pb.TagNumber(18)
-  $core.bool get pSetStringHasValue => $_getBF(17);
-  @$pb.TagNumber(18)
-  set pSetStringHasValue($core.bool v) { $_setBool(17, v); }
-  @$pb.TagNumber(18)
-  $core.bool hasPSetStringHasValue() => $_has(17);
-  @$pb.TagNumber(18)
-  void clearPSetStringHasValue() => clearField(18);
+  $core.List<$0.GRecipe> get pSetRecipe => $_getList(11);
 
   @$pb.TagNumber(19)
-  $core.List<$core.int> get pSetInt => $_getList(18);
+  $core.List<$core.String> get pIterableString => $_getList(12);
 
   @$pb.TagNumber(20)
-  $core.bool get pSetIntHasValue => $_getBF(19);
-  @$pb.TagNumber(20)
-  set pSetIntHasValue($core.bool v) { $_setBool(19, v); }
-  @$pb.TagNumber(20)
-  $core.bool hasPSetIntHasValue() => $_has(19);
-  @$pb.TagNumber(20)
-  void clearPSetIntHasValue() => clearField(20);
-
-  @$pb.TagNumber(21)
-  $core.List<$10.GRecipeTypes> get pSetRecipeTypes => $_getList(20);
+  $core.List<$core.int> get pIterableInt => $_getList(13);
 
   @$pb.TagNumber(22)
-  $core.bool get pSetRecipeTypesHasValue => $_getBF(21);
-  @$pb.TagNumber(22)
-  set pSetRecipeTypesHasValue($core.bool v) { $_setBool(21, v); }
-  @$pb.TagNumber(22)
-  $core.bool hasPSetRecipeTypesHasValue() => $_has(21);
-  @$pb.TagNumber(22)
-  void clearPSetRecipeTypesHasValue() => clearField(22);
-
-  @$pb.TagNumber(23)
-  $core.List<$0.GRecipe> get pSetRecipe => $_getList(22);
+  $core.List<$10.GRecipeTypes> get pIterableRecipeTypes => $_getList(14);
 
   @$pb.TagNumber(24)
-  $core.bool get pSetRecipeHasValue => $_getBF(23);
-  @$pb.TagNumber(24)
-  set pSetRecipeHasValue($core.bool v) { $_setBool(23, v); }
-  @$pb.TagNumber(24)
-  $core.bool hasPSetRecipeHasValue() => $_has(23);
-  @$pb.TagNumber(24)
-  void clearPSetRecipeHasValue() => clearField(24);
-
-  @$pb.TagNumber(25)
-  $core.List<$core.String> get pIterableString => $_getList(24);
-
-  @$pb.TagNumber(26)
-  $core.bool get pIterableStringHasValue => $_getBF(25);
-  @$pb.TagNumber(26)
-  set pIterableStringHasValue($core.bool v) { $_setBool(25, v); }
-  @$pb.TagNumber(26)
-  $core.bool hasPIterableStringHasValue() => $_has(25);
-  @$pb.TagNumber(26)
-  void clearPIterableStringHasValue() => clearField(26);
-
-  @$pb.TagNumber(27)
-  $core.List<$core.int> get pIterableInt => $_getList(26);
-
-  @$pb.TagNumber(28)
-  $core.bool get pIterableIntHasValue => $_getBF(27);
-  @$pb.TagNumber(28)
-  set pIterableIntHasValue($core.bool v) { $_setBool(27, v); }
-  @$pb.TagNumber(28)
-  $core.bool hasPIterableIntHasValue() => $_has(27);
-  @$pb.TagNumber(28)
-  void clearPIterableIntHasValue() => clearField(28);
-
-  @$pb.TagNumber(29)
-  $core.List<$10.GRecipeTypes> get pIterableRecipeTypes => $_getList(28);
-
-  @$pb.TagNumber(30)
-  $core.bool get pIterableRecipeTypesHasValue => $_getBF(29);
-  @$pb.TagNumber(30)
-  set pIterableRecipeTypesHasValue($core.bool v) { $_setBool(29, v); }
-  @$pb.TagNumber(30)
-  $core.bool hasPIterableRecipeTypesHasValue() => $_has(29);
-  @$pb.TagNumber(30)
-  void clearPIterableRecipeTypesHasValue() => clearField(30);
-
-  @$pb.TagNumber(31)
-  $core.List<$0.GRecipe> get pIterableRecipe => $_getList(30);
-
-  @$pb.TagNumber(32)
-  $core.bool get pIterableRecipeHasValue => $_getBF(31);
-  @$pb.TagNumber(32)
-  set pIterableRecipeHasValue($core.bool v) { $_setBool(31, v); }
-  @$pb.TagNumber(32)
-  $core.bool hasPIterableRecipeHasValue() => $_has(31);
-  @$pb.TagNumber(32)
-  void clearPIterableRecipeHasValue() => clearField(32);
+  $core.List<$0.GRecipe> get pIterableRecipe => $_getList(15);
 }
 
 class G_GRecipeService_ReceiveLotsOfNullableArgs_Return extends $pb.GeneratedMessage {

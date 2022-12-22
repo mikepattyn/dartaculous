@@ -19,7 +19,7 @@ message GCalcParameters
   int32 parameter1 = 2;
   int32 parameter2 = 1;
   google.protobuf.Int32Value parameter3 = 3;
-  google.protobuf.Int32Value parameter4 = 5;
+  google.protobuf.Int32Value parameter4 = 4;
   int32 parameter5 = 9;
 
 }   

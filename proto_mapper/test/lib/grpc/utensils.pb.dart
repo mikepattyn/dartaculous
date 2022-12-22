@@ -330,10 +330,8 @@ class GListOfKitchen extends $pb.GeneratedMessage {
 
 class GChef extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GChef', createEmptyInstance: create)
-    ..aOM<$0.GRecipe>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipe', subBuilder: $0.GRecipe.create)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipeHasValue')
-    ..aOM<GKnife>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnifeHasValue')
+    ..aOM<$0.GRecipe>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipe', subBuilder: $0.GRecipe.create)
+    ..aOM<GKnife>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
     ..e<$8.GApplianceType>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteApplianceType', $pb.PbFieldType.OE, defaultOrMaker: $8.GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: $8.GApplianceType.valueOf, enumValues: $8.GApplianceType.values)
     ..pPS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteWords')
     ..aOM<$7.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'birthdate', subBuilder: $7.Timestamp.create)
@@ -344,9 +342,7 @@ class GChef extends $pb.GeneratedMessage {
   GChef._() : super();
   factory GChef({
     $0.GRecipe? favoriteRecipe,
-    $core.bool? favoriteRecipeHasValue,
     GKnife? favoriteKnife,
-    $core.bool? favoriteKnifeHasValue,
     $8.GApplianceType? favoriteApplianceType,
     $core.Iterable<$core.String>? favoriteWords,
     $7.Timestamp? birthdate,
@@ -356,14 +352,8 @@ class GChef extends $pb.GeneratedMessage {
     if (favoriteRecipe != null) {
       _result.favoriteRecipe = favoriteRecipe;
     }
-    if (favoriteRecipeHasValue != null) {
-      _result.favoriteRecipeHasValue = favoriteRecipeHasValue;
-    }
     if (favoriteKnife != null) {
       _result.favoriteKnife = favoriteKnife;
-    }
-    if (favoriteKnifeHasValue != null) {
-      _result.favoriteKnifeHasValue = favoriteKnifeHasValue;
     }
     if (favoriteApplianceType != null) {
       _result.favoriteApplianceType = favoriteApplianceType;
@@ -400,79 +390,61 @@ class GChef extends $pb.GeneratedMessage {
   static GChef getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GChef>(create);
   static GChef? _defaultInstance;
 
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
   $0.GRecipe get favoriteRecipe => $_getN(0);
-  @$pb.TagNumber(1)
-  set favoriteRecipe($0.GRecipe v) { setField(1, v); }
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  set favoriteRecipe($0.GRecipe v) { setField(2, v); }
+  @$pb.TagNumber(2)
   $core.bool hasFavoriteRecipe() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearFavoriteRecipe() => clearField(1);
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearFavoriteRecipe() => clearField(2);
+  @$pb.TagNumber(2)
   $0.GRecipe ensureFavoriteRecipe() => $_ensure(0);
 
-  @$pb.TagNumber(2)
-  $core.bool get favoriteRecipeHasValue => $_getBF(1);
-  @$pb.TagNumber(2)
-  set favoriteRecipeHasValue($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasFavoriteRecipeHasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearFavoriteRecipeHasValue() => clearField(2);
-
-  @$pb.TagNumber(3)
-  GKnife get favoriteKnife => $_getN(2);
-  @$pb.TagNumber(3)
-  set favoriteKnife(GKnife v) { setField(3, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasFavoriteKnife() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFavoriteKnife() => clearField(3);
-  @$pb.TagNumber(3)
-  GKnife ensureFavoriteKnife() => $_ensure(2);
-
   @$pb.TagNumber(4)
-  $core.bool get favoriteKnifeHasValue => $_getBF(3);
+  GKnife get favoriteKnife => $_getN(1);
   @$pb.TagNumber(4)
-  set favoriteKnifeHasValue($core.bool v) { $_setBool(3, v); }
+  set favoriteKnife(GKnife v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasFavoriteKnifeHasValue() => $_has(3);
+  $core.bool hasFavoriteKnife() => $_has(1);
   @$pb.TagNumber(4)
-  void clearFavoriteKnifeHasValue() => clearField(4);
+  void clearFavoriteKnife() => clearField(4);
+  @$pb.TagNumber(4)
+  GKnife ensureFavoriteKnife() => $_ensure(1);
 
   @$pb.TagNumber(5)
-  $8.GApplianceType get favoriteApplianceType => $_getN(4);
+  $8.GApplianceType get favoriteApplianceType => $_getN(2);
   @$pb.TagNumber(5)
   set favoriteApplianceType($8.GApplianceType v) { setField(5, v); }
   @$pb.TagNumber(5)
-  $core.bool hasFavoriteApplianceType() => $_has(4);
+  $core.bool hasFavoriteApplianceType() => $_has(2);
   @$pb.TagNumber(5)
   void clearFavoriteApplianceType() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.List<$core.String> get favoriteWords => $_getList(5);
+  $core.List<$core.String> get favoriteWords => $_getList(3);
 
   @$pb.TagNumber(7)
-  $7.Timestamp get birthdate => $_getN(6);
+  $7.Timestamp get birthdate => $_getN(4);
   @$pb.TagNumber(7)
   set birthdate($7.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
-  $core.bool hasBirthdate() => $_has(6);
+  $core.bool hasBirthdate() => $_has(4);
   @$pb.TagNumber(7)
   void clearBirthdate() => clearField(7);
   @$pb.TagNumber(7)
-  $7.Timestamp ensureBirthdate() => $_ensure(6);
+  $7.Timestamp ensureBirthdate() => $_ensure(4);
 
   @$pb.TagNumber(8)
-  $6.Duration get shelfLife => $_getN(7);
+  $6.Duration get shelfLife => $_getN(5);
   @$pb.TagNumber(8)
   set shelfLife($6.Duration v) { setField(8, v); }
   @$pb.TagNumber(8)
-  $core.bool hasShelfLife() => $_has(7);
+  $core.bool hasShelfLife() => $_has(5);
   @$pb.TagNumber(8)
   void clearShelfLife() => clearField(8);
   @$pb.TagNumber(8)
-  $6.Duration ensureShelfLife() => $_ensure(7);
+  $6.Duration ensureShelfLife() => $_ensure(5);
 }
 
 class GListOfChef extends $pb.GeneratedMessage {
@@ -518,10 +490,8 @@ class GListOfChef extends $pb.GeneratedMessage {
 
 class GSousChef extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GSousChef', createEmptyInstance: create)
-    ..aOM<$0.GRecipe>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipe', subBuilder: $0.GRecipe.create)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipeHasValue')
-    ..aOM<GKnife>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnifeHasValue')
+    ..aOM<$0.GRecipe>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipe', subBuilder: $0.GRecipe.create)
+    ..aOM<GKnife>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
     ..e<$8.GApplianceType>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteApplianceType', $pb.PbFieldType.OE, defaultOrMaker: $8.GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: $8.GApplianceType.valueOf, enumValues: $8.GApplianceType.values)
     ..pPS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteWords')
     ..aOM<$7.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'birthdate', subBuilder: $7.Timestamp.create)
@@ -532,9 +502,7 @@ class GSousChef extends $pb.GeneratedMessage {
   GSousChef._() : super();
   factory GSousChef({
     $0.GRecipe? favoriteRecipe,
-    $core.bool? favoriteRecipeHasValue,
     GKnife? favoriteKnife,
-    $core.bool? favoriteKnifeHasValue,
     $8.GApplianceType? favoriteApplianceType,
     $core.Iterable<$core.String>? favoriteWords,
     $7.Timestamp? birthdate,
@@ -544,14 +512,8 @@ class GSousChef extends $pb.GeneratedMessage {
     if (favoriteRecipe != null) {
       _result.favoriteRecipe = favoriteRecipe;
     }
-    if (favoriteRecipeHasValue != null) {
-      _result.favoriteRecipeHasValue = favoriteRecipeHasValue;
-    }
     if (favoriteKnife != null) {
       _result.favoriteKnife = favoriteKnife;
-    }
-    if (favoriteKnifeHasValue != null) {
-      _result.favoriteKnifeHasValue = favoriteKnifeHasValue;
     }
     if (favoriteApplianceType != null) {
       _result.favoriteApplianceType = favoriteApplianceType;
@@ -588,79 +550,61 @@ class GSousChef extends $pb.GeneratedMessage {
   static GSousChef getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GSousChef>(create);
   static GSousChef? _defaultInstance;
 
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
   $0.GRecipe get favoriteRecipe => $_getN(0);
-  @$pb.TagNumber(1)
-  set favoriteRecipe($0.GRecipe v) { setField(1, v); }
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  set favoriteRecipe($0.GRecipe v) { setField(2, v); }
+  @$pb.TagNumber(2)
   $core.bool hasFavoriteRecipe() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearFavoriteRecipe() => clearField(1);
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearFavoriteRecipe() => clearField(2);
+  @$pb.TagNumber(2)
   $0.GRecipe ensureFavoriteRecipe() => $_ensure(0);
 
-  @$pb.TagNumber(2)
-  $core.bool get favoriteRecipeHasValue => $_getBF(1);
-  @$pb.TagNumber(2)
-  set favoriteRecipeHasValue($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasFavoriteRecipeHasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearFavoriteRecipeHasValue() => clearField(2);
-
-  @$pb.TagNumber(3)
-  GKnife get favoriteKnife => $_getN(2);
-  @$pb.TagNumber(3)
-  set favoriteKnife(GKnife v) { setField(3, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasFavoriteKnife() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFavoriteKnife() => clearField(3);
-  @$pb.TagNumber(3)
-  GKnife ensureFavoriteKnife() => $_ensure(2);
-
   @$pb.TagNumber(4)
-  $core.bool get favoriteKnifeHasValue => $_getBF(3);
+  GKnife get favoriteKnife => $_getN(1);
   @$pb.TagNumber(4)
-  set favoriteKnifeHasValue($core.bool v) { $_setBool(3, v); }
+  set favoriteKnife(GKnife v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasFavoriteKnifeHasValue() => $_has(3);
+  $core.bool hasFavoriteKnife() => $_has(1);
   @$pb.TagNumber(4)
-  void clearFavoriteKnifeHasValue() => clearField(4);
+  void clearFavoriteKnife() => clearField(4);
+  @$pb.TagNumber(4)
+  GKnife ensureFavoriteKnife() => $_ensure(1);
 
   @$pb.TagNumber(5)
-  $8.GApplianceType get favoriteApplianceType => $_getN(4);
+  $8.GApplianceType get favoriteApplianceType => $_getN(2);
   @$pb.TagNumber(5)
   set favoriteApplianceType($8.GApplianceType v) { setField(5, v); }
   @$pb.TagNumber(5)
-  $core.bool hasFavoriteApplianceType() => $_has(4);
+  $core.bool hasFavoriteApplianceType() => $_has(2);
   @$pb.TagNumber(5)
   void clearFavoriteApplianceType() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.List<$core.String> get favoriteWords => $_getList(5);
+  $core.List<$core.String> get favoriteWords => $_getList(3);
 
   @$pb.TagNumber(7)
-  $7.Timestamp get birthdate => $_getN(6);
+  $7.Timestamp get birthdate => $_getN(4);
   @$pb.TagNumber(7)
   set birthdate($7.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
-  $core.bool hasBirthdate() => $_has(6);
+  $core.bool hasBirthdate() => $_has(4);
   @$pb.TagNumber(7)
   void clearBirthdate() => clearField(7);
   @$pb.TagNumber(7)
-  $7.Timestamp ensureBirthdate() => $_ensure(6);
+  $7.Timestamp ensureBirthdate() => $_ensure(4);
 
   @$pb.TagNumber(8)
-  $6.Duration get shelfLife => $_getN(7);
+  $6.Duration get shelfLife => $_getN(5);
   @$pb.TagNumber(8)
   set shelfLife($6.Duration v) { setField(8, v); }
   @$pb.TagNumber(8)
-  $core.bool hasShelfLife() => $_has(7);
+  $core.bool hasShelfLife() => $_has(5);
   @$pb.TagNumber(8)
   void clearShelfLife() => clearField(8);
   @$pb.TagNumber(8)
-  $6.Duration ensureShelfLife() => $_ensure(7);
+  $6.Duration ensureShelfLife() => $_ensure(5);
 }
 
 class GListOfSousChef extends $pb.GeneratedMessage {
@@ -706,20 +650,18 @@ class GListOfSousChef extends $pb.GeneratedMessage {
 
 class GKnifeMaster extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GKnifeMaster', createEmptyInstance: create)
-    ..aOM<$0.GRecipe>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipe', subBuilder: $0.GRecipe.create)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipeHasValue')
+    ..aOM<$0.GRecipe>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipe', subBuilder: $0.GRecipe.create)
     ..e<$8.GApplianceType>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteApplianceType', $pb.PbFieldType.OE, defaultOrMaker: $8.GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: $8.GApplianceType.valueOf, enumValues: $8.GApplianceType.values)
     ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteWords')
     ..aOM<$7.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'birthdate', subBuilder: $7.Timestamp.create)
     ..aOM<$6.Duration>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLife', subBuilder: $6.Duration.create)
-    ..aOM<GKnife>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
+    ..aOM<GKnife>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
     ..hasRequiredFields = false
   ;
 
   GKnifeMaster._() : super();
   factory GKnifeMaster({
     $0.GRecipe? favoriteRecipe,
-    $core.bool? favoriteRecipeHasValue,
     $8.GApplianceType? favoriteApplianceType,
     $core.Iterable<$core.String>? favoriteWords,
     $7.Timestamp? birthdate,
@@ -729,9 +671,6 @@ class GKnifeMaster extends $pb.GeneratedMessage {
     final _result = create();
     if (favoriteRecipe != null) {
       _result.favoriteRecipe = favoriteRecipe;
-    }
-    if (favoriteRecipeHasValue != null) {
-      _result.favoriteRecipeHasValue = favoriteRecipeHasValue;
     }
     if (favoriteApplianceType != null) {
       _result.favoriteApplianceType = favoriteApplianceType;
@@ -771,70 +710,61 @@ class GKnifeMaster extends $pb.GeneratedMessage {
   static GKnifeMaster getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GKnifeMaster>(create);
   static GKnifeMaster? _defaultInstance;
 
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
   $0.GRecipe get favoriteRecipe => $_getN(0);
-  @$pb.TagNumber(1)
-  set favoriteRecipe($0.GRecipe v) { setField(1, v); }
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  set favoriteRecipe($0.GRecipe v) { setField(2, v); }
+  @$pb.TagNumber(2)
   $core.bool hasFavoriteRecipe() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearFavoriteRecipe() => clearField(1);
-  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearFavoriteRecipe() => clearField(2);
+  @$pb.TagNumber(2)
   $0.GRecipe ensureFavoriteRecipe() => $_ensure(0);
 
-  @$pb.TagNumber(2)
-  $core.bool get favoriteRecipeHasValue => $_getBF(1);
-  @$pb.TagNumber(2)
-  set favoriteRecipeHasValue($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasFavoriteRecipeHasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearFavoriteRecipeHasValue() => clearField(2);
-
   @$pb.TagNumber(3)
-  $8.GApplianceType get favoriteApplianceType => $_getN(2);
+  $8.GApplianceType get favoriteApplianceType => $_getN(1);
   @$pb.TagNumber(3)
   set favoriteApplianceType($8.GApplianceType v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasFavoriteApplianceType() => $_has(2);
+  $core.bool hasFavoriteApplianceType() => $_has(1);
   @$pb.TagNumber(3)
   void clearFavoriteApplianceType() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$core.String> get favoriteWords => $_getList(3);
+  $core.List<$core.String> get favoriteWords => $_getList(2);
 
   @$pb.TagNumber(5)
-  $7.Timestamp get birthdate => $_getN(4);
+  $7.Timestamp get birthdate => $_getN(3);
   @$pb.TagNumber(5)
   set birthdate($7.Timestamp v) { setField(5, v); }
   @$pb.TagNumber(5)
-  $core.bool hasBirthdate() => $_has(4);
+  $core.bool hasBirthdate() => $_has(3);
   @$pb.TagNumber(5)
   void clearBirthdate() => clearField(5);
   @$pb.TagNumber(5)
-  $7.Timestamp ensureBirthdate() => $_ensure(4);
+  $7.Timestamp ensureBirthdate() => $_ensure(3);
 
   @$pb.TagNumber(6)
-  $6.Duration get shelfLife => $_getN(5);
+  $6.Duration get shelfLife => $_getN(4);
   @$pb.TagNumber(6)
   set shelfLife($6.Duration v) { setField(6, v); }
   @$pb.TagNumber(6)
-  $core.bool hasShelfLife() => $_has(5);
+  $core.bool hasShelfLife() => $_has(4);
   @$pb.TagNumber(6)
   void clearShelfLife() => clearField(6);
   @$pb.TagNumber(6)
-  $6.Duration ensureShelfLife() => $_ensure(5);
+  $6.Duration ensureShelfLife() => $_ensure(4);
 
-  @$pb.TagNumber(8)
-  GKnife get favoriteKnife => $_getN(6);
-  @$pb.TagNumber(8)
-  set favoriteKnife(GKnife v) { setField(8, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasFavoriteKnife() => $_has(6);
-  @$pb.TagNumber(8)
-  void clearFavoriteKnife() => clearField(8);
-  @$pb.TagNumber(8)
-  GKnife ensureFavoriteKnife() => $_ensure(6);
+  @$pb.TagNumber(7)
+  GKnife get favoriteKnife => $_getN(5);
+  @$pb.TagNumber(7)
+  set favoriteKnife(GKnife v) { setField(7, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasFavoriteKnife() => $_has(5);
+  @$pb.TagNumber(7)
+  void clearFavoriteKnife() => clearField(7);
+  @$pb.TagNumber(7)
+  GKnife ensureFavoriteKnife() => $_ensure(5);
 }
 
 class GListOfKnifeMaster extends $pb.GeneratedMessage {
@@ -1090,125 +1020,97 @@ class GListOfPrecisionSubject extends $pb.GeneratedMessage {
   $core.List<GPrecisionSubject> get items => $_getList(0);
 }
 
-class NullableGKnifeType extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'NullableGKnifeType', createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hasValue')
-    ..e<GKnifeType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GKnifeType.G_KNIFE_TYPE_CHEFS_KNIFE, valueOf: GKnifeType.valueOf, enumValues: GKnifeType.values)
+class GKnifeType_Message extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GKnifeType_Message', createEmptyInstance: create)
+    ..e<GKnifeType>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GKnifeType.G_KNIFE_TYPE_CHEFS_KNIFE, valueOf: GKnifeType.valueOf, enumValues: GKnifeType.values)
     ..hasRequiredFields = false
   ;
 
-  NullableGKnifeType._() : super();
-  factory NullableGKnifeType({
-    $core.bool? hasValue,
-    GKnifeType? value_2,
+  GKnifeType_Message._() : super();
+  factory GKnifeType_Message({
+    GKnifeType? value,
   }) {
     final _result = create();
-    if (hasValue != null) {
-      _result.hasValue = hasValue;
-    }
-    if (value_2 != null) {
-      _result.value_2 = value_2;
+    if (value != null) {
+      _result.value = value;
     }
     return _result;
   }
-  factory NullableGKnifeType.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory NullableGKnifeType.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory GKnifeType_Message.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GKnifeType_Message.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  NullableGKnifeType clone() => NullableGKnifeType()..mergeFromMessage(this);
+  GKnifeType_Message clone() => GKnifeType_Message()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  NullableGKnifeType copyWith(void Function(NullableGKnifeType) updates) => super.copyWith((message) => updates(message as NullableGKnifeType)) as NullableGKnifeType; // ignore: deprecated_member_use
+  GKnifeType_Message copyWith(void Function(GKnifeType_Message) updates) => super.copyWith((message) => updates(message as GKnifeType_Message)) as GKnifeType_Message; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static NullableGKnifeType create() => NullableGKnifeType._();
-  NullableGKnifeType createEmptyInstance() => create();
-  static $pb.PbList<NullableGKnifeType> createRepeated() => $pb.PbList<NullableGKnifeType>();
+  static GKnifeType_Message create() => GKnifeType_Message._();
+  GKnifeType_Message createEmptyInstance() => create();
+  static $pb.PbList<GKnifeType_Message> createRepeated() => $pb.PbList<GKnifeType_Message>();
   @$core.pragma('dart2js:noInline')
-  static NullableGKnifeType getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NullableGKnifeType>(create);
-  static NullableGKnifeType? _defaultInstance;
+  static GKnifeType_Message getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GKnifeType_Message>(create);
+  static GKnifeType_Message? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get hasValue => $_getBF(0);
+  GKnifeType get value => $_getN(0);
   @$pb.TagNumber(1)
-  set hasValue($core.bool v) { $_setBool(0, v); }
+  set value(GKnifeType v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasHasValue() => $_has(0);
+  $core.bool hasValue() => $_has(0);
   @$pb.TagNumber(1)
-  void clearHasValue() => clearField(1);
-
-  @$pb.TagNumber(2)
-  GKnifeType get value_2 => $_getN(1);
-  @$pb.TagNumber(2)
-  set value_2(GKnifeType v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValue_2() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValue_2() => clearField(2);
+  void clearValue() => clearField(1);
 }
 
-class NullableGChefType extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'NullableGChefType', createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hasValue')
-    ..e<GChefType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GChefType.G_CHEF_TYPE_SENIOR_CHEF, valueOf: GChefType.valueOf, enumValues: GChefType.values)
+class GChefType_Message extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GChefType_Message', createEmptyInstance: create)
+    ..e<GChefType>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GChefType.G_CHEF_TYPE_SENIOR_CHEF, valueOf: GChefType.valueOf, enumValues: GChefType.values)
     ..hasRequiredFields = false
   ;
 
-  NullableGChefType._() : super();
-  factory NullableGChefType({
-    $core.bool? hasValue,
-    GChefType? value_2,
+  GChefType_Message._() : super();
+  factory GChefType_Message({
+    GChefType? value,
   }) {
     final _result = create();
-    if (hasValue != null) {
-      _result.hasValue = hasValue;
-    }
-    if (value_2 != null) {
-      _result.value_2 = value_2;
+    if (value != null) {
+      _result.value = value;
     }
     return _result;
   }
-  factory NullableGChefType.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory NullableGChefType.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory GChefType_Message.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GChefType_Message.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  NullableGChefType clone() => NullableGChefType()..mergeFromMessage(this);
+  GChefType_Message clone() => GChefType_Message()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  NullableGChefType copyWith(void Function(NullableGChefType) updates) => super.copyWith((message) => updates(message as NullableGChefType)) as NullableGChefType; // ignore: deprecated_member_use
+  GChefType_Message copyWith(void Function(GChefType_Message) updates) => super.copyWith((message) => updates(message as GChefType_Message)) as GChefType_Message; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static NullableGChefType create() => NullableGChefType._();
-  NullableGChefType createEmptyInstance() => create();
-  static $pb.PbList<NullableGChefType> createRepeated() => $pb.PbList<NullableGChefType>();
+  static GChefType_Message create() => GChefType_Message._();
+  GChefType_Message createEmptyInstance() => create();
+  static $pb.PbList<GChefType_Message> createRepeated() => $pb.PbList<GChefType_Message>();
   @$core.pragma('dart2js:noInline')
-  static NullableGChefType getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NullableGChefType>(create);
-  static NullableGChefType? _defaultInstance;
+  static GChefType_Message getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GChefType_Message>(create);
+  static GChefType_Message? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get hasValue => $_getBF(0);
+  GChefType get value => $_getN(0);
   @$pb.TagNumber(1)
-  set hasValue($core.bool v) { $_setBool(0, v); }
+  set value(GChefType v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasHasValue() => $_has(0);
+  $core.bool hasValue() => $_has(0);
   @$pb.TagNumber(1)
-  void clearHasValue() => clearField(1);
-
-  @$pb.TagNumber(2)
-  GChefType get value_2 => $_getN(1);
-  @$pb.TagNumber(2)
-  set value_2(GChefType v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValue_2() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValue_2() => clearField(2);
+  void clearValue() => clearField(1);
 }
 

@@ -18,28 +18,20 @@ class GListsHost extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GListsHost', createEmptyInstance: create)
     ..p<$core.bool>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vbools', $pb.PbFieldType.KB)
     ..p<$core.bool>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvbools', $pb.PbFieldType.KB)
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvboolsHasValue')
-    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vstrings')
-    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvstrings')
-    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvstringsHasValue')
-    ..pc<$6.Duration>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdurations', $pb.PbFieldType.PM, subBuilder: $6.Duration.create)
-    ..pc<$6.Duration>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdurations', $pb.PbFieldType.PM, subBuilder: $6.Duration.create)
-    ..aOB(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdurationsHasValue')
-    ..pc<$7.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdatetimes', $pb.PbFieldType.PM, subBuilder: $7.Timestamp.create)
-    ..pc<$7.Timestamp>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimes', $pb.PbFieldType.PM, subBuilder: $7.Timestamp.create)
-    ..aOB(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimesHasValue')
-    ..p<$core.List<$core.int>>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdecimals', $pb.PbFieldType.PY)
-    ..p<$core.List<$core.int>>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimals', $pb.PbFieldType.PY)
-    ..aOB(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimalsHasValue')
-    ..p<$core.int>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vints', $pb.PbFieldType.K3)
-    ..p<$core.int>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvints', $pb.PbFieldType.K3)
-    ..aOB(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvintsHasValue')
-    ..p<$core.double>(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdoubles', $pb.PbFieldType.KD)
-    ..p<$core.double>(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdoubles', $pb.PbFieldType.KD)
-    ..aOB(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdoublesHasValue')
-    ..pc<$8.GApplianceType>(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vapplianceTypes', $pb.PbFieldType.KE, valueOf: $8.GApplianceType.valueOf, enumValues: $8.GApplianceType.values, defaultEnumValue: $8.GApplianceType.G_APPLIANCE_TYPE_HEAT)
-    ..pc<$8.GApplianceType>(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvapplianceTypes', $pb.PbFieldType.KE, valueOf: $8.GApplianceType.valueOf, enumValues: $8.GApplianceType.values, defaultEnumValue: $8.GApplianceType.G_APPLIANCE_TYPE_HEAT)
-    ..aOB(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvapplianceTypesHasValue')
+    ..pPS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vstrings')
+    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvstrings')
+    ..pc<$6.Duration>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdurations', $pb.PbFieldType.PM, subBuilder: $6.Duration.create)
+    ..pc<$6.Duration>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdurations', $pb.PbFieldType.PM, subBuilder: $6.Duration.create)
+    ..pc<$7.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdatetimes', $pb.PbFieldType.PM, subBuilder: $7.Timestamp.create)
+    ..pc<$7.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimes', $pb.PbFieldType.PM, subBuilder: $7.Timestamp.create)
+    ..p<$core.List<$core.int>>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdecimals', $pb.PbFieldType.PY)
+    ..p<$core.List<$core.int>>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimals', $pb.PbFieldType.PY)
+    ..p<$core.int>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vints', $pb.PbFieldType.K3)
+    ..p<$core.int>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvints', $pb.PbFieldType.K3)
+    ..p<$core.double>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdoubles', $pb.PbFieldType.KD)
+    ..p<$core.double>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdoubles', $pb.PbFieldType.KD)
+    ..pc<$8.GApplianceType>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vapplianceTypes', $pb.PbFieldType.KE, valueOf: $8.GApplianceType.valueOf, enumValues: $8.GApplianceType.values, defaultEnumValue: $8.GApplianceType.G_APPLIANCE_TYPE_HEAT)
+    ..pc<$8.GApplianceType>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvapplianceTypes', $pb.PbFieldType.KE, valueOf: $8.GApplianceType.valueOf, enumValues: $8.GApplianceType.values, defaultEnumValue: $8.GApplianceType.G_APPLIANCE_TYPE_HEAT)
     ..hasRequiredFields = false
   ;
 
@@ -47,28 +39,20 @@ class GListsHost extends $pb.GeneratedMessage {
   factory GListsHost({
     $core.Iterable<$core.bool>? vbools,
     $core.Iterable<$core.bool>? nvbools,
-    $core.bool? nvboolsHasValue,
     $core.Iterable<$core.String>? vstrings,
     $core.Iterable<$core.String>? nvstrings,
-    $core.bool? nvstringsHasValue,
     $core.Iterable<$6.Duration>? vdurations,
     $core.Iterable<$6.Duration>? nvdurations,
-    $core.bool? nvdurationsHasValue,
     $core.Iterable<$7.Timestamp>? vdatetimes,
     $core.Iterable<$7.Timestamp>? nvdatetimes,
-    $core.bool? nvdatetimesHasValue,
     $core.Iterable<$core.List<$core.int>>? vdecimals,
     $core.Iterable<$core.List<$core.int>>? nvdecimals,
-    $core.bool? nvdecimalsHasValue,
     $core.Iterable<$core.int>? vints,
     $core.Iterable<$core.int>? nvints,
-    $core.bool? nvintsHasValue,
     $core.Iterable<$core.double>? vdoubles,
     $core.Iterable<$core.double>? nvdoubles,
-    $core.bool? nvdoublesHasValue,
     $core.Iterable<$8.GApplianceType>? vapplianceTypes,
     $core.Iterable<$8.GApplianceType>? nvapplianceTypes,
-    $core.bool? nvapplianceTypesHasValue,
   }) {
     final _result = create();
     if (vbools != null) {
@@ -77,17 +61,11 @@ class GListsHost extends $pb.GeneratedMessage {
     if (nvbools != null) {
       _result.nvbools.addAll(nvbools);
     }
-    if (nvboolsHasValue != null) {
-      _result.nvboolsHasValue = nvboolsHasValue;
-    }
     if (vstrings != null) {
       _result.vstrings.addAll(vstrings);
     }
     if (nvstrings != null) {
       _result.nvstrings.addAll(nvstrings);
-    }
-    if (nvstringsHasValue != null) {
-      _result.nvstringsHasValue = nvstringsHasValue;
     }
     if (vdurations != null) {
       _result.vdurations.addAll(vdurations);
@@ -95,17 +73,11 @@ class GListsHost extends $pb.GeneratedMessage {
     if (nvdurations != null) {
       _result.nvdurations.addAll(nvdurations);
     }
-    if (nvdurationsHasValue != null) {
-      _result.nvdurationsHasValue = nvdurationsHasValue;
-    }
     if (vdatetimes != null) {
       _result.vdatetimes.addAll(vdatetimes);
     }
     if (nvdatetimes != null) {
       _result.nvdatetimes.addAll(nvdatetimes);
-    }
-    if (nvdatetimesHasValue != null) {
-      _result.nvdatetimesHasValue = nvdatetimesHasValue;
     }
     if (vdecimals != null) {
       _result.vdecimals.addAll(vdecimals);
@@ -113,17 +85,11 @@ class GListsHost extends $pb.GeneratedMessage {
     if (nvdecimals != null) {
       _result.nvdecimals.addAll(nvdecimals);
     }
-    if (nvdecimalsHasValue != null) {
-      _result.nvdecimalsHasValue = nvdecimalsHasValue;
-    }
     if (vints != null) {
       _result.vints.addAll(vints);
     }
     if (nvints != null) {
       _result.nvints.addAll(nvints);
-    }
-    if (nvintsHasValue != null) {
-      _result.nvintsHasValue = nvintsHasValue;
     }
     if (vdoubles != null) {
       _result.vdoubles.addAll(vdoubles);
@@ -131,17 +97,11 @@ class GListsHost extends $pb.GeneratedMessage {
     if (nvdoubles != null) {
       _result.nvdoubles.addAll(nvdoubles);
     }
-    if (nvdoublesHasValue != null) {
-      _result.nvdoublesHasValue = nvdoublesHasValue;
-    }
     if (vapplianceTypes != null) {
       _result.vapplianceTypes.addAll(vapplianceTypes);
     }
     if (nvapplianceTypes != null) {
       _result.nvapplianceTypes.addAll(nvapplianceTypes);
-    }
-    if (nvapplianceTypesHasValue != null) {
-      _result.nvapplianceTypesHasValue = nvapplianceTypesHasValue;
     }
     return _result;
   }
@@ -173,118 +133,46 @@ class GListsHost extends $pb.GeneratedMessage {
   $core.List<$core.bool> get nvbools => $_getList(1);
 
   @$pb.TagNumber(3)
-  $core.bool get nvboolsHasValue => $_getBF(2);
-  @$pb.TagNumber(3)
-  set nvboolsHasValue($core.bool v) { $_setBool(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasNvboolsHasValue() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearNvboolsHasValue() => clearField(3);
+  $core.List<$core.String> get vstrings => $_getList(2);
 
   @$pb.TagNumber(4)
-  $core.List<$core.String> get vstrings => $_getList(3);
+  $core.List<$core.String> get nvstrings => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.List<$core.String> get nvstrings => $_getList(4);
+  $core.List<$6.Duration> get vdurations => $_getList(4);
 
   @$pb.TagNumber(6)
-  $core.bool get nvstringsHasValue => $_getBF(5);
-  @$pb.TagNumber(6)
-  set nvstringsHasValue($core.bool v) { $_setBool(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasNvstringsHasValue() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearNvstringsHasValue() => clearField(6);
+  $core.List<$6.Duration> get nvdurations => $_getList(5);
 
   @$pb.TagNumber(7)
-  $core.List<$6.Duration> get vdurations => $_getList(6);
+  $core.List<$7.Timestamp> get vdatetimes => $_getList(6);
 
   @$pb.TagNumber(8)
-  $core.List<$6.Duration> get nvdurations => $_getList(7);
+  $core.List<$7.Timestamp> get nvdatetimes => $_getList(7);
 
   @$pb.TagNumber(9)
-  $core.bool get nvdurationsHasValue => $_getBF(8);
-  @$pb.TagNumber(9)
-  set nvdurationsHasValue($core.bool v) { $_setBool(8, v); }
-  @$pb.TagNumber(9)
-  $core.bool hasNvdurationsHasValue() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearNvdurationsHasValue() => clearField(9);
-
-  @$pb.TagNumber(10)
-  $core.List<$7.Timestamp> get vdatetimes => $_getList(9);
+  $core.List<$core.List<$core.int>> get vdecimals => $_getList(8);
 
   @$pb.TagNumber(11)
-  $core.List<$7.Timestamp> get nvdatetimes => $_getList(10);
+  $core.List<$core.List<$core.int>> get nvdecimals => $_getList(9);
 
   @$pb.TagNumber(12)
-  $core.bool get nvdatetimesHasValue => $_getBF(11);
-  @$pb.TagNumber(12)
-  set nvdatetimesHasValue($core.bool v) { $_setBool(11, v); }
-  @$pb.TagNumber(12)
-  $core.bool hasNvdatetimesHasValue() => $_has(11);
-  @$pb.TagNumber(12)
-  void clearNvdatetimesHasValue() => clearField(12);
+  $core.List<$core.int> get vints => $_getList(10);
 
   @$pb.TagNumber(13)
-  $core.List<$core.List<$core.int>> get vdecimals => $_getList(12);
+  $core.List<$core.int> get nvints => $_getList(11);
 
   @$pb.TagNumber(14)
-  $core.List<$core.List<$core.int>> get nvdecimals => $_getList(13);
+  $core.List<$core.double> get vdoubles => $_getList(12);
 
   @$pb.TagNumber(15)
-  $core.bool get nvdecimalsHasValue => $_getBF(14);
-  @$pb.TagNumber(15)
-  set nvdecimalsHasValue($core.bool v) { $_setBool(14, v); }
-  @$pb.TagNumber(15)
-  $core.bool hasNvdecimalsHasValue() => $_has(14);
-  @$pb.TagNumber(15)
-  void clearNvdecimalsHasValue() => clearField(15);
+  $core.List<$core.double> get nvdoubles => $_getList(13);
 
   @$pb.TagNumber(16)
-  $core.List<$core.int> get vints => $_getList(15);
-
-  @$pb.TagNumber(17)
-  $core.List<$core.int> get nvints => $_getList(16);
+  $core.List<$8.GApplianceType> get vapplianceTypes => $_getList(14);
 
   @$pb.TagNumber(18)
-  $core.bool get nvintsHasValue => $_getBF(17);
-  @$pb.TagNumber(18)
-  set nvintsHasValue($core.bool v) { $_setBool(17, v); }
-  @$pb.TagNumber(18)
-  $core.bool hasNvintsHasValue() => $_has(17);
-  @$pb.TagNumber(18)
-  void clearNvintsHasValue() => clearField(18);
-
-  @$pb.TagNumber(19)
-  $core.List<$core.double> get vdoubles => $_getList(18);
-
-  @$pb.TagNumber(20)
-  $core.List<$core.double> get nvdoubles => $_getList(19);
-
-  @$pb.TagNumber(21)
-  $core.bool get nvdoublesHasValue => $_getBF(20);
-  @$pb.TagNumber(21)
-  set nvdoublesHasValue($core.bool v) { $_setBool(20, v); }
-  @$pb.TagNumber(21)
-  $core.bool hasNvdoublesHasValue() => $_has(20);
-  @$pb.TagNumber(21)
-  void clearNvdoublesHasValue() => clearField(21);
-
-  @$pb.TagNumber(22)
-  $core.List<$8.GApplianceType> get vapplianceTypes => $_getList(21);
-
-  @$pb.TagNumber(23)
-  $core.List<$8.GApplianceType> get nvapplianceTypes => $_getList(22);
-
-  @$pb.TagNumber(24)
-  $core.bool get nvapplianceTypesHasValue => $_getBF(23);
-  @$pb.TagNumber(24)
-  set nvapplianceTypesHasValue($core.bool v) { $_setBool(23, v); }
-  @$pb.TagNumber(24)
-  $core.bool hasNvapplianceTypesHasValue() => $_has(23);
-  @$pb.TagNumber(24)
-  void clearNvapplianceTypesHasValue() => clearField(24);
+  $core.List<$8.GApplianceType> get nvapplianceTypes => $_getList(15);
 }
 
 class GListOfListsHost extends $pb.GeneratedMessage {

@@ -332,7 +332,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
         useWellKnownTypes: _useWellKnownTypes,
       );
       var fromProtoMap =
-          '${fieldDescriptor.displayName} = ${fieldCodeGenerator.fromProtoExpression}';
+          '${fieldDescriptor.displayName} = ${fieldCodeGenerator.fromProtoMap}';
       fromProtoFieldBuffer.writeln('  ..$fromProtoMap');
     }
 
@@ -413,7 +413,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   String _getConstructorMap(ParameterElement constructorParameter,
       FieldDescriptor fieldDescriptor, FieldCodeGenerator fieldCodeGenerator) {
     final constructorMap =
-        '${fieldDescriptor.displayName}: ${fieldCodeGenerator.fromProtoExpression}, ';
+        '${fieldDescriptor.displayName}: ${fieldCodeGenerator.fromProtoMap}, ';
     if (constructorParameter.isNamed) return constructorMap;
     return constructorMap.substring(constructorParameter.nameLength + 1);
   }

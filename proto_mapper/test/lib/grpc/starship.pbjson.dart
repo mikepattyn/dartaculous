@@ -13,13 +13,13 @@ const GStarship$json = const {
   '1': 'GStarship',
   '2': const [
     const {'1': 'range', '3': 1, '4': 1, '5': 12, '10': 'range'},
-    const {'1': 'odometer', '3': 2, '4': 1, '5': 12, '10': 'odometer'},
+    const {'1': 'odometer', '3': 3, '4': 1, '5': 12, '10': 'odometer'},
     const {'1': 'engine_number', '3': 4, '4': 1, '5': 5, '10': 'engineNumber'},
   ],
 };
 
 /// Descriptor for `GStarship`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gStarshipDescriptor = $convert.base64Decode('CglHU3RhcnNoaXASFAoFcmFuZ2UYASABKAxSBXJhbmdlEhoKCG9kb21ldGVyGAIgASgMUghvZG9tZXRlchIjCg1lbmdpbmVfbnVtYmVyGAQgASgFUgxlbmdpbmVOdW1iZXI=');
+final $typed_data.Uint8List gStarshipDescriptor = $convert.base64Decode('CglHU3RhcnNoaXASFAoFcmFuZ2UYASABKAxSBXJhbmdlEhoKCG9kb21ldGVyGAMgASgMUghvZG9tZXRlchIjCg1lbmdpbmVfbnVtYmVyGAQgASgFUgxlbmdpbmVOdW1iZXI=');
 @$core.Deprecated('Use gListOfStarshipDescriptor instead')
 const GListOfStarship$json = const {
   '1': 'GListOfStarship',

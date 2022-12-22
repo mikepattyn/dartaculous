@@ -1,15 +1,15 @@
-import '../field_code_generator.dart';
-import '../field_descriptor.dart';
+// import '../field_code_generator.dart';
+// import '../field_descriptor.dart';
 
-class GenericFieldCodeGenerator extends FieldCodeGenerator {
-  GenericFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor,
-    List<int> lineNumbers,
-  ) : super(
-          fieldDescriptor,
-          lineNumbers,
-        );
+// class GenericFieldCodeGenerator extends CompositeFieldCodeGenerator {
+//   GenericFieldCodeGenerator(
+//     FieldDescriptor fieldDescriptor,
+//     List<int> lineNumbers,
+//   ) : super(
+//           fieldDescriptor,
+//           lineNumbers,
+//         );
 
-  @override
-  String get fieldType => 'string';
-}
+//   @override
+//   String get fieldType => 'string';
+// }

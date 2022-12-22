@@ -16,7 +16,7 @@ syntax = "proto3";
 message GStarship
 {
   bytes range = 1;
-  bytes odometer = 2;
+  bytes odometer = 3;
   int32 engine_number = 4;
 
 }   

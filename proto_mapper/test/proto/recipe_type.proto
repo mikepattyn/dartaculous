@@ -8,16 +8,13 @@ syntax = "proto3";
           
 
     
-enum GRecipeTypes
-{
+enum GRecipeTypes {
   G_RECIPE_TYPES_COOK = 0;
   G_RECIPE_TYPES_GRILL = 1;
   G_RECIPE_TYPES_FRY = 2;
   G_RECIPE_TYPES_STEW = 3;
 }   
-     
-message NullableGRecipeTypes
-{
-  bool has_value = 1;
-  GRecipeTypes value = 2;
+
+message GRecipeTypes_Message {
+  GRecipeTypes value = 1;
 }

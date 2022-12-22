@@ -27,7 +27,7 @@ class GDurationFieldCodeGenerator extends WKTFieldCodeGenerator {
       : '$protoRef$protoFieldName = $toProtoExpression;';
 
   @override
-  String get fromProtoExpression {
+  String get fromProtoMap {
     if (fieldDescriptor.isNullable) {
       return fromProtoNullableExpression;
     }

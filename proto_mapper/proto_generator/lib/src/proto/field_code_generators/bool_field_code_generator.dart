@@ -1,7 +1,7 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
-class BoolFieldCodeGenerator extends FieldCodeGenerator {
+class BoolFieldCodeGenerator extends StandaloneFieldCodeGenerator {
   BoolFieldCodeGenerator(
     FieldDescriptor fieldDescriptor,
     List<int> lineNumbers,

@@ -12,7 +12,7 @@ import 'package:protobuf/protobuf.dart' as $pb;
 class GStarship extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GStarship', createEmptyInstance: create)
     ..a<$core.List<$core.int>>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'range', $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'odometer', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'odometer', $pb.PbFieldType.OY)
     ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'engineNumber', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -65,14 +65,14 @@ class GStarship extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearRange() => clearField(1);
 
-  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   $core.List<$core.int> get odometer => $_getN(1);
-  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   set odometer($core.List<$core.int> v) { $_setBytes(1, v); }
-  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   $core.bool hasOdometer() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearOdometer() => clearField(2);
+  @$pb.TagNumber(3)
+  void clearOdometer() => clearField(3);
 
   @$pb.TagNumber(4)
   $core.int get engineNumber => $_getIZ(2);

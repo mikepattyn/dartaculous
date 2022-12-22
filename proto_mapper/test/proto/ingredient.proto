@@ -23,10 +23,8 @@ message GIngredient
   google.protobuf.Duration cooking_duration = 4;
   GComponent main_component = 5;
   repeated GComponent other_components = 6;
-  GComponent alternative_component = 7;
-  bool alternative_component_has_value = 8;
-  repeated GComponent secondary_components = 9;
-  bool secondary_components_has_value = 10;
+  GComponent alternative_component = 8;
+  repeated GComponent secondary_components = 10;
 
 }   
 

@@ -255,7 +255,7 @@ class _Generator extends ProtoServicesGeneratorBase {
         useWellKnownTypes: useWellKnownTypes,
       );
 
-      final expression = fieldCodeGenerator.fromProtoExpression;
+      final expression = fieldCodeGenerator.fromProtoMap;
       pVarBuffer.writeln('final $varname = $expression;');
     }
 

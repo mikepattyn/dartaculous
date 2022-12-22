@@ -1,6 +1,5 @@
 import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
 import '../field_descriptor.dart';
-import '../standalone_field_code_generator.dart';
 
 class GIntFieldCodeGenerator extends WKTFieldCodeGenerator {
   GIntFieldCodeGenerator({
@@ -23,7 +22,7 @@ class GIntFieldCodeGenerator extends WKTFieldCodeGenerator {
       : '$protoRef$protoFieldName = $ref$fieldName;';
 
   @override
-  String get fromProtoExpression {
+  String get fromProtoMap {
     if (fieldDescriptor.isNullable) {
       return '''($ref$protoFieldName.hasValue() ? $ref$protoFieldName.value : null)''';
     }

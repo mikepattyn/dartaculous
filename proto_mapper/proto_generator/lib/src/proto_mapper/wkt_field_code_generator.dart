@@ -1,3 +1,4 @@
+import 'field_code_generators/field_code_generator_identifiers.dart';
 import 'well_known_types/gbool_field_code_generator.dart';
 import 'well_known_types/gdatetime_field_code_generator.dart';
 import 'well_known_types/gdouble_field_code_generator.dart';
@@ -7,22 +8,21 @@ import 'well_known_types/gstring_field_code_generator.dart';
 import 'field_code_generator.dart';
 import 'field_descriptor.dart';
 
-abstract class WKTFieldCodeGenerator implements FieldCodeGenerator {
-  final FieldDescriptor fieldDescriptor;
-  final String refName;
-  final String protoRefName;
-
-  String get ref => refName.isEmpty ? '' : '$refName.';
-  String get protoRef => protoRefName.isEmpty ? '' : '$protoRefName.';
-
+abstract class WKTFieldCodeGenerator
+    with FieldCodeGeneratorIdentifiers
+    implements FieldCodeGenerator {
   WKTFieldCodeGenerator({
     required this.fieldDescriptor,
     required this.refName,
     required this.protoRefName,
   });
 
-  String get fieldName => fieldDescriptor.displayName;
-  String get protoFieldName => fieldDescriptor.protoFieldName;
+  @override
+  final FieldDescriptor fieldDescriptor;
+  @override
+  final String refName;
+  @override
+  final String protoRefName;
 
   static FieldCodeGenerator? fromFieldDescriptor({
     required FieldDescriptor fieldDescriptor,

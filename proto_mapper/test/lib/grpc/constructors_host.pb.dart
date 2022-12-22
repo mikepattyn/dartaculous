@@ -524,7 +524,7 @@ class GListOfConstructObject5 extends $pb.GeneratedMessage {
 class GConstructObject6 extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject6', createEmptyInstance: create)
     ..aOM<$4.StringValue>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name', subBuilder: $4.StringValue.create)
-    ..aOM<$4.Int32Value>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: $4.Int32Value.create)
+    ..aOM<$4.Int32Value>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: $4.Int32Value.create)
     ..hasRequiredFields = false
   ;
 
@@ -574,15 +574,15 @@ class GConstructObject6 extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $4.StringValue ensureName() => $_ensure(0);
 
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
   $4.Int32Value get number => $_getN(1);
-  @$pb.TagNumber(3)
-  set number($4.Int32Value v) { setField(3, v); }
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
+  set number($4.Int32Value v) { setField(2, v); }
+  @$pb.TagNumber(2)
   $core.bool hasNumber() => $_has(1);
-  @$pb.TagNumber(3)
-  void clearNumber() => clearField(3);
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
+  void clearNumber() => clearField(2);
+  @$pb.TagNumber(2)
   $4.Int32Value ensureNumber() => $_ensure(1);
 }
 
@@ -630,7 +630,7 @@ class GListOfConstructObject6 extends $pb.GeneratedMessage {
 class GConstructObject7 extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject7', createEmptyInstance: create)
     ..aOM<$4.Int32Value>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: $4.Int32Value.create)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..hasRequiredFields = false
   ;
 
@@ -680,14 +680,14 @@ class GConstructObject7 extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $4.Int32Value ensureNumber() => $_ensure(0);
 
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
   set name($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
   $core.bool hasName() => $_has(1);
-  @$pb.TagNumber(3)
-  void clearName() => clearField(3);
+  @$pb.TagNumber(2)
+  void clearName() => clearField(2);
 }
 
 class GListOfConstructObject7 extends $pb.GeneratedMessage {
@@ -734,7 +734,7 @@ class GListOfConstructObject7 extends $pb.GeneratedMessage {
 class GConstructObject8 extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject8', createEmptyInstance: create)
     ..aOM<$4.Int32Value>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: $4.Int32Value.create)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..hasRequiredFields = false
   ;
 
@@ -784,14 +784,14 @@ class GConstructObject8 extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $4.Int32Value ensureNumber() => $_ensure(0);
 
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
   set name($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
   $core.bool hasName() => $_has(1);
-  @$pb.TagNumber(3)
-  void clearName() => clearField(3);
+  @$pb.TagNumber(2)
+  void clearName() => clearField(2);
 }
 
 class GListOfConstructObject8 extends $pb.GeneratedMessage {

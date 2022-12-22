@@ -1,4 +1,5 @@
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator/src/proto_mapper/field_code_generators/field_code_generator_identifiers.dart';
 import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
 import 'standalone/bool_field_code_generator.dart';
@@ -10,19 +11,21 @@ import 'standalone/int_field_code_generator.dart';
 import 'standalone/duration/milliseconds_duration_field_code_generator.dart';
 import 'field_descriptor.dart';
 
-abstract class StandaloneFieldCodeGenerator implements FieldCodeGenerator {
-  final FieldDescriptor fieldDescriptor;
-  final String refName;
-  final String protoRefName;
-
-  String get ref => refName.isEmpty ? '' : '$refName.';
-  String get protoRef => protoRefName.isEmpty ? '' : '$protoRefName.';
-
+abstract class StandaloneFieldCodeGenerator
+    with FieldCodeGeneratorIdentifiers
+    implements FieldCodeGenerator {
   StandaloneFieldCodeGenerator({
     required this.fieldDescriptor,
     required this.refName,
     required this.protoRefName,
   });
+
+  @override
+  final FieldDescriptor fieldDescriptor;
+  @override
+  final String refName;
+  @override
+  final String protoRefName;
 
   MapProto get mapProtoBase => fieldDescriptor.protoMapperAnnotation;
 
@@ -45,7 +48,7 @@ abstract class StandaloneFieldCodeGenerator implements FieldCodeGenerator {
   String get toProtoNullableExpression => toProtoExpression;
 
   @override
-  String get fromProtoExpression {
+  String get fromProtoMap {
     if (fieldDescriptor.isNullable) return fromProtoNullableExpression;
     return fromProtoNonNullableExpression;
   }
@@ -55,10 +58,7 @@ abstract class StandaloneFieldCodeGenerator implements FieldCodeGenerator {
 
   String get fromProtoNonNullableExpression => '$ref$protoFieldName';
 
-  String get fieldName => fieldDescriptor.displayName;
-  String get protoFieldName => fieldDescriptor.protoFieldName;
-
-  static StandaloneFieldCodeGenerator? fromFieldDescriptor({
+  static FieldCodeGenerator? fromFieldDescriptor({
     required FieldDescriptor fieldDescriptor,
     required String refName,
     required String protoRefName,

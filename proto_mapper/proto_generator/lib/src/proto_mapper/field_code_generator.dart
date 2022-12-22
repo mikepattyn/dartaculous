@@ -9,7 +9,7 @@ import 'standalone_field_code_generator.dart';
 
 abstract class FieldCodeGenerator {
   String get toProtoMap;
-  String get fromProtoExpression;
+  String get fromProtoMap;
 
   static const defaultRefName = 'instance';
   static const defaultProtoRefName = 'proto';
@@ -20,35 +20,27 @@ abstract class FieldCodeGenerator {
     String protoRefName = defaultProtoRefName,
     required bool useWellKnownTypes,
   }) {
-    if (fieldDescriptor.fieldElementTypeName == (BigInt).toString()) {
-      return BigIntFieldCodeGenerator(
-        fieldDescriptor: fieldDescriptor,
-        refName: refName,
-        protoRefName: protoRefName,
-      );
-    }
-    if (fieldDescriptor.fieldElementTypeName == (Decimal).toString()) {
-      return DecimalFieldCodeGenerator(
-        fieldDescriptor: fieldDescriptor,
-        refName: refName,
-        protoRefName: protoRefName,
-      );
-    }
+    FieldCodeGenerator? fcd = _getCustomEncodedFieldCodeGenerator(
+      fieldDescriptor: fieldDescriptor,
+      refName: refName,
+      protoRefName: protoRefName,
+    );
+    if (fcd != null) return fcd;
 
     if (useWellKnownTypes) {
-      final fd = WKTFieldCodeGenerator.fromFieldDescriptor(
+      fcd = WKTFieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
-      if (fd != null) return fd;
+      if (fcd != null) return fcd;
     } else {
-      final fd = StandaloneFieldCodeGenerator.fromFieldDescriptor(
+      fcd = StandaloneFieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
-      if (fd != null) return fd;
+      if (fcd != null) return fcd;
     }
     return CompositeFieldCodeGenerator.fromFieldDescriptor(
       fieldDescriptor: fieldDescriptor,
@@ -57,4 +49,26 @@ abstract class FieldCodeGenerator {
       useWellKnownTypes: useWellKnownTypes,
     );
   }
+}
+
+FieldCodeGenerator? _getCustomEncodedFieldCodeGenerator({
+  required FieldDescriptor fieldDescriptor,
+  required String refName,
+  required String protoRefName,
+}) {
+  if (fieldDescriptor.fieldElementTypeName == (BigInt).toString()) {
+    return BigIntFieldCodeGenerator(
+      fieldDescriptor: fieldDescriptor,
+      refName: refName,
+      protoRefName: protoRefName,
+    );
+  }
+  if (fieldDescriptor.fieldElementTypeName == (Decimal).toString()) {
+    return DecimalFieldCodeGenerator(
+      fieldDescriptor: fieldDescriptor,
+      refName: refName,
+      protoRefName: protoRefName,
+    );
+  }
+  return null;
 }

@@ -32,7 +32,6 @@ GCategory _$CategoryToProto(Category instance) {
     proto.alternativeComponent =
         const $ComponentProtoMapper().toProto(instance.alternativeComponent!);
   }
-  proto.alternativeComponentHasValue = instance.alternativeComponent != null;
 
   proto.otherComponents.addAll(instance.otherComponents
       .map((e) => const $ComponentProtoMapper().toProto(e)));
@@ -40,7 +39,6 @@ GCategory _$CategoryToProto(Category instance) {
   proto.secondaryComponents.addAll(instance.secondaryComponents
           ?.map((e) => const $ComponentProtoMapper().toProto(e)) ??
       []);
-  proto.secondaryComponentsHasValue = instance.secondaryComponents != null;
 
   return proto;
 }
@@ -51,14 +49,13 @@ Category _$CategoryFromProto(GCategory instance) => Category(
           const $ComponentProtoMapper().fromProto(instance.mainComponent),
       otherComponents: List<Component>.unmodifiable(instance.otherComponents
           .map((e) => const $ComponentProtoMapper().fromProto(e))),
-      alternativeComponent: (instance.alternativeComponentHasValue
-          ? (const $ComponentProtoMapper()
-              .fromProto(instance.alternativeComponent))
+      alternativeComponent: (instance.hasAlternativeComponent()
+          ? const $ComponentProtoMapper()
+              .fromProto(instance.alternativeComponent)
           : null),
-      secondaryComponents: (instance.secondaryComponentsHasValue
-          ? (List<Component>.unmodifiable(instance.secondaryComponents
-              .map((e) => const $ComponentProtoMapper().fromProto(e))))
-          : null),
+      secondaryComponents: List<Component>.unmodifiable(instance
+          .secondaryComponents
+          .map((e) => const $ComponentProtoMapper().fromProto(e))),
     );
 
 extension $CategoryProtoExtension on Category {
