@@ -2,11 +2,11 @@ import 'package:decimal/decimal.dart';
 import 'package:proto_generator/src/proto/field_code_generators/bigint_field_code_generator.dart';
 import 'package:proto_generator/src/proto/field_code_generators/enum_field_code_generator.dart';
 import 'package:proto_generator/src/proto_common.dart';
-import 'field_code_generators/bool_field_code_generator.dart';
-import 'field_code_generators/datetime_field_code_generator.dart';
+import 'standalone_field_code_generators/bool_field_code_generator.dart';
+import 'standalone_field_code_generators/datetime_field_code_generator.dart';
 import 'field_code_generators/decimal_field_code_generator.dart';
-import 'field_code_generators/double_field_code_generator.dart';
-import 'field_code_generators/duration_field_code_generator.dart';
+import 'standalone_field_code_generators/double_field_code_generator.dart';
+import 'standalone_field_code_generators/duration_field_code_generator.dart';
 import 'field_code_generators/entity_field_code_generator.dart';
 import 'wkt_field_code_generators/gbool_field_code_generator.dart';
 import 'wkt_field_code_generators/gdatetime_field_code_generator.dart';
@@ -14,9 +14,9 @@ import 'wkt_field_code_generators/gdouble_field_code_generator.dart';
 import 'wkt_field_code_generators/gduration_field_code_generator.dart';
 import 'wkt_field_code_generators/gint_field_code_generator.dart';
 import 'wkt_field_code_generators/gstring_field_code_generator.dart';
-import 'field_code_generators/int_field_code_generator.dart';
+import 'standalone_field_code_generators/int_field_code_generator.dart';
 import 'field_code_generators/map_field_code_generator.dart';
-import 'field_code_generators/string_field_code_generator.dart';
+import 'standalone_field_code_generators/string_field_code_generator.dart';
 import 'field_descriptor.dart';
 
 part 'standalone_field_code_generator.dart';
@@ -25,7 +25,7 @@ part 'field_code_generator_mixin.dart';
 part 'wkt_field_code_generator.dart';
 
 abstract class FieldCodeGenerator {
-  String render(String indent);
+  String render();
 
   static FieldCodeGenerator fromFieldDescriptor(
     FieldDescriptor fieldDescriptor,

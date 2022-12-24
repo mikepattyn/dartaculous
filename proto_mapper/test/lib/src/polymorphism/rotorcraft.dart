@@ -7,10 +7,7 @@ import 'aircraft.dart';
 
 part 'rotorcraft.g.dart';
 
-const knownSubClasses = [
-  Helicopter,
-  Gyrocopter,
-];
+const knownSubClasses = {Helicopter: 3, Gyrocopter: 4};
 
 @Proto(knownSubClasses: knownSubClasses)
 @MapProto(knownSubClasses: knownSubClasses)

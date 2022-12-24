@@ -13,6 +13,35 @@ import 'prefixes.pbenum.dart';
 
 export 'prefixes.pbenum.dart';
 
+class BFieldsOfStaff extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BFieldsOfStaff', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  BFieldsOfStaff._() : super();
+  factory BFieldsOfStaff() => create();
+  factory BFieldsOfStaff.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BFieldsOfStaff.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  BFieldsOfStaff clone() => BFieldsOfStaff()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  BFieldsOfStaff copyWith(void Function(BFieldsOfStaff) updates) => super.copyWith((message) => updates(message as BFieldsOfStaff)) as BFieldsOfStaff; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static BFieldsOfStaff create() => BFieldsOfStaff._();
+  BFieldsOfStaff createEmptyInstance() => create();
+  static $pb.PbList<BFieldsOfStaff> createRepeated() => $pb.PbList<BFieldsOfStaff>();
+  @$core.pragma('dart2js:noInline')
+  static BFieldsOfStaff getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BFieldsOfStaff>(create);
+  static BFieldsOfStaff? _defaultInstance;
+}
+
 enum BStaff_Props {
   chef, 
   waiter, 

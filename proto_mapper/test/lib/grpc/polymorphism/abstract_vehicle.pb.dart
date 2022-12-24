@@ -12,6 +12,35 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'bicycle.pb.dart' as $11;
 import 'scooter.pb.dart' as $12;
 
+class GFieldsOfAbstractVehicle extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfAbstractVehicle', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  GFieldsOfAbstractVehicle._() : super();
+  factory GFieldsOfAbstractVehicle() => create();
+  factory GFieldsOfAbstractVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfAbstractVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GFieldsOfAbstractVehicle clone() => GFieldsOfAbstractVehicle()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GFieldsOfAbstractVehicle copyWith(void Function(GFieldsOfAbstractVehicle) updates) => super.copyWith((message) => updates(message as GFieldsOfAbstractVehicle)) as GFieldsOfAbstractVehicle; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GFieldsOfAbstractVehicle create() => GFieldsOfAbstractVehicle._();
+  GFieldsOfAbstractVehicle createEmptyInstance() => create();
+  static $pb.PbList<GFieldsOfAbstractVehicle> createRepeated() => $pb.PbList<GFieldsOfAbstractVehicle>();
+  @$core.pragma('dart2js:noInline')
+  static GFieldsOfAbstractVehicle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GFieldsOfAbstractVehicle>(create);
+  static GFieldsOfAbstractVehicle? _defaultInstance;
+}
+
 enum GAbstractVehicle_Props {
   bicycle, 
   scooter, 

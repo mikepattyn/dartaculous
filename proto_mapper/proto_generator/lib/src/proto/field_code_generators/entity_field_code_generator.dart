@@ -4,10 +4,8 @@ import 'package:proto_generator/src/proto_common.dart';
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 import 'external_proto_name.dart';
-import 'external_proto_names_mixin.dart';
 
 class EntityFieldCodeGenerator extends CompositeFieldCodeGenerator
-    with ExternalProtoNamesMixin
     implements ExternalProtoNames {
   EntityFieldCodeGenerator(
       FieldDescriptor fieldDescriptor, List<int> lineNumbers)
@@ -31,4 +29,8 @@ class EntityFieldCodeGenerator extends CompositeFieldCodeGenerator
     }
     return '$packagePrefix${fieldDescriptor.prefix}$displayName';
   }
+
+  @override
+  Iterable<String> get externalProtoNames =>
+      getExternalProtoNames(fieldDescriptor.itemType);
 }

@@ -1,3 +1,4 @@
+import 'package:proto_annotations/src/annotations.dart';
 import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
 class MapProto {
@@ -7,7 +8,9 @@ class MapProto {
     this.includeFieldsByDefault = true,
     this.dateTimePrecision,
     this.durationPrecision,
-    this.knownSubClasses,
+    this.superFieldsNumber = defaultSuperFieldsNumber,
+    this.ownFieldsNumber = defaultOwnFieldsNumber,
+    this.knownSubClasses = noSubClass,
     this.allowMissingFields = false,
   });
 
@@ -16,7 +19,9 @@ class MapProto {
   final bool includeFieldsByDefault;
   final TimePrecision? dateTimePrecision;
   final TimePrecision? durationPrecision;
-  final List<Type>? knownSubClasses;
+  final int superFieldsNumber;
+  final int ownFieldsNumber;
+  final KnownSubClasses knownSubClasses;
   final bool allowMissingFields;
 }
 

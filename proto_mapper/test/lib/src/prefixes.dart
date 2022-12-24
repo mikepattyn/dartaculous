@@ -12,8 +12,10 @@ enum FoodCategory {
   other,
 }
 
-@Proto(prefix: 'B', knownSubClasses: [Chef, Waiter, Manager])
-@MapProto(prefix: 'B', knownSubClasses: [Chef, Waiter, Manager])
+const knownSubClasses = {Chef: 3, Waiter: 4, Manager: 5};
+
+@Proto(prefix: 'B', knownSubClasses: knownSubClasses)
+@MapProto(prefix: 'B', knownSubClasses: knownSubClasses)
 abstract class Staff {
   late String name;
   late FoodCategory favoriteFood;
@@ -57,15 +59,18 @@ class Customer {
 }
 
 class WrapperAnnotation implements Proto, MapProto {
-  const WrapperAnnotation(
-      {this.allowMissingFields = true,
-      this.dateTimePrecision,
-      this.durationPrecision,
-      this.includeFieldsByDefault = true,
-      this.knownSubClasses,
-      this.packageName = '',
-      this.prefix,
-      this.useProtoFieldNamingConventions});
+  const WrapperAnnotation({
+    this.allowMissingFields = true,
+    this.dateTimePrecision,
+    this.durationPrecision,
+    this.includeFieldsByDefault = true,
+    this.superFieldsNumber = defaultSuperFieldsNumber,
+    this.ownFieldsNumber = defaultOwnFieldsNumber,
+    this.knownSubClasses = noSubClass,
+    this.packageName = '',
+    this.prefix,
+    this.useProtoFieldNamingConventions,
+  });
 
   @override
   final bool allowMissingFields;
@@ -80,7 +85,13 @@ class WrapperAnnotation implements Proto, MapProto {
   final bool includeFieldsByDefault;
 
   @override
-  final List<Type>? knownSubClasses;
+  final int superFieldsNumber;
+
+  @override
+  final int ownFieldsNumber;
+
+  @override
+  final KnownSubClasses knownSubClasses;
 
   @override
   final String packageName;

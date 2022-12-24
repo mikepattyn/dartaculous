@@ -8,15 +8,14 @@ part 'abstract_missing_subclass.g.dart';
 /// instead of creating a compilation error...
 @MapProto()
 @Proto()
-abstract class AbstractParentClass1 {
-}
+abstract class AbstractParentClass1 {}
 
-@MapProto(knownSubClasses: [SubClass1])
-@Proto(knownSubClasses: [SubClass1])
-abstract class AbstractParentClass2 {
-}
+const knownSubClasses = {SubClass1: 3};
+
+@MapProto(knownSubClasses: knownSubClasses)
+@Proto(knownSubClasses: knownSubClasses)
+abstract class AbstractParentClass2 {}
 
 @MapProto()
 @Proto()
-class SubClass1 extends AbstractParentClass2 {
-}
+class SubClass1 extends AbstractParentClass2 {}

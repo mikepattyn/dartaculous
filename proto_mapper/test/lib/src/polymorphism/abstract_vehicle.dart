@@ -7,10 +7,7 @@ import 'scooter.dart';
 
 part 'abstract_vehicle.g.dart';
 
-const knownSubClasses = [
-  Bicycle,
-  Scooter,
-];
+const knownSubClasses = {Bicycle: 3, Scooter: 4};
 
 @Proto(knownSubClasses: knownSubClasses)
 @MapProto(knownSubClasses: knownSubClasses)

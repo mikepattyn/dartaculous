@@ -1,12 +1,5 @@
 builders:
 
-  entity_adapter_generator:
-    import: "package:squarealfa_entity_adapter_generator/squarealfa_entity_adapter_generator.dart"
-    builder_factories: ["entityAdapterBuilder"]
-    build_extensions: {".dart": ["entity_adapter.g.part"]}
-    auto_apply: dependents
-    build_to: cache
-    applies_builders: ["source_gen|combining_builder"]
 
   adapted_entity_generator:
     import: "package:squarealfa_entity_adapter_generator/squarealfa_entity_adapter_generator.dart"

@@ -22,14 +22,14 @@ abstract class StandaloneFieldCodeGenerator
   String? get fieldType;
 
   @override
-  String render(String indent) {
+  String render() {
     final hvl = !fieldDescriptor.isNullable || hasValueLine == null
         ? ''
         : '''
-$indent$hasValueLine
+  $hasValueLine
 ''';
 
-    return '$indent$fieldLine$hvl';
+    return '  $fieldLine$hvl';
   }
 
   String? get hasValueLine => hasValueLineNumber != null

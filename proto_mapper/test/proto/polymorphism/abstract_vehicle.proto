@@ -13,7 +13,11 @@ import "polymorphism/scooter.proto";
 
 
 
-
+message GFieldsOfAbstractVehicle
+{
+  
+}
+    
   
 message GAbstractVehicle
 {

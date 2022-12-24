@@ -13,7 +13,11 @@ import "polymorphism/gyrocopter.proto";
 
 
 
-
+message GFieldsOfRotorcraft
+{
+  
+}
+    
   
 message GRotorcraft
 {

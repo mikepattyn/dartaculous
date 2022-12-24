@@ -20,6 +20,13 @@ const AFoodCategory$json = const {
 
 /// Descriptor for `AFoodCategory`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List aFoodCategoryDescriptor = $convert.base64Decode('Cg1BRm9vZENhdGVnb3J5Eh4KGkFfRk9PRF9DQVRFR09SWV9WRUdFVEFCTEVTEAASGAoUQV9GT09EX0NBVEVHT1JZX01FQVQQARIZChVBX0ZPT0RfQ0FURUdPUllfT1RIRVIQAg==');
+@$core.Deprecated('Use bFieldsOfStaffDescriptor instead')
+const BFieldsOfStaff$json = const {
+  '1': 'BFieldsOfStaff',
+};
+
+/// Descriptor for `BFieldsOfStaff`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List bFieldsOfStaffDescriptor = $convert.base64Decode('Cg5CRmllbGRzT2ZTdGFmZg==');
 @$core.Deprecated('Use bStaffDescriptor instead')
 const BStaff$json = const {
   '1': 'BStaff',

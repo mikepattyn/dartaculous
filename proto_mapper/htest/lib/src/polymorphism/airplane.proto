@@ -1,0 +1,25 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// ProtoGenerator
+// **************************************************************************
+
+syntax = "proto3";
+      
+
+
+
+
+
+
+  
+message GAirplane
+{
+  int32 wingspan = 1;
+
+}   
+
+message GListOfAirplane
+{
+  repeated GAirplane items = 1;
+}

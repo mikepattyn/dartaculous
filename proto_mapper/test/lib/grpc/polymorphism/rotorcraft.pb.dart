@@ -12,6 +12,35 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'helicopter.pb.dart' as $14;
 import 'gyrocopter.pb.dart' as $15;
 
+class GFieldsOfRotorcraft extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfRotorcraft', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  GFieldsOfRotorcraft._() : super();
+  factory GFieldsOfRotorcraft() => create();
+  factory GFieldsOfRotorcraft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfRotorcraft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GFieldsOfRotorcraft clone() => GFieldsOfRotorcraft()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GFieldsOfRotorcraft copyWith(void Function(GFieldsOfRotorcraft) updates) => super.copyWith((message) => updates(message as GFieldsOfRotorcraft)) as GFieldsOfRotorcraft; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GFieldsOfRotorcraft create() => GFieldsOfRotorcraft._();
+  GFieldsOfRotorcraft createEmptyInstance() => create();
+  static $pb.PbList<GFieldsOfRotorcraft> createRepeated() => $pb.PbList<GFieldsOfRotorcraft>();
+  @$core.pragma('dart2js:noInline')
+  static GFieldsOfRotorcraft getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GFieldsOfRotorcraft>(create);
+  static GFieldsOfRotorcraft? _defaultInstance;
+}
+
 enum GRotorcraft_Props {
   helicopter, 
   gyrocopter, 

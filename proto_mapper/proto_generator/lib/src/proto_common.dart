@@ -12,10 +12,10 @@ import 'proto/field_code_generator.dart';
 import 'proto/field_code_generators/external_proto_name.dart';
 
 String createFieldDeclarations(
-    Iterable<protofield.FieldDescriptor> fieldDescriptors,
-    List<String> externalProtoNames,
-    bool useWellKnownTypes,
-    String indent) {
+  Iterable<protofield.FieldDescriptor> fieldDescriptors,
+  List<String> externalProtoNames,
+  bool useWellKnownTypes,
+) {
   final fieldBuffer = StringBuffer();
   final lineNumbers = fieldDescriptors
       .where((fd) =>
@@ -30,22 +30,25 @@ String createFieldDeclarations(
     var fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor, lineNumbers, useWellKnownTypes);
 
-    var renderField = fieldCodeGenerator.render(indent);
+    var renderField = fieldCodeGenerator.render();
     fieldBuffer.writeln(renderField);
 
     if (fieldCodeGenerator is! ExternalProtoNames) continue;
     var fieldExternalProtoNames =
         (fieldCodeGenerator as ExternalProtoNames).externalProtoNames;
-    if (fieldExternalProtoNames.isNotEmpty) {
-      for (String externalProtoName in fieldExternalProtoNames) {
-        if (!externalProtoNames.contains(externalProtoName)) {
-          externalProtoNames.add(externalProtoName);
-        }
-      }
-    }
+    mergeProtoNames(fieldExternalProtoNames, externalProtoNames);
   }
 
   return fieldBuffer.toString();
+}
+
+void mergeProtoNames(
+    Iterable<String> fieldExternalProtoNames, List<String> externalProtoNames) {
+  for (String externalProtoName in fieldExternalProtoNames) {
+    if (!externalProtoNames.contains(externalProtoName)) {
+      externalProtoNames.add(externalProtoName);
+    }
+  }
 }
 
 extension ProtoDartTypeExtension on DartType {

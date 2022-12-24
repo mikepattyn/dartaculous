@@ -8,6 +8,13 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use gFieldsOfScheduleConstraintDescriptor instead')
+const GFieldsOfScheduleConstraint$json = const {
+  '1': 'GFieldsOfScheduleConstraint',
+};
+
+/// Descriptor for `GFieldsOfScheduleConstraint`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gFieldsOfScheduleConstraintDescriptor = $convert.base64Decode('ChtHRmllbGRzT2ZTY2hlZHVsZUNvbnN0cmFpbnQ=');
 @$core.Deprecated('Use gScheduleConstraintDescriptor instead')
 const GScheduleConstraint$json = const {
   '1': 'GScheduleConstraint',

@@ -3,30 +3,24 @@ import 'package:proto_generator_test/grpc/inheritance.pb.dart';
 
 part 'inheritance.g.dart';
 
-
 abstract class Root {
   late String name;
 }
 
-abstract class Trunk extends Root {
+abstract class Trunk extends Root {}
 
-}
+const twigAsSubclass = {Twig: 3};
 
-@Proto(prefix: 'T', knownSubClasses: [Twig])
-@MapProto(prefix: 'T', knownSubClasses: [Twig])
-class Branch extends Trunk {
+@Proto(prefix: 'T', knownSubClasses: twigAsSubclass)
+@MapProto(prefix: 'T', knownSubClasses: twigAsSubclass)
+class Branch extends Trunk {}
 
-}
+const leafAsSubclass = {Leaf: 3};
 
-@Proto(prefix: 'L', knownSubClasses: [Leaf])
-@MapProto(prefix: 'L', knownSubClasses: [Leaf])
-class Twig extends Branch {
-
-}
+@Proto(prefix: 'L', knownSubClasses: leafAsSubclass)
+@MapProto(prefix: 'L', knownSubClasses: leafAsSubclass)
+class Twig extends Branch {}
 
 @Proto(prefix: 'T')
 @MapProto(prefix: 'T')
-class Leaf extends Twig {
-
-}
-
+class Leaf extends Twig {}

@@ -79,6 +79,35 @@ class GListOfAbstractParentClass1 extends $pb.GeneratedMessage {
   $core.List<GAbstractParentClass1> get items => $_getList(0);
 }
 
+class GFieldsOfAbstractParentClass2 extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfAbstractParentClass2', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  GFieldsOfAbstractParentClass2._() : super();
+  factory GFieldsOfAbstractParentClass2() => create();
+  factory GFieldsOfAbstractParentClass2.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfAbstractParentClass2.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GFieldsOfAbstractParentClass2 clone() => GFieldsOfAbstractParentClass2()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GFieldsOfAbstractParentClass2 copyWith(void Function(GFieldsOfAbstractParentClass2) updates) => super.copyWith((message) => updates(message as GFieldsOfAbstractParentClass2)) as GFieldsOfAbstractParentClass2; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GFieldsOfAbstractParentClass2 create() => GFieldsOfAbstractParentClass2._();
+  GFieldsOfAbstractParentClass2 createEmptyInstance() => create();
+  static $pb.PbList<GFieldsOfAbstractParentClass2> createRepeated() => $pb.PbList<GFieldsOfAbstractParentClass2>();
+  @$core.pragma('dart2js:noInline')
+  static GFieldsOfAbstractParentClass2 getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GFieldsOfAbstractParentClass2>(create);
+  static GFieldsOfAbstractParentClass2? _defaultInstance;
+}
+
 enum GAbstractParentClass2_Props {
   subClass1, 
   notSet

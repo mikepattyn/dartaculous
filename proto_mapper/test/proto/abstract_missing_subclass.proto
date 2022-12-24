@@ -23,6 +23,12 @@ message GListOfAbstractParentClass1
   repeated GAbstractParentClass1 items = 1;
 }
 
+message GFieldsOfAbstractParentClass2
+{
+  
+}
+    
+  
 message GAbstractParentClass2
 {
   oneof props {

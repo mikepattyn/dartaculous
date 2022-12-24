@@ -11,7 +11,11 @@ syntax = "proto3";
 
 
 
-
+message BFieldsOfStaff
+{
+  
+}
+    
   
 message BStaff
 {

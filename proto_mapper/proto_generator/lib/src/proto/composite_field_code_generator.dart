@@ -20,8 +20,8 @@ abstract class CompositeFieldCodeGenerator
       '${fieldDescriptor.isRepeated ? 'repeated ' : ''}$fieldType ${fieldDescriptor.protoFieldName} = $lineNumber;';
 
   @override
-  String render(String indent) {
-    return '$indent$fieldLine';
+  String render() {
+    return '  $fieldLine';
   }
 
   String get fieldType;

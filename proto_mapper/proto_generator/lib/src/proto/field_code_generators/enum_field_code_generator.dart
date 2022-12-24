@@ -6,7 +6,6 @@ import 'external_proto_name.dart';
 import 'external_proto_names_mixin.dart';
 
 class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator
-    with ExternalProtoNamesMixin
     implements ExternalProtoNames {
   EnumFieldCodeGenerator(
     FieldDescriptor fieldDescriptor,
@@ -23,13 +22,6 @@ class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator
 
     final displayName =
         fieldElementType.getDisplayString(withNullability: false);
-    // In case of dynamic typed field, avoid "TypeName<dynamic>"...
-    // if (fieldElementType is ParameterizedType &&
-    //     fieldElementType.typeArguments.whereType<DynamicType>().isNotEmpty) {
-    //   if (fieldElementType.element?.name != null) {
-    //     displayName = fieldElementType.element!.name!;
-    //   }
-    // }
 
     final messageSuffix =
         fieldDescriptor.isNullable && !fieldDescriptor.isRepeated
@@ -38,4 +30,8 @@ class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator
 
     return '$packagePrefix${fieldDescriptor.prefix}$displayName$messageSuffix';
   }
+
+  @override
+  Iterable<String> get externalProtoNames =>
+      getExternalProtoNames(fieldDescriptor.itemType);
 }

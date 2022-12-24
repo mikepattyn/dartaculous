@@ -25,6 +25,13 @@ const GListOfAbstractParentClass1$json = const {
 
 /// Descriptor for `GListOfAbstractParentClass1`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gListOfAbstractParentClass1Descriptor = $convert.base64Decode('ChtHTGlzdE9mQWJzdHJhY3RQYXJlbnRDbGFzczESLAoFaXRlbXMYASADKAsyFi5HQWJzdHJhY3RQYXJlbnRDbGFzczFSBWl0ZW1z');
+@$core.Deprecated('Use gFieldsOfAbstractParentClass2Descriptor instead')
+const GFieldsOfAbstractParentClass2$json = const {
+  '1': 'GFieldsOfAbstractParentClass2',
+};
+
+/// Descriptor for `GFieldsOfAbstractParentClass2`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gFieldsOfAbstractParentClass2Descriptor = $convert.base64Decode('Ch1HRmllbGRzT2ZBYnN0cmFjdFBhcmVudENsYXNzMg==');
 @$core.Deprecated('Use gAbstractParentClass2Descriptor instead')
 const GAbstractParentClass2$json = const {
   '1': 'GAbstractParentClass2',

@@ -1,5 +1,3 @@
-export 'src/entity_adapted.dart';
-export 'src/entity_adapter.dart';
 export 'src/entity_permissions.dart';
 export 'src/adapted_entity.dart';
 

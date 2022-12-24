@@ -214,8 +214,8 @@ $fieldDeclarations}
       name: 'value',
       fieldElementType: type,
     );
-    final fieldDeclarations = createFieldDeclarations(
-        [fd], externalProtoNames, useWellKnownTypes, '  ');
+    final fieldDeclarations =
+        createFieldDeclarations([fd], externalProtoNames, useWellKnownTypes);
     return fieldDeclarations;
   }
 
@@ -242,7 +242,6 @@ $fieldDeclarations}
       fds,
       externalProtoNames,
       useWellKnownTypes,
-      '  '
     );
     return fieldDeclarations;
   }

@@ -5,12 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Dart: Attach to Process",
+            "type": "dart",
+            "request": "attach"
+        },
+        {
             "name": "Debug build Test",
             "type": "dart",
             "request": "launch",
             "program": "/home/ruicraveiro/sources/dart_framework/proto_mapper/test/.dart_tool/build/entrypoint/build.dart",
             "args": ["build"],
             "cwd": "/home/ruicraveiro/sources/dart_framework/proto_mapper/test"
+        },
+        {
+            "name": "Debug build HTest",
+            "type": "dart",
+            "request": "launch",
+            "program": "/home/ruicraveiro/sources/dart_framework/proto_mapper/htest/.dart_tool/build/entrypoint/build.dart",
+            "args": ["build"],
+            "cwd": "/home/ruicraveiro/sources/dart_framework/proto_mapper/htest"
         }
     ]
 }

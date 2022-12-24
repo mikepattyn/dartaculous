@@ -8,6 +8,13 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use gFieldsOfAircraftDescriptor instead')
+const GFieldsOfAircraft$json = const {
+  '1': 'GFieldsOfAircraft',
+};
+
+/// Descriptor for `GFieldsOfAircraft`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gFieldsOfAircraftDescriptor = $convert.base64Decode('ChFHRmllbGRzT2ZBaXJjcmFmdA==');
 @$core.Deprecated('Use gAircraftDescriptor instead')
 const GAircraft$json = const {
   '1': 'GAircraft',

@@ -16,11 +16,11 @@ abstract class WKTFieldCodeGenerator
   String get wellKnownProtoPath;
 
   @override
-  String render(String indent) {
+  String render() {
     final useWellKnown = scalarType.isEmpty ||
         (fieldDescriptor.isNullable && !fieldDescriptor.isRepeated);
     final fieldType = useWellKnown ? wellKnownType : scalarType;
-    return '$indent${fieldDescriptor.isRepeated ? 'repeated ' : ''}$fieldType ${fieldDescriptor.protoFieldName} = $lineNumber;';
+    return '  ${fieldDescriptor.isRepeated ? 'repeated ' : ''}$fieldType ${fieldDescriptor.protoFieldName} = $lineNumber;';
   }
 
   Iterable<String> get externalProtoNames {
