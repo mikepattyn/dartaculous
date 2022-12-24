@@ -14,3 +14,9 @@ targets:
       proto_generator:proto_services_generator:
         options:
           useWellKnownTypes: true
+      proto_generator:proto_services_service_generator:
+        options:
+          useWellKnownTypes: true
+      proto_generator:proto_services_client_generator:
+        options:
+          useWellKnownTypes: true

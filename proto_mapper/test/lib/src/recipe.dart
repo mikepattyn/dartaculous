@@ -1,6 +1,5 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/appliance_type.pb.dart';
-import 'package:proto_generator_test/grpc/appliance_type.pbenum.dart';
 import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
 import 'package:proto_generator_test/grpc/recipe.pb.dart';
 import 'package:proto_generator_test/src/appliance_type.dart';

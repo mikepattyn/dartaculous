@@ -19,12 +19,6 @@ void main() {
       expect(contents, isNot(contains('paringKnife')));
     });
 
-    test('class field names', () {
-      File proto = File('proto/utensils.proto');
-      String contents = proto.readAsStringSync();
-      expect(contents, contains('bool has_value'));
-    });
-
     test('serialization/deserialization', () {
       final chef = Chef(
           favoriteRecipe: _scrambledEggsRecipe(),

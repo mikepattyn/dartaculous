@@ -163,9 +163,8 @@ class GRecipeService extends GRecipeServiceBase {
     );
     final proto = G_GRecipeService_CountNullable_Return();
     if (value != null) {
-      proto.value = value;
+      proto.value = Int32Value(value: value);
     }
-    proto.valueHasValue = value != null;
 
     return proto;
   }
@@ -377,8 +376,8 @@ class GRecipeService extends GRecipeServiceBase {
   ) async {
     final service = $serviceFactory(call);
 
-    final p0 = (request.pStringHasValue ? (request.pString) : null);
-    final p1 = (request.pIntHasValue ? (request.pInt) : null);
+    final p0 = (request.pString.hasValue() ? request.pString.value : null);
+    final p1 = (request.pInt.hasValue() ? request.pInt.value : null);
     final p2 = (request.hasPRecipeTypes()
         ? (RecipeTypes.values[request.pRecipeTypes.value.value])
         : null);
@@ -554,7 +553,7 @@ abstract class RecipeServiceClientBase implements RecipeServiceBase {
 
     final $result = await serviceClient.countNullable($parm);
 
-    final $ret = ($result.valueHasValue ? ($result.value) : null);
+    final $ret = ($result.value.hasValue() ? $result.value.value : null);
     return $ret;
   }
 
@@ -752,14 +751,12 @@ abstract class RecipeServiceClientBase implements RecipeServiceBase {
     final $parm = G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters();
 
     if (pString != null) {
-      $parm.pString = pString;
+      $parm.pString = StringValue(value: pString);
     }
-    $parm.pStringHasValue = pString != null;
 
     if (pInt != null) {
-      $parm.pInt = pInt;
+      $parm.pInt = Int32Value(value: pInt);
     }
-    $parm.pIntHasValue = pInt != null;
 
     if (pRecipeTypes != null) {
       $parm.pRecipeTypes = GRecipeTypes_Message(

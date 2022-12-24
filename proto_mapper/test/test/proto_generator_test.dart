@@ -175,9 +175,9 @@ void main() {
       final recipe2 = proto.toRecipe();
 
       expect(recipe2.ingredients.first.alternativeComponent, null);
-      expect(recipe2.ingredients.first.secondaryComponents, null);
+      expect(recipe2.ingredients.first.secondaryComponents, []);
       expect(recipe2.category.alternativeComponent, null);
-      expect(recipe2.category.secondaryComponents, null);
+      expect(recipe2.category.secondaryComponents, []);
     });
 
     test('applianceType', () {
@@ -224,7 +224,7 @@ void main() {
       final proto = recipe.toProto();
       final recipe2 = proto.toRecipe();
 
-      expect(recipe2.extraTags, null);
+      expect(recipe2.extraTags, []);
     });
 
     test('not null tags', () {

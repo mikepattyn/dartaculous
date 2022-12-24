@@ -27,14 +27,14 @@ void main() {
       final proto = listshost.toProto();
       final listshosts2 = proto.toListsHost();
 
-      expect(listshosts2.nvapplianceTypes, null);
-      expect(listshosts2.nvbools, null);
-      expect(listshosts2.nvdatetimes, null);
-      expect(listshosts2.nvdecimals, null);
-      expect(listshosts2.nvdoubles, null);
-      expect(listshosts2.nvdurations, null);
-      expect(listshosts2.nvints, null);
-      expect(listshosts2.nvstrings, null);
+      expect(listshosts2.nvapplianceTypes, []);
+      expect(listshosts2.nvbools, []);
+      expect(listshosts2.nvdatetimes, []);
+      expect(listshosts2.nvdecimals, []);
+      expect(listshosts2.nvdoubles, []);
+      expect(listshosts2.nvdurations, []);
+      expect(listshosts2.nvints, []);
+      expect(listshosts2.nvstrings, []);
     });
 
     test('nullable lists with values', () {
