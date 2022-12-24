@@ -90,6 +90,6 @@ abstract class FieldCodeGenerator {
     if (type.isDartCoreMap) {
       return MapFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
-    throw UnimplementedError('Type not supported ${fieldDescriptor.itemType}');
+    return StringFieldCodeGenerator(fieldDescriptor, lineNumbers);
   }
 }

@@ -4,6 +4,7 @@ import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
 import 'standalone/bool_field_code_generator.dart';
 import 'standalone/datetime_field_code_generator.dart';
+import 'standalone/double_field_code_generator.dart';
 import 'standalone/duration/microseconds_duration_field_code_generator.dart';
 import 'standalone/string_field_code_generator.dart';
 import 'field_code_generator.dart';
@@ -79,6 +80,13 @@ abstract class StandaloneFieldCodeGenerator
     }
     if (fieldDescriptor.fieldElementType.isDartCoreInt) {
       return IntFieldCodeGenerator(
+        fieldDescriptor: fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
+    }
+    if (fieldDescriptor.fieldElementType.isDartCoreDouble) {
+      return DoubleFieldCodeGenerator(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
