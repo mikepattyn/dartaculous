@@ -14,8 +14,8 @@ import "polymorphism/aircraft.proto";
 
 message GFieldsOfVehicle
 {
-  
-    int32 weight = 1;
+
+  int32 weight = 1;
 
 }
     
@@ -25,7 +25,7 @@ message GVehicle
   oneof props {
     GFieldsOfVehicle vehicle = 1;
 
-  GAircraft aircraft = 3;
+    GAircraft aircraft = 3;
 
   }
     

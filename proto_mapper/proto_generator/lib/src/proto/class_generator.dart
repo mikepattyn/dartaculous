@@ -2,15 +2,12 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator/proto_generator.dart';
-import 'package:proto_generator/src/proto/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/interface_element_extension.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 import '../proto_common.dart';
 import 'field_code_generators/external_proto_name.dart';
-import 'field_descriptor.dart';
 import 'proto_reflected.dart';
 import 'package:recase/recase.dart';
 
@@ -20,13 +17,11 @@ class ClassGenerator {
     required ProtoReflected protoReflected,
     required String prefix,
     required bool useWellKnownTypes,
-    required bool useProtoFieldNamingConventions,
   })  : classElement = element.asClassElement(),
         proto = protoReflected.proto,
         knownSubclasses = protoReflected.knownSubClasses,
         _prefix = prefix,
-        _useWellKnownTypes = useWellKnownTypes,
-        _useProtoFieldNamingConventions = useProtoFieldNamingConventions;
+        _useWellKnownTypes = useWellKnownTypes;
 
   final String _prefix;
   final bool _useWellKnownTypes;
@@ -35,7 +30,6 @@ class ClassGenerator {
   final externalProtoNames = <String>[];
   final Proto proto;
   final Map<DartType, int> knownSubclasses;
-  final bool _useProtoFieldNamingConventions;
   final _alreadyImported = <String>{};
 
   String generate() {
@@ -110,34 +104,11 @@ $messages
     final fieldsMessage = '''
 message ${prefix}FieldsOf$className
 {
-  $superFieldsOf
-  $fieldDeclarations
+$superFieldsOf
+$fieldDeclarations
 }
     ''';
     return fieldsMessage;
-  }
-
-  String _createSuperFieldsOf(
-    ClassElement classElement,
-    String prefix,
-    Proto proto,
-    List<String> externalProtoNames,
-  ) {
-    final superType = classElement.supertype;
-    if (superType == null) return '';
-
-    final tc = TypeChecker.fromRuntime(Proto);
-    final annotation = tc.firstAnnotationOf(superType.element);
-    if (annotation == null) return '';
-    final superClassElement = superType.element.asClassElement();
-    final className = superClassElement.name;
-
-    final fieldProtoNames = getExternalProtoNames(superType);
-    mergeProtoNames(fieldProtoNames, externalProtoNames);
-
-    final superFieldsOf =
-        '  ${prefix}FieldsOf$className fieldsOfSuperClass = ${proto.superFieldsNumber};\n';
-    return superFieldsOf;
   }
 
   StringBuffer _getImports(List<String> externalProtoNames) {
@@ -164,39 +135,56 @@ message ${prefix}FieldsOf$className
     final prefix = proto.prefix ?? _prefix;
     final ownFieldsOf =
         '    ${prefix}FieldsOf$className ${className.snakeCase} = ${proto.ownFieldsNumber};\n';
-    final fieldDescriptors = <FieldDescriptor>[
-      ...knownSubclasses.keys.map<FieldDescriptor>((ksc) {
-        final annotation = ConstantReader(
-            getAnnotationsByName(ksc, 'Proto').first.computeConstantValue());
-        var readAnnotation = annotation.hydrateAnnotation(
-          prefix: _prefix,
-          useProtoFieldNamingConventions: _useProtoFieldNamingConventions,
-        );
-
-        final knownSubClass = knownSubclasses[ksc]!;
-        final fd = FieldDescriptor(
-          readAnnotation.proto,
-          displayName: ksc.getDisplayString(withNullability: false),
-          name: ksc.getDisplayString(withNullability: false),
-          fieldElementType: ksc,
-          isFinal: true,
-          isLate: false,
-          hasInitializer: false,
-          protoFieldAnnotation: ProtoField.auto(number: knownSubClass),
-        );
-        return fd;
-      }),
-    ];
-
-    final fds = createFieldDeclarations(
-        fieldDescriptors, externalProtoNames, _useWellKnownTypes);
+    final subClassFields = _createSubClassFields();
 
     final ret = '''
   oneof props {
 $ownFieldsOf
-$fds
+$subClassFields
   }
     ''';
     return ret;
+  }
+
+  String _createSuperFieldsOf(
+    ClassElement classElement,
+    String prefix,
+    Proto proto,
+    List<String> externalProtoNames,
+  ) {
+    final superType = classElement.supertype;
+    if (superType == null) return '';
+
+    final tc = TypeChecker.fromRuntime(Proto);
+    final annotation = tc.firstAnnotationOf(superType.element);
+    if (annotation == null) return '';
+    final superClassElement = superType.element.asClassElement();
+    final className = superClassElement.name;
+
+    final fieldProtoNames = getExternalProtoNames(superType);
+    mergeProtoNames(fieldProtoNames, externalProtoNames);
+
+    final superFieldsOf =
+        '  ${prefix}FieldsOf$className fieldsOfSuperClass = ${proto.superFieldsNumber};\n';
+    return superFieldsOf;
+  }
+
+  String _createSubClassFields() {
+    final buffer = StringBuffer();
+    for (final kscType in knownSubclasses.keys) {
+      final kscNumber = knownSubclasses[kscType];
+      final element = kscType.element;
+      if (element == null) continue;
+      final tc = TypeChecker.fromRuntime(Proto);
+      final annotation = tc.firstAnnotationOf(element);
+      if (annotation == null) continue;
+      final className = element.asClassElement().name;
+
+      final fieldProtoNames = getExternalProtoNames(kscType);
+      mergeProtoNames(fieldProtoNames, externalProtoNames);
+      buffer.writeln(
+          '    $_prefix$className ${className.snakeCase} = $kscNumber;');
+    }
+    return buffer.toString();
   }
 }

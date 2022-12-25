@@ -3,7 +3,6 @@ import 'package:proto_generator/src/proto_common.dart';
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 import 'external_proto_name.dart';
-import 'external_proto_names_mixin.dart';
 
 class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator
     implements ExternalProtoNames {

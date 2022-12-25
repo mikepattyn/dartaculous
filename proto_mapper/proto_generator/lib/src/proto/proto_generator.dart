@@ -1,19 +1,10 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/dart/element/type.dart';
 import 'package:build/build.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator/proto_generator.dart';
 import 'package:proto_generator/src/proto/class_generator.dart';
 import 'package:proto_generator/src/proto/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/enum_generator.dart';
-import 'package:proto_generator/src/proto/field_code_generators/external_proto_name.dart';
 import 'package:source_gen/source_gen.dart';
-import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
-import 'package:recase/recase.dart';
-
-import '../proto_common.dart';
-import 'field_descriptor.dart';
-import 'proto_reflected.dart';
 
 class ProtoGenerator extends GeneratorForAnnotation<Proto> {
   final BuilderOptions options;
@@ -60,7 +51,6 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
             protoReflected: readAnnotation,
             prefix: _prefix,
             useWellKnownTypes: _useWellKnownTypes,
-            useProtoFieldNamingConventions: _useProtoFieldNamingConventions,
           ).generate();
 
     ret = '''$header

@@ -15,9 +15,9 @@ import "polymorphism/airplane.proto";
 
 message GFieldsOfAircraft
 {
-    GFieldsOfVehicle fieldsOfSuperClass = 3;
+  GFieldsOfVehicle fieldsOfSuperClass = 3;
 
-    int32 service_ceiling = 2;
+  int32 service_ceiling = 2;
 
 }
     
@@ -27,7 +27,7 @@ message GAircraft
   oneof props {
     GFieldsOfAircraft aircraft = 5;
 
-  GAirplane airplane = 7;
+    GAirplane airplane = 7;
 
   }
     
