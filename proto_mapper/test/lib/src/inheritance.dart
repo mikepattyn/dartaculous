@@ -12,13 +12,13 @@ abstract class Trunk extends Root {}
 const twigAsSubclass = {Twig: 3};
 
 @Proto(prefix: 'T', knownSubClasses: twigAsSubclass)
-@MapProto(prefix: 'T', knownSubClasses: twigAsSubclass)
+@MapProto(prefix: 'T', knownSubClasses: [Twig])
 class Branch extends Trunk {}
 
 const leafAsSubclass = {Leaf: 3};
 
 @Proto(prefix: 'L', knownSubClasses: leafAsSubclass)
-@MapProto(prefix: 'L', knownSubClasses: leafAsSubclass)
+@MapProto(prefix: 'L', knownSubClasses: [Twig])
 class Twig extends Branch {}
 
 @Proto(prefix: 'T')

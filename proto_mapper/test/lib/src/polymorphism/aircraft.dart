@@ -14,7 +14,7 @@ part 'aircraft.g.dart';
 const knownSubClasses = {Airplane: 3, Rotorcraft: 4, Balloon: 5};
 
 @Proto.numbered(knownSubClasses: knownSubClasses, superFieldsNumber: 6)
-@MapProto(knownSubClasses: knownSubClasses)
+@MapProto(knownSubClasses: [Airplane, Rotorcraft, Balloon])
 abstract class Aircraft extends Vehicle implements Entity {
   @ProtoField.numbered(3)
   final int serviceCeiling;

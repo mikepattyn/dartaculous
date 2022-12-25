@@ -6,7 +6,7 @@ part 'generics.g.dart';
 const knownSubClasses = {ContestConstraint: 3};
 
 @Proto(knownSubClasses: knownSubClasses)
-@MapProto(knownSubClasses: knownSubClasses)
+@MapProto(knownSubClasses: [ContestConstraint])
 abstract class ScheduleConstraint<T> {
   /// Check whether or not the relevant instance violates the constraint
   /// Returns a list of validation messages when invalid.

@@ -7,28 +7,15 @@
 syntax = "proto3";
       
 
-
-import "polymorphism/vehicle.proto";
+import "polymorphism/aircraft.fields.proto";
 import "polymorphism/airplane.proto";
-
-
-
-message GFieldsOfAircraft
-{
-  GFieldsOfVehicle fieldsOfSuperClass = 3;
-
-  int32 service_ceiling = 2;
-
-}
-    
-  
+      
 message GAircraft
 {
   oneof props {
     GFieldsOfAircraft aircraft = 5;
 
     GAirplane airplane = 7;
-
   }
     
 }   

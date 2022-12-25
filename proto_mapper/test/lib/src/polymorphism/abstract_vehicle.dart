@@ -10,7 +10,7 @@ part 'abstract_vehicle.g.dart';
 const knownSubClasses = {Bicycle: 3, Scooter: 4};
 
 @Proto(knownSubClasses: knownSubClasses)
-@MapProto(knownSubClasses: knownSubClasses)
+@MapProto(knownSubClasses: [Bicycle, Scooter])
 abstract class AbstractVehicle implements Entity {
   final int weight;
   AbstractVehicle({

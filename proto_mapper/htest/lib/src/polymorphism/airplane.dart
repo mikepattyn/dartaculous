@@ -10,6 +10,7 @@ class Airplane extends Aircraft {
     required this.wingspan,
   }) : super(weight: weight, serviceCeiling: serviceCeiling);
 
+  @ProtoField.numbered(2)
   final int wingspan;
 
   @override

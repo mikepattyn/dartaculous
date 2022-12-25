@@ -10,7 +10,7 @@ class MapProto {
     this.durationPrecision,
     this.superFieldsNumber = defaultSuperFieldsNumber,
     this.ownFieldsNumber = defaultOwnFieldsNumber,
-    this.knownSubClasses = noSubClass,
+    this.knownSubClasses = const [],
     this.allowMissingFields = false,
   });
 
@@ -21,7 +21,7 @@ class MapProto {
   final TimePrecision? durationPrecision;
   final int superFieldsNumber;
   final int ownFieldsNumber;
-  final KnownSubClasses knownSubClasses;
+  final List<Type> knownSubClasses;
   final bool allowMissingFields;
 }
 

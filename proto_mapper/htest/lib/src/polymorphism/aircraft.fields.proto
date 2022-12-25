@@ -5,19 +5,13 @@
 // **************************************************************************
 
 syntax = "proto3";
+      
 
-import "polymorphism/airplane.proto";
+import "polymorphism/vehicle.fields.proto";
 
-message GFieldsOfAircraft {
-  GFieldsOfVehicle vehicle = 1;
+message GFieldsOfAircraft
+{
+  GFieldsOfVehicle fieldsOfSuperClass = 3;
   int32 service_ceiling = 2;
 }
-
-message GAircraft {
-  oneof props {
-    GFieldsOfAircraft aircraft = 3;
-    GAirplane airplane = 2;
-  }
-}
-
-message GListOfAircraft { repeated GAircraft items = 1; }
+    

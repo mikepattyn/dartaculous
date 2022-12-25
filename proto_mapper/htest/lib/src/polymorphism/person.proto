@@ -7,20 +7,18 @@
 syntax = "proto3";
       
 
-import "polymorphism/aircraft.fields.proto";
 
 
 
   
-message GAirplane
+message GPerson
 {
-  GFieldsOfAircraft fieldsOfSuperClass = 1;
 
-  int32 wingspan = 2;
+  string name2 = 2;
 
 }   
 
-message GListOfAirplane
+message GListOfPerson
 {
-  repeated GAirplane items = 1;
+  repeated GPerson items = 1;
 }

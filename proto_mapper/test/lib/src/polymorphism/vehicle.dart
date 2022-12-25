@@ -13,7 +13,7 @@ part 'vehicle.g.dart';
 const knownSubClasses = {Aircraft: 3, Car: 4};
 
 @Proto(knownSubClasses: knownSubClasses)
-@MapProto(knownSubClasses: knownSubClasses)
+@MapProto(knownSubClasses: [Aircraft, Car])
 class Vehicle {
   final int weight;
   Vehicle({
