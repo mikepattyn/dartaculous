@@ -8,7 +8,6 @@ class Proto {
   @Deprecated('Use Proto.auto or Proto.numbered')
   const Proto({
     this.prefix,
-    this.packageName = '',
     this.includeFieldsByDefault = true,
     this.useProtoFieldNamingConventions,
     this.ownFieldsNumber = defaultOwnFieldsNumber,
@@ -18,7 +17,6 @@ class Proto {
 
   const Proto.auto({
     this.prefix,
-    this.packageName = '',
     this.useProtoFieldNamingConventions,
     this.superFieldsNumber = defaultSuperFieldsNumber,
     this.ownFieldsNumber = defaultOwnFieldsNumber,
@@ -27,7 +25,6 @@ class Proto {
 
   const Proto.forEnum({
     this.prefix,
-    this.packageName = '',
     this.useProtoFieldNamingConventions,
     this.superFieldsNumber = defaultSuperFieldsNumber,
     this.ownFieldsNumber = defaultOwnFieldsNumber,
@@ -36,14 +33,12 @@ class Proto {
 
   const Proto.numbered({
     this.prefix,
-    this.packageName = '',
     this.useProtoFieldNamingConventions,
     this.superFieldsNumber = defaultSuperFieldsNumber,
     this.ownFieldsNumber = defaultOwnFieldsNumber,
     this.knownSubClasses = noSubClass,
   }) : includeFieldsByDefault = false;
 
-  final String packageName;
   final String? prefix;
   final bool includeFieldsByDefault;
   final bool? useProtoFieldNamingConventions;

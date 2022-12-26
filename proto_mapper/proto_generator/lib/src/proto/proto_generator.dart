@@ -9,7 +9,6 @@ import 'package:source_gen/source_gen.dart';
 class ProtoGenerator extends GeneratorForAnnotation<Proto> {
   final BuilderOptions options;
   final String _prefix;
-  final String _defaultPackage;
   final bool _useProtoFieldNamingConventions;
   final bool _useWellKnownTypes;
   final _alreadyImported = <String>{};
@@ -17,7 +16,6 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
 
   ProtoGenerator(this.options)
       : _prefix = options.config['prefix'] as String? ?? 'G',
-        _defaultPackage = options.config['package'] as String? ?? '',
         _useProtoFieldNamingConventions =
             options.config['useProtoFieldNamingConventions'] as bool? ?? true,
         _useWellKnownTypes =
@@ -36,9 +34,6 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
     );
 
     final proto = readAnnotation.proto;
-    var packageName =
-        proto.packageName != '' ? proto.packageName : _defaultPackage;
-    final packageDeclaration = packageName != '' ? 'package $packageName;' : '';
 
     var ret = element is EnumElement
         ? EnumGenerator(
@@ -54,7 +49,7 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
           ).generate();
 
     ret = '''$header
-$packageDeclaration
+
 $ret''';
     return ret;
   }

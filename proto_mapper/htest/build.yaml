@@ -5,7 +5,9 @@ targets:
       proto_generator:protoBuilder:
         options:
           useWellKnownTypes: true
+          packageName: squarealfa.nozard.techlog
           
+
       proto_generator:proto_generator:
         options:
           useWellKnownTypes: true

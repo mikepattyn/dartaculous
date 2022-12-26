@@ -203,10 +203,7 @@ $fieldDeclarations}
   ) {
     if (type.isVoid) return '';
     final fd = FieldDescriptor(
-      Proto.auto(
-        prefix: prefix,
-        packageName: packageName,
-      ),
+      Proto.auto(prefix: prefix),
       displayName: 'value',
       isFinal: true,
       isLate: false,
@@ -225,10 +222,7 @@ $fieldDeclarations}
   ) {
     final fds = methodDescriptor.methodElement.parameters
         .map((p) => FieldDescriptor(
-              Proto.auto(
-                prefix: prefix,
-                packageName: packageName,
-              ),
+              Proto.auto(prefix: prefix),
               displayName: p.displayName,
               fieldElementType: p.type,
               isFinal: true,

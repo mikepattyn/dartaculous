@@ -10,7 +10,6 @@ extension ConstantReaderExtension on ConstantReader {
   }) {
     final useAuto = read('includeFieldsByDefault').literalValue as bool;
     final pfx = read('prefix').literalValue as String? ?? prefix;
-    final packageName = read('packageName').literalValue as String? ?? '';
     final ownFieldsNumber = read('ownFieldsNumber').intValue;
     final superFieldsNumber = read('superFieldsNumber').intValue;
     final usePFNConventions =
@@ -19,14 +18,12 @@ extension ConstantReaderExtension on ConstantReader {
     final proto = useAuto
         ? Proto.auto(
             prefix: pfx,
-            packageName: packageName,
             useProtoFieldNamingConventions: usePFNConventions,
             ownFieldsNumber: ownFieldsNumber,
             superFieldsNumber: superFieldsNumber,
           )
         : Proto.numbered(
             prefix: pfx,
-            packageName: packageName,
             useProtoFieldNamingConventions: usePFNConventions,
             ownFieldsNumber: ownFieldsNumber,
             superFieldsNumber: superFieldsNumber,

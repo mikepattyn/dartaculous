@@ -8,10 +8,11 @@ import 'package:source_gen/source_gen.dart';
 import 'proto_generator2.dart';
 
 class ProtoBuilder implements Builder {
-  late Map<String, dynamic> config;
+  late Config config;
   late ProtoGenerator2 protoGen;
+
   ProtoBuilder(BuilderOptions options) {
-    config = options.config;
+    config = Config.fromJson(options.config);
     protoGen = ProtoGenerator2(options);
   }
 
@@ -44,15 +45,15 @@ class ProtoBuilder implements Builder {
       });
     }
 
-    final imports = protoGen.imports
-        .map(
-          (e) => 'import "$e";',
-        )
-        .join('\n');
+    final package =
+        config.packageName.isEmpty ? '' : 'package ${config.packageName};';
+    final imports = protoGen.imports.map((e) => 'import "$e";').join('\n');
     final messages = protoGen.messages.join('\n');
 
     final content = '''
 syntax = "proto3";
+
+$package
 
 $imports
 
