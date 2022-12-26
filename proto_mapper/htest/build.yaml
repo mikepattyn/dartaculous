@@ -2,6 +2,10 @@
 targets:
   $default:
     builders:
+      proto_generator:protoBuilder:
+        options:
+          useWellKnownTypes: true
+          
       proto_generator:proto_generator:
         options:
           useWellKnownTypes: true

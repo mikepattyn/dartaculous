@@ -13,7 +13,7 @@ const knownSubClasses = {Airplane: 7};
 )
 class Aircraft extends Vehicle {
   @ProtoField.numbered(2)
-  final int serviceCeiling;
+  final int? serviceCeiling;
   Aircraft({
     required this.serviceCeiling,
     required int weight,

@@ -8,8 +8,15 @@ syntax = "proto3";
       
 
 import "polymorphism/aircraft.proto";
-import "polymorphism/vehicle.fields.proto";
 
+
+message GFieldsOfVehicle
+{
+
+  int32 weight = 1;
+
+}
+    
   
 message GVehicle
 {

@@ -1,6 +1,15 @@
 # Read about `build.yaml` at https://pub.dev/packages/build_config
 builders:
 
+  protoBuilder:
+    import: "package:proto_generator/proto_generator.dart"
+    builder_factories: ['protoBuilder2']
+    build_extensions: 
+      $lib$: 
+        - model.proto
+    build_to: source
+    auto_apply: root_package
+
   proto_mapper_generator:
     import: "package:proto_generator/proto_generator.dart"
     builder_factories: ["protoMapperBuilder"]
