@@ -6,100 +6,45 @@ option go_package = "./stubs";
 
 import "google/protobuf/wrappers.proto";
 
-
-message GFieldsOfAircraft
-{
+message GFieldsOfAircraft {
   GFieldsOfVehicle fieldsOfSuperClass = 3;
 
   google.protobuf.Int32Value service_ceiling = 2;
-
 }
-    
-  
-message GAircraft
-{
+
+message GAircraft {
   oneof props {
     GFieldsOfAircraft aircraft = 5;
-
     GAirplane airplane = 7;
-
   }
-    
-}   
-
-message GListOfAircraft
-{
-  repeated GAircraft items = 1;
 }
-    
 
+message GListOfAircraft { repeated GAircraft items = 1; }
 
-  
-message GAirplane
-{
+message GAirplane {
   GFieldsOfAircraft fieldsOfSuperClass = 1;
 
   int32 wingspan = 2;
-
-}   
-
-message GListOfAirplane
-{
-  repeated GAirplane items = 1;
 }
-    
 
-message GFieldsOfVehicle
-{
+message GListOfAirplane { repeated GAirplane items = 1; }
 
-  int32 weight = 1;
+message GFieldsOfVehicle { int32 weight = 1; }
 
-}
-    
-  
-message GVehicle
-{
+message GVehicle {
   oneof props {
     GFieldsOfVehicle vehicle = 1;
 
     GAircraft aircraft = 3;
-
   }
-    
-}   
-
-message GListOfVehicle
-{
-  repeated GVehicle items = 1;
 }
-    
 
+message GListOfVehicle { repeated GVehicle items = 1; }
 
-  
-message GPerson
-{
+message GPerson { google.protobuf.StringValue name = 2; }
 
-  google.protobuf.StringValue name = 2;
+message GListOfPerson { repeated GPerson items = 1; }
 
-}   
+message GAnimal { string description = 1; }
 
-message GListOfPerson
-{
-  repeated GPerson items = 1;
-}
-    
-
-
-  
-message GAnimal
-{
-
-  string description = 1;
-
-}   
-
-message GListOfAnimal
-{
-  repeated GAnimal items = 1;
-}
-    
+message GListOfAnimal { repeated GAnimal items = 1; }

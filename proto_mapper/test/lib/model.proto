@@ -1,0 +1,927 @@
+syntax = "proto3";
+
+
+
+
+
+
+
+
+
+  
+message GCalcParameters
+{
+
+  int32 parameter1 = 2;
+  int32 parameter2 = 1;
+  int32 parameter3 = 3;  bool parameter3_has_value = 4;
+
+  int32 parameter4 = 6;  bool parameter4_has_value = 5;
+
+  int32 parameter5 = 9;
+
+}   
+
+message GListOfCalcParameters
+{
+  repeated GCalcParameters items = 1;
+}
+    
+
+
+  
+message GCalcResult
+{
+
+  int32 result = 1;
+
+}   
+
+message GListOfCalcResult
+{
+  repeated GCalcResult items = 1;
+}
+    
+
+
+  
+message GCategory
+{
+
+  string title = 1;
+  GComponent main_component = 2;
+  GComponent alternative_component = 4;
+  repeated GComponent other_components = 5;
+  repeated GComponent secondary_components = 7;
+
+}   
+
+message GListOfCategory
+{
+  repeated GCategory items = 1;
+}
+    
+
+
+  
+message GComponent
+{
+
+  string description = 1;
+
+}   
+
+message GListOfComponent
+{
+  repeated GComponent items = 1;
+}
+    
+
+
+  
+message GConstructObject1
+{
+
+  string name = 1;
+  int32 number = 2;
+
+}   
+
+message GListOfConstructObject1
+{
+  repeated GConstructObject1 items = 1;
+}
+    
+
+
+  
+message GConstructObject2
+{
+
+  string name = 1;
+  int32 number = 2;
+
+}   
+
+message GListOfConstructObject2
+{
+  repeated GConstructObject2 items = 1;
+}
+    
+
+
+  
+message GConstructObject3
+{
+
+  string name = 1;
+  int32 number = 2;
+
+}   
+
+message GListOfConstructObject3
+{
+  repeated GConstructObject3 items = 1;
+}
+    
+
+
+  
+message GConstructObject4
+{
+
+  string name = 1;
+  int32 number = 2;
+
+}   
+
+message GListOfConstructObject4
+{
+  repeated GConstructObject4 items = 1;
+}
+    
+
+
+  
+message GConstructObject5
+{
+
+  string name = 1;
+  int32 number = 2;
+
+}   
+
+message GListOfConstructObject5
+{
+  repeated GConstructObject5 items = 1;
+}
+    
+
+
+  
+message GConstructObject6
+{
+
+  string name = 3;  bool name_has_value = 2;
+
+  int32 number = 5;  bool number_has_value = 4;
+
+
+}   
+
+message GListOfConstructObject6
+{
+  repeated GConstructObject6 items = 1;
+}
+    
+
+
+  
+message GConstructObject7
+{
+
+  int32 number = 2;  bool number_has_value = 1;
+
+  string name = 3;
+
+}   
+
+message GListOfConstructObject7
+{
+  repeated GConstructObject7 items = 1;
+}
+    
+
+
+  
+message GConstructObject8
+{
+
+  int32 number = 2;  bool number_has_value = 1;
+
+  string name = 3;
+
+}   
+
+message GListOfConstructObject8
+{
+  repeated GConstructObject8 items = 1;
+}
+    
+
+
+  
+message GEmpty
+{
+
+
+}   
+
+message GListOfEmpty
+{
+  repeated GEmpty items = 1;
+}
+    
+
+
+  
+message GEncapsulatedFieldsClass
+{
+
+  string final_string = 1;
+  string encapsulated_string = 2;
+  repeated string encapsulated_collection = 3;
+
+}   
+
+message GListOfEncapsulatedFieldsClass
+{
+  repeated GEncapsulatedFieldsClass items = 1;
+}
+    
+
+
+  
+message GIngredient
+{
+
+  string description = 1;
+  bytes quantity = 2;
+  double precision = 3;
+  double cooking_duration = 4;
+  GComponent main_component = 5;
+  repeated GComponent other_components = 6;
+  GComponent alternative_component = 8;
+  repeated GComponent secondary_components = 10;
+
+}   
+
+message GListOfIngredient
+{
+  repeated GIngredient items = 1;
+}
+    
+
+
+  
+message GKey
+{
+
+  string key = 1;
+
+}   
+
+message GListOfKey
+{
+  repeated GKey items = 1;
+}
+    
+
+
+  
+message GListsHost
+{
+
+  repeated bool vbools = 1;
+  repeated bool nvbools = 3;  bool nvbools_has_value = 2;
+
+  repeated string vstrings = 4;
+  repeated string nvstrings = 7;  bool nvstrings_has_value = 6;
+
+  repeated double vdurations = 8;
+  repeated double nvdurations = 10;  bool nvdurations_has_value = 9;
+
+  repeated int64 vdatetimes = 11;
+  repeated int64 nvdatetimes = 13;  bool nvdatetimes_has_value = 12;
+
+  repeated bytes vdecimals = 14;
+  repeated bytes nvdecimals = 16;
+  repeated int32 vints = 17;
+  repeated int32 nvints = 19;  bool nvints_has_value = 18;
+
+  repeated double vdoubles = 20;
+  repeated double nvdoubles = 22;  bool nvdoubles_has_value = 21;
+
+  repeated GApplianceType vappliance_types = 23;
+  repeated GApplianceType nvappliance_types = 25;
+
+}   
+
+message GListOfListsHost
+{
+  repeated GListsHost items = 1;
+}
+    
+
+
+  
+message GAirplane
+{
+  GFieldsOfAircraft fieldsOfSuperClass = 1;
+
+  int32 wingspan = 1;
+  string key = 2;
+
+}   
+
+message GListOfAirplane
+{
+  repeated GAirplane items = 1;
+}
+    
+
+
+  
+message GBalloon
+{
+
+  int32 weight = 1;
+  string key = 2;
+  int32 service_ceiling = 3;
+
+}   
+
+message GListOfBalloon
+{
+  repeated GBalloon items = 1;
+}
+    
+
+
+  
+message GBicycle
+{
+  GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
+
+  bytes wheel_diamater = 1;
+  string key = 2;
+
+}   
+
+message GListOfBicycle
+{
+  repeated GBicycle items = 1;
+}
+    
+
+
+  
+message GCar
+{
+  GFieldsOfVehicle fieldsOfSuperClass = 1;
+
+  int32 number_of_doors = 1;
+
+}   
+
+message GListOfCar
+{
+  repeated GCar items = 1;
+}
+    
+
+
+  
+message GEntity
+{
+
+  string key = 1;
+
+}   
+
+message GListOfEntity
+{
+  repeated GEntity items = 1;
+}
+    
+
+
+  
+message GGyrocopter
+{
+  GFieldsOfRotorcraft fieldsOfSuperClass = 1;
+
+
+}   
+
+message GListOfGyrocopter
+{
+  repeated GGyrocopter items = 1;
+}
+    
+
+
+  
+message GHelicopter
+{
+  GFieldsOfRotorcraft fieldsOfSuperClass = 1;
+
+
+}   
+
+message GListOfHelicopter
+{
+  repeated GHelicopter items = 1;
+}
+    
+
+
+  
+message GScooter
+{
+  GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
+
+  string key = 1;
+
+}   
+
+message GListOfScooter
+{
+  repeated GScooter items = 1;
+}
+    
+
+message GFieldsOfAbstractVehicle
+{
+
+  int32 weight = 1;
+
+}
+    
+  
+message GAbstractVehicle
+{
+  oneof props {
+    GFieldsOfAbstractVehicle abstract_vehicle = 1;
+
+    GBicycle bicycle = 3;
+    GScooter scooter = 4;
+
+  }
+    
+}   
+
+message GListOfAbstractVehicle
+{
+  repeated GAbstractVehicle items = 1;
+}
+    
+
+message GFieldsOfAircraft
+{
+  GFieldsOfVehicle fieldsOfSuperClass = 6;
+
+  int32 service_ceiling = 3;
+
+}
+    
+  
+message GAircraft
+{
+  oneof props {
+    GFieldsOfAircraft aircraft = 1;
+
+    GAirplane airplane = 3;
+    GRotorcraft rotorcraft = 4;
+    GBalloon balloon = 5;
+
+  }
+    
+}   
+
+message GListOfAircraft
+{
+  repeated GAircraft items = 1;
+}
+    
+
+message GFieldsOfRotorcraft
+{
+  GFieldsOfAircraft fieldsOfSuperClass = 1;
+
+  string key = 1;
+
+}
+    
+  
+message GRotorcraft
+{
+  oneof props {
+    GFieldsOfRotorcraft rotorcraft = 1;
+
+    GHelicopter helicopter = 3;
+    GGyrocopter gyrocopter = 4;
+
+  }
+    
+}   
+
+message GListOfRotorcraft
+{
+  repeated GRotorcraft items = 1;
+}
+    
+
+message GFieldsOfVehicle
+{
+
+  int32 weight = 1;
+
+}
+    
+  
+message GVehicle
+{
+  oneof props {
+    GFieldsOfVehicle vehicle = 1;
+
+    GAircraft aircraft = 3;
+    GCar car = 4;
+
+  }
+    
+}   
+
+message GListOfVehicle
+{
+  repeated GVehicle items = 1;
+}
+    
+
+
+  
+message GKnife
+{
+
+  string name = 1;
+  GKnifeType type = 2;
+
+}   
+
+message GListOfKnife
+{
+  repeated GKnife items = 1;
+}
+    
+
+
+  
+message GGarlicPress
+{
+
+  string name = 1;
+  bool machine_washable = 2;
+
+}   
+
+message GListOfGarlicPress
+{
+  repeated GGarlicPress items = 1;
+}
+    
+
+
+  
+message GKitchen
+{
+
+  repeated GRecipe recipeList = 1;
+  map<string, GRecipe> recipeMap = 2;
+  int64 nextInspectionDate = 3;
+
+}   
+
+message GListOfKitchen
+{
+  repeated GKitchen items = 1;
+}
+    
+
+
+  
+message GChef
+{
+
+  GRecipe favorite_recipe = 2;
+  GKnife favorite_knife = 4;
+  GApplianceType favorite_appliance_type = 5;
+  repeated string favorite_words = 6;
+  int64 birthdate = 7;
+  double shelf_life = 9;  bool shelf_life_has_value = 8;
+
+
+}   
+
+message GListOfChef
+{
+  repeated GChef items = 1;
+}
+    
+
+
+  
+message GSousChef
+{
+  GFieldsOfChef fieldsOfSuperClass = 1;
+
+
+}   
+
+message GListOfSousChef
+{
+  repeated GSousChef items = 1;
+}
+    
+
+
+  
+message GKnifeMaster
+{
+  GFieldsOfChef fieldsOfSuperClass = 1;
+
+  GKnife favorite_knife = 1;
+
+}   
+
+message GListOfKnifeMaster
+{
+  repeated GKnifeMaster items = 1;
+}
+    
+
+
+  
+message GInventory
+{
+
+  map<string, int32> number_of_things = 1;
+  map<string, GRecipe> recipes_by_name = 2;
+  double time_span = 4;  bool time_span_has_value = 3;
+
+
+}   
+
+message GListOfInventory
+{
+  repeated GInventory items = 1;
+}
+    
+
+
+  
+message GPrecisionSubject
+{
+
+  int64 date_property = 1;
+  double duration_property = 2;
+
+}   
+
+message GListOfPrecisionSubject
+{
+  repeated GPrecisionSubject items = 1;
+}
+    
+
+
+  
+message GRecipe
+{
+
+  string title = 1;
+  string description = 4;  bool description_has_value = 3;
+
+  GCategory category = 5;
+  repeated GIngredient ingredients = 6;
+  int64 publish_date = 7;
+  int64 expiry_date = 9;  bool expiry_date_has_value = 8;
+
+  double preparation_duration = 10;
+  double total_duration = 12;  bool total_duration_has_value = 11;
+
+  bool is_published = 13;
+  bool requires_robot = 15;  bool requires_robot_has_value = 14;
+
+  double gross_weight = 17;  bool gross_weight_has_value = 16;
+
+  double net_weight = 19;  bool net_weight_has_value = 18;
+
+  GApplianceType main_appliance_type = 20;
+  GApplianceType_Message secondary_appliance_type = 22;
+  repeated string tags = 23;
+  repeated string extra_tags = 26;  bool extra_tags_has_value = 25;
+
+
+}   
+
+message GListOfRecipe
+{
+  repeated GRecipe items = 1;
+}
+    
+
+
+  
+message GStarship
+{
+
+  bytes range = 1;
+  bytes odometer = 3;
+  int32 engine_number = 4;
+
+}   
+
+message GListOfStarship
+{
+  repeated GStarship items = 1;
+}
+    
+
+
+  
+message GPerson
+{
+
+  bool bool_value = 1;  bool bool_value_has_value = 3;
+
+  bytes dec_val = 2;
+
+}   
+
+message GListOfPerson
+{
+  repeated GPerson items = 1;
+}
+    
+
+
+  
+message GAbstractParentClass1
+{
+
+
+}   
+
+message GListOfAbstractParentClass1
+{
+  repeated GAbstractParentClass1 items = 1;
+}
+    
+
+message GFieldsOfAbstractParentClass2
+{
+
+
+}
+    
+  
+message GAbstractParentClass2
+{
+  oneof props {
+    GFieldsOfAbstractParentClass2 abstract_parent_class2 = 1;
+
+    GSubClass1 sub_class1 = 3;
+
+  }
+    
+}   
+
+message GListOfAbstractParentClass2
+{
+  repeated GAbstractParentClass2 items = 1;
+}
+    
+
+
+  
+message GSubClass1
+{
+  GFieldsOfAbstractParentClass2 fieldsOfSuperClass = 1;
+
+
+}   
+
+message GListOfSubClass1
+{
+  repeated GSubClass1 items = 1;
+}
+    
+
+message GFieldsOfScheduleConstraint
+{
+
+
+}
+    
+  
+message GScheduleConstraint
+{
+  oneof props {
+    GFieldsOfScheduleConstraint schedule_constraint = 1;
+
+    GContestConstraint contest_constraint = 3;
+
+  }
+    
+}   
+
+message GListOfScheduleConstraint
+{
+  repeated GScheduleConstraint items = 1;
+}
+    
+
+
+  
+message GConstraintAdded
+{
+
+  string contest_schedule_id = 1;
+  GScheduleConstraint constraint = 2;
+
+}   
+
+message GListOfConstraintAdded
+{
+  repeated GConstraintAdded items = 1;
+}
+    
+
+
+  
+message GContestConstraint
+{
+  GFieldsOfScheduleConstraint fieldsOfSuperClass = 1;
+
+
+}   
+
+message GListOfContestConstraint
+{
+  repeated GContestConstraint items = 1;
+}
+    
+
+message GFieldsOfBranch
+{
+
+
+}
+    
+  
+message TBranch
+{
+  oneof props {
+    TFieldsOfBranch branch = 1;
+
+    GTwig twig = 3;
+
+  }
+    
+}   
+
+message TListOfBranch
+{
+  repeated TBranch items = 1;
+}
+    
+
+message GFieldsOfTwig
+{
+  GFieldsOfBranch fieldsOfSuperClass = 1;
+
+
+}
+    
+  
+message LTwig
+{
+  oneof props {
+    LFieldsOfTwig twig = 1;
+
+    GLeaf leaf = 3;
+
+  }
+    
+}   
+
+message LListOfTwig
+{
+  repeated LTwig items = 1;
+}
+    
+
+
+  
+message TLeaf
+{
+  GFieldsOfTwig fieldsOfSuperClass = 1;
+
+
+}   
+
+message TListOfLeaf
+{
+  repeated TLeaf items = 1;
+}
+    
