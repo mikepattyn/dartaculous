@@ -11,11 +11,13 @@ class Config {
   final bool useWellKnownTypes;
   final String packageName;
   final List<String> options;
+  final String prefix;
 
   Config({
     this.useWellKnownTypes = false,
     this.packageName = '',
     this.options = const [],
+    this.prefix = 'G',
   });
 
   factory Config.fromJson(Map<String, dynamic> json) => _$ConfigFromJson(json);

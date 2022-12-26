@@ -5,15 +5,15 @@ import 'package:path/path.dart' as p;
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:source_gen/source_gen.dart';
 
-import 'proto_generator2.dart';
+import 'proto_generator.dart';
 
 class ProtoBuilder implements Builder {
   late Config config;
-  late ProtoGenerator2 protoGen;
+  late ProtoGenerator protoGen;
 
   ProtoBuilder(BuilderOptions options) {
     config = Config.fromJson(options.config);
-    protoGen = ProtoGenerator2(options);
+    protoGen = ProtoGenerator(config);
   }
 
   static final _allFilesInLib = Glob('lib/**.dart');
@@ -33,8 +33,6 @@ class ProtoBuilder implements Builder {
 
   @override
   Future<void> build(BuildStep buildStep) async {
-    // print('Building.... with config: $config');
-
     await for (final input in buildStep.findAssets(_allFilesInLib)) {
       final library = await buildStep.resolver.libraryFor(input);
       final classesInLibrary = LibraryReader(library).classes;

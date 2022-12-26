@@ -7,18 +7,18 @@ class EnumGenerator {
   EnumGenerator({
     required this.interfaceElement,
     required this.annotation,
-    required String prefix,
-  }) : _prefix = prefix;
+    required this.config,
+  });
 
   final InterfaceElement interfaceElement;
   final Proto annotation;
-  final String _prefix;
+  final Config config;
 
   String generate() {
     var fieldBuffer = StringBuffer();
     var fieldDescriptors = interfaceElement
-        .getFieldDescriptors(annotation, _prefix, forEnum: true);
-    final prefix = annotation.prefix ?? _prefix;
+        .getFieldDescriptors(annotation, config.prefix, forEnum: true);
+    final prefix = annotation.prefix ?? config.prefix;
     var lineNumber = 0;
     for (var fieldDescriptor in fieldDescriptors) {
       fieldBuffer

@@ -8,7 +8,6 @@ import 'package:source_gen/source_gen.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 import '../proto_common.dart';
-import 'field_code_generators/external_proto_name.dart';
 import 'proto_reflected.dart';
 import 'package:recase/recase.dart';
 
@@ -16,30 +15,28 @@ class ClassGenerator {
   ClassGenerator({
     required this.element,
     required ProtoReflected protoReflected,
-    required String prefix,
-    required bool useWellKnownTypes,
+    required this.config,
+    required this.imports,
   })  : classElement = element.asClassElement(),
         proto = protoReflected.proto,
         knownSubclasses = protoReflected.knownSubClasses,
-        _prefix = prefix,
-        _useWellKnownTypes = useWellKnownTypes,
         _fieldDescriptors = element
             .asClassElement()
-            .getFieldDescriptors(protoReflected.proto, prefix, forEnum: false)
+            .getFieldDescriptors(protoReflected.proto, config.prefix,
+                forEnum: false)
             .toList();
 
-  final String _prefix;
-  final bool _useWellKnownTypes;
+  final Config config;
   final Element element;
   final ClassElement classElement;
   final externalProtoNames = <String>[];
   final Proto proto;
   final Map<DartType, int> knownSubclasses;
-  final _alreadyImported = <String>{};
+  final Set<String> imports;
   final List<FieldDescriptor> _fieldDescriptors;
 
   String generate() {
-    final prefix = proto.prefix ?? _prefix;
+    final prefix = proto.prefix ?? config.prefix;
     final className = classElement.name;
     final fieldDeclarations = _createFieldDeclarations();
 
@@ -48,7 +45,7 @@ class ClassGenerator {
     final classMessageContent =
         knownSubclasses.isEmpty ? fieldDeclarations : _getClassMessageContent();
 
-    final imports = _getImports();
+    _addImports();
 
     final messages = '''
 
@@ -65,11 +62,7 @@ message ${prefix}ListOf$className
 }
     ''';
 
-    var ret = '''
-$imports
-$messages
-''';
-    return ret;
+    return messages;
   }
 
   String _getFieldsMessage(String fieldDeclarations) {
@@ -78,7 +71,7 @@ $messages
     final className = classElement.name;
 
     final fieldsMessage = '''
-message ${_prefix}FieldsOf$className
+message ${config.prefix}FieldsOf$className
 {
 $fieldDeclarations
 }
@@ -86,21 +79,18 @@ $fieldDeclarations
     return fieldsMessage;
   }
 
-  StringBuffer _getImports() {
-    var imports = StringBuffer();
+  _addImports() {
     for (var externalProtoName in externalProtoNames) {
       // Prevent .proto file from importing itself or multiple imports
-      if (!_alreadyImported.contains(externalProtoName)) {
-        imports.writeln('import "$externalProtoName";');
-        _alreadyImported.add(externalProtoName);
+      if (!imports.contains(externalProtoName)) {
+        imports.add(externalProtoName);
       }
     }
-    return imports;
   }
 
   String _getClassMessageContent() {
     final className = classElement.name;
-    final prefix = proto.prefix ?? _prefix;
+    final prefix = proto.prefix ?? config.prefix;
 
     final ownFieldsOf =
         '    ${prefix}FieldsOf$className ${className.snakeCase} = ${proto.ownFieldsNumber};\n';
@@ -125,11 +115,11 @@ $subClassFields
     final superClassElement = superType.element.asClassElement();
     final className = superClassElement.name;
 
-    final fieldProtoNames = getExternalProtoNames(superType);
-    mergeProtoNames(fieldProtoNames, externalProtoNames);
+    // final fieldProtoNames = getExternalProtoNames(superType);
+    // mergeProtoNames(fieldProtoNames, externalProtoNames);
 
     final superFieldsOf =
-        '  ${_prefix}FieldsOf$className fieldsOfSuperClass = ${proto.superFieldsNumber};\n';
+        '  ${config.prefix}FieldsOf$className fieldsOfSuperClass = ${proto.superFieldsNumber};\n';
     return superFieldsOf;
   }
 
@@ -144,10 +134,8 @@ $subClassFields
       if (annotation == null) continue;
       final className = element.asClassElement().name;
 
-      final fieldProtoNames = getExternalProtoNames(kscType);
-      mergeProtoNames(fieldProtoNames, externalProtoNames);
       buffer.writeln(
-          '    $_prefix$className ${className.snakeCase} = $kscNumber;');
+          '    ${config.prefix}$className ${className.snakeCase} = $kscNumber;');
     }
     return buffer.toString();
   }
@@ -157,7 +145,7 @@ $subClassFields
     final fieldDeclarations = createFieldDeclarations(
       _fieldDescriptors,
       externalProtoNames,
-      _useWellKnownTypes,
+      config.useWellKnownTypes,
     );
     return '''$superFieldsOf
 $fieldDeclarations''';

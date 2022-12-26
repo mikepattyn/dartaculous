@@ -1,36 +1,25 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:build/build.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator/src/proto/class_generator.dart';
 import 'package:proto_generator/src/proto/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/enum_generator.dart';
 import 'package:source_gen/source_gen.dart';
 
-class ProtoGenerator extends GeneratorForAnnotation<Proto> {
-  final BuilderOptions options;
-  final String _prefix;
-  final bool _useProtoFieldNamingConventions;
-  final bool _useWellKnownTypes;
-  final _alreadyImported = <String>{};
-  final _builtPaths = <String>{};
+import 'class_generator.dart';
 
-  ProtoGenerator(this.options)
-      : _prefix = options.config['prefix'] as String? ?? 'G',
-        _useProtoFieldNamingConventions =
-            options.config['useProtoFieldNamingConventions'] as bool? ?? true,
-        _useWellKnownTypes =
-            options.config['useWellKnownTypes'] as bool? ?? false;
+class ProtoGenerator {
+  final Config config;
+  final imports = <String>{};
+  final messages = <String>{};
 
-  @override
-  String generateForAnnotatedElement(
+  ProtoGenerator(this.config);
+
+  void generateForAnnotatedElement(
     Element element,
     ConstantReader annotation,
-    BuildStep buildStep,
   ) {
-    final header = _buildSyntax(buildStep);
     var readAnnotation = annotation.hydrateAnnotation(
-      prefix: _prefix,
-      useProtoFieldNamingConventions: _useProtoFieldNamingConventions,
+      prefix: config.prefix,
+      useProtoFieldNamingConventions: true,
     );
 
     final proto = readAnnotation.proto;
@@ -39,31 +28,15 @@ class ProtoGenerator extends GeneratorForAnnotation<Proto> {
         ? EnumGenerator(
             interfaceElement: element,
             annotation: proto,
-            prefix: _prefix,
+            config: config,
           ).generate()
         : ClassGenerator(
             element: element,
             protoReflected: readAnnotation,
-            prefix: _prefix,
-            useWellKnownTypes: _useWellKnownTypes,
+            config: config,
+            imports: imports,
           ).generate();
 
-    ret = '''$header
-
-$ret''';
-    return ret;
-  }
-
-  String _buildSyntax(BuildStep buildStep) {
-    final currentPath = buildStep.inputId.path;
-    if (_builtPaths.contains(currentPath)) {
-      return '';
-    }
-    _builtPaths.add(currentPath);
-    _alreadyImported.clear();
-    _alreadyImported.addAll(buildStep.allowedOutputs
-        .map((e) => e.path.substring(e.path.lastIndexOf('/') + 1)));
-    return '''syntax = "proto3";
-      ''';
+    messages.add(ret);
   }
 }
