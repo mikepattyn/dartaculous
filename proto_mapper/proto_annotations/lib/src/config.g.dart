@@ -12,13 +12,18 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
       ($checkedConvert) {
         $checkKeys(
           json,
-          allowedKeys: const ['useWellKnownTypes', 'packageName'],
+          allowedKeys: const ['useWellKnownTypes', 'packageName', 'options'],
         );
         final val = Config(
           useWellKnownTypes:
-              $checkedConvert('useWellKnownTypes', (v) => v as bool),
+              $checkedConvert('useWellKnownTypes', (v) => v as bool? ?? false),
           packageName:
               $checkedConvert('packageName', (v) => v as String? ?? ''),
+          options: $checkedConvert(
+              'options',
+              (v) =>
+                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
+                  const []),
         );
         return val;
       },
@@ -27,4 +32,5 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
 Map<String, dynamic> _$ConfigToJson(Config instance) => <String, dynamic>{
       'useWellKnownTypes': instance.useWellKnownTypes,
       'packageName': instance.packageName,
+      'options': instance.options,
     };

@@ -6,6 +6,9 @@ targets:
         options:
           useWellKnownTypes: true
           packageName: squarealfa.nozard.techlog
+          options: 
+            - go_package = "./stubs"
+
           
 
       proto_generator:proto_generator:

@@ -10,9 +10,12 @@ part 'config.g.dart';
 class Config {
   final bool useWellKnownTypes;
   final String packageName;
+  final List<String> options;
+
   Config({
-    required this.useWellKnownTypes,
+    this.useWellKnownTypes = false,
     this.packageName = '',
+    this.options = const [],
   });
 
   factory Config.fromJson(Map<String, dynamic> json) => _$ConfigFromJson(json);

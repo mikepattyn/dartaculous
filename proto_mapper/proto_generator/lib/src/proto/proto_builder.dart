@@ -47,6 +47,7 @@ class ProtoBuilder implements Builder {
 
     final package =
         config.packageName.isEmpty ? '' : 'package ${config.packageName};';
+    final options = config.options.map((e) => 'option $e;').join('\n');
     final imports = protoGen.imports.map((e) => 'import "$e";').join('\n');
     final messages = protoGen.messages.join('\n');
 
@@ -54,6 +55,8 @@ class ProtoBuilder implements Builder {
 syntax = "proto3";
 
 $package
+
+$options
 
 $imports
 

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package squarealfa.nozard.techlog;
 
+option go_package = "./stubs";
+
 import "google/protobuf/wrappers.proto";
 
 
