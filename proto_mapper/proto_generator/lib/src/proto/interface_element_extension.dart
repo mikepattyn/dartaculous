@@ -9,9 +9,9 @@ import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 import 'field_descriptor.dart';
 
 extension InterfaceElementExtension on InterfaceElement {
-  Iterable<FieldDescriptor> getFieldDescriptors(
-    Proto annotation,
-    String defaultPrefix, {
+  Iterable<FieldDescriptor> getFieldDescriptors({
+    required Proto annotation,
+    required Config config,
     bool forEnum = false,
   }) {
     final fieldSet = getSortedFieldSet(includeInherited: false);
@@ -25,16 +25,20 @@ extension InterfaceElementExtension on InterfaceElement {
       if (annotations.isNotEmpty) {
         final readAnnotation =
             ConstantReader(annotations.first.computeConstantValue());
-        var hydratedAnnotation = readAnnotation.hydrateAnnotation(
-          prefix: defaultPrefix,
-          useProtoFieldNamingConventions:
-              annotation.useProtoFieldNamingConventions ?? false,
-        );
+        var hydratedAnnotation = readAnnotation.hydrateAnnotation();
         return FieldDescriptor.fromFieldElement(
-            fieldElement, hydratedAnnotation.proto, forEnum);
+          fieldElement: fieldElement,
+          config: config,
+          protoAnnotation: hydratedAnnotation.proto,
+          forEnum: forEnum,
+        );
       } else {
         return FieldDescriptor.fromFieldElement(
-            fieldElement, annotation, forEnum);
+          fieldElement: fieldElement,
+          config: config,
+          protoAnnotation: annotation,
+          forEnum: forEnum,
+        );
       }
     }).where((element) => element.isProtoIncluded);
     return fieldDescriptors;

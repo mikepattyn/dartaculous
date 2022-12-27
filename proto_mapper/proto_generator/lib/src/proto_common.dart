@@ -9,11 +9,11 @@ import 'package:source_gen/source_gen.dart';
 import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
 import 'proto/field_code_generator.dart';
-import 'proto/field_code_generators/external_proto_name.dart';
+import 'proto/field_code_generators/imports.dart';
 
 String createFieldDeclarations(
   Iterable<protofield.FieldDescriptor> fieldDescriptors,
-  List<String> externalProtoNames,
+  Set<String> imports,
   bool useWellKnownTypes,
 ) {
   final fieldBuffer = StringBuffer();
@@ -33,21 +33,19 @@ String createFieldDeclarations(
     var renderField = fieldCodeGenerator.render();
     fieldBuffer.writeln(renderField);
 
-    if (fieldCodeGenerator is! ExternalProtoNames) continue;
+    if (fieldCodeGenerator is! Imports) continue;
     var fieldExternalProtoNames =
-        (fieldCodeGenerator as ExternalProtoNames).externalProtoNames;
-    mergeProtoNames(fieldExternalProtoNames, externalProtoNames);
+        (fieldCodeGenerator as Imports).externalProtoNames;
+    mergeProtoNames(fieldExternalProtoNames, imports);
   }
 
   return fieldBuffer.toString();
 }
 
 void mergeProtoNames(
-    Iterable<String> fieldExternalProtoNames, List<String> externalProtoNames) {
+    Iterable<String> fieldExternalProtoNames, Set<String> imports) {
   for (String externalProtoName in fieldExternalProtoNames) {
-    if (!externalProtoNames.contains(externalProtoName)) {
-      externalProtoNames.add(externalProtoName);
-    }
+    imports.add(externalProtoName);
   }
 }
 

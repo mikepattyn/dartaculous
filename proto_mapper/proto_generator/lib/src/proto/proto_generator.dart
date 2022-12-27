@@ -1,8 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator/src/proto/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/enum_generator.dart';
-import 'package:source_gen/source_gen.dart';
+import 'package:proto_generator/src/proto/proto_reflected.dart';
 
 import 'class_generator.dart';
 
@@ -15,24 +14,17 @@ class ProtoGenerator {
 
   void generateForAnnotatedElement(
     Element element,
-    ConstantReader annotation,
+    ProtoReflected protoReflected,
   ) {
-    var readAnnotation = annotation.hydrateAnnotation(
-      prefix: config.prefix,
-      useProtoFieldNamingConventions: true,
-    );
-
-    final proto = readAnnotation.proto;
-
     var ret = element is EnumElement
         ? EnumGenerator(
             interfaceElement: element,
-            annotation: proto,
+            annotation: protoReflected.proto,
             config: config,
           ).generate()
         : ClassGenerator(
             element: element,
-            protoReflected: readAnnotation,
+            protoReflected: protoReflected,
             config: config,
             imports: imports,
           ).generate();

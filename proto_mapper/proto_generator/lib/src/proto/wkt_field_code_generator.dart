@@ -23,11 +23,11 @@ abstract class WKTFieldCodeGenerator
     return '  ${fieldDescriptor.isRepeated ? 'repeated ' : ''}$fieldType ${fieldDescriptor.protoFieldName} = $lineNumber;';
   }
 
-  Iterable<String> get externalProtoNames {
+  Set<String> get externalProtoNames {
     if (scalarType.isEmpty ||
         (fieldDescriptor.isNullable && !fieldDescriptor.isRepeated)) {
-      return [wellKnownProtoPath];
+      return {wellKnownProtoPath};
     }
-    return [];
+    return {};
   }
 }

@@ -1,18 +1,8 @@
-import 'package:grpc/grpc.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/category.pb.dart';
-import 'package:proto_generator_test/grpc/key.pb.dart';
-import 'package:proto_generator_test/grpc/recipe.pb.dart';
-import 'package:proto_generator_test/grpc/recipe_services_base.services.pbgrpc.dart';
 import 'package:proto_generator_test/src/crud_services_base.dart';
-import 'package:proto_generator_test/src/key.dart';
 import 'package:proto_generator_test/src/recipe_type.dart';
 
-import '../grpc/google/protobuf/wrappers.pb.dart';
-import '../grpc/recipe_type.pb.dart';
 import '../proto_generator_test.dart';
-
-part 'recipe_services_base.g.dart';
 
 @protoServices
 @mapProtoServices

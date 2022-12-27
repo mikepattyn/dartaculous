@@ -4,7 +4,6 @@ import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 class MapProto {
   const MapProto({
     this.prefix,
-    this.packageName = '',
     this.includeFieldsByDefault = true,
     this.dateTimePrecision,
     this.durationPrecision,
@@ -14,7 +13,6 @@ class MapProto {
     this.allowMissingFields = false,
   });
 
-  final String? packageName;
   final String? prefix;
   final bool includeFieldsByDefault;
   final TimePrecision? dateTimePrecision;

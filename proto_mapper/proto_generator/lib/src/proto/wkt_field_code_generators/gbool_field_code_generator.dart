@@ -1,9 +1,8 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import '../field_code_generators/external_proto_name.dart';
+import '../field_code_generators/imports.dart';
 
-class GBoolFieldCodeGenerator extends WKTFieldCodeGenerator
-    implements ExternalProtoNames {
+class GBoolFieldCodeGenerator extends WKTFieldCodeGenerator implements Imports {
   GBoolFieldCodeGenerator(
     FieldDescriptor fieldDescriptor,
     List<int> lineNumbers,

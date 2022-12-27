@@ -4,27 +4,16 @@ import 'package:proto_generator/src/proto/proto_reflected.dart';
 import 'package:source_gen/source_gen.dart';
 
 extension ConstantReaderExtension on ConstantReader {
-  ProtoReflected hydrateAnnotation({
-    String prefix = '',
-    required bool useProtoFieldNamingConventions,
-  }) {
+  ProtoReflected hydrateAnnotation() {
     final useAuto = read('includeFieldsByDefault').literalValue as bool;
-    final pfx = read('prefix').literalValue as String? ?? prefix;
     final ownFieldsNumber = read('ownFieldsNumber').intValue;
     final superFieldsNumber = read('superFieldsNumber').intValue;
-    final usePFNConventions =
-        read('useProtoFieldNamingConventions').literalValue as bool? ??
-            useProtoFieldNamingConventions;
     final proto = useAuto
         ? Proto.auto(
-            prefix: pfx,
-            useProtoFieldNamingConventions: usePFNConventions,
             ownFieldsNumber: ownFieldsNumber,
             superFieldsNumber: superFieldsNumber,
           )
         : Proto.numbered(
-            prefix: pfx,
-            useProtoFieldNamingConventions: usePFNConventions,
             ownFieldsNumber: ownFieldsNumber,
             superFieldsNumber: superFieldsNumber,
           );

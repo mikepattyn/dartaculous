@@ -50,7 +50,6 @@ MapProtoReflected _hydrateAnnotation(
 
   var mapProto = MapProto(
     prefix: reader.read('prefix').literalValue as String? ?? prefix,
-    packageName: reader.read('packageName').literalValue as String,
     dateTimePrecision: annotatedDateTimePrecision,
     durationPrecision: annotatedDurationPrecision,
     allowMissingFields: annotatedAllowMissingFields,

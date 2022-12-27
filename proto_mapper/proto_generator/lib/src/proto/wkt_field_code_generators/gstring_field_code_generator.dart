@@ -1,9 +1,9 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import '../field_code_generators/external_proto_name.dart';
+import '../field_code_generators/imports.dart';
 
 class GStringFieldCodeGenerator extends WKTFieldCodeGenerator
-    implements ExternalProtoNames {
+    implements Imports {
   GStringFieldCodeGenerator(
     FieldDescriptor fieldDescriptor,
     List<int> lineNumbers,

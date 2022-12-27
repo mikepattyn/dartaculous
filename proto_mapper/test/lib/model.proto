@@ -6,6 +6,33 @@ syntax = "proto3";
 
 
 
+service GRecipeService
+{
+  rpc Create (GRecipe) returns (GRecipe);
+  rpc Update (GRecipe) returns (GRecipe);
+  rpc Delete (GKey) returns (G_GRecipeService_Delete_Return);
+  rpc Get (GKey) returns (GRecipe);
+  rpc Search (G_GRecipeService_Search_Parameters) returns (GListOfRecipe);
+  rpc SearchNullable (G_GRecipeService_SearchNullable_Parameters) returns (G_GRecipeService_SearchNullable_Return);
+  rpc InsertMany (GListOfRecipe) returns (G_GRecipeService_InsertMany_Return);
+  rpc GetNullable (G_GRecipeService_GetNullable_Parameters) returns (G_GRecipeService_GetNullable_Return);
+  rpc Count (G_GRecipeService_Count_Parameters) returns (G_GRecipeService_Count_Return);
+  rpc CountNullable (G_GRecipeService_CountNullable_Parameters) returns (G_GRecipeService_CountNullable_Return);
+  rpc Reindex (G_GRecipeService_Reindex_Parameters) returns (G_GRecipeService_Reindex_Return);
+  rpc GetMainRecipeType (G_GRecipeService_GetMainRecipeType_Parameters) returns (G_GRecipeService_GetMainRecipeType_Return);
+  rpc GetMainRecipeTypeNullable (G_GRecipeService_GetMainRecipeTypeNullable_Parameters) returns (G_GRecipeService_GetMainRecipeTypeNullable_Return);
+  rpc GetRecipeTypeList (G_GRecipeService_GetRecipeTypeList_Parameters) returns (G_GRecipeService_GetRecipeTypeList_Return);
+  rpc GetRecipeTypeListNullable (G_GRecipeService_GetRecipeTypeListNullable_Parameters) returns (G_GRecipeService_GetRecipeTypeListNullable_Return);
+  rpc GetListOfInts (G_GRecipeService_GetListOfInts_Parameters) returns (G_GRecipeService_GetListOfInts_Return);
+  rpc GetListOfIntsNullable (G_GRecipeService_GetListOfIntsNullable_Parameters) returns (G_GRecipeService_GetListOfIntsNullable_Return);
+  rpc SearchRecipeStream (G_GRecipeService_SearchRecipeStream_Parameters) returns (stream GRecipe);
+  rpc ReceiveStream (stream GRecipe) returns (G_GRecipeService_ReceiveStream_Return);
+  rpc ServeBidiStream (stream GRecipe) returns (stream GCategory);
+  rpc ReceiveLotsOfArgs (G_GRecipeService_ReceiveLotsOfArgs_Parameters) returns (G_GRecipeService_ReceiveLotsOfArgs_Return);
+  rpc ReceiveLotsOfNullableArgs (G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters) returns (G_GRecipeService_ReceiveLotsOfNullableArgs_Return);
+} 
+    
+
 
 
   
@@ -585,9 +612,9 @@ message GListOfGarlicPress
 message GKitchen
 {
 
-  repeated GRecipe recipeList = 1;
-  map<string, GRecipe> recipeMap = 2;
-  int64 nextInspectionDate = 3;
+  repeated GRecipe recipe_list = 1;
+  map<string, GRecipe> recipe_map = 2;
+  int64 next_inspection_date = 3;
 
 }   
 
@@ -869,10 +896,10 @@ message GFieldsOfBranch
 }
     
   
-message TBranch
+message GBranch
 {
   oneof props {
-    TFieldsOfBranch branch = 1;
+    GFieldsOfBranch branch = 1;
 
     GTwig twig = 3;
 
@@ -880,9 +907,9 @@ message TBranch
     
 }   
 
-message TListOfBranch
+message GListOfBranch
 {
-  repeated TBranch items = 1;
+  repeated GBranch items = 1;
 }
     
 
@@ -894,10 +921,10 @@ message GFieldsOfTwig
 }
     
   
-message LTwig
+message GTwig
 {
   oneof props {
-    LFieldsOfTwig twig = 1;
+    GFieldsOfTwig twig = 1;
 
     GLeaf leaf = 3;
 
@@ -905,23 +932,170 @@ message LTwig
     
 }   
 
-message LListOfTwig
+message GListOfTwig
 {
-  repeated LTwig items = 1;
+  repeated GTwig items = 1;
 }
     
 
 
   
-message TLeaf
+message GLeaf
 {
   GFieldsOfTwig fieldsOfSuperClass = 1;
 
 
 }   
 
-message TListOfLeaf
+message GListOfLeaf
 {
-  repeated TLeaf items = 1;
+  repeated GLeaf items = 1;
 }
     
+message G_GRecipeService_Delete_Return {
+}
+
+message G_GRecipeService_Search_Parameters {
+}
+
+message G_GRecipeService_SearchNullable_Parameters {
+}
+
+message G_GRecipeService_SearchNullable_Return {
+  repeated GRecipe value = 2;
+}
+
+message G_GRecipeService_InsertMany_Return {
+}
+
+message G_GRecipeService_GetNullable_Parameters {
+}
+
+message G_GRecipeService_GetNullable_Return {
+  GRecipe value = 2;
+}
+
+message G_GRecipeService_Count_Parameters {
+}
+
+message G_GRecipeService_Count_Return {
+  int32 value = 1;
+}
+
+message G_GRecipeService_CountNullable_Parameters {
+  bool return_null = 1;
+}
+
+message G_GRecipeService_CountNullable_Return {
+  int32 value = 2;  bool value_has_value = 1;
+
+}
+
+message G_GRecipeService_Reindex_Parameters {
+}
+
+message G_GRecipeService_Reindex_Return {
+}
+
+message G_GRecipeService_GetMainRecipeType_Parameters {
+}
+
+message G_GRecipeService_GetMainRecipeType_Return {
+  GRecipeTypes value = 1;
+}
+
+message G_GRecipeService_GetMainRecipeTypeNullable_Parameters {
+}
+
+message G_GRecipeService_GetMainRecipeTypeNullable_Return {
+  GRecipeTypes_Message value = 2;
+}
+
+message G_GRecipeService_GetRecipeTypeList_Parameters {
+}
+
+message G_GRecipeService_GetRecipeTypeList_Return {
+  repeated GRecipeTypes value = 1;
+}
+
+message G_GRecipeService_GetRecipeTypeListNullable_Parameters {
+}
+
+message G_GRecipeService_GetRecipeTypeListNullable_Return {
+  repeated GRecipeTypes value = 2;
+}
+
+message G_GRecipeService_GetListOfInts_Parameters {
+}
+
+message G_GRecipeService_GetListOfInts_Return {
+  repeated int32 value = 1;
+}
+
+message G_GRecipeService_GetListOfIntsNullable_Parameters {
+}
+
+message G_GRecipeService_GetListOfIntsNullable_Return {
+  repeated int32 value = 2;  bool value_has_value = 1;
+
+}
+
+message G_GRecipeService_SearchRecipeStream_Parameters {
+}
+
+message G_GRecipeService_ReceiveStream_Return {
+}
+
+message G_GRecipeService_ReceiveLotsOfArgs_Parameters {
+  string p_string = 1;
+  int32 p_int = 2;
+  GRecipeTypes p_recipe_types = 3;
+  GRecipe p_recipe = 4;
+  repeated string p_list_strings = 5;
+  repeated int32 p_list_ints = 6;
+  repeated GRecipeTypes p_list_recipe_types = 7;
+  repeated GRecipe p_list_recipes = 8;
+  repeated string p_set_string = 9;
+  repeated int32 p_set_int = 10;
+  repeated GRecipeTypes p_set_recipe_types = 11;
+  repeated GRecipe p_set_recipe = 12;
+  repeated string p_iterable_string = 13;
+  repeated int32 p_iterable_int = 14;
+  repeated GRecipeTypes p_iterable_recipe_types = 15;
+  repeated GRecipe p_iterable_recipe = 16;
+}
+
+message G_GRecipeService_ReceiveLotsOfArgs_Return {
+}
+
+message G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters {
+  string p_string = 3;  bool p_string_has_value = 2;
+
+  int32 p_int = 5;  bool p_int_has_value = 4;
+
+  GRecipeTypes_Message p_recipe_types = 7;
+  GRecipe p_recipe = 9;
+  repeated string p_list_strings = 12;  bool p_list_strings_has_value = 11;
+
+  repeated int32 p_list_ints = 14;  bool p_list_ints_has_value = 13;
+
+  repeated GRecipeTypes p_list_recipe_types = 16;
+  repeated GRecipe p_list_recipes = 18;
+  repeated string p_set_string = 21;  bool p_set_string_has_value = 20;
+
+  repeated int32 p_set_int = 23;  bool p_set_int_has_value = 22;
+
+  repeated GRecipeTypes p_set_recipe_types = 25;
+  repeated GRecipe p_set_recipe = 27;
+  repeated string p_iterable_string = 30;  bool p_iterable_string_has_value = 29;
+
+  repeated int32 p_iterable_int = 32;  bool p_iterable_int_has_value = 31;
+
+  repeated GRecipeTypes p_iterable_recipe_types = 34;
+  repeated GRecipe p_iterable_recipe = 36;
+}
+
+message G_GRecipeService_ReceiveLotsOfNullableArgs_Return {
+  repeated int32 value = 1;
+}
+

@@ -12,36 +12,22 @@ import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 import '../proto_services_generator_base.dart';
 import 'method_descriptor.dart';
 
-class ProtoServicesServiceGenerator
-    extends GeneratorForAnnotation<MapProtoServices> {
-  final BuilderOptions options;
-  final String _prefix;
-  final String _defaultPackage;
-  final bool _useWellKnownTypes;
+class ProtoServicesServiceGenerator {
+  final Config config;
 
-  ProtoServicesServiceGenerator(this.options)
-      : _prefix = options.config['prefix'] as String? ?? 'G',
-        _defaultPackage = options.config['package'] as String? ?? '',
-        _useWellKnownTypes =
-            options.config['useWellKnownTypes'] as bool? ?? false;
+  ProtoServicesServiceGenerator(this.config);
 
-  @override
   String generateForAnnotatedElement(
     Element element,
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    var readAnnotation = _hydrateAnnotation(annotation, prefix: _prefix);
+    var readAnnotation = _hydrateAnnotation(annotation, prefix: config.prefix);
 
     final classElement = element.asInterfaceElement();
 
     final generator = _Generator(
-      classElement: classElement,
-      annotation: readAnnotation,
-      packageName: readAnnotation.packageName != '' ? '' : _defaultPackage,
-      prefix: _prefix,
-      useWellKnownTypes: _useWellKnownTypes,
-    );
+        classElement: classElement, annotation: readAnnotation, config: config);
     final ret = generator.generateForClass();
 
     return ret;
@@ -50,20 +36,14 @@ class ProtoServicesServiceGenerator
 
 class _Generator extends ProtoServicesGeneratorBase {
   final MapProtoServices annotation;
-  final String packageName;
-  final String packageDeclaration;
   final bool withAuthenticator;
-  final bool useWellKnownTypes;
 
   _Generator({
     required this.annotation,
-    required String prefix,
     required InterfaceElement classElement,
-    required this.packageName,
-    required this.useWellKnownTypes,
-  })  : packageDeclaration = packageName != '' ? 'package $packageName;' : '',
-        withAuthenticator = annotation.withAuthenticator,
-        super(classElement: classElement, prefix: prefix);
+    required Config config,
+  })  : withAuthenticator = annotation.withAuthenticator,
+        super(classElement: classElement, config: config);
 
   String generateForClass() {
     var methodDescriptors = _getMethodDescriptors(classElement, annotation);
@@ -98,13 +78,13 @@ class _Generator extends ProtoServicesGeneratorBase {
     
     
     
-    class $prefix$serviceClassName extends $prefix${serviceClassName}Base
+    class ${config.prefix}$serviceClassName extends ${config.prefix}${serviceClassName}Base
     {
       final ${serviceClassName}Factory \$serviceFactory;
       ${withAuthenticator ? 'final void Function(ServiceCall call) \$authenticator;' : ''}
       
     
-      $prefix$serviceClassName(
+      ${config.prefix}$serviceClassName(
     this.\$serviceFactory,
     ${withAuthenticator ? 'this.\$authenticator,' : ''}
       );
@@ -190,8 +170,7 @@ class _Generator extends ProtoServicesGeneratorBase {
 
     final fd = FieldDescriptor(
       MapProto(
-        prefix: prefix,
-        packageName: packageName,
+        prefix: config.prefix,
       ),
       displayName: 'value',
       isFinal: true,
@@ -204,7 +183,7 @@ class _Generator extends ProtoServicesGeneratorBase {
     final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
       fd,
       refName: '',
-      useWellKnownTypes: useWellKnownTypes,
+      useWellKnownTypes: config.useWellKnownTypes,
     );
 
     pResultBuffer.write('final value = ');
@@ -239,8 +218,7 @@ class _Generator extends ProtoServicesGeneratorBase {
 
       final fd = FieldDescriptor(
         MapProto(
-          prefix: prefix,
-          packageName: packageName,
+          prefix: config.prefix,
         ),
         displayName: parm.displayName,
         isFinal: true,
@@ -252,7 +230,7 @@ class _Generator extends ProtoServicesGeneratorBase {
       final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
         fd,
         refName: 'request',
-        useWellKnownTypes: useWellKnownTypes,
+        useWellKnownTypes: config.useWellKnownTypes,
       );
 
       final expression = fieldCodeGenerator.fromProtoMap;
@@ -306,7 +284,7 @@ class _Generator extends ProtoServicesGeneratorBase {
     final itemType = type.finalType;
     final listOf = type.isList ? 'ListOf' : '';
     final displayName = itemType.getDisplayString(withNullability: false);
-    final ret = '$prefix$listOf$displayName';
+    final ret = '${config.prefix}$listOf$displayName';
     return ret;
   }
 

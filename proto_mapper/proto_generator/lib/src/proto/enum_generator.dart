@@ -16,9 +16,12 @@ class EnumGenerator {
 
   String generate() {
     var fieldBuffer = StringBuffer();
-    var fieldDescriptors = interfaceElement
-        .getFieldDescriptors(annotation, config.prefix, forEnum: true);
-    final prefix = annotation.prefix ?? config.prefix;
+    var fieldDescriptors = interfaceElement.getFieldDescriptors(
+      annotation: annotation,
+      config: config,
+      forEnum: true,
+    );
+    final prefix = config.prefix;
     var lineNumber = 0;
     for (var fieldDescriptor in fieldDescriptors) {
       fieldBuffer

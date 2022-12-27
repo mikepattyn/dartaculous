@@ -7,13 +7,15 @@ import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 import 'package:recase/recase.dart';
 
 class FieldDescriptor extends FieldDescriptorBase {
+  final Config config;
   final Proto protoAnnotation;
   final ProtoField? protoFieldAnnotation;
   final ProtoIgnore? protoIgnoreAnnotation;
   final bool forEnum;
 
-  FieldDescriptor(
-    this.protoAnnotation, {
+  FieldDescriptor({
+    required this.protoAnnotation,
+    required this.config,
     required String displayName,
     required String name,
     required bool isFinal,
@@ -32,13 +34,16 @@ class FieldDescriptor extends FieldDescriptorBase {
           fieldElementType: fieldElementType,
         );
 
-  FieldDescriptor.fromFieldElement(
-      FieldElement fieldElement, this.protoAnnotation, this.forEnum)
-      : protoFieldAnnotation = _getProtoFieldAnnotation(fieldElement),
+  FieldDescriptor.fromFieldElement({
+    required FieldElement fieldElement,
+    required this.protoAnnotation,
+    required this.forEnum,
+    required this.config,
+  })  : protoFieldAnnotation = _getProtoFieldAnnotation(fieldElement),
         protoIgnoreAnnotation = _getProtoIgnoreAnnotation(fieldElement),
         super.fromFieldElement(fieldElement);
 
-  String get prefix => protoAnnotation.prefix ?? '';
+  String get prefix => config.prefix;
 
   @override
   bool get isRepeated =>

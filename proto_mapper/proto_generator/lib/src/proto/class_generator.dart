@@ -22,21 +22,23 @@ class ClassGenerator {
         knownSubclasses = protoReflected.knownSubClasses,
         _fieldDescriptors = element
             .asClassElement()
-            .getFieldDescriptors(protoReflected.proto, config.prefix,
-                forEnum: false)
+            .getFieldDescriptors(
+              annotation: protoReflected.proto,
+              config: config,
+              forEnum: false,
+            )
             .toList();
 
   final Config config;
   final Element element;
   final ClassElement classElement;
-  final externalProtoNames = <String>[];
   final Proto proto;
   final Map<DartType, int> knownSubclasses;
   final Set<String> imports;
   final List<FieldDescriptor> _fieldDescriptors;
 
   String generate() {
-    final prefix = proto.prefix ?? config.prefix;
+    final prefix = config.prefix;
     final className = classElement.name;
     final fieldDeclarations = _createFieldDeclarations();
 
@@ -45,7 +47,6 @@ class ClassGenerator {
     final classMessageContent =
         knownSubclasses.isEmpty ? fieldDeclarations : _getClassMessageContent();
 
-    _addImports();
 
     final messages = '''
 
@@ -79,18 +80,10 @@ $fieldDeclarations
     return fieldsMessage;
   }
 
-  _addImports() {
-    for (var externalProtoName in externalProtoNames) {
-      // Prevent .proto file from importing itself or multiple imports
-      if (!imports.contains(externalProtoName)) {
-        imports.add(externalProtoName);
-      }
-    }
-  }
 
   String _getClassMessageContent() {
     final className = classElement.name;
-    final prefix = proto.prefix ?? config.prefix;
+    final prefix = config.prefix;
 
     final ownFieldsOf =
         '    ${prefix}FieldsOf$className ${className.snakeCase} = ${proto.ownFieldsNumber};\n';
@@ -115,9 +108,6 @@ $subClassFields
     final superClassElement = superType.element.asClassElement();
     final className = superClassElement.name;
 
-    // final fieldProtoNames = getExternalProtoNames(superType);
-    // mergeProtoNames(fieldProtoNames, externalProtoNames);
-
     final superFieldsOf =
         '  ${config.prefix}FieldsOf$className fieldsOfSuperClass = ${proto.superFieldsNumber};\n';
     return superFieldsOf;
@@ -127,6 +117,7 @@ $subClassFields
     final buffer = StringBuffer();
     for (final kscType in knownSubclasses.keys) {
       final kscNumber = knownSubclasses[kscType];
+
       final element = kscType.element;
       if (element == null) continue;
       final tc = TypeChecker.fromRuntime(Proto);
@@ -144,7 +135,7 @@ $subClassFields
     final superFieldsOf = _createSuperFieldsOf();
     final fieldDeclarations = createFieldDeclarations(
       _fieldDescriptors,
-      externalProtoNames,
+      imports,
       config.useWellKnownTypes,
     );
     return '''$superFieldsOf

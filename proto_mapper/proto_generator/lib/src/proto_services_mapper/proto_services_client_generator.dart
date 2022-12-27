@@ -11,34 +11,21 @@ import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 import '../proto_services_generator_base.dart';
 import 'method_descriptor.dart';
 
-class ProtoServicesClientGenerator
-    extends GeneratorForAnnotation<MapProtoServices> {
-  final BuilderOptions options;
-  final String _prefix;
-  final String _defaultPackage;
-  final bool _useWellKnownTypes;
+class ProtoServicesClientGenerator {
+  final Config config;
 
-  ProtoServicesClientGenerator(this.options)
-      : _prefix = options.config['prefix'] as String? ?? 'G',
-        _defaultPackage = options.config['package'] as String? ?? '',
-        _useWellKnownTypes =
-            options.config['useWellKnownTypes'] as bool? ?? false;
+  ProtoServicesClientGenerator(this.config);
 
-  @override
   String generateForAnnotatedElement(
     Element element,
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    var readAnnotation = _hydrateAnnotation(annotation, prefix: _prefix);
+    var readAnnotation = _hydrateAnnotation(annotation, prefix: config.prefix);
 
     final classElement = element.asInterfaceElement();
     final generator = _Generator(
-        annotation: readAnnotation,
-        classElement: classElement,
-        prefix: _prefix,
-        packageName: readAnnotation.packageName != '' ? '' : _defaultPackage,
-        useWellKnownTypes: _useWellKnownTypes);
+        annotation: readAnnotation, classElement: classElement, config: config);
 
     var ret = generator.generateForClass();
 
@@ -49,17 +36,13 @@ class ProtoServicesClientGenerator
 class _Generator extends ProtoServicesGeneratorBase {
   final MapProtoServices annotation;
   final Iterable<MethodDescriptor> methodDescriptors;
-  final String packageName;
-  final bool useWellKnownTypes;
 
   _Generator({
     required this.annotation,
-    required String prefix,
     required InterfaceElement classElement,
-    required this.packageName,
-    required this.useWellKnownTypes,
+    required Config config,
   })  : methodDescriptors = _getMethodDescriptors(classElement, annotation),
-        super(classElement: classElement, prefix: prefix);
+        super(classElement: classElement, config: config);
 
   String generateForClass() {
     final methodBuffer = StringBuffer();
@@ -88,7 +71,7 @@ class _Generator extends ProtoServicesGeneratorBase {
 
   @override
   Future<$returnType> $methodName($parameters) async {
-    final serviceClient = await get${prefix}ServiceClient();
+    final serviceClient = await get${config.prefix}ServiceClient();
     final \$parm = $gParm;
 
     $assignments
@@ -112,7 +95,7 @@ class _Generator extends ProtoServicesGeneratorBase {
     var ret = '''
 
 abstract class ${serviceClassName}ClientBase implements $className {
-  Future<$prefix${serviceClassName}Client> get${prefix}ServiceClient();
+  Future<${config.prefix}${serviceClassName}Client> get${config.prefix}ServiceClient();
 
   $methodBuffer
 }
@@ -151,10 +134,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
     for (final parm in methodDescriptor.methodElement.parameters) {
       final type = parm.type;
       final fd = FieldDescriptor(
-        MapProto(
-          prefix: prefix,
-          packageName: packageName,
-        ),
+        MapProto(prefix: config.prefix),
         displayName: parm.displayName,
         isFinal: true,
         isLate: false,
@@ -166,7 +146,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
         fd,
         refName: '',
         protoRefName: '\$parm',
-        useWellKnownTypes: useWellKnownTypes,
+        useWellKnownTypes: config.useWellKnownTypes,
       );
 
       final expression = fieldCodeGenerator.toProtoMap;
@@ -189,7 +169,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
     final toProto = futureType.isDartAsyncStream
         ? '$parmName.map((event) => event.toProto())'
         : (futureType.isList
-            ? '${prefix}ListOf$finalType(items: $parmName.map((i) => i.toProto()))'
+            ? '${config.prefix}ListOf$finalType(items: $parmName.map((i) => i.toProto()))'
             : '$parmName.toProto()');
     return toProto;
   }
@@ -213,10 +193,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
     }
 
     final fd = FieldDescriptor(
-      MapProto(
-        prefix: prefix,
-        packageName: packageName,
-      ),
+      MapProto(prefix: config.prefix),
       displayName: 'value',
       isFinal: true,
       isLate: false,
@@ -228,7 +205,7 @@ abstract class ${serviceClassName}ClientBase implements $className {
     final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
       fd,
       refName: '\$result',
-      useWellKnownTypes: useWellKnownTypes,
+      useWellKnownTypes: config.useWellKnownTypes,
     );
 
     resultBuffer.write(r'final $result = ');
