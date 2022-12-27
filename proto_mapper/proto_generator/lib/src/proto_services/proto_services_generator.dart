@@ -12,6 +12,7 @@ import 'method_descriptor.dart';
 class ProtoServicesGenerator {
   final Config config;
   final imports = <String>{};
+  final wrappers = <String>{};
   final services = <String>{};
   final messages = <String>{};
 
@@ -25,6 +26,7 @@ class ProtoServicesGenerator {
       classElement: classElement,
       config: config,
       imports: imports,
+      wrappers: wrappers,
       services: services,
       messages: messages,
     );
@@ -35,6 +37,7 @@ class ProtoServicesGenerator {
 
 class _Generator extends ProtoServicesGeneratorBase {
   final Set<String> imports;
+  final Set<String> wrappers;
   final Set<String> messages;
   final Set<String> services;
 
@@ -42,6 +45,7 @@ class _Generator extends ProtoServicesGeneratorBase {
     required Config config,
     required InterfaceElement classElement,
     required this.imports,
+    required this.wrappers,
     required this.messages,
     required this.services,
   }) : super(classElement: classElement, config: config);
@@ -159,8 +163,12 @@ $fieldDeclarations}
       name: 'value',
       fieldElementType: type,
     );
-    final fieldDeclarations =
-        createFieldDeclarations([fd], imports, config.useWellKnownTypes);
+    final fieldDeclarations = createFieldDeclarations(
+      fieldDescriptors: [fd],
+      imports: imports,
+      wrappers: wrappers,
+      config: config,
+    );
     return fieldDeclarations;
   }
 
@@ -178,8 +186,12 @@ $fieldDeclarations}
             ))
         .toList();
 
-    final fieldDeclarations =
-        createFieldDeclarations(fds, imports, config.useWellKnownTypes);
+    final fieldDeclarations = createFieldDeclarations(
+      fieldDescriptors: fds,
+      imports: imports,
+      wrappers: wrappers,
+      config: config,
+    );
     return fieldDeclarations;
   }
 

@@ -1,3 +1,3 @@
 abstract class Imports {
-  Set<String> get externalProtoNames;
+  Set<String> get imports;
 }

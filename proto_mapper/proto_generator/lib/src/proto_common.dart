@@ -2,6 +2,7 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator/src/proto/field_code_generators/wrapped.dart';
 import 'package:proto_generator/src/proto/field_descriptor.dart' as protofield;
 import 'package:proto_generator/src/proto_mapper/field_descriptor.dart'
     as mapperfield;
@@ -11,11 +12,12 @@ import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 import 'proto/field_code_generator.dart';
 import 'proto/field_code_generators/imports.dart';
 
-String createFieldDeclarations(
-  Iterable<protofield.FieldDescriptor> fieldDescriptors,
-  Set<String> imports,
-  bool useWellKnownTypes,
-) {
+String createFieldDeclarations({
+  required Iterable<protofield.FieldDescriptor> fieldDescriptors,
+  required Set<String> imports,
+  required Set<String> wrappers,
+  required Config config,
+}) {
   final fieldBuffer = StringBuffer();
   final lineNumbers = fieldDescriptors
       .where((fd) =>
@@ -26,24 +28,33 @@ String createFieldDeclarations(
           ])
       .toList();
 
-  for (var fieldDescriptor in fieldDescriptors) {
-    var fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
-        fieldDescriptor, lineNumbers, useWellKnownTypes);
+  for (final fieldDescriptor in fieldDescriptors) {
+    final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
+      fieldDescriptor,
+      lineNumbers,
+      config.useWellKnownTypes,
+    );
 
-    var renderField = fieldCodeGenerator.render();
+    final renderField = fieldCodeGenerator.render();
     fieldBuffer.writeln(renderField);
 
-    if (fieldCodeGenerator is! Imports) continue;
-    var fieldExternalProtoNames =
-        (fieldCodeGenerator as Imports).externalProtoNames;
-    mergeProtoNames(fieldExternalProtoNames, imports);
+    if (fieldCodeGenerator is Imports) {
+      final fieldExternalProtoNames = (fieldCodeGenerator as Imports).imports;
+      mergeProtoNames(fieldExternalProtoNames, imports);
+    }
+    if (fieldCodeGenerator is Wrapped) {
+      final wrapper = (fieldCodeGenerator as Wrapped).wrapper;
+      wrappers.add(wrapper);
+    }
   }
 
   return fieldBuffer.toString();
 }
 
 void mergeProtoNames(
-    Iterable<String> fieldExternalProtoNames, Set<String> imports) {
+  Iterable<String> fieldExternalProtoNames,
+  Set<String> imports,
+) {
   for (String externalProtoName in fieldExternalProtoNames) {
     imports.add(externalProtoName);
   }

@@ -58,16 +58,18 @@ class ProtoBuilder implements Builder {
 
   String _renderProto() {
     final imports = protoGen.imports..addAll(protoServicesGen.imports);
+    final wrappers = protoGen.wrappers..addAll(protoServicesGen.wrappers);
     final messages = protoGen.messages..addAll(protoServicesGen.messages);
     final services = protoServicesGen.services;
-    
+
     final package =
         config.packageName.isEmpty ? '' : 'package ${config.packageName};';
     final options = config.options.map((e) => 'option $e;').join('\n');
     final renderedImports = imports.map((e) => 'import "$e";').join('\n');
+    final renderedWrappers = wrappers.join('\n');
     final renderedMessages = messages.join('\n');
     final renderedServices = services.join('\n');
-    
+
     final content = '''
     syntax = "proto3";
     
@@ -78,6 +80,8 @@ class ProtoBuilder implements Builder {
     $renderedImports
     
     $renderedServices
+
+    $renderedWrappers
     
     $renderedMessages
     

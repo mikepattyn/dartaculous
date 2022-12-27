@@ -4,7 +4,7 @@ targets:
     builders:
       proto_generator:protoBuilder:
         options:
-          useWellKnownTypes: true
+          useWellKnownTypes: false
           packageName: squarealfa.nozard.techlog
           options: 
             - go_package = "./stubs"

@@ -9,7 +9,6 @@ mixin FieldCodeGeneratorMixin {
     _lineNumber ??= (fieldDescriptor.number ?? _nextAvailable(lineNumbers));
     return _lineNumber!;
   }
-
 }
 
 int _nextAvailable(List<int> numbers) {

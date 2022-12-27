@@ -1,7 +1,10 @@
 import 'package:decimal/decimal.dart';
 import 'package:proto_generator/src/proto/field_code_generators/bigint_field_code_generator.dart';
 import 'package:proto_generator/src/proto/field_code_generators/enum_field_code_generator.dart';
+import 'package:proto_generator/src/proto/field_code_generators/wrapped.dart';
 import 'package:proto_generator/src/proto_common.dart';
+import 'field_code_generators/imports.dart';
+import 'field_code_generators/wbool_field_code_generator.dart';
 import 'standalone_field_code_generators/bool_field_code_generator.dart';
 import 'standalone_field_code_generators/datetime_field_code_generator.dart';
 import 'field_code_generators/decimal_field_code_generator.dart';
@@ -23,6 +26,7 @@ part 'standalone_field_code_generator.dart';
 part 'composite_field_code_generator.dart';
 part 'field_code_generator_mixin.dart';
 part 'wkt_field_code_generator.dart';
+part 'wrapped_field_code_generator.dart';
 
 abstract class FieldCodeGenerator {
   String render();
@@ -61,7 +65,7 @@ abstract class FieldCodeGenerator {
       StringFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (type.isDartCoreBool) {
-      return BoolFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return WBoolFieldCodeGenerator(fieldDescriptor, lineNumbers);
     }
     if (type.isDartCoreInt) {
       return IntFieldCodeGenerator(fieldDescriptor, lineNumbers);

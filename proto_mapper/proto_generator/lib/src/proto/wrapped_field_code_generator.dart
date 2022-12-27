@@ -1,9 +1,9 @@
 part of 'field_code_generator.dart';
 
-abstract class WKTFieldCodeGenerator
+abstract class WrappedFieldCodeGenerator
     with FieldCodeGeneratorMixin
-    implements FieldCodeGenerator, Imports {
-  WKTFieldCodeGenerator(this.fieldDescriptor, this.lineNumbers);
+    implements FieldCodeGenerator, Wrapped {
+  WrappedFieldCodeGenerator(this.fieldDescriptor, this.lineNumbers);
 
   @override
   final FieldDescriptor fieldDescriptor;
@@ -11,24 +11,25 @@ abstract class WKTFieldCodeGenerator
   @override
   final List<int> lineNumbers;
 
-  String get wellKnownType;
+  String get wrappedType;
   String get scalarType;
-  String get wellKnownProtoPath;
 
   @override
   String render() {
-    final useWellKnown = scalarType.isEmpty ||
+    final useWrapped = scalarType.isEmpty ||
         (fieldDescriptor.isNullable && !fieldDescriptor.isRepeated);
-    final fieldType = useWellKnown ? wellKnownType : scalarType;
+    final fieldType = useWrapped ? wrappedType : scalarType;
     return '  ${fieldDescriptor.isRepeated ? 'repeated ' : ''}$fieldType ${fieldDescriptor.protoFieldName} = $lineNumber;';
   }
 
+  String renderWrapper();
+
   @override
-  Set<String> get imports {
+  String get wrapper {
     if (scalarType.isEmpty ||
         (fieldDescriptor.isNullable && !fieldDescriptor.isRepeated)) {
-      return {wellKnownProtoPath};
+      return renderWrapper();
     }
-    return {};
+    return '';
   }
 }

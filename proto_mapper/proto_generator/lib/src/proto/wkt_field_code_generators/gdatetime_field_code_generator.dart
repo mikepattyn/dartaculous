@@ -1,9 +1,7 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import '../field_code_generators/imports.dart';
 
-class GDateTimeFieldCodeGenerator extends WKTFieldCodeGenerator
-    implements Imports {
+class GDateTimeFieldCodeGenerator extends WKTFieldCodeGenerator {
   GDateTimeFieldCodeGenerator(
       FieldDescriptor fieldDescriptor, List<int> lineNumbers)
       : super(fieldDescriptor, lineNumbers);

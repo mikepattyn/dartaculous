@@ -18,6 +18,7 @@ class ClassGenerator {
     required ProtoReflected protoReflected,
     required this.config,
     required this.imports,
+    required this.wrappers,
   })  : classElement = element.asClassElement(),
         proto = protoReflected.proto,
         knownSubclasses = protoReflected.knownSubClasses,
@@ -36,6 +37,7 @@ class ClassGenerator {
   final Proto proto;
   final Map<DartType, int> knownSubclasses;
   final Set<String> imports;
+  final Set<String> wrappers;
   final List<FieldDescriptor> _fieldDescriptors;
 
   String generate() {
@@ -136,9 +138,10 @@ $subClassFields
   String _createFieldDeclarations() {
     final superFieldsOf = _createSuperFieldsOf();
     final fieldDeclarations = createFieldDeclarations(
-      _fieldDescriptors,
-      imports,
-      config.useWellKnownTypes,
+      fieldDescriptors: _fieldDescriptors,
+      imports: imports,
+      wrappers: wrappers,
+      config: config,
     );
     return '''$superFieldsOf
 $fieldDeclarations''';
