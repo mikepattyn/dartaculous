@@ -61,17 +61,23 @@ class Kitchen {
   });
 }
 
-@Proto(useProtoFieldNamingConventions: true)
+@Proto.numbered(useProtoFieldNamingConventions: true)
 @MapProto(
   dateTimePrecision: TimePrecision.microseconds,
   durationPrecision: TimePrecision.milliseconds,
 )
 class Chef {
+  @ProtoField.numbered(2)
   final Recipe? favoriteRecipe;
+  @ProtoField.numbered(3)
   final Knife? favoriteKnife;
+  @ProtoField.numbered(4)
   final ApplianceType favoriteApplianceType;
+  @ProtoField.numbered(5)
   final List<String> favoriteWords;
+  @ProtoField.numbered(6)
   final DateTime birthdate;
+  @ProtoField.numbered(7)
   final Duration? shelfLife;
 
   Chef({
@@ -89,18 +95,19 @@ class Chef {
 /// when looking for the FieldDescriptors of an entity,
 /// and rely on the fact that the constructor will properly
 /// set the required parameters(s).
-@Proto.auto()
+@Proto.numbered()
 @mapProto
 class SousChef extends Chef {
-  SousChef(
-      {required ApplianceType favoriteApplianceType,
-      required DateTime birthdate,
-      List<String> favoriteWords = const []})
-      : super(
-            favoriteKnife: null,
-            favoriteApplianceType: favoriteApplianceType,
-            favoriteWords: favoriteWords,
-            birthdate: birthdate);
+  SousChef({
+    required ApplianceType favoriteApplianceType,
+    required DateTime birthdate,
+    List<String> favoriteWords = const [],
+  }) : super(
+          favoriteKnife: null,
+          favoriteApplianceType: favoriteApplianceType,
+          favoriteWords: favoriteWords,
+          birthdate: birthdate,
+        );
 }
 
 /// KnifeMaster is required to have a favorite knife.
@@ -108,19 +115,20 @@ class SousChef extends Chef {
 /// defined in the parent class.
 /// We also know his favorite words, so no need to put them in the constructor.
 /// This requires addition of the "allowMissingFields" annotation property.
-@Proto.auto()
+@Proto.numbered()
 @MapProto(
     allowMissingFields: true, dateTimePrecision: TimePrecision.milliseconds)
 class KnifeMaster extends Chef {
   @override
+  @ProtoField.numbered(2)
   // ignore: overridden_fields
   Knife favoriteKnife;
 
-  KnifeMaster(
-      {required this.favoriteKnife,
-      required ApplianceType favoriteApplianceType,
-      required DateTime birthdate})
-      : super(
+  KnifeMaster({
+    required this.favoriteKnife,
+    required ApplianceType favoriteApplianceType,
+    required DateTime birthdate,
+  }) : super(
             favoriteKnife: favoriteKnife,
             favoriteApplianceType: favoriteApplianceType,
             favoriteWords: ['Yes', 'Sir'],

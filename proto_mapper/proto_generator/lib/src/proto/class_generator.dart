@@ -2,6 +2,7 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator/src/proto/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/field_descriptor.dart';
 import 'package:proto_generator/src/proto/interface_element_extension.dart';
 import 'package:source_gen/source_gen.dart';
@@ -47,7 +48,6 @@ class ClassGenerator {
     final classMessageContent =
         knownSubclasses.isEmpty ? fieldDeclarations : _getClassMessageContent();
 
-
     final messages = '''
 
 $fieldsMessage
@@ -80,7 +80,6 @@ $fieldDeclarations
     return fieldsMessage;
   }
 
-
   String _getClassMessageContent() {
     final className = classElement.name;
     final prefix = config.prefix;
@@ -105,11 +104,14 @@ $subClassFields
     final tc = TypeChecker.fromRuntime(Proto);
     final annotation = tc.firstAnnotationOf(superType.element);
     if (annotation == null) return '';
+    final protoReflected = ConstantReader(annotation).hydrateAnnotation();
+    final fieldsOf = protoReflected.knownSubClasses.isEmpty ? '' : 'FieldsOf';
+
     final superClassElement = superType.element.asClassElement();
     final className = superClassElement.name;
 
     final superFieldsOf =
-        '  ${config.prefix}FieldsOf$className fieldsOfSuperClass = ${proto.superFieldsNumber};\n';
+        '  ${config.prefix}$fieldsOf$className fieldsOfSuperClass = ${proto.superFieldsNumber};\n';
     return superFieldsOf;
   }
 

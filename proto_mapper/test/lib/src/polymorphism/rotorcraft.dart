@@ -9,7 +9,7 @@ part 'rotorcraft.g.dart';
 
 const knownSubClasses = {Helicopter: 3, Gyrocopter: 4};
 
-@Proto(knownSubClasses: knownSubClasses)
+@Proto.numbered(knownSubClasses: knownSubClasses)
 @MapProto(knownSubClasses: [Helicopter, Gyrocopter])
 abstract class Rotorcraft extends Aircraft {
   Rotorcraft({

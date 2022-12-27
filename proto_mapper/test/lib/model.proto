@@ -1,12 +1,14 @@
-syntax = "proto3";
-
-
-
-
-
-
-
-service GRecipeService
+    syntax = "proto3";
+    
+    package squarealfa.nozard.techlog;
+    
+    option go_package = "./stubs";
+    
+    import "google/protobuf/wrappers.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+    
+    service GRecipeService
 {
   rpc Create (GRecipe) returns (GRecipe);
   rpc Update (GRecipe) returns (GRecipe);
@@ -32,8 +34,8 @@ service GRecipeService
   rpc ReceiveLotsOfNullableArgs (G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters) returns (G_GRecipeService_ReceiveLotsOfNullableArgs_Return);
 } 
     
-
-
+    
+    
 
   
 message GCalcParameters
@@ -41,10 +43,8 @@ message GCalcParameters
 
   int32 parameter1 = 2;
   int32 parameter2 = 1;
-  int32 parameter3 = 3;  bool parameter3_has_value = 4;
-
-  int32 parameter4 = 6;  bool parameter4_has_value = 5;
-
+  google.protobuf.Int32Value parameter3 = 3;
+  google.protobuf.Int32Value parameter4 = 4;
   int32 parameter5 = 9;
 
 }   
@@ -189,10 +189,8 @@ message GListOfConstructObject5
 message GConstructObject6
 {
 
-  string name = 3;  bool name_has_value = 2;
-
-  int32 number = 5;  bool number_has_value = 4;
-
+  google.protobuf.StringValue name = 1;
+  google.protobuf.Int32Value number = 2;
 
 }   
 
@@ -207,9 +205,8 @@ message GListOfConstructObject6
 message GConstructObject7
 {
 
-  int32 number = 2;  bool number_has_value = 1;
-
-  string name = 3;
+  google.protobuf.Int32Value number = 1;
+  string name = 2;
 
 }   
 
@@ -224,9 +221,8 @@ message GListOfConstructObject7
 message GConstructObject8
 {
 
-  int32 number = 2;  bool number_has_value = 1;
-
-  string name = 3;
+  google.protobuf.Int32Value number = 1;
+  string name = 2;
 
 }   
 
@@ -275,7 +271,7 @@ message GIngredient
   string description = 1;
   bytes quantity = 2;
   double precision = 3;
-  double cooking_duration = 4;
+  google.protobuf.Duration cooking_duration = 4;
   GComponent main_component = 5;
   repeated GComponent other_components = 6;
   GComponent alternative_component = 8;
@@ -310,27 +306,21 @@ message GListsHost
 {
 
   repeated bool vbools = 1;
-  repeated bool nvbools = 3;  bool nvbools_has_value = 2;
-
-  repeated string vstrings = 4;
-  repeated string nvstrings = 7;  bool nvstrings_has_value = 6;
-
-  repeated double vdurations = 8;
-  repeated double nvdurations = 10;  bool nvdurations_has_value = 9;
-
-  repeated int64 vdatetimes = 11;
-  repeated int64 nvdatetimes = 13;  bool nvdatetimes_has_value = 12;
-
-  repeated bytes vdecimals = 14;
-  repeated bytes nvdecimals = 16;
-  repeated int32 vints = 17;
-  repeated int32 nvints = 19;  bool nvints_has_value = 18;
-
-  repeated double vdoubles = 20;
-  repeated double nvdoubles = 22;  bool nvdoubles_has_value = 21;
-
-  repeated GApplianceType vappliance_types = 23;
-  repeated GApplianceType nvappliance_types = 25;
+  repeated bool nvbools = 2;
+  repeated string vstrings = 3;
+  repeated string nvstrings = 4;
+  repeated google.protobuf.Duration vdurations = 5;
+  repeated google.protobuf.Duration nvdurations = 6;
+  repeated google.protobuf.Timestamp vdatetimes = 7;
+  repeated google.protobuf.Timestamp nvdatetimes = 8;
+  repeated bytes vdecimals = 9;
+  repeated bytes nvdecimals = 11;
+  repeated int32 vints = 12;
+  repeated int32 nvints = 13;
+  repeated double vdoubles = 14;
+  repeated double nvdoubles = 15;
+  repeated GApplianceType vappliance_types = 16;
+  repeated GApplianceType nvappliance_types = 18;
 
 }   
 
@@ -346,8 +336,7 @@ message GAirplane
 {
   GFieldsOfAircraft fieldsOfSuperClass = 1;
 
-  int32 wingspan = 1;
-  string key = 2;
+  int32 wingspan = 2;
 
 }   
 
@@ -380,8 +369,7 @@ message GBicycle
 {
   GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
 
-  bytes wheel_diamater = 1;
-  string key = 2;
+  bytes wheel_diamater = 2;
 
 }   
 
@@ -397,7 +385,7 @@ message GCar
 {
   GFieldsOfVehicle fieldsOfSuperClass = 1;
 
-  int32 number_of_doors = 1;
+  int32 number_of_doors = 2;
 
 }   
 
@@ -458,7 +446,6 @@ message GScooter
 {
   GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
 
-  string key = 1;
 
 }   
 
@@ -526,7 +513,6 @@ message GFieldsOfRotorcraft
 {
   GFieldsOfAircraft fieldsOfSuperClass = 1;
 
-  string key = 1;
 
 }
     
@@ -614,7 +600,7 @@ message GKitchen
 
   repeated GRecipe recipe_list = 1;
   map<string, GRecipe> recipe_map = 2;
-  int64 next_inspection_date = 3;
+  google.protobuf.Timestamp next_inspection_date = 3;
 
 }   
 
@@ -630,12 +616,11 @@ message GChef
 {
 
   GRecipe favorite_recipe = 2;
-  GKnife favorite_knife = 4;
-  GApplianceType favorite_appliance_type = 5;
-  repeated string favorite_words = 6;
-  int64 birthdate = 7;
-  double shelf_life = 9;  bool shelf_life_has_value = 8;
-
+  GKnife favorite_knife = 3;
+  GApplianceType favorite_appliance_type = 4;
+  repeated string favorite_words = 5;
+  google.protobuf.Timestamp birthdate = 6;
+  google.protobuf.Duration shelf_life = 7;
 
 }   
 
@@ -649,7 +634,7 @@ message GListOfChef
   
 message GSousChef
 {
-  GFieldsOfChef fieldsOfSuperClass = 1;
+  GChef fieldsOfSuperClass = 1;
 
 
 }   
@@ -664,9 +649,9 @@ message GListOfSousChef
   
 message GKnifeMaster
 {
-  GFieldsOfChef fieldsOfSuperClass = 1;
+  GChef fieldsOfSuperClass = 1;
 
-  GKnife favorite_knife = 1;
+  GKnife favorite_knife = 2;
 
 }   
 
@@ -683,8 +668,7 @@ message GInventory
 
   map<string, int32> number_of_things = 1;
   map<string, GRecipe> recipes_by_name = 2;
-  double time_span = 4;  bool time_span_has_value = 3;
-
+  google.protobuf.Duration time_span = 3;
 
 }   
 
@@ -699,8 +683,8 @@ message GListOfInventory
 message GPrecisionSubject
 {
 
-  int64 date_property = 1;
-  double duration_property = 2;
+  google.protobuf.Timestamp date_property = 1;
+  google.protobuf.Duration duration_property = 2;
 
 }   
 
@@ -716,28 +700,21 @@ message GRecipe
 {
 
   string title = 1;
-  string description = 4;  bool description_has_value = 3;
-
-  GCategory category = 5;
-  repeated GIngredient ingredients = 6;
-  int64 publish_date = 7;
-  int64 expiry_date = 9;  bool expiry_date_has_value = 8;
-
-  double preparation_duration = 10;
-  double total_duration = 12;  bool total_duration_has_value = 11;
-
-  bool is_published = 13;
-  bool requires_robot = 15;  bool requires_robot_has_value = 14;
-
-  double gross_weight = 17;  bool gross_weight_has_value = 16;
-
-  double net_weight = 19;  bool net_weight_has_value = 18;
-
-  GApplianceType main_appliance_type = 20;
-  GApplianceType_Message secondary_appliance_type = 22;
-  repeated string tags = 23;
-  repeated string extra_tags = 26;  bool extra_tags_has_value = 25;
-
+  google.protobuf.StringValue description = 2;
+  GCategory category = 3;
+  repeated GIngredient ingredients = 4;
+  google.protobuf.Timestamp publish_date = 5;
+  google.protobuf.Timestamp expiry_date = 6;
+  google.protobuf.Duration preparation_duration = 7;
+  google.protobuf.Duration total_duration = 8;
+  bool is_published = 9;
+  google.protobuf.BoolValue requires_robot = 10;
+  google.protobuf.DoubleValue gross_weight = 11;
+  google.protobuf.DoubleValue net_weight = 12;
+  GApplianceType main_appliance_type = 13;
+  GApplianceType_Message secondary_appliance_type = 15;
+  repeated string tags = 16;
+  repeated string extra_tags = 17;
 
 }   
 
@@ -769,8 +746,7 @@ message GListOfStarship
 message GPerson
 {
 
-  bool bool_value = 1;  bool bool_value_has_value = 3;
-
+  google.protobuf.BoolValue bool_value = 1;
   bytes dec_val = 2;
 
 }   
@@ -952,6 +928,56 @@ message GListOfLeaf
   repeated GLeaf items = 1;
 }
     
+        
+enum GApplianceType {
+  G_APPLIANCE_TYPE_HEAT = 0;
+  G_APPLIANCE_TYPE_COLD = 1;
+  G_APPLIANCE_TYPE_CUTLERY = 2;
+}   
+
+message GApplianceType_Message {
+  GApplianceType value = 1;
+}
+     
+
+        
+enum GRecipeTypes {
+  G_RECIPE_TYPES_COOK = 0;
+  G_RECIPE_TYPES_GRILL = 1;
+  G_RECIPE_TYPES_FRY = 2;
+  G_RECIPE_TYPES_STEW = 3;
+}   
+
+message GRecipeTypes_Message {
+  GRecipeTypes value = 1;
+}
+     
+
+        
+enum GKnifeType {
+  G_KNIFE_TYPE_CHEFS_KNIFE = 0;
+  G_KNIFE_TYPE_PARING_KNIFE = 1;
+  G_KNIFE_TYPE_BREAD_KNIFE = 2;
+}   
+
+message GKnifeType_Message {
+  GKnifeType value = 1;
+}
+     
+
+        
+enum GChefType {
+  G_CHEF_TYPE_SENIOR_CHEF = 0;
+  G_CHEF_TYPE_SOUS_CHEF = 1;
+  G_CHEF_TYPE_PASTRY_CHEF = 2;
+  G_CHEF_TYPE_FISH_CHEF = 3;
+}   
+
+message GChefType_Message {
+  GChefType value = 1;
+}
+     
+
 message G_GRecipeService_Delete_Return {
 }
 
@@ -987,8 +1013,7 @@ message G_GRecipeService_CountNullable_Parameters {
 }
 
 message G_GRecipeService_CountNullable_Return {
-  int32 value = 2;  bool value_has_value = 1;
-
+  google.protobuf.Int32Value value = 1;
 }
 
 message G_GRecipeService_Reindex_Parameters {
@@ -1036,8 +1061,7 @@ message G_GRecipeService_GetListOfIntsNullable_Parameters {
 }
 
 message G_GRecipeService_GetListOfIntsNullable_Return {
-  repeated int32 value = 2;  bool value_has_value = 1;
-
+  repeated int32 value = 1;
 }
 
 message G_GRecipeService_SearchRecipeStream_Parameters {
@@ -1069,33 +1093,26 @@ message G_GRecipeService_ReceiveLotsOfArgs_Return {
 }
 
 message G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters {
-  string p_string = 3;  bool p_string_has_value = 2;
-
-  int32 p_int = 5;  bool p_int_has_value = 4;
-
-  GRecipeTypes_Message p_recipe_types = 7;
-  GRecipe p_recipe = 9;
-  repeated string p_list_strings = 12;  bool p_list_strings_has_value = 11;
-
-  repeated int32 p_list_ints = 14;  bool p_list_ints_has_value = 13;
-
-  repeated GRecipeTypes p_list_recipe_types = 16;
-  repeated GRecipe p_list_recipes = 18;
-  repeated string p_set_string = 21;  bool p_set_string_has_value = 20;
-
-  repeated int32 p_set_int = 23;  bool p_set_int_has_value = 22;
-
-  repeated GRecipeTypes p_set_recipe_types = 25;
-  repeated GRecipe p_set_recipe = 27;
-  repeated string p_iterable_string = 30;  bool p_iterable_string_has_value = 29;
-
-  repeated int32 p_iterable_int = 32;  bool p_iterable_int_has_value = 31;
-
-  repeated GRecipeTypes p_iterable_recipe_types = 34;
-  repeated GRecipe p_iterable_recipe = 36;
+  google.protobuf.StringValue p_string = 1;
+  google.protobuf.Int32Value p_int = 2;
+  GRecipeTypes_Message p_recipe_types = 4;
+  GRecipe p_recipe = 6;
+  repeated string p_list_strings = 7;
+  repeated int32 p_list_ints = 8;
+  repeated GRecipeTypes p_list_recipe_types = 10;
+  repeated GRecipe p_list_recipes = 12;
+  repeated string p_set_string = 13;
+  repeated int32 p_set_int = 14;
+  repeated GRecipeTypes p_set_recipe_types = 16;
+  repeated GRecipe p_set_recipe = 18;
+  repeated string p_iterable_string = 19;
+  repeated int32 p_iterable_int = 20;
+  repeated GRecipeTypes p_iterable_recipe_types = 22;
+  repeated GRecipe p_iterable_recipe = 24;
 }
 
 message G_GRecipeService_ReceiveLotsOfNullableArgs_Return {
   repeated int32 value = 1;
 }
-
+    
+    

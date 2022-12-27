@@ -7,9 +7,10 @@ import 'abstract_vehicle.dart';
 
 part 'bicycle.g.dart';
 
-@Proto.auto()
+@Proto.numbered()
 @mapProto
 class Bicycle extends AbstractVehicle {
+  @ProtoField.numbered(2)
   final Decimal wheelDiamater;
   @override
   final String key;

@@ -1,3 +1,15 @@
+# Read about `build.yaml` at https://pub.dev/packages/build_config
+targets:
+  $default:
+    builders:
+      proto_generator:protoBuilder:
+        options:
+          useWellKnownTypes: true
+          packageName: squarealfa.nozard.techlog
+          options: 
+            - go_package = "./stubs"
+
+
 # # Read about `build.yaml` at https://pub.dev/packages/build_config
 # targets:
 #   $default:

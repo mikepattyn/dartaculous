@@ -5,7 +5,7 @@ import 'vehicle.dart';
 
 part 'car.g.dart';
 
-@Proto.auto()
+@Proto.numbered()
 @mapProto
 class Car extends Vehicle {
   Car({
@@ -13,6 +13,7 @@ class Car extends Vehicle {
     required int weight,
   }) : super(weight: weight);
 
+  @ProtoField.numbered(2)
   final int numberOfDoors;
 
   @override

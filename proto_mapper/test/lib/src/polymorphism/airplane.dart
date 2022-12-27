@@ -5,7 +5,7 @@ import 'aircraft.dart';
 
 part 'airplane.g.dart';
 
-@Proto.auto()
+@Proto.numbered()
 @mapProto
 class Airplane extends Aircraft {
   Airplane({
@@ -15,8 +15,10 @@ class Airplane extends Aircraft {
     required this.key,
   }) : super(weight: weight, serviceCeiling: serviceCeiling);
 
+  @ProtoField.numbered(2)
   final int wingspan;
 
+  @protoIgnore
   @override
   final String key;
 
