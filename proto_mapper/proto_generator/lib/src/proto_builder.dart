@@ -70,22 +70,20 @@ class ProtoBuilder implements Builder {
     final renderedMessages = messages.join('\n');
     final renderedServices = services.join('\n');
 
-    final content = '''
-    syntax = "proto3";
+    final content = '''syntax = "proto3";
     
-    $package
+$package
     
-    $options
+$options
     
-    $renderedImports
+$renderedImports
     
-    $renderedServices
+$renderedServices
 
-    $renderedWrappers
+$renderedWrappers
     
-    $renderedMessages
-    
-    ''';
+$renderedMessages
+''';
     return content;
   }
 

@@ -1,12 +1,12 @@
-    syntax = "proto3";
+syntax = "proto3";
     
-    package squarealfa.nozard.techlog;
+package squarealfa.nozard.techlog;
     
-    option go_package = "./stubs";
+option go_package = "./stubs";
     
+
     
-    
-    service GRecipeService
+service GRecipeService
 {
   rpc Create (GRecipe) returns (GRecipe);
   rpc Update (GRecipe) returns (GRecipe);
@@ -33,10 +33,10 @@
 } 
     
 
-    
+
 message BoolValue { bool value = 1; }
     
-    
+
 
   
 message GCalcParameters
@@ -1144,5 +1144,3 @@ message G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters {
 message G_GRecipeService_ReceiveLotsOfNullableArgs_Return {
   repeated int32 value = 1;
 }
-    
-    
