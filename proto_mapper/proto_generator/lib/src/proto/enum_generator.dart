@@ -10,7 +10,7 @@ class EnumGenerator {
     required this.config,
   });
 
-  final InterfaceElement interfaceElement;
+  final EnumElement interfaceElement;
   final Proto annotation;
   final Config config;
 
@@ -19,7 +19,6 @@ class EnumGenerator {
     var fieldDescriptors = interfaceElement.getFieldDescriptors(
       annotation: annotation,
       config: config,
-      forEnum: true,
     );
     final prefix = config.prefix;
     var lineNumber = 0;

@@ -19,19 +19,10 @@ String createFieldDeclarations({
   required Config config,
 }) {
   final fieldBuffer = StringBuffer();
-  final lineNumbers = fieldDescriptors
-      .where((fd) =>
-          fd.number != null || (fd.isNullable && fd.hasValueNumber != null))
-      .expand((fd) => [
-            if (fd.number != null) fd.number!,
-            if (fd.isNullable && fd.hasValueNumber != null) fd.hasValueNumber!,
-          ])
-      .toList();
 
   for (final fieldDescriptor in fieldDescriptors) {
     final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
       fieldDescriptor,
-      lineNumbers,
       config.useWellKnownTypes,
     );
 

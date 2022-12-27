@@ -15,7 +15,7 @@ class Airplane extends Aircraft {
     required this.key,
   }) : super(weight: weight, serviceCeiling: serviceCeiling);
 
-  @ProtoField.numbered(2)
+  @ProtoField(2)
   final int wingspan;
 
   @protoIgnore

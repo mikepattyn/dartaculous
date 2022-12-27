@@ -154,7 +154,8 @@ $fieldDeclarations}
   String _getReturnFieldDeclarations(DartType type) {
     if (type.isVoid) return '';
     final fd = FieldDescriptor(
-      protoAnnotation: Proto.auto(),
+      protoAnnotation: Proto.numbered(),
+      protoFieldAnnotation: ProtoField(1),
       config: config,
       displayName: 'value',
       isFinal: true,
@@ -173,9 +174,11 @@ $fieldDeclarations}
   }
 
   String _getParameterFieldDeclarations(MethodDescriptor methodDescriptor) {
+    int number = 1;
     final fds = methodDescriptor.methodElement.parameters
         .map((p) => FieldDescriptor(
               protoAnnotation: Proto.auto(),
+              protoFieldAnnotation: ProtoField(number++),
               config: config,
               displayName: p.displayName,
               fieldElementType: p.type,

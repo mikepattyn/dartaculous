@@ -6,7 +6,7 @@ import 'package:proto_annotations/proto_annotations.dart';
   superFieldsNumber: 3,
 )
 class Person {
-  @ProtoField.numbered(2)
+  @ProtoField(2)
   final String? name;
   Person({
     required this.name,

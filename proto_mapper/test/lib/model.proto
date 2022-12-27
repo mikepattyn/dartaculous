@@ -34,7 +34,17 @@ service GRecipeService
     
 
 
+message Int32Value { int32 value = 1; }
+message Timestamp { 
+  int64 seconds = 1; 
+  int32 nanos = 2;
+}
+message Duration { 
+  int64 seconds = 1; 
+  int32 nanos = 2;
+}
 message BoolValue { bool value = 1; }
+message StringValue { string value = 1; }
     
 
 
@@ -44,10 +54,7 @@ message GCalcParameters
 
   int32 parameter1 = 2;
   int32 parameter2 = 1;
-  int32 parameter3 = 3;  bool parameter3_has_value = 4;
-
-  int32 parameter4 = 6;  bool parameter4_has_value = 5;
-
+  Int32Value parameter3 = 3;
   int32 parameter5 = 9;
 
 }   
@@ -63,7 +70,6 @@ message GListOfCalcParameters
 message GCalcResult
 {
 
-  int32 result = 1;
 
 }   
 
@@ -78,11 +84,6 @@ message GListOfCalcResult
 message GCategory
 {
 
-  string title = 1;
-  GComponent main_component = 2;
-  GComponent alternative_component = 4;
-  repeated GComponent other_components = 5;
-  repeated GComponent secondary_components = 7;
 
 }   
 
@@ -97,7 +98,6 @@ message GListOfCategory
 message GComponent
 {
 
-  string description = 1;
 
 }   
 
@@ -112,8 +112,6 @@ message GListOfComponent
 message GConstructObject1
 {
 
-  string name = 1;
-  int32 number = 2;
 
 }   
 
@@ -128,8 +126,6 @@ message GListOfConstructObject1
 message GConstructObject2
 {
 
-  string name = 1;
-  int32 number = 2;
 
 }   
 
@@ -144,8 +140,6 @@ message GListOfConstructObject2
 message GConstructObject3
 {
 
-  string name = 1;
-  int32 number = 2;
 
 }   
 
@@ -160,8 +154,6 @@ message GListOfConstructObject3
 message GConstructObject4
 {
 
-  string name = 1;
-  int32 number = 2;
 
 }   
 
@@ -176,8 +168,6 @@ message GListOfConstructObject4
 message GConstructObject5
 {
 
-  string name = 1;
-  int32 number = 2;
 
 }   
 
@@ -191,10 +181,6 @@ message GListOfConstructObject5
   
 message GConstructObject6
 {
-
-  string name = 3;  bool name_has_value = 2;
-
-  int32 number = 5;  bool number_has_value = 4;
 
 
 }   
@@ -210,9 +196,6 @@ message GListOfConstructObject6
 message GConstructObject7
 {
 
-  int32 number = 2;  bool number_has_value = 1;
-
-  string name = 3;
 
 }   
 
@@ -227,9 +210,6 @@ message GListOfConstructObject7
 message GConstructObject8
 {
 
-  int32 number = 2;  bool number_has_value = 1;
-
-  string name = 3;
 
 }   
 
@@ -259,8 +239,6 @@ message GEncapsulatedFieldsClass
 {
 
   string final_string = 1;
-  string encapsulated_string = 2;
-  repeated string encapsulated_collection = 3;
 
 }   
 
@@ -275,14 +253,6 @@ message GListOfEncapsulatedFieldsClass
 message GIngredient
 {
 
-  string description = 1;
-  bytes quantity = 2;
-  double precision = 3;
-  double cooking_duration = 4;
-  GComponent main_component = 5;
-  repeated GComponent other_components = 6;
-  GComponent alternative_component = 8;
-  repeated GComponent secondary_components = 10;
 
 }   
 
@@ -297,7 +267,6 @@ message GListOfIngredient
 message GKey
 {
 
-  string key = 1;
 
 }   
 
@@ -312,27 +281,6 @@ message GListOfKey
 message GListsHost
 {
 
-  repeated bool vbools = 1;
-  repeated bool nvbools = 2;
-  repeated string vstrings = 3;
-  repeated string nvstrings = 6;  bool nvstrings_has_value = 5;
-
-  repeated double vdurations = 7;
-  repeated double nvdurations = 9;  bool nvdurations_has_value = 8;
-
-  repeated int64 vdatetimes = 10;
-  repeated int64 nvdatetimes = 12;  bool nvdatetimes_has_value = 11;
-
-  repeated bytes vdecimals = 13;
-  repeated bytes nvdecimals = 15;
-  repeated int32 vints = 16;
-  repeated int32 nvints = 18;  bool nvints_has_value = 17;
-
-  repeated double vdoubles = 19;
-  repeated double nvdoubles = 21;  bool nvdoubles_has_value = 20;
-
-  repeated GApplianceType vappliance_types = 22;
-  repeated GApplianceType nvappliance_types = 24;
 
 }   
 
@@ -363,9 +311,6 @@ message GListOfAirplane
 message GBalloon
 {
 
-  int32 weight = 1;
-  string key = 2;
-  int32 service_ceiling = 3;
 
 }   
 
@@ -412,7 +357,6 @@ message GListOfCar
 message GEntity
 {
 
-  string key = 1;
 
 }   
 
@@ -470,7 +414,6 @@ message GListOfScooter
 message GFieldsOfAbstractVehicle
 {
 
-  int32 weight = 1;
 
 }
     
@@ -550,7 +493,6 @@ message GListOfRotorcraft
 message GFieldsOfVehicle
 {
 
-  int32 weight = 1;
 
 }
     
@@ -594,8 +536,6 @@ message GListOfKnife
 message GGarlicPress
 {
 
-  string name = 1;
-  bool machine_washable = 2;
 
 }   
 
@@ -610,9 +550,6 @@ message GListOfGarlicPress
 message GKitchen
 {
 
-  repeated GRecipe recipe_list = 1;
-  map<string, GRecipe> recipe_map = 2;
-  int64 next_inspection_date = 3;
 
 }   
 
@@ -631,9 +568,8 @@ message GChef
   GKnife favorite_knife = 3;
   GApplianceType favorite_appliance_type = 4;
   repeated string favorite_words = 5;
-  int64 birthdate = 6;
-  double shelf_life = 7;  bool shelf_life_has_value = 9;
-
+  Duration birthdate = 6;
+  Duration shelf_life = 7;
 
 }   
 
@@ -679,10 +615,6 @@ message GListOfKnifeMaster
 message GInventory
 {
 
-  map<string, int32> number_of_things = 1;
-  map<string, GRecipe> recipes_by_name = 2;
-  double time_span = 4;  bool time_span_has_value = 3;
-
 
 }   
 
@@ -697,8 +629,6 @@ message GListOfInventory
 message GPrecisionSubject
 {
 
-  int64 date_property = 1;
-  double duration_property = 2;
 
 }   
 
@@ -712,28 +642,6 @@ message GListOfPrecisionSubject
   
 message GRecipe
 {
-
-  string title = 1;
-  string description = 4;  bool description_has_value = 3;
-
-  GCategory category = 5;
-  repeated GIngredient ingredients = 6;
-  int64 publish_date = 7;
-  int64 expiry_date = 9;  bool expiry_date_has_value = 8;
-
-  double preparation_duration = 10;
-  double total_duration = 12;  bool total_duration_has_value = 11;
-
-  bool is_published = 13;
-  BoolValue requires_robot = 14;
-  double gross_weight = 16;  bool gross_weight_has_value = 15;
-
-  double net_weight = 18;  bool net_weight_has_value = 17;
-
-  GApplianceType main_appliance_type = 19;
-  GApplianceType_Message secondary_appliance_type = 21;
-  repeated string tags = 22;
-  repeated string extra_tags = 25;  bool extra_tags_has_value = 24;
 
 
 }   
@@ -749,9 +657,6 @@ message GListOfRecipe
 message GStarship
 {
 
-  bytes range = 1;
-  bytes odometer = 3;
-  int32 engine_number = 4;
 
 }   
 
@@ -859,8 +764,6 @@ message GListOfScheduleConstraint
 message GConstraintAdded
 {
 
-  string contest_schedule_id = 1;
-  GScheduleConstraint constraint = 2;
 
 }   
 
@@ -1008,7 +911,7 @@ message G_GRecipeService_SearchNullable_Parameters {
 }
 
 message G_GRecipeService_SearchNullable_Return {
-  repeated GRecipe value = 2;
+  repeated GRecipe value = 1;
 }
 
 message G_GRecipeService_InsertMany_Return {
@@ -1018,7 +921,7 @@ message G_GRecipeService_GetNullable_Parameters {
 }
 
 message G_GRecipeService_GetNullable_Return {
-  GRecipe value = 2;
+  GRecipe value = 1;
 }
 
 message G_GRecipeService_Count_Parameters {
@@ -1033,8 +936,7 @@ message G_GRecipeService_CountNullable_Parameters {
 }
 
 message G_GRecipeService_CountNullable_Return {
-  int32 value = 2;  bool value_has_value = 1;
-
+  Int32Value value = 1;
 }
 
 message G_GRecipeService_Reindex_Parameters {
@@ -1054,7 +956,7 @@ message G_GRecipeService_GetMainRecipeTypeNullable_Parameters {
 }
 
 message G_GRecipeService_GetMainRecipeTypeNullable_Return {
-  GRecipeTypes_Message value = 2;
+  GRecipeTypes_Message value = 1;
 }
 
 message G_GRecipeService_GetRecipeTypeList_Parameters {
@@ -1068,7 +970,7 @@ message G_GRecipeService_GetRecipeTypeListNullable_Parameters {
 }
 
 message G_GRecipeService_GetRecipeTypeListNullable_Return {
-  repeated GRecipeTypes value = 2;
+  repeated GRecipeTypes value = 1;
 }
 
 message G_GRecipeService_GetListOfInts_Parameters {
@@ -1082,8 +984,7 @@ message G_GRecipeService_GetListOfIntsNullable_Parameters {
 }
 
 message G_GRecipeService_GetListOfIntsNullable_Return {
-  repeated int32 value = 2;  bool value_has_value = 1;
-
+  repeated int32 value = 1;
 }
 
 message G_GRecipeService_SearchRecipeStream_Parameters {
@@ -1115,30 +1016,22 @@ message G_GRecipeService_ReceiveLotsOfArgs_Return {
 }
 
 message G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters {
-  string p_string = 3;  bool p_string_has_value = 2;
-
-  int32 p_int = 5;  bool p_int_has_value = 4;
-
-  GRecipeTypes_Message p_recipe_types = 7;
-  GRecipe p_recipe = 9;
-  repeated string p_list_strings = 12;  bool p_list_strings_has_value = 11;
-
-  repeated int32 p_list_ints = 14;  bool p_list_ints_has_value = 13;
-
-  repeated GRecipeTypes p_list_recipe_types = 16;
-  repeated GRecipe p_list_recipes = 18;
-  repeated string p_set_string = 21;  bool p_set_string_has_value = 20;
-
-  repeated int32 p_set_int = 23;  bool p_set_int_has_value = 22;
-
-  repeated GRecipeTypes p_set_recipe_types = 25;
-  repeated GRecipe p_set_recipe = 27;
-  repeated string p_iterable_string = 30;  bool p_iterable_string_has_value = 29;
-
-  repeated int32 p_iterable_int = 32;  bool p_iterable_int_has_value = 31;
-
-  repeated GRecipeTypes p_iterable_recipe_types = 34;
-  repeated GRecipe p_iterable_recipe = 36;
+  StringValue p_string = 1;
+  Int32Value p_int = 2;
+  GRecipeTypes_Message p_recipe_types = 3;
+  GRecipe p_recipe = 4;
+  repeated string p_list_strings = 5;
+  repeated int32 p_list_ints = 6;
+  repeated GRecipeTypes p_list_recipe_types = 7;
+  repeated GRecipe p_list_recipes = 8;
+  repeated string p_set_string = 9;
+  repeated int32 p_set_int = 10;
+  repeated GRecipeTypes p_set_recipe_types = 11;
+  repeated GRecipe p_set_recipe = 12;
+  repeated string p_iterable_string = 13;
+  repeated int32 p_iterable_int = 14;
+  repeated GRecipeTypes p_iterable_recipe_types = 15;
+  repeated GRecipe p_iterable_recipe = 16;
 }
 
 message G_GRecipeService_ReceiveLotsOfNullableArgs_Return {

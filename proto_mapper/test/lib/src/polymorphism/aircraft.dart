@@ -16,7 +16,7 @@ const knownSubClasses = {Airplane: 3, Rotorcraft: 4, Balloon: 5};
 @Proto.numbered(knownSubClasses: knownSubClasses, superFieldsNumber: 6)
 @MapProto(knownSubClasses: [Airplane, Rotorcraft, Balloon])
 abstract class Aircraft extends Vehicle implements Entity {
-  @ProtoField.numbered(3)
+  @ProtoField(3)
   final int serviceCeiling;
   Aircraft({
     required this.serviceCeiling,

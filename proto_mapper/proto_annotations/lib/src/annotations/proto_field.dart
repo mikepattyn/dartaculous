@@ -1,28 +1,9 @@
 class ProtoField {
   final String? name;
-  final int? number;
-  final int? hasValueNumber;
+  final int number;
 
-  @Deprecated('Use ProtoField.auto or ProtoField.numbered')
-  const ProtoField({
-    this.name,
-    this.number,
-    this.hasValueNumber,
-  });
-
-  const ProtoField.auto({
-    this.name,
-    this.number,
-    this.hasValueNumber,
-  });
-
-  const ProtoField.numbered(
+  const ProtoField(
     this.number, {
     this.name,
-    this.hasValueNumber,
   });
 }
-
-
-@Deprecated('')
-const protoField = ProtoField.auto();

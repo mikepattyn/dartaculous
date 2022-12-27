@@ -4,8 +4,7 @@ import '../field_descriptor.dart';
 class GStringFieldCodeGenerator extends WKTFieldCodeGenerator {
   GStringFieldCodeGenerator(
     FieldDescriptor fieldDescriptor,
-    List<int> lineNumbers,
-  ) : super(fieldDescriptor, lineNumbers);
+  ) : super(fieldDescriptor);
 
   @override
   String get wellKnownType => 'google.protobuf.StringValue';

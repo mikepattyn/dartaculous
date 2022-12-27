@@ -32,7 +32,9 @@ enum ChefType {
 @Proto.auto()
 @mapProto
 class Knife {
+  @ProtoField(1)
   final String name;
+  @ProtoField(2)
   final KnifeType type;
 
   Knife({required this.name, required this.type});
@@ -67,17 +69,17 @@ class Kitchen {
   durationPrecision: TimePrecision.milliseconds,
 )
 class Chef {
-  @ProtoField.numbered(2)
+  @ProtoField(2)
   final Recipe? favoriteRecipe;
-  @ProtoField.numbered(3)
+  @ProtoField(3)
   final Knife? favoriteKnife;
-  @ProtoField.numbered(4)
+  @ProtoField(4)
   final ApplianceType favoriteApplianceType;
-  @ProtoField.numbered(5)
+  @ProtoField(5)
   final List<String> favoriteWords;
-  @ProtoField.numbered(6)
+  @ProtoField(6)
   final DateTime birthdate;
-  @ProtoField.numbered(7)
+  @ProtoField(7)
   final Duration? shelfLife;
 
   Chef({
@@ -120,7 +122,7 @@ class SousChef extends Chef {
     allowMissingFields: true, dateTimePrecision: TimePrecision.milliseconds)
 class KnifeMaster extends Chef {
   @override
-  @ProtoField.numbered(2)
+  @ProtoField(2)
   // ignore: overridden_fields
   Knife favoriteKnife;
 

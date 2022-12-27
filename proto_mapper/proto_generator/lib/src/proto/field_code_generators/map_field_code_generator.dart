@@ -4,10 +4,9 @@ import 'package:proto_generator/src/proto_common.dart';
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
-class MapFieldCodeGenerator
-    extends CompositeFieldCodeGenerator /*implements ExternalProtoNames*/ {
-  MapFieldCodeGenerator(FieldDescriptor fieldDescriptor, List<int> lineNumbers)
-      : super(fieldDescriptor, lineNumbers) {
+class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
+  MapFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor) {
     final fieldElementType = fieldDescriptor.itemType;
 
     final packageName = fieldElementType.packageName;

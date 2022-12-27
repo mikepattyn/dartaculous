@@ -4,10 +4,8 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
-  EnumFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor,
-    List<int> lineNumbers,
-  ) : super(fieldDescriptor, lineNumbers);
+  EnumFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor);
 
   @override
   String get fieldType {

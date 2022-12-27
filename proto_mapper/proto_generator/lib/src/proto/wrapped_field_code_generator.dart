@@ -3,13 +3,10 @@ part of 'field_code_generator.dart';
 abstract class WrappedFieldCodeGenerator
     with FieldCodeGeneratorMixin
     implements FieldCodeGenerator, Wrapped {
-  WrappedFieldCodeGenerator(this.fieldDescriptor, this.lineNumbers);
+  WrappedFieldCodeGenerator(this.fieldDescriptor);
 
   @override
   final FieldDescriptor fieldDescriptor;
-
-  @override
-  final List<int> lineNumbers;
 
   String get wrappedType;
   String get scalarType;

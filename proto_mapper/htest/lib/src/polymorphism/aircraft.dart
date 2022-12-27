@@ -7,12 +7,12 @@ import 'vehicle.dart';
 const knownSubClasses = {Airplane: 7};
 
 @Proto(
-  ownFieldsNumber: 5,
-  superFieldsNumber: 3,
+  ownFieldsNumber: 5, // default is 1
+  superFieldsNumber: 3, // default is 1
   knownSubClasses: knownSubClasses,
 )
 class Aircraft extends Vehicle {
-  @ProtoField.numbered(2)
+  @ProtoField(2)
   final int? serviceCeiling;
   Aircraft({
     required this.serviceCeiling,

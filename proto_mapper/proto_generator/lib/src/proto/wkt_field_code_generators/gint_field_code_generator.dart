@@ -2,10 +2,8 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class GIntFieldCodeGenerator extends WKTFieldCodeGenerator {
-  GIntFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor,
-    List<int> lineNumbers,
-  ) : super(fieldDescriptor, lineNumbers);
+  GIntFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor);
 
   @override
   String get wellKnownType => 'google.protobuf.Int32Value';

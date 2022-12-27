@@ -13,7 +13,7 @@ class Car extends Vehicle {
     required int weight,
   }) : super(weight: weight);
 
-  @ProtoField.numbered(2)
+  @ProtoField(2)
   final int numberOfDoors;
 
   @override

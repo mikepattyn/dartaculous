@@ -71,7 +71,8 @@ ProtoField? _getProtoFieldAnnotation(FieldElement fieldElement) {
   var annotation = _protoFieldChecker.getFieldAnnotation(fieldElement);
   if (annotation == null) return null;
   var name = annotation.getField('name')!.toStringValue();
-  var ret = ProtoField.auto(name: name);
+  var number = annotation.getField('number')!.toIntValue()!;
+  var ret = ProtoField(number, name: name);
   return ret;
 }
 

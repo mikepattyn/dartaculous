@@ -3,7 +3,6 @@ import 'package:proto_generator_test/grpc/encapsulation.pb.dart';
 
 part 'encapsulation.g.dart';
 
-
 /// When "encapsulating" certain fields, they should still be included
 /// in the generated `.proto` file and `Mapper` classes,
 /// if the field name matches a parameter within the available constructor(s).
@@ -13,7 +12,7 @@ part 'encapsulation.g.dart';
 @Proto()
 @MapProto()
 class EncapsulatedFieldsClass {
-
+  @ProtoField(1)
   final String finalString;
 
   String get encapsulatedString => _encapsulatedString;
@@ -24,11 +23,13 @@ class EncapsulatedFieldsClass {
   }
 
   final Set<String> _encapsulatedCollection = {};
-  Set<String> get encapsulatedCollection => Set.unmodifiable(_encapsulatedCollection);
+  Set<String> get encapsulatedCollection =>
+      Set.unmodifiable(_encapsulatedCollection);
 
-  EncapsulatedFieldsClass({required this.finalString,
-    required String encapsulatedString,
-    Set<String>? encapsulatedCollection})
+  EncapsulatedFieldsClass(
+      {required this.finalString,
+      required String encapsulatedString,
+      Set<String>? encapsulatedCollection})
       : _encapsulatedString = encapsulatedString {
     _encapsulatedCollection.addAll(encapsulatedCollection ?? {});
   }

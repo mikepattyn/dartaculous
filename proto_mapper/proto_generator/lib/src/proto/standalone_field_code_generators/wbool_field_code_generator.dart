@@ -3,9 +3,8 @@ import '../field_descriptor.dart';
 
 class WBoolFieldCodeGenerator extends WrappedFieldCodeGenerator {
   WBoolFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor,
-    List<int> lineNumbers,
-  ) : super(fieldDescriptor, lineNumbers);
+    FieldDescriptor fieldDescriptor
+  ) : super(fieldDescriptor);
 
   @override
   String get scalarType => 'bool';

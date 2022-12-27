@@ -7,18 +7,18 @@ part 'calc_parameters.g.dart';
 @Proto.auto()
 @mapProto
 class CalcParameters {
-  @ProtoField(number: 2)
+  @ProtoField(2)
   final int parameter1;
 
-  @ProtoField(number: 1)
+  @ProtoField(1)
   final int parameter2;
 
-  @ProtoField(number: 3)
+  @ProtoField(3)
   final int? parameter3;
 
   final int? parameter4;
 
-  @ProtoField(number: 9, hasValueNumber: 8)
+  @ProtoField(9)
   final int parameter5;
 
   CalcParameters({

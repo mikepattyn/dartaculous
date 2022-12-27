@@ -5,9 +5,8 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class EntityFieldCodeGenerator extends CompositeFieldCodeGenerator {
-  EntityFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, List<int> lineNumbers)
-      : super(fieldDescriptor, lineNumbers);
+  EntityFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor);
 
   @override
   String get fieldType {

@@ -27,7 +27,6 @@ class ClassGenerator {
             .getFieldDescriptors(
               annotation: protoReflected.proto,
               config: config,
-              forEnum: false,
             )
             .toList();
 

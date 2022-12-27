@@ -58,20 +58,71 @@ const GChefType$json = const {
 
 /// Descriptor for `GChefType`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List gChefTypeDescriptor = $convert.base64Decode('CglHQ2hlZlR5cGUSGwoXR19DSEVGX1RZUEVfU0VOSU9SX0NIRUYQABIZChVHX0NIRUZfVFlQRV9TT1VTX0NIRUYQARIbChdHX0NIRUZfVFlQRV9QQVNUUllfQ0hFRhACEhkKFUdfQ0hFRl9UWVBFX0ZJU0hfQ0hFRhAD');
+@$core.Deprecated('Use int32ValueDescriptor instead')
+const Int32Value$json = const {
+  '1': 'Int32Value',
+  '2': const [
+    const {'1': 'value', '3': 1, '4': 1, '5': 5, '10': 'value'},
+  ],
+};
+
+/// Descriptor for `Int32Value`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List int32ValueDescriptor = $convert.base64Decode('CgpJbnQzMlZhbHVlEhQKBXZhbHVlGAEgASgFUgV2YWx1ZQ==');
+@$core.Deprecated('Use timestampDescriptor instead')
+const Timestamp$json = const {
+  '1': 'Timestamp',
+  '2': const [
+    const {'1': 'seconds', '3': 1, '4': 1, '5': 3, '10': 'seconds'},
+    const {'1': 'nanos', '3': 2, '4': 1, '5': 5, '10': 'nanos'},
+  ],
+};
+
+/// Descriptor for `Timestamp`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List timestampDescriptor = $convert.base64Decode('CglUaW1lc3RhbXASGAoHc2Vjb25kcxgBIAEoA1IHc2Vjb25kcxIUCgVuYW5vcxgCIAEoBVIFbmFub3M=');
+@$core.Deprecated('Use durationDescriptor instead')
+const Duration$json = const {
+  '1': 'Duration',
+  '2': const [
+    const {'1': 'seconds', '3': 1, '4': 1, '5': 3, '10': 'seconds'},
+    const {'1': 'nanos', '3': 2, '4': 1, '5': 5, '10': 'nanos'},
+  ],
+};
+
+/// Descriptor for `Duration`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List durationDescriptor = $convert.base64Decode('CghEdXJhdGlvbhIYCgdzZWNvbmRzGAEgASgDUgdzZWNvbmRzEhQKBW5hbm9zGAIgASgFUgVuYW5vcw==');
+@$core.Deprecated('Use boolValueDescriptor instead')
+const BoolValue$json = const {
+  '1': 'BoolValue',
+  '2': const [
+    const {'1': 'value', '3': 1, '4': 1, '5': 8, '10': 'value'},
+  ],
+};
+
+/// Descriptor for `BoolValue`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List boolValueDescriptor = $convert.base64Decode('CglCb29sVmFsdWUSFAoFdmFsdWUYASABKAhSBXZhbHVl');
+@$core.Deprecated('Use stringValueDescriptor instead')
+const StringValue$json = const {
+  '1': 'StringValue',
+  '2': const [
+    const {'1': 'value', '3': 1, '4': 1, '5': 9, '10': 'value'},
+  ],
+};
+
+/// Descriptor for `StringValue`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List stringValueDescriptor = $convert.base64Decode('CgtTdHJpbmdWYWx1ZRIUCgV2YWx1ZRgBIAEoCVIFdmFsdWU=');
 @$core.Deprecated('Use gCalcParametersDescriptor instead')
 const GCalcParameters$json = const {
   '1': 'GCalcParameters',
   '2': const [
     const {'1': 'parameter1', '3': 2, '4': 1, '5': 5, '10': 'parameter1'},
     const {'1': 'parameter2', '3': 1, '4': 1, '5': 5, '10': 'parameter2'},
-    const {'1': 'parameter3', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'parameter3'},
-    const {'1': 'parameter4', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'parameter4'},
+    const {'1': 'parameter3', '3': 3, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.Int32Value', '10': 'parameter3'},
     const {'1': 'parameter5', '3': 9, '4': 1, '5': 5, '10': 'parameter5'},
   ],
 };
 
 /// Descriptor for `GCalcParameters`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gCalcParametersDescriptor = $convert.base64Decode('Cg9HQ2FsY1BhcmFtZXRlcnMSHgoKcGFyYW1ldGVyMRgCIAEoBVIKcGFyYW1ldGVyMRIeCgpwYXJhbWV0ZXIyGAEgASgFUgpwYXJhbWV0ZXIyEjsKCnBhcmFtZXRlcjMYAyABKAsyGy5nb29nbGUucHJvdG9idWYuSW50MzJWYWx1ZVIKcGFyYW1ldGVyMxI7CgpwYXJhbWV0ZXI0GAQgASgLMhsuZ29vZ2xlLnByb3RvYnVmLkludDMyVmFsdWVSCnBhcmFtZXRlcjQSHgoKcGFyYW1ldGVyNRgJIAEoBVIKcGFyYW1ldGVyNQ==');
+final $typed_data.Uint8List gCalcParametersDescriptor = $convert.base64Decode('Cg9HQ2FsY1BhcmFtZXRlcnMSHgoKcGFyYW1ldGVyMRgCIAEoBVIKcGFyYW1ldGVyMRIeCgpwYXJhbWV0ZXIyGAEgASgFUgpwYXJhbWV0ZXIyEkUKCnBhcmFtZXRlcjMYAyABKAsyJS5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkludDMyVmFsdWVSCnBhcmFtZXRlcjMSHgoKcGFyYW1ldGVyNRgJIAEoBVIKcGFyYW1ldGVyNQ==');
 @$core.Deprecated('Use gListOfCalcParametersDescriptor instead')
 const GListOfCalcParameters$json = const {
   '1': 'GListOfCalcParameters',
@@ -85,13 +136,10 @@ final $typed_data.Uint8List gListOfCalcParametersDescriptor = $convert.base64Dec
 @$core.Deprecated('Use gCalcResultDescriptor instead')
 const GCalcResult$json = const {
   '1': 'GCalcResult',
-  '2': const [
-    const {'1': 'result', '3': 1, '4': 1, '5': 5, '10': 'result'},
-  ],
 };
 
 /// Descriptor for `GCalcResult`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gCalcResultDescriptor = $convert.base64Decode('CgtHQ2FsY1Jlc3VsdBIWCgZyZXN1bHQYASABKAVSBnJlc3VsdA==');
+final $typed_data.Uint8List gCalcResultDescriptor = $convert.base64Decode('CgtHQ2FsY1Jlc3VsdA==');
 @$core.Deprecated('Use gListOfCalcResultDescriptor instead')
 const GListOfCalcResult$json = const {
   '1': 'GListOfCalcResult',
@@ -105,17 +153,10 @@ final $typed_data.Uint8List gListOfCalcResultDescriptor = $convert.base64Decode(
 @$core.Deprecated('Use gCategoryDescriptor instead')
 const GCategory$json = const {
   '1': 'GCategory',
-  '2': const [
-    const {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
-    const {'1': 'main_component', '3': 2, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GComponent', '10': 'mainComponent'},
-    const {'1': 'alternative_component', '3': 4, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GComponent', '10': 'alternativeComponent'},
-    const {'1': 'other_components', '3': 5, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GComponent', '10': 'otherComponents'},
-    const {'1': 'secondary_components', '3': 7, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GComponent', '10': 'secondaryComponents'},
-  ],
 };
 
 /// Descriptor for `GCategory`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gCategoryDescriptor = $convert.base64Decode('CglHQ2F0ZWdvcnkSFAoFdGl0bGUYASABKAlSBXRpdGxlEkwKDm1haW5fY29tcG9uZW50GAIgASgLMiUuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HQ29tcG9uZW50Ug1tYWluQ29tcG9uZW50EloKFWFsdGVybmF0aXZlX2NvbXBvbmVudBgEIAEoCzIlLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR0NvbXBvbmVudFIUYWx0ZXJuYXRpdmVDb21wb25lbnQSUAoQb3RoZXJfY29tcG9uZW50cxgFIAMoCzIlLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR0NvbXBvbmVudFIPb3RoZXJDb21wb25lbnRzElgKFHNlY29uZGFyeV9jb21wb25lbnRzGAcgAygLMiUuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HQ29tcG9uZW50UhNzZWNvbmRhcnlDb21wb25lbnRz');
+final $typed_data.Uint8List gCategoryDescriptor = $convert.base64Decode('CglHQ2F0ZWdvcnk=');
 @$core.Deprecated('Use gListOfCategoryDescriptor instead')
 const GListOfCategory$json = const {
   '1': 'GListOfCategory',
@@ -129,13 +170,10 @@ final $typed_data.Uint8List gListOfCategoryDescriptor = $convert.base64Decode('C
 @$core.Deprecated('Use gComponentDescriptor instead')
 const GComponent$json = const {
   '1': 'GComponent',
-  '2': const [
-    const {'1': 'description', '3': 1, '4': 1, '5': 9, '10': 'description'},
-  ],
 };
 
 /// Descriptor for `GComponent`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gComponentDescriptor = $convert.base64Decode('CgpHQ29tcG9uZW50EiAKC2Rlc2NyaXB0aW9uGAEgASgJUgtkZXNjcmlwdGlvbg==');
+final $typed_data.Uint8List gComponentDescriptor = $convert.base64Decode('CgpHQ29tcG9uZW50');
 @$core.Deprecated('Use gListOfComponentDescriptor instead')
 const GListOfComponent$json = const {
   '1': 'GListOfComponent',
@@ -149,14 +187,10 @@ final $typed_data.Uint8List gListOfComponentDescriptor = $convert.base64Decode('
 @$core.Deprecated('Use gConstructObject1Descriptor instead')
 const GConstructObject1$json = const {
   '1': 'GConstructObject1',
-  '2': const [
-    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'number', '3': 2, '4': 1, '5': 5, '10': 'number'},
-  ],
 };
 
 /// Descriptor for `GConstructObject1`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gConstructObject1Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0MRISCgRuYW1lGAEgASgJUgRuYW1lEhYKBm51bWJlchgCIAEoBVIGbnVtYmVy');
+final $typed_data.Uint8List gConstructObject1Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0MQ==');
 @$core.Deprecated('Use gListOfConstructObject1Descriptor instead')
 const GListOfConstructObject1$json = const {
   '1': 'GListOfConstructObject1',
@@ -170,14 +204,10 @@ final $typed_data.Uint8List gListOfConstructObject1Descriptor = $convert.base64D
 @$core.Deprecated('Use gConstructObject2Descriptor instead')
 const GConstructObject2$json = const {
   '1': 'GConstructObject2',
-  '2': const [
-    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'number', '3': 2, '4': 1, '5': 5, '10': 'number'},
-  ],
 };
 
 /// Descriptor for `GConstructObject2`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gConstructObject2Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0MhISCgRuYW1lGAEgASgJUgRuYW1lEhYKBm51bWJlchgCIAEoBVIGbnVtYmVy');
+final $typed_data.Uint8List gConstructObject2Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0Mg==');
 @$core.Deprecated('Use gListOfConstructObject2Descriptor instead')
 const GListOfConstructObject2$json = const {
   '1': 'GListOfConstructObject2',
@@ -191,14 +221,10 @@ final $typed_data.Uint8List gListOfConstructObject2Descriptor = $convert.base64D
 @$core.Deprecated('Use gConstructObject3Descriptor instead')
 const GConstructObject3$json = const {
   '1': 'GConstructObject3',
-  '2': const [
-    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'number', '3': 2, '4': 1, '5': 5, '10': 'number'},
-  ],
 };
 
 /// Descriptor for `GConstructObject3`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gConstructObject3Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0MxISCgRuYW1lGAEgASgJUgRuYW1lEhYKBm51bWJlchgCIAEoBVIGbnVtYmVy');
+final $typed_data.Uint8List gConstructObject3Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0Mw==');
 @$core.Deprecated('Use gListOfConstructObject3Descriptor instead')
 const GListOfConstructObject3$json = const {
   '1': 'GListOfConstructObject3',
@@ -212,14 +238,10 @@ final $typed_data.Uint8List gListOfConstructObject3Descriptor = $convert.base64D
 @$core.Deprecated('Use gConstructObject4Descriptor instead')
 const GConstructObject4$json = const {
   '1': 'GConstructObject4',
-  '2': const [
-    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'number', '3': 2, '4': 1, '5': 5, '10': 'number'},
-  ],
 };
 
 /// Descriptor for `GConstructObject4`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gConstructObject4Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0NBISCgRuYW1lGAEgASgJUgRuYW1lEhYKBm51bWJlchgCIAEoBVIGbnVtYmVy');
+final $typed_data.Uint8List gConstructObject4Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0NA==');
 @$core.Deprecated('Use gListOfConstructObject4Descriptor instead')
 const GListOfConstructObject4$json = const {
   '1': 'GListOfConstructObject4',
@@ -233,14 +255,10 @@ final $typed_data.Uint8List gListOfConstructObject4Descriptor = $convert.base64D
 @$core.Deprecated('Use gConstructObject5Descriptor instead')
 const GConstructObject5$json = const {
   '1': 'GConstructObject5',
-  '2': const [
-    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'number', '3': 2, '4': 1, '5': 5, '10': 'number'},
-  ],
 };
 
 /// Descriptor for `GConstructObject5`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gConstructObject5Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0NRISCgRuYW1lGAEgASgJUgRuYW1lEhYKBm51bWJlchgCIAEoBVIGbnVtYmVy');
+final $typed_data.Uint8List gConstructObject5Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0NQ==');
 @$core.Deprecated('Use gListOfConstructObject5Descriptor instead')
 const GListOfConstructObject5$json = const {
   '1': 'GListOfConstructObject5',
@@ -254,14 +272,10 @@ final $typed_data.Uint8List gListOfConstructObject5Descriptor = $convert.base64D
 @$core.Deprecated('Use gConstructObject6Descriptor instead')
 const GConstructObject6$json = const {
   '1': 'GConstructObject6',
-  '2': const [
-    const {'1': 'name', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'name'},
-    const {'1': 'number', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'number'},
-  ],
 };
 
 /// Descriptor for `GConstructObject6`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gConstructObject6Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0NhIwCgRuYW1lGAEgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlUgRuYW1lEjMKBm51bWJlchgCIAEoCzIbLmdvb2dsZS5wcm90b2J1Zi5JbnQzMlZhbHVlUgZudW1iZXI=');
+final $typed_data.Uint8List gConstructObject6Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0Ng==');
 @$core.Deprecated('Use gListOfConstructObject6Descriptor instead')
 const GListOfConstructObject6$json = const {
   '1': 'GListOfConstructObject6',
@@ -275,14 +289,10 @@ final $typed_data.Uint8List gListOfConstructObject6Descriptor = $convert.base64D
 @$core.Deprecated('Use gConstructObject7Descriptor instead')
 const GConstructObject7$json = const {
   '1': 'GConstructObject7',
-  '2': const [
-    const {'1': 'number', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'number'},
-    const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-  ],
 };
 
 /// Descriptor for `GConstructObject7`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gConstructObject7Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0NxIzCgZudW1iZXIYASABKAsyGy5nb29nbGUucHJvdG9idWYuSW50MzJWYWx1ZVIGbnVtYmVyEhIKBG5hbWUYAiABKAlSBG5hbWU=');
+final $typed_data.Uint8List gConstructObject7Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0Nw==');
 @$core.Deprecated('Use gListOfConstructObject7Descriptor instead')
 const GListOfConstructObject7$json = const {
   '1': 'GListOfConstructObject7',
@@ -296,14 +306,10 @@ final $typed_data.Uint8List gListOfConstructObject7Descriptor = $convert.base64D
 @$core.Deprecated('Use gConstructObject8Descriptor instead')
 const GConstructObject8$json = const {
   '1': 'GConstructObject8',
-  '2': const [
-    const {'1': 'number', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'number'},
-    const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-  ],
 };
 
 /// Descriptor for `GConstructObject8`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gConstructObject8Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0OBIzCgZudW1iZXIYASABKAsyGy5nb29nbGUucHJvdG9idWYuSW50MzJWYWx1ZVIGbnVtYmVyEhIKBG5hbWUYAiABKAlSBG5hbWU=');
+final $typed_data.Uint8List gConstructObject8Descriptor = $convert.base64Decode('ChFHQ29uc3RydWN0T2JqZWN0OA==');
 @$core.Deprecated('Use gListOfConstructObject8Descriptor instead')
 const GListOfConstructObject8$json = const {
   '1': 'GListOfConstructObject8',
@@ -336,13 +342,11 @@ const GEncapsulatedFieldsClass$json = const {
   '1': 'GEncapsulatedFieldsClass',
   '2': const [
     const {'1': 'final_string', '3': 1, '4': 1, '5': 9, '10': 'finalString'},
-    const {'1': 'encapsulated_string', '3': 2, '4': 1, '5': 9, '10': 'encapsulatedString'},
-    const {'1': 'encapsulated_collection', '3': 3, '4': 3, '5': 9, '10': 'encapsulatedCollection'},
   ],
 };
 
 /// Descriptor for `GEncapsulatedFieldsClass`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gEncapsulatedFieldsClassDescriptor = $convert.base64Decode('ChhHRW5jYXBzdWxhdGVkRmllbGRzQ2xhc3MSIQoMZmluYWxfc3RyaW5nGAEgASgJUgtmaW5hbFN0cmluZxIvChNlbmNhcHN1bGF0ZWRfc3RyaW5nGAIgASgJUhJlbmNhcHN1bGF0ZWRTdHJpbmcSNwoXZW5jYXBzdWxhdGVkX2NvbGxlY3Rpb24YAyADKAlSFmVuY2Fwc3VsYXRlZENvbGxlY3Rpb24=');
+final $typed_data.Uint8List gEncapsulatedFieldsClassDescriptor = $convert.base64Decode('ChhHRW5jYXBzdWxhdGVkRmllbGRzQ2xhc3MSIQoMZmluYWxfc3RyaW5nGAEgASgJUgtmaW5hbFN0cmluZw==');
 @$core.Deprecated('Use gListOfEncapsulatedFieldsClassDescriptor instead')
 const GListOfEncapsulatedFieldsClass$json = const {
   '1': 'GListOfEncapsulatedFieldsClass',
@@ -356,20 +360,10 @@ final $typed_data.Uint8List gListOfEncapsulatedFieldsClassDescriptor = $convert.
 @$core.Deprecated('Use gIngredientDescriptor instead')
 const GIngredient$json = const {
   '1': 'GIngredient',
-  '2': const [
-    const {'1': 'description', '3': 1, '4': 1, '5': 9, '10': 'description'},
-    const {'1': 'quantity', '3': 2, '4': 1, '5': 12, '10': 'quantity'},
-    const {'1': 'precision', '3': 3, '4': 1, '5': 1, '10': 'precision'},
-    const {'1': 'cooking_duration', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Duration', '10': 'cookingDuration'},
-    const {'1': 'main_component', '3': 5, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GComponent', '10': 'mainComponent'},
-    const {'1': 'other_components', '3': 6, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GComponent', '10': 'otherComponents'},
-    const {'1': 'alternative_component', '3': 8, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GComponent', '10': 'alternativeComponent'},
-    const {'1': 'secondary_components', '3': 10, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GComponent', '10': 'secondaryComponents'},
-  ],
 };
 
 /// Descriptor for `GIngredient`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gIngredientDescriptor = $convert.base64Decode('CgtHSW5ncmVkaWVudBIgCgtkZXNjcmlwdGlvbhgBIAEoCVILZGVzY3JpcHRpb24SGgoIcXVhbnRpdHkYAiABKAxSCHF1YW50aXR5EhwKCXByZWNpc2lvbhgDIAEoAVIJcHJlY2lzaW9uEkQKEGNvb2tpbmdfZHVyYXRpb24YBCABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SD2Nvb2tpbmdEdXJhdGlvbhJMCg5tYWluX2NvbXBvbmVudBgFIAEoCzIlLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR0NvbXBvbmVudFINbWFpbkNvbXBvbmVudBJQChBvdGhlcl9jb21wb25lbnRzGAYgAygLMiUuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HQ29tcG9uZW50Ug9vdGhlckNvbXBvbmVudHMSWgoVYWx0ZXJuYXRpdmVfY29tcG9uZW50GAggASgLMiUuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HQ29tcG9uZW50UhRhbHRlcm5hdGl2ZUNvbXBvbmVudBJYChRzZWNvbmRhcnlfY29tcG9uZW50cxgKIAMoCzIlLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR0NvbXBvbmVudFITc2Vjb25kYXJ5Q29tcG9uZW50cw==');
+final $typed_data.Uint8List gIngredientDescriptor = $convert.base64Decode('CgtHSW5ncmVkaWVudA==');
 @$core.Deprecated('Use gListOfIngredientDescriptor instead')
 const GListOfIngredient$json = const {
   '1': 'GListOfIngredient',
@@ -383,13 +377,10 @@ final $typed_data.Uint8List gListOfIngredientDescriptor = $convert.base64Decode(
 @$core.Deprecated('Use gKeyDescriptor instead')
 const GKey$json = const {
   '1': 'GKey',
-  '2': const [
-    const {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
-  ],
 };
 
 /// Descriptor for `GKey`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gKeyDescriptor = $convert.base64Decode('CgRHS2V5EhAKA2tleRgBIAEoCVIDa2V5');
+final $typed_data.Uint8List gKeyDescriptor = $convert.base64Decode('CgRHS2V5');
 @$core.Deprecated('Use gListOfKeyDescriptor instead')
 const GListOfKey$json = const {
   '1': 'GListOfKey',
@@ -403,28 +394,10 @@ final $typed_data.Uint8List gListOfKeyDescriptor = $convert.base64Decode('CgpHTG
 @$core.Deprecated('Use gListsHostDescriptor instead')
 const GListsHost$json = const {
   '1': 'GListsHost',
-  '2': const [
-    const {'1': 'vbools', '3': 1, '4': 3, '5': 8, '10': 'vbools'},
-    const {'1': 'nvbools', '3': 2, '4': 3, '5': 8, '10': 'nvbools'},
-    const {'1': 'vstrings', '3': 3, '4': 3, '5': 9, '10': 'vstrings'},
-    const {'1': 'nvstrings', '3': 4, '4': 3, '5': 9, '10': 'nvstrings'},
-    const {'1': 'vdurations', '3': 5, '4': 3, '5': 11, '6': '.google.protobuf.Duration', '10': 'vdurations'},
-    const {'1': 'nvdurations', '3': 6, '4': 3, '5': 11, '6': '.google.protobuf.Duration', '10': 'nvdurations'},
-    const {'1': 'vdatetimes', '3': 7, '4': 3, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'vdatetimes'},
-    const {'1': 'nvdatetimes', '3': 8, '4': 3, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'nvdatetimes'},
-    const {'1': 'vdecimals', '3': 9, '4': 3, '5': 12, '10': 'vdecimals'},
-    const {'1': 'nvdecimals', '3': 11, '4': 3, '5': 12, '10': 'nvdecimals'},
-    const {'1': 'vints', '3': 12, '4': 3, '5': 5, '10': 'vints'},
-    const {'1': 'nvints', '3': 13, '4': 3, '5': 5, '10': 'nvints'},
-    const {'1': 'vdoubles', '3': 14, '4': 3, '5': 1, '10': 'vdoubles'},
-    const {'1': 'nvdoubles', '3': 15, '4': 3, '5': 1, '10': 'nvdoubles'},
-    const {'1': 'vappliance_types', '3': 16, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GApplianceType', '10': 'vapplianceTypes'},
-    const {'1': 'nvappliance_types', '3': 18, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GApplianceType', '10': 'nvapplianceTypes'},
-  ],
 };
 
 /// Descriptor for `GListsHost`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gListsHostDescriptor = $convert.base64Decode('CgpHTGlzdHNIb3N0EhYKBnZib29scxgBIAMoCFIGdmJvb2xzEhgKB252Ym9vbHMYAiADKAhSB252Ym9vbHMSGgoIdnN0cmluZ3MYAyADKAlSCHZzdHJpbmdzEhwKCW52c3RyaW5ncxgEIAMoCVIJbnZzdHJpbmdzEjkKCnZkdXJhdGlvbnMYBSADKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SCnZkdXJhdGlvbnMSOwoLbnZkdXJhdGlvbnMYBiADKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SC252ZHVyYXRpb25zEjoKCnZkYXRldGltZXMYByADKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgp2ZGF0ZXRpbWVzEjwKC252ZGF0ZXRpbWVzGAggAygLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILbnZkYXRldGltZXMSHAoJdmRlY2ltYWxzGAkgAygMUgl2ZGVjaW1hbHMSHgoKbnZkZWNpbWFscxgLIAMoDFIKbnZkZWNpbWFscxIUCgV2aW50cxgMIAMoBVIFdmludHMSFgoGbnZpbnRzGA0gAygFUgZudmludHMSGgoIdmRvdWJsZXMYDiADKAFSCHZkb3VibGVzEhwKCW52ZG91YmxlcxgPIAMoAVIJbnZkb3VibGVzElQKEHZhcHBsaWFuY2VfdHlwZXMYECADKA4yKS5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdBcHBsaWFuY2VUeXBlUg92YXBwbGlhbmNlVHlwZXMSVgoRbnZhcHBsaWFuY2VfdHlwZXMYEiADKA4yKS5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdBcHBsaWFuY2VUeXBlUhBudmFwcGxpYW5jZVR5cGVz');
+final $typed_data.Uint8List gListsHostDescriptor = $convert.base64Decode('CgpHTGlzdHNIb3N0');
 @$core.Deprecated('Use gListOfListsHostDescriptor instead')
 const GListOfListsHost$json = const {
   '1': 'GListOfListsHost',
@@ -459,15 +432,10 @@ final $typed_data.Uint8List gListOfAirplaneDescriptor = $convert.base64Decode('C
 @$core.Deprecated('Use gBalloonDescriptor instead')
 const GBalloon$json = const {
   '1': 'GBalloon',
-  '2': const [
-    const {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
-    const {'1': 'key', '3': 2, '4': 1, '5': 9, '10': 'key'},
-    const {'1': 'service_ceiling', '3': 3, '4': 1, '5': 5, '10': 'serviceCeiling'},
-  ],
 };
 
 /// Descriptor for `GBalloon`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gBalloonDescriptor = $convert.base64Decode('CghHQmFsbG9vbhIWCgZ3ZWlnaHQYASABKAVSBndlaWdodBIQCgNrZXkYAiABKAlSA2tleRInCg9zZXJ2aWNlX2NlaWxpbmcYAyABKAVSDnNlcnZpY2VDZWlsaW5n');
+final $typed_data.Uint8List gBalloonDescriptor = $convert.base64Decode('CghHQmFsbG9vbg==');
 @$core.Deprecated('Use gListOfBalloonDescriptor instead')
 const GListOfBalloon$json = const {
   '1': 'GListOfBalloon',
@@ -523,13 +491,10 @@ final $typed_data.Uint8List gListOfCarDescriptor = $convert.base64Decode('CgpHTG
 @$core.Deprecated('Use gEntityDescriptor instead')
 const GEntity$json = const {
   '1': 'GEntity',
-  '2': const [
-    const {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
-  ],
 };
 
 /// Descriptor for `GEntity`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gEntityDescriptor = $convert.base64Decode('CgdHRW50aXR5EhAKA2tleRgBIAEoCVIDa2V5');
+final $typed_data.Uint8List gEntityDescriptor = $convert.base64Decode('CgdHRW50aXR5');
 @$core.Deprecated('Use gListOfEntityDescriptor instead')
 const GListOfEntity$json = const {
   '1': 'GListOfEntity',
@@ -603,13 +568,10 @@ final $typed_data.Uint8List gListOfScooterDescriptor = $convert.base64Decode('Cg
 @$core.Deprecated('Use gFieldsOfAbstractVehicleDescriptor instead')
 const GFieldsOfAbstractVehicle$json = const {
   '1': 'GFieldsOfAbstractVehicle',
-  '2': const [
-    const {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
-  ],
 };
 
 /// Descriptor for `GFieldsOfAbstractVehicle`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gFieldsOfAbstractVehicleDescriptor = $convert.base64Decode('ChhHRmllbGRzT2ZBYnN0cmFjdFZlaGljbGUSFgoGd2VpZ2h0GAEgASgFUgZ3ZWlnaHQ=');
+final $typed_data.Uint8List gFieldsOfAbstractVehicleDescriptor = $convert.base64Decode('ChhHRmllbGRzT2ZBYnN0cmFjdFZlaGljbGU=');
 @$core.Deprecated('Use gAbstractVehicleDescriptor instead')
 const GAbstractVehicle$json = const {
   '1': 'GAbstractVehicle',
@@ -710,13 +672,10 @@ final $typed_data.Uint8List gListOfRotorcraftDescriptor = $convert.base64Decode(
 @$core.Deprecated('Use gFieldsOfVehicleDescriptor instead')
 const GFieldsOfVehicle$json = const {
   '1': 'GFieldsOfVehicle',
-  '2': const [
-    const {'1': 'weight', '3': 1, '4': 1, '5': 5, '10': 'weight'},
-  ],
 };
 
 /// Descriptor for `GFieldsOfVehicle`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gFieldsOfVehicleDescriptor = $convert.base64Decode('ChBHRmllbGRzT2ZWZWhpY2xlEhYKBndlaWdodBgBIAEoBVIGd2VpZ2h0');
+final $typed_data.Uint8List gFieldsOfVehicleDescriptor = $convert.base64Decode('ChBHRmllbGRzT2ZWZWhpY2xl');
 @$core.Deprecated('Use gVehicleDescriptor instead')
 const GVehicle$json = const {
   '1': 'GVehicle',
@@ -766,14 +725,10 @@ final $typed_data.Uint8List gListOfKnifeDescriptor = $convert.base64Decode('CgxH
 @$core.Deprecated('Use gGarlicPressDescriptor instead')
 const GGarlicPress$json = const {
   '1': 'GGarlicPress',
-  '2': const [
-    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'machine_washable', '3': 2, '4': 1, '5': 8, '10': 'machineWashable'},
-  ],
 };
 
 /// Descriptor for `GGarlicPress`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gGarlicPressDescriptor = $convert.base64Decode('CgxHR2FybGljUHJlc3MSEgoEbmFtZRgBIAEoCVIEbmFtZRIpChBtYWNoaW5lX3dhc2hhYmxlGAIgASgIUg9tYWNoaW5lV2FzaGFibGU=');
+final $typed_data.Uint8List gGarlicPressDescriptor = $convert.base64Decode('CgxHR2FybGljUHJlc3M=');
 @$core.Deprecated('Use gListOfGarlicPressDescriptor instead')
 const GListOfGarlicPress$json = const {
   '1': 'GListOfGarlicPress',
@@ -787,26 +742,10 @@ final $typed_data.Uint8List gListOfGarlicPressDescriptor = $convert.base64Decode
 @$core.Deprecated('Use gKitchenDescriptor instead')
 const GKitchen$json = const {
   '1': 'GKitchen',
-  '2': const [
-    const {'1': 'recipe_list', '3': 1, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'recipeList'},
-    const {'1': 'recipe_map', '3': 2, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GKitchen.RecipeMapEntry', '10': 'recipeMap'},
-    const {'1': 'next_inspection_date', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'nextInspectionDate'},
-  ],
-  '3': const [GKitchen_RecipeMapEntry$json],
-};
-
-@$core.Deprecated('Use gKitchenDescriptor instead')
-const GKitchen_RecipeMapEntry$json = const {
-  '1': 'RecipeMapEntry',
-  '2': const [
-    const {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'value'},
-  ],
-  '7': const {'7': true},
 };
 
 /// Descriptor for `GKitchen`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gKitchenDescriptor = $convert.base64Decode('CghHS2l0Y2hlbhJDCgtyZWNpcGVfbGlzdBgBIAMoCzIiLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR1JlY2lwZVIKcmVjaXBlTGlzdBJRCgpyZWNpcGVfbWFwGAIgAygLMjIuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HS2l0Y2hlbi5SZWNpcGVNYXBFbnRyeVIJcmVjaXBlTWFwEkwKFG5leHRfaW5zcGVjdGlvbl9kYXRlGAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFISbmV4dEluc3BlY3Rpb25EYXRlGmAKDlJlY2lwZU1hcEVudHJ5EhAKA2tleRgBIAEoCVIDa2V5EjgKBXZhbHVlGAIgASgLMiIuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlUgV2YWx1ZToCOAE=');
+final $typed_data.Uint8List gKitchenDescriptor = $convert.base64Decode('CghHS2l0Y2hlbg==');
 @$core.Deprecated('Use gListOfKitchenDescriptor instead')
 const GListOfKitchen$json = const {
   '1': 'GListOfKitchen',
@@ -825,13 +764,13 @@ const GChef$json = const {
     const {'1': 'favorite_knife', '3': 3, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GKnife', '10': 'favoriteKnife'},
     const {'1': 'favorite_appliance_type', '3': 4, '4': 1, '5': 14, '6': '.squarealfa.nozard.techlog.GApplianceType', '10': 'favoriteApplianceType'},
     const {'1': 'favorite_words', '3': 5, '4': 3, '5': 9, '10': 'favoriteWords'},
-    const {'1': 'birthdate', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'birthdate'},
-    const {'1': 'shelf_life', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Duration', '10': 'shelfLife'},
+    const {'1': 'birthdate', '3': 6, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.Duration', '10': 'birthdate'},
+    const {'1': 'shelf_life', '3': 7, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.Duration', '10': 'shelfLife'},
   ],
 };
 
 /// Descriptor for `GChef`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gChefDescriptor = $convert.base64Decode('CgVHQ2hlZhJLCg9mYXZvcml0ZV9yZWNpcGUYAiABKAsyIi5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdSZWNpcGVSDmZhdm9yaXRlUmVjaXBlEkgKDmZhdm9yaXRlX2tuaWZlGAMgASgLMiEuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HS25pZmVSDWZhdm9yaXRlS25pZmUSYQoXZmF2b3JpdGVfYXBwbGlhbmNlX3R5cGUYBCABKA4yKS5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdBcHBsaWFuY2VUeXBlUhVmYXZvcml0ZUFwcGxpYW5jZVR5cGUSJQoOZmF2b3JpdGVfd29yZHMYBSADKAlSDWZhdm9yaXRlV29yZHMSOAoJYmlydGhkYXRlGAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJYmlydGhkYXRlEjgKCnNoZWxmX2xpZmUYByABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SCXNoZWxmTGlmZQ==');
+final $typed_data.Uint8List gChefDescriptor = $convert.base64Decode('CgVHQ2hlZhJLCg9mYXZvcml0ZV9yZWNpcGUYAiABKAsyIi5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdSZWNpcGVSDmZhdm9yaXRlUmVjaXBlEkgKDmZhdm9yaXRlX2tuaWZlGAMgASgLMiEuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HS25pZmVSDWZhdm9yaXRlS25pZmUSYQoXZmF2b3JpdGVfYXBwbGlhbmNlX3R5cGUYBCABKA4yKS5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdBcHBsaWFuY2VUeXBlUhVmYXZvcml0ZUFwcGxpYW5jZVR5cGUSJQoOZmF2b3JpdGVfd29yZHMYBSADKAlSDWZhdm9yaXRlV29yZHMSQQoJYmlydGhkYXRlGAYgASgLMiMuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5EdXJhdGlvblIJYmlydGhkYXRlEkIKCnNoZWxmX2xpZmUYByABKAsyIy5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkR1cmF0aW9uUglzaGVsZkxpZmU=');
 @$core.Deprecated('Use gListOfChefDescriptor instead')
 const GListOfChef$json = const {
   '1': 'GListOfChef',
@@ -886,36 +825,10 @@ final $typed_data.Uint8List gListOfKnifeMasterDescriptor = $convert.base64Decode
 @$core.Deprecated('Use gInventoryDescriptor instead')
 const GInventory$json = const {
   '1': 'GInventory',
-  '2': const [
-    const {'1': 'number_of_things', '3': 1, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GInventory.NumberOfThingsEntry', '10': 'numberOfThings'},
-    const {'1': 'recipes_by_name', '3': 2, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GInventory.RecipesByNameEntry', '10': 'recipesByName'},
-    const {'1': 'time_span', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Duration', '10': 'timeSpan'},
-  ],
-  '3': const [GInventory_NumberOfThingsEntry$json, GInventory_RecipesByNameEntry$json],
-};
-
-@$core.Deprecated('Use gInventoryDescriptor instead')
-const GInventory_NumberOfThingsEntry$json = const {
-  '1': 'NumberOfThingsEntry',
-  '2': const [
-    const {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 5, '10': 'value'},
-  ],
-  '7': const {'7': true},
-};
-
-@$core.Deprecated('Use gInventoryDescriptor instead')
-const GInventory_RecipesByNameEntry$json = const {
-  '1': 'RecipesByNameEntry',
-  '2': const [
-    const {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'value'},
-  ],
-  '7': const {'7': true},
 };
 
 /// Descriptor for `GInventory`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gInventoryDescriptor = $convert.base64Decode('CgpHSW52ZW50b3J5EmMKEG51bWJlcl9vZl90aGluZ3MYASADKAsyOS5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdJbnZlbnRvcnkuTnVtYmVyT2ZUaGluZ3NFbnRyeVIObnVtYmVyT2ZUaGluZ3MSYAoPcmVjaXBlc19ieV9uYW1lGAIgAygLMjguc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HSW52ZW50b3J5LlJlY2lwZXNCeU5hbWVFbnRyeVINcmVjaXBlc0J5TmFtZRI2Cgl0aW1lX3NwYW4YAyABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SCHRpbWVTcGFuGkEKE051bWJlck9mVGhpbmdzRW50cnkSEAoDa2V5GAEgASgJUgNrZXkSFAoFdmFsdWUYAiABKAVSBXZhbHVlOgI4ARpkChJSZWNpcGVzQnlOYW1lRW50cnkSEAoDa2V5GAEgASgJUgNrZXkSOAoFdmFsdWUYAiABKAsyIi5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdSZWNpcGVSBXZhbHVlOgI4AQ==');
+final $typed_data.Uint8List gInventoryDescriptor = $convert.base64Decode('CgpHSW52ZW50b3J5');
 @$core.Deprecated('Use gListOfInventoryDescriptor instead')
 const GListOfInventory$json = const {
   '1': 'GListOfInventory',
@@ -929,14 +842,10 @@ final $typed_data.Uint8List gListOfInventoryDescriptor = $convert.base64Decode('
 @$core.Deprecated('Use gPrecisionSubjectDescriptor instead')
 const GPrecisionSubject$json = const {
   '1': 'GPrecisionSubject',
-  '2': const [
-    const {'1': 'date_property', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'dateProperty'},
-    const {'1': 'duration_property', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Duration', '10': 'durationProperty'},
-  ],
 };
 
 /// Descriptor for `GPrecisionSubject`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gPrecisionSubjectDescriptor = $convert.base64Decode('ChFHUHJlY2lzaW9uU3ViamVjdBI/Cg1kYXRlX3Byb3BlcnR5GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIMZGF0ZVByb3BlcnR5EkYKEWR1cmF0aW9uX3Byb3BlcnR5GAIgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uUhBkdXJhdGlvblByb3BlcnR5');
+final $typed_data.Uint8List gPrecisionSubjectDescriptor = $convert.base64Decode('ChFHUHJlY2lzaW9uU3ViamVjdA==');
 @$core.Deprecated('Use gListOfPrecisionSubjectDescriptor instead')
 const GListOfPrecisionSubject$json = const {
   '1': 'GListOfPrecisionSubject',
@@ -950,28 +859,10 @@ final $typed_data.Uint8List gListOfPrecisionSubjectDescriptor = $convert.base64D
 @$core.Deprecated('Use gRecipeDescriptor instead')
 const GRecipe$json = const {
   '1': 'GRecipe',
-  '2': const [
-    const {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
-    const {'1': 'description', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'description'},
-    const {'1': 'category', '3': 3, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GCategory', '10': 'category'},
-    const {'1': 'ingredients', '3': 4, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GIngredient', '10': 'ingredients'},
-    const {'1': 'publish_date', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'publishDate'},
-    const {'1': 'expiry_date', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'expiryDate'},
-    const {'1': 'preparation_duration', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Duration', '10': 'preparationDuration'},
-    const {'1': 'total_duration', '3': 8, '4': 1, '5': 11, '6': '.google.protobuf.Duration', '10': 'totalDuration'},
-    const {'1': 'is_published', '3': 9, '4': 1, '5': 8, '10': 'isPublished'},
-    const {'1': 'requires_robot', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.BoolValue', '10': 'requiresRobot'},
-    const {'1': 'gross_weight', '3': 11, '4': 1, '5': 11, '6': '.google.protobuf.DoubleValue', '10': 'grossWeight'},
-    const {'1': 'net_weight', '3': 12, '4': 1, '5': 11, '6': '.google.protobuf.DoubleValue', '10': 'netWeight'},
-    const {'1': 'main_appliance_type', '3': 13, '4': 1, '5': 14, '6': '.squarealfa.nozard.techlog.GApplianceType', '10': 'mainApplianceType'},
-    const {'1': 'secondary_appliance_type', '3': 15, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GApplianceType_Message', '10': 'secondaryApplianceType'},
-    const {'1': 'tags', '3': 16, '4': 3, '5': 9, '10': 'tags'},
-    const {'1': 'extra_tags', '3': 17, '4': 3, '5': 9, '10': 'extraTags'},
-  ],
 };
 
 /// Descriptor for `GRecipe`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gRecipeDescriptor = $convert.base64Decode('CgdHUmVjaXBlEhQKBXRpdGxlGAEgASgJUgV0aXRsZRI+CgtkZXNjcmlwdGlvbhgCIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZVILZGVzY3JpcHRpb24SQAoIY2F0ZWdvcnkYAyABKAsyJC5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdDYXRlZ29yeVIIY2F0ZWdvcnkSSAoLaW5ncmVkaWVudHMYBCADKAsyJi5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdJbmdyZWRpZW50UgtpbmdyZWRpZW50cxI9CgxwdWJsaXNoX2RhdGUYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtwdWJsaXNoRGF0ZRI7CgtleHBpcnlfZGF0ZRgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCmV4cGlyeURhdGUSTAoUcHJlcGFyYXRpb25fZHVyYXRpb24YByABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SE3ByZXBhcmF0aW9uRHVyYXRpb24SQAoOdG90YWxfZHVyYXRpb24YCCABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb25SDXRvdGFsRHVyYXRpb24SIQoMaXNfcHVibGlzaGVkGAkgASgIUgtpc1B1Ymxpc2hlZBJBCg5yZXF1aXJlc19yb2JvdBgKIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5Cb29sVmFsdWVSDXJlcXVpcmVzUm9ib3QSPwoMZ3Jvc3Nfd2VpZ2h0GAsgASgLMhwuZ29vZ2xlLnByb3RvYnVmLkRvdWJsZVZhbHVlUgtncm9zc1dlaWdodBI7CgpuZXRfd2VpZ2h0GAwgASgLMhwuZ29vZ2xlLnByb3RvYnVmLkRvdWJsZVZhbHVlUgluZXRXZWlnaHQSWQoTbWFpbl9hcHBsaWFuY2VfdHlwZRgNIAEoDjIpLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR0FwcGxpYW5jZVR5cGVSEW1haW5BcHBsaWFuY2VUeXBlEmsKGHNlY29uZGFyeV9hcHBsaWFuY2VfdHlwZRgPIAEoCzIxLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR0FwcGxpYW5jZVR5cGVfTWVzc2FnZVIWc2Vjb25kYXJ5QXBwbGlhbmNlVHlwZRISCgR0YWdzGBAgAygJUgR0YWdzEh0KCmV4dHJhX3RhZ3MYESADKAlSCWV4dHJhVGFncw==');
+final $typed_data.Uint8List gRecipeDescriptor = $convert.base64Decode('CgdHUmVjaXBl');
 @$core.Deprecated('Use gListOfRecipeDescriptor instead')
 const GListOfRecipe$json = const {
   '1': 'GListOfRecipe',
@@ -985,15 +876,10 @@ final $typed_data.Uint8List gListOfRecipeDescriptor = $convert.base64Decode('Cg1
 @$core.Deprecated('Use gStarshipDescriptor instead')
 const GStarship$json = const {
   '1': 'GStarship',
-  '2': const [
-    const {'1': 'range', '3': 1, '4': 1, '5': 12, '10': 'range'},
-    const {'1': 'odometer', '3': 3, '4': 1, '5': 12, '10': 'odometer'},
-    const {'1': 'engine_number', '3': 4, '4': 1, '5': 5, '10': 'engineNumber'},
-  ],
 };
 
 /// Descriptor for `GStarship`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gStarshipDescriptor = $convert.base64Decode('CglHU3RhcnNoaXASFAoFcmFuZ2UYASABKAxSBXJhbmdlEhoKCG9kb21ldGVyGAMgASgMUghvZG9tZXRlchIjCg1lbmdpbmVfbnVtYmVyGAQgASgFUgxlbmdpbmVOdW1iZXI=');
+final $typed_data.Uint8List gStarshipDescriptor = $convert.base64Decode('CglHU3RhcnNoaXA=');
 @$core.Deprecated('Use gListOfStarshipDescriptor instead')
 const GListOfStarship$json = const {
   '1': 'GListOfStarship',
@@ -1008,13 +894,13 @@ final $typed_data.Uint8List gListOfStarshipDescriptor = $convert.base64Decode('C
 const GPerson$json = const {
   '1': 'GPerson',
   '2': const [
-    const {'1': 'bool_value', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.BoolValue', '10': 'boolValue'},
+    const {'1': 'bool_value', '3': 1, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.BoolValue', '10': 'boolValue'},
     const {'1': 'dec_val', '3': 2, '4': 1, '5': 12, '10': 'decVal'},
   ],
 };
 
 /// Descriptor for `GPerson`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gPersonDescriptor = $convert.base64Decode('CgdHUGVyc29uEjkKCmJvb2xfdmFsdWUYASABKAsyGi5nb29nbGUucHJvdG9idWYuQm9vbFZhbHVlUglib29sVmFsdWUSFwoHZGVjX3ZhbBgCIAEoDFIGZGVjVmFs');
+final $typed_data.Uint8List gPersonDescriptor = $convert.base64Decode('CgdHUGVyc29uEkMKCmJvb2xfdmFsdWUYASABKAsyJC5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkJvb2xWYWx1ZVIJYm9vbFZhbHVlEhcKB2RlY192YWwYAiABKAxSBmRlY1ZhbA==');
 @$core.Deprecated('Use gListOfPersonDescriptor instead')
 const GListOfPerson$json = const {
   '1': 'GListOfPerson',
@@ -1127,14 +1013,10 @@ final $typed_data.Uint8List gListOfScheduleConstraintDescriptor = $convert.base6
 @$core.Deprecated('Use gConstraintAddedDescriptor instead')
 const GConstraintAdded$json = const {
   '1': 'GConstraintAdded',
-  '2': const [
-    const {'1': 'contest_schedule_id', '3': 1, '4': 1, '5': 9, '10': 'contestScheduleId'},
-    const {'1': 'constraint', '3': 2, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GScheduleConstraint', '10': 'constraint'},
-  ],
 };
 
 /// Descriptor for `GConstraintAdded`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gConstraintAddedDescriptor = $convert.base64Decode('ChBHQ29uc3RyYWludEFkZGVkEi4KE2NvbnRlc3Rfc2NoZWR1bGVfaWQYASABKAlSEWNvbnRlc3RTY2hlZHVsZUlkEk4KCmNvbnN0cmFpbnQYAiABKAsyLi5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdTY2hlZHVsZUNvbnN0cmFpbnRSCmNvbnN0cmFpbnQ=');
+final $typed_data.Uint8List gConstraintAddedDescriptor = $convert.base64Decode('ChBHQ29uc3RyYWludEFkZGVk');
 @$core.Deprecated('Use gListOfConstraintAddedDescriptor instead')
 const GListOfConstraintAdded$json = const {
   '1': 'GListOfConstraintAdded',
@@ -1315,12 +1197,12 @@ final $typed_data.Uint8List g_GRecipeService_SearchNullable_ParametersDescriptor
 const G_GRecipeService_SearchNullable_Return$json = const {
   '1': 'G_GRecipeService_SearchNullable_Return',
   '2': const [
-    const {'1': 'value', '3': 2, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'value'},
   ],
 };
 
 /// Descriptor for `G_GRecipeService_SearchNullable_Return`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List g_GRecipeService_SearchNullable_ReturnDescriptor = $convert.base64Decode('CiZHX0dSZWNpcGVTZXJ2aWNlX1NlYXJjaE51bGxhYmxlX1JldHVybhI4CgV2YWx1ZRgCIAMoCzIiLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR1JlY2lwZVIFdmFsdWU=');
+final $typed_data.Uint8List g_GRecipeService_SearchNullable_ReturnDescriptor = $convert.base64Decode('CiZHX0dSZWNpcGVTZXJ2aWNlX1NlYXJjaE51bGxhYmxlX1JldHVybhI4CgV2YWx1ZRgBIAMoCzIiLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR1JlY2lwZVIFdmFsdWU=');
 @$core.Deprecated('Use g_GRecipeService_InsertMany_ReturnDescriptor instead')
 const G_GRecipeService_InsertMany_Return$json = const {
   '1': 'G_GRecipeService_InsertMany_Return',
@@ -1339,12 +1221,12 @@ final $typed_data.Uint8List g_GRecipeService_GetNullable_ParametersDescriptor = 
 const G_GRecipeService_GetNullable_Return$json = const {
   '1': 'G_GRecipeService_GetNullable_Return',
   '2': const [
-    const {'1': 'value', '3': 2, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'value'},
   ],
 };
 
 /// Descriptor for `G_GRecipeService_GetNullable_Return`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List g_GRecipeService_GetNullable_ReturnDescriptor = $convert.base64Decode('CiNHX0dSZWNpcGVTZXJ2aWNlX0dldE51bGxhYmxlX1JldHVybhI4CgV2YWx1ZRgCIAEoCzIiLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR1JlY2lwZVIFdmFsdWU=');
+final $typed_data.Uint8List g_GRecipeService_GetNullable_ReturnDescriptor = $convert.base64Decode('CiNHX0dSZWNpcGVTZXJ2aWNlX0dldE51bGxhYmxlX1JldHVybhI4CgV2YWx1ZRgBIAEoCzIiLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR1JlY2lwZVIFdmFsdWU=');
 @$core.Deprecated('Use g_GRecipeService_Count_ParametersDescriptor instead')
 const G_GRecipeService_Count_Parameters$json = const {
   '1': 'G_GRecipeService_Count_Parameters',
@@ -1376,12 +1258,12 @@ final $typed_data.Uint8List g_GRecipeService_CountNullable_ParametersDescriptor 
 const G_GRecipeService_CountNullable_Return$json = const {
   '1': 'G_GRecipeService_CountNullable_Return',
   '2': const [
-    const {'1': 'value', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.Int32Value', '10': 'value'},
   ],
 };
 
 /// Descriptor for `G_GRecipeService_CountNullable_Return`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List g_GRecipeService_CountNullable_ReturnDescriptor = $convert.base64Decode('CiVHX0dSZWNpcGVTZXJ2aWNlX0NvdW50TnVsbGFibGVfUmV0dXJuEjEKBXZhbHVlGAEgASgLMhsuZ29vZ2xlLnByb3RvYnVmLkludDMyVmFsdWVSBXZhbHVl');
+final $typed_data.Uint8List g_GRecipeService_CountNullable_ReturnDescriptor = $convert.base64Decode('CiVHX0dSZWNpcGVTZXJ2aWNlX0NvdW50TnVsbGFibGVfUmV0dXJuEjsKBXZhbHVlGAEgASgLMiUuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5JbnQzMlZhbHVlUgV2YWx1ZQ==');
 @$core.Deprecated('Use g_GRecipeService_Reindex_ParametersDescriptor instead')
 const G_GRecipeService_Reindex_Parameters$json = const {
   '1': 'G_GRecipeService_Reindex_Parameters',
@@ -1424,12 +1306,12 @@ final $typed_data.Uint8List g_GRecipeService_GetMainRecipeTypeNullable_Parameter
 const G_GRecipeService_GetMainRecipeTypeNullable_Return$json = const {
   '1': 'G_GRecipeService_GetMainRecipeTypeNullable_Return',
   '2': const [
-    const {'1': 'value', '3': 2, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipeTypes_Message', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipeTypes_Message', '10': 'value'},
   ],
 };
 
 /// Descriptor for `G_GRecipeService_GetMainRecipeTypeNullable_Return`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List g_GRecipeService_GetMainRecipeTypeNullable_ReturnDescriptor = $convert.base64Decode('CjFHX0dSZWNpcGVTZXJ2aWNlX0dldE1haW5SZWNpcGVUeXBlTnVsbGFibGVfUmV0dXJuEkUKBXZhbHVlGAIgASgLMi8uc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlVHlwZXNfTWVzc2FnZVIFdmFsdWU=');
+final $typed_data.Uint8List g_GRecipeService_GetMainRecipeTypeNullable_ReturnDescriptor = $convert.base64Decode('CjFHX0dSZWNpcGVTZXJ2aWNlX0dldE1haW5SZWNpcGVUeXBlTnVsbGFibGVfUmV0dXJuEkUKBXZhbHVlGAEgASgLMi8uc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlVHlwZXNfTWVzc2FnZVIFdmFsdWU=');
 @$core.Deprecated('Use g_GRecipeService_GetRecipeTypeList_ParametersDescriptor instead')
 const G_GRecipeService_GetRecipeTypeList_Parameters$json = const {
   '1': 'G_GRecipeService_GetRecipeTypeList_Parameters',
@@ -1458,12 +1340,12 @@ final $typed_data.Uint8List g_GRecipeService_GetRecipeTypeListNullable_Parameter
 const G_GRecipeService_GetRecipeTypeListNullable_Return$json = const {
   '1': 'G_GRecipeService_GetRecipeTypeListNullable_Return',
   '2': const [
-    const {'1': 'value', '3': 2, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GRecipeTypes', '10': 'value'},
+    const {'1': 'value', '3': 1, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GRecipeTypes', '10': 'value'},
   ],
 };
 
 /// Descriptor for `G_GRecipeService_GetRecipeTypeListNullable_Return`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List g_GRecipeService_GetRecipeTypeListNullable_ReturnDescriptor = $convert.base64Decode('CjFHX0dSZWNpcGVTZXJ2aWNlX0dldFJlY2lwZVR5cGVMaXN0TnVsbGFibGVfUmV0dXJuEj0KBXZhbHVlGAIgAygOMicuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlVHlwZXNSBXZhbHVl');
+final $typed_data.Uint8List g_GRecipeService_GetRecipeTypeListNullable_ReturnDescriptor = $convert.base64Decode('CjFHX0dSZWNpcGVTZXJ2aWNlX0dldFJlY2lwZVR5cGVMaXN0TnVsbGFibGVfUmV0dXJuEj0KBXZhbHVlGAEgAygOMicuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlVHlwZXNSBXZhbHVl');
 @$core.Deprecated('Use g_GRecipeService_GetListOfInts_ParametersDescriptor instead')
 const G_GRecipeService_GetListOfInts_Parameters$json = const {
   '1': 'G_GRecipeService_GetListOfInts_Parameters',
@@ -1548,27 +1430,27 @@ final $typed_data.Uint8List g_GRecipeService_ReceiveLotsOfArgs_ReturnDescriptor 
 const G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters$json = const {
   '1': 'G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters',
   '2': const [
-    const {'1': 'p_string', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'pString'},
-    const {'1': 'p_int', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'pInt'},
-    const {'1': 'p_recipe_types', '3': 4, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipeTypes_Message', '10': 'pRecipeTypes'},
-    const {'1': 'p_recipe', '3': 6, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'pRecipe'},
-    const {'1': 'p_list_strings', '3': 7, '4': 3, '5': 9, '10': 'pListStrings'},
-    const {'1': 'p_list_ints', '3': 8, '4': 3, '5': 5, '10': 'pListInts'},
-    const {'1': 'p_list_recipe_types', '3': 10, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GRecipeTypes', '10': 'pListRecipeTypes'},
-    const {'1': 'p_list_recipes', '3': 12, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'pListRecipes'},
-    const {'1': 'p_set_string', '3': 13, '4': 3, '5': 9, '10': 'pSetString'},
-    const {'1': 'p_set_int', '3': 14, '4': 3, '5': 5, '10': 'pSetInt'},
-    const {'1': 'p_set_recipe_types', '3': 16, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GRecipeTypes', '10': 'pSetRecipeTypes'},
-    const {'1': 'p_set_recipe', '3': 18, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'pSetRecipe'},
-    const {'1': 'p_iterable_string', '3': 19, '4': 3, '5': 9, '10': 'pIterableString'},
-    const {'1': 'p_iterable_int', '3': 20, '4': 3, '5': 5, '10': 'pIterableInt'},
-    const {'1': 'p_iterable_recipe_types', '3': 22, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GRecipeTypes', '10': 'pIterableRecipeTypes'},
-    const {'1': 'p_iterable_recipe', '3': 24, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'pIterableRecipe'},
+    const {'1': 'p_string', '3': 1, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.StringValue', '10': 'pString'},
+    const {'1': 'p_int', '3': 2, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.Int32Value', '10': 'pInt'},
+    const {'1': 'p_recipe_types', '3': 3, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipeTypes_Message', '10': 'pRecipeTypes'},
+    const {'1': 'p_recipe', '3': 4, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'pRecipe'},
+    const {'1': 'p_list_strings', '3': 5, '4': 3, '5': 9, '10': 'pListStrings'},
+    const {'1': 'p_list_ints', '3': 6, '4': 3, '5': 5, '10': 'pListInts'},
+    const {'1': 'p_list_recipe_types', '3': 7, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GRecipeTypes', '10': 'pListRecipeTypes'},
+    const {'1': 'p_list_recipes', '3': 8, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'pListRecipes'},
+    const {'1': 'p_set_string', '3': 9, '4': 3, '5': 9, '10': 'pSetString'},
+    const {'1': 'p_set_int', '3': 10, '4': 3, '5': 5, '10': 'pSetInt'},
+    const {'1': 'p_set_recipe_types', '3': 11, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GRecipeTypes', '10': 'pSetRecipeTypes'},
+    const {'1': 'p_set_recipe', '3': 12, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'pSetRecipe'},
+    const {'1': 'p_iterable_string', '3': 13, '4': 3, '5': 9, '10': 'pIterableString'},
+    const {'1': 'p_iterable_int', '3': 14, '4': 3, '5': 5, '10': 'pIterableInt'},
+    const {'1': 'p_iterable_recipe_types', '3': 15, '4': 3, '5': 14, '6': '.squarealfa.nozard.techlog.GRecipeTypes', '10': 'pIterableRecipeTypes'},
+    const {'1': 'p_iterable_recipe', '3': 16, '4': 3, '5': 11, '6': '.squarealfa.nozard.techlog.GRecipe', '10': 'pIterableRecipe'},
   ],
 };
 
 /// Descriptor for `G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List g_GRecipeService_ReceiveLotsOfNullableArgs_ParametersDescriptor = $convert.base64Decode('CjVHX0dSZWNpcGVTZXJ2aWNlX1JlY2VpdmVMb3RzT2ZOdWxsYWJsZUFyZ3NfUGFyYW1ldGVycxI3CghwX3N0cmluZxgBIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZVIHcFN0cmluZxIwCgVwX2ludBgCIAEoCzIbLmdvb2dsZS5wcm90b2J1Zi5JbnQzMlZhbHVlUgRwSW50ElUKDnBfcmVjaXBlX3R5cGVzGAQgASgLMi8uc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlVHlwZXNfTWVzc2FnZVIMcFJlY2lwZVR5cGVzEj0KCHBfcmVjaXBlGAYgASgLMiIuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlUgdwUmVjaXBlEiQKDnBfbGlzdF9zdHJpbmdzGAcgAygJUgxwTGlzdFN0cmluZ3MSHgoLcF9saXN0X2ludHMYCCADKAVSCXBMaXN0SW50cxJWChNwX2xpc3RfcmVjaXBlX3R5cGVzGAogAygOMicuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlVHlwZXNSEHBMaXN0UmVjaXBlVHlwZXMSSAoOcF9saXN0X3JlY2lwZXMYDCADKAsyIi5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdSZWNpcGVSDHBMaXN0UmVjaXBlcxIgCgxwX3NldF9zdHJpbmcYDSADKAlSCnBTZXRTdHJpbmcSGgoJcF9zZXRfaW50GA4gAygFUgdwU2V0SW50ElQKEnBfc2V0X3JlY2lwZV90eXBlcxgQIAMoDjInLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR1JlY2lwZVR5cGVzUg9wU2V0UmVjaXBlVHlwZXMSRAoMcF9zZXRfcmVjaXBlGBIgAygLMiIuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlUgpwU2V0UmVjaXBlEioKEXBfaXRlcmFibGVfc3RyaW5nGBMgAygJUg9wSXRlcmFibGVTdHJpbmcSJAoOcF9pdGVyYWJsZV9pbnQYFCADKAVSDHBJdGVyYWJsZUludBJeChdwX2l0ZXJhYmxlX3JlY2lwZV90eXBlcxgWIAMoDjInLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR1JlY2lwZVR5cGVzUhRwSXRlcmFibGVSZWNpcGVUeXBlcxJOChFwX2l0ZXJhYmxlX3JlY2lwZRgYIAMoCzIiLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR1JlY2lwZVIPcEl0ZXJhYmxlUmVjaXBl');
+final $typed_data.Uint8List g_GRecipeService_ReceiveLotsOfNullableArgs_ParametersDescriptor = $convert.base64Decode('CjVHX0dSZWNpcGVTZXJ2aWNlX1JlY2VpdmVMb3RzT2ZOdWxsYWJsZUFyZ3NfUGFyYW1ldGVycxJBCghwX3N0cmluZxgBIAEoCzImLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuU3RyaW5nVmFsdWVSB3BTdHJpbmcSOgoFcF9pbnQYAiABKAsyJS5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkludDMyVmFsdWVSBHBJbnQSVQoOcF9yZWNpcGVfdHlwZXMYAyABKAsyLy5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdSZWNpcGVUeXBlc19NZXNzYWdlUgxwUmVjaXBlVHlwZXMSPQoIcF9yZWNpcGUYBCABKAsyIi5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdSZWNpcGVSB3BSZWNpcGUSJAoOcF9saXN0X3N0cmluZ3MYBSADKAlSDHBMaXN0U3RyaW5ncxIeCgtwX2xpc3RfaW50cxgGIAMoBVIJcExpc3RJbnRzElYKE3BfbGlzdF9yZWNpcGVfdHlwZXMYByADKA4yJy5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdSZWNpcGVUeXBlc1IQcExpc3RSZWNpcGVUeXBlcxJICg5wX2xpc3RfcmVjaXBlcxgIIAMoCzIiLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR1JlY2lwZVIMcExpc3RSZWNpcGVzEiAKDHBfc2V0X3N0cmluZxgJIAMoCVIKcFNldFN0cmluZxIaCglwX3NldF9pbnQYCiADKAVSB3BTZXRJbnQSVAoScF9zZXRfcmVjaXBlX3R5cGVzGAsgAygOMicuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlVHlwZXNSD3BTZXRSZWNpcGVUeXBlcxJECgxwX3NldF9yZWNpcGUYDCADKAsyIi5zcXVhcmVhbGZhLm5vemFyZC50ZWNobG9nLkdSZWNpcGVSCnBTZXRSZWNpcGUSKgoRcF9pdGVyYWJsZV9zdHJpbmcYDSADKAlSD3BJdGVyYWJsZVN0cmluZxIkCg5wX2l0ZXJhYmxlX2ludBgOIAMoBVIMcEl0ZXJhYmxlSW50El4KF3BfaXRlcmFibGVfcmVjaXBlX3R5cGVzGA8gAygOMicuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlVHlwZXNSFHBJdGVyYWJsZVJlY2lwZVR5cGVzEk4KEXBfaXRlcmFibGVfcmVjaXBlGBAgAygLMiIuc3F1YXJlYWxmYS5ub3phcmQudGVjaGxvZy5HUmVjaXBlUg9wSXRlcmFibGVSZWNpcGU=');
 @$core.Deprecated('Use g_GRecipeService_ReceiveLotsOfNullableArgs_ReturnDescriptor instead')
 const G_GRecipeService_ReceiveLotsOfNullableArgs_Return$json = const {
   '1': 'G_GRecipeService_ReceiveLotsOfNullableArgs_Return',

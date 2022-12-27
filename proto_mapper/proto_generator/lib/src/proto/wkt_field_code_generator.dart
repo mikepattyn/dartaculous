@@ -3,13 +3,10 @@ part of 'field_code_generator.dart';
 abstract class WKTFieldCodeGenerator
     with FieldCodeGeneratorMixin
     implements FieldCodeGenerator, Imports {
-  WKTFieldCodeGenerator(this.fieldDescriptor, this.lineNumbers);
+  WKTFieldCodeGenerator(this.fieldDescriptor);
 
   @override
   final FieldDescriptor fieldDescriptor;
-
-  @override
-  final List<int> lineNumbers;
 
   String get wellKnownType;
   String get scalarType;

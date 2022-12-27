@@ -9,10 +9,10 @@ part 'person.g.dart';
 @Proto.numbered()
 @MapProto()
 class Person {
-  @ProtoField.numbered(1)
+  @ProtoField(1)
   final bool? boolValue;
 
-  @ProtoField.numbered(2)
+  @ProtoField(2)
   final Decimal? decVal;
 
   Person({
