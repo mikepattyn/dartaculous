@@ -1,5 +1,4 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/generics.pb.dart';
 
 part 'generics.g.dart';
 

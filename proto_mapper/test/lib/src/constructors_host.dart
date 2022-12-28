@@ -1,14 +1,14 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/constructors_host.pb.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
 
 part 'constructors_host.g.dart';
 
 @Proto()
 @mapProto
 class ConstructObject1 {
+  @ProtoField(2)
   late String name;
 
+  @ProtoField(3)
   late int number;
 
   @override
@@ -31,8 +31,10 @@ class ConstructObject1 {
 @Proto()
 @mapProto
 class ConstructObject2 {
+  @ProtoField(2)
   String name;
 
+  @ProtoField(3)
   int number;
 
   ConstructObject2(this.name, this.number);
@@ -57,8 +59,10 @@ class ConstructObject2 {
 @Proto()
 @mapProto
 class ConstructObject3 {
+  @ProtoField(2)
   final String name;
 
+  @ProtoField(3)
   int number;
 
   ConstructObject3(this.name) : number = 3;
@@ -83,8 +87,10 @@ class ConstructObject3 {
 @Proto()
 @mapProto
 class ConstructObject4 {
+  @ProtoField(2)
   final String name;
 
+  @ProtoField(3)
   int number;
 
   ConstructObject4({required this.name}) : number = 2;
@@ -109,8 +115,10 @@ class ConstructObject4 {
 @Proto()
 @mapProto
 class ConstructObject5 {
+  @ProtoField(2)
   final String name;
 
+  @ProtoField(3)
   final int number;
 
   ConstructObject5.name(this.name, this.number);
@@ -135,8 +143,10 @@ class ConstructObject5 {
 @Proto()
 @mapProto
 class ConstructObject6 {
+  @ProtoField(2)
   final String? name;
 
+  @ProtoField(3)
   int? number;
 
   ConstructObject6({this.name});
@@ -161,8 +171,10 @@ class ConstructObject6 {
 @Proto()
 @mapProto
 class ConstructObject7 {
+  @ProtoField(2)
   final int? number;
 
+  @ProtoField(3)
   final String name;
 
   ConstructObject7.name(this.name, this.number);
@@ -187,8 +199,10 @@ class ConstructObject7 {
 @Proto()
 @mapProto
 class ConstructObject8 {
+  @ProtoField(2)
   final int? number;
 
+  @ProtoField(3)
   final String name;
 
   ConstructObject8.incomplete(this.name) : number = 1;

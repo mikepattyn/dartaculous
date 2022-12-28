@@ -3,13 +3,24 @@ builders:
 
   protoBuilder:
     import: "package:proto_generator/proto_generator.dart"
-    builder_factories: ['protoBuilder2']
+    builder_factories: ['protoBuilder', 'protoMapperBuilder']
     build_extensions: 
       $lib$: 
-        - model.proto
-    build_to: source
+        - model.tproto
+      .dart:
+        - proto_map.g.part
+    build_to: cache
     auto_apply: root_package
+    applies_builders: ["source_gen:combining_builder", "proto_generator:protoFromCache"]
 
+
+  protoFromCache:
+    import: "package:proto_generator/proto_generator.dart"
+    builder_factories: ['protoFromCache']
+    build_extensions: {".tproto": [".proto"]}
+    required_inputs: [".tproto"]
+    build_to: source
+    auto_apply: none
   # proto_mapper_generator:
   #   import: "package:proto_generator/proto_generator.dart"
   #   builder_factories: ["protoMapperBuilder"]

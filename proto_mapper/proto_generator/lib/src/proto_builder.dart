@@ -25,15 +25,8 @@ class ProtoBuilder implements Builder {
   @override
   Map<String, List<String>> get buildExtensions {
     return const {
-      r'$lib$': ['model.proto'],
+      r'$lib$': ['proto/model.tproto', 'src/proto_model.g.dart'],
     };
-  }
-
-  static AssetId _allFileOutput(BuildStep buildStep) {
-    return AssetId(
-      buildStep.inputId.package,
-      p.join('lib', 'model.proto'),
-    );
   }
 
   @override
@@ -50,10 +43,10 @@ class ProtoBuilder implements Builder {
     }
 
     String content = _renderProto();
+    final output =
+        AssetId(buildStep.inputId.package, p.join('lib/proto', 'model.tproto'));
 
-    final output = _allFileOutput(buildStep);
-
-    return buildStep.writeAsString(output, content);
+    await buildStep.writeAsString(output, content);
   }
 
   String _renderProto() {

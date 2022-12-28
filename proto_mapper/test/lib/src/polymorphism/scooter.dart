@@ -1,5 +1,4 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/polymorphism/scooter.pb.dart';
 
 import 'abstract_vehicle.dart';
 

@@ -1,11 +1,11 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/component.pb.dart';
 
 part 'component.g.dart';
 
 @Proto()
 @mapProto
 class Component {
+  @ProtoField(2)
   final String description;
 
   Component({

@@ -41,14 +41,15 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    final builders = getBuilders(element as InterfaceElement, annotation);
-    final emitter =
-        DartEmitter.scoped(useNullSafetySyntax: true, orderDirectives: true);
-    final code = builders.fold(
-        '',
-        (String previousValue, b.Builder builder) =>
-            '$previousValue\n\n${(builder.build() as Spec).accept(emitter).toString()}');
-    return code;
+    return '// PROTO_MAPPER_PLACEHOLDER';
+    // final builders = getBuilders(element as InterfaceElement, annotation);
+    // final emitter =
+    //     DartEmitter.scoped(useNullSafetySyntax: true, orderDirectives: true);
+    // final code = builders.fold(
+    //     '',
+    //     (String previousValue, b.Builder builder) =>
+    //         '$previousValue\n\n${(builder.build() as Spec).accept(emitter).toString()}');
+    // return code;
   }
 
   /// Create [ClassBuilder], [MethodBuilder] and [ExtensionBuilder] instances

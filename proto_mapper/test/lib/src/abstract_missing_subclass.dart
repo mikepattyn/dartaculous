@@ -1,5 +1,4 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/abstract_missing_subclass.pb.dart';
 
 part 'abstract_missing_subclass.g.dart';
 

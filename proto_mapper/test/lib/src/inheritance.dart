@@ -1,9 +1,9 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/inheritance.pb.dart';
 
 part 'inheritance.g.dart';
 
 abstract class Root {
+  @ProtoField(2)
   late String name;
 }
 

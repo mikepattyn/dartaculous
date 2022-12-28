@@ -1,5 +1,4 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/polymorphism/rotorcraft.pb.dart';
 import 'package:proto_generator_test/src/polymorphism/gyrocopter.dart';
 import 'package:proto_generator_test/src/polymorphism/helicopter.dart';
 

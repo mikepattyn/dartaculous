@@ -1,18 +1,12 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/appliance_type.pbenum.dart';
-import 'package:proto_generator_test/grpc/utensils.pb.dart';
 import 'package:squarealfa_common_types/squarealfa_common_types.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
-    as $wellknown_duration;
-import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
-    as $wellknown_timestamp;
 
 import 'appliance_type.dart';
 import 'recipe.dart';
 
 part 'utensils.g.dart';
 
-@Proto(useProtoFieldNamingConventions: true)
+@Proto()
 @mapProto
 enum KnifeType {
   chefsKnife,
@@ -43,17 +37,22 @@ class Knife {
 @Proto()
 @mapProto
 class GarlicPress {
+  @ProtoField(2)
   final String name;
+  @ProtoField(3)
   final bool machineWashable;
 
   GarlicPress({required this.name, required this.machineWashable});
 }
 
-@Proto(useProtoFieldNamingConventions: false)
+@Proto()
 @MapProto(dateTimePrecision: TimePrecision.milliseconds)
 class Kitchen {
+  @ProtoField(2)
   final List<Recipe> recipeList;
+  @ProtoField(3)
   final Map<String, Recipe> recipeMap;
+  @ProtoField(4)
   final DateTime nextInspectionDate;
 
   const Kitchen({
@@ -63,7 +62,7 @@ class Kitchen {
   });
 }
 
-@Proto(useProtoFieldNamingConventions: true)
+@Proto()
 @MapProto(
   dateTimePrecision: TimePrecision.microseconds,
   durationPrecision: TimePrecision.milliseconds,
@@ -140,9 +139,9 @@ class KnifeMaster extends Chef {
 @Proto()
 @MapProto(durationPrecision: TimePrecision.microseconds)
 class Inventory {
-  final Map<String, int> numberOfThings;
-  final Map<String, Recipe> recipesByName;
-  final Duration? timeSpan;
+  @ProtoField(2)final Map<String, int> numberOfThings;
+  @ProtoField(3)final Map<String, Recipe> recipesByName;
+  @ProtoField(4)final Duration? timeSpan;
 
   const Inventory({
     required this.numberOfThings,
@@ -154,8 +153,8 @@ class Inventory {
 @Proto()
 @MapProto()
 class PrecisionSubject {
-  final DateTime dateProperty;
-  final Duration durationProperty;
+  @ProtoField(2)final DateTime dateProperty;
+  @ProtoField(3)final Duration durationProperty;
 
   const PrecisionSubject({
     required this.dateProperty,

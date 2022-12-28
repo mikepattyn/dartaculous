@@ -1,6 +1,4 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/calc_parameters.pb.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
 
 part 'calc_parameters.g.dart';
 
@@ -16,6 +14,7 @@ class CalcParameters {
   @ProtoField(3)
   final int? parameter3;
 
+  @ProtoField(4)
   final int? parameter4;
 
   @ProtoField(9)
