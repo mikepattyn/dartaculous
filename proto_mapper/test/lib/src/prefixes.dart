@@ -28,7 +28,7 @@
 // }
 
 // /// Should use the default "G" prefix
-// @Proto.auto()
+// @Proto()
 // @mapProto
 // class Waiter extends Staff {
 //   late Manager manager;

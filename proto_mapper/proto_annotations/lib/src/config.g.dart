@@ -14,6 +14,7 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
           json,
           allowedKeys: const [
             'useWellKnownTypes',
+            'useProtoFieldNamingConventions',
             'packageName',
             'options',
             'prefix'
@@ -22,6 +23,8 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
         final val = Config(
           useWellKnownTypes:
               $checkedConvert('useWellKnownTypes', (v) => v as bool? ?? false),
+          useProtoFieldNamingConventions: $checkedConvert(
+              'useProtoFieldNamingConventions', (v) => v as bool? ?? true),
           packageName:
               $checkedConvert('packageName', (v) => v as String? ?? ''),
           options: $checkedConvert(
@@ -37,6 +40,7 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
 
 Map<String, dynamic> _$ConfigToJson(Config instance) => <String, dynamic>{
       'useWellKnownTypes': instance.useWellKnownTypes,
+      'useProtoFieldNamingConventions': instance.useProtoFieldNamingConventions,
       'packageName': instance.packageName,
       'options': instance.options,
       'prefix': instance.prefix,

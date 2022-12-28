@@ -7,7 +7,7 @@ import 'abstract_vehicle.dart';
 
 part 'bicycle.g.dart';
 
-@Proto.numbered()
+@Proto()
 @mapProto
 class Bicycle extends AbstractVehicle {
   @ProtoField(2)

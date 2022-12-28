@@ -6,7 +6,7 @@ import 'package:proto_generator_test/grpc/person.pb.dart';
 
 part 'person.g.dart';
 
-@Proto.numbered()
+@Proto()
 @MapProto()
 class Person {
   @ProtoField(1)

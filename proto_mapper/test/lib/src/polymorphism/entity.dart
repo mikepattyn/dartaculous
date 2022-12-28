@@ -3,7 +3,7 @@ import 'package:proto_generator_test/grpc/polymorphism/entity.pb.dart';
 
 part 'entity.g.dart';
 
-@Proto.auto()
+@Proto()
 @mapProto
 class Entity {
   final String key;

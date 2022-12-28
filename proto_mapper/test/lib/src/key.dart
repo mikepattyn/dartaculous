@@ -3,7 +3,7 @@ import 'package:proto_generator_test/grpc/key.pb.dart';
 
 part 'key.g.dart';
 
-@Proto.auto()
+@Proto()
 @mapProto
 class Key {
   final String key;

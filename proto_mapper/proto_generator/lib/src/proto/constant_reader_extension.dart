@@ -5,18 +5,12 @@ import 'package:source_gen/source_gen.dart';
 
 extension ConstantReaderExtension on ConstantReader {
   ProtoReflected hydrateAnnotation() {
-    final useAuto = read('includeFieldsByDefault').literalValue as bool;
     final ownFieldsNumber = read('ownFieldsNumber').intValue;
     final superFieldsNumber = read('superFieldsNumber').intValue;
-    final proto = useAuto
-        ? Proto.auto(
-            ownFieldsNumber: ownFieldsNumber,
-            superFieldsNumber: superFieldsNumber,
-          )
-        : Proto.numbered(
-            ownFieldsNumber: ownFieldsNumber,
-            superFieldsNumber: superFieldsNumber,
-          );
+    final proto = Proto(
+      ownFieldsNumber: ownFieldsNumber,
+      superFieldsNumber: superFieldsNumber,
+    );
 
     final kscReader = read('knownSubClasses');
     final kscs = kscReader.mapValue.map(

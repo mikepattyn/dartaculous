@@ -5,7 +5,7 @@ import 'component.dart';
 
 part 'category.g.dart';
 
-@Proto.auto()
+@Proto()
 @mapProto
 class Category {
   final String title;

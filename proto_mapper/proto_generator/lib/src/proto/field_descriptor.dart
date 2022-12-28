@@ -50,7 +50,7 @@ class FieldDescriptor extends FieldDescriptorBase {
     if (null != protoFieldAnnotation.name) {
       return protoFieldAnnotation.name!;
     }
-    if (useProtoFieldNamingConventions) {
+    if (config.useProtoFieldNamingConventions) {
       if (forEnum) {
         return '${prefix}_${fieldElementTypeName}_$name'
             .snakeCase
@@ -60,9 +60,6 @@ class FieldDescriptor extends FieldDescriptorBase {
     }
     return name;
   }
-
-  bool get useProtoFieldNamingConventions =>
-      protoAnnotation.useProtoFieldNamingConventions ?? true;
 
   int get number => protoFieldAnnotation.number;
 

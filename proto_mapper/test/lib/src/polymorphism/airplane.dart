@@ -5,7 +5,7 @@ import 'aircraft.dart';
 
 part 'airplane.g.dart';
 
-@Proto.numbered()
+@Proto()
 @mapProto
 class Airplane extends Aircraft {
   Airplane({

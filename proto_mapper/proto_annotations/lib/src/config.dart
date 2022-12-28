@@ -9,12 +9,14 @@ part 'config.g.dart';
 )
 class Config {
   final bool useWellKnownTypes;
+  final bool useProtoFieldNamingConventions;
   final String packageName;
   final List<String> options;
   final String prefix;
 
   Config({
     this.useWellKnownTypes = false,
+    this.useProtoFieldNamingConventions = true,
     this.packageName = '',
     this.options = const [],
     this.prefix = 'G',

@@ -13,7 +13,7 @@ import 'ingredient.dart';
 
 part 'recipe.g.dart';
 
-@Proto.auto()
+@Proto()
 @mapProto
 class Recipe {
   final String title;

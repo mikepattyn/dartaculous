@@ -9,7 +9,7 @@ import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
 
 part 'lists_host.g.dart';
 
-@Proto.auto()
+@Proto()
 @mapProto
 class ListsHost {
   final List<bool> vbools;

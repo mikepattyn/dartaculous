@@ -7,7 +7,7 @@ import 'component.dart';
 
 part 'ingredient.g.dart';
 
-@Proto.auto()
+@Proto()
 @mapProto
 class Ingredient {
   final String description;

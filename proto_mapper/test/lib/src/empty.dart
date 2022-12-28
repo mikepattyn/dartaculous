@@ -3,7 +3,7 @@ import 'package:proto_generator_test/grpc/empty.pb.dart';
 
 part 'empty.g.dart';
 
-@Proto.auto()
+@Proto()
 @mapProto
 class Empty {
   const Empty();

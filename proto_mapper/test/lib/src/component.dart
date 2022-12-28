@@ -3,7 +3,7 @@ import 'package:proto_generator_test/grpc/component.pb.dart';
 
 part 'component.g.dart';
 
-@Proto.auto()
+@Proto()
 @mapProto
 class Component {
   final String description;

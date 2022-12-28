@@ -2,7 +2,7 @@ import 'package:proto_annotations/proto_annotations.dart';
 
 import 'aircraft.dart';
 
-@Proto.auto()
+@Proto()
 class Airplane extends Aircraft {
   Airplane({
     required int weight,
