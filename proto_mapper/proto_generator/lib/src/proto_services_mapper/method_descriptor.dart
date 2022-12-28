@@ -1,32 +1,24 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto_common.dart';
-import 'package:source_gen/source_gen.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 class MethodDescriptor extends MethodDescriptorBase {
   final MapProtoServices protoServicesAnnotation;
-  final ProtoIgnore? protoIgnoreAnnotation;
 
-  MethodDescriptor._(
-    InterfaceElement classElement,
-    MethodElement methodElement,
-    this.protoServicesAnnotation, {
-    this.protoIgnoreAnnotation,
-  }) : super(classElement, methodElement);
+  MethodDescriptor._(InterfaceElement classElement, MethodElement methodElement,
+      this.protoServicesAnnotation)
+      : super(classElement, methodElement);
 
   factory MethodDescriptor.fromMethodElement(
     InterfaceElement classElement,
     MethodElement methodElement,
     MapProtoServices protoServicesAnnotation,
   ) {
-    final protoIgnoreAnnotation = _getProtoIgnoreAnnotation(methodElement);
-
     return MethodDescriptor._(
       classElement,
       methodElement,
       protoServicesAnnotation,
-      protoIgnoreAnnotation: protoIgnoreAnnotation,
     );
   }
 
@@ -34,9 +26,6 @@ class MethodDescriptor extends MethodDescriptorBase {
 
   @override
   bool get isRepeated => returnListParameterType != null;
-  bool get _hasProtoIgnore => protoIgnoreAnnotation != null;
-
-  bool get isProtoIncluded => !_hasProtoIgnore;
 
   bool get typeHasProtoAnnotation => methodElement.hasMapProto;
 
@@ -44,9 +33,3 @@ class MethodDescriptor extends MethodDescriptorBase {
   bool get returnParameterTypeIsEnum =>
       returnParameterType.element!.kind == ElementKind.ENUM;
 }
-
-const _protoIgnoreChecker = TypeChecker.fromRuntime(ProtoIgnore);
-ProtoIgnore? _getProtoIgnoreAnnotation(MethodElement methodElement) =>
-    _protoIgnoreChecker.getMethodAnnotation(methodElement) == null
-        ? null
-        : ProtoIgnore();

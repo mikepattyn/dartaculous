@@ -9,7 +9,6 @@ import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 class FieldDescriptor extends FieldDescriptorBase {
   final MapProto protoMapperAnnotation;
   final ProtoField? protoFieldAnnotation;
-  final ProtoIgnore? protoIgnoreAnnotation;
 
   FieldDescriptor(
     this.protoMapperAnnotation, {
@@ -20,7 +19,6 @@ class FieldDescriptor extends FieldDescriptorBase {
     required bool hasInitializer,
     required DartType fieldElementType,
     this.protoFieldAnnotation,
-    this.protoIgnoreAnnotation,
   }) : super(
           displayName: displayName,
           name: name,
@@ -35,22 +33,15 @@ class FieldDescriptor extends FieldDescriptorBase {
     MapProto mapProtoBase,
   )   : protoMapperAnnotation = mapProtoBase,
         protoFieldAnnotation = _getProtoFieldAnnotation(fieldElement),
-        protoIgnoreAnnotation = _getProtoIgnoreAnnotation(fieldElement),
         super.fromFieldElement(fieldElement);
 
   String get prefix => protoMapperAnnotation.prefix ?? '';
 
   @override
   bool get isRepeated => listParameterType != null;
-  bool get _hasProtoIgnore => protoIgnoreAnnotation != null;
-  bool get _hasProtoField => protoFieldAnnotation != null;
   bool get renderNullable => isNullable && !isRepeated;
 
   String get protoFieldName => protoFieldAnnotation?.name ?? displayName;
-
-  bool get isProtoIncluded =>
-      !_hasProtoIgnore &&
-      (protoMapperAnnotation.includeFieldsByDefault || _hasProtoField);
 
   bool get typeHasMapProtoAnnotation => fieldElementType.hasMapProto;
 
@@ -75,9 +66,3 @@ ProtoField? _getProtoFieldAnnotation(FieldElement fieldElement) {
   var ret = ProtoField(number, name: name);
   return ret;
 }
-
-const _protoIgnoreChecker = TypeChecker.fromRuntime(ProtoIgnore);
-ProtoIgnore? _getProtoIgnoreAnnotation(FieldElement fieldElement) =>
-    _protoIgnoreChecker.getFieldAnnotation(fieldElement) == null
-        ? null
-        : ProtoIgnore();

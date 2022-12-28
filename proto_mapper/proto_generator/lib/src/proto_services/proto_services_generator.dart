@@ -221,11 +221,10 @@ $fieldDeclarations}
 Iterable<MethodDescriptor> _getMethodDescriptors(
     InterfaceElement classElement) {
   final methods = classElement.getSortedMethods();
-  final methodDescriptors = methods
-      .map((fieldElement) => MethodDescriptor.fromMethodElement(
+  final methodDescriptors =
+      methods.map((fieldElement) => MethodDescriptor.fromMethodElement(
             classElement,
             fieldElement,
-          ))
-      .where((element) => element.isProtoIncluded);
+          ));
   return methodDescriptors;
 }

@@ -6,39 +6,40 @@ Iterable<FieldDescriptor> _getFieldDescriptors(
   String defaultPrefix,
 ) {
   final fieldSet = classElement.getSortedFieldSet();
-  final fieldDescriptors = fieldSet
-      .map((fieldElement) {
-        var relevantFieldType = fieldElement.type;
-        if (relevantFieldType.isIterable || relevantFieldType.isList) {
-          relevantFieldType = (relevantFieldType as InterfaceType).typeArguments.first;
-        }
-        var annotations = getAnnotationsByName(relevantFieldType, 'MapProto');
-        if (annotations.isNotEmpty) {
-          final readAnnotation = ConstantReader(annotations.first.computeConstantValue());
-          var hydratedAnnotation = _hydrateAnnotation(
-            readAnnotation,
-            prefix: defaultPrefix,
-            dateTimePrecision: annotation.dateTimePrecision ?? TimePrecision.microseconds,
-            durationPrecision: annotation.durationPrecision ?? TimePrecision.microseconds,
-            allowMissingFields: annotation.allowMissingFields,
-          );
-          return FieldDescriptor.fromFieldElement(
-              fieldElement, hydratedAnnotation.mapProto);
-        }
-        return FieldDescriptor.fromFieldElement(
-            fieldElement, annotation);
-      })
-      .where((element) => element.isProtoIncluded);
+  final fieldDescriptors = fieldSet.map((fieldElement) {
+    var relevantFieldType = fieldElement.type;
+    if (relevantFieldType.isIterable || relevantFieldType.isList) {
+      relevantFieldType =
+          (relevantFieldType as InterfaceType).typeArguments.first;
+    }
+    var annotations = getAnnotationsByName(relevantFieldType, 'MapProto');
+    if (annotations.isNotEmpty) {
+      final readAnnotation =
+          ConstantReader(annotations.first.computeConstantValue());
+      var hydratedAnnotation = _hydrateAnnotation(
+        readAnnotation,
+        prefix: defaultPrefix,
+        dateTimePrecision:
+            annotation.dateTimePrecision ?? TimePrecision.microseconds,
+        durationPrecision:
+            annotation.durationPrecision ?? TimePrecision.microseconds,
+        allowMissingFields: annotation.allowMissingFields,
+      );
+      return FieldDescriptor.fromFieldElement(
+          fieldElement, hydratedAnnotation.mapProto);
+    }
+    return FieldDescriptor.fromFieldElement(fieldElement, annotation);
+  });
   return fieldDescriptors;
 }
 
 MapProtoReflected _hydrateAnnotation(
-    ConstantReader reader, {
-      String? prefix,
-      required TimePrecision dateTimePrecision,
-      required TimePrecision durationPrecision,
-      required bool allowMissingFields,
-    }) {
+  ConstantReader reader, {
+  String? prefix,
+  required TimePrecision dateTimePrecision,
+  required TimePrecision durationPrecision,
+  required bool allowMissingFields,
+}) {
   final annotatedDateTimePrecision =
       reader.getTimePrecision('dateTimePrecision') ?? dateTimePrecision;
 
@@ -59,15 +60,16 @@ MapProtoReflected _hydrateAnnotation(
   final kscs = kscReader.isNull
       ? null
       : kscReader.listValue.map((ksc) {
-    return ksc.toTypeValue()!;
-  }).toList();
+          return ksc.toTypeValue()!;
+        }).toList();
 
   final ret = MapProtoReflected(mapProto, kscs);
 
   return ret;
 }
 
-Iterable<ElementAnnotation> getAnnotationsByName(DartType dartType, String annotationName) {
+Iterable<ElementAnnotation> getAnnotationsByName(
+    DartType dartType, String annotationName) {
   return dartType.element!.metadata.where((m) {
     DartType annotationType;
     if (m.element! is PropertyAccessorElement) {
@@ -78,9 +80,13 @@ Iterable<ElementAnnotation> getAnnotationsByName(DartType dartType, String annot
       return false;
     }
     if (annotationType is InterfaceType) {
-      final types = <InterfaceType>[annotationType, ...annotationType.allSupertypes];
+      final types = <InterfaceType>[
+        annotationType,
+        ...annotationType.allSupertypes
+      ];
       return types.where((element) {
-        return element.getDisplayString(withNullability: true) == annotationName;
+        return element.getDisplayString(withNullability: true) ==
+            annotationName;
       }).isNotEmpty;
     }
     return false;

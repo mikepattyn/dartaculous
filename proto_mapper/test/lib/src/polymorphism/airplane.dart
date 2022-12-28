@@ -18,7 +18,6 @@ class Airplane extends Aircraft {
   @ProtoField(2)
   final int wingspan;
 
-  @protoIgnore
   @override
   final String key;
 

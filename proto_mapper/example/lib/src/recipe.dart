@@ -23,7 +23,6 @@ class Recipe {
 
   // do not generate the field in the .proto message nor
   // generate mapping code for it.
-  @protoIgnore
   final String? runtimeTag;
 
   Recipe(

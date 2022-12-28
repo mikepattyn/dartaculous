@@ -251,13 +251,12 @@ Iterable<MethodDescriptor> _getMethodDescriptors(
   MapProtoServices annotation,
 ) {
   final methods = classElement.getSortedMethods();
-  final methodDescriptors = methods
-      .map((fieldElement) => MethodDescriptor.fromMethodElement(
+  final methodDescriptors =
+      methods.map((fieldElement) => MethodDescriptor.fromMethodElement(
             classElement,
             fieldElement,
             annotation,
-          ))
-      .where((element) => element.isProtoIncluded);
+          ));
   return methodDescriptors;
 }
 
