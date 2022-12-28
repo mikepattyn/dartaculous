@@ -6,4 +6,36 @@ part of 'empty.dart';
 // ProtoMapperGenerator
 // **************************************************************************
 
-// PROTO_MAPPER_PLACEHOLDER
+class $EmptyProtoMapper implements ProtoMapper<Empty, GEmpty> {
+  const $EmptyProtoMapper();
+
+  @override
+  Empty fromProto(GEmpty proto) => _$EmptyFromProto(proto);
+  @override
+  GEmpty toProto(Empty entity) => _$EmptyToProto(entity);
+  Empty fromJson(String json) => _$EmptyFromProto(GEmpty.fromJson(json));
+  String toJson(Empty entity) => _$EmptyToProto(entity).writeToJson();
+  String toBase64Proto(Empty entity) =>
+      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+  Empty fromBase64Proto(String base64Proto) =>
+      _$EmptyFromProto(GEmpty.fromJson(utf8.decode(base64Decode(base64Proto))));
+}
+
+GEmpty _$EmptyToProto(Empty instance) {
+  var proto = GEmpty();
+
+  return proto;
+}
+
+Empty _$EmptyFromProto(GEmpty instance) => Empty();
+
+extension $EmptyProtoExtension on Empty {
+  GEmpty toProto() => _$EmptyToProto(this);
+  String toJson() => _$EmptyToProto(this).writeToJson();
+  static Empty fromProto(GEmpty proto) => _$EmptyFromProto(proto);
+  static Empty fromJson(String json) => _$EmptyFromProto(GEmpty.fromJson(json));
+}
+
+extension $GEmptyProtoExtension on GEmpty {
+  Empty toEmpty() => _$EmptyFromProto(this);
+}

@@ -2,13 +2,13 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator/src/proto/constant_reader_extension.dart';
+import 'package:proto_generator/src/common/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/field_descriptor.dart';
 import 'package:proto_generator/src/proto/interface_element_extension.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
-import '../proto_common.dart';
+import '../common/proto_common.dart';
 import 'proto_reflected.dart';
 import 'package:recase/recase.dart';
 

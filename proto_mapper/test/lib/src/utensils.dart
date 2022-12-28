@@ -1,5 +1,9 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
+import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
+    as $wellknown_timestamp;
+import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
+    as $wellknown_duration;
 
 import 'appliance_type.dart';
 import 'recipe.dart';
@@ -7,7 +11,6 @@ import 'recipe.dart';
 part 'utensils.g.dart';
 
 @Proto()
-@mapProto
 enum KnifeType {
   chefsKnife,
   paringKnife,
@@ -15,7 +18,6 @@ enum KnifeType {
 }
 
 @Proto()
-@mapProto
 enum ChefType {
   seniorChef,
   sousChef,
@@ -24,7 +26,6 @@ enum ChefType {
 }
 
 @Proto()
-@mapProto
 class Knife {
   @ProtoField(1)
   final String name;
@@ -35,7 +36,6 @@ class Knife {
 }
 
 @Proto()
-@mapProto
 class GarlicPress {
   @ProtoField(2)
   final String name;
@@ -46,7 +46,6 @@ class GarlicPress {
 }
 
 @Proto()
-@MapProto(dateTimePrecision: TimePrecision.milliseconds)
 class Kitchen {
   @ProtoField(2)
   final List<Recipe> recipeList;
@@ -63,10 +62,6 @@ class Kitchen {
 }
 
 @Proto()
-@MapProto(
-  dateTimePrecision: TimePrecision.microseconds,
-  durationPrecision: TimePrecision.milliseconds,
-)
 class Chef {
   @ProtoField(2)
   final Recipe? favoriteRecipe;
@@ -97,7 +92,6 @@ class Chef {
 /// and rely on the fact that the constructor will properly
 /// set the required parameters(s).
 @Proto()
-@mapProto
 class SousChef extends Chef {
   SousChef({
     required ApplianceType favoriteApplianceType,
@@ -117,8 +111,6 @@ class SousChef extends Chef {
 /// We also know his favorite words, so no need to put them in the constructor.
 /// This requires addition of the "allowMissingFields" annotation property.
 @Proto()
-@MapProto(
-    allowMissingFields: true, dateTimePrecision: TimePrecision.milliseconds)
 class KnifeMaster extends Chef {
   @override
   @ProtoField(2)
@@ -137,11 +129,13 @@ class KnifeMaster extends Chef {
 }
 
 @Proto()
-@MapProto(durationPrecision: TimePrecision.microseconds)
 class Inventory {
-  @ProtoField(2)final Map<String, int> numberOfThings;
-  @ProtoField(3)final Map<String, Recipe> recipesByName;
-  @ProtoField(4)final Duration? timeSpan;
+  @ProtoField(2)
+  final Map<String, int> numberOfThings;
+  @ProtoField(3)
+  final Map<String, Recipe> recipesByName;
+  @ProtoField(4)
+  final Duration? timeSpan;
 
   const Inventory({
     required this.numberOfThings,
@@ -151,10 +145,11 @@ class Inventory {
 }
 
 @Proto()
-@MapProto()
 class PrecisionSubject {
-  @ProtoField(2)final DateTime dateProperty;
-  @ProtoField(3)final Duration durationProperty;
+  @ProtoField(2)
+  final DateTime dateProperty;
+  @ProtoField(3)
+  final Duration durationProperty;
 
   const PrecisionSubject({
     required this.dateProperty,

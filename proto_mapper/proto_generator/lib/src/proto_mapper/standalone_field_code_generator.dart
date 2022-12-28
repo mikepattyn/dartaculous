@@ -1,15 +1,13 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto_mapper/field_code_generators/field_code_generator_identifiers.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
+import 'package:proto_generator/src/proto_mapper/standalone/duration/microseconds_duration_field_code_generator.dart';
 
 import 'standalone/bool_field_code_generator.dart';
 import 'standalone/datetime_field_code_generator.dart';
 import 'standalone/double_field_code_generator.dart';
-import 'standalone/duration/microseconds_duration_field_code_generator.dart';
 import 'standalone/string_field_code_generator.dart';
 import 'field_code_generator.dart';
 import 'standalone/int_field_code_generator.dart';
-import 'standalone/duration/milliseconds_duration_field_code_generator.dart';
 import 'field_descriptor.dart';
 
 abstract class StandaloneFieldCodeGenerator
@@ -28,7 +26,7 @@ abstract class StandaloneFieldCodeGenerator
   @override
   final String protoRefName;
 
-  MapProto get mapProtoBase => fieldDescriptor.protoMapperAnnotation;
+  Proto get proto => fieldDescriptor.proto;
 
   @override
   String get toProtoMap => fieldDescriptor.isNullable
@@ -100,22 +98,11 @@ abstract class StandaloneFieldCodeGenerator
       );
     }
     if (fieldDescriptor.fieldElementTypeName == (Duration).toString()) {
-      switch (fieldDescriptor.durationPrecision) {
-        case TimePrecision.milliseconds:
-          return MillisecondsDurationFieldCodeGenerator(
-            fieldDescriptor: fieldDescriptor,
-            refName: refName,
-            protoRefName: protoRefName,
-          );
-        case TimePrecision.microseconds:
-          return MicrosecondsDurationFieldCodeGenerator(
-            fieldDescriptor: fieldDescriptor,
-            refName: refName,
-            protoRefName: protoRefName,
-          );
-        default:
-          throw UnimplementedError();
-      }
+      return MicrosecondsDurationFieldCodeGenerator(
+        fieldDescriptor: fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
     }
     return null;
   }

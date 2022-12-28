@@ -1,9 +1,10 @@
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 part 'constructors_host.g.dart';
 
 @Proto()
-@mapProto
 class ConstructObject1 {
   @ProtoField(2)
   late String name;
@@ -29,7 +30,6 @@ class ConstructObject1 {
 }
 
 @Proto()
-@mapProto
 class ConstructObject2 {
   @ProtoField(2)
   String name;
@@ -57,7 +57,6 @@ class ConstructObject2 {
 }
 
 @Proto()
-@mapProto
 class ConstructObject3 {
   @ProtoField(2)
   final String name;
@@ -85,7 +84,6 @@ class ConstructObject3 {
 }
 
 @Proto()
-@mapProto
 class ConstructObject4 {
   @ProtoField(2)
   final String name;
@@ -113,7 +111,6 @@ class ConstructObject4 {
 }
 
 @Proto()
-@mapProto
 class ConstructObject5 {
   @ProtoField(2)
   final String name;
@@ -141,7 +138,6 @@ class ConstructObject5 {
 }
 
 @Proto()
-@mapProto
 class ConstructObject6 {
   @ProtoField(2)
   final String? name;
@@ -169,7 +165,6 @@ class ConstructObject6 {
 }
 
 @Proto()
-@mapProto
 class ConstructObject7 {
   @ProtoField(2)
   final int? number;
@@ -197,7 +192,6 @@ class ConstructObject7 {
 }
 
 @Proto()
-@mapProto
 class ConstructObject8 {
   @ProtoField(2)
   final int? number;

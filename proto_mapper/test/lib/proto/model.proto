@@ -4,7 +4,9 @@ package com.company.project;
     
 option go_package = "./stubs";
     
-
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
     
 service GRecipeService
 {
@@ -34,18 +36,6 @@ service GRecipeService
     
 
 
-message Int32Value { int32 value = 1; }
-message StringValue { string value = 1; }
-message Duration { 
-  int64 seconds = 1; 
-  int32 nanos = 2;
-}
-message Timestamp { 
-  int64 seconds = 1; 
-  int32 nanos = 2;
-}
-message BoolValue { bool value = 1; }
-message DoubleValue { double value = 1; }
     
 
 
@@ -55,8 +45,8 @@ message GCalcParameters
 
   int32 parameter1 = 2;
   int32 parameter2 = 1;
-  Int32Value parameter3 = 3;
-  Int32Value parameter4 = 4;
+  google.protobuf.Int32Value parameter3 = 3;
+  google.protobuf.Int32Value parameter4 = 4;
   int32 parameter5 = 9;
 
 }   
@@ -201,8 +191,8 @@ message GListOfConstructObject5
 message GConstructObject6
 {
 
-  StringValue name = 2;
-  Int32Value number = 3;
+  google.protobuf.StringValue name = 2;
+  google.protobuf.Int32Value number = 3;
 
 }   
 
@@ -217,7 +207,7 @@ message GListOfConstructObject6
 message GConstructObject7
 {
 
-  Int32Value number = 2;
+  google.protobuf.Int32Value number = 2;
   string name = 3;
 
 }   
@@ -233,7 +223,7 @@ message GListOfConstructObject7
 message GConstructObject8
 {
 
-  Int32Value number = 2;
+  google.protobuf.Int32Value number = 2;
   string name = 3;
 
 }   
@@ -281,7 +271,7 @@ message GIngredient
   string description = 2;
   bytes quantity = 3;
   double precision = 4;
-  Duration cooking_duration = 5;
+  google.protobuf.Duration cooking_duration = 5;
   GComponent main_component = 6;
   repeated GComponent other_components = 7;
   GComponent alternative_component = 8;
@@ -319,10 +309,10 @@ message GListsHost
   repeated bool nvbools = 3;
   repeated string vstrings = 4;
   repeated string nvstrings = 5;
-  repeated Duration vdurations = 6;
-  repeated Duration nvdurations = 7;
-  repeated Duration vdatetimes = 8;
-  repeated Duration nvdatetimes = 9;
+  repeated google.protobuf.Duration vdurations = 6;
+  repeated google.protobuf.Duration nvdurations = 7;
+  repeated google.protobuf.Timestamp vdatetimes = 8;
+  repeated google.protobuf.Timestamp nvdatetimes = 9;
   repeated bytes vdecimals = 10;
   repeated bytes nvdecimals = 11;
   repeated int32 vints = 12;
@@ -606,7 +596,7 @@ message GKitchen
 
   repeated GRecipe recipe_list = 2;
   map<string, GRecipe> recipe_map = 3;
-  Duration next_inspection_date = 4;
+  google.protobuf.Timestamp next_inspection_date = 4;
 
 }   
 
@@ -625,8 +615,8 @@ message GChef
   GKnife favorite_knife = 3;
   GApplianceType favorite_appliance_type = 4;
   repeated string favorite_words = 5;
-  Duration birthdate = 6;
-  Duration shelf_life = 7;
+  google.protobuf.Timestamp birthdate = 6;
+  google.protobuf.Duration shelf_life = 7;
 
 }   
 
@@ -674,7 +664,7 @@ message GInventory
 
   map<string, int32> number_of_things = 2;
   map<string, GRecipe> recipes_by_name = 3;
-  Duration time_span = 4;
+  google.protobuf.Duration time_span = 4;
 
 }   
 
@@ -689,8 +679,8 @@ message GListOfInventory
 message GPrecisionSubject
 {
 
-  Duration date_property = 2;
-  Duration duration_property = 3;
+  google.protobuf.Timestamp date_property = 2;
+  google.protobuf.Duration duration_property = 3;
 
 }   
 
@@ -706,17 +696,17 @@ message GRecipe
 {
 
   string title = 2;
-  StringValue description = 3;
+  google.protobuf.StringValue description = 3;
   GCategory category = 4;
   repeated GIngredient ingredients = 5;
-  Duration publish_date = 6;
-  Duration expiry_date = 7;
-  Duration preparation_duration = 8;
-  Duration total_duration = 9;
+  google.protobuf.Timestamp publish_date = 6;
+  google.protobuf.Timestamp expiry_date = 7;
+  google.protobuf.Duration preparation_duration = 8;
+  google.protobuf.Duration total_duration = 9;
   bool is_published = 10;
-  BoolValue requires_robot = 11;
-  DoubleValue gross_weight = 12;
-  DoubleValue net_weight = 13;
+  google.protobuf.BoolValue requires_robot = 11;
+  google.protobuf.DoubleValue gross_weight = 12;
+  google.protobuf.DoubleValue net_weight = 13;
   GApplianceType main_appliance_type = 14;
   GApplianceType_Message secondary_appliance_type = 15;
   repeated string tags = 16;
@@ -752,7 +742,7 @@ message GListOfStarship
 message GPerson
 {
 
-  BoolValue bool_value = 1;
+  google.protobuf.BoolValue bool_value = 1;
   bytes dec_val = 2;
 
 }   
@@ -1017,7 +1007,7 @@ message G_GRecipeService_CountNullable_Parameters {
 }
 
 message G_GRecipeService_CountNullable_Return {
-  Int32Value value = 1;
+  google.protobuf.Int32Value value = 1;
 }
 
 message G_GRecipeService_Reindex_Parameters {
@@ -1097,8 +1087,8 @@ message G_GRecipeService_ReceiveLotsOfArgs_Return {
 }
 
 message G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters {
-  StringValue p_string = 1;
-  Int32Value p_int = 2;
+  google.protobuf.StringValue p_string = 1;
+  google.protobuf.Int32Value p_int = 2;
   GRecipeTypes_Message p_recipe_types = 3;
   GRecipe p_recipe = 4;
   repeated string p_list_strings = 5;

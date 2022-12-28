@@ -2,7 +2,7 @@ import 'package:decimal/decimal.dart';
 import 'package:proto_generator/src/proto/field_code_generators/bigint_field_code_generator.dart';
 import 'package:proto_generator/src/proto/field_code_generators/enum_field_code_generator.dart';
 import 'package:proto_generator/src/proto/field_code_generators/wrapped.dart';
-import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
 import 'field_code_generators/imports.dart';
 import 'standalone_field_code_generators/wbool_field_code_generator.dart';
 import 'field_code_generators/decimal_field_code_generator.dart';

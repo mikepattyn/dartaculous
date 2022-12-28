@@ -1,11 +1,15 @@
 import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 import 'package:proto_generator_test/src/appliance_type.dart';
+import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
+    as $wellknown_timestamp;
+import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
+    as $wellknown_duration;
 
 part 'lists_host.g.dart';
 
 @Proto()
-@mapProto
 class ListsHost {
   @ProtoField(2)
   final List<bool> vbools;

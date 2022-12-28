@@ -17,6 +17,7 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
   final FieldDescriptor fieldDescriptor;
   final String refName;
   final String protoRefName;
+  final Config config;
 
   String get ref => refName.isEmpty ? '' : '$refName.';
   String get protoRef => protoRefName.isEmpty ? '' : '$protoRefName.';
@@ -25,9 +26,10 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
     required this.fieldDescriptor,
     required this.refName,
     required this.protoRefName,
+    required this.config,
   });
 
-  MapProto get mapProtoBase => fieldDescriptor.protoMapperAnnotation;
+  Proto get proto => fieldDescriptor.proto;
 
   @override
   String get toProtoMap => fieldDescriptor.renderNullable
@@ -54,33 +56,29 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
   String get fromProtoExpression;
   String get fromProtoNullableExpression;
 
-  // String get fromProtoNullableExpression =>
-  //     '''($ref${protoFieldName}HasValue ? ($fromProtoExpression) : null)''';
-
-  // String get fromProtoExpression => '$ref$protoFieldName';
-
   String get fieldName => fieldDescriptor.displayName;
   String get protoFieldName => fieldDescriptor.protoFieldName;
 
   static bool isComposite(FieldDescriptor fieldDescriptor) {
     return fieldDescriptor.fieldElementType.isDartCoreSet ||
         fieldDescriptor.typeIsEnum ||
-        fieldDescriptor.typeHasMapProtoAnnotation ||
+        fieldDescriptor.typeHasProtoAnnotation ||
         (fieldDescriptor.fieldElementType.isDartCoreIterable &&
             fieldDescriptor.iterableParameterType != null);
   }
 
-  factory CompositeFieldCodeGenerator.fromFieldDescriptor(
-      {required FieldDescriptor fieldDescriptor,
-      required String refName,
-      required String protoRefName,
-      required bool useWellKnownTypes}) {
+  factory CompositeFieldCodeGenerator.fromFieldDescriptor({
+    required FieldDescriptor fieldDescriptor,
+    required String refName,
+    required String protoRefName,
+    required Config config,
+  }) {
     if (fieldDescriptor.fieldElementType.isDartCoreList) {
       return ListFieldCodeGenerator(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
-        useWellKnownTypes: useWellKnownTypes,
+        config: config,
       );
     }
 
@@ -89,7 +87,7 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
-        useWellKnownTypes: useWellKnownTypes,
+        config: config,
       );
     }
 
@@ -98,7 +96,7 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
-        useWellKnownTypes: useWellKnownTypes,
+        config: config,
       );
     }
     if (fieldDescriptor.typeIsEnum) {
@@ -106,13 +104,15 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
+        config: config,
       );
     }
-    if (fieldDescriptor.typeHasMapProtoAnnotation) {
+    if (fieldDescriptor.typeHasProtoAnnotation) {
       return EntityFieldCodeGenerator(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
+        config: config,
       );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreIterable &&
@@ -121,7 +121,7 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
-        useWellKnownTypes: useWellKnownTypes,
+        config: config,
       );
     }
 

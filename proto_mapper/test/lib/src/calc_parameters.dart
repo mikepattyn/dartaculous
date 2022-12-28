@@ -1,9 +1,10 @@
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 part 'calc_parameters.g.dart';
 
 @Proto()
-@mapProto
 class CalcParameters {
   @ProtoField(2)
   final int parameter1;

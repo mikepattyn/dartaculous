@@ -1,25 +1,29 @@
-import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 
 import '../field_descriptor.dart';
 
 class ListFieldCodeGenerator extends CompositeFieldCodeGenerator {
-  final bool useWellKnownTypes;
   ListFieldCodeGenerator({
     required FieldDescriptor fieldDescriptor,
     required String refName,
     required String protoRefName,
-    required this.useWellKnownTypes,
+    required Config config,
   }) : super(
           fieldDescriptor: fieldDescriptor,
           refName: refName,
           protoRefName: protoRefName,
+          config: config,
         );
 
   String get _valueToProto {
     return collectionValueToProto(
-        fieldDescriptor, fieldDescriptor.listParameterType!, 'e',
-        useWellKnownTypes: useWellKnownTypes);
+      fieldDescriptor,
+      fieldDescriptor.listParameterType!,
+      'e',
+      config: config,
+    );
   }
 
   String get _toProtoConversion {
@@ -58,7 +62,7 @@ class ListFieldCodeGenerator extends CompositeFieldCodeGenerator {
       fieldDescriptor,
       listParameterType,
       'e',
-      useWellKnownTypes: useWellKnownTypes,
+      config: config,
     );
   }
 

@@ -10,22 +10,3 @@ targets:
             - go_package = "./stubs"
 
           
-
-      proto_generator:proto_generator:
-        options:
-          useWellKnownTypes: true
-          # useProtoFieldNamingConventions: true
-      proto_generator:proto_mapper_generator:
-        options:
-          # dateTimePrecision: microseconds
-          # durationPrecision: microseconds
-          useWellKnownTypes: true
-      proto_generator:proto_services_generator:
-        options:
-          useWellKnownTypes: true
-      proto_generator:proto_services_service_generator:
-        options:
-          useWellKnownTypes: true
-      proto_generator:proto_services_client_generator:
-        options:
-          useWellKnownTypes: true

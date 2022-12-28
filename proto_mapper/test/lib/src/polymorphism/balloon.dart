@@ -1,11 +1,11 @@
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'aircraft.dart';
 
 part 'balloon.g.dart';
 
 @Proto()
-@mapProto
 class Balloon implements Aircraft {
   Balloon({
     required this.weight,

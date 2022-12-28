@@ -1,11 +1,11 @@
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'abstract_vehicle.dart';
 
 part 'scooter.g.dart';
 
 @Proto()
-@mapProto
 class Scooter extends AbstractVehicle {
   @override
   final String key;

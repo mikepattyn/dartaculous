@@ -1,11 +1,11 @@
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'vehicle.dart';
 
 part 'car.g.dart';
 
 @Proto()
-@mapProto
 class Car extends Vehicle {
   Car({
     required this.numberOfDoors,

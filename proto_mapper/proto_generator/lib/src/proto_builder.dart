@@ -3,7 +3,7 @@ import 'package:build/build.dart';
 import 'package:glob/glob.dart';
 import 'package:path/path.dart' as p;
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator/src/proto/constant_reader_extension.dart';
+import 'package:proto_generator/src/common/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/proto_reflected.dart';
 import 'package:proto_generator/src/proto_services/proto_services_generator.dart';
 import 'package:source_gen/source_gen.dart';

@@ -5,7 +5,6 @@ import 'package:proto_generator_test/src/recipe_type.dart';
 import '../proto_generator_test.dart';
 
 @protoServices
-@mapProtoServices
 abstract class RecipeServiceBase extends CrudServicesBase<Recipe> {
   Future<List<Recipe>> search();
   Future<List<Recipe>?> searchNullable();

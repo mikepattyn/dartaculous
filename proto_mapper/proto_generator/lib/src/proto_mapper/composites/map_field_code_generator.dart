@@ -1,20 +1,21 @@
 import 'package:analyzer/dart/element/type.dart';
-import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 
 import '../field_descriptor.dart';
 
 class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
-  final bool useWellKnownTypes;
   MapFieldCodeGenerator({
     required FieldDescriptor fieldDescriptor,
-    required this.useWellKnownTypes,
+    required Config config,
     required String refName,
     required String protoRefName,
   }) : super(
           fieldDescriptor: fieldDescriptor,
           refName: refName,
           protoRefName: protoRefName,
+          config: config,
         );
 
   String get _valueToProto {
@@ -40,7 +41,7 @@ class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
       fieldDescriptor,
       parameterType,
       parameterName,
-      useWellKnownTypes: useWellKnownTypes,
+      config: config,
     );
   }
 
@@ -71,7 +72,7 @@ class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
       fieldDescriptor,
       parameterType,
       parameterName,
-      useWellKnownTypes: useWellKnownTypes,
+      config: config,
     );
   }
 

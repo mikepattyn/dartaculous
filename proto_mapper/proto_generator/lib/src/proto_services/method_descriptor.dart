@@ -1,5 +1,4 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:proto_generator/src/proto_common.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 class MethodDescriptor extends MethodDescriptorBase {
@@ -10,17 +9,11 @@ class MethodDescriptor extends MethodDescriptorBase {
     InterfaceElement classElement,
     MethodElement methodElement,
   ) {
-    return MethodDescriptor._(
-      classElement,
-      methodElement,
-      // protoAnnotation,
-    );
+    return MethodDescriptor._(classElement, methodElement);
   }
 
   @override
   bool get isRepeated => returnListParameterType != null;
-
-  bool get typeHasProtoAnnotation => methodElement.hasMapProto;
 
   @override
   bool get returnParameterTypeIsEnum =>

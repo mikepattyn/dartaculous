@@ -1,19 +1,20 @@
-import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 
 import '../field_descriptor.dart';
 
 class IterableFieldCodeGenerator extends CompositeFieldCodeGenerator {
-  final bool useWellKnownTypes;
   IterableFieldCodeGenerator({
     required FieldDescriptor fieldDescriptor,
-    required this.useWellKnownTypes,
     required String refName,
     required String protoRefName,
+    required Config config,
   }) : super(
           fieldDescriptor: fieldDescriptor,
           refName: refName,
           protoRefName: protoRefName,
+          config: config,
         );
 
   String get _valueToProto {
@@ -21,7 +22,7 @@ class IterableFieldCodeGenerator extends CompositeFieldCodeGenerator {
       fieldDescriptor,
       fieldDescriptor.iterableParameterType!,
       'e',
-      useWellKnownTypes: useWellKnownTypes,
+      config: config,
     );
   }
 
@@ -61,7 +62,7 @@ class IterableFieldCodeGenerator extends CompositeFieldCodeGenerator {
       fieldDescriptor,
       iterableParameterType,
       'e',
-      useWellKnownTypes: useWellKnownTypes,
+      config: config,
     );
   }
 

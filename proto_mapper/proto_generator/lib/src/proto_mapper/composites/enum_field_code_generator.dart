@@ -1,3 +1,4 @@
+import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 import '../field_descriptor.dart';
@@ -7,10 +8,12 @@ class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
     required FieldDescriptor fieldDescriptor,
     required String refName,
     required String protoRefName,
+    required Config config,
   }) : super(
           fieldDescriptor: fieldDescriptor,
           refName: refName,
           protoRefName: protoRefName,
+          config: config,
         );
 
   String get _prefix => fieldDescriptor.prefix;

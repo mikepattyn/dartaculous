@@ -1,4 +1,5 @@
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 part 'encapsulation.g.dart';
 
@@ -9,7 +10,6 @@ part 'encapsulation.g.dart';
 /// to restrict direct access to certain fields. That should not mean those
 /// fields are to be ignored when it comes to "serialization".
 @Proto()
-@MapProto()
 class EncapsulatedFieldsClass {
   @ProtoField(1)
   final String finalString;
@@ -25,11 +25,11 @@ class EncapsulatedFieldsClass {
   Set<String> get encapsulatedCollection =>
       Set.unmodifiable(_encapsulatedCollection);
 
-  EncapsulatedFieldsClass(
-      {required this.finalString,
-      required String encapsulatedString,
-      Set<String>? encapsulatedCollection})
-      : _encapsulatedString = encapsulatedString {
+  EncapsulatedFieldsClass({
+    required this.finalString,
+    required String encapsulatedString,
+    Set<String>? encapsulatedCollection,
+  }) : _encapsulatedString = encapsulatedString {
     _encapsulatedCollection.addAll(encapsulatedCollection ?? {});
   }
 

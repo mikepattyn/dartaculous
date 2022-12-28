@@ -1,4 +1,5 @@
 import 'package:decimal/decimal.dart';
+import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
 
@@ -14,11 +15,11 @@ abstract class FieldCodeGenerator {
   static const defaultRefName = 'instance';
   static const defaultProtoRefName = 'proto';
 
-  factory FieldCodeGenerator.fromFieldDescriptor(
-    FieldDescriptor fieldDescriptor, {
+  factory FieldCodeGenerator.fromFieldDescriptor({
+    required FieldDescriptor fieldDescriptor,
+    required Config config,
     String refName = defaultRefName,
     String protoRefName = defaultProtoRefName,
-    required bool useWellKnownTypes,
   }) {
     FieldCodeGenerator? fcd = _getCustomEncodedFieldCodeGenerator(
       fieldDescriptor: fieldDescriptor,
@@ -27,7 +28,7 @@ abstract class FieldCodeGenerator {
     );
     if (fcd != null) return fcd;
 
-    if (useWellKnownTypes) {
+    if (config.useWellKnownTypes) {
       fcd = WKTFieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
@@ -46,7 +47,7 @@ abstract class FieldCodeGenerator {
       fieldDescriptor: fieldDescriptor,
       refName: refName,
       protoRefName: protoRefName,
-      useWellKnownTypes: useWellKnownTypes,
+      config: config,
     );
   }
 }

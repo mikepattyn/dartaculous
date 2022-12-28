@@ -1,9 +1,9 @@
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/model.pbenum.dart';
 
 part 'appliance_type.g.dart';
 
 @Proto()
-@mapProto
 enum ApplianceType {
   heat,
   cold,

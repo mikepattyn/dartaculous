@@ -7,329 +7,22 @@
 
 import 'dart:core' as $core;
 
-import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
+
+import 'google/protobuf/wrappers.pb.dart' as $1;
+import 'google/protobuf/duration.pb.dart' as $2;
+import 'google/protobuf/timestamp.pb.dart' as $3;
 
 import 'model.pbenum.dart';
 
 export 'model.pbenum.dart';
 
-class Int32Value extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Int32Value', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  Int32Value._() : super();
-  factory Int32Value({
-    $core.int? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory Int32Value.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Int32Value.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  Int32Value clone() => Int32Value()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  Int32Value copyWith(void Function(Int32Value) updates) => super.copyWith((message) => updates(message as Int32Value)) as Int32Value; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static Int32Value create() => Int32Value._();
-  Int32Value createEmptyInstance() => create();
-  static $pb.PbList<Int32Value> createRepeated() => $pb.PbList<Int32Value>();
-  @$core.pragma('dart2js:noInline')
-  static Int32Value getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Int32Value>(create);
-  static Int32Value? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get value => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set value($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-}
-
-class StringValue extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'StringValue', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value')
-    ..hasRequiredFields = false
-  ;
-
-  StringValue._() : super();
-  factory StringValue({
-    $core.String? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory StringValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory StringValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  StringValue clone() => StringValue()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  StringValue copyWith(void Function(StringValue) updates) => super.copyWith((message) => updates(message as StringValue)) as StringValue; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static StringValue create() => StringValue._();
-  StringValue createEmptyInstance() => create();
-  static $pb.PbList<StringValue> createRepeated() => $pb.PbList<StringValue>();
-  @$core.pragma('dart2js:noInline')
-  static StringValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<StringValue>(create);
-  static StringValue? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get value => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set value($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-}
-
-class Duration extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Duration', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'seconds')
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nanos', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  Duration._() : super();
-  factory Duration({
-    $fixnum.Int64? seconds,
-    $core.int? nanos,
-  }) {
-    final _result = create();
-    if (seconds != null) {
-      _result.seconds = seconds;
-    }
-    if (nanos != null) {
-      _result.nanos = nanos;
-    }
-    return _result;
-  }
-  factory Duration.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Duration.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  Duration clone() => Duration()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  Duration copyWith(void Function(Duration) updates) => super.copyWith((message) => updates(message as Duration)) as Duration; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static Duration create() => Duration._();
-  Duration createEmptyInstance() => create();
-  static $pb.PbList<Duration> createRepeated() => $pb.PbList<Duration>();
-  @$core.pragma('dart2js:noInline')
-  static Duration getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Duration>(create);
-  static Duration? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $fixnum.Int64 get seconds => $_getI64(0);
-  @$pb.TagNumber(1)
-  set seconds($fixnum.Int64 v) { $_setInt64(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasSeconds() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearSeconds() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.int get nanos => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set nanos($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasNanos() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearNanos() => clearField(2);
-}
-
-class Timestamp extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Timestamp', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'seconds')
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nanos', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  Timestamp._() : super();
-  factory Timestamp({
-    $fixnum.Int64? seconds,
-    $core.int? nanos,
-  }) {
-    final _result = create();
-    if (seconds != null) {
-      _result.seconds = seconds;
-    }
-    if (nanos != null) {
-      _result.nanos = nanos;
-    }
-    return _result;
-  }
-  factory Timestamp.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Timestamp.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  Timestamp clone() => Timestamp()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  Timestamp copyWith(void Function(Timestamp) updates) => super.copyWith((message) => updates(message as Timestamp)) as Timestamp; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static Timestamp create() => Timestamp._();
-  Timestamp createEmptyInstance() => create();
-  static $pb.PbList<Timestamp> createRepeated() => $pb.PbList<Timestamp>();
-  @$core.pragma('dart2js:noInline')
-  static Timestamp getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Timestamp>(create);
-  static Timestamp? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $fixnum.Int64 get seconds => $_getI64(0);
-  @$pb.TagNumber(1)
-  set seconds($fixnum.Int64 v) { $_setInt64(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasSeconds() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearSeconds() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.int get nanos => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set nanos($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasNanos() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearNanos() => clearField(2);
-}
-
-class BoolValue extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BoolValue', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value')
-    ..hasRequiredFields = false
-  ;
-
-  BoolValue._() : super();
-  factory BoolValue({
-    $core.bool? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory BoolValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory BoolValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  BoolValue clone() => BoolValue()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  BoolValue copyWith(void Function(BoolValue) updates) => super.copyWith((message) => updates(message as BoolValue)) as BoolValue; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static BoolValue create() => BoolValue._();
-  BoolValue createEmptyInstance() => create();
-  static $pb.PbList<BoolValue> createRepeated() => $pb.PbList<BoolValue>();
-  @$core.pragma('dart2js:noInline')
-  static BoolValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoolValue>(create);
-  static BoolValue? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.bool get value => $_getBF(0);
-  @$pb.TagNumber(1)
-  set value($core.bool v) { $_setBool(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-}
-
-class DoubleValue extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DoubleValue', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.double>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OD)
-    ..hasRequiredFields = false
-  ;
-
-  DoubleValue._() : super();
-  factory DoubleValue({
-    $core.double? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory DoubleValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DoubleValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  DoubleValue clone() => DoubleValue()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  DoubleValue copyWith(void Function(DoubleValue) updates) => super.copyWith((message) => updates(message as DoubleValue)) as DoubleValue; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static DoubleValue create() => DoubleValue._();
-  DoubleValue createEmptyInstance() => create();
-  static $pb.PbList<DoubleValue> createRepeated() => $pb.PbList<DoubleValue>();
-  @$core.pragma('dart2js:noInline')
-  static DoubleValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DoubleValue>(create);
-  static DoubleValue? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.double get value => $_getN(0);
-  @$pb.TagNumber(1)
-  set value($core.double v) { $_setDouble(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-}
-
 class GCalcParameters extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GCalcParameters', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter2', $pb.PbFieldType.O3)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter1', $pb.PbFieldType.O3)
-    ..aOM<Int32Value>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter3', subBuilder: Int32Value.create)
-    ..aOM<Int32Value>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter4', subBuilder: Int32Value.create)
+    ..aOM<$1.Int32Value>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter3', subBuilder: $1.Int32Value.create)
+    ..aOM<$1.Int32Value>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter4', subBuilder: $1.Int32Value.create)
     ..a<$core.int>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter5', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -338,8 +31,8 @@ class GCalcParameters extends $pb.GeneratedMessage {
   factory GCalcParameters({
     $core.int? parameter2,
     $core.int? parameter1,
-    Int32Value? parameter3,
-    Int32Value? parameter4,
+    $1.Int32Value? parameter3,
+    $1.Int32Value? parameter4,
     $core.int? parameter5,
   }) {
     final _result = create();
@@ -400,26 +93,26 @@ class GCalcParameters extends $pb.GeneratedMessage {
   void clearParameter1() => clearField(2);
 
   @$pb.TagNumber(3)
-  Int32Value get parameter3 => $_getN(2);
+  $1.Int32Value get parameter3 => $_getN(2);
   @$pb.TagNumber(3)
-  set parameter3(Int32Value v) { setField(3, v); }
+  set parameter3($1.Int32Value v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasParameter3() => $_has(2);
   @$pb.TagNumber(3)
   void clearParameter3() => clearField(3);
   @$pb.TagNumber(3)
-  Int32Value ensureParameter3() => $_ensure(2);
+  $1.Int32Value ensureParameter3() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  Int32Value get parameter4 => $_getN(3);
+  $1.Int32Value get parameter4 => $_getN(3);
   @$pb.TagNumber(4)
-  set parameter4(Int32Value v) { setField(4, v); }
+  set parameter4($1.Int32Value v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasParameter4() => $_has(3);
   @$pb.TagNumber(4)
   void clearParameter4() => clearField(4);
   @$pb.TagNumber(4)
-  Int32Value ensureParameter4() => $_ensure(3);
+  $1.Int32Value ensureParameter4() => $_ensure(3);
 
   @$pb.TagNumber(9)
   $core.int get parameter5 => $_getIZ(4);
@@ -1296,15 +989,15 @@ class GListOfConstructObject5 extends $pb.GeneratedMessage {
 
 class GConstructObject6 extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject6', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<StringValue>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name', subBuilder: StringValue.create)
-    ..aOM<Int32Value>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: Int32Value.create)
+    ..aOM<$1.StringValue>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name', subBuilder: $1.StringValue.create)
+    ..aOM<$1.Int32Value>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: $1.Int32Value.create)
     ..hasRequiredFields = false
   ;
 
   GConstructObject6._() : super();
   factory GConstructObject6({
-    StringValue? name,
-    Int32Value? number,
+    $1.StringValue? name,
+    $1.Int32Value? number,
   }) {
     final _result = create();
     if (name != null) {
@@ -1337,26 +1030,26 @@ class GConstructObject6 extends $pb.GeneratedMessage {
   static GConstructObject6? _defaultInstance;
 
   @$pb.TagNumber(2)
-  StringValue get name => $_getN(0);
+  $1.StringValue get name => $_getN(0);
   @$pb.TagNumber(2)
-  set name(StringValue v) { setField(2, v); }
+  set name($1.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasName() => $_has(0);
   @$pb.TagNumber(2)
   void clearName() => clearField(2);
   @$pb.TagNumber(2)
-  StringValue ensureName() => $_ensure(0);
+  $1.StringValue ensureName() => $_ensure(0);
 
   @$pb.TagNumber(3)
-  Int32Value get number => $_getN(1);
+  $1.Int32Value get number => $_getN(1);
   @$pb.TagNumber(3)
-  set number(Int32Value v) { setField(3, v); }
+  set number($1.Int32Value v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasNumber() => $_has(1);
   @$pb.TagNumber(3)
   void clearNumber() => clearField(3);
   @$pb.TagNumber(3)
-  Int32Value ensureNumber() => $_ensure(1);
+  $1.Int32Value ensureNumber() => $_ensure(1);
 }
 
 class GListOfConstructObject6 extends $pb.GeneratedMessage {
@@ -1402,14 +1095,14 @@ class GListOfConstructObject6 extends $pb.GeneratedMessage {
 
 class GConstructObject7 extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject7', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<Int32Value>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: Int32Value.create)
+    ..aOM<$1.Int32Value>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: $1.Int32Value.create)
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..hasRequiredFields = false
   ;
 
   GConstructObject7._() : super();
   factory GConstructObject7({
-    Int32Value? number,
+    $1.Int32Value? number,
     $core.String? name,
   }) {
     final _result = create();
@@ -1443,15 +1136,15 @@ class GConstructObject7 extends $pb.GeneratedMessage {
   static GConstructObject7? _defaultInstance;
 
   @$pb.TagNumber(2)
-  Int32Value get number => $_getN(0);
+  $1.Int32Value get number => $_getN(0);
   @$pb.TagNumber(2)
-  set number(Int32Value v) { setField(2, v); }
+  set number($1.Int32Value v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNumber() => $_has(0);
   @$pb.TagNumber(2)
   void clearNumber() => clearField(2);
   @$pb.TagNumber(2)
-  Int32Value ensureNumber() => $_ensure(0);
+  $1.Int32Value ensureNumber() => $_ensure(0);
 
   @$pb.TagNumber(3)
   $core.String get name => $_getSZ(1);
@@ -1506,14 +1199,14 @@ class GListOfConstructObject7 extends $pb.GeneratedMessage {
 
 class GConstructObject8 extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject8', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<Int32Value>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: Int32Value.create)
+    ..aOM<$1.Int32Value>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', subBuilder: $1.Int32Value.create)
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..hasRequiredFields = false
   ;
 
   GConstructObject8._() : super();
   factory GConstructObject8({
-    Int32Value? number,
+    $1.Int32Value? number,
     $core.String? name,
   }) {
     final _result = create();
@@ -1547,15 +1240,15 @@ class GConstructObject8 extends $pb.GeneratedMessage {
   static GConstructObject8? _defaultInstance;
 
   @$pb.TagNumber(2)
-  Int32Value get number => $_getN(0);
+  $1.Int32Value get number => $_getN(0);
   @$pb.TagNumber(2)
-  set number(Int32Value v) { setField(2, v); }
+  set number($1.Int32Value v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNumber() => $_has(0);
   @$pb.TagNumber(2)
   void clearNumber() => clearField(2);
   @$pb.TagNumber(2)
-  Int32Value ensureNumber() => $_ensure(0);
+  $1.Int32Value ensureNumber() => $_ensure(0);
 
   @$pb.TagNumber(3)
   $core.String get name => $_getSZ(1);
@@ -1771,7 +1464,7 @@ class GIngredient extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
     ..a<$core.List<$core.int>>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'quantity', $pb.PbFieldType.OY)
     ..a<$core.double>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'precision', $pb.PbFieldType.OD)
-    ..aOM<Duration>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cookingDuration', subBuilder: Duration.create)
+    ..aOM<$2.Duration>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cookingDuration', subBuilder: $2.Duration.create)
     ..aOM<GComponent>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mainComponent', subBuilder: GComponent.create)
     ..pc<GComponent>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'otherComponents', $pb.PbFieldType.PM, subBuilder: GComponent.create)
     ..aOM<GComponent>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'alternativeComponent', subBuilder: GComponent.create)
@@ -1784,7 +1477,7 @@ class GIngredient extends $pb.GeneratedMessage {
     $core.String? description,
     $core.List<$core.int>? quantity,
     $core.double? precision,
-    Duration? cookingDuration,
+    $2.Duration? cookingDuration,
     GComponent? mainComponent,
     $core.Iterable<GComponent>? otherComponents,
     GComponent? alternativeComponent,
@@ -1866,15 +1559,15 @@ class GIngredient extends $pb.GeneratedMessage {
   void clearPrecision() => clearField(4);
 
   @$pb.TagNumber(5)
-  Duration get cookingDuration => $_getN(3);
+  $2.Duration get cookingDuration => $_getN(3);
   @$pb.TagNumber(5)
-  set cookingDuration(Duration v) { setField(5, v); }
+  set cookingDuration($2.Duration v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasCookingDuration() => $_has(3);
   @$pb.TagNumber(5)
   void clearCookingDuration() => clearField(5);
   @$pb.TagNumber(5)
-  Duration ensureCookingDuration() => $_ensure(3);
+  $2.Duration ensureCookingDuration() => $_ensure(3);
 
   @$pb.TagNumber(6)
   GComponent get mainComponent => $_getN(4);
@@ -2040,10 +1733,10 @@ class GListsHost extends $pb.GeneratedMessage {
     ..p<$core.bool>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvbools', $pb.PbFieldType.KB)
     ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vstrings')
     ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvstrings')
-    ..pc<Duration>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdurations', $pb.PbFieldType.PM, subBuilder: Duration.create)
-    ..pc<Duration>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdurations', $pb.PbFieldType.PM, subBuilder: Duration.create)
-    ..pc<Duration>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdatetimes', $pb.PbFieldType.PM, subBuilder: Duration.create)
-    ..pc<Duration>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimes', $pb.PbFieldType.PM, subBuilder: Duration.create)
+    ..pc<$2.Duration>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdurations', $pb.PbFieldType.PM, subBuilder: $2.Duration.create)
+    ..pc<$2.Duration>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdurations', $pb.PbFieldType.PM, subBuilder: $2.Duration.create)
+    ..pc<$3.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdatetimes', $pb.PbFieldType.PM, subBuilder: $3.Timestamp.create)
+    ..pc<$3.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimes', $pb.PbFieldType.PM, subBuilder: $3.Timestamp.create)
     ..p<$core.List<$core.int>>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdecimals', $pb.PbFieldType.PY)
     ..p<$core.List<$core.int>>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimals', $pb.PbFieldType.PY)
     ..p<$core.int>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vints', $pb.PbFieldType.K3)
@@ -2061,10 +1754,10 @@ class GListsHost extends $pb.GeneratedMessage {
     $core.Iterable<$core.bool>? nvbools,
     $core.Iterable<$core.String>? vstrings,
     $core.Iterable<$core.String>? nvstrings,
-    $core.Iterable<Duration>? vdurations,
-    $core.Iterable<Duration>? nvdurations,
-    $core.Iterable<Duration>? vdatetimes,
-    $core.Iterable<Duration>? nvdatetimes,
+    $core.Iterable<$2.Duration>? vdurations,
+    $core.Iterable<$2.Duration>? nvdurations,
+    $core.Iterable<$3.Timestamp>? vdatetimes,
+    $core.Iterable<$3.Timestamp>? nvdatetimes,
     $core.Iterable<$core.List<$core.int>>? vdecimals,
     $core.Iterable<$core.List<$core.int>>? nvdecimals,
     $core.Iterable<$core.int>? vints,
@@ -2159,16 +1852,16 @@ class GListsHost extends $pb.GeneratedMessage {
   $core.List<$core.String> get nvstrings => $_getList(3);
 
   @$pb.TagNumber(6)
-  $core.List<Duration> get vdurations => $_getList(4);
+  $core.List<$2.Duration> get vdurations => $_getList(4);
 
   @$pb.TagNumber(7)
-  $core.List<Duration> get nvdurations => $_getList(5);
+  $core.List<$2.Duration> get nvdurations => $_getList(5);
 
   @$pb.TagNumber(8)
-  $core.List<Duration> get vdatetimes => $_getList(6);
+  $core.List<$3.Timestamp> get vdatetimes => $_getList(6);
 
   @$pb.TagNumber(9)
-  $core.List<Duration> get nvdatetimes => $_getList(7);
+  $core.List<$3.Timestamp> get nvdatetimes => $_getList(7);
 
   @$pb.TagNumber(10)
   $core.List<$core.List<$core.int>> get vdecimals => $_getList(8);
@@ -3946,7 +3639,7 @@ class GKitchen extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GKitchen', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..pc<GRecipe>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'recipeList', $pb.PbFieldType.PM, subBuilder: GRecipe.create)
     ..m<$core.String, GRecipe>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'recipeMap', entryClassName: 'GKitchen.RecipeMapEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OM, valueCreator: GRecipe.create, packageName: const $pb.PackageName('com.company.project'))
-    ..aOM<Duration>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextInspectionDate', subBuilder: Duration.create)
+    ..aOM<$3.Timestamp>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextInspectionDate', subBuilder: $3.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -3954,7 +3647,7 @@ class GKitchen extends $pb.GeneratedMessage {
   factory GKitchen({
     $core.Iterable<GRecipe>? recipeList,
     $core.Map<$core.String, GRecipe>? recipeMap,
-    Duration? nextInspectionDate,
+    $3.Timestamp? nextInspectionDate,
   }) {
     final _result = create();
     if (recipeList != null) {
@@ -3996,15 +3689,15 @@ class GKitchen extends $pb.GeneratedMessage {
   $core.Map<$core.String, GRecipe> get recipeMap => $_getMap(1);
 
   @$pb.TagNumber(4)
-  Duration get nextInspectionDate => $_getN(2);
+  $3.Timestamp get nextInspectionDate => $_getN(2);
   @$pb.TagNumber(4)
-  set nextInspectionDate(Duration v) { setField(4, v); }
+  set nextInspectionDate($3.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasNextInspectionDate() => $_has(2);
   @$pb.TagNumber(4)
   void clearNextInspectionDate() => clearField(4);
   @$pb.TagNumber(4)
-  Duration ensureNextInspectionDate() => $_ensure(2);
+  $3.Timestamp ensureNextInspectionDate() => $_ensure(2);
 }
 
 class GListOfKitchen extends $pb.GeneratedMessage {
@@ -4054,8 +3747,8 @@ class GChef extends $pb.GeneratedMessage {
     ..aOM<GKnife>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
     ..e<GApplianceType>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
     ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteWords')
-    ..aOM<Duration>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'birthdate', subBuilder: Duration.create)
-    ..aOM<Duration>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLife', subBuilder: Duration.create)
+    ..aOM<$3.Timestamp>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'birthdate', subBuilder: $3.Timestamp.create)
+    ..aOM<$2.Duration>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLife', subBuilder: $2.Duration.create)
     ..hasRequiredFields = false
   ;
 
@@ -4065,8 +3758,8 @@ class GChef extends $pb.GeneratedMessage {
     GKnife? favoriteKnife,
     GApplianceType? favoriteApplianceType,
     $core.Iterable<$core.String>? favoriteWords,
-    Duration? birthdate,
-    Duration? shelfLife,
+    $3.Timestamp? birthdate,
+    $2.Duration? shelfLife,
   }) {
     final _result = create();
     if (favoriteRecipe != null) {
@@ -4145,26 +3838,26 @@ class GChef extends $pb.GeneratedMessage {
   $core.List<$core.String> get favoriteWords => $_getList(3);
 
   @$pb.TagNumber(6)
-  Duration get birthdate => $_getN(4);
+  $3.Timestamp get birthdate => $_getN(4);
   @$pb.TagNumber(6)
-  set birthdate(Duration v) { setField(6, v); }
+  set birthdate($3.Timestamp v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasBirthdate() => $_has(4);
   @$pb.TagNumber(6)
   void clearBirthdate() => clearField(6);
   @$pb.TagNumber(6)
-  Duration ensureBirthdate() => $_ensure(4);
+  $3.Timestamp ensureBirthdate() => $_ensure(4);
 
   @$pb.TagNumber(7)
-  Duration get shelfLife => $_getN(5);
+  $2.Duration get shelfLife => $_getN(5);
   @$pb.TagNumber(7)
-  set shelfLife(Duration v) { setField(7, v); }
+  set shelfLife($2.Duration v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasShelfLife() => $_has(5);
   @$pb.TagNumber(7)
   void clearShelfLife() => clearField(7);
   @$pb.TagNumber(7)
-  Duration ensureShelfLife() => $_ensure(5);
+  $2.Duration ensureShelfLife() => $_ensure(5);
 }
 
 class GListOfChef extends $pb.GeneratedMessage {
@@ -4408,7 +4101,7 @@ class GInventory extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GInventory', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..m<$core.String, $core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfThings', entryClassName: 'GInventory.NumberOfThingsEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.O3, packageName: const $pb.PackageName('com.company.project'))
     ..m<$core.String, GRecipe>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'recipesByName', entryClassName: 'GInventory.RecipesByNameEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OM, valueCreator: GRecipe.create, packageName: const $pb.PackageName('com.company.project'))
-    ..aOM<Duration>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timeSpan', subBuilder: Duration.create)
+    ..aOM<$2.Duration>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timeSpan', subBuilder: $2.Duration.create)
     ..hasRequiredFields = false
   ;
 
@@ -4416,7 +4109,7 @@ class GInventory extends $pb.GeneratedMessage {
   factory GInventory({
     $core.Map<$core.String, $core.int>? numberOfThings,
     $core.Map<$core.String, GRecipe>? recipesByName,
-    Duration? timeSpan,
+    $2.Duration? timeSpan,
   }) {
     final _result = create();
     if (numberOfThings != null) {
@@ -4458,15 +4151,15 @@ class GInventory extends $pb.GeneratedMessage {
   $core.Map<$core.String, GRecipe> get recipesByName => $_getMap(1);
 
   @$pb.TagNumber(4)
-  Duration get timeSpan => $_getN(2);
+  $2.Duration get timeSpan => $_getN(2);
   @$pb.TagNumber(4)
-  set timeSpan(Duration v) { setField(4, v); }
+  set timeSpan($2.Duration v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasTimeSpan() => $_has(2);
   @$pb.TagNumber(4)
   void clearTimeSpan() => clearField(4);
   @$pb.TagNumber(4)
-  Duration ensureTimeSpan() => $_ensure(2);
+  $2.Duration ensureTimeSpan() => $_ensure(2);
 }
 
 class GListOfInventory extends $pb.GeneratedMessage {
@@ -4512,15 +4205,15 @@ class GListOfInventory extends $pb.GeneratedMessage {
 
 class GPrecisionSubject extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GPrecisionSubject', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<Duration>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dateProperty', subBuilder: Duration.create)
-    ..aOM<Duration>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'durationProperty', subBuilder: Duration.create)
+    ..aOM<$3.Timestamp>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dateProperty', subBuilder: $3.Timestamp.create)
+    ..aOM<$2.Duration>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'durationProperty', subBuilder: $2.Duration.create)
     ..hasRequiredFields = false
   ;
 
   GPrecisionSubject._() : super();
   factory GPrecisionSubject({
-    Duration? dateProperty,
-    Duration? durationProperty,
+    $3.Timestamp? dateProperty,
+    $2.Duration? durationProperty,
   }) {
     final _result = create();
     if (dateProperty != null) {
@@ -4553,26 +4246,26 @@ class GPrecisionSubject extends $pb.GeneratedMessage {
   static GPrecisionSubject? _defaultInstance;
 
   @$pb.TagNumber(2)
-  Duration get dateProperty => $_getN(0);
+  $3.Timestamp get dateProperty => $_getN(0);
   @$pb.TagNumber(2)
-  set dateProperty(Duration v) { setField(2, v); }
+  set dateProperty($3.Timestamp v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasDateProperty() => $_has(0);
   @$pb.TagNumber(2)
   void clearDateProperty() => clearField(2);
   @$pb.TagNumber(2)
-  Duration ensureDateProperty() => $_ensure(0);
+  $3.Timestamp ensureDateProperty() => $_ensure(0);
 
   @$pb.TagNumber(3)
-  Duration get durationProperty => $_getN(1);
+  $2.Duration get durationProperty => $_getN(1);
   @$pb.TagNumber(3)
-  set durationProperty(Duration v) { setField(3, v); }
+  set durationProperty($2.Duration v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasDurationProperty() => $_has(1);
   @$pb.TagNumber(3)
   void clearDurationProperty() => clearField(3);
   @$pb.TagNumber(3)
-  Duration ensureDurationProperty() => $_ensure(1);
+  $2.Duration ensureDurationProperty() => $_ensure(1);
 }
 
 class GListOfPrecisionSubject extends $pb.GeneratedMessage {
@@ -4619,17 +4312,17 @@ class GListOfPrecisionSubject extends $pb.GeneratedMessage {
 class GRecipe extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GRecipe', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
-    ..aOM<StringValue>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description', subBuilder: StringValue.create)
+    ..aOM<$1.StringValue>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description', subBuilder: $1.StringValue.create)
     ..aOM<GCategory>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'category', subBuilder: GCategory.create)
     ..pc<GIngredient>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ingredients', $pb.PbFieldType.PM, subBuilder: GIngredient.create)
-    ..aOM<Duration>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishDate', subBuilder: Duration.create)
-    ..aOM<Duration>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiryDate', subBuilder: Duration.create)
-    ..aOM<Duration>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'preparationDuration', subBuilder: Duration.create)
-    ..aOM<Duration>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'totalDuration', subBuilder: Duration.create)
+    ..aOM<$3.Timestamp>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$3.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiryDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$2.Duration>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'preparationDuration', subBuilder: $2.Duration.create)
+    ..aOM<$2.Duration>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'totalDuration', subBuilder: $2.Duration.create)
     ..aOB(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isPublished')
-    ..aOM<BoolValue>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requiresRobot', subBuilder: BoolValue.create)
-    ..aOM<DoubleValue>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grossWeight', subBuilder: DoubleValue.create)
-    ..aOM<DoubleValue>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'netWeight', subBuilder: DoubleValue.create)
+    ..aOM<$1.BoolValue>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requiresRobot', subBuilder: $1.BoolValue.create)
+    ..aOM<$1.DoubleValue>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grossWeight', subBuilder: $1.DoubleValue.create)
+    ..aOM<$1.DoubleValue>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'netWeight', subBuilder: $1.DoubleValue.create)
     ..e<GApplianceType>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mainApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
     ..aOM<GApplianceType_Message>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondaryApplianceType', subBuilder: GApplianceType_Message.create)
     ..pPS(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags')
@@ -4640,17 +4333,17 @@ class GRecipe extends $pb.GeneratedMessage {
   GRecipe._() : super();
   factory GRecipe({
     $core.String? title,
-    StringValue? description,
+    $1.StringValue? description,
     GCategory? category,
     $core.Iterable<GIngredient>? ingredients,
-    Duration? publishDate,
-    Duration? expiryDate,
-    Duration? preparationDuration,
-    Duration? totalDuration,
+    $3.Timestamp? publishDate,
+    $3.Timestamp? expiryDate,
+    $2.Duration? preparationDuration,
+    $2.Duration? totalDuration,
     $core.bool? isPublished,
-    BoolValue? requiresRobot,
-    DoubleValue? grossWeight,
-    DoubleValue? netWeight,
+    $1.BoolValue? requiresRobot,
+    $1.DoubleValue? grossWeight,
+    $1.DoubleValue? netWeight,
     GApplianceType? mainApplianceType,
     GApplianceType_Message? secondaryApplianceType,
     $core.Iterable<$core.String>? tags,
@@ -4738,15 +4431,15 @@ class GRecipe extends $pb.GeneratedMessage {
   void clearTitle() => clearField(2);
 
   @$pb.TagNumber(3)
-  StringValue get description => $_getN(1);
+  $1.StringValue get description => $_getN(1);
   @$pb.TagNumber(3)
-  set description(StringValue v) { setField(3, v); }
+  set description($1.StringValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasDescription() => $_has(1);
   @$pb.TagNumber(3)
   void clearDescription() => clearField(3);
   @$pb.TagNumber(3)
-  StringValue ensureDescription() => $_ensure(1);
+  $1.StringValue ensureDescription() => $_ensure(1);
 
   @$pb.TagNumber(4)
   GCategory get category => $_getN(2);
@@ -4763,48 +4456,48 @@ class GRecipe extends $pb.GeneratedMessage {
   $core.List<GIngredient> get ingredients => $_getList(3);
 
   @$pb.TagNumber(6)
-  Duration get publishDate => $_getN(4);
+  $3.Timestamp get publishDate => $_getN(4);
   @$pb.TagNumber(6)
-  set publishDate(Duration v) { setField(6, v); }
+  set publishDate($3.Timestamp v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasPublishDate() => $_has(4);
   @$pb.TagNumber(6)
   void clearPublishDate() => clearField(6);
   @$pb.TagNumber(6)
-  Duration ensurePublishDate() => $_ensure(4);
+  $3.Timestamp ensurePublishDate() => $_ensure(4);
 
   @$pb.TagNumber(7)
-  Duration get expiryDate => $_getN(5);
+  $3.Timestamp get expiryDate => $_getN(5);
   @$pb.TagNumber(7)
-  set expiryDate(Duration v) { setField(7, v); }
+  set expiryDate($3.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasExpiryDate() => $_has(5);
   @$pb.TagNumber(7)
   void clearExpiryDate() => clearField(7);
   @$pb.TagNumber(7)
-  Duration ensureExpiryDate() => $_ensure(5);
+  $3.Timestamp ensureExpiryDate() => $_ensure(5);
 
   @$pb.TagNumber(8)
-  Duration get preparationDuration => $_getN(6);
+  $2.Duration get preparationDuration => $_getN(6);
   @$pb.TagNumber(8)
-  set preparationDuration(Duration v) { setField(8, v); }
+  set preparationDuration($2.Duration v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasPreparationDuration() => $_has(6);
   @$pb.TagNumber(8)
   void clearPreparationDuration() => clearField(8);
   @$pb.TagNumber(8)
-  Duration ensurePreparationDuration() => $_ensure(6);
+  $2.Duration ensurePreparationDuration() => $_ensure(6);
 
   @$pb.TagNumber(9)
-  Duration get totalDuration => $_getN(7);
+  $2.Duration get totalDuration => $_getN(7);
   @$pb.TagNumber(9)
-  set totalDuration(Duration v) { setField(9, v); }
+  set totalDuration($2.Duration v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasTotalDuration() => $_has(7);
   @$pb.TagNumber(9)
   void clearTotalDuration() => clearField(9);
   @$pb.TagNumber(9)
-  Duration ensureTotalDuration() => $_ensure(7);
+  $2.Duration ensureTotalDuration() => $_ensure(7);
 
   @$pb.TagNumber(10)
   $core.bool get isPublished => $_getBF(8);
@@ -4816,37 +4509,37 @@ class GRecipe extends $pb.GeneratedMessage {
   void clearIsPublished() => clearField(10);
 
   @$pb.TagNumber(11)
-  BoolValue get requiresRobot => $_getN(9);
+  $1.BoolValue get requiresRobot => $_getN(9);
   @$pb.TagNumber(11)
-  set requiresRobot(BoolValue v) { setField(11, v); }
+  set requiresRobot($1.BoolValue v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasRequiresRobot() => $_has(9);
   @$pb.TagNumber(11)
   void clearRequiresRobot() => clearField(11);
   @$pb.TagNumber(11)
-  BoolValue ensureRequiresRobot() => $_ensure(9);
+  $1.BoolValue ensureRequiresRobot() => $_ensure(9);
 
   @$pb.TagNumber(12)
-  DoubleValue get grossWeight => $_getN(10);
+  $1.DoubleValue get grossWeight => $_getN(10);
   @$pb.TagNumber(12)
-  set grossWeight(DoubleValue v) { setField(12, v); }
+  set grossWeight($1.DoubleValue v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasGrossWeight() => $_has(10);
   @$pb.TagNumber(12)
   void clearGrossWeight() => clearField(12);
   @$pb.TagNumber(12)
-  DoubleValue ensureGrossWeight() => $_ensure(10);
+  $1.DoubleValue ensureGrossWeight() => $_ensure(10);
 
   @$pb.TagNumber(13)
-  DoubleValue get netWeight => $_getN(11);
+  $1.DoubleValue get netWeight => $_getN(11);
   @$pb.TagNumber(13)
-  set netWeight(DoubleValue v) { setField(13, v); }
+  set netWeight($1.DoubleValue v) { setField(13, v); }
   @$pb.TagNumber(13)
   $core.bool hasNetWeight() => $_has(11);
   @$pb.TagNumber(13)
   void clearNetWeight() => clearField(13);
   @$pb.TagNumber(13)
-  DoubleValue ensureNetWeight() => $_ensure(11);
+  $1.DoubleValue ensureNetWeight() => $_ensure(11);
 
   @$pb.TagNumber(14)
   GApplianceType get mainApplianceType => $_getN(12);
@@ -5034,14 +4727,14 @@ class GListOfStarship extends $pb.GeneratedMessage {
 
 class GPerson extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GPerson', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<BoolValue>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boolValue', subBuilder: BoolValue.create)
+    ..aOM<$1.BoolValue>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boolValue', subBuilder: $1.BoolValue.create)
     ..a<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'decVal', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
   GPerson._() : super();
   factory GPerson({
-    BoolValue? boolValue,
+    $1.BoolValue? boolValue,
     $core.List<$core.int>? decVal,
   }) {
     final _result = create();
@@ -5075,15 +4768,15 @@ class GPerson extends $pb.GeneratedMessage {
   static GPerson? _defaultInstance;
 
   @$pb.TagNumber(1)
-  BoolValue get boolValue => $_getN(0);
+  $1.BoolValue get boolValue => $_getN(0);
   @$pb.TagNumber(1)
-  set boolValue(BoolValue v) { setField(1, v); }
+  set boolValue($1.BoolValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasBoolValue() => $_has(0);
   @$pb.TagNumber(1)
   void clearBoolValue() => clearField(1);
   @$pb.TagNumber(1)
-  BoolValue ensureBoolValue() => $_ensure(0);
+  $1.BoolValue ensureBoolValue() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.List<$core.int> get decVal => $_getN(1);
@@ -6714,13 +6407,13 @@ class G_GRecipeService_CountNullable_Parameters extends $pb.GeneratedMessage {
 
 class G_GRecipeService_CountNullable_Return extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'G_GRecipeService_CountNullable_Return', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<Int32Value>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', subBuilder: Int32Value.create)
+    ..aOM<$1.Int32Value>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', subBuilder: $1.Int32Value.create)
     ..hasRequiredFields = false
   ;
 
   G_GRecipeService_CountNullable_Return._() : super();
   factory G_GRecipeService_CountNullable_Return({
-    Int32Value? value,
+    $1.Int32Value? value,
   }) {
     final _result = create();
     if (value != null) {
@@ -6750,15 +6443,15 @@ class G_GRecipeService_CountNullable_Return extends $pb.GeneratedMessage {
   static G_GRecipeService_CountNullable_Return? _defaultInstance;
 
   @$pb.TagNumber(1)
-  Int32Value get value => $_getN(0);
+  $1.Int32Value get value => $_getN(0);
   @$pb.TagNumber(1)
-  set value(Int32Value v) { setField(1, v); }
+  set value($1.Int32Value v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasValue() => $_has(0);
   @$pb.TagNumber(1)
   void clearValue() => clearField(1);
   @$pb.TagNumber(1)
-  Int32Value ensureValue() => $_ensure(0);
+  $1.Int32Value ensureValue() => $_ensure(0);
 }
 
 class G_GRecipeService_Reindex_Parameters extends $pb.GeneratedMessage {
@@ -7529,8 +7222,8 @@ class G_GRecipeService_ReceiveLotsOfArgs_Return extends $pb.GeneratedMessage {
 
 class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<StringValue>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pString', subBuilder: StringValue.create)
-    ..aOM<Int32Value>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pInt', subBuilder: Int32Value.create)
+    ..aOM<$1.StringValue>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pString', subBuilder: $1.StringValue.create)
+    ..aOM<$1.Int32Value>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pInt', subBuilder: $1.Int32Value.create)
     ..aOM<GRecipeTypes_Message>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pRecipeTypes', subBuilder: GRecipeTypes_Message.create)
     ..aOM<GRecipe>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pRecipe', subBuilder: GRecipe.create)
     ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pListStrings')
@@ -7550,8 +7243,8 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters extends $pb.Generate
 
   G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters._() : super();
   factory G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters({
-    StringValue? pString,
-    Int32Value? pInt,
+    $1.StringValue? pString,
+    $1.Int32Value? pInt,
     GRecipeTypes_Message? pRecipeTypes,
     GRecipe? pRecipe,
     $core.Iterable<$core.String>? pListStrings,
@@ -7640,26 +7333,26 @@ class G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters extends $pb.Generate
   static G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters? _defaultInstance;
 
   @$pb.TagNumber(1)
-  StringValue get pString => $_getN(0);
+  $1.StringValue get pString => $_getN(0);
   @$pb.TagNumber(1)
-  set pString(StringValue v) { setField(1, v); }
+  set pString($1.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasPString() => $_has(0);
   @$pb.TagNumber(1)
   void clearPString() => clearField(1);
   @$pb.TagNumber(1)
-  StringValue ensurePString() => $_ensure(0);
+  $1.StringValue ensurePString() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  Int32Value get pInt => $_getN(1);
+  $1.Int32Value get pInt => $_getN(1);
   @$pb.TagNumber(2)
-  set pInt(Int32Value v) { setField(2, v); }
+  set pInt($1.Int32Value v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasPInt() => $_has(1);
   @$pb.TagNumber(2)
   void clearPInt() => clearField(2);
   @$pb.TagNumber(2)
-  Int32Value ensurePInt() => $_ensure(1);
+  $1.Int32Value ensurePInt() => $_ensure(1);
 
   @$pb.TagNumber(3)
   GRecipeTypes_Message get pRecipeTypes => $_getN(2);

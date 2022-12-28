@@ -1,11 +1,11 @@
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'aircraft.dart';
 
 part 'airplane.g.dart';
 
 @Proto()
-@mapProto
 class Airplane extends Aircraft {
   Airplane({
     required int weight,

@@ -3,9 +3,9 @@ import 'package:analyzer/dart/element/type.dart';
 import 'package:build/build.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator/src/proto_mapper/map_proto_reflected.dart';
+import 'package:proto_generator/src/common/constant_reader_extension.dart';
+import 'package:proto_generator/src/proto/proto_reflected.dart';
 import 'package:source_gen/source_gen.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 import 'package:recase/recase.dart';
 
@@ -13,27 +13,14 @@ import 'package:built_value/built_value.dart' as b;
 
 import 'field_code_generator.dart';
 import 'field_descriptor.dart';
+import 'interface_element_extension.dart';
 
 part 'proto_mapper_generator.helpers.dart';
 
-class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
-  final BuilderOptions options;
-  final String _prefix;
-  final TimePrecision _dateTimePrecision;
-  final TimePrecision _durationPrecision;
-  final bool _allowMissingFields;
-  final bool _useWellKnownTypes;
+class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
+  final Config config;
 
-  ProtoMapperGenerator(this.options)
-      : _prefix = options.config['prefix'] as String? ?? 'G',
-        _dateTimePrecision = _getTimePrecision(
-            options.config['dateTimePrecision'] as String? ?? 'microseconds'),
-        _durationPrecision = _getTimePrecision(
-            options.config['durationPrecision'] as String? ?? 'microseconds'),
-        _allowMissingFields =
-            (options.config['allowMissingFields'] as bool? ?? false),
-        _useWellKnownTypes =
-            options.config['useWellKnownTypes'] as bool? ?? false;
+  ProtoMapperGenerator(this.config);
 
   @override
   String generateForAnnotatedElement(
@@ -41,32 +28,27 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    return '// PROTO_MAPPER_PLACEHOLDER';
-    // final builders = getBuilders(element as InterfaceElement, annotation);
-    // final emitter =
-    //     DartEmitter.scoped(useNullSafetySyntax: true, orderDirectives: true);
-    // final code = builders.fold(
-    //     '',
-    //     (String previousValue, b.Builder builder) =>
-    //         '$previousValue\n\n${(builder.build() as Spec).accept(emitter).toString()}');
-    // return code;
+    final builders = getBuilders(element as InterfaceElement, annotation);
+    final emitter =
+        DartEmitter.scoped(useNullSafetySyntax: true, orderDirectives: true);
+    final code = builders.fold(
+        '',
+        (String previousValue, b.Builder builder) =>
+            '$previousValue\n\n${(builder.build() as Spec).accept(emitter).toString()}');
+    return code;
   }
 
   /// Create [ClassBuilder], [MethodBuilder] and [ExtensionBuilder] instances
   /// required for the generator
   List<b.Builder> getBuilders(
-      InterfaceElement interfaceElement, ConstantReader annotation) {
+    InterfaceElement interfaceElement,
+    ConstantReader annotation,
+  ) {
     List<b.Builder> builders = [];
-    final mapProtoReflected = _hydrateAnnotation(
-      annotation,
-      prefix: _prefix,
-      dateTimePrecision: _dateTimePrecision,
-      durationPrecision: _durationPrecision,
-      allowMissingFields: _allowMissingFields,
-    );
+    final proto = annotation.hydrateAnnotation();
 
     RenderMapperBuffers renderParams =
-        _createRenderBuffers(interfaceElement, mapProtoReflected);
+        _createRenderBuffers(interfaceElement, proto);
     builders.add(_mapperClassBuilder(interfaceElement, renderParams));
     if (interfaceElement is ClassElement) {
       builders.addAll(_extraMethods(interfaceElement, renderParams));
@@ -304,11 +286,10 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
   RenderMapperBuffers _createRenderBuffers(
     InterfaceElement classElement,
-    MapProtoReflected mapProtoReflected,
+    ProtoReflected protoReflected,
   ) {
-    final mapProto = mapProtoReflected.mapProto;
-    final fieldDescriptors =
-        _getFieldDescriptors(classElement, mapProto, _prefix);
+    final fieldDescriptors = classElement.getFieldDescriptors(
+        annotation: protoReflected.proto, config: config);
     final fromFieldDescriptors = [...fieldDescriptors];
 
     final toProtoFieldBuffer = StringBuffer();
@@ -317,7 +298,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
 
     // let's get all the constructors which cover all non-nullable final fields
     final constructor =
-        _getConstructor(classElement, fieldDescriptors, mapProto);
+        _getConstructor(classElement, fieldDescriptors, protoReflected.proto);
 
     // generate the mapping for the constructor, consuming all
     // the fields that are set by the constructor
@@ -329,8 +310,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     for (var fieldDescriptor
         in fromFieldDescriptors.where((fd) => !fd.isFinal)) {
       final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
-        fieldDescriptor,
-        useWellKnownTypes: _useWellKnownTypes,
+        fieldDescriptor: fieldDescriptor,
+        config: config,
       );
       var fromProtoMap =
           '${fieldDescriptor.displayName} = ${fieldCodeGenerator.fromProtoMap}';
@@ -340,8 +321,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     // assign the to proto field assignments
     for (var fieldDescriptor in fieldDescriptors) {
       final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
-        fieldDescriptor,
-        useWellKnownTypes: _useWellKnownTypes,
+        fieldDescriptor: fieldDescriptor,
+        config: config,
       );
       toProtoFieldBuffer.writeln(fieldCodeGenerator.toProtoMap);
     }
@@ -349,10 +330,10 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     final constructorName =
         constructor.name.isNotEmpty ? ".${constructor.name}" : constructor.name;
 
-    final toKnownSubClasses = _generateToKnownSubclasses(mapProtoReflected);
-    final fromKnownSubClasses = _generateFromKnownSubclasses(mapProtoReflected);
+    final toKnownSubClasses = _generateToKnownSubclasses(protoReflected);
+    final fromKnownSubClasses = _generateFromKnownSubclasses(protoReflected);
 
-    final prefix = mapProtoReflected.mapProto.prefix ?? _prefix;
+    final prefix = config.prefix;
 
     final renderParams = RenderMapperBuffers(
       className: classElement.name,
@@ -369,11 +350,11 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   }
 
   ConstructorElement _getConstructor(InterfaceElement classElement,
-      Iterable<FieldDescriptor> fieldDescriptors, MapProto mapProto) {
+      Iterable<FieldDescriptor> fieldDescriptors, Proto mapProto) {
     final missingFields = <String>{};
     final constructors = classElement.getConstructorsMatchingFields(
       fieldDescriptors: fieldDescriptors,
-      allowMissingFields: mapProto.allowMissingFields,
+      allowMissingFields: false, //mapProto.allowMissingFields,
       missingFields: missingFields,
     );
     // let's just pick the first of the valid constructors
@@ -386,9 +367,10 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
   }
 
   void _buildConstructorBuffer(
-      ConstructorElement constructor,
-      List<FieldDescriptor> fromFieldDescriptors,
-      StringBuffer constructorFieldBuffer) {
+    ConstructorElement constructor,
+    List<FieldDescriptor> fromFieldDescriptors,
+    StringBuffer constructorFieldBuffer,
+  ) {
     for (var constructorParameter in constructor.parameters) {
       final fieldDescriptorList = fromFieldDescriptors
           .where((element) => element.name == constructorParameter.name);
@@ -401,8 +383,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
       fromFieldDescriptors.remove(fieldDescriptor);
 
       final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
-        fieldDescriptor,
-        useWellKnownTypes: _useWellKnownTypes,
+        fieldDescriptor: fieldDescriptor,
+        config: config,
       );
       // INLINE
       final constructorMap = _getConstructorMap(
@@ -419,9 +401,11 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     return constructorMap.substring(constructorParameter.nameLength + 1);
   }
 
-  String? _generateToKnownSubclasses(MapProtoReflected mapProtoReflected) {
-    final kscs =
-        getKnownSubclasses(mapProtoReflected.knownSubClasses, MapProto);
+  String? _generateToKnownSubclasses(ProtoReflected mapProtoReflected) {
+    final kscs = getKnownSubclasses(
+      mapProtoReflected.knownSubClasses.keys.toList(),
+      Proto,
+    );
     if (kscs.isEmpty) return null;
 
     final ret = kscs.map((ksc) {
@@ -438,9 +422,9 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<MapProto> {
     return ret;
   }
 
-  String? _generateFromKnownSubclasses(MapProtoReflected mapProtoReflected) {
-    final kscs =
-        getKnownSubclasses(mapProtoReflected.knownSubClasses, MapProto);
+  String? _generateFromKnownSubclasses(ProtoReflected mapProtoReflected) {
+    final kscs = getKnownSubclasses(
+        mapProtoReflected.knownSubClasses.keys.toList(), Proto);
     if (kscs.isEmpty) return null;
 
     final ret = kscs.map((ksc) {
@@ -479,12 +463,4 @@ class RenderMapperBuffers {
     this.toKnownSubclasses,
     this.fromKnownSubclasses,
   });
-}
-
-TimePrecision _getTimePrecision(String value) {
-  final values = TimePrecision.values.where((tp) => tp.name == value);
-  if (values.isEmpty) {
-    throw UnimplementedError();
-  }
-  return values.first;
 }

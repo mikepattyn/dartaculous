@@ -5,7 +5,7 @@ import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto/field_descriptor.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
-import '../proto_common.dart';
+import '../common/proto_common.dart';
 import '../proto_services_generator_base.dart';
 import 'method_descriptor.dart';
 
