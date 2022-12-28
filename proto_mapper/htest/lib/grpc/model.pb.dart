@@ -133,14 +133,14 @@ class GListOfPerson extends $pb.GeneratedMessage {
 
 class GAnimal extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAnimal', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'squarealfa.nozard.techlog'), createEmptyInstance: create)
-    ..aOM<GBeing>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GBeing.create)
+    ..aOM<GFieldsOfBeing>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfBeing.create)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'height', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   GAnimal._() : super();
   factory GAnimal({
-    GBeing? fieldsOfSuperClass,
+    GFieldsOfBeing? fieldsOfSuperClass,
     $core.int? height,
   }) {
     final _result = create();
@@ -174,15 +174,15 @@ class GAnimal extends $pb.GeneratedMessage {
   static GAnimal? _defaultInstance;
 
   @$pb.TagNumber(1)
-  GBeing get fieldsOfSuperClass => $_getN(0);
+  GFieldsOfBeing get fieldsOfSuperClass => $_getN(0);
   @$pb.TagNumber(1)
-  set fieldsOfSuperClass(GBeing v) { setField(1, v); }
+  set fieldsOfSuperClass(GFieldsOfBeing v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasFieldsOfSuperClass() => $_has(0);
   @$pb.TagNumber(1)
   void clearFieldsOfSuperClass() => clearField(1);
   @$pb.TagNumber(1)
-  GBeing ensureFieldsOfSuperClass() => $_ensure(0);
+  GFieldsOfBeing ensureFieldsOfSuperClass() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.int get height => $_getIZ(1);
@@ -235,19 +235,83 @@ class GListOfAnimal extends $pb.GeneratedMessage {
   $core.List<GAnimal> get items => $_getList(0);
 }
 
-class GBeing extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GBeing', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'squarealfa.nozard.techlog'), createEmptyInstance: create)
+class GFieldsOfBeing extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfBeing', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'squarealfa.nozard.techlog'), createEmptyInstance: create)
     ..a<$core.double>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mass', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
   ;
 
-  GBeing._() : super();
-  factory GBeing({
+  GFieldsOfBeing._() : super();
+  factory GFieldsOfBeing({
     $core.double? mass,
   }) {
     final _result = create();
     if (mass != null) {
       _result.mass = mass;
+    }
+    return _result;
+  }
+  factory GFieldsOfBeing.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfBeing.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GFieldsOfBeing clone() => GFieldsOfBeing()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GFieldsOfBeing copyWith(void Function(GFieldsOfBeing) updates) => super.copyWith((message) => updates(message as GFieldsOfBeing)) as GFieldsOfBeing; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GFieldsOfBeing create() => GFieldsOfBeing._();
+  GFieldsOfBeing createEmptyInstance() => create();
+  static $pb.PbList<GFieldsOfBeing> createRepeated() => $pb.PbList<GFieldsOfBeing>();
+  @$core.pragma('dart2js:noInline')
+  static GFieldsOfBeing getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GFieldsOfBeing>(create);
+  static GFieldsOfBeing? _defaultInstance;
+
+  @$pb.TagNumber(2)
+  $core.double get mass => $_getN(0);
+  @$pb.TagNumber(2)
+  set mass($core.double v) { $_setDouble(0, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMass() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearMass() => clearField(2);
+}
+
+enum GBeing_Props {
+  being, 
+  animal, 
+  notSet
+}
+
+class GBeing extends $pb.GeneratedMessage {
+  static const $core.Map<$core.int, GBeing_Props> _GBeing_PropsByTag = {
+    1 : GBeing_Props.being,
+    2 : GBeing_Props.animal,
+    0 : GBeing_Props.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GBeing', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'squarealfa.nozard.techlog'), createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<GFieldsOfBeing>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'being', subBuilder: GFieldsOfBeing.create)
+    ..aOM<GAnimal>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'animal', subBuilder: GAnimal.create)
+    ..hasRequiredFields = false
+  ;
+
+  GBeing._() : super();
+  factory GBeing({
+    GFieldsOfBeing? being,
+    GAnimal? animal,
+  }) {
+    final _result = create();
+    if (being != null) {
+      _result.being = being;
+    }
+    if (animal != null) {
+      _result.animal = animal;
     }
     return _result;
   }
@@ -272,14 +336,30 @@ class GBeing extends $pb.GeneratedMessage {
   static GBeing getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GBeing>(create);
   static GBeing? _defaultInstance;
 
+  GBeing_Props whichProps() => _GBeing_PropsByTag[$_whichOneof(0)]!;
+  void clearProps() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  GFieldsOfBeing get being => $_getN(0);
+  @$pb.TagNumber(1)
+  set being(GFieldsOfBeing v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasBeing() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBeing() => clearField(1);
+  @$pb.TagNumber(1)
+  GFieldsOfBeing ensureBeing() => $_ensure(0);
+
   @$pb.TagNumber(2)
-  $core.double get mass => $_getN(0);
+  GAnimal get animal => $_getN(1);
   @$pb.TagNumber(2)
-  set mass($core.double v) { $_setDouble(0, v); }
+  set animal(GAnimal v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasMass() => $_has(0);
+  $core.bool hasAnimal() => $_has(1);
   @$pb.TagNumber(2)
-  void clearMass() => clearField(2);
+  void clearAnimal() => clearField(2);
+  @$pb.TagNumber(2)
+  GAnimal ensureAnimal() => $_ensure(1);
 }
 
 class GListOfBeing extends $pb.GeneratedMessage {

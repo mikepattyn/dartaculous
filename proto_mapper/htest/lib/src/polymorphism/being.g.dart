@@ -22,16 +22,21 @@ class $BeingProtoMapper implements ProtoMapper<Being, GBeing> {
 }
 
 GBeing _$BeingToProto(Being instance) {
-  var proto = GBeing();
+  var uproto = GBeing();
+  if (instance is Animal) {
+    uproto.animal = (const $AnimalProtoMapper()).toProto(instance);
+    return uproto;
+  }
 
-  proto.mass = instance.mass;
-
-  return proto;
+  throw UnimplementedError();
 }
 
-Being _$BeingFromProto(GBeing instance) => Being(
-      mass: instance.mass,
-    );
+Being _$BeingFromProto(GBeing sInstance) {
+  if (sInstance.hasAnimal()) {
+    return sInstance.animal.toAnimal();
+  }
+  throw UnimplementedError();
+}
 
 extension $BeingProtoExtension on Being {
   GBeing toProto() => _$BeingToProto(this);

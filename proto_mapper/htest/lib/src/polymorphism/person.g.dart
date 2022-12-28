@@ -24,28 +24,21 @@ class $PersonProtoMapper implements ProtoMapper<Person, GPerson> {
 GPerson _$PersonToProto(Person instance) {
   var proto = GPerson();
 
+  proto.fieldsOfSuperClass = $AnimalProtoMapper().toProto(instance);
+
   proto.name = instance.name;
   if (instance.description != null) {
     proto.description = StringValue(value: instance.description);
   }
 
-  proto.fieldsOfSuperClass = $AnimalProtoMapper().toProto(instance);
-
   return proto;
 }
 
-Person _$PersonFromProto(GPerson instance) {
-  final $super1 = instance.fieldsOfSuperClass;
-  final $super2 = $super1.fieldsOfSuperClass;
-
-  return Person(
-    name: instance.name,
-    description:
-        (instance.description.hasValue() ? instance.description.value : null),
-    height: $super1.height,
-    mass: $super2.mass,
-  );
-}
+Person _$PersonFromProto(GPerson instance) => Person(
+      name: instance.name,
+      description:
+          (instance.description.hasValue() ? instance.description.value : null),
+    );
 
 extension $PersonProtoExtension on Person {
   GPerson toProto() => _$PersonToProto(this);

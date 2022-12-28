@@ -318,6 +318,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
       fromProtoFieldBuffer.writeln('  ..$fromProtoMap');
     }
 
+    toProtoFieldBuffer.writeln(_createSuperFieldsOf(classElement));
     // assign the to proto field assignments
     for (var fieldDescriptor in fieldDescriptors) {
       final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
@@ -463,4 +464,23 @@ class RenderMapperBuffers {
     this.toKnownSubclasses,
     this.fromKnownSubclasses,
   });
+}
+
+String _createSuperFieldsOf(InterfaceElement classElement) {
+  if (classElement is! ClassElement) return '';
+  final superType = classElement.supertype;
+  if (superType == null) return '';
+
+  final tc = TypeChecker.fromRuntime(Proto);
+  final annotation = tc.firstAnnotationOf(superType.element);
+  if (annotation == null) return '';
+  // final protoReflected = ConstantReader(annotation).hydrateAnnotation();
+  // final fieldsOf = protoReflected.knownSubClasses.isEmpty ? '' : 'FieldsOf';
+
+  final superClassElement = superType.element.asClassElement();
+  final className = superClassElement.name;
+
+  final superFieldsOf =
+      '   proto.fieldsOfSuperClass = \$${className}ProtoMapper().toProto(instance);\n';
+  return superFieldsOf;
 }

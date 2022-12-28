@@ -24,20 +24,16 @@ class $AnimalProtoMapper implements ProtoMapper<Animal, GAnimal> {
 GAnimal _$AnimalToProto(Animal instance) {
   var proto = GAnimal();
 
+  proto.fieldsOfSuperClass = $BeingProtoMapper().toProto(instance).being;
+
   proto.height = instance.height;
-  proto.fieldsOfSuperClass = $BeingProtoMapper().toProto(instance);
 
   return proto;
 }
 
-Animal _$AnimalFromProto(GAnimal instance) {
-  final $super1 = instance.fieldsOfSuperClass;
-
-  return Animal(
-    height: instance.height,
-    mass: $super1.mass,
-  );
-}
+Animal _$AnimalFromProto(GAnimal instance) => Animal(
+      height: instance.height,
+    );
 
 extension $AnimalProtoExtension on Animal {
   GAnimal toProto() => _$AnimalToProto(this);
