@@ -238,7 +238,7 @@ message GListOfEmpty
 message GEncapsulatedFieldsClass
 {
 
-  string final_string = 1;
+  string finalString = 1;
 
 }   
 
@@ -326,7 +326,7 @@ message GBicycle
 {
   GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
 
-  bytes wheel_diamater = 2;
+  bytes wheelDiamater = 2;
 
 }   
 
@@ -342,7 +342,7 @@ message GCar
 {
   GFieldsOfVehicle fieldsOfSuperClass = 1;
 
-  int32 number_of_doors = 2;
+  int32 numberOfDoors = 2;
 
 }   
 
@@ -440,7 +440,7 @@ message GFieldsOfAircraft
 {
   GFieldsOfVehicle fieldsOfSuperClass = 6;
 
-  int32 service_ceiling = 3;
+  int32 serviceCeiling = 3;
 
 }
     
@@ -564,12 +564,12 @@ message GListOfKitchen
 message GChef
 {
 
-  GRecipe favorite_recipe = 2;
-  GKnife favorite_knife = 3;
-  GApplianceType favorite_appliance_type = 4;
-  repeated string favorite_words = 5;
+  GRecipe favoriteRecipe = 2;
+  GKnife favoriteKnife = 3;
+  GApplianceType favoriteApplianceType = 4;
+  repeated string favoriteWords = 5;
   Duration birthdate = 6;
-  Duration shelf_life = 7;
+  Duration shelfLife = 7;
 
 }   
 
@@ -600,7 +600,7 @@ message GKnifeMaster
 {
   GChef fieldsOfSuperClass = 1;
 
-  GKnife favorite_knife = 2;
+  GKnife favoriteKnife = 2;
 
 }   
 
@@ -671,8 +671,8 @@ message GListOfStarship
 message GPerson
 {
 
-  BoolValue bool_value = 1;
-  bytes dec_val = 2;
+  BoolValue boolValue = 1;
+  bytes decVal = 2;
 
 }   
 
@@ -853,9 +853,9 @@ message GListOfLeaf
     
         
 enum GApplianceType {
-  G_APPLIANCE_TYPE_HEAT = 0;
-  G_APPLIANCE_TYPE_COLD = 1;
-  G_APPLIANCE_TYPE_CUTLERY = 2;
+  heat = 0;
+  cold = 1;
+  cutlery = 2;
 }   
 
 message GApplianceType_Message {
@@ -865,10 +865,10 @@ message GApplianceType_Message {
 
         
 enum GRecipeTypes {
-  G_RECIPE_TYPES_COOK = 0;
-  G_RECIPE_TYPES_GRILL = 1;
-  G_RECIPE_TYPES_FRY = 2;
-  G_RECIPE_TYPES_STEW = 3;
+  cook = 0;
+  grill = 1;
+  fry = 2;
+  stew = 3;
 }   
 
 message GRecipeTypes_Message {
@@ -878,9 +878,9 @@ message GRecipeTypes_Message {
 
         
 enum GKnifeType {
-  G_KNIFE_TYPE_CHEFS_KNIFE = 0;
-  G_KNIFE_TYPE_PARING_KNIFE = 1;
-  G_KNIFE_TYPE_BREAD_KNIFE = 2;
+  chefsKnife = 0;
+  paringKnife = 1;
+  breadKnife = 2;
 }   
 
 message GKnifeType_Message {
@@ -890,10 +890,10 @@ message GKnifeType_Message {
 
         
 enum GChefType {
-  G_CHEF_TYPE_SENIOR_CHEF = 0;
-  G_CHEF_TYPE_SOUS_CHEF = 1;
-  G_CHEF_TYPE_PASTRY_CHEF = 2;
-  G_CHEF_TYPE_FISH_CHEF = 3;
+  seniorChef = 0;
+  sousChef = 1;
+  pastryChef = 2;
+  fishChef = 3;
 }   
 
 message GChefType_Message {
@@ -932,7 +932,7 @@ message G_GRecipeService_Count_Return {
 }
 
 message G_GRecipeService_CountNullable_Parameters {
-  bool return_null = 1;
+  bool returnNull = 1;
 }
 
 message G_GRecipeService_CountNullable_Return {
@@ -994,44 +994,44 @@ message G_GRecipeService_ReceiveStream_Return {
 }
 
 message G_GRecipeService_ReceiveLotsOfArgs_Parameters {
-  string p_string = 1;
-  int32 p_int = 2;
-  GRecipeTypes p_recipe_types = 3;
-  GRecipe p_recipe = 4;
-  repeated string p_list_strings = 5;
-  repeated int32 p_list_ints = 6;
-  repeated GRecipeTypes p_list_recipe_types = 7;
-  repeated GRecipe p_list_recipes = 8;
-  repeated string p_set_string = 9;
-  repeated int32 p_set_int = 10;
-  repeated GRecipeTypes p_set_recipe_types = 11;
-  repeated GRecipe p_set_recipe = 12;
-  repeated string p_iterable_string = 13;
-  repeated int32 p_iterable_int = 14;
-  repeated GRecipeTypes p_iterable_recipe_types = 15;
-  repeated GRecipe p_iterable_recipe = 16;
+  string pString = 1;
+  int32 pInt = 2;
+  GRecipeTypes pRecipeTypes = 3;
+  GRecipe pRecipe = 4;
+  repeated string pListStrings = 5;
+  repeated int32 pListInts = 6;
+  repeated GRecipeTypes pListRecipeTypes = 7;
+  repeated GRecipe pListRecipes = 8;
+  repeated string pSetString = 9;
+  repeated int32 pSetInt = 10;
+  repeated GRecipeTypes pSetRecipeTypes = 11;
+  repeated GRecipe pSetRecipe = 12;
+  repeated string pIterableString = 13;
+  repeated int32 pIterableInt = 14;
+  repeated GRecipeTypes pIterableRecipeTypes = 15;
+  repeated GRecipe pIterableRecipe = 16;
 }
 
 message G_GRecipeService_ReceiveLotsOfArgs_Return {
 }
 
 message G_GRecipeService_ReceiveLotsOfNullableArgs_Parameters {
-  StringValue p_string = 1;
-  Int32Value p_int = 2;
-  GRecipeTypes_Message p_recipe_types = 3;
-  GRecipe p_recipe = 4;
-  repeated string p_list_strings = 5;
-  repeated int32 p_list_ints = 6;
-  repeated GRecipeTypes p_list_recipe_types = 7;
-  repeated GRecipe p_list_recipes = 8;
-  repeated string p_set_string = 9;
-  repeated int32 p_set_int = 10;
-  repeated GRecipeTypes p_set_recipe_types = 11;
-  repeated GRecipe p_set_recipe = 12;
-  repeated string p_iterable_string = 13;
-  repeated int32 p_iterable_int = 14;
-  repeated GRecipeTypes p_iterable_recipe_types = 15;
-  repeated GRecipe p_iterable_recipe = 16;
+  StringValue pString = 1;
+  Int32Value pInt = 2;
+  GRecipeTypes_Message pRecipeTypes = 3;
+  GRecipe pRecipe = 4;
+  repeated string pListStrings = 5;
+  repeated int32 pListInts = 6;
+  repeated GRecipeTypes pListRecipeTypes = 7;
+  repeated GRecipe pListRecipes = 8;
+  repeated string pSetString = 9;
+  repeated int32 pSetInt = 10;
+  repeated GRecipeTypes pSetRecipeTypes = 11;
+  repeated GRecipe pSetRecipe = 12;
+  repeated string pIterableString = 13;
+  repeated int32 pIterableInt = 14;
+  repeated GRecipeTypes pIterableRecipeTypes = 15;
+  repeated GRecipe pIterableRecipe = 16;
 }
 
 message G_GRecipeService_ReceiveLotsOfNullableArgs_Return {

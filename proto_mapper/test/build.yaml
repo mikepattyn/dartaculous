@@ -5,7 +5,8 @@ targets:
       proto_generator:protoBuilder:
         options:
           useWellKnownTypes: false
-          packageName: squarealfa.nozard.techlog
+          useProtoFieldNamingConventions: true
+          packageName: com.company.project
           options: 
             - go_package = "./stubs"
 
