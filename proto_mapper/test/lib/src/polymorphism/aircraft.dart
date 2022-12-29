@@ -15,8 +15,14 @@ const knownSubClasses = {Airplane: 3, Rotorcraft: 4, Balloon: 5};
 abstract class Aircraft extends Vehicle implements Entity {
   @ProtoField(3)
   final int serviceCeiling;
+
+  @override
+  @ProtoField(4)
+  final String key;
+  
   Aircraft({
     required this.serviceCeiling,
     required int weight,
+    required this.key,
   }) : super(weight: weight);
 }

@@ -38,6 +38,7 @@ GCar _$CarToProto(Car instance) {
 Car _$CarFromProto(GCar instance) {
   return Car(
     numberOfDoors: instance.numberOfDoors,
+    weight: instance.fieldsOfSuperClass.weight,
   );
 }
 

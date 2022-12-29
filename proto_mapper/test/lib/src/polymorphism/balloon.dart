@@ -13,11 +13,15 @@ class Balloon implements Aircraft {
     required this.serviceCeiling,
   });
 
+  @ProtoField(2)
   @override
   final int weight;
+
+  @ProtoField(3)
   @override
   final String key;
 
+  @ProtoField(4)
   @override
   final int serviceCeiling;
 

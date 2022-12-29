@@ -32,6 +32,7 @@ GBicycle _$BicycleToProto(Bicycle instance) {
       $AbstractVehicleProtoMapper().toProto(instance).abstractVehicle;
 
   proto.wheelDiamater = instance.wheelDiamater.$toProtoBytes();
+  proto.key = instance.key;
 
   return proto;
 }
@@ -41,6 +42,7 @@ Bicycle _$BicycleFromProto(GBicycle instance) {
     wheelDiamater:
         $DecimalProtoExtension.$fromProtoBytes(instance.wheelDiamater),
     weight: instance.fieldsOfSuperClass.weight,
+    key: instance.key,
   );
 }
 

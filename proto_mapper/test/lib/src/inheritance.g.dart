@@ -70,7 +70,7 @@ class $TwigProtoMapper implements ProtoMapper<Twig, GTwig> {
 GTwig _$TwigToProto(Twig instance) {
   var proto = GTwig();
 
-  proto.fieldsOfSuperClass = $BranchProtoMapper().toProto(instance).branch;
+  proto.twig.fieldsOfSuperClass = $BranchProtoMapper().toProto(instance).branch;
 
   return proto;
 }

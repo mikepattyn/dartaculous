@@ -7,6 +7,7 @@ part 'scooter.g.dart';
 
 @Proto()
 class Scooter extends AbstractVehicle {
+  @ProtoField(2)
   @override
   final String key;
 

@@ -352,6 +352,9 @@ message GListOfAirplane
 message GBalloon
 {
 
+  int32 weight = 2;
+  string key = 3;
+  int32 service_ceiling = 4;
 
 }   
 
@@ -368,6 +371,7 @@ message GBicycle
   GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
 
   bytes wheel_diamater = 2;
+  string key = 3;
 
 }   
 
@@ -444,6 +448,7 @@ message GScooter
 {
   GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
 
+  string key = 2;
 
 }   
 
@@ -484,6 +489,7 @@ message GFieldsOfAircraft
   GFieldsOfVehicle fieldsOfSuperClass = 6;
 
   int32 service_ceiling = 3;
+  string key = 4;
 
 }
     
@@ -536,6 +542,7 @@ message GListOfRotorcraft
 message GFieldsOfVehicle
 {
 
+  int32 weight = 2;
 
 }
     

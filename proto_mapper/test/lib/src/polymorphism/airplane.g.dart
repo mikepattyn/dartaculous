@@ -38,8 +38,10 @@ GAirplane _$AirplaneToProto(Airplane instance) {
 
 Airplane _$AirplaneFromProto(GAirplane instance) {
   return Airplane(
+    weight: instance.fieldsOfSuperClass.fieldsOfSuperClass.weight,
     serviceCeiling: instance.fieldsOfSuperClass.serviceCeiling,
     wingspan: instance.wingspan,
+    key: instance.fieldsOfSuperClass.key,
   );
 }
 

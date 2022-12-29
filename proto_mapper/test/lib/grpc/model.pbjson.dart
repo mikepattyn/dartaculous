@@ -458,10 +458,15 @@ final $typed_data.Uint8List gListOfAirplaneDescriptor = $convert.base64Decode('C
 @$core.Deprecated('Use gBalloonDescriptor instead')
 const GBalloon$json = const {
   '1': 'GBalloon',
+  '2': const [
+    const {'1': 'weight', '3': 2, '4': 1, '5': 5, '10': 'weight'},
+    const {'1': 'key', '3': 3, '4': 1, '5': 9, '10': 'key'},
+    const {'1': 'service_ceiling', '3': 4, '4': 1, '5': 5, '10': 'serviceCeiling'},
+  ],
 };
 
 /// Descriptor for `GBalloon`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gBalloonDescriptor = $convert.base64Decode('CghHQmFsbG9vbg==');
+final $typed_data.Uint8List gBalloonDescriptor = $convert.base64Decode('CghHQmFsbG9vbhIWCgZ3ZWlnaHQYAiABKAVSBndlaWdodBIQCgNrZXkYAyABKAlSA2tleRInCg9zZXJ2aWNlX2NlaWxpbmcYBCABKAVSDnNlcnZpY2VDZWlsaW5n');
 @$core.Deprecated('Use gListOfBalloonDescriptor instead')
 const GListOfBalloon$json = const {
   '1': 'GListOfBalloon',
@@ -478,11 +483,12 @@ const GBicycle$json = const {
   '2': const [
     const {'1': 'fieldsOfSuperClass', '3': 1, '4': 1, '5': 11, '6': '.com.company.project.GFieldsOfAbstractVehicle', '10': 'fieldsOfSuperClass'},
     const {'1': 'wheel_diamater', '3': 2, '4': 1, '5': 12, '10': 'wheelDiamater'},
+    const {'1': 'key', '3': 3, '4': 1, '5': 9, '10': 'key'},
   ],
 };
 
 /// Descriptor for `GBicycle`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gBicycleDescriptor = $convert.base64Decode('CghHQmljeWNsZRJdChJmaWVsZHNPZlN1cGVyQ2xhc3MYASABKAsyLS5jb20uY29tcGFueS5wcm9qZWN0LkdGaWVsZHNPZkFic3RyYWN0VmVoaWNsZVISZmllbGRzT2ZTdXBlckNsYXNzEiUKDndoZWVsX2RpYW1hdGVyGAIgASgMUg13aGVlbERpYW1hdGVy');
+final $typed_data.Uint8List gBicycleDescriptor = $convert.base64Decode('CghHQmljeWNsZRJdChJmaWVsZHNPZlN1cGVyQ2xhc3MYASABKAsyLS5jb20uY29tcGFueS5wcm9qZWN0LkdGaWVsZHNPZkFic3RyYWN0VmVoaWNsZVISZmllbGRzT2ZTdXBlckNsYXNzEiUKDndoZWVsX2RpYW1hdGVyGAIgASgMUg13aGVlbERpYW1hdGVyEhAKA2tleRgDIAEoCVIDa2V5');
 @$core.Deprecated('Use gListOfBicycleDescriptor instead')
 const GListOfBicycle$json = const {
   '1': 'GListOfBicycle',
@@ -579,11 +585,12 @@ const GScooter$json = const {
   '1': 'GScooter',
   '2': const [
     const {'1': 'fieldsOfSuperClass', '3': 1, '4': 1, '5': 11, '6': '.com.company.project.GFieldsOfAbstractVehicle', '10': 'fieldsOfSuperClass'},
+    const {'1': 'key', '3': 2, '4': 1, '5': 9, '10': 'key'},
   ],
 };
 
 /// Descriptor for `GScooter`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gScooterDescriptor = $convert.base64Decode('CghHU2Nvb3RlchJdChJmaWVsZHNPZlN1cGVyQ2xhc3MYASABKAsyLS5jb20uY29tcGFueS5wcm9qZWN0LkdGaWVsZHNPZkFic3RyYWN0VmVoaWNsZVISZmllbGRzT2ZTdXBlckNsYXNz');
+final $typed_data.Uint8List gScooterDescriptor = $convert.base64Decode('CghHU2Nvb3RlchJdChJmaWVsZHNPZlN1cGVyQ2xhc3MYASABKAsyLS5jb20uY29tcGFueS5wcm9qZWN0LkdGaWVsZHNPZkFic3RyYWN0VmVoaWNsZVISZmllbGRzT2ZTdXBlckNsYXNzEhAKA2tleRgCIAEoCVIDa2V5');
 @$core.Deprecated('Use gListOfScooterDescriptor instead')
 const GListOfScooter$json = const {
   '1': 'GListOfScooter',
@@ -635,11 +642,12 @@ const GFieldsOfAircraft$json = const {
   '2': const [
     const {'1': 'fieldsOfSuperClass', '3': 6, '4': 1, '5': 11, '6': '.com.company.project.GFieldsOfVehicle', '10': 'fieldsOfSuperClass'},
     const {'1': 'service_ceiling', '3': 3, '4': 1, '5': 5, '10': 'serviceCeiling'},
+    const {'1': 'key', '3': 4, '4': 1, '5': 9, '10': 'key'},
   ],
 };
 
 /// Descriptor for `GFieldsOfAircraft`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gFieldsOfAircraftDescriptor = $convert.base64Decode('ChFHRmllbGRzT2ZBaXJjcmFmdBJVChJmaWVsZHNPZlN1cGVyQ2xhc3MYBiABKAsyJS5jb20uY29tcGFueS5wcm9qZWN0LkdGaWVsZHNPZlZlaGljbGVSEmZpZWxkc09mU3VwZXJDbGFzcxInCg9zZXJ2aWNlX2NlaWxpbmcYAyABKAVSDnNlcnZpY2VDZWlsaW5n');
+final $typed_data.Uint8List gFieldsOfAircraftDescriptor = $convert.base64Decode('ChFHRmllbGRzT2ZBaXJjcmFmdBJVChJmaWVsZHNPZlN1cGVyQ2xhc3MYBiABKAsyJS5jb20uY29tcGFueS5wcm9qZWN0LkdGaWVsZHNPZlZlaGljbGVSEmZpZWxkc09mU3VwZXJDbGFzcxInCg9zZXJ2aWNlX2NlaWxpbmcYAyABKAVSDnNlcnZpY2VDZWlsaW5nEhAKA2tleRgEIAEoCVIDa2V5');
 @$core.Deprecated('Use gAircraftDescriptor instead')
 const GAircraft$json = const {
   '1': 'GAircraft',
@@ -704,10 +712,13 @@ final $typed_data.Uint8List gListOfRotorcraftDescriptor = $convert.base64Decode(
 @$core.Deprecated('Use gFieldsOfVehicleDescriptor instead')
 const GFieldsOfVehicle$json = const {
   '1': 'GFieldsOfVehicle',
+  '2': const [
+    const {'1': 'weight', '3': 2, '4': 1, '5': 5, '10': 'weight'},
+  ],
 };
 
 /// Descriptor for `GFieldsOfVehicle`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gFieldsOfVehicleDescriptor = $convert.base64Decode('ChBHRmllbGRzT2ZWZWhpY2xl');
+final $typed_data.Uint8List gFieldsOfVehicleDescriptor = $convert.base64Decode('ChBHRmllbGRzT2ZWZWhpY2xlEhYKBndlaWdodBgCIAEoBVIGd2VpZ2h0');
 @$core.Deprecated('Use gVehicleDescriptor instead')
 const GVehicle$json = const {
   '1': 'GVehicle',

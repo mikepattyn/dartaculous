@@ -31,12 +31,15 @@ GScooter _$ScooterToProto(Scooter instance) {
   proto.fieldsOfSuperClass =
       $AbstractVehicleProtoMapper().toProto(instance).abstractVehicle;
 
+  proto.key = instance.key;
+
   return proto;
 }
 
 Scooter _$ScooterFromProto(GScooter instance) {
   return Scooter(
     weight: instance.fieldsOfSuperClass.weight,
+    key: instance.key,
   );
 }
 

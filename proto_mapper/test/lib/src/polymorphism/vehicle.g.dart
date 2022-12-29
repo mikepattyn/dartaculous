@@ -28,11 +28,15 @@ class $VehicleProtoMapper implements ProtoMapper<Vehicle, GVehicle> {
 GVehicle _$VehicleToProto(Vehicle instance) {
   var proto = GVehicle();
 
+  proto.vehicle.weight = instance.weight;
+
   return proto;
 }
 
 Vehicle _$VehicleFromProto(GVehicle instance) {
-  return Vehicle();
+  return Vehicle(
+    weight: instance.weight,
+  );
 }
 
 extension $VehicleProtoExtension on Vehicle {

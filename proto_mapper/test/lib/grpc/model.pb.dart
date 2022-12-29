@@ -2049,11 +2049,30 @@ class GListOfAirplane extends $pb.GeneratedMessage {
 
 class GBalloon extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GBalloon', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'weight', $pb.PbFieldType.O3)
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
+    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serviceCeiling', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   GBalloon._() : super();
-  factory GBalloon() => create();
+  factory GBalloon({
+    $core.int? weight,
+    $core.String? key,
+    $core.int? serviceCeiling,
+  }) {
+    final _result = create();
+    if (weight != null) {
+      _result.weight = weight;
+    }
+    if (key != null) {
+      _result.key = key;
+    }
+    if (serviceCeiling != null) {
+      _result.serviceCeiling = serviceCeiling;
+    }
+    return _result;
+  }
   factory GBalloon.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GBalloon.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -2074,6 +2093,33 @@ class GBalloon extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GBalloon getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GBalloon>(create);
   static GBalloon? _defaultInstance;
+
+  @$pb.TagNumber(2)
+  $core.int get weight => $_getIZ(0);
+  @$pb.TagNumber(2)
+  set weight($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasWeight() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearWeight() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get key => $_getSZ(1);
+  @$pb.TagNumber(3)
+  set key($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasKey() => $_has(1);
+  @$pb.TagNumber(3)
+  void clearKey() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get serviceCeiling => $_getIZ(2);
+  @$pb.TagNumber(4)
+  set serviceCeiling($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasServiceCeiling() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearServiceCeiling() => clearField(4);
 }
 
 class GListOfBalloon extends $pb.GeneratedMessage {
@@ -2121,6 +2167,7 @@ class GBicycle extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GBicycle', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..aOM<GFieldsOfAbstractVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAbstractVehicle.create)
     ..a<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wheelDiamater', $pb.PbFieldType.OY)
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
     ..hasRequiredFields = false
   ;
 
@@ -2128,6 +2175,7 @@ class GBicycle extends $pb.GeneratedMessage {
   factory GBicycle({
     GFieldsOfAbstractVehicle? fieldsOfSuperClass,
     $core.List<$core.int>? wheelDiamater,
+    $core.String? key,
   }) {
     final _result = create();
     if (fieldsOfSuperClass != null) {
@@ -2135,6 +2183,9 @@ class GBicycle extends $pb.GeneratedMessage {
     }
     if (wheelDiamater != null) {
       _result.wheelDiamater = wheelDiamater;
+    }
+    if (key != null) {
+      _result.key = key;
     }
     return _result;
   }
@@ -2178,6 +2229,15 @@ class GBicycle extends $pb.GeneratedMessage {
   $core.bool hasWheelDiamater() => $_has(1);
   @$pb.TagNumber(2)
   void clearWheelDiamater() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get key => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set key($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasKey() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearKey() => clearField(3);
 }
 
 class GListOfBicycle extends $pb.GeneratedMessage {
@@ -2596,16 +2656,21 @@ class GListOfHelicopter extends $pb.GeneratedMessage {
 class GScooter extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GScooter', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..aOM<GFieldsOfAbstractVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAbstractVehicle.create)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
     ..hasRequiredFields = false
   ;
 
   GScooter._() : super();
   factory GScooter({
     GFieldsOfAbstractVehicle? fieldsOfSuperClass,
+    $core.String? key,
   }) {
     final _result = create();
     if (fieldsOfSuperClass != null) {
       _result.fieldsOfSuperClass = fieldsOfSuperClass;
+    }
+    if (key != null) {
+      _result.key = key;
     }
     return _result;
   }
@@ -2640,6 +2705,15 @@ class GScooter extends $pb.GeneratedMessage {
   void clearFieldsOfSuperClass() => clearField(1);
   @$pb.TagNumber(1)
   GFieldsOfAbstractVehicle ensureFieldsOfSuperClass() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get key => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set key($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasKey() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearKey() => clearField(2);
 }
 
 class GListOfScooter extends $pb.GeneratedMessage {
@@ -2872,6 +2946,7 @@ class GListOfAbstractVehicle extends $pb.GeneratedMessage {
 class GFieldsOfAircraft extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfAircraft', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serviceCeiling', $pb.PbFieldType.O3)
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
     ..aOM<GFieldsOfVehicle>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfVehicle.create)
     ..hasRequiredFields = false
   ;
@@ -2879,11 +2954,15 @@ class GFieldsOfAircraft extends $pb.GeneratedMessage {
   GFieldsOfAircraft._() : super();
   factory GFieldsOfAircraft({
     $core.int? serviceCeiling,
+    $core.String? key,
     GFieldsOfVehicle? fieldsOfSuperClass,
   }) {
     final _result = create();
     if (serviceCeiling != null) {
       _result.serviceCeiling = serviceCeiling;
+    }
+    if (key != null) {
+      _result.key = key;
     }
     if (fieldsOfSuperClass != null) {
       _result.fieldsOfSuperClass = fieldsOfSuperClass;
@@ -2920,16 +2999,25 @@ class GFieldsOfAircraft extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearServiceCeiling() => clearField(3);
 
+  @$pb.TagNumber(4)
+  $core.String get key => $_getSZ(1);
+  @$pb.TagNumber(4)
+  set key($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasKey() => $_has(1);
+  @$pb.TagNumber(4)
+  void clearKey() => clearField(4);
+
   @$pb.TagNumber(6)
-  GFieldsOfVehicle get fieldsOfSuperClass => $_getN(1);
+  GFieldsOfVehicle get fieldsOfSuperClass => $_getN(2);
   @$pb.TagNumber(6)
   set fieldsOfSuperClass(GFieldsOfVehicle v) { setField(6, v); }
   @$pb.TagNumber(6)
-  $core.bool hasFieldsOfSuperClass() => $_has(1);
+  $core.bool hasFieldsOfSuperClass() => $_has(2);
   @$pb.TagNumber(6)
   void clearFieldsOfSuperClass() => clearField(6);
   @$pb.TagNumber(6)
-  GFieldsOfVehicle ensureFieldsOfSuperClass() => $_ensure(1);
+  GFieldsOfVehicle ensureFieldsOfSuperClass() => $_ensure(2);
 }
 
 enum GAircraft_Props {
@@ -3279,11 +3367,20 @@ class GListOfRotorcraft extends $pb.GeneratedMessage {
 
 class GFieldsOfVehicle extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfVehicle', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'weight', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   GFieldsOfVehicle._() : super();
-  factory GFieldsOfVehicle() => create();
+  factory GFieldsOfVehicle({
+    $core.int? weight,
+  }) {
+    final _result = create();
+    if (weight != null) {
+      _result.weight = weight;
+    }
+    return _result;
+  }
   factory GFieldsOfVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GFieldsOfVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -3304,6 +3401,15 @@ class GFieldsOfVehicle extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GFieldsOfVehicle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GFieldsOfVehicle>(create);
   static GFieldsOfVehicle? _defaultInstance;
+
+  @$pb.TagNumber(2)
+  $core.int get weight => $_getIZ(0);
+  @$pb.TagNumber(2)
+  set weight($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasWeight() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearWeight() => clearField(2);
 }
 
 enum GVehicle_Props {

@@ -7,7 +7,7 @@ mixin FieldCodeGeneratorIdentifiers {
   String get fromProtoMap;
 
   String get fieldName => fieldDescriptor.displayName;
-  String get ref => refName.isEmpty ? '' : '$refName.';
+  String get ref => protoRefName.isEmpty ? '' : '$refName.';
   String get protoRef => protoRefName.isEmpty ? '' : '$protoRefName.';
   String get protoFieldName => fieldDescriptor.protoFieldName;
 }

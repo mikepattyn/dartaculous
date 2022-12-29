@@ -28,11 +28,19 @@ class $BalloonProtoMapper implements ProtoMapper<Balloon, GBalloon> {
 GBalloon _$BalloonToProto(Balloon instance) {
   var proto = GBalloon();
 
+  proto.weight = instance.weight;
+  proto.key = instance.key;
+  proto.serviceCeiling = instance.serviceCeiling;
+
   return proto;
 }
 
 Balloon _$BalloonFromProto(GBalloon instance) {
-  return Balloon();
+  return Balloon(
+    weight: instance.weight,
+    key: instance.key,
+    serviceCeiling: instance.serviceCeiling,
+  );
 }
 
 extension $BalloonProtoExtension on Balloon {

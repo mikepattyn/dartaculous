@@ -38,8 +38,11 @@ GGyrocopter _$GyrocopterToProto(Gyrocopter instance) {
 
 Gyrocopter _$GyrocopterFromProto(GGyrocopter instance) {
   return Gyrocopter(
+    weight: instance
+        .fieldsOfSuperClass.fieldsOfSuperClass.fieldsOfSuperClass.weight,
     serviceCeiling:
         instance.fieldsOfSuperClass.fieldsOfSuperClass.serviceCeiling,
+    key: instance.fieldsOfSuperClass.fieldsOfSuperClass.key,
   );
 }
 

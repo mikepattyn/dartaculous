@@ -38,8 +38,11 @@ GHelicopter _$HelicopterToProto(Helicopter instance) {
 
 Helicopter _$HelicopterFromProto(GHelicopter instance) {
   return Helicopter(
+    weight: instance
+        .fieldsOfSuperClass.fieldsOfSuperClass.fieldsOfSuperClass.weight,
     serviceCeiling:
         instance.fieldsOfSuperClass.fieldsOfSuperClass.serviceCeiling,
+    key: instance.fieldsOfSuperClass.fieldsOfSuperClass.key,
   );
 }
 

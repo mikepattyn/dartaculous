@@ -9,12 +9,14 @@ class FieldDescriptor extends FieldDescriptorBase {
   final Proto proto;
   final ProtoField protoField;
   final String refName;
+  final String protoRefName;
 
   FieldDescriptor({
     required this.proto,
     required this.config,
     required this.protoField,
     required this.refName,
+    required this.protoRefName,
     required String displayName,
     required String name,
     required bool isFinal,
@@ -36,6 +38,7 @@ class FieldDescriptor extends FieldDescriptorBase {
     required this.protoField,
     required this.config,
     required this.refName,
+    required this.protoRefName,
   }) : super.fromFieldElement(fieldElement);
 
   String get prefix => config.prefix;

@@ -14,6 +14,7 @@ extension InterfaceElementExtensions on InterfaceElement {
     required Proto annotation,
     required Config config,
     required String refName,
+    required String protoRefName,
   }) {
     final fieldSet = getSortedFieldSet(includeInherited: false);
     final fieldDescriptors = <FieldDescriptor>[];
@@ -30,6 +31,7 @@ extension InterfaceElementExtensions on InterfaceElement {
         proto: protoReflected?.proto ?? annotation,
         protoField: protoField,
         refName: refName,
+        protoRefName: protoRefName,
         
       );
       fieldDescriptors.add(fd);

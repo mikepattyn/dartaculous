@@ -10,6 +10,8 @@ part 'bicycle.g.dart';
 class Bicycle extends AbstractVehicle {
   @ProtoField(2)
   final Decimal wheelDiamater;
+
+  @ProtoField(3)
   @override
   final String key;
 

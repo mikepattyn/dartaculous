@@ -11,14 +11,11 @@ class Airplane extends Aircraft {
     required int weight,
     required int serviceCeiling,
     required this.wingspan,
-    required this.key,
-  }) : super(weight: weight, serviceCeiling: serviceCeiling);
+    required String key,
+  }) : super(weight: weight, serviceCeiling: serviceCeiling, key: key);
 
   @ProtoField(2)
   final int wingspan;
-
-  @override
-  final String key;
 
   @override
   bool operator ==(Object other) {

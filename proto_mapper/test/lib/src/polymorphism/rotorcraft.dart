@@ -14,9 +14,10 @@ abstract class Rotorcraft extends Aircraft {
   Rotorcraft({
     required int weight,
     required int serviceCeiling,
-    required this.key,
-  }) : super(weight: weight, serviceCeiling: serviceCeiling);
-
-  @override
-  final String key;
+    required String key,
+  }) : super(
+          weight: weight,
+          serviceCeiling: serviceCeiling,
+          key: key,
+        );
 }

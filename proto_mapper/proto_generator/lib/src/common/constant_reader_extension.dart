@@ -7,10 +7,6 @@ extension ConstantReaderExtension on ConstantReader {
   ProtoReflected hydrateAnnotation() {
     final ownFieldsNumber = read('ownFieldsNumber').intValue;
     final superFieldsNumber = read('superFieldsNumber').intValue;
-    final proto = Proto(
-      ownFieldsNumber: ownFieldsNumber,
-      superFieldsNumber: superFieldsNumber,
-    );
 
     final kscReader = read('knownSubClasses');
     final kscs = kscReader.mapValue.map(
@@ -19,6 +15,14 @@ extension ConstantReaderExtension on ConstantReader {
         final v = value!.toIntValue()!;
         return MapEntry<DartType, int>(k, v);
       },
+    );
+
+    final proto = Proto(
+      ownFieldsNumber: ownFieldsNumber,
+      superFieldsNumber: superFieldsNumber,
+      knownSubClasses: kscs.map(
+        (key, value) => MapEntry(key.runtimeType, value),
+      ),
     );
 
     final ret = ProtoReflected(proto, kscs);
