@@ -15,6 +15,8 @@ class $CarProtoMapper implements ProtoMapper<Car, GCar> {
   @override
   GCar toProto(Car entity) => _$CarToProto(entity);
 
+  GCar toFieldsOfProto(Car entity) => _$CarToProto(entity);
+
   Car fromJson(String json) => _$CarFromProto(GCar.fromJson(json));
   String toJson(Car entity) => _$CarToProto(entity).writeToJson();
 
@@ -28,17 +30,18 @@ class $CarProtoMapper implements ProtoMapper<Car, GCar> {
 GCar _$CarToProto(Car instance) {
   var proto = GCar();
 
-  proto.fieldsOfSuperClass = $VehicleProtoMapper().toProto(instance).vehicle;
+  proto.fieldsOfSuperClass =
+      const $VehicleProtoMapper().toFieldsOfProto(instance);
 
   proto.numberOfDoors = instance.numberOfDoors;
 
   return proto;
 }
 
-Car _$CarFromProto(GCar instance) {
+Car _$CarFromProto(GCar proto) {
   return Car(
-    numberOfDoors: instance.numberOfDoors,
-    weight: instance.fieldsOfSuperClass.weight,
+    numberOfDoors: proto.numberOfDoors,
+    weight: proto.fieldsOfSuperClass.weight,
   );
 }
 

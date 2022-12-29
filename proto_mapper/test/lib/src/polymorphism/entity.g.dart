@@ -15,6 +15,8 @@ class $EntityProtoMapper implements ProtoMapper<Entity, GEntity> {
   @override
   GEntity toProto(Entity entity) => _$EntityToProto(entity);
 
+  GEntity toFieldsOfProto(Entity entity) => _$EntityToProto(entity);
+
   Entity fromJson(String json) => _$EntityFromProto(GEntity.fromJson(json));
   String toJson(Entity entity) => _$EntityToProto(entity).writeToJson();
 
@@ -33,9 +35,9 @@ GEntity _$EntityToProto(Entity instance) {
   return proto;
 }
 
-Entity _$EntityFromProto(GEntity instance) {
+Entity _$EntityFromProto(GEntity proto) {
   return Entity(
-    key: instance.key,
+    key: proto.key,
   );
 }
 

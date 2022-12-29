@@ -15,6 +15,8 @@ class $ComponentProtoMapper implements ProtoMapper<Component, GComponent> {
   @override
   GComponent toProto(Component entity) => _$ComponentToProto(entity);
 
+  GComponent toFieldsOfProto(Component entity) => _$ComponentToProto(entity);
+
   Component fromJson(String json) =>
       _$ComponentFromProto(GComponent.fromJson(json));
   String toJson(Component entity) => _$ComponentToProto(entity).writeToJson();
@@ -34,9 +36,9 @@ GComponent _$ComponentToProto(Component instance) {
   return proto;
 }
 
-Component _$ComponentFromProto(GComponent instance) {
+Component _$ComponentFromProto(GComponent proto) {
   return Component(
-    description: instance.description,
+    description: proto.description,
   );
 }
 

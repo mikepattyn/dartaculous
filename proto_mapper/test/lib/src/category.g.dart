@@ -15,6 +15,8 @@ class $CategoryProtoMapper implements ProtoMapper<Category, GCategory> {
   @override
   GCategory toProto(Category entity) => _$CategoryToProto(entity);
 
+  GCategory toFieldsOfProto(Category entity) => _$CategoryToProto(entity);
+
   Category fromJson(String json) =>
       _$CategoryFromProto(GCategory.fromJson(json));
   String toJson(Category entity) => _$CategoryToProto(entity).writeToJson();
@@ -47,18 +49,16 @@ GCategory _$CategoryToProto(Category instance) {
   return proto;
 }
 
-Category _$CategoryFromProto(GCategory instance) {
+Category _$CategoryFromProto(GCategory proto) {
   return Category(
-    title: instance.title,
-    mainComponent:
-        const $ComponentProtoMapper().fromProto(instance.mainComponent),
-    otherComponents: List<Component>.unmodifiable(instance.otherComponents
+    title: proto.title,
+    mainComponent: const $ComponentProtoMapper().fromProto(proto.mainComponent),
+    otherComponents: List<Component>.unmodifiable(proto.otherComponents
         .map((e) => const $ComponentProtoMapper().fromProto(e))),
-    alternativeComponent: (instance.hasAlternativeComponent()
-        ? const $ComponentProtoMapper().fromProto(instance.alternativeComponent)
+    alternativeComponent: (proto.hasAlternativeComponent()
+        ? const $ComponentProtoMapper().fromProto(proto.alternativeComponent)
         : null),
-    secondaryComponents: List<Component>.unmodifiable(instance
-        .secondaryComponents
+    secondaryComponents: List<Component>.unmodifiable(proto.secondaryComponents
         .map((e) => const $ComponentProtoMapper().fromProto(e))),
   );
 }

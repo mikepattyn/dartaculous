@@ -15,6 +15,9 @@ class $AircraftProtoMapper implements ProtoMapper<Aircraft, GAircraft> {
   @override
   GAircraft toProto(Aircraft entity) => _$AircraftToProto(entity);
 
+  GFieldsOfAircraft toFieldsOfProto(Aircraft entity) =>
+      _$AircraftToFieldsOfProto(entity);
+
   Aircraft fromJson(String json) =>
       _$AircraftFromProto(GAircraft.fromJson(json));
   String toJson(Aircraft entity) => _$AircraftToProto(entity).writeToJson();
@@ -26,11 +29,39 @@ class $AircraftProtoMapper implements ProtoMapper<Aircraft, GAircraft> {
       GAircraft.fromJson(utf8.decode(base64Decode(base64Proto))).toAircraft();
 }
 
+GFieldsOfAircraft _$AircraftToFieldsOfProto(Aircraft instance) {
+  final proto = GFieldsOfAircraft();
+  proto.serviceCeiling = instance.serviceCeiling;
+  proto.key = instance.key;
+
+  return proto;
+}
+
 GAircraft _$AircraftToProto(Aircraft instance) {
+  var proto = GAircraft();
+
+  if (instance is Airplane) {
+    proto.airplane = (const $AirplaneProtoMapper()).toProto(instance);
+    return proto;
+  }
+
+  if (instance is Balloon) {
+    proto.balloon = (const $BalloonProtoMapper()).toProto(instance);
+    return proto;
+  }
+
   throw UnimplementedError();
 }
 
-Aircraft _$AircraftFromProto(GAircraft instance) {
+Aircraft _$AircraftFromProto(GAircraft sInstance) {
+  if (sInstance.hasAirplane()) {
+    return sInstance.airplane.toAirplane();
+  }
+
+  if (sInstance.hasBalloon()) {
+    return sInstance.balloon.toBalloon();
+  }
+
   throw UnimplementedError();
 }
 

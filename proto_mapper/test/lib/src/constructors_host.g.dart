@@ -18,6 +18,9 @@ class $ConstructObject1ProtoMapper
   GConstructObject1 toProto(ConstructObject1 entity) =>
       _$ConstructObject1ToProto(entity);
 
+  GConstructObject1 toFieldsOfProto(ConstructObject1 entity) =>
+      _$ConstructObject1ToProto(entity);
+
   ConstructObject1 fromJson(String json) =>
       _$ConstructObject1FromProto(GConstructObject1.fromJson(json));
   String toJson(ConstructObject1 entity) =>
@@ -40,10 +43,10 @@ GConstructObject1 _$ConstructObject1ToProto(ConstructObject1 instance) {
   return proto;
 }
 
-ConstructObject1 _$ConstructObject1FromProto(GConstructObject1 instance) {
+ConstructObject1 _$ConstructObject1FromProto(GConstructObject1 proto) {
   return ConstructObject1()
-    ..name = instance.name
-    ..number = instance.number;
+    ..name = proto.name
+    ..number = proto.number;
 }
 
 extension $ConstructObject1ProtoExtension on ConstructObject1 {
@@ -72,6 +75,9 @@ class $ConstructObject2ProtoMapper
   GConstructObject2 toProto(ConstructObject2 entity) =>
       _$ConstructObject2ToProto(entity);
 
+  GConstructObject2 toFieldsOfProto(ConstructObject2 entity) =>
+      _$ConstructObject2ToProto(entity);
+
   ConstructObject2 fromJson(String json) =>
       _$ConstructObject2FromProto(GConstructObject2.fromJson(json));
   String toJson(ConstructObject2 entity) =>
@@ -94,10 +100,10 @@ GConstructObject2 _$ConstructObject2ToProto(ConstructObject2 instance) {
   return proto;
 }
 
-ConstructObject2 _$ConstructObject2FromProto(GConstructObject2 instance) {
+ConstructObject2 _$ConstructObject2FromProto(GConstructObject2 proto) {
   return ConstructObject2(
-    instance.name,
-    instance.number,
+    proto.name,
+    proto.number,
   );
 }
 
@@ -127,6 +133,9 @@ class $ConstructObject3ProtoMapper
   GConstructObject3 toProto(ConstructObject3 entity) =>
       _$ConstructObject3ToProto(entity);
 
+  GConstructObject3 toFieldsOfProto(ConstructObject3 entity) =>
+      _$ConstructObject3ToProto(entity);
+
   ConstructObject3 fromJson(String json) =>
       _$ConstructObject3FromProto(GConstructObject3.fromJson(json));
   String toJson(ConstructObject3 entity) =>
@@ -149,10 +158,10 @@ GConstructObject3 _$ConstructObject3ToProto(ConstructObject3 instance) {
   return proto;
 }
 
-ConstructObject3 _$ConstructObject3FromProto(GConstructObject3 instance) {
+ConstructObject3 _$ConstructObject3FromProto(GConstructObject3 proto) {
   return ConstructObject3(
-    instance.name,
-  )..number = instance.number;
+    proto.name,
+  )..number = proto.number;
 }
 
 extension $ConstructObject3ProtoExtension on ConstructObject3 {
@@ -181,6 +190,9 @@ class $ConstructObject4ProtoMapper
   GConstructObject4 toProto(ConstructObject4 entity) =>
       _$ConstructObject4ToProto(entity);
 
+  GConstructObject4 toFieldsOfProto(ConstructObject4 entity) =>
+      _$ConstructObject4ToProto(entity);
+
   ConstructObject4 fromJson(String json) =>
       _$ConstructObject4FromProto(GConstructObject4.fromJson(json));
   String toJson(ConstructObject4 entity) =>
@@ -203,10 +215,10 @@ GConstructObject4 _$ConstructObject4ToProto(ConstructObject4 instance) {
   return proto;
 }
 
-ConstructObject4 _$ConstructObject4FromProto(GConstructObject4 instance) {
+ConstructObject4 _$ConstructObject4FromProto(GConstructObject4 proto) {
   return ConstructObject4(
-    name: instance.name,
-  )..number = instance.number;
+    name: proto.name,
+  )..number = proto.number;
 }
 
 extension $ConstructObject4ProtoExtension on ConstructObject4 {
@@ -235,6 +247,9 @@ class $ConstructObject5ProtoMapper
   GConstructObject5 toProto(ConstructObject5 entity) =>
       _$ConstructObject5ToProto(entity);
 
+  GConstructObject5 toFieldsOfProto(ConstructObject5 entity) =>
+      _$ConstructObject5ToProto(entity);
+
   ConstructObject5 fromJson(String json) =>
       _$ConstructObject5FromProto(GConstructObject5.fromJson(json));
   String toJson(ConstructObject5 entity) =>
@@ -257,10 +272,10 @@ GConstructObject5 _$ConstructObject5ToProto(ConstructObject5 instance) {
   return proto;
 }
 
-ConstructObject5 _$ConstructObject5FromProto(GConstructObject5 instance) {
+ConstructObject5 _$ConstructObject5FromProto(GConstructObject5 proto) {
   return ConstructObject5.name(
-    instance.name,
-    instance.number,
+    proto.name,
+    proto.number,
   );
 }
 
@@ -290,6 +305,9 @@ class $ConstructObject6ProtoMapper
   GConstructObject6 toProto(ConstructObject6 entity) =>
       _$ConstructObject6ToProto(entity);
 
+  GConstructObject6 toFieldsOfProto(ConstructObject6 entity) =>
+      _$ConstructObject6ToProto(entity);
+
   ConstructObject6 fromJson(String json) =>
       _$ConstructObject6FromProto(GConstructObject6.fromJson(json));
   String toJson(ConstructObject6 entity) =>
@@ -317,10 +335,10 @@ GConstructObject6 _$ConstructObject6ToProto(ConstructObject6 instance) {
   return proto;
 }
 
-ConstructObject6 _$ConstructObject6FromProto(GConstructObject6 instance) {
+ConstructObject6 _$ConstructObject6FromProto(GConstructObject6 proto) {
   return ConstructObject6(
-    name: (instance.name.hasValue() ? instance.name.value : null),
-  )..number = (instance.number.hasValue() ? instance.number.value : null);
+    name: (proto.name.hasValue() ? proto.name.value : null),
+  )..number = (proto.number.hasValue() ? proto.number.value : null);
 }
 
 extension $ConstructObject6ProtoExtension on ConstructObject6 {
@@ -349,6 +367,9 @@ class $ConstructObject7ProtoMapper
   GConstructObject7 toProto(ConstructObject7 entity) =>
       _$ConstructObject7ToProto(entity);
 
+  GConstructObject7 toFieldsOfProto(ConstructObject7 entity) =>
+      _$ConstructObject7ToProto(entity);
+
   ConstructObject7 fromJson(String json) =>
       _$ConstructObject7FromProto(GConstructObject7.fromJson(json));
   String toJson(ConstructObject7 entity) =>
@@ -374,10 +395,10 @@ GConstructObject7 _$ConstructObject7ToProto(ConstructObject7 instance) {
   return proto;
 }
 
-ConstructObject7 _$ConstructObject7FromProto(GConstructObject7 instance) {
+ConstructObject7 _$ConstructObject7FromProto(GConstructObject7 proto) {
   return ConstructObject7.name(
-    instance.name,
-    (instance.number.hasValue() ? instance.number.value : null),
+    proto.name,
+    (proto.number.hasValue() ? proto.number.value : null),
   );
 }
 
@@ -407,6 +428,9 @@ class $ConstructObject8ProtoMapper
   GConstructObject8 toProto(ConstructObject8 entity) =>
       _$ConstructObject8ToProto(entity);
 
+  GConstructObject8 toFieldsOfProto(ConstructObject8 entity) =>
+      _$ConstructObject8ToProto(entity);
+
   ConstructObject8 fromJson(String json) =>
       _$ConstructObject8FromProto(GConstructObject8.fromJson(json));
   String toJson(ConstructObject8 entity) =>
@@ -432,9 +456,9 @@ GConstructObject8 _$ConstructObject8ToProto(ConstructObject8 instance) {
   return proto;
 }
 
-ConstructObject8 _$ConstructObject8FromProto(GConstructObject8 instance) {
+ConstructObject8 _$ConstructObject8FromProto(GConstructObject8 proto) {
   return ConstructObject8.incomplete(
-    instance.name,
+    proto.name,
   );
 }
 

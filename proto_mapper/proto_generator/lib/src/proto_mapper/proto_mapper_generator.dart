@@ -50,9 +50,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
           annotation: protoReflected.proto,
           config: config,
           refName: 'instance',
-          protoRefName: protoReflected.knownSubClasses.isEmpty
-              ? 'proto'
-              : 'proto.${classElement.name.camelCase}',
+          protoRefName: 'proto',
         )
         .toList();
     final superFieldDescriptors = <FieldDescriptor>[];
@@ -101,8 +99,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
     final constructorName =
         constructor.name.isNotEmpty ? ".${constructor.name}" : constructor.name;
 
-    // final toKnownSubClasses = _generateToKnownSubclassses(protoReflected);
-    // final fromKnownSubClasses = _generateFromKnownSubclasses(protoReflected);
+    final toKnownSubClasses = _generateToKnownSubclassses(protoReflected);
+    final fromKnownSubClasses = _generateFromKnownSubclasses(protoReflected);
 
     final renderParms = RenderMapperBuffers(
       superRefs: superRefs,
@@ -110,8 +108,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
       toProtoFieldBuffer: toProtoFieldBuffer.toString(),
       fromProtoFieldBuffer: fromProtoFieldBuffer.toString(),
       constructorFieldBuffer: constructorFieldBuffer.toString(),
-      // toKnownSubclasses: toKnownSubClasses,
-      // fromKnownSubclasses: fromKnownSubClasses,
+      toKnownSubclasses: toKnownSubClasses,
+      fromKnownSubclasses: fromKnownSubClasses,
     );
     return renderParms;
   }
@@ -123,6 +121,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
   ) {
     var superType = classElement.supertype;
     var ref = 'instance.fieldsOfSuperClass';
+    var protoRef = 'proto.fieldsOfSuperClass';
 
     while (superType != null) {
       final ce = superType.element;
@@ -132,10 +131,11 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
         annotation: ceAnnot.proto,
         config: config,
         refName: ref,
-        protoRefName: 'proto',
+        protoRefName: protoRef,
       );
       fieldDescriptors.addAll(fds);
       ref = '$ref.fieldsOfSuperClass';
+      protoRef = '$protoRef.fieldsOfSuperClass';
       superType = ce.supertype;
     }
   }
@@ -196,24 +196,24 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
     return '${fieldDescriptor.displayName}: ${fieldCodeGenerator.fromProtoMap}, ';
   }
 
-  // String? _generateToKnownSubclassses(MapProtoReflected mapProtoReflected) {
-  //   final kscs =
-  //       getKnownSubclasses(mapProtoReflected.knownSubClasses, MapProto);
-  //   if (kscs.isEmpty) return null;
+  String? _generateToKnownSubclassses(ProtoReflected protoReflected) {
+    final kscs =
+        getKnownSubclasses(protoReflected.knownSubClasses.keys.toList(), Proto);
+    if (kscs.isEmpty) return null;
 
-  //   final ret = kscs.map((ksc) {
-  //     final className = ksc.getDisplayString(withNullability: false);
-  //     final camelClassName = className.camelCase;
-  //     final expression = '''
-  //     if (instance is $className) {
-  //       uproto.$camelClassName = (const \$${className}ProtoMapper()).toProto(instance);
-  //       return uproto;
-  //     }
-  //   ''';
-  //     return expression;
-  //   }).join('\n');
-  //   return ret;
-  // }
+    final ret = kscs.map((ksc) {
+      final className = ksc.getDisplayString(withNullability: false);
+      final camelClassName = className.camelCase;
+      final expression = '''
+      if (instance is $className) {
+        proto.$camelClassName = (const \$${className}ProtoMapper()).toProto(instance);
+        return proto;
+      }
+    ''';
+      return expression;
+    }).join('\n');
+    return ret;
+  }
 
   String _renderMapper(
     ClassElement classElement,
@@ -222,17 +222,16 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
   ) {
     final className = classElement.name;
     final prefix = config.prefix;
-    final toVar = renderParms.toKnownSubclasses == null ? 'proto' : 'uproto';
     final toSuperFieldsOf = _createSuperFieldsOf(classElement, proto);
     final fromSuperRefs = _createFromSuperRefs(renderParms);
     final toReturn = classElement.isAbstract
         ? 'throw UnimplementedError();'
         : '''
-            ${renderParms.toKnownSubclasses == null ? '' : 'final proto = uproto.${className.camelCase} = ${prefix}FieldsOf$className();'}
+            ${renderParms.toKnownSubclasses == null ? renderParms.toProtoFieldBuffer : 'proto.${className.camelCase} = _\$${className}ToFieldsOfProto(instance);'}
 
-        ${renderParms.toProtoFieldBuffer}
         
-        return $toVar;
+        
+        return proto;
     ''';
 
     final fromProto = renderParms.fromKnownSubclasses != null
@@ -244,7 +243,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
             throw UnimplementedError();
           ''' : '''
             
-            final instance = sInstance.${className.camelCase};
+            final proto = sInstance.${className.camelCase};
             final ret = $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
           ${renderParms.fromProtoFieldBuffer};
 
@@ -255,17 +254,31 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
           '''
         : classElement.isAbstract
             ? '''
-          $className _\$${className}FromProto($prefix$className instance) {
+          $className _\$${className}FromProto($prefix$className proto) {
             throw UnimplementedError();
           }
           '''
             : '''
-          $className _\$${className}FromProto($prefix$className instance) {
+          $className _\$${className}FromProto($prefix$className proto) {
             $fromSuperRefs
             return $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
               ${renderParms.fromProtoFieldBuffer};
           }
      ''';
+
+    final toFieldsOf = proto.knownSubClasses.isEmpty
+        ? ''
+        : '''
+        ${prefix}FieldsOf$className _\$${className}ToFieldsOfProto($className instance) {
+          final proto = ${prefix}FieldsOf$className();
+          ${renderParms.toProtoFieldBuffer}
+          return proto;
+        }
+    ''';
+
+    final toFieldsOfProto = proto.knownSubClasses.isEmpty
+        ? '$prefix$className toFieldsOfProto($className entity) => _\$${className}ToProto(entity);'
+        : '${prefix}FieldsOf$className toFieldsOfProto($className entity) => _\$${className}ToFieldsOfProto(entity);';
 
     return '''
   
@@ -277,7 +290,9 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
   
         @override
         $prefix$className toProto($className entity) => _\$${className}ToProto(entity);
-        
+
+        $toFieldsOfProto
+
         $className fromJson(String json) =>
           _\$${className}FromProto($prefix$className.fromJson(json));
         String toJson($className entity) => _\$${className}ToProto(entity).writeToJson();
@@ -290,11 +305,11 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
                 .to$className();
       }
       
-            
+      $toFieldsOf
 
       $prefix$className _\$${className}ToProto($className instance) 
       {
-        ${((classElement.isAbstract) && (renderParms.toKnownSubclasses ?? '').isEmpty) ? '' : 'var $toVar = $prefix$className();'}
+        ${((classElement.isAbstract) && (renderParms.toKnownSubclasses ?? '').isEmpty) ? '' : 'var proto = $prefix$className();'}
 
         ${renderParms.toKnownSubclasses ?? ''}
 
@@ -362,23 +377,23 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
     return buffer.toString();
   }
 
-  // String? _generateFromKnownSubclasses(MapProtoReflected mapProtoReflected) {
-  //   final kscs =
-  //       getKnownSubclasses(mapProtoReflected.knownSubClasses, MapProto);
-  //   if (kscs.isEmpty) return null;
+  String? _generateFromKnownSubclasses(ProtoReflected protoReflected) {
+    final kscs =
+        getKnownSubclasses(protoReflected.knownSubClasses.keys.toList(), Proto);
+    if (kscs.isEmpty) return null;
 
-  //   final ret = kscs.map((ksc) {
-  //     final className = ksc.getDisplayString(withNullability: false);
-  //     final camelClassName = className.camelCase;
-  //     final expression = '''
-  //     if (sInstance.has$className()) {
-  //       return sInstance.$camelClassName.to$className();
-  //     }
-  //     ''';
-  //     return expression;
-  //   }).join('\n');
-  //   return ret;
-  // }
+    final ret = kscs.map((ksc) {
+      final className = ksc.getDisplayString(withNullability: false);
+      final camelClassName = className.camelCase;
+      final expression = '''
+      if (sInstance.has$className()) {
+        return sInstance.$camelClassName.to$className();
+      }
+      ''';
+      return expression;
+    }).join('\n');
+    return ret;
+  }
 }
 
 class RenderMapperBuffers {
@@ -413,14 +428,11 @@ String _createSuperFieldsOf(InterfaceElement classElement, Proto proto) {
   final superClassElement = superType.element.asClassElement();
   final className = superClassElement.name;
 
-  final protoReflected = ConstantReader(annotation).hydrateAnnotation();
-  final superRef =
-      protoReflected.knownSubClasses.isEmpty ? '' : '.${className.camelCase}';
   final ownRef =
       proto.knownSubClasses.isEmpty ? '' : '.${classElement.name.camelCase}';
 
   final superFieldsOf =
-      '   proto$ownRef.fieldsOfSuperClass = \$${className}ProtoMapper().toProto(instance)$superRef;\n';
+      '   proto$ownRef.fieldsOfSuperClass = const \$${className}ProtoMapper().toFieldsOfProto(instance);\n';
   return superFieldsOf;
 }
 

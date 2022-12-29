@@ -15,6 +15,8 @@ class $PersonProtoMapper implements ProtoMapper<Person, GPerson> {
   @override
   GPerson toProto(Person entity) => _$PersonToProto(entity);
 
+  GPerson toFieldsOfProto(Person entity) => _$PersonToProto(entity);
+
   Person fromJson(String json) => _$PersonFromProto(GPerson.fromJson(json));
   String toJson(Person entity) => _$PersonToProto(entity).writeToJson();
 
@@ -37,11 +39,10 @@ GPerson _$PersonToProto(Person instance) {
   return proto;
 }
 
-Person _$PersonFromProto(GPerson instance) {
+Person _$PersonFromProto(GPerson proto) {
   return Person(
-    boolValue:
-        (instance.boolValue.hasValue() ? instance.boolValue.value : null),
-    decVal: $NullableDecimalProtoExtension.$fromProtoBytes(instance.decVal),
+    boolValue: (proto.boolValue.hasValue() ? proto.boolValue.value : null),
+    decVal: $NullableDecimalProtoExtension.$fromProtoBytes(proto.decVal),
   );
 }
 

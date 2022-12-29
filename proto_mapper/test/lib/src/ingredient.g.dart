@@ -15,6 +15,8 @@ class $IngredientProtoMapper implements ProtoMapper<Ingredient, GIngredient> {
   @override
   GIngredient toProto(Ingredient entity) => _$IngredientToProto(entity);
 
+  GIngredient toFieldsOfProto(Ingredient entity) => _$IngredientToProto(entity);
+
   Ingredient fromJson(String json) =>
       _$IngredientFromProto(GIngredient.fromJson(json));
   String toJson(Ingredient entity) => _$IngredientToProto(entity).writeToJson();
@@ -55,23 +57,21 @@ GIngredient _$IngredientToProto(Ingredient instance) {
   return proto;
 }
 
-Ingredient _$IngredientFromProto(GIngredient instance) {
+Ingredient _$IngredientFromProto(GIngredient proto) {
   return Ingredient(
-    description: instance.description,
-    quantity: $DecimalProtoExtension.$fromProtoBytes(instance.quantity),
-    precision: instance.precision,
+    description: proto.description,
+    quantity: $DecimalProtoExtension.$fromProtoBytes(proto.quantity),
+    precision: proto.precision,
     cookingDuration: Duration(
-        seconds: instance.cookingDuration.seconds.toInt(),
-        microseconds: (instance.cookingDuration.nanos ~/ 1000).toInt()),
-    mainComponent:
-        const $ComponentProtoMapper().fromProto(instance.mainComponent),
-    otherComponents: List<Component>.unmodifiable(instance.otherComponents
+        seconds: proto.cookingDuration.seconds.toInt(),
+        microseconds: (proto.cookingDuration.nanos ~/ 1000).toInt()),
+    mainComponent: const $ComponentProtoMapper().fromProto(proto.mainComponent),
+    otherComponents: List<Component>.unmodifiable(proto.otherComponents
         .map((e) => const $ComponentProtoMapper().fromProto(e))),
-    alternativeComponent: (instance.hasAlternativeComponent()
-        ? const $ComponentProtoMapper().fromProto(instance.alternativeComponent)
+    alternativeComponent: (proto.hasAlternativeComponent()
+        ? const $ComponentProtoMapper().fromProto(proto.alternativeComponent)
         : null),
-    secondaryComponents: List<Component>.unmodifiable(instance
-        .secondaryComponents
+    secondaryComponents: List<Component>.unmodifiable(proto.secondaryComponents
         .map((e) => const $ComponentProtoMapper().fromProto(e))),
   );
 }

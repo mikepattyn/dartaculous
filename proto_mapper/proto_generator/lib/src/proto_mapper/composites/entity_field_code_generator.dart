@@ -23,9 +23,9 @@ class EntityFieldCodeGenerator extends CompositeFieldCodeGenerator {
 
   @override
   String get fromProtoExpression =>
-      'const \$${fieldDescriptor.fieldElementTypeName}ProtoMapper().fromProto($ref$fieldName)';
+      'const \$${fieldDescriptor.fieldElementTypeName}ProtoMapper().fromProto($protoRef$fieldName)';
 
   @override
   String get fromProtoNullableExpression =>
-      '(${ref}has${protoFieldName.pascalName}() ? const \$${fieldDescriptor.fieldElementTypeName}ProtoMapper().fromProto($ref$fieldName) : null)';
+      '(${protoRef}has${protoFieldName.pascalName}() ? const \$${fieldDescriptor.fieldElementTypeName}ProtoMapper().fromProto($protoRef$fieldName) : null)';
 }

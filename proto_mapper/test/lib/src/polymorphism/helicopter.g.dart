@@ -15,6 +15,8 @@ class $HelicopterProtoMapper implements ProtoMapper<Helicopter, GHelicopter> {
   @override
   GHelicopter toProto(Helicopter entity) => _$HelicopterToProto(entity);
 
+  GHelicopter toFieldsOfProto(Helicopter entity) => _$HelicopterToProto(entity);
+
   Helicopter fromJson(String json) =>
       _$HelicopterFromProto(GHelicopter.fromJson(json));
   String toJson(Helicopter entity) => _$HelicopterToProto(entity).writeToJson();
@@ -31,18 +33,17 @@ GHelicopter _$HelicopterToProto(Helicopter instance) {
   var proto = GHelicopter();
 
   proto.fieldsOfSuperClass =
-      $RotorcraftProtoMapper().toProto(instance).rotorcraft;
+      const $RotorcraftProtoMapper().toFieldsOfProto(instance);
 
   return proto;
 }
 
-Helicopter _$HelicopterFromProto(GHelicopter instance) {
+Helicopter _$HelicopterFromProto(GHelicopter proto) {
   return Helicopter(
-    weight: instance
-        .fieldsOfSuperClass.fieldsOfSuperClass.fieldsOfSuperClass.weight,
-    serviceCeiling:
-        instance.fieldsOfSuperClass.fieldsOfSuperClass.serviceCeiling,
-    key: instance.fieldsOfSuperClass.fieldsOfSuperClass.key,
+    weight:
+        proto.fieldsOfSuperClass.fieldsOfSuperClass.fieldsOfSuperClass.weight,
+    serviceCeiling: proto.fieldsOfSuperClass.fieldsOfSuperClass.serviceCeiling,
+    key: proto.fieldsOfSuperClass.fieldsOfSuperClass.key,
   );
 }
 

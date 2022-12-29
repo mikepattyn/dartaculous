@@ -15,6 +15,9 @@ class $RotorcraftProtoMapper implements ProtoMapper<Rotorcraft, GRotorcraft> {
   @override
   GRotorcraft toProto(Rotorcraft entity) => _$RotorcraftToProto(entity);
 
+  GFieldsOfRotorcraft toFieldsOfProto(Rotorcraft entity) =>
+      _$RotorcraftToFieldsOfProto(entity);
+
   Rotorcraft fromJson(String json) =>
       _$RotorcraftFromProto(GRotorcraft.fromJson(json));
   String toJson(Rotorcraft entity) => _$RotorcraftToProto(entity).writeToJson();
@@ -27,11 +30,37 @@ class $RotorcraftProtoMapper implements ProtoMapper<Rotorcraft, GRotorcraft> {
           .toRotorcraft();
 }
 
+GFieldsOfRotorcraft _$RotorcraftToFieldsOfProto(Rotorcraft instance) {
+  final proto = GFieldsOfRotorcraft();
+
+  return proto;
+}
+
 GRotorcraft _$RotorcraftToProto(Rotorcraft instance) {
+  var proto = GRotorcraft();
+
+  if (instance is Helicopter) {
+    proto.helicopter = (const $HelicopterProtoMapper()).toProto(instance);
+    return proto;
+  }
+
+  if (instance is Gyrocopter) {
+    proto.gyrocopter = (const $GyrocopterProtoMapper()).toProto(instance);
+    return proto;
+  }
+
   throw UnimplementedError();
 }
 
-Rotorcraft _$RotorcraftFromProto(GRotorcraft instance) {
+Rotorcraft _$RotorcraftFromProto(GRotorcraft sInstance) {
+  if (sInstance.hasHelicopter()) {
+    return sInstance.helicopter.toHelicopter();
+  }
+
+  if (sInstance.hasGyrocopter()) {
+    return sInstance.gyrocopter.toGyrocopter();
+  }
+
   throw UnimplementedError();
 }
 

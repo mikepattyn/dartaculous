@@ -18,6 +18,9 @@ class $AbstractParentClass1ProtoMapper
   GAbstractParentClass1 toProto(AbstractParentClass1 entity) =>
       _$AbstractParentClass1ToProto(entity);
 
+  GAbstractParentClass1 toFieldsOfProto(AbstractParentClass1 entity) =>
+      _$AbstractParentClass1ToProto(entity);
+
   AbstractParentClass1 fromJson(String json) =>
       _$AbstractParentClass1FromProto(GAbstractParentClass1.fromJson(json));
   String toJson(AbstractParentClass1 entity) =>
@@ -37,7 +40,7 @@ GAbstractParentClass1 _$AbstractParentClass1ToProto(
 }
 
 AbstractParentClass1 _$AbstractParentClass1FromProto(
-    GAbstractParentClass1 instance) {
+    GAbstractParentClass1 proto) {
   throw UnimplementedError();
 }
 
@@ -68,6 +71,9 @@ class $AbstractParentClass2ProtoMapper
   GAbstractParentClass2 toProto(AbstractParentClass2 entity) =>
       _$AbstractParentClass2ToProto(entity);
 
+  GFieldsOfAbstractParentClass2 toFieldsOfProto(AbstractParentClass2 entity) =>
+      _$AbstractParentClass2ToFieldsOfProto(entity);
+
   AbstractParentClass2 fromJson(String json) =>
       _$AbstractParentClass2FromProto(GAbstractParentClass2.fromJson(json));
   String toJson(AbstractParentClass2 entity) =>
@@ -81,13 +87,31 @@ class $AbstractParentClass2ProtoMapper
           .toAbstractParentClass2();
 }
 
+GFieldsOfAbstractParentClass2 _$AbstractParentClass2ToFieldsOfProto(
+    AbstractParentClass2 instance) {
+  final proto = GFieldsOfAbstractParentClass2();
+
+  return proto;
+}
+
 GAbstractParentClass2 _$AbstractParentClass2ToProto(
     AbstractParentClass2 instance) {
+  var proto = GAbstractParentClass2();
+
+  if (instance is SubClass1) {
+    proto.subClass1 = (const $SubClass1ProtoMapper()).toProto(instance);
+    return proto;
+  }
+
   throw UnimplementedError();
 }
 
 AbstractParentClass2 _$AbstractParentClass2FromProto(
-    GAbstractParentClass2 instance) {
+    GAbstractParentClass2 sInstance) {
+  if (sInstance.hasSubClass1()) {
+    return sInstance.subClass1.toSubClass1();
+  }
+
   throw UnimplementedError();
 }
 
@@ -115,6 +139,8 @@ class $SubClass1ProtoMapper implements ProtoMapper<SubClass1, GSubClass1> {
   @override
   GSubClass1 toProto(SubClass1 entity) => _$SubClass1ToProto(entity);
 
+  GSubClass1 toFieldsOfProto(SubClass1 entity) => _$SubClass1ToProto(entity);
+
   SubClass1 fromJson(String json) =>
       _$SubClass1FromProto(GSubClass1.fromJson(json));
   String toJson(SubClass1 entity) => _$SubClass1ToProto(entity).writeToJson();
@@ -130,12 +156,12 @@ GSubClass1 _$SubClass1ToProto(SubClass1 instance) {
   var proto = GSubClass1();
 
   proto.fieldsOfSuperClass =
-      $AbstractParentClass2ProtoMapper().toProto(instance).abstractParentClass2;
+      const $AbstractParentClass2ProtoMapper().toFieldsOfProto(instance);
 
   return proto;
 }
 
-SubClass1 _$SubClass1FromProto(GSubClass1 instance) {
+SubClass1 _$SubClass1FromProto(GSubClass1 proto) {
   return SubClass1();
 }
 

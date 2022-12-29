@@ -15,6 +15,8 @@ class $KnifeProtoMapper implements ProtoMapper<Knife, GKnife> {
   @override
   GKnife toProto(Knife entity) => _$KnifeToProto(entity);
 
+  GKnife toFieldsOfProto(Knife entity) => _$KnifeToProto(entity);
+
   Knife fromJson(String json) => _$KnifeFromProto(GKnife.fromJson(json));
   String toJson(Knife entity) => _$KnifeToProto(entity).writeToJson();
 
@@ -34,10 +36,10 @@ GKnife _$KnifeToProto(Knife instance) {
   return proto;
 }
 
-Knife _$KnifeFromProto(GKnife instance) {
+Knife _$KnifeFromProto(GKnife proto) {
   return Knife(
-    name: instance.name,
-    type: KnifeType.values[instance.type.value],
+    name: proto.name,
+    type: KnifeType.values[proto.type.value],
   );
 }
 
@@ -63,6 +65,9 @@ class $GarlicPressProtoMapper
   @override
   GGarlicPress toProto(GarlicPress entity) => _$GarlicPressToProto(entity);
 
+  GGarlicPress toFieldsOfProto(GarlicPress entity) =>
+      _$GarlicPressToProto(entity);
+
   GarlicPress fromJson(String json) =>
       _$GarlicPressFromProto(GGarlicPress.fromJson(json));
   String toJson(GarlicPress entity) =>
@@ -85,10 +90,10 @@ GGarlicPress _$GarlicPressToProto(GarlicPress instance) {
   return proto;
 }
 
-GarlicPress _$GarlicPressFromProto(GGarlicPress instance) {
+GarlicPress _$GarlicPressFromProto(GGarlicPress proto) {
   return GarlicPress(
-    name: instance.name,
-    machineWashable: instance.machineWashable,
+    name: proto.name,
+    machineWashable: proto.machineWashable,
   );
 }
 
@@ -115,6 +120,8 @@ class $KitchenProtoMapper implements ProtoMapper<Kitchen, GKitchen> {
   @override
   GKitchen toProto(Kitchen entity) => _$KitchenToProto(entity);
 
+  GKitchen toFieldsOfProto(Kitchen entity) => _$KitchenToProto(entity);
+
   Kitchen fromJson(String json) => _$KitchenFromProto(GKitchen.fromJson(json));
   String toJson(Kitchen entity) => _$KitchenToProto(entity).writeToJson();
 
@@ -140,13 +147,13 @@ GKitchen _$KitchenToProto(Kitchen instance) {
   return proto;
 }
 
-Kitchen _$KitchenFromProto(GKitchen instance) {
+Kitchen _$KitchenFromProto(GKitchen proto) {
   return Kitchen(
-    recipeList: List<Recipe>.unmodifiable(instance.recipeList
-        .map((e) => const $RecipeProtoMapper().fromProto(e))),
-    recipeMap: instance.recipeMap
+    recipeList: List<Recipe>.unmodifiable(
+        proto.recipeList.map((e) => const $RecipeProtoMapper().fromProto(e))),
+    recipeMap: proto.recipeMap
         .map((k, v) => MapEntry(k, const $RecipeProtoMapper().fromProto(v))),
-    nextInspectionDate: instance.nextInspectionDate.toDateTime(),
+    nextInspectionDate: proto.nextInspectionDate.toDateTime(),
   );
 }
 
@@ -171,6 +178,8 @@ class $ChefProtoMapper implements ProtoMapper<Chef, GChef> {
 
   @override
   GChef toProto(Chef entity) => _$ChefToProto(entity);
+
+  GChef toFieldsOfProto(Chef entity) => _$ChefToProto(entity);
 
   Chef fromJson(String json) => _$ChefFromProto(GChef.fromJson(json));
   String toJson(Chef entity) => _$ChefToProto(entity).writeToJson();
@@ -212,23 +221,22 @@ GChef _$ChefToProto(Chef instance) {
   return proto;
 }
 
-Chef _$ChefFromProto(GChef instance) {
+Chef _$ChefFromProto(GChef proto) {
   return Chef(
-    favoriteRecipe: (instance.hasFavoriteRecipe()
-        ? const $RecipeProtoMapper().fromProto(instance.favoriteRecipe)
+    favoriteRecipe: (proto.hasFavoriteRecipe()
+        ? const $RecipeProtoMapper().fromProto(proto.favoriteRecipe)
         : null),
-    favoriteKnife: (instance.hasFavoriteKnife()
-        ? const $KnifeProtoMapper().fromProto(instance.favoriteKnife)
+    favoriteKnife: (proto.hasFavoriteKnife()
+        ? const $KnifeProtoMapper().fromProto(proto.favoriteKnife)
         : null),
     favoriteApplianceType:
-        ApplianceType.values[instance.favoriteApplianceType.value],
-    favoriteWords:
-        List<String>.unmodifiable(instance.favoriteWords.map((e) => e)),
-    birthdate: instance.birthdate.toDateTime(),
-    shelfLife: (instance.hasShelfLife()
+        ApplianceType.values[proto.favoriteApplianceType.value],
+    favoriteWords: List<String>.unmodifiable(proto.favoriteWords.map((e) => e)),
+    birthdate: proto.birthdate.toDateTime(),
+    shelfLife: (proto.hasShelfLife()
         ? (Duration(
-            seconds: instance.shelfLife.seconds.toInt(),
-            microseconds: (instance.shelfLife.nanos ~/ 1000).toInt()))
+            seconds: proto.shelfLife.seconds.toInt(),
+            microseconds: (proto.shelfLife.nanos ~/ 1000).toInt()))
         : null),
   );
 }
@@ -254,6 +262,8 @@ class $SousChefProtoMapper implements ProtoMapper<SousChef, GSousChef> {
   @override
   GSousChef toProto(SousChef entity) => _$SousChefToProto(entity);
 
+  GSousChef toFieldsOfProto(SousChef entity) => _$SousChefToProto(entity);
+
   SousChef fromJson(String json) =>
       _$SousChefFromProto(GSousChef.fromJson(json));
   String toJson(SousChef entity) => _$SousChefToProto(entity).writeToJson();
@@ -268,18 +278,18 @@ class $SousChefProtoMapper implements ProtoMapper<SousChef, GSousChef> {
 GSousChef _$SousChefToProto(SousChef instance) {
   var proto = GSousChef();
 
-  proto.fieldsOfSuperClass = $ChefProtoMapper().toProto(instance);
+  proto.fieldsOfSuperClass = const $ChefProtoMapper().toFieldsOfProto(instance);
 
   return proto;
 }
 
-SousChef _$SousChefFromProto(GSousChef instance) {
+SousChef _$SousChefFromProto(GSousChef proto) {
   return SousChef(
     favoriteApplianceType: ApplianceType
-        .values[instance.fieldsOfSuperClass.favoriteApplianceType.value],
-    birthdate: instance.fieldsOfSuperClass.birthdate.toDateTime(),
+        .values[proto.fieldsOfSuperClass.favoriteApplianceType.value],
+    birthdate: proto.fieldsOfSuperClass.birthdate.toDateTime(),
     favoriteWords: List<String>.unmodifiable(
-        instance.fieldsOfSuperClass.favoriteWords.map((e) => e)),
+        proto.fieldsOfSuperClass.favoriteWords.map((e) => e)),
   );
 }
 
@@ -306,6 +316,9 @@ class $KnifeMasterProtoMapper
   @override
   GKnifeMaster toProto(KnifeMaster entity) => _$KnifeMasterToProto(entity);
 
+  GKnifeMaster toFieldsOfProto(KnifeMaster entity) =>
+      _$KnifeMasterToProto(entity);
+
   KnifeMaster fromJson(String json) =>
       _$KnifeMasterFromProto(GKnifeMaster.fromJson(json));
   String toJson(KnifeMaster entity) =>
@@ -322,7 +335,7 @@ class $KnifeMasterProtoMapper
 GKnifeMaster _$KnifeMasterToProto(KnifeMaster instance) {
   var proto = GKnifeMaster();
 
-  proto.fieldsOfSuperClass = $ChefProtoMapper().toProto(instance);
+  proto.fieldsOfSuperClass = const $ChefProtoMapper().toFieldsOfProto(instance);
 
   proto.favoriteKnife =
       const $KnifeProtoMapper().toProto(instance.favoriteKnife);
@@ -330,12 +343,12 @@ GKnifeMaster _$KnifeMasterToProto(KnifeMaster instance) {
   return proto;
 }
 
-KnifeMaster _$KnifeMasterFromProto(GKnifeMaster instance) {
+KnifeMaster _$KnifeMasterFromProto(GKnifeMaster proto) {
   return KnifeMaster(
-    favoriteKnife: const $KnifeProtoMapper().fromProto(instance.favoriteKnife),
+    favoriteKnife: const $KnifeProtoMapper().fromProto(proto.favoriteKnife),
     favoriteApplianceType: ApplianceType
-        .values[instance.fieldsOfSuperClass.favoriteApplianceType.value],
-    birthdate: instance.fieldsOfSuperClass.birthdate.toDateTime(),
+        .values[proto.fieldsOfSuperClass.favoriteApplianceType.value],
+    birthdate: proto.fieldsOfSuperClass.birthdate.toDateTime(),
   );
 }
 
@@ -361,6 +374,8 @@ class $InventoryProtoMapper implements ProtoMapper<Inventory, GInventory> {
 
   @override
   GInventory toProto(Inventory entity) => _$InventoryToProto(entity);
+
+  GInventory toFieldsOfProto(Inventory entity) => _$InventoryToProto(entity);
 
   Inventory fromJson(String json) =>
       _$InventoryFromProto(GInventory.fromJson(json));
@@ -393,15 +408,15 @@ GInventory _$InventoryToProto(Inventory instance) {
   return proto;
 }
 
-Inventory _$InventoryFromProto(GInventory instance) {
+Inventory _$InventoryFromProto(GInventory proto) {
   return Inventory(
-    numberOfThings: instance.numberOfThings.map((k, v) => MapEntry(k, v)),
-    recipesByName: instance.recipesByName
+    numberOfThings: proto.numberOfThings.map((k, v) => MapEntry(k, v)),
+    recipesByName: proto.recipesByName
         .map((k, v) => MapEntry(k, const $RecipeProtoMapper().fromProto(v))),
-    timeSpan: (instance.hasTimeSpan()
+    timeSpan: (proto.hasTimeSpan()
         ? (Duration(
-            seconds: instance.timeSpan.seconds.toInt(),
-            microseconds: (instance.timeSpan.nanos ~/ 1000).toInt()))
+            seconds: proto.timeSpan.seconds.toInt(),
+            microseconds: (proto.timeSpan.nanos ~/ 1000).toInt()))
         : null),
   );
 }
@@ -431,6 +446,9 @@ class $PrecisionSubjectProtoMapper
   GPrecisionSubject toProto(PrecisionSubject entity) =>
       _$PrecisionSubjectToProto(entity);
 
+  GPrecisionSubject toFieldsOfProto(PrecisionSubject entity) =>
+      _$PrecisionSubjectToProto(entity);
+
   PrecisionSubject fromJson(String json) =>
       _$PrecisionSubjectFromProto(GPrecisionSubject.fromJson(json));
   String toJson(PrecisionSubject entity) =>
@@ -458,12 +476,12 @@ GPrecisionSubject _$PrecisionSubjectToProto(PrecisionSubject instance) {
   return proto;
 }
 
-PrecisionSubject _$PrecisionSubjectFromProto(GPrecisionSubject instance) {
+PrecisionSubject _$PrecisionSubjectFromProto(GPrecisionSubject proto) {
   return PrecisionSubject(
-    dateProperty: instance.dateProperty.toDateTime(),
+    dateProperty: proto.dateProperty.toDateTime(),
     durationProperty: Duration(
-        seconds: instance.durationProperty.seconds.toInt(),
-        microseconds: (instance.durationProperty.nanos ~/ 1000).toInt()),
+        seconds: proto.durationProperty.seconds.toInt(),
+        microseconds: (proto.durationProperty.nanos ~/ 1000).toInt()),
   );
 }
 

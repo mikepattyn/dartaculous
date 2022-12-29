@@ -15,6 +15,8 @@ class $AirplaneProtoMapper implements ProtoMapper<Airplane, GAirplane> {
   @override
   GAirplane toProto(Airplane entity) => _$AirplaneToProto(entity);
 
+  GAirplane toFieldsOfProto(Airplane entity) => _$AirplaneToProto(entity);
+
   Airplane fromJson(String json) =>
       _$AirplaneFromProto(GAirplane.fromJson(json));
   String toJson(Airplane entity) => _$AirplaneToProto(entity).writeToJson();
@@ -29,19 +31,20 @@ class $AirplaneProtoMapper implements ProtoMapper<Airplane, GAirplane> {
 GAirplane _$AirplaneToProto(Airplane instance) {
   var proto = GAirplane();
 
-  proto.fieldsOfSuperClass = $AircraftProtoMapper().toProto(instance).aircraft;
+  proto.fieldsOfSuperClass =
+      const $AircraftProtoMapper().toFieldsOfProto(instance);
 
   proto.wingspan = instance.wingspan;
 
   return proto;
 }
 
-Airplane _$AirplaneFromProto(GAirplane instance) {
+Airplane _$AirplaneFromProto(GAirplane proto) {
   return Airplane(
-    weight: instance.fieldsOfSuperClass.fieldsOfSuperClass.weight,
-    serviceCeiling: instance.fieldsOfSuperClass.serviceCeiling,
-    wingspan: instance.wingspan,
-    key: instance.fieldsOfSuperClass.key,
+    weight: proto.fieldsOfSuperClass.fieldsOfSuperClass.weight,
+    serviceCeiling: proto.fieldsOfSuperClass.serviceCeiling,
+    wingspan: proto.wingspan,
+    key: proto.fieldsOfSuperClass.key,
   );
 }
 

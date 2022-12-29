@@ -15,6 +15,8 @@ class $KeyProtoMapper implements ProtoMapper<Key, GKey> {
   @override
   GKey toProto(Key entity) => _$KeyToProto(entity);
 
+  GKey toFieldsOfProto(Key entity) => _$KeyToProto(entity);
+
   Key fromJson(String json) => _$KeyFromProto(GKey.fromJson(json));
   String toJson(Key entity) => _$KeyToProto(entity).writeToJson();
 
@@ -33,9 +35,9 @@ GKey _$KeyToProto(Key instance) {
   return proto;
 }
 
-Key _$KeyFromProto(GKey instance) {
+Key _$KeyFromProto(GKey proto) {
   return Key(
-    key: instance.key,
+    key: proto.key,
   );
 }
 

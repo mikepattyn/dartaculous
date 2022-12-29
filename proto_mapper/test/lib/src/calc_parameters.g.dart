@@ -18,6 +18,9 @@ class $CalcParametersProtoMapper
   GCalcParameters toProto(CalcParameters entity) =>
       _$CalcParametersToProto(entity);
 
+  GCalcParameters toFieldsOfProto(CalcParameters entity) =>
+      _$CalcParametersToProto(entity);
+
   CalcParameters fromJson(String json) =>
       _$CalcParametersFromProto(GCalcParameters.fromJson(json));
   String toJson(CalcParameters entity) =>
@@ -49,15 +52,13 @@ GCalcParameters _$CalcParametersToProto(CalcParameters instance) {
   return proto;
 }
 
-CalcParameters _$CalcParametersFromProto(GCalcParameters instance) {
+CalcParameters _$CalcParametersFromProto(GCalcParameters proto) {
   return CalcParameters(
-    parameter1: instance.parameter1,
-    parameter2: instance.parameter2,
-    parameter3:
-        (instance.parameter3.hasValue() ? instance.parameter3.value : null),
-    parameter4:
-        (instance.parameter4.hasValue() ? instance.parameter4.value : null),
-    parameter5: instance.parameter5,
+    parameter1: proto.parameter1,
+    parameter2: proto.parameter2,
+    parameter3: (proto.parameter3.hasValue() ? proto.parameter3.value : null),
+    parameter4: (proto.parameter4.hasValue() ? proto.parameter4.value : null),
+    parameter5: proto.parameter5,
   );
 }
 

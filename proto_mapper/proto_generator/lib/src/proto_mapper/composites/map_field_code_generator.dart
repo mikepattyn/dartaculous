@@ -90,7 +90,7 @@ class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
 
   @override
   String get fromProtoExpression =>
-      '''$ref$protoFieldName.map((k, v) => $_protoToValue)''';
+      '''$protoRef$protoFieldName.map((k, v) => $_protoToValue)''';
 
   @override
   String get fromProtoNullableExpression => fromProtoExpression;

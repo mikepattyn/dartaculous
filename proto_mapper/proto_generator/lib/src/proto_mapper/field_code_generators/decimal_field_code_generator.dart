@@ -24,5 +24,5 @@ class DecimalFieldCodeGenerator
 
   @override
   String get fromProtoMap =>
-      '${fieldDescriptor.isNullable ? '\$NullableDecimalProtoExtension' : '\$DecimalProtoExtension'}.\$fromProtoBytes($ref$protoFieldName)';
+      '${fieldDescriptor.isNullable ? '\$NullableDecimalProtoExtension' : '\$DecimalProtoExtension'}.\$fromProtoBytes($protoRef$protoFieldName)';
 }

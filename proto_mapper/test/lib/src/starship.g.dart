@@ -15,6 +15,8 @@ class $StarshipProtoMapper implements ProtoMapper<Starship, GStarship> {
   @override
   GStarship toProto(Starship entity) => _$StarshipToProto(entity);
 
+  GStarship toFieldsOfProto(Starship entity) => _$StarshipToProto(entity);
+
   Starship fromJson(String json) =>
       _$StarshipFromProto(GStarship.fromJson(json));
   String toJson(Starship entity) => _$StarshipToProto(entity).writeToJson();
@@ -36,11 +38,11 @@ GStarship _$StarshipToProto(Starship instance) {
   return proto;
 }
 
-Starship _$StarshipFromProto(GStarship instance) {
+Starship _$StarshipFromProto(GStarship proto) {
   return Starship(
-    range: $BigIntProtoExtension.$fromProtoBytes(instance.range),
-    engineNumber: instance.engineNumber,
-    odometer: $NullableBigIntProtoExtension.$fromProtoBytes(instance.odometer),
+    range: $BigIntProtoExtension.$fromProtoBytes(proto.range),
+    engineNumber: proto.engineNumber,
+    odometer: $NullableBigIntProtoExtension.$fromProtoBytes(proto.odometer),
   );
 }
 

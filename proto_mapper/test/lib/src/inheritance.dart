@@ -10,14 +10,12 @@ abstract class Root {
 
 abstract class Trunk extends Root {}
 
-const twigAsSubclass = {Twig: 3};
 
-@Proto(knownSubClasses: twigAsSubclass)
+@Proto(knownSubClasses: {Twig: 3})
 class Branch extends Trunk {}
 
-const leafAsSubclass = {Leaf: 3};
 
-@Proto(knownSubClasses: leafAsSubclass)
+@Proto(knownSubClasses: {Leaf: 3})
 class Twig extends Branch {}
 
 @Proto()

@@ -15,6 +15,8 @@ class $BicycleProtoMapper implements ProtoMapper<Bicycle, GBicycle> {
   @override
   GBicycle toProto(Bicycle entity) => _$BicycleToProto(entity);
 
+  GBicycle toFieldsOfProto(Bicycle entity) => _$BicycleToProto(entity);
+
   Bicycle fromJson(String json) => _$BicycleFromProto(GBicycle.fromJson(json));
   String toJson(Bicycle entity) => _$BicycleToProto(entity).writeToJson();
 
@@ -29,7 +31,7 @@ GBicycle _$BicycleToProto(Bicycle instance) {
   var proto = GBicycle();
 
   proto.fieldsOfSuperClass =
-      $AbstractVehicleProtoMapper().toProto(instance).abstractVehicle;
+      const $AbstractVehicleProtoMapper().toFieldsOfProto(instance);
 
   proto.wheelDiamater = instance.wheelDiamater.$toProtoBytes();
   proto.key = instance.key;
@@ -37,12 +39,11 @@ GBicycle _$BicycleToProto(Bicycle instance) {
   return proto;
 }
 
-Bicycle _$BicycleFromProto(GBicycle instance) {
+Bicycle _$BicycleFromProto(GBicycle proto) {
   return Bicycle(
-    wheelDiamater:
-        $DecimalProtoExtension.$fromProtoBytes(instance.wheelDiamater),
-    weight: instance.fieldsOfSuperClass.weight,
-    key: instance.key,
+    wheelDiamater: $DecimalProtoExtension.$fromProtoBytes(proto.wheelDiamater),
+    weight: proto.fieldsOfSuperClass.weight,
+    key: proto.key,
   );
 }
 

@@ -18,6 +18,9 @@ class $ScheduleConstraintProtoMapper
   GScheduleConstraint toProto(ScheduleConstraint entity) =>
       _$ScheduleConstraintToProto(entity);
 
+  GFieldsOfScheduleConstraint toFieldsOfProto(ScheduleConstraint entity) =>
+      _$ScheduleConstraintToFieldsOfProto(entity);
+
   ScheduleConstraint fromJson(String json) =>
       _$ScheduleConstraintFromProto(GScheduleConstraint.fromJson(json));
   String toJson(ScheduleConstraint entity) =>
@@ -31,11 +34,31 @@ class $ScheduleConstraintProtoMapper
           .toScheduleConstraint();
 }
 
+GFieldsOfScheduleConstraint _$ScheduleConstraintToFieldsOfProto(
+    ScheduleConstraint instance) {
+  final proto = GFieldsOfScheduleConstraint();
+
+  return proto;
+}
+
 GScheduleConstraint _$ScheduleConstraintToProto(ScheduleConstraint instance) {
+  var proto = GScheduleConstraint();
+
+  if (instance is ContestConstraint) {
+    proto.contestConstraint =
+        (const $ContestConstraintProtoMapper()).toProto(instance);
+    return proto;
+  }
+
   throw UnimplementedError();
 }
 
-ScheduleConstraint _$ScheduleConstraintFromProto(GScheduleConstraint instance) {
+ScheduleConstraint _$ScheduleConstraintFromProto(
+    GScheduleConstraint sInstance) {
+  if (sInstance.hasContestConstraint()) {
+    return sInstance.contestConstraint.toContestConstraint();
+  }
+
   throw UnimplementedError();
 }
 
@@ -66,6 +89,9 @@ class $ConstraintAddedProtoMapper
   GConstraintAdded toProto(ConstraintAdded entity) =>
       _$ConstraintAddedToProto(entity);
 
+  GConstraintAdded toFieldsOfProto(ConstraintAdded entity) =>
+      _$ConstraintAddedToProto(entity);
+
   ConstraintAdded fromJson(String json) =>
       _$ConstraintAddedFromProto(GConstraintAdded.fromJson(json));
   String toJson(ConstraintAdded entity) =>
@@ -85,7 +111,7 @@ GConstraintAdded _$ConstraintAddedToProto(ConstraintAdded instance) {
   return proto;
 }
 
-ConstraintAdded _$ConstraintAddedFromProto(GConstraintAdded instance) {
+ConstraintAdded _$ConstraintAddedFromProto(GConstraintAdded proto) {
   return ConstraintAdded();
 }
 
@@ -115,6 +141,9 @@ class $ContestConstraintProtoMapper
   GContestConstraint toProto(ContestConstraint entity) =>
       _$ContestConstraintToProto(entity);
 
+  GContestConstraint toFieldsOfProto(ContestConstraint entity) =>
+      _$ContestConstraintToProto(entity);
+
   ContestConstraint fromJson(String json) =>
       _$ContestConstraintFromProto(GContestConstraint.fromJson(json));
   String toJson(ContestConstraint entity) =>
@@ -132,12 +161,12 @@ GContestConstraint _$ContestConstraintToProto(ContestConstraint instance) {
   var proto = GContestConstraint();
 
   proto.fieldsOfSuperClass =
-      $ScheduleConstraintProtoMapper().toProto(instance).scheduleConstraint;
+      const $ScheduleConstraintProtoMapper().toFieldsOfProto(instance);
 
   return proto;
 }
 
-ContestConstraint _$ContestConstraintFromProto(GContestConstraint instance) {
+ContestConstraint _$ContestConstraintFromProto(GContestConstraint proto) {
   return ContestConstraint();
 }
 

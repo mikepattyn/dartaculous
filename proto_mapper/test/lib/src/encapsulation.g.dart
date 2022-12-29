@@ -18,6 +18,9 @@ class $EncapsulatedFieldsClassProtoMapper
   GEncapsulatedFieldsClass toProto(EncapsulatedFieldsClass entity) =>
       _$EncapsulatedFieldsClassToProto(entity);
 
+  GEncapsulatedFieldsClass toFieldsOfProto(EncapsulatedFieldsClass entity) =>
+      _$EncapsulatedFieldsClassToProto(entity);
+
   EncapsulatedFieldsClass fromJson(String json) =>
       _$EncapsulatedFieldsClassFromProto(
           GEncapsulatedFieldsClass.fromJson(json));
@@ -43,10 +46,10 @@ GEncapsulatedFieldsClass _$EncapsulatedFieldsClassToProto(
 }
 
 EncapsulatedFieldsClass _$EncapsulatedFieldsClassFromProto(
-    GEncapsulatedFieldsClass instance) {
+    GEncapsulatedFieldsClass proto) {
   return EncapsulatedFieldsClass(
-    finalString: instance.finalString,
-    encapsulatedString: instance.encapsulatedString,
+    finalString: proto.finalString,
+    encapsulatedString: proto.encapsulatedString,
   );
 }
 

@@ -18,6 +18,9 @@ class $AbstractVehicleProtoMapper
   GAbstractVehicle toProto(AbstractVehicle entity) =>
       _$AbstractVehicleToProto(entity);
 
+  GFieldsOfAbstractVehicle toFieldsOfProto(AbstractVehicle entity) =>
+      _$AbstractVehicleToFieldsOfProto(entity);
+
   AbstractVehicle fromJson(String json) =>
       _$AbstractVehicleFromProto(GAbstractVehicle.fromJson(json));
   String toJson(AbstractVehicle entity) =>
@@ -31,11 +34,39 @@ class $AbstractVehicleProtoMapper
           .toAbstractVehicle();
 }
 
+GFieldsOfAbstractVehicle _$AbstractVehicleToFieldsOfProto(
+    AbstractVehicle instance) {
+  final proto = GFieldsOfAbstractVehicle();
+  proto.weight = instance.weight;
+
+  return proto;
+}
+
 GAbstractVehicle _$AbstractVehicleToProto(AbstractVehicle instance) {
+  var proto = GAbstractVehicle();
+
+  if (instance is Bicycle) {
+    proto.bicycle = (const $BicycleProtoMapper()).toProto(instance);
+    return proto;
+  }
+
+  if (instance is Scooter) {
+    proto.scooter = (const $ScooterProtoMapper()).toProto(instance);
+    return proto;
+  }
+
   throw UnimplementedError();
 }
 
-AbstractVehicle _$AbstractVehicleFromProto(GAbstractVehicle instance) {
+AbstractVehicle _$AbstractVehicleFromProto(GAbstractVehicle sInstance) {
+  if (sInstance.hasBicycle()) {
+    return sInstance.bicycle.toBicycle();
+  }
+
+  if (sInstance.hasScooter()) {
+    return sInstance.scooter.toScooter();
+  }
+
   throw UnimplementedError();
 }
 

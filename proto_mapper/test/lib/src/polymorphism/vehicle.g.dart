@@ -15,6 +15,9 @@ class $VehicleProtoMapper implements ProtoMapper<Vehicle, GVehicle> {
   @override
   GVehicle toProto(Vehicle entity) => _$VehicleToProto(entity);
 
+  GFieldsOfVehicle toFieldsOfProto(Vehicle entity) =>
+      _$VehicleToFieldsOfProto(entity);
+
   Vehicle fromJson(String json) => _$VehicleFromProto(GVehicle.fromJson(json));
   String toJson(Vehicle entity) => _$VehicleToProto(entity).writeToJson();
 
@@ -25,18 +28,37 @@ class $VehicleProtoMapper implements ProtoMapper<Vehicle, GVehicle> {
       GVehicle.fromJson(utf8.decode(base64Decode(base64Proto))).toVehicle();
 }
 
-GVehicle _$VehicleToProto(Vehicle instance) {
-  var proto = GVehicle();
-
-  proto.vehicle.weight = instance.weight;
+GFieldsOfVehicle _$VehicleToFieldsOfProto(Vehicle instance) {
+  final proto = GFieldsOfVehicle();
+  proto.weight = instance.weight;
 
   return proto;
 }
 
-Vehicle _$VehicleFromProto(GVehicle instance) {
-  return Vehicle(
-    weight: instance.weight,
+GVehicle _$VehicleToProto(Vehicle instance) {
+  var proto = GVehicle();
+
+  if (instance is Car) {
+    proto.car = (const $CarProtoMapper()).toProto(instance);
+    return proto;
+  }
+
+  proto.vehicle = _$VehicleToFieldsOfProto(instance);
+
+  return proto;
+}
+
+Vehicle _$VehicleFromProto(GVehicle sInstance) {
+  if (sInstance.hasCar()) {
+    return sInstance.car.toCar();
+  }
+
+  final proto = sInstance.vehicle;
+  final ret = Vehicle(
+    weight: proto.weight,
   );
+
+  return ret;
 }
 
 extension $VehicleProtoExtension on Vehicle {

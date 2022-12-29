@@ -15,6 +15,9 @@ class $BranchProtoMapper implements ProtoMapper<Branch, GBranch> {
   @override
   GBranch toProto(Branch entity) => _$BranchToProto(entity);
 
+  GFieldsOfBranch toFieldsOfProto(Branch entity) =>
+      _$BranchToFieldsOfProto(entity);
+
   Branch fromJson(String json) => _$BranchFromProto(GBranch.fromJson(json));
   String toJson(Branch entity) => _$BranchToProto(entity).writeToJson();
 
@@ -25,14 +28,34 @@ class $BranchProtoMapper implements ProtoMapper<Branch, GBranch> {
       GBranch.fromJson(utf8.decode(base64Decode(base64Proto))).toBranch();
 }
 
-GBranch _$BranchToProto(Branch instance) {
-  var proto = GBranch();
+GFieldsOfBranch _$BranchToFieldsOfProto(Branch instance) {
+  final proto = GFieldsOfBranch();
 
   return proto;
 }
 
-Branch _$BranchFromProto(GBranch instance) {
-  return Branch();
+GBranch _$BranchToProto(Branch instance) {
+  var proto = GBranch();
+
+  if (instance is Twig) {
+    proto.twig = (const $TwigProtoMapper()).toProto(instance);
+    return proto;
+  }
+
+  proto.branch = _$BranchToFieldsOfProto(instance);
+
+  return proto;
+}
+
+Branch _$BranchFromProto(GBranch sInstance) {
+  if (sInstance.hasTwig()) {
+    return sInstance.twig.toTwig();
+  }
+
+  final proto = sInstance.branch;
+  final ret = Branch();
+
+  return ret;
 }
 
 extension $BranchProtoExtension on Branch {
@@ -57,6 +80,8 @@ class $TwigProtoMapper implements ProtoMapper<Twig, GTwig> {
   @override
   GTwig toProto(Twig entity) => _$TwigToProto(entity);
 
+  GFieldsOfTwig toFieldsOfProto(Twig entity) => _$TwigToFieldsOfProto(entity);
+
   Twig fromJson(String json) => _$TwigFromProto(GTwig.fromJson(json));
   String toJson(Twig entity) => _$TwigToProto(entity).writeToJson();
 
@@ -67,16 +92,37 @@ class $TwigProtoMapper implements ProtoMapper<Twig, GTwig> {
       GTwig.fromJson(utf8.decode(base64Decode(base64Proto))).toTwig();
 }
 
-GTwig _$TwigToProto(Twig instance) {
-  var proto = GTwig();
-
-  proto.twig.fieldsOfSuperClass = $BranchProtoMapper().toProto(instance).branch;
+GFieldsOfTwig _$TwigToFieldsOfProto(Twig instance) {
+  final proto = GFieldsOfTwig();
 
   return proto;
 }
 
-Twig _$TwigFromProto(GTwig instance) {
-  return Twig();
+GTwig _$TwigToProto(Twig instance) {
+  var proto = GTwig();
+
+  if (instance is Leaf) {
+    proto.leaf = (const $LeafProtoMapper()).toProto(instance);
+    return proto;
+  }
+
+  proto.twig.fieldsOfSuperClass =
+      const $BranchProtoMapper().toFieldsOfProto(instance);
+
+  proto.twig = _$TwigToFieldsOfProto(instance);
+
+  return proto;
+}
+
+Twig _$TwigFromProto(GTwig sInstance) {
+  if (sInstance.hasLeaf()) {
+    return sInstance.leaf.toLeaf();
+  }
+
+  final proto = sInstance.twig;
+  final ret = Twig();
+
+  return ret;
 }
 
 extension $TwigProtoExtension on Twig {
@@ -100,6 +146,8 @@ class $LeafProtoMapper implements ProtoMapper<Leaf, GLeaf> {
   @override
   GLeaf toProto(Leaf entity) => _$LeafToProto(entity);
 
+  GLeaf toFieldsOfProto(Leaf entity) => _$LeafToProto(entity);
+
   Leaf fromJson(String json) => _$LeafFromProto(GLeaf.fromJson(json));
   String toJson(Leaf entity) => _$LeafToProto(entity).writeToJson();
 
@@ -113,12 +161,12 @@ class $LeafProtoMapper implements ProtoMapper<Leaf, GLeaf> {
 GLeaf _$LeafToProto(Leaf instance) {
   var proto = GLeaf();
 
-  proto.fieldsOfSuperClass = $TwigProtoMapper().toProto(instance).twig;
+  proto.fieldsOfSuperClass = const $TwigProtoMapper().toFieldsOfProto(instance);
 
   return proto;
 }
 
-Leaf _$LeafFromProto(GLeaf instance) {
+Leaf _$LeafFromProto(GLeaf proto) {
   return Leaf();
 }
 

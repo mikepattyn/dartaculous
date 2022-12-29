@@ -15,6 +15,8 @@ class $EmptyProtoMapper implements ProtoMapper<Empty, GEmpty> {
   @override
   GEmpty toProto(Empty entity) => _$EmptyToProto(entity);
 
+  GEmpty toFieldsOfProto(Empty entity) => _$EmptyToProto(entity);
+
   Empty fromJson(String json) => _$EmptyFromProto(GEmpty.fromJson(json));
   String toJson(Empty entity) => _$EmptyToProto(entity).writeToJson();
 
@@ -31,7 +33,7 @@ GEmpty _$EmptyToProto(Empty instance) {
   return proto;
 }
 
-Empty _$EmptyFromProto(GEmpty instance) {
+Empty _$EmptyFromProto(GEmpty proto) {
   return Empty();
 }
 

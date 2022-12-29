@@ -15,6 +15,8 @@ class $RecipeProtoMapper implements ProtoMapper<Recipe, GRecipe> {
   @override
   GRecipe toProto(Recipe entity) => _$RecipeToProto(entity);
 
+  GRecipe toFieldsOfProto(Recipe entity) => _$RecipeToProto(entity);
+
   Recipe fromJson(String json) => _$RecipeFromProto(GRecipe.fromJson(json));
   String toJson(Recipe entity) => _$RecipeToProto(entity).writeToJson();
 
@@ -84,39 +86,37 @@ GRecipe _$RecipeToProto(Recipe instance) {
   return proto;
 }
 
-Recipe _$RecipeFromProto(GRecipe instance) {
+Recipe _$RecipeFromProto(GRecipe proto) {
   return Recipe(
-    title: instance.title,
-    category: const $CategoryProtoMapper().fromProto(instance.category),
-    ingredients: List<Ingredient>.unmodifiable(instance.ingredients
+    title: proto.title,
+    category: const $CategoryProtoMapper().fromProto(proto.category),
+    ingredients: List<Ingredient>.unmodifiable(proto.ingredients
         .map((e) => const $IngredientProtoMapper().fromProto(e))),
-    publishDate: instance.publishDate.toDateTime(),
+    publishDate: proto.publishDate.toDateTime(),
     preparationDuration: Duration(
-        seconds: instance.preparationDuration.seconds.toInt(),
-        microseconds: (instance.preparationDuration.nanos ~/ 1000).toInt()),
-    isPublished: instance.isPublished,
-    mainApplianceType: ApplianceType.values[instance.mainApplianceType.value],
-    tags: List<String>.unmodifiable(instance.tags.map((e) => e)),
+        seconds: proto.preparationDuration.seconds.toInt(),
+        microseconds: (proto.preparationDuration.nanos ~/ 1000).toInt()),
+    isPublished: proto.isPublished,
+    mainApplianceType: ApplianceType.values[proto.mainApplianceType.value],
+    tags: List<String>.unmodifiable(proto.tags.map((e) => e)),
     grossWeight:
-        (instance.grossWeight.hasValue() ? instance.grossWeight.value : null),
+        (proto.grossWeight.hasValue() ? proto.grossWeight.value : null),
     description:
-        (instance.description.hasValue() ? instance.description.value : null),
+        (proto.description.hasValue() ? proto.description.value : null),
     expiryDate:
-        (instance.hasExpiryDate() ? (instance.expiryDate.toDateTime()) : null),
-    totalDuration: (instance.hasTotalDuration()
+        (proto.hasExpiryDate() ? (proto.expiryDate.toDateTime()) : null),
+    totalDuration: (proto.hasTotalDuration()
         ? (Duration(
-            seconds: instance.totalDuration.seconds.toInt(),
-            microseconds: (instance.totalDuration.nanos ~/ 1000).toInt()))
+            seconds: proto.totalDuration.seconds.toInt(),
+            microseconds: (proto.totalDuration.nanos ~/ 1000).toInt()))
         : null),
-    requiresRobot: (instance.requiresRobot.hasValue()
-        ? instance.requiresRobot.value
+    requiresRobot:
+        (proto.requiresRobot.hasValue() ? proto.requiresRobot.value : null),
+    secondaryApplianceType: (proto.hasSecondaryApplianceType()
+        ? (ApplianceType.values[proto.secondaryApplianceType.value.value])
         : null),
-    secondaryApplianceType: (instance.hasSecondaryApplianceType()
-        ? (ApplianceType.values[instance.secondaryApplianceType.value.value])
-        : null),
-    extraTags: List<String>.unmodifiable(instance.extraTags.map((e) => e)),
-    netWeight:
-        (instance.netWeight.hasValue() ? instance.netWeight.value : null),
+    extraTags: List<String>.unmodifiable(proto.extraTags.map((e) => e)),
+    netWeight: (proto.netWeight.hasValue() ? proto.netWeight.value : null),
   );
 }
 

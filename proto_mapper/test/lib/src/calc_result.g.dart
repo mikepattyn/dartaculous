@@ -15,6 +15,8 @@ class $CalcResultProtoMapper implements ProtoMapper<CalcResult, GCalcResult> {
   @override
   GCalcResult toProto(CalcResult entity) => _$CalcResultToProto(entity);
 
+  GCalcResult toFieldsOfProto(CalcResult entity) => _$CalcResultToProto(entity);
+
   CalcResult fromJson(String json) =>
       _$CalcResultFromProto(GCalcResult.fromJson(json));
   String toJson(CalcResult entity) => _$CalcResultToProto(entity).writeToJson();
@@ -35,9 +37,9 @@ GCalcResult _$CalcResultToProto(CalcResult instance) {
   return proto;
 }
 
-CalcResult _$CalcResultFromProto(GCalcResult instance) {
+CalcResult _$CalcResultFromProto(GCalcResult proto) {
   return CalcResult(
-    result: instance.result,
+    result: proto.result,
   );
 }
 

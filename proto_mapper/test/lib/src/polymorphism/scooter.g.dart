@@ -15,6 +15,8 @@ class $ScooterProtoMapper implements ProtoMapper<Scooter, GScooter> {
   @override
   GScooter toProto(Scooter entity) => _$ScooterToProto(entity);
 
+  GScooter toFieldsOfProto(Scooter entity) => _$ScooterToProto(entity);
+
   Scooter fromJson(String json) => _$ScooterFromProto(GScooter.fromJson(json));
   String toJson(Scooter entity) => _$ScooterToProto(entity).writeToJson();
 
@@ -29,17 +31,17 @@ GScooter _$ScooterToProto(Scooter instance) {
   var proto = GScooter();
 
   proto.fieldsOfSuperClass =
-      $AbstractVehicleProtoMapper().toProto(instance).abstractVehicle;
+      const $AbstractVehicleProtoMapper().toFieldsOfProto(instance);
 
   proto.key = instance.key;
 
   return proto;
 }
 
-Scooter _$ScooterFromProto(GScooter instance) {
+Scooter _$ScooterFromProto(GScooter proto) {
   return Scooter(
-    weight: instance.fieldsOfSuperClass.weight,
-    key: instance.key,
+    weight: proto.fieldsOfSuperClass.weight,
+    key: proto.key,
   );
 }
 

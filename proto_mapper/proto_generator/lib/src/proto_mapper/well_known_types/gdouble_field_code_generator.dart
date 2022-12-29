@@ -25,8 +25,8 @@ class GDoubleFieldCodeGenerator extends WKTFieldCodeGenerator {
   @override
   String get fromProtoMap {
     if (fieldDescriptor.isNullable) {
-      return '''($ref$protoFieldName.hasValue() ? $ref$protoFieldName.value : null)''';
+      return '''($protoRef$protoFieldName.hasValue() ? $protoRef$protoFieldName.value : null)''';
     }
-    return '$ref$protoFieldName';
+    return '$protoRef$protoFieldName';
   }
 }

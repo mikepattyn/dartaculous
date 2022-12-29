@@ -24,5 +24,5 @@ class BigIntFieldCodeGenerator
 
   @override
   String get fromProtoMap =>
-      '${fieldDescriptor.isNullable ? '\$NullableBigIntProtoExtension' : '\$BigIntProtoExtension'}.\$fromProtoBytes($ref$protoFieldName)';
+      '${fieldDescriptor.isNullable ? '\$NullableBigIntProtoExtension' : '\$BigIntProtoExtension'}.\$fromProtoBytes($protoRef$protoFieldName)';
 }

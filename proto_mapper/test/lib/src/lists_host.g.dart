@@ -15,6 +15,8 @@ class $ListsHostProtoMapper implements ProtoMapper<ListsHost, GListsHost> {
   @override
   GListsHost toProto(ListsHost entity) => _$ListsHostToProto(entity);
 
+  GListsHost toFieldsOfProto(ListsHost entity) => _$ListsHostToProto(entity);
+
   ListsHost fromJson(String json) =>
       _$ListsHostFromProto(GListsHost.fromJson(json));
   String toJson(ListsHost entity) => _$ListsHostToProto(entity).writeToJson();
@@ -78,35 +80,35 @@ GListsHost _$ListsHostToProto(ListsHost instance) {
   return proto;
 }
 
-ListsHost _$ListsHostFromProto(GListsHost instance) {
+ListsHost _$ListsHostFromProto(GListsHost proto) {
   return ListsHost(
-    vbools: List<bool>.unmodifiable(instance.vbools.map((e) => e)),
-    vstrings: List<String>.unmodifiable(instance.vstrings.map((e) => e)),
-    vdurations: List<Duration>.unmodifiable(instance.vdurations.map((e) =>
+    vbools: List<bool>.unmodifiable(proto.vbools.map((e) => e)),
+    vstrings: List<String>.unmodifiable(proto.vstrings.map((e) => e)),
+    vdurations: List<Duration>.unmodifiable(proto.vdurations.map((e) =>
         Duration(
             seconds: e.seconds.toInt(),
             microseconds: (e.nanos ~/ 1000).toInt()))),
     vdatetimes: List<DateTime>.unmodifiable(
-        instance.vdatetimes.map((e) => e.toDateTime())),
-    vdecimals: List<Decimal>.unmodifiable(instance.vdecimals
-        .map((e) => $DecimalProtoExtension.$fromProtoBytes(e))),
-    vints: List<int>.unmodifiable(instance.vints.map((e) => e)),
-    vdoubles: List<double>.unmodifiable(instance.vdoubles.map((e) => e)),
-    vapplianceTypes: List<ApplianceType>.unmodifiable(instance.vapplianceTypes
+        proto.vdatetimes.map((e) => e.toDateTime())),
+    vdecimals: List<Decimal>.unmodifiable(
+        proto.vdecimals.map((e) => $DecimalProtoExtension.$fromProtoBytes(e))),
+    vints: List<int>.unmodifiable(proto.vints.map((e) => e)),
+    vdoubles: List<double>.unmodifiable(proto.vdoubles.map((e) => e)),
+    vapplianceTypes: List<ApplianceType>.unmodifiable(proto.vapplianceTypes
         .map((e) => const $ApplianceTypeProtoMapper().fromProto(e))),
-    nvbools: List<bool>.unmodifiable(instance.nvbools.map((e) => e)),
-    nvstrings: List<String>.unmodifiable(instance.nvstrings.map((e) => e)),
-    nvdurations: List<Duration>.unmodifiable(instance.nvdurations.map((e) =>
+    nvbools: List<bool>.unmodifiable(proto.nvbools.map((e) => e)),
+    nvstrings: List<String>.unmodifiable(proto.nvstrings.map((e) => e)),
+    nvdurations: List<Duration>.unmodifiable(proto.nvdurations.map((e) =>
         Duration(
             seconds: e.seconds.toInt(),
             microseconds: (e.nanos ~/ 1000).toInt()))),
     nvdatetimes: List<DateTime>.unmodifiable(
-        instance.nvdatetimes.map((e) => e.toDateTime())),
-    nvdecimals: List<Decimal>.unmodifiable(instance.nvdecimals
-        .map((e) => $DecimalProtoExtension.$fromProtoBytes(e))),
-    nvints: List<int>.unmodifiable(instance.nvints.map((e) => e)),
-    nvdoubles: List<double>.unmodifiable(instance.nvdoubles.map((e) => e)),
-    nvapplianceTypes: List<ApplianceType>.unmodifiable(instance.nvapplianceTypes
+        proto.nvdatetimes.map((e) => e.toDateTime())),
+    nvdecimals: List<Decimal>.unmodifiable(
+        proto.nvdecimals.map((e) => $DecimalProtoExtension.$fromProtoBytes(e))),
+    nvints: List<int>.unmodifiable(proto.nvints.map((e) => e)),
+    nvdoubles: List<double>.unmodifiable(proto.nvdoubles.map((e) => e)),
+    nvapplianceTypes: List<ApplianceType>.unmodifiable(proto.nvapplianceTypes
         .map((e) => const $ApplianceTypeProtoMapper().fromProto(e))),
   );
 }

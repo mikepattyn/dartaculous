@@ -15,6 +15,8 @@ class $BalloonProtoMapper implements ProtoMapper<Balloon, GBalloon> {
   @override
   GBalloon toProto(Balloon entity) => _$BalloonToProto(entity);
 
+  GBalloon toFieldsOfProto(Balloon entity) => _$BalloonToProto(entity);
+
   Balloon fromJson(String json) => _$BalloonFromProto(GBalloon.fromJson(json));
   String toJson(Balloon entity) => _$BalloonToProto(entity).writeToJson();
 
@@ -35,11 +37,11 @@ GBalloon _$BalloonToProto(Balloon instance) {
   return proto;
 }
 
-Balloon _$BalloonFromProto(GBalloon instance) {
+Balloon _$BalloonFromProto(GBalloon proto) {
   return Balloon(
-    weight: instance.weight,
-    key: instance.key,
-    serviceCeiling: instance.serviceCeiling,
+    weight: proto.weight,
+    key: proto.key,
+    serviceCeiling: proto.serviceCeiling,
   );
 }
 
