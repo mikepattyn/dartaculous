@@ -6,7 +6,6 @@ import 'package:proto_generator/src/common/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/proto_reflected.dart';
 import 'package:proto_generator/src/proto_mapper/interface_element_extension.dart';
 import 'package:source_gen/source_gen.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 import 'package:recase/recase.dart';
 

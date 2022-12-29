@@ -17,8 +17,6 @@ dependencies:
   recase: ^4.0.0
   squarealfa_common_types: ^1.2.0
   squarealfa_generators_common: ^2.10.0
-  code_builder: ^4.3.0
-  built_value: ^8.4.1
   glob: ^2.1.1
   path: ^1.8.3
   

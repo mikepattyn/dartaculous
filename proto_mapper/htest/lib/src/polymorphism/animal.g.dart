@@ -40,6 +40,7 @@ GAnimal _$AnimalToProto(Animal instance) {
 Animal _$AnimalFromProto(GAnimal instance) {
   return Animal(
     height: instance.height /*this*/,
+    mass: 0,
   )
         ..lifeSpan = instance.lifeSpan /*this*/
         ..color = instance.color /*this*/
