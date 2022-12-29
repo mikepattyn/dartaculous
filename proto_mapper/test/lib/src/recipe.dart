@@ -2,18 +2,18 @@ import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
 import 'package:proto_generator_test/grpc/model.pb.dart';
 import 'package:proto_generator_test/src/appliance_type.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart';
-//as $wellknown_timestamp;
+import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
+    as $wellknown_timestamp;
 import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
-    as $wkd;
+    as $wellknown_duration;
 
 import 'category.dart';
 import 'ingredient.dart';
 
 part 'recipe.g.dart';
 
-typedef GTimeStamp = Timestamp;
-typedef GDuration = $wkd.Duration;
+//typedef GTimeStamp = Timestamp;
+//typedef GDuration = $wkd.Duration;
 
 @Proto()
 class Recipe {

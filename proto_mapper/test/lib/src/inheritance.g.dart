@@ -11,40 +11,34 @@ class $BranchProtoMapper implements ProtoMapper<Branch, GBranch> {
 
   @override
   Branch fromProto(GBranch proto) => _$BranchFromProto(proto);
+
   @override
   GBranch toProto(Branch entity) => _$BranchToProto(entity);
+
   Branch fromJson(String json) => _$BranchFromProto(GBranch.fromJson(json));
   String toJson(Branch entity) => _$BranchToProto(entity).writeToJson();
+
   String toBase64Proto(Branch entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
-  Branch fromBase64Proto(String base64Proto) => _$BranchFromProto(
-      GBranch.fromJson(utf8.decode(base64Decode(base64Proto))));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
+  Branch fromBase64Proto(String base64Proto) =>
+      GBranch.fromJson(utf8.decode(base64Decode(base64Proto))).toBranch();
 }
 
 GBranch _$BranchToProto(Branch instance) {
-  var uproto = GBranch();
-  if (instance is Twig) {
-    uproto.twig = (const $TwigProtoMapper()).toProto(instance);
-    return uproto;
-  }
+  var proto = GBranch();
 
-  final proto = uproto.branch = GFieldsOfBranch();
-
-  return uproto;
+  return proto;
 }
 
-Branch _$BranchFromProto(GBranch sInstance) {
-  if (sInstance.hasTwig()) {
-    return sInstance.twig.toTwig();
-  }
-  final instance = sInstance.branch;
-  final ret = Branch();
-  return ret;
+Branch _$BranchFromProto(GBranch instance) {
+  return Branch();
 }
 
 extension $BranchProtoExtension on Branch {
   GBranch toProto() => _$BranchToProto(this);
   String toJson() => _$BranchToProto(this).writeToJson();
+
   static Branch fromProto(GBranch proto) => _$BranchFromProto(proto);
   static Branch fromJson(String json) =>
       _$BranchFromProto(GBranch.fromJson(json));
@@ -59,40 +53,36 @@ class $TwigProtoMapper implements ProtoMapper<Twig, GTwig> {
 
   @override
   Twig fromProto(GTwig proto) => _$TwigFromProto(proto);
+
   @override
   GTwig toProto(Twig entity) => _$TwigToProto(entity);
+
   Twig fromJson(String json) => _$TwigFromProto(GTwig.fromJson(json));
   String toJson(Twig entity) => _$TwigToProto(entity).writeToJson();
+
   String toBase64Proto(Twig entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
   Twig fromBase64Proto(String base64Proto) =>
-      _$TwigFromProto(GTwig.fromJson(utf8.decode(base64Decode(base64Proto))));
+      GTwig.fromJson(utf8.decode(base64Decode(base64Proto))).toTwig();
 }
 
 GTwig _$TwigToProto(Twig instance) {
-  var uproto = GTwig();
-  if (instance is Leaf) {
-    uproto.leaf = (const $LeafProtoMapper()).toProto(instance);
-    return uproto;
-  }
+  var proto = GTwig();
 
-  final proto = uproto.twig = GFieldsOfTwig();
+  proto.fieldsOfSuperClass = $BranchProtoMapper().toProto(instance).branch;
 
-  return uproto;
+  return proto;
 }
 
-Twig _$TwigFromProto(GTwig sInstance) {
-  if (sInstance.hasLeaf()) {
-    return sInstance.leaf.toLeaf();
-  }
-  final instance = sInstance.twig;
-  final ret = Twig();
-  return ret;
+Twig _$TwigFromProto(GTwig instance) {
+  return Twig();
 }
 
 extension $TwigProtoExtension on Twig {
   GTwig toProto() => _$TwigToProto(this);
   String toJson() => _$TwigToProto(this).writeToJson();
+
   static Twig fromProto(GTwig proto) => _$TwigFromProto(proto);
   static Twig fromJson(String json) => _$TwigFromProto(GTwig.fromJson(json));
 }
@@ -106,27 +96,36 @@ class $LeafProtoMapper implements ProtoMapper<Leaf, GLeaf> {
 
   @override
   Leaf fromProto(GLeaf proto) => _$LeafFromProto(proto);
+
   @override
   GLeaf toProto(Leaf entity) => _$LeafToProto(entity);
+
   Leaf fromJson(String json) => _$LeafFromProto(GLeaf.fromJson(json));
   String toJson(Leaf entity) => _$LeafToProto(entity).writeToJson();
+
   String toBase64Proto(Leaf entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
   Leaf fromBase64Proto(String base64Proto) =>
-      _$LeafFromProto(GLeaf.fromJson(utf8.decode(base64Decode(base64Proto))));
+      GLeaf.fromJson(utf8.decode(base64Decode(base64Proto))).toLeaf();
 }
 
 GLeaf _$LeafToProto(Leaf instance) {
   var proto = GLeaf();
 
+  proto.fieldsOfSuperClass = $TwigProtoMapper().toProto(instance).twig;
+
   return proto;
 }
 
-Leaf _$LeafFromProto(GLeaf instance) => Leaf();
+Leaf _$LeafFromProto(GLeaf instance) {
+  return Leaf();
+}
 
 extension $LeafProtoExtension on Leaf {
   GLeaf toProto() => _$LeafToProto(this);
   String toJson() => _$LeafToProto(this).writeToJson();
+
   static Leaf fromProto(GLeaf proto) => _$LeafFromProto(proto);
   static Leaf fromJson(String json) => _$LeafFromProto(GLeaf.fromJson(json));
 }

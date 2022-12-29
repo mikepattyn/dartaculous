@@ -39,20 +39,19 @@ GPerson _$PersonToProto(Person instance) {
 }
 
 Person _$PersonFromProto(GPerson instance) {
-  final $super1 = instance.fieldsOfSuperClass;
-  final $super2 = $super1.fieldsOfSuperClass;
-
   return Person(
-    name: instance.name /*this*/,
+    name: instance.name,
     description:
         (instance.description.hasValue() ? instance.description.value : null),
-    height: $super1.height /*this*/,
-    mass: $super2.mass /*this*/,
+    height: instance.fieldsOfSuperClass.height,
+    mass: instance.fieldsOfSuperClass.fieldsOfSuperClass.mass,
   )
-    ..lifeSpan = $super1.lifeSpan /*this*/
-    ..color = $super1.color /*this*/
+    ..lifeSpan = instance.fieldsOfSuperClass.lifeSpan
+    ..color = instance.fieldsOfSuperClass.color
     ..optionDescr =
-        ($super2.optionDescr.hasValue() ? $super2.optionDescr.value : null);
+        (instance.fieldsOfSuperClass.fieldsOfSuperClass.optionDescr.hasValue()
+            ? instance.fieldsOfSuperClass.fieldsOfSuperClass.optionDescr.value
+            : null);
 }
 
 extension $PersonProtoExtension on Person {

@@ -11,14 +11,18 @@ class $PersonProtoMapper implements ProtoMapper<Person, GPerson> {
 
   @override
   Person fromProto(GPerson proto) => _$PersonFromProto(proto);
+
   @override
   GPerson toProto(Person entity) => _$PersonToProto(entity);
+
   Person fromJson(String json) => _$PersonFromProto(GPerson.fromJson(json));
   String toJson(Person entity) => _$PersonToProto(entity).writeToJson();
+
   String toBase64Proto(Person entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
-  Person fromBase64Proto(String base64Proto) => _$PersonFromProto(
-      GPerson.fromJson(utf8.decode(base64Decode(base64Proto))));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
+  Person fromBase64Proto(String base64Proto) =>
+      GPerson.fromJson(utf8.decode(base64Decode(base64Proto))).toPerson();
 }
 
 GPerson _$PersonToProto(Person instance) {
@@ -33,15 +37,18 @@ GPerson _$PersonToProto(Person instance) {
   return proto;
 }
 
-Person _$PersonFromProto(GPerson instance) => Person(
-      boolValue:
-          (instance.boolValue.hasValue() ? instance.boolValue.value : null),
-      decVal: $NullableDecimalProtoExtension.$fromProtoBytes(instance.decVal),
-    );
+Person _$PersonFromProto(GPerson instance) {
+  return Person(
+    boolValue:
+        (instance.boolValue.hasValue() ? instance.boolValue.value : null),
+    decVal: $NullableDecimalProtoExtension.$fromProtoBytes(instance.decVal),
+  );
+}
 
 extension $PersonProtoExtension on Person {
   GPerson toProto() => _$PersonToProto(this);
   String toJson() => _$PersonToProto(this).writeToJson();
+
   static Person fromProto(GPerson proto) => _$PersonFromProto(proto);
   static Person fromJson(String json) =>
       _$PersonFromProto(GPerson.fromJson(json));

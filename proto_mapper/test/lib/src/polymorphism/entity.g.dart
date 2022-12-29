@@ -11,14 +11,18 @@ class $EntityProtoMapper implements ProtoMapper<Entity, GEntity> {
 
   @override
   Entity fromProto(GEntity proto) => _$EntityFromProto(proto);
+
   @override
   GEntity toProto(Entity entity) => _$EntityToProto(entity);
+
   Entity fromJson(String json) => _$EntityFromProto(GEntity.fromJson(json));
   String toJson(Entity entity) => _$EntityToProto(entity).writeToJson();
+
   String toBase64Proto(Entity entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
-  Entity fromBase64Proto(String base64Proto) => _$EntityFromProto(
-      GEntity.fromJson(utf8.decode(base64Decode(base64Proto))));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
+  Entity fromBase64Proto(String base64Proto) =>
+      GEntity.fromJson(utf8.decode(base64Decode(base64Proto))).toEntity();
 }
 
 GEntity _$EntityToProto(Entity instance) {
@@ -29,13 +33,16 @@ GEntity _$EntityToProto(Entity instance) {
   return proto;
 }
 
-Entity _$EntityFromProto(GEntity instance) => Entity(
-      key: instance.key,
-    );
+Entity _$EntityFromProto(GEntity instance) {
+  return Entity(
+    key: instance.key,
+  );
+}
 
 extension $EntityProtoExtension on Entity {
   GEntity toProto() => _$EntityToProto(this);
   String toJson() => _$EntityToProto(this).writeToJson();
+
   static Entity fromProto(GEntity proto) => _$EntityFromProto(proto);
   static Entity fromJson(String json) =>
       _$EntityFromProto(GEntity.fromJson(json));

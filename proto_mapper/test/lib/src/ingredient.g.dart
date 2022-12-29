@@ -11,15 +11,20 @@ class $IngredientProtoMapper implements ProtoMapper<Ingredient, GIngredient> {
 
   @override
   Ingredient fromProto(GIngredient proto) => _$IngredientFromProto(proto);
+
   @override
   GIngredient toProto(Ingredient entity) => _$IngredientToProto(entity);
+
   Ingredient fromJson(String json) =>
       _$IngredientFromProto(GIngredient.fromJson(json));
   String toJson(Ingredient entity) => _$IngredientToProto(entity).writeToJson();
+
   String toBase64Proto(Ingredient entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
-  Ingredient fromBase64Proto(String base64Proto) => _$IngredientFromProto(
-      GIngredient.fromJson(utf8.decode(base64Decode(base64Proto))));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
+  Ingredient fromBase64Proto(String base64Proto) =>
+      GIngredient.fromJson(utf8.decode(base64Decode(base64Proto)))
+          .toIngredient();
 }
 
 GIngredient _$IngredientToProto(Ingredient instance) {
@@ -50,29 +55,31 @@ GIngredient _$IngredientToProto(Ingredient instance) {
   return proto;
 }
 
-Ingredient _$IngredientFromProto(GIngredient instance) => Ingredient(
-      description: instance.description,
-      quantity: $DecimalProtoExtension.$fromProtoBytes(instance.quantity),
-      precision: instance.precision,
-      cookingDuration: Duration(
-          seconds: instance.cookingDuration.seconds.toInt(),
-          microseconds: (instance.cookingDuration.nanos ~/ 1000).toInt()),
-      mainComponent:
-          const $ComponentProtoMapper().fromProto(instance.mainComponent),
-      otherComponents: List<Component>.unmodifiable(instance.otherComponents
-          .map((e) => const $ComponentProtoMapper().fromProto(e))),
-      alternativeComponent: (instance.hasAlternativeComponent()
-          ? const $ComponentProtoMapper()
-              .fromProto(instance.alternativeComponent)
-          : null),
-      secondaryComponents: List<Component>.unmodifiable(instance
-          .secondaryComponents
-          .map((e) => const $ComponentProtoMapper().fromProto(e))),
-    );
+Ingredient _$IngredientFromProto(GIngredient instance) {
+  return Ingredient(
+    description: instance.description,
+    quantity: $DecimalProtoExtension.$fromProtoBytes(instance.quantity),
+    precision: instance.precision,
+    cookingDuration: Duration(
+        seconds: instance.cookingDuration.seconds.toInt(),
+        microseconds: (instance.cookingDuration.nanos ~/ 1000).toInt()),
+    mainComponent:
+        const $ComponentProtoMapper().fromProto(instance.mainComponent),
+    otherComponents: List<Component>.unmodifiable(instance.otherComponents
+        .map((e) => const $ComponentProtoMapper().fromProto(e))),
+    alternativeComponent: (instance.hasAlternativeComponent()
+        ? const $ComponentProtoMapper().fromProto(instance.alternativeComponent)
+        : null),
+    secondaryComponents: List<Component>.unmodifiable(instance
+        .secondaryComponents
+        .map((e) => const $ComponentProtoMapper().fromProto(e))),
+  );
+}
 
 extension $IngredientProtoExtension on Ingredient {
   GIngredient toProto() => _$IngredientToProto(this);
   String toJson() => _$IngredientToProto(this).writeToJson();
+
   static Ingredient fromProto(GIngredient proto) =>
       _$IngredientFromProto(proto);
   static Ingredient fromJson(String json) =>

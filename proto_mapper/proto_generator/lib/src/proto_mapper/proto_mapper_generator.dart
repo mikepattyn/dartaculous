@@ -118,20 +118,19 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
     List<String> superRefs,
   ) {
     var superType = classElement.supertype;
-    int level = 1;
+    var ref = 'instance.fieldsOfSuperClass';
 
     while (superType != null) {
       final ce = superType.element;
       final ceAnnot = _getProtoReflected(ce);
       if (ceAnnot == null) return;
-      final ref = '\$super${level++}';
       final fds = ce.getFieldDescriptors(
         annotation: ceAnnot.proto,
         config: config,
         refName: ref,
       );
       fieldDescriptors.addAll(fds);
-      superRefs.add(ref);
+      ref = '$ref.fieldsOfSuperClass';
       superType = ce.supertype;
     }
   }
@@ -410,7 +409,7 @@ String _createSuperFieldsOf(InterfaceElement classElement) {
 
   final protoReflected = ConstantReader(annotation).hydrateAnnotation();
   final superRef =
-      protoReflected.knownSubClasses.isEmpty ? '' : '.${className.snakeCase}';
+      protoReflected.knownSubClasses.isEmpty ? '' : '.${className.camelCase}';
 
   final superFieldsOf =
       '   proto.fieldsOfSuperClass = \$${className}ProtoMapper().toProto(instance)$superRef;\n';

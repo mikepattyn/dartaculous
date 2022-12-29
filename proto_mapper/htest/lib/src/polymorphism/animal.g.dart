@@ -38,16 +38,15 @@ GAnimal _$AnimalToProto(Animal instance) {
 }
 
 Animal _$AnimalFromProto(GAnimal instance) {
-  final $super1 = instance.fieldsOfSuperClass;
-
   return Animal(
-    height: instance.height /*this*/,
-    mass: $super1.mass /*this*/,
+    height: instance.height,
+    mass: instance.fieldsOfSuperClass.mass,
   )
-    ..lifeSpan = instance.lifeSpan /*this*/
-    ..color = instance.color /*this*/
-    ..optionDescr =
-        ($super1.optionDescr.hasValue() ? $super1.optionDescr.value : null);
+    ..lifeSpan = instance.lifeSpan
+    ..color = instance.color
+    ..optionDescr = (instance.fieldsOfSuperClass.optionDescr.hasValue()
+        ? instance.fieldsOfSuperClass.optionDescr.value
+        : null);
 }
 
 extension $AnimalProtoExtension on Animal {

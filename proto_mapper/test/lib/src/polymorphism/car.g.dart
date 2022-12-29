@@ -11,31 +11,40 @@ class $CarProtoMapper implements ProtoMapper<Car, GCar> {
 
   @override
   Car fromProto(GCar proto) => _$CarFromProto(proto);
+
   @override
   GCar toProto(Car entity) => _$CarToProto(entity);
+
   Car fromJson(String json) => _$CarFromProto(GCar.fromJson(json));
   String toJson(Car entity) => _$CarToProto(entity).writeToJson();
+
   String toBase64Proto(Car entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
   Car fromBase64Proto(String base64Proto) =>
-      _$CarFromProto(GCar.fromJson(utf8.decode(base64Decode(base64Proto))));
+      GCar.fromJson(utf8.decode(base64Decode(base64Proto))).toCar();
 }
 
 GCar _$CarToProto(Car instance) {
   var proto = GCar();
+
+  proto.fieldsOfSuperClass = $VehicleProtoMapper().toProto(instance).vehicle;
 
   proto.numberOfDoors = instance.numberOfDoors;
 
   return proto;
 }
 
-Car _$CarFromProto(GCar instance) => Car(
-      numberOfDoors: instance.numberOfDoors,
-    );
+Car _$CarFromProto(GCar instance) {
+  return Car(
+    numberOfDoors: instance.numberOfDoors,
+  );
+}
 
 extension $CarProtoExtension on Car {
   GCar toProto() => _$CarToProto(this);
   String toJson() => _$CarToProto(this).writeToJson();
+
   static Car fromProto(GCar proto) => _$CarFromProto(proto);
   static Car fromJson(String json) => _$CarFromProto(GCar.fromJson(json));
 }

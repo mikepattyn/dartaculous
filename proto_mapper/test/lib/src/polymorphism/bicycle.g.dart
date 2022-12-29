@@ -11,32 +11,43 @@ class $BicycleProtoMapper implements ProtoMapper<Bicycle, GBicycle> {
 
   @override
   Bicycle fromProto(GBicycle proto) => _$BicycleFromProto(proto);
+
   @override
   GBicycle toProto(Bicycle entity) => _$BicycleToProto(entity);
+
   Bicycle fromJson(String json) => _$BicycleFromProto(GBicycle.fromJson(json));
   String toJson(Bicycle entity) => _$BicycleToProto(entity).writeToJson();
+
   String toBase64Proto(Bicycle entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
-  Bicycle fromBase64Proto(String base64Proto) => _$BicycleFromProto(
-      GBicycle.fromJson(utf8.decode(base64Decode(base64Proto))));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
+  Bicycle fromBase64Proto(String base64Proto) =>
+      GBicycle.fromJson(utf8.decode(base64Decode(base64Proto))).toBicycle();
 }
 
 GBicycle _$BicycleToProto(Bicycle instance) {
   var proto = GBicycle();
+
+  proto.fieldsOfSuperClass =
+      $AbstractVehicleProtoMapper().toProto(instance).abstractVehicle;
 
   proto.wheelDiamater = instance.wheelDiamater.$toProtoBytes();
 
   return proto;
 }
 
-Bicycle _$BicycleFromProto(GBicycle instance) => Bicycle(
-      wheelDiamater:
-          $DecimalProtoExtension.$fromProtoBytes(instance.wheelDiamater),
-    );
+Bicycle _$BicycleFromProto(GBicycle instance) {
+  return Bicycle(
+    wheelDiamater:
+        $DecimalProtoExtension.$fromProtoBytes(instance.wheelDiamater),
+    weight: instance.fieldsOfSuperClass.weight,
+  );
+}
 
 extension $BicycleProtoExtension on Bicycle {
   GBicycle toProto() => _$BicycleToProto(this);
   String toJson() => _$BicycleToProto(this).writeToJson();
+
   static Bicycle fromProto(GBicycle proto) => _$BicycleFromProto(proto);
   static Bicycle fromJson(String json) =>
       _$BicycleFromProto(GBicycle.fromJson(json));
