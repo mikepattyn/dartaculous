@@ -474,13 +474,15 @@ String _createSuperFieldsOf(InterfaceElement classElement) {
   final tc = TypeChecker.fromRuntime(Proto);
   final annotation = tc.firstAnnotationOf(superType.element);
   if (annotation == null) return '';
-  // final protoReflected = ConstantReader(annotation).hydrateAnnotation();
-  // final fieldsOf = protoReflected.knownSubClasses.isEmpty ? '' : 'FieldsOf';
 
   final superClassElement = superType.element.asClassElement();
   final className = superClassElement.name;
 
+  final protoReflected = ConstantReader(annotation).hydrateAnnotation();
+  final superRef =
+      protoReflected.knownSubClasses.isEmpty ? '' : '.${className.snakeCase}';
+
   final superFieldsOf =
-      '   proto.fieldsOfSuperClass = \$${className}ProtoMapper().toProto(instance);\n';
+      '   proto.fieldsOfSuperClass = \$${className}ProtoMapper().toProto(instance)$superRef;\n';
   return superFieldsOf;
 }
