@@ -15,7 +15,7 @@ class Person extends Animal {
   @ProtoField(3)
   final String? description;
 
-  final int dummy = 1;
+  final int dummy = 4;
   Person({
     required this.name,
     this.description,

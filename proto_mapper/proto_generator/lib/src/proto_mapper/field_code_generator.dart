@@ -18,12 +18,11 @@ abstract class FieldCodeGenerator {
   factory FieldCodeGenerator.fromFieldDescriptor({
     required FieldDescriptor fieldDescriptor,
     required Config config,
-    String refName = defaultRefName,
     String protoRefName = defaultProtoRefName,
   }) {
     FieldCodeGenerator? fcd = _getCustomEncodedFieldCodeGenerator(
       fieldDescriptor: fieldDescriptor,
-      refName: refName,
+      refName: fieldDescriptor.refName,
       protoRefName: protoRefName,
     );
     if (fcd != null) return fcd;
@@ -31,21 +30,21 @@ abstract class FieldCodeGenerator {
     if (config.useWellKnownTypes) {
       fcd = WKTFieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor: fieldDescriptor,
-        refName: refName,
+        refName: fieldDescriptor.refName,
         protoRefName: protoRefName,
       );
       if (fcd != null) return fcd;
     } else {
       fcd = StandaloneFieldCodeGenerator.fromFieldDescriptor(
         fieldDescriptor: fieldDescriptor,
-        refName: refName,
+        refName: fieldDescriptor.refName,
         protoRefName: protoRefName,
       );
       if (fcd != null) return fcd;
     }
     return CompositeFieldCodeGenerator.fromFieldDescriptor(
       fieldDescriptor: fieldDescriptor,
-      refName: refName,
+      refName: fieldDescriptor.refName,
       protoRefName: protoRefName,
       config: config,
     );

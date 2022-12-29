@@ -13,6 +13,7 @@ extension InterfaceElementExtensions on InterfaceElement {
   Iterable<FieldDescriptor> getFieldDescriptors({
     required Proto annotation,
     required Config config,
+    required String refName,
   }) {
     final fieldSet = getSortedFieldSet(includeInherited: false);
     final fieldDescriptors = <FieldDescriptor>[];
@@ -28,7 +29,8 @@ extension InterfaceElementExtensions on InterfaceElement {
         config: config,
         proto: protoReflected?.proto ?? annotation,
         protoField: protoField,
-        //forEnum: false
+        refName: refName,
+        
       );
       fieldDescriptors.add(fd);
     }

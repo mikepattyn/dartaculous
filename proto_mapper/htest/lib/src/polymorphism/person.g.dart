@@ -39,11 +39,20 @@ GPerson _$PersonToProto(Person instance) {
 }
 
 Person _$PersonFromProto(GPerson instance) {
+  final $super1 = instance.fieldsOfSuperClass;
+  final $super2 = $super1.fieldsOfSuperClass;
+
   return Person(
     name: instance.name /*this*/,
     description:
         (instance.description.hasValue() ? instance.description.value : null),
-  );
+    height: $super1.height /*this*/,
+    mass: $super2.mass /*this*/,
+  )
+    ..lifeSpan = $super1.lifeSpan /*this*/
+    ..color = $super1.color /*this*/
+    ..optionDescr =
+        ($super2.optionDescr.hasValue() ? $super2.optionDescr.value : null);
 }
 
 extension $PersonProtoExtension on Person {

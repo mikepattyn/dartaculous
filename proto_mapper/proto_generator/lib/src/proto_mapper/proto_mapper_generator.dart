@@ -44,9 +44,21 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
     ProtoReflected protoReflected,
   ) {
     final proto = protoReflected.proto;
-    final fieldDescriptors = classElement.getFieldDescriptors(
-        annotation: protoReflected.proto, config: config);
-    final fromFieldDescriptors = [...fieldDescriptors];
+    final fieldDescriptors = classElement
+        .getFieldDescriptors(
+          annotation: protoReflected.proto,
+          config: config,
+          refName: 'instance',
+        )
+        .toList();
+    final superFieldDescriptors = <FieldDescriptor>[];
+    final superRefs = <String>[];
+    _fillSuperFieldDescriptors(classElement, superFieldDescriptors, superRefs);
+
+    final fromFieldDescriptors = [
+      ...fieldDescriptors,
+      ...superFieldDescriptors
+    ];
 
     final toProtoFieldBuffer = StringBuffer();
     final fromProtoFieldBuffer = StringBuffer();
@@ -89,6 +101,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
     // final fromKnownSubClasses = _generateFromKnownSubclasses(protoReflected);
 
     final renderParms = RenderMapperBuffers(
+      superRefs: superRefs,
       constructorName: constructorName,
       toProtoFieldBuffer: toProtoFieldBuffer.toString(),
       fromProtoFieldBuffer: fromProtoFieldBuffer.toString(),
@@ -97,6 +110,30 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
       // fromKnownSubclasses: fromKnownSubClasses,
     );
     return renderParms;
+  }
+
+  void _fillSuperFieldDescriptors(
+    ClassElement classElement,
+    List<FieldDescriptor> fieldDescriptors,
+    List<String> superRefs,
+  ) {
+    var superType = classElement.supertype;
+    int level = 1;
+
+    while (superType != null) {
+      final ce = superType.element;
+      final ceAnnot = _getProtoReflected(ce);
+      if (ceAnnot == null) return;
+      final ref = '\$super${level++}';
+      final fds = ce.getFieldDescriptors(
+        annotation: ceAnnot.proto,
+        config: config,
+        refName: ref,
+      );
+      fieldDescriptors.addAll(fds);
+      superRefs.add(ref);
+      superType = ce.supertype;
+    }
   }
 
   ConstructorElement _getConstructor(ClassElement classElement,
@@ -182,6 +219,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
     final prefix = config.prefix;
     final toVar = renderParms.toKnownSubclasses == null ? 'proto' : 'uproto';
     final toSuperFieldsOf = _createSuperFieldsOf(classElement);
+    final fromSuperRefs = _createFromSuperRefs(renderParms);
     final toReturn = classElement.isAbstract
         ? 'throw UnimplementedError();'
         : '''
@@ -200,6 +238,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
           ${classElement.isAbstract ? '''
             throw UnimplementedError();
           ''' : '''
+            
             final instance = sInstance.${className.camelCase};
             final ret = $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
           ${renderParms.fromProtoFieldBuffer};
@@ -217,6 +256,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
           '''
             : '''
           $className _\$${className}FromProto($prefix$className instance) {
+            $fromSuperRefs
             return $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
               ${renderParms.fromProtoFieldBuffer};
           }
@@ -303,6 +343,20 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
   ''';
   }
 
+  String _createFromSuperRefs(RenderMapperBuffers renderParms) {
+    final buffer = StringBuffer();
+    var previous = '';
+    for (final superRef in renderParms.superRefs) {
+      if (buffer.isEmpty) {
+        buffer.writeln('final $superRef = instance.fieldsOfSuperClass;');
+      } else {
+        buffer.writeln('final $superRef = $previous.fieldsOfSuperClass;');
+      }
+      previous = superRef;
+    }
+    return buffer.toString();
+  }
+
   // String? _generateFromKnownSubclasses(MapProtoReflected mapProtoReflected) {
   //   final kscs =
   //       getKnownSubclasses(mapProtoReflected.knownSubClasses, MapProto);
@@ -323,6 +377,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
 }
 
 class RenderMapperBuffers {
+  final List<String> superRefs;
   final String constructorName;
   final String toProtoFieldBuffer;
   final String fromProtoFieldBuffer;
@@ -331,6 +386,7 @@ class RenderMapperBuffers {
   final String? fromKnownSubclasses;
 
   RenderMapperBuffers({
+    required this.superRefs,
     required this.constructorName,
     required this.toProtoFieldBuffer,
     required this.fromProtoFieldBuffer,
@@ -359,4 +415,16 @@ String _createSuperFieldsOf(InterfaceElement classElement) {
   final superFieldsOf =
       '   proto.fieldsOfSuperClass = \$${className}ProtoMapper().toProto(instance)$superRef;\n';
   return superFieldsOf;
+}
+
+final _protoTC = TypeChecker.fromRuntime(Proto);
+
+ProtoReflected? _getProtoReflected(InterfaceElement c) {
+  final annotation = _protoTC.firstAnnotationOf(c);
+
+  if (annotation == null) {
+    return null;
+  }
+  final protoReflected = ConstantReader(annotation).hydrateAnnotation();
+  return protoReflected;
 }
