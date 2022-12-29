@@ -37,6 +37,7 @@ GEncapsulatedFieldsClass _$EncapsulatedFieldsClassToProto(
   var proto = GEncapsulatedFieldsClass();
 
   proto.finalString = instance.finalString;
+  proto.encapsulatedString = instance.encapsulatedString;
 
   return proto;
 }
@@ -45,6 +46,7 @@ EncapsulatedFieldsClass _$EncapsulatedFieldsClassFromProto(
     GEncapsulatedFieldsClass instance) {
   return EncapsulatedFieldsClass(
     finalString: instance.finalString,
+    encapsulatedString: instance.encapsulatedString,
   );
 }
 

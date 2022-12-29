@@ -254,6 +254,7 @@ message GEncapsulatedFieldsClass
 {
 
   string final_string = 1;
+  string encapsulated_string = 2;
 
 }   
 

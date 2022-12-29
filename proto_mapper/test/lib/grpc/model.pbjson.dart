@@ -336,11 +336,12 @@ const GEncapsulatedFieldsClass$json = const {
   '1': 'GEncapsulatedFieldsClass',
   '2': const [
     const {'1': 'final_string', '3': 1, '4': 1, '5': 9, '10': 'finalString'},
+    const {'1': 'encapsulated_string', '3': 2, '4': 1, '5': 9, '10': 'encapsulatedString'},
   ],
 };
 
 /// Descriptor for `GEncapsulatedFieldsClass`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gEncapsulatedFieldsClassDescriptor = $convert.base64Decode('ChhHRW5jYXBzdWxhdGVkRmllbGRzQ2xhc3MSIQoMZmluYWxfc3RyaW5nGAEgASgJUgtmaW5hbFN0cmluZw==');
+final $typed_data.Uint8List gEncapsulatedFieldsClassDescriptor = $convert.base64Decode('ChhHRW5jYXBzdWxhdGVkRmllbGRzQ2xhc3MSIQoMZmluYWxfc3RyaW5nGAEgASgJUgtmaW5hbFN0cmluZxIvChNlbmNhcHN1bGF0ZWRfc3RyaW5nGAIgASgJUhJlbmNhcHN1bGF0ZWRTdHJpbmc=');
 @$core.Deprecated('Use gListOfEncapsulatedFieldsClassDescriptor instead')
 const GListOfEncapsulatedFieldsClass$json = const {
   '1': 'GListOfEncapsulatedFieldsClass',

@@ -14,6 +14,7 @@ class EncapsulatedFieldsClass {
   @ProtoField(1)
   final String finalString;
 
+  @ProtoField(2)
   String get encapsulatedString => _encapsulatedString;
   String _encapsulatedString;
 

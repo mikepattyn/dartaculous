@@ -1374,16 +1374,21 @@ class GListOfEmpty extends $pb.GeneratedMessage {
 class GEncapsulatedFieldsClass extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GEncapsulatedFieldsClass', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'finalString')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'encapsulatedString')
     ..hasRequiredFields = false
   ;
 
   GEncapsulatedFieldsClass._() : super();
   factory GEncapsulatedFieldsClass({
     $core.String? finalString,
+    $core.String? encapsulatedString,
   }) {
     final _result = create();
     if (finalString != null) {
       _result.finalString = finalString;
+    }
+    if (encapsulatedString != null) {
+      _result.encapsulatedString = encapsulatedString;
     }
     return _result;
   }
@@ -1416,6 +1421,15 @@ class GEncapsulatedFieldsClass extends $pb.GeneratedMessage {
   $core.bool hasFinalString() => $_has(0);
   @$pb.TagNumber(1)
   void clearFinalString() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get encapsulatedString => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set encapsulatedString($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasEncapsulatedString() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearEncapsulatedString() => clearField(2);
 }
 
 class GListOfEncapsulatedFieldsClass extends $pb.GeneratedMessage {
