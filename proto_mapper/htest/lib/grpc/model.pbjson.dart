@@ -36,11 +36,13 @@ const GAnimal$json = const {
   '2': const [
     const {'1': 'fieldsOfSuperClass', '3': 1, '4': 1, '5': 11, '6': '.squarealfa.nozard.techlog.GFieldsOfBeing', '10': 'fieldsOfSuperClass'},
     const {'1': 'height', '3': 2, '4': 1, '5': 5, '10': 'height'},
+    const {'1': 'life_span', '3': 3, '4': 1, '5': 5, '10': 'lifeSpan'},
+    const {'1': 'color', '3': 4, '4': 1, '5': 9, '10': 'color'},
   ],
 };
 
 /// Descriptor for `GAnimal`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gAnimalDescriptor = $convert.base64Decode('CgdHQW5pbWFsElkKEmZpZWxkc09mU3VwZXJDbGFzcxgBIAEoCzIpLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR0ZpZWxkc09mQmVpbmdSEmZpZWxkc09mU3VwZXJDbGFzcxIWCgZoZWlnaHQYAiABKAVSBmhlaWdodA==');
+final $typed_data.Uint8List gAnimalDescriptor = $convert.base64Decode('CgdHQW5pbWFsElkKEmZpZWxkc09mU3VwZXJDbGFzcxgBIAEoCzIpLnNxdWFyZWFsZmEubm96YXJkLnRlY2hsb2cuR0ZpZWxkc09mQmVpbmdSEmZpZWxkc09mU3VwZXJDbGFzcxIWCgZoZWlnaHQYAiABKAVSBmhlaWdodBIbCglsaWZlX3NwYW4YAyABKAVSCGxpZmVTcGFuEhQKBWNvbG9yGAQgASgJUgVjb2xvcg==');
 @$core.Deprecated('Use gListOfAnimalDescriptor instead')
 const GListOfAnimal$json = const {
   '1': 'GListOfAnimal',
@@ -56,11 +58,12 @@ const GFieldsOfBeing$json = const {
   '1': 'GFieldsOfBeing',
   '2': const [
     const {'1': 'mass', '3': 2, '4': 1, '5': 1, '10': 'mass'},
+    const {'1': 'option_descr', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'optionDescr'},
   ],
 };
 
 /// Descriptor for `GFieldsOfBeing`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gFieldsOfBeingDescriptor = $convert.base64Decode('Cg5HRmllbGRzT2ZCZWluZxISCgRtYXNzGAIgASgBUgRtYXNz');
+final $typed_data.Uint8List gFieldsOfBeingDescriptor = $convert.base64Decode('Cg5HRmllbGRzT2ZCZWluZxISCgRtYXNzGAIgASgBUgRtYXNzEj8KDG9wdGlvbl9kZXNjchgDIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZVILb3B0aW9uRGVzY3I=');
 @$core.Deprecated('Use gBeingDescriptor instead')
 const GBeing$json = const {
   '1': 'GBeing',

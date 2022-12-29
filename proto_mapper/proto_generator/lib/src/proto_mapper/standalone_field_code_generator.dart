@@ -10,7 +10,8 @@ import 'field_code_generator.dart';
 import 'standalone/int_field_code_generator.dart';
 import 'field_descriptor.dart';
 
-abstract class StandaloneFieldCodeGenerator
+abstract class 
+StandaloneFieldCodeGenerator
     with FieldCodeGeneratorIdentifiers
     implements FieldCodeGenerator {
   StandaloneFieldCodeGenerator({

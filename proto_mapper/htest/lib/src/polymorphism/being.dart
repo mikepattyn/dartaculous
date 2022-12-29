@@ -9,6 +9,9 @@ part 'being.g.dart';
 abstract class Being {
   @ProtoField(2)
   final double mass;
+
+  @ProtoField(3)
+  String? optionDescr;
   Being({
     required this.mass,
   });

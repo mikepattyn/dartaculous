@@ -35,6 +35,8 @@ message GAnimal
   GFieldsOfBeing fieldsOfSuperClass = 1;
 
   int32 height = 2;
+  int32 life_span = 3;
+  string color = 4;
 
 }   
 
@@ -48,6 +50,7 @@ message GFieldsOfBeing
 {
 
   double mass = 2;
+  google.protobuf.StringValue option_descr = 3;
 
 }
     

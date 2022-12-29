@@ -9,6 +9,12 @@ class Animal extends Being {
   @ProtoField(2)
   final int height;
 
+  @ProtoField(3)
+  int lifeSpan = 0;
+
+  @ProtoField(4)
+  String color = '';
+
   Animal({
     required this.height,
     required double mass,

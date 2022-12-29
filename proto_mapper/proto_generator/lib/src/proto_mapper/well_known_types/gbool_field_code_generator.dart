@@ -27,6 +27,6 @@ class GBoolFieldCodeGenerator extends WKTFieldCodeGenerator {
     if (fieldDescriptor.isNullable) {
       return '''($ref$protoFieldName.hasValue() ? $ref$protoFieldName.value : null)''';
     }
-    return '$ref$protoFieldName';
+    return '$ref$protoFieldName /*this*/';
   }
 }

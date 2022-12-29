@@ -11,14 +11,18 @@ class $AnimalProtoMapper implements ProtoMapper<Animal, GAnimal> {
 
   @override
   Animal fromProto(GAnimal proto) => _$AnimalFromProto(proto);
+
   @override
   GAnimal toProto(Animal entity) => _$AnimalToProto(entity);
+
   Animal fromJson(String json) => _$AnimalFromProto(GAnimal.fromJson(json));
   String toJson(Animal entity) => _$AnimalToProto(entity).writeToJson();
+
   String toBase64Proto(Animal entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
-  Animal fromBase64Proto(String base64Proto) => _$AnimalFromProto(
-      GAnimal.fromJson(utf8.decode(base64Decode(base64Proto))));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
+  Animal fromBase64Proto(String base64Proto) =>
+      GAnimal.fromJson(utf8.decode(base64Decode(base64Proto))).toAnimal();
 }
 
 GAnimal _$AnimalToProto(Animal instance) {
@@ -27,17 +31,25 @@ GAnimal _$AnimalToProto(Animal instance) {
   proto.fieldsOfSuperClass = $BeingProtoMapper().toProto(instance).being;
 
   proto.height = instance.height;
+  proto.lifeSpan = instance.lifeSpan;
+  proto.color = instance.color;
 
   return proto;
 }
 
-Animal _$AnimalFromProto(GAnimal instance) => Animal(
-      height: instance.height,
-    );
+Animal _$AnimalFromProto(GAnimal instance) {
+  return Animal(
+    height: instance.height /*this*/,
+  )
+        ..lifeSpan = instance.lifeSpan /*this*/
+        ..color = instance.color /*this*/
+      ;
+}
 
 extension $AnimalProtoExtension on Animal {
   GAnimal toProto() => _$AnimalToProto(this);
   String toJson() => _$AnimalToProto(this).writeToJson();
+
   static Animal fromProto(GAnimal proto) => _$AnimalFromProto(proto);
   static Animal fromJson(String json) =>
       _$AnimalFromProto(GAnimal.fromJson(json));

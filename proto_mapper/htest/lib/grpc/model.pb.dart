@@ -135,6 +135,8 @@ class GAnimal extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAnimal', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'squarealfa.nozard.techlog'), createEmptyInstance: create)
     ..aOM<GFieldsOfBeing>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfBeing.create)
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'height', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lifeSpan', $pb.PbFieldType.O3)
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'color')
     ..hasRequiredFields = false
   ;
 
@@ -142,6 +144,8 @@ class GAnimal extends $pb.GeneratedMessage {
   factory GAnimal({
     GFieldsOfBeing? fieldsOfSuperClass,
     $core.int? height,
+    $core.int? lifeSpan,
+    $core.String? color,
   }) {
     final _result = create();
     if (fieldsOfSuperClass != null) {
@@ -149,6 +153,12 @@ class GAnimal extends $pb.GeneratedMessage {
     }
     if (height != null) {
       _result.height = height;
+    }
+    if (lifeSpan != null) {
+      _result.lifeSpan = lifeSpan;
+    }
+    if (color != null) {
+      _result.color = color;
     }
     return _result;
   }
@@ -192,6 +202,24 @@ class GAnimal extends $pb.GeneratedMessage {
   $core.bool hasHeight() => $_has(1);
   @$pb.TagNumber(2)
   void clearHeight() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get lifeSpan => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set lifeSpan($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasLifeSpan() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearLifeSpan() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get color => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set color($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasColor() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearColor() => clearField(4);
 }
 
 class GListOfAnimal extends $pb.GeneratedMessage {
@@ -238,16 +266,21 @@ class GListOfAnimal extends $pb.GeneratedMessage {
 class GFieldsOfBeing extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfBeing', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'squarealfa.nozard.techlog'), createEmptyInstance: create)
     ..a<$core.double>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mass', $pb.PbFieldType.OD)
+    ..aOM<$0.StringValue>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'optionDescr', subBuilder: $0.StringValue.create)
     ..hasRequiredFields = false
   ;
 
   GFieldsOfBeing._() : super();
   factory GFieldsOfBeing({
     $core.double? mass,
+    $0.StringValue? optionDescr,
   }) {
     final _result = create();
     if (mass != null) {
       _result.mass = mass;
+    }
+    if (optionDescr != null) {
+      _result.optionDescr = optionDescr;
     }
     return _result;
   }
@@ -280,6 +313,17 @@ class GFieldsOfBeing extends $pb.GeneratedMessage {
   $core.bool hasMass() => $_has(0);
   @$pb.TagNumber(2)
   void clearMass() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $0.StringValue get optionDescr => $_getN(1);
+  @$pb.TagNumber(3)
+  set optionDescr($0.StringValue v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasOptionDescr() => $_has(1);
+  @$pb.TagNumber(3)
+  void clearOptionDescr() => clearField(3);
+  @$pb.TagNumber(3)
+  $0.StringValue ensureOptionDescr() => $_ensure(1);
 }
 
 enum GBeing_Props {
