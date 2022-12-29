@@ -396,7 +396,7 @@ class RenderMapperBuffers {
 }
 
 String _createSuperFieldsOf(InterfaceElement classElement) {
-  if (classElement is! ClassElement) return '';
+  if (classElement is! ClassElement || classElement.isAbstract) return '';
   final superType = classElement.supertype;
   if (superType == null) return '';
 

@@ -27,8 +27,6 @@ class $AircraftProtoMapper implements ProtoMapper<Aircraft, GAircraft> {
 }
 
 GAircraft _$AircraftToProto(Aircraft instance) {
-  proto.fieldsOfSuperClass = $VehicleProtoMapper().toProto(instance).vehicle;
-
   throw UnimplementedError();
 }
 
