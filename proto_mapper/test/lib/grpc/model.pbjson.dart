@@ -1199,11 +1199,13 @@ const GFieldsOfTwig$json = const {
   '1': 'GFieldsOfTwig',
   '2': const [
     const {'1': 'fieldsOfSuperClass', '3': 1, '4': 1, '5': 11, '6': '.com.company.project.GFieldsOfBranch', '10': 'fieldsOfSuperClass'},
+    const {'1': 'prop1', '3': 2, '4': 1, '5': 5, '10': 'prop1'},
+    const {'1': 'prop2', '3': 4, '4': 1, '5': 5, '10': 'prop2'},
   ],
 };
 
 /// Descriptor for `GFieldsOfTwig`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gFieldsOfTwigDescriptor = $convert.base64Decode('Cg1HRmllbGRzT2ZUd2lnElQKEmZpZWxkc09mU3VwZXJDbGFzcxgBIAEoCzIkLmNvbS5jb21wYW55LnByb2plY3QuR0ZpZWxkc09mQnJhbmNoUhJmaWVsZHNPZlN1cGVyQ2xhc3M=');
+final $typed_data.Uint8List gFieldsOfTwigDescriptor = $convert.base64Decode('Cg1HRmllbGRzT2ZUd2lnElQKEmZpZWxkc09mU3VwZXJDbGFzcxgBIAEoCzIkLmNvbS5jb21wYW55LnByb2plY3QuR0ZpZWxkc09mQnJhbmNoUhJmaWVsZHNPZlN1cGVyQ2xhc3MSFAoFcHJvcDEYAiABKAVSBXByb3AxEhQKBXByb3AyGAQgASgFUgVwcm9wMg==');
 @$core.Deprecated('Use gTwigDescriptor instead')
 const GTwig$json = const {
   '1': 'GTwig',

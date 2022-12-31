@@ -1,8 +1,5 @@
 part of 'proto_mapper_generator.dart';
 
-
-
-
 // Iterable<FieldDescriptor> _getFieldDescriptors(
 //   InterfaceElement classElement,
 //   ProtoReflected protoReflected,
@@ -93,4 +90,22 @@ Iterable<ElementAnnotation> getAnnotationsByName(
     }
     return false;
   });
+}
+
+List<DartType> getDirectKnownSubclasses(
+    List<DartType>? subClasses, Type annotationType) {
+  final lst = <DartType>[];
+  if (subClasses == null) {
+    return lst;
+  }
+  for (final subClass in subClasses) {
+    final element = subClass.element as ClassElement;
+    final reader =
+        TypeChecker.fromRuntime(annotationType).firstAnnotationOf(element);
+    if (reader == null) {
+      continue;
+    }
+    lst.add(subClass);
+  }
+  return lst;
 }

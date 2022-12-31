@@ -45,6 +45,11 @@ GAircraft _$AircraftToProto(Aircraft instance) {
     return proto;
   }
 
+  if (instance is Rotorcraft) {
+    proto.rotorcraft = (const $RotorcraftProtoMapper()).toProto(instance);
+    return proto;
+  }
+
   if (instance is Balloon) {
     proto.balloon = (const $BalloonProtoMapper()).toProto(instance);
     return proto;
@@ -56,6 +61,10 @@ GAircraft _$AircraftToProto(Aircraft instance) {
 Aircraft _$AircraftFromProto(GAircraft sInstance) {
   if (sInstance.hasAirplane()) {
     return sInstance.airplane.toAirplane();
+  }
+
+  if (sInstance.hasRotorcraft()) {
+    return sInstance.rotorcraft.toRotorcraft();
   }
 
   if (sInstance.hasBalloon()) {

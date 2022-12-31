@@ -10,7 +10,7 @@ const knownSubClasses = {Aircraft: 3, Car: 4};
 
 @Proto(knownSubClasses: knownSubClasses)
 class Vehicle {
-  @ProtoField(2)
+  @ProtoField(5)
   final int weight;
   Vehicle({
     required this.weight,

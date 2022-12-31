@@ -542,7 +542,7 @@ message GListOfRotorcraft
 message GFieldsOfVehicle
 {
 
-  int32 weight = 2;
+  int32 weight = 5;
 
 }
     
@@ -895,6 +895,8 @@ message GFieldsOfTwig
 {
   GFieldsOfBranch fieldsOfSuperClass = 1;
 
+  int32 prop1 = 2;
+  int32 prop2 = 4;
 
 }
     

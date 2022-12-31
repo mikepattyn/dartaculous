@@ -38,6 +38,11 @@ GFieldsOfVehicle _$VehicleToFieldsOfProto(Vehicle instance) {
 GVehicle _$VehicleToProto(Vehicle instance) {
   var proto = GVehicle();
 
+  if (instance is Aircraft) {
+    proto.aircraft = (const $AircraftProtoMapper()).toProto(instance);
+    return proto;
+  }
+
   if (instance is Car) {
     proto.car = (const $CarProtoMapper()).toProto(instance);
     return proto;
@@ -49,6 +54,10 @@ GVehicle _$VehicleToProto(Vehicle instance) {
 }
 
 Vehicle _$VehicleFromProto(GVehicle sInstance) {
+  if (sInstance.hasAircraft()) {
+    return sInstance.aircraft.toAircraft();
+  }
+
   if (sInstance.hasCar()) {
     return sInstance.car.toCar();
   }

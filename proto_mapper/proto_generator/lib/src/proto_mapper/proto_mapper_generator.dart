@@ -197,8 +197,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
   }
 
   String? _generateToKnownSubclassses(ProtoReflected protoReflected) {
-    final kscs =
-        getKnownSubclasses(protoReflected.knownSubClasses.keys.toList(), Proto);
+    final kscs = getDirectKnownSubclasses(
+        protoReflected.knownSubClasses.keys.toList(), Proto);
     if (kscs.isEmpty) return null;
 
     final ret = kscs.map((ksc) {
@@ -234,6 +234,10 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
         return proto;
     ''';
 
+    final lProto = renderParms.constructorFieldBuffer.isEmpty &&
+            renderParms.fromProtoFieldBuffer.isEmpty
+        ? ''
+        : 'final proto = sInstance.${className.camelCase};';
     final fromProto = renderParms.fromKnownSubclasses != null
         ? '''
            $className _\$${className}FromProto($prefix$className sInstance) {
@@ -243,7 +247,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
             throw UnimplementedError();
           ''' : '''
             
-            final proto = sInstance.${className.camelCase};
+            $lProto
             final ret = $className${renderParms.constructorName}(${renderParms.constructorFieldBuffer})
           ${renderParms.fromProtoFieldBuffer};
 
@@ -378,8 +382,8 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
   }
 
   String? _generateFromKnownSubclasses(ProtoReflected protoReflected) {
-    final kscs =
-        getKnownSubclasses(protoReflected.knownSubClasses.keys.toList(), Proto);
+    final kscs = getDirectKnownSubclasses(
+        protoReflected.knownSubClasses.keys.toList(), Proto);
     if (kscs.isEmpty) return null;
 
     final ret = kscs.map((ksc) {

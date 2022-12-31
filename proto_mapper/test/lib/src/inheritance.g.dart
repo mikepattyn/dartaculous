@@ -52,7 +52,6 @@ Branch _$BranchFromProto(GBranch sInstance) {
     return sInstance.twig.toTwig();
   }
 
-  final proto = sInstance.branch;
   final ret = Branch();
 
   return ret;
@@ -94,6 +93,8 @@ class $TwigProtoMapper implements ProtoMapper<Twig, GTwig> {
 
 GFieldsOfTwig _$TwigToFieldsOfProto(Twig instance) {
   final proto = GFieldsOfTwig();
+  proto.prop1 = instance.prop1;
+  proto.prop2 = instance.prop2;
 
   return proto;
 }
@@ -120,7 +121,9 @@ Twig _$TwigFromProto(GTwig sInstance) {
   }
 
   final proto = sInstance.twig;
-  final ret = Twig();
+  final ret = Twig(
+    prop1: proto.prop1,
+  )..prop2 = proto.prop2;
 
   return ret;
 }
@@ -167,7 +170,9 @@ GLeaf _$LeafToProto(Leaf instance) {
 }
 
 Leaf _$LeafFromProto(GLeaf proto) {
-  return Leaf();
+  return Leaf(
+    prop1: proto.fieldsOfSuperClass.prop1,
+  )..prop2 = proto.fieldsOfSuperClass.prop2;
 }
 
 extension $LeafProtoExtension on Leaf {

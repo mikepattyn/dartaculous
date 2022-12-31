@@ -5722,16 +5722,26 @@ class GListOfBranch extends $pb.GeneratedMessage {
 class GFieldsOfTwig extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfTwig', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..aOM<GFieldsOfBranch>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfBranch.create)
+    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'prop1', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'prop2', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   GFieldsOfTwig._() : super();
   factory GFieldsOfTwig({
     GFieldsOfBranch? fieldsOfSuperClass,
+    $core.int? prop1,
+    $core.int? prop2,
   }) {
     final _result = create();
     if (fieldsOfSuperClass != null) {
       _result.fieldsOfSuperClass = fieldsOfSuperClass;
+    }
+    if (prop1 != null) {
+      _result.prop1 = prop1;
+    }
+    if (prop2 != null) {
+      _result.prop2 = prop2;
     }
     return _result;
   }
@@ -5766,6 +5776,24 @@ class GFieldsOfTwig extends $pb.GeneratedMessage {
   void clearFieldsOfSuperClass() => clearField(1);
   @$pb.TagNumber(1)
   GFieldsOfBranch ensureFieldsOfSuperClass() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.int get prop1 => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set prop1($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasProp1() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProp1() => clearField(2);
+
+  @$pb.TagNumber(4)
+  $core.int get prop2 => $_getIZ(2);
+  @$pb.TagNumber(4)
+  set prop2($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasProp2() => $_has(2);
+  @$pb.TagNumber(4)
+  void clearProp2() => clearField(4);
 }
 
 enum GTwig_Props {

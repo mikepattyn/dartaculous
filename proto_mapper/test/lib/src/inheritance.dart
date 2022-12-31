@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/model.pb.dart';
 
@@ -10,13 +11,23 @@ abstract class Root {
 
 abstract class Trunk extends Root {}
 
-
 @Proto(knownSubClasses: {Twig: 3})
 class Branch extends Trunk {}
 
-
 @Proto(knownSubClasses: {Leaf: 3})
-class Twig extends Branch {}
+class Twig extends Branch {
+  @ProtoField(2)
+  final int prop1;
+
+  @ProtoField(4)
+  int prop2 = 0;
+
+  Twig({
+    required this.prop1,
+  });
+}
 
 @Proto()
-class Leaf extends Twig {}
+class Leaf extends Twig {
+  Leaf({required super.prop1});
+}
