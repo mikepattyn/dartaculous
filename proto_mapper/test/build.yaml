@@ -8,5 +8,7 @@ targets:
           useProtoFieldNamingConventions: true
           packageName: com.company.project
           wellKnownDurationType: GDuration
+          wellKnownTimestampType: Timestamp
+          defaultIntPrecision: int32
           options: 
             - go_package = "./stubs"

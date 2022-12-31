@@ -35,7 +35,7 @@ class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
     } else if (keyType.isDartCoreInt) {
       return 'int32';
     } else if (keyType.isDartCoreDouble) {
-      return 'int64';
+      return 'double';
     } else if (keyType.isDartCoreBool) {
       return 'bool';
     }

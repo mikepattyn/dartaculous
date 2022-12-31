@@ -21,7 +21,7 @@ String createFieldDeclarations({
   for (final fieldDescriptor in fieldDescriptors) {
     final fieldCodeGenerator = FieldCodeGenerator.fromFieldDescriptor(
       fieldDescriptor,
-      config.useWellKnownTypes,
+      config: config,
     );
 
     final renderField = fieldCodeGenerator.render();
@@ -113,13 +113,13 @@ String collectionValueToProto(
   }
   if (fieldTypeName == (DateTime).toString()) {
     if (config.useWellKnownTypes) {
-      return '''\$wellknown_timestamp.Timestamp.fromDateTime($parameterName)''';
+      return '''${config.wellKnownTimestampType}.fromDateTime($parameterName)''';
     }
     return 'Int64($parameterName.millisecondsSinceEpoch)';
   }
   if (fieldTypeName == (Duration).toString()) {
     if (config.useWellKnownTypes) {
-      return '''\$wellknown_duration.Duration(
+      return '''${config.wellKnownDurationType}(
         seconds: Int64($parameterName.inSeconds),
         nanos: ($parameterName.inMicroseconds - $parameterName.inSeconds * 1000000) * 1000)''';
     }

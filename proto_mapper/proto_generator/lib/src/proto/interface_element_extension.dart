@@ -89,12 +89,29 @@ ProtoField? _getProtoFieldAnnotation(FieldElement fieldElement) {
   }
   final name = annotation.getField('name')!.toStringValue();
   final numberObj = annotation.getField('number')!;
-
   final number = numberObj.toIntValue()!;
 
-  var ret = ProtoField(
-    number,
-    name: name,
-  );
-  return ret;
+  final intPrecision =
+      annotation.getField('intPrecision')?.getField('index')?.toIntValue();
+
+  switch (intPrecision) {
+    case null:
+      return ProtoField(
+        number,
+        name: name,
+      );
+    case 0:
+      return ProtoField.int32(
+        number,
+        name: name,
+      );
+    case 1:
+      return ProtoField.int64(
+        number,
+        name: name,
+      );
+
+    default:
+      throw UnimplementedError();
+  }
 }

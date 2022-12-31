@@ -39,23 +39,20 @@ GListsHost _$ListsHostToProto(ListsHost instance) {
 
   proto.nvstrings.addAll(instance.nvstrings ?? []);
 
-  proto.vdurations.addAll(instance.vdurations.map((e) =>
-      $wellknown_duration.Duration(
+  proto.vdurations.addAll(instance.vdurations.map((e) => GDuration(
+      seconds: Int64(e.inSeconds),
+      nanos: (e.inMicroseconds - e.inSeconds * 1000000) * 1000)));
+
+  proto.nvdurations.addAll(instance.nvdurations?.map((e) => GDuration(
           seconds: Int64(e.inSeconds),
-          nanos: (e.inMicroseconds - e.inSeconds * 1000000) * 1000)));
-
-  proto.nvdurations.addAll(instance.nvdurations?.map((e) =>
-          $wellknown_duration.Duration(
-              seconds: Int64(e.inSeconds),
-              nanos: (e.inMicroseconds - e.inSeconds * 1000000) * 1000)) ??
+          nanos: (e.inMicroseconds - e.inSeconds * 1000000) * 1000)) ??
       []);
 
-  proto.vdatetimes.addAll(instance.vdatetimes
-      .map((e) => $wellknown_timestamp.Timestamp.fromDateTime(e)));
+  proto.vdatetimes
+      .addAll(instance.vdatetimes.map((e) => Timestamp.fromDateTime(e)));
 
-  proto.nvdatetimes.addAll(instance.nvdatetimes
-          ?.map((e) => $wellknown_timestamp.Timestamp.fromDateTime(e)) ??
-      []);
+  proto.nvdatetimes.addAll(
+      instance.nvdatetimes?.map((e) => Timestamp.fromDateTime(e)) ?? []);
 
   proto.vdecimals.addAll(instance.vdecimals.map((e) => e.$toProtoBytes()));
 

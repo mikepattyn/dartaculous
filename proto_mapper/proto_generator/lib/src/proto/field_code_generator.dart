@@ -1,4 +1,5 @@
 import 'package:decimal/decimal.dart';
+import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto/field_code_generators/bigint_field_code_generator.dart';
 import 'package:proto_generator/src/proto/field_code_generators/enum_field_code_generator.dart';
 import 'package:proto_generator/src/proto/field_code_generators/wrapped.dart';
@@ -9,7 +10,7 @@ import 'field_code_generators/decimal_field_code_generator.dart';
 import 'field_code_generators/entity_field_code_generator.dart';
 import 'standalone_field_code_generators/wdouble_field_code_generator.dart';
 import 'standalone_field_code_generators/wduration_field_code_generator.dart';
-import 'standalone_field_code_generators/wint32_field_code_generator.dart';
+import 'standalone_field_code_generators/wint_field_code_generator.dart';
 import 'standalone_field_code_generators/wstring_field_code_generator.dart';
 import 'standalone_field_code_generators/wtimestamp_field_code_generator.dart';
 import 'wkt_field_code_generators/gbool_field_code_generator.dart';
@@ -30,14 +31,14 @@ abstract class FieldCodeGenerator {
   String render();
 
   static FieldCodeGenerator fromFieldDescriptor(
-    FieldDescriptor fieldDescriptor,
-    bool useWellKnownTypes,
-  ) {
+    FieldDescriptor fieldDescriptor, {
+    required Config config,
+  }) {
     final type = fieldDescriptor.itemType;
     final typeName =
         fieldDescriptor.itemType.getDisplayString(withNullability: false);
 
-    if (useWellKnownTypes) {
+    if (config.useWellKnownTypes) {
       if (type.isDartCoreString) {
         return GStringFieldCodeGenerator(fieldDescriptor);
       }
@@ -45,7 +46,7 @@ abstract class FieldCodeGenerator {
         return GBoolFieldCodeGenerator(fieldDescriptor);
       }
       if (type.isDartCoreInt) {
-        return GIntFieldCodeGenerator(fieldDescriptor);
+        return GIntFieldCodeGenerator(fieldDescriptor, config: config);
       }
       if (type.isDartCoreDouble) {
         return GDoubleFieldCodeGenerator(fieldDescriptor);
@@ -65,7 +66,7 @@ abstract class FieldCodeGenerator {
       return WBoolFieldCodeGenerator(fieldDescriptor);
     }
     if (type.isDartCoreInt) {
-      return WInt32FieldCodeGenerator(fieldDescriptor);
+      return WIntFieldCodeGenerator(fieldDescriptor, config: config);
     }
     if (type.isDartCoreDouble) {
       return WDoubleFieldCodeGenerator(fieldDescriptor);

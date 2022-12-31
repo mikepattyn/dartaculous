@@ -19,7 +19,8 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
             'options',
             'prefix',
             'wellKnownDurationType',
-            'wellKnownTimestampType'
+            'wellKnownTimestampType',
+            'defaultIntPrecision'
           ],
         );
         final val = Config(
@@ -35,10 +36,15 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
                   (v as List<dynamic>?)?.map((e) => e as String).toList() ??
                   const []),
           prefix: $checkedConvert('prefix', (v) => v as String? ?? 'G'),
-          wellKnownDurationType: $checkedConvert('wellKnownDurationType',
-              (v) => v as String? ?? r'$wellknown_duration.Duration'),
+          wellKnownDurationType: $checkedConvert(
+              'wellKnownDurationType', (v) => v as String? ?? r'$GDuration'),
           wellKnownTimestampType: $checkedConvert(
               'wellKnownTimestampType', (v) => v as String? ?? 'Timestamp'),
+          defaultIntPrecision: $checkedConvert(
+              'defaultIntPrecision',
+              (v) =>
+                  $enumDecodeNullable(_$IntPrecisionEnumMap, v) ??
+                  IntPrecision.int32),
         );
         return val;
       },
@@ -52,4 +58,11 @@ Map<String, dynamic> _$ConfigToJson(Config instance) => <String, dynamic>{
       'prefix': instance.prefix,
       'wellKnownDurationType': instance.wellKnownDurationType,
       'wellKnownTimestampType': instance.wellKnownTimestampType,
+      'defaultIntPrecision':
+          _$IntPrecisionEnumMap[instance.defaultIntPrecision]!,
     };
+
+const _$IntPrecisionEnumMap = {
+  IntPrecision.int32: 'int32',
+  IntPrecision.int64: 'int64',
+};
