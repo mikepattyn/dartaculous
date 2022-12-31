@@ -275,6 +275,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
         : '''
         ${prefix}FieldsOf$className _\$${className}ToFieldsOfProto($className instance) {
           final proto = ${prefix}FieldsOf$className();
+          $toSuperFieldsOf
           ${renderParms.toProtoFieldBuffer}
           return proto;
         }
@@ -317,7 +318,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
 
         ${renderParms.toKnownSubclasses ?? ''}
 
-        $toSuperFieldsOf
+        ${(renderParms.toKnownSubclasses ?? '').isEmpty ? toSuperFieldsOf : ''}
 
         $toReturn
       }
@@ -421,7 +422,7 @@ class RenderMapperBuffers {
 }
 
 String _createSuperFieldsOf(InterfaceElement classElement, Proto proto) {
-  if (classElement is! ClassElement || classElement.isAbstract) return '';
+  if (classElement is! ClassElement) return '';
   final superType = classElement.supertype;
   if (superType == null) return '';
 
@@ -432,11 +433,8 @@ String _createSuperFieldsOf(InterfaceElement classElement, Proto proto) {
   final superClassElement = superType.element.asClassElement();
   final className = superClassElement.name;
 
-  final ownRef =
-      proto.knownSubClasses.isEmpty ? '' : '.${classElement.name.camelCase}';
-
   final superFieldsOf =
-      '   proto$ownRef.fieldsOfSuperClass = const \$${className}ProtoMapper().toFieldsOfProto(instance);\n';
+      '   proto.fieldsOfSuperClass = const \$${className}ProtoMapper().toFieldsOfProto(instance);\n';
   return superFieldsOf;
 }
 

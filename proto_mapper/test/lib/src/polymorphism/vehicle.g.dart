@@ -30,6 +30,7 @@ class $VehicleProtoMapper implements ProtoMapper<Vehicle, GVehicle> {
 
 GFieldsOfVehicle _$VehicleToFieldsOfProto(Vehicle instance) {
   final proto = GFieldsOfVehicle();
+
   proto.weight = instance.weight;
 
   return proto;

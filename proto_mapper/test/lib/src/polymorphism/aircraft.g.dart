@@ -31,6 +31,9 @@ class $AircraftProtoMapper implements ProtoMapper<Aircraft, GAircraft> {
 
 GFieldsOfAircraft _$AircraftToFieldsOfProto(Aircraft instance) {
   final proto = GFieldsOfAircraft();
+  proto.fieldsOfSuperClass =
+      const $VehicleProtoMapper().toFieldsOfProto(instance);
+
   proto.serviceCeiling = instance.serviceCeiling;
   proto.key = instance.key;
 

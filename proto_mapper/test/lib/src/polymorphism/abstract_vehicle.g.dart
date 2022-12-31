@@ -37,6 +37,7 @@ class $AbstractVehicleProtoMapper
 GFieldsOfAbstractVehicle _$AbstractVehicleToFieldsOfProto(
     AbstractVehicle instance) {
   final proto = GFieldsOfAbstractVehicle();
+
   proto.weight = instance.weight;
 
   return proto;

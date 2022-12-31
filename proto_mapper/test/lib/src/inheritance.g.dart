@@ -93,6 +93,9 @@ class $TwigProtoMapper implements ProtoMapper<Twig, GTwig> {
 
 GFieldsOfTwig _$TwigToFieldsOfProto(Twig instance) {
   final proto = GFieldsOfTwig();
+  proto.fieldsOfSuperClass =
+      const $BranchProtoMapper().toFieldsOfProto(instance);
+
   proto.prop1 = instance.prop1;
   proto.prop2 = instance.prop2;
 
@@ -106,9 +109,6 @@ GTwig _$TwigToProto(Twig instance) {
     proto.leaf = (const $LeafProtoMapper()).toProto(instance);
     return proto;
   }
-
-  proto.twig.fieldsOfSuperClass =
-      const $BranchProtoMapper().toFieldsOfProto(instance);
 
   proto.twig = _$TwigToFieldsOfProto(instance);
 

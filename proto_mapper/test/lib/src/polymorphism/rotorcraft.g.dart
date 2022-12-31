@@ -32,6 +32,8 @@ class $RotorcraftProtoMapper implements ProtoMapper<Rotorcraft, GRotorcraft> {
 
 GFieldsOfRotorcraft _$RotorcraftToFieldsOfProto(Rotorcraft instance) {
   final proto = GFieldsOfRotorcraft();
+  proto.fieldsOfSuperClass =
+      const $AircraftProtoMapper().toFieldsOfProto(instance);
 
   return proto;
 }
