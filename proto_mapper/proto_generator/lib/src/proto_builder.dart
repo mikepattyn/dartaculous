@@ -5,7 +5,6 @@ import 'package:path/path.dart' as p;
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/common/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/proto_reflected.dart';
-import 'package:proto_generator/src/proto_services/proto_services_generator.dart';
 import 'package:source_gen/source_gen.dart';
 
 import 'proto/proto_generator.dart';
@@ -13,12 +12,10 @@ import 'proto/proto_generator.dart';
 class ProtoBuilder implements Builder {
   late Config config;
   late ProtoGenerator protoGen;
-  late ProtoServicesGenerator protoServicesGen;
 
   ProtoBuilder(BuilderOptions options) {
     config = Config.fromJson(options.config);
     protoGen = ProtoGenerator(config);
-    protoServicesGen = ProtoServicesGenerator(config);
   }
 
   static final _allFilesInLib = Glob('lib/**.dart');
@@ -33,14 +30,10 @@ class ProtoBuilder implements Builder {
   Future<void> build(BuildStep buildStep) async {
     final classes = <ClassElement, ProtoReflected>{};
     final enums = <EnumElement, ProtoReflected>{};
-    final servics = <ClassElement>[];
-    await _findElements(buildStep, classes, servics, enums);
+    await _findElements(buildStep, classes, enums);
 
     classes.forEach((c, cr) => protoGen.generateForAnnotatedElement(c, cr));
     enums.forEach((e, cr) => protoGen.generateForAnnotatedElement(e, cr));
-    for (var c in servics) {
-      protoServicesGen.generateForAnnotatedElement(c);
-    }
 
     String content = _renderProto();
     final output =
@@ -50,10 +43,9 @@ class ProtoBuilder implements Builder {
   }
 
   String _renderProto() {
-    final imports = protoGen.imports..addAll(protoServicesGen.imports);
-    final wrappers = protoGen.wrappers..addAll(protoServicesGen.wrappers);
-    final messages = protoGen.messages..addAll(protoServicesGen.messages);
-    final services = protoServicesGen.services;
+    final imports = protoGen.imports;
+    final wrappers = protoGen.wrappers;
+    final messages = protoGen.messages;
 
     final package =
         config.packageName.isEmpty ? '' : 'package ${config.packageName};';
@@ -61,7 +53,6 @@ class ProtoBuilder implements Builder {
     final renderedImports = imports.map((e) => 'import "$e";').join('\n');
     final renderedWrappers = wrappers.join('\n');
     final renderedMessages = messages.join('\n');
-    final renderedServices = services.join('\n');
 
     final content = '''syntax = "proto3";
     
@@ -70,8 +61,6 @@ $package
 $options
     
 $renderedImports
-    
-$renderedServices
 
 $renderedWrappers
     
@@ -83,7 +72,6 @@ $renderedMessages
   Future<void> _findElements(
       BuildStep buildStep,
       Map<ClassElement, ProtoReflected> classes,
-      List<ClassElement> servics,
       Map<EnumElement, ProtoReflected> enums) async {
     await for (final input in buildStep.findAssets(_allFilesInLib)) {
       final library = await buildStep.resolver.libraryFor(input);
@@ -92,9 +80,6 @@ $renderedMessages
         final cr = _getProtoReflected(c);
         if (cr != null) {
           classes[c] = cr;
-        }
-        if (_hasProtoServices(c)) {
-          servics.add(c);
         }
       }
       final enumsInLibrary = LibraryReader(library).enums;
@@ -118,10 +103,4 @@ ProtoReflected? _getProtoReflected(InterfaceElement c) {
   }
   final protoReflected = ConstantReader(annotation).hydrateAnnotation();
   return protoReflected;
-}
-
-final _protoServicesTC = TypeChecker.fromRuntime(ProtoServices);
-bool _hasProtoServices(ClassElement c) {
-  final annotation = _protoServicesTC.firstAnnotationOf(c);
-  return annotation != null;
 }

@@ -15,3 +15,5 @@ class Proto {
   final int ownFieldsNumber;
   final KnownSubClasses knownSubClasses;
 }
+
+const proto = Proto();
