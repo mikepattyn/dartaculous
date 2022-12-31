@@ -1,9 +1,8 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:decimal/decimal.dart';
 import 'package:proto_generator_test/grpc/model.pb.dart';
+import 'package:proto_generator_test/gtypes.dart';
 import 'component.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
-    as $wellknown_duration;
 
 
 part 'ingredient.g.dart';

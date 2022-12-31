@@ -72,33 +72,6 @@ void main() {
       expect(sub2.prop2, null);
     });
 
-    test('legacy dt', () {
-      var sub = LegacyDt(
-        prop1: DateTime(2022, 1, 14, 10, 34, 7, 13, 17),
-        prop2: DateTime(2022, 1, 14, 10, 34, 7, 14, 19),
-        someOther: '',
-      );
-
-      var psub = sub.toMap();
-      var sub2 = psub.toLegacyDt();
-
-      expect(sub2.prop1, DateTime(2022, 1, 14, 10, 34, 7, 13, 17));
-      expect(sub2.prop2, DateTime(2022, 1, 14, 10, 34, 7, 14, 19));
-    });
-
-    test('legacy dt with null prop2', () {
-      var sub = IsoDt(
-        prop1: DateTime(2022, 1, 14, 10, 34, 7, 13, 17),
-        someOther: '',
-      );
-
-      var psub = sub.toMap();
-      var sub2 = psub.toLegacyDt();
-
-      expect(sub2.prop1, DateTime(2022, 1, 14, 10, 34, 7, 13, 17));
-      expect(sub2.prop2, null);
-    });
-
     test('micro dt', () {
       var sub = MicroDt(
         prop1: DateTime(2022, 1, 14, 10, 34, 7, 13, 17),
@@ -120,7 +93,7 @@ void main() {
       );
 
       var psub = sub.toMap();
-      var sub2 = psub.toLegacyDt();
+      var sub2 = psub.toMicroDt();
 
       expect(sub2.prop1, DateTime(2022, 1, 14, 10, 34, 7, 13, 17));
       expect(sub2.prop2, null);

@@ -31,6 +31,7 @@ abstract class FieldCodeGenerator {
         fieldDescriptor: fieldDescriptor,
         refName: fieldDescriptor.refName,
         protoRefName: fieldDescriptor.protoRefName,
+        config: config,
       );
       if (fcd != null) return fcd;
     } else {

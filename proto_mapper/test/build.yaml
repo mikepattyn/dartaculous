@@ -7,5 +7,6 @@ targets:
           useWellKnownTypes: true
           useProtoFieldNamingConventions: true
           packageName: com.company.project
+          wellKnownDurationType: GDuration
           options: 
             - go_package = "./stubs"

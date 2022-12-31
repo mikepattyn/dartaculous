@@ -142,7 +142,7 @@ GKitchen _$KitchenToProto(Kitchen instance) {
       .map((k, v) => MapEntry(k, const $RecipeProtoMapper().toProto(v))));
 
   proto.nextInspectionDate =
-      $wellknown_timestamp.Timestamp.fromDateTime(instance.nextInspectionDate);
+      Timestamp.fromDateTime(instance.nextInspectionDate);
 
   return proto;
 }
@@ -208,10 +208,9 @@ GChef _$ChefToProto(Chef instance) {
       GApplianceType.valueOf(instance.favoriteApplianceType.index)!;
   proto.favoriteWords.addAll(instance.favoriteWords);
 
-  proto.birthdate =
-      $wellknown_timestamp.Timestamp.fromDateTime(instance.birthdate);
+  proto.birthdate = Timestamp.fromDateTime(instance.birthdate);
   if (instance.shelfLife != null) {
-    proto.shelfLife = $wellknown_duration.Duration(
+    proto.shelfLife = GDuration(
         seconds: Int64(instance.shelfLife!.inSeconds),
         nanos: (instance.shelfLife!.inMicroseconds -
                 instance.shelfLife!.inSeconds * 1000000) *
@@ -398,7 +397,7 @@ GInventory _$InventoryToProto(Inventory instance) {
       .map((k, v) => MapEntry(k, const $RecipeProtoMapper().toProto(v))));
 
   if (instance.timeSpan != null) {
-    proto.timeSpan = $wellknown_duration.Duration(
+    proto.timeSpan = GDuration(
         seconds: Int64(instance.timeSpan!.inSeconds),
         nanos: (instance.timeSpan!.inMicroseconds -
                 instance.timeSpan!.inSeconds * 1000000) *
@@ -465,9 +464,8 @@ class $PrecisionSubjectProtoMapper
 GPrecisionSubject _$PrecisionSubjectToProto(PrecisionSubject instance) {
   var proto = GPrecisionSubject();
 
-  proto.dateProperty =
-      $wellknown_timestamp.Timestamp.fromDateTime(instance.dateProperty);
-  proto.durationProperty = $wellknown_duration.Duration(
+  proto.dateProperty = Timestamp.fromDateTime(instance.dateProperty);
+  proto.durationProperty = GDuration(
       seconds: Int64(instance.durationProperty.inSeconds),
       nanos: (instance.durationProperty.inMicroseconds -
               instance.durationProperty.inSeconds * 1000000) *

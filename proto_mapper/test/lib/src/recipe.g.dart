@@ -39,20 +39,18 @@ GRecipe _$RecipeToProto(Recipe instance) {
   proto.ingredients.addAll(instance.ingredients
       .map((e) => const $IngredientProtoMapper().toProto(e)));
 
-  proto.publishDate =
-      $wellknown_timestamp.Timestamp.fromDateTime(instance.publishDate);
+  proto.publishDate = Timestamp.fromDateTime(instance.publishDate);
   if (instance.expiryDate != null) {
-    proto.expiryDate =
-        $wellknown_timestamp.Timestamp.fromDateTime(instance.expiryDate!);
+    proto.expiryDate = Timestamp.fromDateTime(instance.expiryDate!);
   }
 
-  proto.preparationDuration = $wellknown_duration.Duration(
+  proto.preparationDuration = GDuration(
       seconds: Int64(instance.preparationDuration.inSeconds),
       nanos: (instance.preparationDuration.inMicroseconds -
               instance.preparationDuration.inSeconds * 1000000) *
           1000);
   if (instance.totalDuration != null) {
-    proto.totalDuration = $wellknown_duration.Duration(
+    proto.totalDuration = GDuration(
         seconds: Int64(instance.totalDuration!.inSeconds),
         nanos: (instance.totalDuration!.inMicroseconds -
                 instance.totalDuration!.inSeconds * 1000000) *

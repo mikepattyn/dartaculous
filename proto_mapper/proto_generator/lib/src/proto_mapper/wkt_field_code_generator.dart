@@ -1,3 +1,5 @@
+import 'package:proto_annotations/proto_annotations.dart';
+
 import 'field_code_generators/field_code_generator_identifiers.dart';
 import 'well_known_types/gbool_field_code_generator.dart';
 import 'well_known_types/gdatetime_field_code_generator.dart';
@@ -28,6 +30,7 @@ abstract class WKTFieldCodeGenerator
     required FieldDescriptor fieldDescriptor,
     required String refName,
     required String protoRefName,
+    required Config config,
   }) {
     if (fieldDescriptor.fieldElementType.isDartCoreString) {
       return GStringFieldCodeGenerator(
@@ -62,6 +65,7 @@ abstract class WKTFieldCodeGenerator
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
+        config: config,
       );
     }
     if (fieldDescriptor.fieldElementTypeName == (Duration).toString()) {
@@ -69,6 +73,7 @@ abstract class WKTFieldCodeGenerator
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
+        config: config,
       );
     }
 

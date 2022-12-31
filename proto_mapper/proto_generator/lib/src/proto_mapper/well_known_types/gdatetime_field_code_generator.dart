@@ -1,3 +1,4 @@
+import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
@@ -8,17 +9,20 @@ class GDateTimeFieldCodeGenerator extends WKTFieldCodeGenerator {
     required FieldDescriptor fieldDescriptor,
     required String refName,
     required String protoRefName,
+    required this.config,
   }) : super(
           fieldDescriptor: fieldDescriptor,
           refName: refName,
           protoRefName: protoRefName,
         );
 
+  final Config config;
+
   String get instanceReference =>
       '$ref$fieldName${fieldDescriptor.isNullable && ref.isNotEmpty ? '!' : ''}';
 
   String get toProtoExpression =>
-      '''\$wellknown_timestamp.Timestamp.fromDateTime($instanceReference)''';
+      '''${config.wellKnownTimestampType}.fromDateTime($instanceReference)''';
 
   String get fromProtoNonNullableExpression =>
       '''$protoRef$fieldName.toDateTime()''';

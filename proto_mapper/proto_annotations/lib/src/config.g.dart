@@ -17,7 +17,9 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
             'useProtoFieldNamingConventions',
             'packageName',
             'options',
-            'prefix'
+            'prefix',
+            'wellKnownDurationType',
+            'wellKnownTimestampType'
           ],
         );
         final val = Config(
@@ -33,6 +35,10 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
                   (v as List<dynamic>?)?.map((e) => e as String).toList() ??
                   const []),
           prefix: $checkedConvert('prefix', (v) => v as String? ?? 'G'),
+          wellKnownDurationType: $checkedConvert('wellKnownDurationType',
+              (v) => v as String? ?? r'$wellknown_duration.Duration'),
+          wellKnownTimestampType: $checkedConvert(
+              'wellKnownTimestampType', (v) => v as String? ?? 'Timestamp'),
         );
         return val;
       },
@@ -44,4 +50,6 @@ Map<String, dynamic> _$ConfigToJson(Config instance) => <String, dynamic>{
       'packageName': instance.packageName,
       'options': instance.options,
       'prefix': instance.prefix,
+      'wellKnownDurationType': instance.wellKnownDurationType,
+      'wellKnownTimestampType': instance.wellKnownTimestampType,
     };

@@ -13,6 +13,8 @@ class Config {
   final String packageName;
   final List<String> options;
   final String prefix;
+  final String wellKnownDurationType;
+  final String wellKnownTimestampType;
 
   Config({
     this.useWellKnownTypes = false,
@@ -20,6 +22,8 @@ class Config {
     this.packageName = '',
     this.options = const [],
     this.prefix = 'G',
+    this.wellKnownDurationType = r'$wellknown_duration.Duration',
+    this.wellKnownTimestampType = 'Timestamp',
   });
 
   factory Config.fromJson(Map<String, dynamic> json) => _$ConfigFromJson(json);

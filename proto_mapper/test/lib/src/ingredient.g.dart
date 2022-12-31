@@ -35,7 +35,7 @@ GIngredient _$IngredientToProto(Ingredient instance) {
   proto.description = instance.description;
   proto.quantity = instance.quantity.$toProtoBytes();
   proto.precision = instance.precision;
-  proto.cookingDuration = $wellknown_duration.Duration(
+  proto.cookingDuration = GDuration(
       seconds: Int64(instance.cookingDuration.inSeconds),
       nanos: (instance.cookingDuration.inMicroseconds -
               instance.cookingDuration.inSeconds * 1000000) *

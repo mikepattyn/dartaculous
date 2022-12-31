@@ -53,3 +53,5 @@ class AdaptedEntity
   @override
   final bool createBuilderBaseClass;
 }
+
+const adaptedEntity = AdaptedEntity();
