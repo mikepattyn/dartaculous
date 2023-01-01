@@ -270,7 +270,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
           }
      ''';
 
-    final toFieldsOf = proto.knownSubClasses.isEmpty
+    final toFieldsOf = proto.knownSubClassMap.isEmpty
         ? ''
         : '''
         ${prefix}FieldsOf$className _\$${className}ToFieldsOfProto($className instance) {
@@ -281,7 +281,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
         }
     ''';
 
-    final toFieldsOfProto = proto.knownSubClasses.isEmpty
+    final toFieldsOfProto = proto.knownSubClassMap.isEmpty
         ? '$prefix$className toFieldsOfProto($className entity) => _\$${className}ToProto(entity);'
         : '${prefix}FieldsOf$className toFieldsOfProto($className entity) => _\$${className}ToFieldsOfProto(entity);';
 

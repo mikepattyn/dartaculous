@@ -11,10 +11,10 @@ abstract class Root {
 
 abstract class Trunk extends Root {}
 
-@Proto(knownSubClasses: {Twig: 3})
+@Proto(knownSubClassMap: {Twig: 3})
 class Branch extends Trunk {}
 
-@Proto(knownSubClasses: {Leaf: 3})
+@Proto(knownSubClassMap: {Leaf: 3})
 class Twig extends Branch {
   @ProtoField(2)
   final int prop1;

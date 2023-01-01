@@ -5,7 +5,7 @@ import 'package:proto_generator_test/src/polymorphism/animal.dart';
 
 part 'being.g.dart';
 
-@Proto(knownSubClasses: {Animal: 2})
+@Proto(knownSubClassMapm: {Animal: 2})
 abstract class Being {
   @ProtoField(2)
   final double mass;

@@ -11,7 +11,7 @@ abstract class AbstractParentClass1 {}
 
 const knownSubClasses = {SubClass1: 3};
 
-@Proto(knownSubClasses: knownSubClasses)
+@Proto(knownSubClassMap: knownSubClasses)
 abstract class AbstractParentClass2 {}
 
 @Proto()

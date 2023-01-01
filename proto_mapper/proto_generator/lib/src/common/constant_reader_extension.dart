@@ -8,7 +8,7 @@ extension ConstantReaderExtension on ConstantReader {
     final ownFieldsNumber = read('ownFieldsNumber').intValue;
     final superFieldsNumber = read('superFieldsNumber').intValue;
 
-    final kscReader = read('knownSubClasses');
+    final kscReader = read('knownSubClassMap');
     final kscs = kscReader.mapValue.map(
       (key, value) {
         final k = key!.toTypeValue()!;
@@ -20,7 +20,7 @@ extension ConstantReaderExtension on ConstantReader {
     final proto = Proto(
       ownFieldsNumber: ownFieldsNumber,
       superFieldsNumber: superFieldsNumber,
-      knownSubClasses: kscs.map(
+      knownSubClassMap: kscs.map(
         (key, value) => MapEntry(key.runtimeType, value),
       ),
     );

@@ -8,7 +8,7 @@ part 'vehicle.g.dart';
 
 const knownSubClasses = {Aircraft: 3, Car: 4};
 
-@Proto(knownSubClasses: knownSubClasses)
+@Proto(knownSubClassMap: knownSubClasses)
 class Vehicle {
   @ProtoField(5)
   final int weight;

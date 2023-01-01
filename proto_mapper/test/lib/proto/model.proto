@@ -289,8 +289,8 @@ message GListsHost
   repeated google.protobuf.Timestamp nvdatetimes = 9;
   repeated bytes vdecimals = 10;
   repeated bytes nvdecimals = 11;
-  repeated int64 vints = 12;
-  repeated int64 nvints = 13;
+  repeated int32 vints = 12;
+  repeated int32 nvints = 13;
   repeated double vdoubles = 14;
   repeated double nvdoubles = 15;
   repeated GApplianceType vappliance_types = 16;

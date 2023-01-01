@@ -8,12 +8,12 @@ class Proto {
   const Proto({
     this.ownFieldsNumber = defaultOwnFieldsNumber,
     this.superFieldsNumber = defaultSuperFieldsNumber,
-    this.knownSubClasses = noSubClass,
+    this.knownSubClassMap = noSubClass,
   });
 
   final int superFieldsNumber;
   final int ownFieldsNumber;
-  final KnownSubClasses knownSubClasses;
+  final KnownSubClasses knownSubClassMap;
 }
 
 const proto = Proto();
