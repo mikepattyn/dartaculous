@@ -25,21 +25,22 @@ class BuilderGenerator extends GeneratorForAnnotation<BuildBuilder> {
 
     if (classElement.kind == ElementKind.ENUM) return '';
 
+    final hasValidatable = _checkForValidatable(classElement);
+
     var fieldDescriptors = _getFieldDescriptors(classElement);
 
     if (fieldDescriptors.isEmpty) return '';
 
     var renderBuffer = StringBuffer();
 
-    renderBuffer.writeln(_renderBuilder(readAnnotation, fieldDescriptors));
+    renderBuffer.writeln(
+        _renderBuilder(readAnnotation, fieldDescriptors, hasValidatable));
 
     return renderBuffer.toString();
   }
 
-  String _renderBuilder(
-    BuildBuilder builder,
-    Iterable<FieldDescriptor> fieldDescriptors,
-  ) {
+  String _renderBuilder(BuildBuilder builder,
+      Iterable<FieldDescriptor> fieldDescriptors, bool hasValidatable) {
     final className = _className;
     final builderClassName =
         '\$${className}Builder${builder.createBuilderBaseClass ? 'Base' : ''}';
@@ -117,7 +118,7 @@ class BuilderGenerator extends GeneratorForAnnotation<BuildBuilder> {
         @override
         $className build() {
           final entity = _build();
-          const \$${className}Validator().validateThrowing(entity);
+          ${hasValidatable ? 'const \$${className}Validator().validateThrowing(entity);' : ''} 
           return entity;
         }
 
@@ -125,9 +126,10 @@ class BuilderGenerator extends GeneratorForAnnotation<BuildBuilder> {
         BuildResult<$className> tryBuild() {
           try {
             final entity = _build();
-            final errors = \$${className}Validator().validate(entity);
+            ${hasValidatable ? 'final errors = \$${className}Validator().validate(entity);' : ''}
+            
             final result =
-                BuildResult<$className>(result: entity, validationErrors: errors);
+                BuildResult<$className>(result: entity  ${hasValidatable ? ', validationErrors: errors' : ''}  );
             return result;
           } catch (ex) {
             return BuildResult<$className>(exception: ex);
@@ -148,6 +150,11 @@ class BuilderGenerator extends GeneratorForAnnotation<BuildBuilder> {
     ''';
     return ret;
   }
+}
+
+bool _checkForValidatable(InterfaceElement classElement) {
+  final tc = TypeChecker.fromRuntime(Validatable);
+  return tc.hasAnnotationOf(classElement);
 }
 
 Iterable<FieldDescriptor> _getFieldDescriptors(InterfaceElement classElement) {
