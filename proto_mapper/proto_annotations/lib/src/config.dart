@@ -24,8 +24,8 @@ class Config {
     this.packageName = '',
     this.options = const [],
     this.prefix = 'G',
-    this.wellKnownDurationType = r'$GDuration',
-    this.wellKnownTimestampType = 'Timestamp',
+    this.wellKnownDurationType = r'$Duration',
+    this.wellKnownTimestampType = r'$Timestamp',
     this.defaultIntPrecision = IntPrecision.int32,
   });
 

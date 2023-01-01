@@ -37,9 +37,9 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
                   const []),
           prefix: $checkedConvert('prefix', (v) => v as String? ?? 'G'),
           wellKnownDurationType: $checkedConvert(
-              'wellKnownDurationType', (v) => v as String? ?? r'$GDuration'),
+              'wellKnownDurationType', (v) => v as String? ?? r'$Duration'),
           wellKnownTimestampType: $checkedConvert(
-              'wellKnownTimestampType', (v) => v as String? ?? 'Timestamp'),
+              'wellKnownTimestampType', (v) => v as String? ?? r'$Timestamp'),
           defaultIntPrecision: $checkedConvert(
               'defaultIntPrecision',
               (v) =>
