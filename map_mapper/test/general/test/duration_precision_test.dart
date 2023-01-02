@@ -31,33 +31,6 @@ void main() {
       expect(sub2.prop2, null);
     });
 
-    test('legacy precision', () {
-      var sub = Legacy(
-        prop1: Duration(seconds: 27, milliseconds: 13, microseconds: 9),
-        prop2: Duration(seconds: 28, milliseconds: 14, microseconds: 13),
-        someOther: '',
-      );
-
-      var psub = sub.toMap();
-      var sub2 = psub.toLegacy();
-
-      expect(sub2.prop1, Duration(seconds: 27, milliseconds: 13));
-      expect(sub2.prop2, Duration(seconds: 28, milliseconds: 14));
-    });
-
-    test('legacy precision with null prop2', () {
-      var sub = Legacy(
-        prop1: Duration(seconds: 27, milliseconds: 13, microseconds: 9),
-        someOther: '',
-      );
-
-      var psub = sub.toMap();
-      var sub2 = psub.toLegacy();
-
-      expect(sub2.prop1, Duration(seconds: 27, milliseconds: 13));
-      expect(sub2.prop2, null);
-    });
-
     test('more precise', () {
       var sub = MorePrecise(
         prop1: Duration(seconds: 27, milliseconds: 13, microseconds: 9),

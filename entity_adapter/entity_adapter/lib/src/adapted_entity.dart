@@ -2,7 +2,6 @@ import 'package:defaults_provider_annotations/defaults_provider_annotations.dart
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:squarealfa_entity_annotations/squarealfa_entity_annotations.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
 /// Annotation that instructs several code generators to
 /// generate added features to PODO classes.
@@ -19,14 +18,7 @@ import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 /// and an [EntityPermissions] subclass.
 
 class AdaptedEntity
-    implements
-        MapMapped,
-        Proto,
-        MapProto,
-        DefaultsProvider,
-        Validatable,
-        BuildBuilder,
-        CopyWith {
+    implements DefaultsProvider, Validatable, BuildBuilder, CopyWith {
   /// Type that constitutes the root of an
   /// object graph that is to be communicated
   /// and to be persisted. Extra code is generated
@@ -44,32 +36,13 @@ class AdaptedEntity
   const AdaptedEntity({
     this.rootEntityType = Object,
     this.useDefaultsProvider = true,
-    this.includeFieldsByDefault = true,
-    this.prefix = 'G',
-    this.packageName = '',
     this.createDefaultsProviderBaseClass = false,
     this.createValidatableBaseClass = false,
     this.createBuilderBaseClass = false,
-    this.dateTimePrecision,
-    this.durationPrecision,
-    this.dateTimeRepresentation,
-    this.useProtoFieldNamingConventions = true,
-    this.knownSubClasses,
-    this.allowMissingFields = false,
-    this.mapEnumToString = false,
   });
 
   @override
-  final bool includeFieldsByDefault;
-
-  @override
   final bool useDefaultsProvider;
-
-  @override
-  final String packageName;
-
-  @override
-  final String? prefix;
 
   @override
   final bool createDefaultsProviderBaseClass;
@@ -79,25 +52,6 @@ class AdaptedEntity
 
   @override
   final bool createBuilderBaseClass;
-
-  @override
-  final TimePrecision? dateTimePrecision;
-
-  @override
-  final TimePrecision? durationPrecision;
-
-  @override
-  final bool? useProtoFieldNamingConventions;
-
-  @override
-  final DateTimeRepresentation? dateTimeRepresentation;
-
-  @override
-  final List<Type>? knownSubClasses;
-
-  @override
-  final bool allowMissingFields;
-
-  @override
-  final bool mapEnumToString;
 }
+
+const adaptedEntity = AdaptedEntity();

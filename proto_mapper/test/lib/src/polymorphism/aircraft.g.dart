@@ -11,37 +11,51 @@ class $AircraftProtoMapper implements ProtoMapper<Aircraft, GAircraft> {
 
   @override
   Aircraft fromProto(GAircraft proto) => _$AircraftFromProto(proto);
+
   @override
   GAircraft toProto(Aircraft entity) => _$AircraftToProto(entity);
+
+  GFieldsOfAircraft toFieldsOfProto(Aircraft entity) =>
+      _$AircraftToFieldsOfProto(entity);
+
   Aircraft fromJson(String json) =>
       _$AircraftFromProto(GAircraft.fromJson(json));
   String toJson(Aircraft entity) => _$AircraftToProto(entity).writeToJson();
+
   String toBase64Proto(Aircraft entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
-  Aircraft fromBase64Proto(String base64Proto) => _$AircraftFromProto(
-      GAircraft.fromJson(utf8.decode(base64Decode(base64Proto))));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
+  Aircraft fromBase64Proto(String base64Proto) =>
+      GAircraft.fromJson(utf8.decode(base64Decode(base64Proto))).toAircraft();
+}
+
+GFieldsOfAircraft _$AircraftToFieldsOfProto(Aircraft instance) {
+  final proto = GFieldsOfAircraft();
+  proto.fieldsOfSuperClass =
+      const $VehicleProtoMapper().toFieldsOfProto(instance);
+
+  proto.serviceCeiling = instance.serviceCeiling;
+  proto.key = instance.key;
+
+  return proto;
 }
 
 GAircraft _$AircraftToProto(Aircraft instance) {
-  var uproto = GAircraft();
+  var proto = GAircraft();
+
   if (instance is Airplane) {
-    uproto.airplane = (const $AirplaneProtoMapper()).toProto(instance);
-    return uproto;
+    proto.airplane = (const $AirplaneProtoMapper()).toProto(instance);
+    return proto;
   }
 
-  if (instance is Helicopter) {
-    uproto.helicopter = (const $HelicopterProtoMapper()).toProto(instance);
-    return uproto;
-  }
-
-  if (instance is Gyrocopter) {
-    uproto.gyrocopter = (const $GyrocopterProtoMapper()).toProto(instance);
-    return uproto;
+  if (instance is Rotorcraft) {
+    proto.rotorcraft = (const $RotorcraftProtoMapper()).toProto(instance);
+    return proto;
   }
 
   if (instance is Balloon) {
-    uproto.balloon = (const $BalloonProtoMapper()).toProto(instance);
-    return uproto;
+    proto.balloon = (const $BalloonProtoMapper()).toProto(instance);
+    return proto;
   }
 
   throw UnimplementedError();
@@ -52,23 +66,21 @@ Aircraft _$AircraftFromProto(GAircraft sInstance) {
     return sInstance.airplane.toAirplane();
   }
 
-  if (sInstance.hasHelicopter()) {
-    return sInstance.helicopter.toHelicopter();
-  }
-
-  if (sInstance.hasGyrocopter()) {
-    return sInstance.gyrocopter.toGyrocopter();
+  if (sInstance.hasRotorcraft()) {
+    return sInstance.rotorcraft.toRotorcraft();
   }
 
   if (sInstance.hasBalloon()) {
     return sInstance.balloon.toBalloon();
   }
+
   throw UnimplementedError();
 }
 
 extension $AircraftProtoExtension on Aircraft {
   GAircraft toProto() => _$AircraftToProto(this);
   String toJson() => _$AircraftToProto(this).writeToJson();
+
   static Aircraft fromProto(GAircraft proto) => _$AircraftFromProto(proto);
   static Aircraft fromJson(String json) =>
       _$AircraftFromProto(GAircraft.fromJson(json));

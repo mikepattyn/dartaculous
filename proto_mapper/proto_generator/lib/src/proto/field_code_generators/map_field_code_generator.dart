@@ -1,14 +1,12 @@
 import 'package:analyzer/dart/element/type.dart';
-import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
 
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import 'external_proto_name.dart';
 
-class MapFieldCodeGenerator extends CompositeFieldCodeGenerator
-    implements ExternalProtoNames {
-  MapFieldCodeGenerator(FieldDescriptor fieldDescriptor, List<int> lineNumbers)
-      : super(fieldDescriptor, lineNumbers) {
+class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
+  MapFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor) {
     final fieldElementType = fieldDescriptor.itemType;
 
     final packageName = fieldElementType.packageName;
@@ -25,36 +23,7 @@ class MapFieldCodeGenerator extends CompositeFieldCodeGenerator
     _fieldType = packageName != ''
         ? '$packageName.$fieldElementTypeName'
         : fieldElementTypeName;
-
-    _externalProtoNames = _initExternalProtoNames(fieldDescriptor);
   }
-
-  Iterable<String> _initExternalProtoNames(FieldDescriptor fieldDescriptor) {
-    final names = <String>[];
-    final argumentTypes =
-        (fieldDescriptor.fieldElementType as InterfaceType).typeArguments;
-    for (DartType argumentType in argumentTypes) {
-      if (argumentType.isDartCoreString ||
-          argumentType.isDartCoreInt ||
-          argumentType.isDartCoreDouble ||
-          argumentType.isDartCoreNum ||
-          argumentType.isDartCoreBool) {
-        continue;
-      }
-      final segments = argumentType.element!.source!.uri.pathSegments.toList();
-      final lastSrc = segments.lastIndexOf('src');
-      if (lastSrc != -1) segments.removeRange(0, lastSrc + 1);
-      var fileName = segments[segments.length - 1];
-      fileName = '${fileName.substring(0, fileName.length - 4)}proto';
-      segments[segments.length - 1] = fileName;
-      names.add(segments.join('/'));
-    }
-    return names;
-  }
-
-  late Iterable<String> _externalProtoNames;
-  @override
-  Iterable<String> get externalProtoNames => _externalProtoNames;
 
   late String _fieldType;
   @override
@@ -66,7 +35,7 @@ class MapFieldCodeGenerator extends CompositeFieldCodeGenerator
     } else if (keyType.isDartCoreInt) {
       return 'int32';
     } else if (keyType.isDartCoreDouble) {
-      return 'int64';
+      return 'double';
     } else if (keyType.isDartCoreBool) {
       return 'bool';
     }

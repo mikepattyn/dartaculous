@@ -1,28 +1,27 @@
-import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 
 import '../field_descriptor.dart';
 
 class SetFieldCodeGenerator extends CompositeFieldCodeGenerator {
-  final bool useWellKnownTypes;
-
   SetFieldCodeGenerator({
     required FieldDescriptor fieldDescriptor,
-    required this.useWellKnownTypes,
     required String refName,
     required String protoRefName,
+    required Config config,
   }) : super(
-          fieldDescriptor: fieldDescriptor,
-          refName: refName,
-          protoRefName: protoRefName,
-        );
+            fieldDescriptor: fieldDescriptor,
+            refName: refName,
+            protoRefName: protoRefName,
+            config: config);
 
   String get _valueToProto {
     return collectionValueToProto(
       fieldDescriptor,
       fieldDescriptor.setParameterType!,
       'e',
-      useWellKnownTypes: useWellKnownTypes,
+      config: config,
     );
   }
 
@@ -62,13 +61,13 @@ class SetFieldCodeGenerator extends CompositeFieldCodeGenerator {
       fieldDescriptor,
       setParameterType,
       'e',
-      useWellKnownTypes: useWellKnownTypes,
+      config: config,
     );
   }
 
   @override
   String get fromProtoExpression =>
-      '''Set<${fieldDescriptor.parameterTypeName}>.unmodifiable($ref$protoFieldName.map((e) => $_protoToValue))''';
+      '''Set<${fieldDescriptor.parameterTypeName}>.unmodifiable($protoRef$protoFieldName.map((e) => $_protoToValue))''';
 
   @override
   String get fromProtoNullableExpression => fromProtoExpression;

@@ -1,52 +1,25 @@
-# run "make test configurations=[specific configuration]" to test a specific custom configuration 
-configurations := milliseconds microseconds wellknown
-
 build: .PHONY
 	dart run build_runner build --verbose  --delete-conflicting-outputs
+	protoc --dart_out=grpc:lib/grpc/ ./lib/proto/model.proto -Ilib/proto -I/usr/include /usr/include/google/protobuf/*.proto
 
-	# recreate proto_generated
-	rm -rf ./proto
-	mkdir ./proto
-	mkdir ./proto/polymorphism
-
-	# move generated proto files to proto_generated
-	mv ./lib/src/*.proto ./proto/
-	mv  ./lib/src/polymorphism/*.proto ./proto/polymorphism
-
-	# recreate grpc directory
-	rm -rf ./lib/grpc
-	mkdir ./lib/grpc
-
-	protoc --dart_out=grpc:lib/grpc/ -Iproto/ -I../../include/ ./proto/*.proto ./proto/polymorphism/*.proto ../../include/google/protobuf/*.proto
-
-test: $(configurations)
+test: test_microseconds test_wellknown
 
 
-_test: .PHONY
-	dart test -r expanded
-
-
-$(configurations): .PHONY
-	cp build_settings/build_settings.$@.yaml build.yaml
+test_microseconds: .PHONY
+	cp build_settings/build_settings.microseconds.yaml build.yaml
+	echo "" > lib/gtypes.dart
 
 	dart run build_runner build --verbose  --delete-conflicting-outputs
+	protoc --dart_out=grpc:lib/grpc/ ./lib/proto/model.proto -Ilib/proto -I/usr/include /usr/include/google/protobuf/*.proto
+	dart test -r expanded
 
-	# recreate proto_generated
-	rm -rf ./proto
-	mkdir ./proto
-	mkdir ./proto/polymorphism
+test_wellknown: .PHONY
+	cp build_settings/build_settings.wellknown.yaml build.yaml
+	cp build_settings/gtypes.dart lib/gtypes.dart
 
-	# move generated proto files to proto_generated
-	mv ./lib/src/*.proto ./proto/
-	mv  ./lib/src/polymorphism/*.proto ./proto/polymorphism
-
-	# recreate grpc directory
-	rm -rf ./lib/grpc
-	mkdir ./lib/grpc
-
-	protoc --dart_out=grpc:lib/grpc/ -Iproto/ -I../../include/ ./proto/*.proto ./proto/polymorphism/*.proto ../../include/google/protobuf/*.proto
-
-	CONFIGURATION=$@ dart test -r expanded
+	dart run build_runner build --verbose  --delete-conflicting-outputs
+	protoc --dart_out=grpc:lib/grpc/ ./lib/proto/model.proto -Ilib/proto -I/usr/include /usr/include/google/protobuf/*.proto
+	dart test -r expanded
 
 fmt:
 	dart format --fix lib/grpc/

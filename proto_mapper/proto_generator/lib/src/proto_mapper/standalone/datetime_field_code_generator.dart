@@ -1,10 +1,10 @@
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
+import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
+import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 import '../field_descriptor.dart';
-import '../standalone_field_code_generator.dart';
 
-class DateTimeFieldCodeGenerator extends StandaloneFieldCodeGenerator {
-  DateTimeFieldCodeGenerator({
+class SDateTimeFieldCodeGenerator extends WKTFieldCodeGenerator {
+  SDateTimeFieldCodeGenerator({
     required FieldDescriptor fieldDescriptor,
     required String refName,
     required String protoRefName,
@@ -14,19 +14,30 @@ class DateTimeFieldCodeGenerator extends StandaloneFieldCodeGenerator {
           protoRefName: protoRefName,
         );
 
+  String get instanceReference =>
+      '$ref$fieldName${fieldDescriptor.isNullable && ref.isNotEmpty ? '!' : ''}';
+
+  String get toProtoExpression =>
+      '''Int64($instanceReference.microsecondsSinceEpoch)''';
+
+  String get fromProtoNonNullableExpression =>
+      '''DateTime.fromMicrosecondsSinceEpoch($protoRef$fieldName.toInt())''';
+
+  String get fromProtoNullableExpression =>
+      '''(${protoRef}has${protoFieldName.pascalName}() ? DateTime.fromMicrosecondsSinceEpoch($protoRef$fieldName.value.toInt()) : null)''';
+
   @override
-  String get toProtoExpression {
-    if (fieldDescriptor.dateTimePrecision == TimePrecision.microseconds) {
-      return 'Int64($instanceReference.microsecondsSinceEpoch)';
-    }
-    return 'Int64($instanceReference.millisecondsSinceEpoch)';
+  String get fromProtoMap {
+    if (fieldDescriptor.isNullable) return fromProtoNullableExpression;
+    return fromProtoNonNullableExpression;
   }
 
   @override
-  String get fromProtoNonNullableExpression {
-    if (fieldDescriptor.dateTimePrecision == TimePrecision.microseconds) {
-      return 'DateTime.fromMicrosecondsSinceEpoch(instance.$protoFieldName.toInt())';
-    }
-    return 'DateTime.fromMillisecondsSinceEpoch(instance.$protoFieldName.toInt())';
-  }
+  String get toProtoMap => fieldDescriptor.isNullable
+      ? '''
+        if ($ref$fieldName != null) {
+          $protoRef$protoFieldName = Int64Value(value: $toProtoExpression);
+        }
+      '''
+      : '$protoRef$protoFieldName = $toProtoExpression;';
 }

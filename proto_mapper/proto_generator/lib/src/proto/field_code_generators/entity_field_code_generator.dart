@@ -1,17 +1,12 @@
 import 'package:analyzer/dart/element/type.dart';
-import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
 
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import 'external_proto_name.dart';
-import 'external_proto_names_mixin.dart';
 
-class EntityFieldCodeGenerator extends CompositeFieldCodeGenerator
-    with ExternalProtoNamesMixin
-    implements ExternalProtoNames {
-  EntityFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, List<int> lineNumbers)
-      : super(fieldDescriptor, lineNumbers);
+class EntityFieldCodeGenerator extends CompositeFieldCodeGenerator {
+  EntityFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor);
 
   @override
   String get fieldType {

@@ -1,16 +1,14 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto_mapper/field_code_generators/field_code_generator_identifiers.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
-import 'standalone/bool_field_code_generator.dart';
 import 'standalone/datetime_field_code_generator.dart';
-import 'standalone/double_field_code_generator.dart';
-import 'standalone/duration/microseconds_duration_field_code_generator.dart';
-import 'standalone/string_field_code_generator.dart';
 import 'field_code_generator.dart';
-import 'standalone/int_field_code_generator.dart';
-import 'standalone/duration/milliseconds_duration_field_code_generator.dart';
 import 'field_descriptor.dart';
+import 'standalone/duration_field_code_generator.dart';
+import 'well_known_types/gbool_field_code_generator.dart';
+import 'well_known_types/gdouble_field_code_generator.dart';
+import 'well_known_types/gint_field_code_generator.dart';
+import 'well_known_types/gstring_field_code_generator.dart';
 
 abstract class StandaloneFieldCodeGenerator
     with FieldCodeGeneratorIdentifiers
@@ -28,7 +26,7 @@ abstract class StandaloneFieldCodeGenerator
   @override
   final String protoRefName;
 
-  MapProto get mapProtoBase => fieldDescriptor.protoMapperAnnotation;
+  Proto get proto => fieldDescriptor.proto;
 
   @override
   String get toProtoMap => fieldDescriptor.isNullable
@@ -65,57 +63,46 @@ abstract class StandaloneFieldCodeGenerator
     required String protoRefName,
   }) {
     if (fieldDescriptor.fieldElementType.isDartCoreString) {
-      return StringFieldCodeGenerator(
+      return GStringFieldCodeGenerator(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreBool) {
-      return BoolFieldCodeGenerator(
+      return GBoolFieldCodeGenerator(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreInt) {
-      return IntFieldCodeGenerator(
+      return GIntFieldCodeGenerator(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
     }
     if (fieldDescriptor.fieldElementType.isDartCoreDouble) {
-      return DoubleFieldCodeGenerator(
+      return GDoubleFieldCodeGenerator(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
     }
     if (fieldDescriptor.fieldElementTypeName == (DateTime).toString()) {
-      return DateTimeFieldCodeGenerator(
+      return SDateTimeFieldCodeGenerator(
         fieldDescriptor: fieldDescriptor,
         refName: refName,
         protoRefName: protoRefName,
       );
     }
     if (fieldDescriptor.fieldElementTypeName == (Duration).toString()) {
-      switch (fieldDescriptor.durationPrecision) {
-        case TimePrecision.milliseconds:
-          return MillisecondsDurationFieldCodeGenerator(
-            fieldDescriptor: fieldDescriptor,
-            refName: refName,
-            protoRefName: protoRefName,
-          );
-        case TimePrecision.microseconds:
-          return MicrosecondsDurationFieldCodeGenerator(
-            fieldDescriptor: fieldDescriptor,
-            refName: refName,
-            protoRefName: protoRefName,
-          );
-        default:
-          throw UnimplementedError();
-      }
+      return SDurationFieldCodeGenerator(
+        fieldDescriptor: fieldDescriptor,
+        refName: refName,
+        protoRefName: protoRefName,
+      );
     }
     return null;
   }

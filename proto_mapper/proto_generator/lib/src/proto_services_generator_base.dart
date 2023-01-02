@@ -1,13 +1,14 @@
 import 'package:analyzer/dart/element/element.dart';
+import 'package:proto_annotations/proto_annotations.dart';
 
 class ProtoServicesGeneratorBase {
   final String className;
   final InterfaceElement classElement;
-  final String prefix;
+  final Config config;
   final String serviceClassName;
 
   ProtoServicesGeneratorBase._({
-    required this.prefix,
+    required this.config,
     required this.classElement,
     required this.className,
   }) : serviceClassName = className.endsWith('Base')
@@ -17,17 +18,17 @@ class ProtoServicesGeneratorBase {
                 : className;
 
   ProtoServicesGeneratorBase({
-    required String prefix,
+    required Config config,
     required InterfaceElement classElement,
   }) : this._(
-          prefix: prefix,
+          config: config,
           classElement: classElement,
           className: classElement.name,
         );
 
   String getParameterMessageName(String methodName) =>
-      'G_$prefix${serviceClassName}_${methodName}_Parameters';
+      'G_${config.prefix}${serviceClassName}_${methodName}_Parameters';
 
   String getReturnMessageName(String methodName) =>
-      'G_$prefix${serviceClassName}_${methodName}_Return';
+      'G_${config.prefix}${serviceClassName}_${methodName}_Return';
 }

@@ -11,15 +11,22 @@ class $CalcResultProtoMapper implements ProtoMapper<CalcResult, GCalcResult> {
 
   @override
   CalcResult fromProto(GCalcResult proto) => _$CalcResultFromProto(proto);
+
   @override
   GCalcResult toProto(CalcResult entity) => _$CalcResultToProto(entity);
+
+  GCalcResult toFieldsOfProto(CalcResult entity) => _$CalcResultToProto(entity);
+
   CalcResult fromJson(String json) =>
       _$CalcResultFromProto(GCalcResult.fromJson(json));
   String toJson(CalcResult entity) => _$CalcResultToProto(entity).writeToJson();
+
   String toBase64Proto(CalcResult entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
-  CalcResult fromBase64Proto(String base64Proto) => _$CalcResultFromProto(
-      GCalcResult.fromJson(utf8.decode(base64Decode(base64Proto))));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
+  CalcResult fromBase64Proto(String base64Proto) =>
+      GCalcResult.fromJson(utf8.decode(base64Decode(base64Proto)))
+          .toCalcResult();
 }
 
 GCalcResult _$CalcResultToProto(CalcResult instance) {
@@ -30,13 +37,16 @@ GCalcResult _$CalcResultToProto(CalcResult instance) {
   return proto;
 }
 
-CalcResult _$CalcResultFromProto(GCalcResult instance) => CalcResult(
-      result: instance.result,
-    );
+CalcResult _$CalcResultFromProto(GCalcResult proto) {
+  return CalcResult(
+    result: proto.result,
+  );
+}
 
 extension $CalcResultProtoExtension on CalcResult {
   GCalcResult toProto() => _$CalcResultToProto(this);
   String toJson() => _$CalcResultToProto(this).writeToJson();
+
   static CalcResult fromProto(GCalcResult proto) =>
       _$CalcResultFromProto(proto);
   static CalcResult fromJson(String json) =>

@@ -1,17 +1,25 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/category.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'component.dart';
 
 part 'category.g.dart';
 
-@Proto.auto()
-@mapProto
+@Proto()
 class Category {
+  @ProtoField(2)
   final String title;
+
+  @ProtoField(3)
   final Component mainComponent;
+
+  @ProtoField(4)
   final Component? alternativeComponent;
+
+  @ProtoField(5)
   final List<Component> otherComponents;
+
+  @ProtoField(6)
   final List<Component>? secondaryComponents;
 
   Category({

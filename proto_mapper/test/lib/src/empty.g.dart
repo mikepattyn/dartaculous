@@ -11,14 +11,20 @@ class $EmptyProtoMapper implements ProtoMapper<Empty, GEmpty> {
 
   @override
   Empty fromProto(GEmpty proto) => _$EmptyFromProto(proto);
+
   @override
   GEmpty toProto(Empty entity) => _$EmptyToProto(entity);
+
+  GEmpty toFieldsOfProto(Empty entity) => _$EmptyToProto(entity);
+
   Empty fromJson(String json) => _$EmptyFromProto(GEmpty.fromJson(json));
   String toJson(Empty entity) => _$EmptyToProto(entity).writeToJson();
+
   String toBase64Proto(Empty entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
   Empty fromBase64Proto(String base64Proto) =>
-      _$EmptyFromProto(GEmpty.fromJson(utf8.decode(base64Decode(base64Proto))));
+      GEmpty.fromJson(utf8.decode(base64Decode(base64Proto))).toEmpty();
 }
 
 GEmpty _$EmptyToProto(Empty instance) {
@@ -27,11 +33,14 @@ GEmpty _$EmptyToProto(Empty instance) {
   return proto;
 }
 
-Empty _$EmptyFromProto(GEmpty instance) => Empty();
+Empty _$EmptyFromProto(GEmpty proto) {
+  return Empty();
+}
 
 extension $EmptyProtoExtension on Empty {
   GEmpty toProto() => _$EmptyToProto(this);
   String toJson() => _$EmptyToProto(this).writeToJson();
+
   static Empty fromProto(GEmpty proto) => _$EmptyFromProto(proto);
   static Empty fromJson(String json) => _$EmptyFromProto(GEmpty.fromJson(json));
 }

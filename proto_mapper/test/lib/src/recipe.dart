@@ -1,38 +1,49 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/appliance_type.pb.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
-import 'package:proto_generator_test/grpc/recipe.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
+// ignore: unused_import
+import 'package:proto_generator_test/gtypes.dart';
 import 'package:proto_generator_test/src/appliance_type.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
-    as $wellknown_duration;
-import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
-    as $wellknown_timestamp;
 
 import 'category.dart';
 import 'ingredient.dart';
 
 part 'recipe.g.dart';
 
-@Proto.auto()
-@mapProto
+@Proto()
 class Recipe {
+  @ProtoField(2)
   final String title;
+  @ProtoField(3)
   final String? description;
+  @ProtoField(4)
   final Category category;
+  @ProtoField(5)
   final List<Ingredient> ingredients;
+  @ProtoField(6)
   final DateTime publishDate;
+  @ProtoField(7)
   final DateTime? expiryDate;
+  @ProtoField(8)
   final Duration preparationDuration;
+  @ProtoField(9)
   final Duration? totalDuration;
+  @ProtoField(10)
   final bool isPublished;
+  @ProtoField(11)
   final bool? requiresRobot;
+  @ProtoField(12)
   final double? grossWeight;
+  @ProtoField(13)
   final double? netWeight;
 
+  @ProtoField(14)
   final ApplianceType mainApplianceType;
+  @ProtoField(15)
   final ApplianceType? secondaryApplianceType;
 
+  @ProtoField(16)
   final List<String> tags;
+  @ProtoField(17)
   final List<String>? extraTags;
 
   Recipe({

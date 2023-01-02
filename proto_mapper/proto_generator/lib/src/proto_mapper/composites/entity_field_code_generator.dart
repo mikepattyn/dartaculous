@@ -1,3 +1,4 @@
+import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
@@ -8,10 +9,12 @@ class EntityFieldCodeGenerator extends CompositeFieldCodeGenerator {
     required FieldDescriptor fieldDescriptor,
     required String refName,
     required String protoRefName,
+    required Config config,
   }) : super(
           fieldDescriptor: fieldDescriptor,
           refName: refName,
           protoRefName: protoRefName,
+          config: config,
         );
 
   @override
@@ -20,9 +23,9 @@ class EntityFieldCodeGenerator extends CompositeFieldCodeGenerator {
 
   @override
   String get fromProtoExpression =>
-      'const \$${fieldDescriptor.fieldElementTypeName}ProtoMapper().fromProto($ref$fieldName)';
+      'const \$${fieldDescriptor.fieldElementTypeName}ProtoMapper().fromProto($protoRef$fieldName)';
 
   @override
   String get fromProtoNullableExpression =>
-      '(${ref}has${protoFieldName.pascalName}() ? const \$${fieldDescriptor.fieldElementTypeName}ProtoMapper().fromProto($ref$fieldName) : null)';
+      '(${protoRef}has${protoFieldName.pascalName}() ? const \$${fieldDescriptor.fieldElementTypeName}ProtoMapper().fromProto($protoRef$fieldName) : null)';
 }

@@ -26,7 +26,6 @@ This package supports polymorphism. Here's an example:
 ```dart
 
 @proto
-@mapProto
 class Car extends Vehicle {
   Car({
     required this.numberOfDoors,
@@ -37,7 +36,6 @@ class Car extends Vehicle {
 }
 
 @proto
-@mapProto
 class Airplane extends Vehicle {
   Airplane({
     required int weight,

@@ -1,26 +1,28 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator/src/proto_common.dart';
-import 'package:source_gen/source_gen.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 class FieldDescriptor extends FieldDescriptorBase {
-  final MapProto protoMapperAnnotation;
-  final ProtoField? protoFieldAnnotation;
-  final ProtoIgnore? protoIgnoreAnnotation;
+  final Config config;
+  final Proto proto;
+  final ProtoField protoField;
+  final String refName;
+  final String protoRefName;
 
-  FieldDescriptor(
-    this.protoMapperAnnotation, {
+  FieldDescriptor({
+    required this.proto,
+    required this.config,
+    required this.protoField,
+    required this.refName,
+    required this.protoRefName,
     required String displayName,
     required String name,
     required bool isFinal,
     required bool isLate,
     required bool hasInitializer,
     required DartType fieldElementType,
-    this.protoFieldAnnotation,
-    this.protoIgnoreAnnotation,
   }) : super(
           displayName: displayName,
           name: name,
@@ -30,53 +32,26 @@ class FieldDescriptor extends FieldDescriptorBase {
           fieldElementType: fieldElementType,
         );
 
-  FieldDescriptor.fromFieldElement(
-    FieldElement fieldElement,
-    MapProto mapProtoBase,
-  )   : protoMapperAnnotation = mapProtoBase,
-        protoFieldAnnotation = _getProtoFieldAnnotation(fieldElement),
-        protoIgnoreAnnotation = _getProtoIgnoreAnnotation(fieldElement),
-        super.fromFieldElement(fieldElement);
+  FieldDescriptor.fromFieldElement({
+    required FieldElement fieldElement,
+    required this.proto,
+    required this.protoField,
+    required this.config,
+    required this.refName,
+    required this.protoRefName,
+  }) : super.fromFieldElement(fieldElement);
 
-  String get prefix => protoMapperAnnotation.prefix ?? '';
+  String get prefix => config.prefix;
 
   @override
   bool get isRepeated => listParameterType != null;
-  bool get _hasProtoIgnore => protoIgnoreAnnotation != null;
-  bool get _hasProtoField => protoFieldAnnotation != null;
   bool get renderNullable => isNullable && !isRepeated;
 
-  String get protoFieldName => protoFieldAnnotation?.name ?? displayName;
+  String get protoFieldName => protoField.name ?? displayName;
 
-  bool get isProtoIncluded =>
-      !_hasProtoIgnore &&
-      (protoMapperAnnotation.includeFieldsByDefault || _hasProtoField);
-
-  bool get typeHasMapProtoAnnotation => fieldElementType.hasMapProto;
+  bool get typeHasProtoAnnotation => fieldElementType.hasProto;
 
   @override
   bool get parameterTypeIsEnum =>
       parameterType.element!.kind == ElementKind.ENUM;
-
-  TimePrecision get dateTimePrecision =>
-      protoMapperAnnotation.dateTimePrecision ?? TimePrecision.microseconds;
-
-  TimePrecision get durationPrecision =>
-      protoMapperAnnotation.durationPrecision ?? TimePrecision.microseconds;
 }
-
-const _protoFieldChecker = TypeChecker.fromRuntime(ProtoField);
-
-ProtoField? _getProtoFieldAnnotation(FieldElement fieldElement) {
-  var annotation = _protoFieldChecker.getFieldAnnotation(fieldElement);
-  if (annotation == null) return null;
-  var name = annotation.getField('name')!.toStringValue();
-  var ret = ProtoField.auto(name: name);
-  return ret;
-}
-
-const _protoIgnoreChecker = TypeChecker.fromRuntime(ProtoIgnore);
-ProtoIgnore? _getProtoIgnoreAnnotation(FieldElement fieldElement) =>
-    _protoIgnoreChecker.getFieldAnnotation(fieldElement) == null
-        ? null
-        : ProtoIgnore();

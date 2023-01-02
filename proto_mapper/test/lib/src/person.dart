@@ -1,18 +1,17 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
-import 'package:proto_generator_test/grpc/person.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
+import 'package:proto_generator_test/gtypes.dart';
 
 part 'person.g.dart';
 
-@Proto.numbered()
-@MapProto()
+@Proto()
 class Person {
-  @ProtoField.numbered(1)
+  @ProtoField(1)
   final bool? boolValue;
 
-  @ProtoField.numbered(2)
+  @ProtoField(2)
   final Decimal? decVal;
 
   Person({

@@ -1,12 +1,9 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import '../field_code_generators/external_proto_name.dart';
 
-class GDurationFieldCodeGenerator extends WKTFieldCodeGenerator
-    implements ExternalProtoNames {
-  GDurationFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, List<int> lineNumbers)
-      : super(fieldDescriptor, lineNumbers);
+class GDurationFieldCodeGenerator extends WKTFieldCodeGenerator {
+  GDurationFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor);
 
   @override
   String get wellKnownType => 'google.protobuf.Duration';

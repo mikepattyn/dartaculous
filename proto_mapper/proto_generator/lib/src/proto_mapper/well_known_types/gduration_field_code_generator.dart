@@ -1,3 +1,4 @@
+import 'package:proto_annotations/proto_annotations.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 import '../field_descriptor.dart';
@@ -8,11 +9,13 @@ class GDurationFieldCodeGenerator extends WKTFieldCodeGenerator {
     required FieldDescriptor fieldDescriptor,
     required String refName,
     required String protoRefName,
+    required this.config,
   }) : super(
           fieldDescriptor: fieldDescriptor,
           refName: refName,
           protoRefName: protoRefName,
         );
+  final Config config;
 
   String get instanceReference =>
       '$ref$fieldName${fieldDescriptor.isNullable && ref.isNotEmpty ? '!' : ''}';
@@ -34,14 +37,14 @@ class GDurationFieldCodeGenerator extends WKTFieldCodeGenerator {
     return fromProtoNonNullableExpression;
   }
 
-  String get toProtoExpression => '''\$wellknown_duration.Duration(
+  String get toProtoExpression => '''${config.wellKnownDurationType}(
         seconds: Int64($instanceReference.inSeconds),
         nanos: ($instanceReference.inMicroseconds - $instanceReference.inSeconds * 1000000) * 1000)''';
 
   String get fromProtoNullableExpression =>
-      '''(${ref}has${protoFieldName.pascalName}() ? ($fromProtoNonNullableExpression) : null)''';
+      '''(${protoRef}has${protoFieldName.pascalName}() ? ($fromProtoNonNullableExpression) : null)''';
 
   String get fromProtoNonNullableExpression => '''Duration(
-      seconds: instance.$fieldName.seconds.toInt(),
-      microseconds: (instance.$fieldName.nanos ~/ 1000).toInt())''';
+      seconds: $protoRef$fieldName.seconds.toInt(),
+      microseconds: ($protoRef$fieldName.nanos ~/ 1000).toInt())''';
 }

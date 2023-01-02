@@ -1,17 +1,11 @@
-import 'package:proto_generator/src/proto_common.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
 
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import 'external_proto_name.dart';
-import 'external_proto_names_mixin.dart';
 
-class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator
-    with ExternalProtoNamesMixin
-    implements ExternalProtoNames {
-  EnumFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor,
-    List<int> lineNumbers,
-  ) : super(fieldDescriptor, lineNumbers);
+class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
+  EnumFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor);
 
   @override
   String get fieldType {
@@ -23,13 +17,6 @@ class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator
 
     final displayName =
         fieldElementType.getDisplayString(withNullability: false);
-    // In case of dynamic typed field, avoid "TypeName<dynamic>"...
-    // if (fieldElementType is ParameterizedType &&
-    //     fieldElementType.typeArguments.whereType<DynamicType>().isNotEmpty) {
-    //   if (fieldElementType.element?.name != null) {
-    //     displayName = fieldElementType.element!.name!;
-    //   }
-    // }
 
     final messageSuffix =
         fieldDescriptor.isNullable && !fieldDescriptor.isRepeated

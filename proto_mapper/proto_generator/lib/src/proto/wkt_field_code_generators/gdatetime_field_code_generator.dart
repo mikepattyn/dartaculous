@@ -1,12 +1,9 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import '../field_code_generators/external_proto_name.dart';
 
-class GDateTimeFieldCodeGenerator extends WKTFieldCodeGenerator
-    implements ExternalProtoNames {
-  GDateTimeFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, List<int> lineNumbers)
-      : super(fieldDescriptor, lineNumbers);
+class GDateTimeFieldCodeGenerator extends WKTFieldCodeGenerator {
+  GDateTimeFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor);
 
   @override
   String get wellKnownType => 'google.protobuf.Timestamp';

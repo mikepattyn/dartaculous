@@ -3,7 +3,7 @@ import 'package:analyzer/dart/element/type.dart';
 import 'package:source_gen/source_gen.dart';
 
 List<DartType> getKnownSubclasses(
-    List<DartType>? subClasses, Type annotationType) {
+    List<DartType>? subClasses, Type annotationType,) {
   final lst = <DartType>[];
   if (subClasses == null) {
     return lst;

@@ -1,4 +1,4 @@
-import 'package:proto_generator_test/grpc/starship.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 import 'package:proto_generator_test/src/starship.dart';
 
 import 'package:test/test.dart';

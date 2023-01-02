@@ -1,13 +1,10 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import '../field_code_generators/external_proto_name.dart';
 
-class GBoolFieldCodeGenerator extends WKTFieldCodeGenerator
-    implements ExternalProtoNames {
+class GBoolFieldCodeGenerator extends WKTFieldCodeGenerator {
   GBoolFieldCodeGenerator(
     FieldDescriptor fieldDescriptor,
-    List<int> lineNumbers,
-  ) : super(fieldDescriptor, lineNumbers);
+  ) : super(fieldDescriptor);
 
   @override
   String get wellKnownType => 'google.protobuf.BoolValue';

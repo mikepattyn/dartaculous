@@ -1,13 +1,9 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
-import '../field_code_generators/external_proto_name.dart';
 
-class GDoubleFieldCodeGenerator extends WKTFieldCodeGenerator
-    implements ExternalProtoNames {
-  GDoubleFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor,
-    List<int> lineNumbers,
-  ) : super(fieldDescriptor, lineNumbers);
+class GDoubleFieldCodeGenerator extends WKTFieldCodeGenerator {
+  GDoubleFieldCodeGenerator(FieldDescriptor fieldDescriptor)
+      : super(fieldDescriptor);
 
   @override
   String get wellKnownType => 'google.protobuf.DoubleValue';

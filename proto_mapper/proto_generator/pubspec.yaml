@@ -5,7 +5,7 @@ repository: https://gitlab.com/squarealfa/dart_framework
 version: 3.8.1
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
 dependencies:
   source_gen: ^1.2.1
@@ -17,8 +17,8 @@ dependencies:
   recase: ^4.0.0
   squarealfa_common_types: ^1.2.0
   squarealfa_generators_common: ^2.10.0
-  code_builder: ^4.3.0
-  built_value: ^8.4.1
+  glob: ^2.1.1
+  path: ^1.8.3
   
 dev_dependencies:
   lints: ^2.0.0
