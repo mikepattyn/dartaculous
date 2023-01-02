@@ -1,5 +1,5 @@
 # run "make test configurations=[specific configuration]" to test a specific custom configuration 
-configurations := milliseconds microseconds wellknown
+configurations := microseconds wellknown
 
 build: .PHONY
 	dart run build_runner build --verbose  --delete-conflicting-outputs

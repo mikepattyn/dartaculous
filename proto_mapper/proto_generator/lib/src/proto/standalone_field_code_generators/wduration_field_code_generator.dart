@@ -6,16 +6,13 @@ class WDurationFieldCodeGenerator extends WrappedFieldCodeGenerator {
       : super(fieldDescriptor);
 
   @override
-  String get scalarType => '';
+  String get scalarType => 'int64';
 
   @override
   String renderWrapper() {
-    return '''message Duration { 
-  int64 seconds = 1; 
-  int32 nanos = 2;
-}''';
+    return '''message $wrappedType { $scalarType value = 1; }''';
   }
 
   @override
-  String get wrappedType => 'Duration';
+  String get wrappedType => 'Int64Value';
 }

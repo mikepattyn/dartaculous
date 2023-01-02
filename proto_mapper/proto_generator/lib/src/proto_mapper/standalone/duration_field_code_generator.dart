@@ -3,8 +3,8 @@ import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 import '../field_descriptor.dart';
 
-class SDateTimeFieldCodeGenerator extends WKTFieldCodeGenerator {
-  SDateTimeFieldCodeGenerator({
+class SDurationFieldCodeGenerator extends WKTFieldCodeGenerator {
+  SDurationFieldCodeGenerator({
     required FieldDescriptor fieldDescriptor,
     required String refName,
     required String protoRefName,
@@ -18,13 +18,13 @@ class SDateTimeFieldCodeGenerator extends WKTFieldCodeGenerator {
       '$ref$fieldName${fieldDescriptor.isNullable && ref.isNotEmpty ? '!' : ''}';
 
   String get toProtoExpression =>
-      '''Int64($instanceReference.microsecondsSinceEpoch)''';
+      '''Int64($instanceReference.inMicroseconds)''';
 
   String get fromProtoNonNullableExpression =>
-      '''DateTime.fromMicrosecondsSinceEpoch($protoRef$fieldName.toInt())''';
+      '''Duration(microseconds: $protoRef$fieldName.toInt())''';
 
   String get fromProtoNullableExpression =>
-      '''(${protoRef}has${protoFieldName.pascalName}() ? DateTime.fromMicrosecondsSinceEpoch($protoRef$fieldName.value.toInt()) : null)''';
+      '''(${protoRef}has${protoFieldName.pascalName}() ? Duration(microseconds: $protoRef$fieldName.value.toInt()) : null)''';
 
   @override
   String get fromProtoMap {

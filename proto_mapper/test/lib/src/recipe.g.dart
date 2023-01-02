@@ -39,22 +39,17 @@ GRecipe _$RecipeToProto(Recipe instance) {
   proto.ingredients.addAll(instance.ingredients
       .map((e) => const $IngredientProtoMapper().toProto(e)));
 
-  proto.publishDate = Timestamp.fromDateTime(instance.publishDate);
+  proto.publishDate = Int64(instance.publishDate.microsecondsSinceEpoch);
   if (instance.expiryDate != null) {
-    proto.expiryDate = Timestamp.fromDateTime(instance.expiryDate!);
+    proto.expiryDate =
+        Int64Value(value: Int64(instance.expiryDate!.microsecondsSinceEpoch));
   }
 
-  proto.preparationDuration = GDuration(
-      seconds: Int64(instance.preparationDuration.inSeconds),
-      nanos: (instance.preparationDuration.inMicroseconds -
-              instance.preparationDuration.inSeconds * 1000000) *
-          1000);
+  proto.preparationDuration =
+      Int64(instance.preparationDuration.inMicroseconds);
   if (instance.totalDuration != null) {
-    proto.totalDuration = GDuration(
-        seconds: Int64(instance.totalDuration!.inSeconds),
-        nanos: (instance.totalDuration!.inMicroseconds -
-                instance.totalDuration!.inSeconds * 1000000) *
-            1000);
+    proto.totalDuration =
+        Int64Value(value: Int64(instance.totalDuration!.inMicroseconds));
   }
 
   proto.isPublished = instance.isPublished;
@@ -90,10 +85,9 @@ Recipe _$RecipeFromProto(GRecipe proto) {
     category: const $CategoryProtoMapper().fromProto(proto.category),
     ingredients: List<Ingredient>.unmodifiable(proto.ingredients
         .map((e) => const $IngredientProtoMapper().fromProto(e))),
-    publishDate: proto.publishDate.toDateTime(),
-    preparationDuration: Duration(
-        seconds: proto.preparationDuration.seconds.toInt(),
-        microseconds: (proto.preparationDuration.nanos ~/ 1000).toInt()),
+    publishDate: DateTime.fromMicrosecondsSinceEpoch(proto.publishDate.toInt()),
+    preparationDuration:
+        Duration(microseconds: proto.preparationDuration.toInt()),
     isPublished: proto.isPublished,
     mainApplianceType: ApplianceType.values[proto.mainApplianceType.value],
     tags: List<String>.unmodifiable(proto.tags.map((e) => e)),
@@ -101,12 +95,11 @@ Recipe _$RecipeFromProto(GRecipe proto) {
         (proto.grossWeight.hasValue() ? proto.grossWeight.value : null),
     description:
         (proto.description.hasValue() ? proto.description.value : null),
-    expiryDate:
-        (proto.hasExpiryDate() ? (proto.expiryDate.toDateTime()) : null),
+    expiryDate: (proto.hasExpiryDate()
+        ? DateTime.fromMicrosecondsSinceEpoch(proto.expiryDate.value.toInt())
+        : null),
     totalDuration: (proto.hasTotalDuration()
-        ? (Duration(
-            seconds: proto.totalDuration.seconds.toInt(),
-            microseconds: (proto.totalDuration.nanos ~/ 1000).toInt()))
+        ? Duration(microseconds: proto.totalDuration.value.toInt())
         : null),
     requiresRobot:
         (proto.requiresRobot.hasValue() ? proto.requiresRobot.value : null),

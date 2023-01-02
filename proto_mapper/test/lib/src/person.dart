@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
 import 'package:proto_generator_test/grpc/model.pb.dart';
 
 part 'person.g.dart';

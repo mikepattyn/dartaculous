@@ -85,7 +85,7 @@ String collectionProtoToValue(
     if (config.useWellKnownTypes) {
       return '''$parameterName.toDateTime()''';
     }
-    return 'DateTime.fromMillisecondsSinceEpoch($parameterName.toInt())';
+    return 'DateTime.fromMicrosecondsSinceEpoch($parameterName.toInt())';
   }
   if (fieldTypeName == (Duration).toString()) {
     if (config.useWellKnownTypes) {
@@ -93,7 +93,7 @@ String collectionProtoToValue(
       seconds: $parameterName.seconds.toInt(),
       microseconds: ($parameterName.nanos ~/ 1000).toInt())''';
     }
-    return 'Duration(milliseconds: $parameterName.toInt())';
+    return 'Duration(microseconds: $parameterName.toInt())';
   }
   return ''' const \$${fieldTypeName}ProtoMapper().fromProto($parameterName)''';
 }
@@ -115,7 +115,7 @@ String collectionValueToProto(
     if (config.useWellKnownTypes) {
       return '''${config.wellKnownTimestampType}.fromDateTime($parameterName)''';
     }
-    return 'Int64($parameterName.millisecondsSinceEpoch)';
+    return 'Int64($parameterName.microsecondsSinceEpoch)';
   }
   if (fieldTypeName == (Duration).toString()) {
     if (config.useWellKnownTypes) {
@@ -123,7 +123,7 @@ String collectionValueToProto(
         seconds: Int64($parameterName.inSeconds),
         nanos: ($parameterName.inMicroseconds - $parameterName.inSeconds * 1000000) * 1000)''';
     }
-    return '$parameterName.inMilliseconds.toDouble()';
+    return 'Int64($parameterName.inMicroseconds)';
   }
   return ''' const \$${fieldTypeName}ProtoMapper().toProto($parameterName)''';
 }

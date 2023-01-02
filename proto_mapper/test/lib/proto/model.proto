@@ -4,30 +4,14 @@ package com.company.project;
     
 option go_package = "./stubs";
     
-import "google/protobuf/wrappers.proto";
-import "google/protobuf/duration.proto";
-import "google/protobuf/timestamp.proto";
 
 
-    
 
-
-  
-message GCalcParameters
-{
-
-  int32 parameter1 = 2;
-  int32 parameter2 = 1;
-  google.protobuf.Int32Value parameter3 = 3;
-  google.protobuf.Int32Value parameter4 = 4;
-  int32 parameter5 = 9;
-
-}   
-
-message GListOfCalcParameters
-{
-  repeated GCalcParameters items = 1;
-}
+message Int32Value { int32 value = 1; }
+message StringValue { string value = 1; }
+message BoolValue { bool value = 1; }
+message Int64Value { int64 value = 1; }
+message DoubleValue { double value = 1; }
     
 
 
@@ -81,134 +65,6 @@ message GListOfComponent
 
 
   
-message GConstructObject1
-{
-
-  string name = 2;
-  int32 number = 3;
-
-}   
-
-message GListOfConstructObject1
-{
-  repeated GConstructObject1 items = 1;
-}
-    
-
-
-  
-message GConstructObject2
-{
-
-  string name = 2;
-  int32 number = 3;
-
-}   
-
-message GListOfConstructObject2
-{
-  repeated GConstructObject2 items = 1;
-}
-    
-
-
-  
-message GConstructObject3
-{
-
-  string name = 2;
-  int32 number = 3;
-
-}   
-
-message GListOfConstructObject3
-{
-  repeated GConstructObject3 items = 1;
-}
-    
-
-
-  
-message GConstructObject4
-{
-
-  string name = 2;
-  int32 number = 3;
-
-}   
-
-message GListOfConstructObject4
-{
-  repeated GConstructObject4 items = 1;
-}
-    
-
-
-  
-message GConstructObject5
-{
-
-  string name = 2;
-  int32 number = 3;
-
-}   
-
-message GListOfConstructObject5
-{
-  repeated GConstructObject5 items = 1;
-}
-    
-
-
-  
-message GConstructObject6
-{
-
-  google.protobuf.StringValue name = 2;
-  google.protobuf.Int32Value number = 3;
-
-}   
-
-message GListOfConstructObject6
-{
-  repeated GConstructObject6 items = 1;
-}
-    
-
-
-  
-message GConstructObject7
-{
-
-  google.protobuf.Int32Value number = 2;
-  string name = 3;
-
-}   
-
-message GListOfConstructObject7
-{
-  repeated GConstructObject7 items = 1;
-}
-    
-
-
-  
-message GConstructObject8
-{
-
-  google.protobuf.Int32Value number = 2;
-  string name = 3;
-
-}   
-
-message GListOfConstructObject8
-{
-  repeated GConstructObject8 items = 1;
-}
-    
-
-
-  
 message GEmpty
 {
 
@@ -245,7 +101,7 @@ message GIngredient
   string description = 2;
   bytes quantity = 3;
   double precision = 4;
-  google.protobuf.Duration cooking_duration = 5;
+  int64 cooking_duration = 5;
   GComponent main_component = 6;
   repeated GComponent other_components = 7;
   GComponent alternative_component = 8;
@@ -271,36 +127,6 @@ message GKey
 message GListOfKey
 {
   repeated GKey items = 1;
-}
-    
-
-
-  
-message GListsHost
-{
-
-  repeated bool vbools = 2;
-  repeated bool nvbools = 3;
-  repeated string vstrings = 4;
-  repeated string nvstrings = 5;
-  repeated google.protobuf.Duration vdurations = 6;
-  repeated google.protobuf.Duration nvdurations = 7;
-  repeated google.protobuf.Timestamp vdatetimes = 8;
-  repeated google.protobuf.Timestamp nvdatetimes = 9;
-  repeated bytes vdecimals = 10;
-  repeated bytes nvdecimals = 11;
-  repeated int32 vints = 12;
-  repeated int32 nvints = 13;
-  repeated double vdoubles = 14;
-  repeated double nvdoubles = 15;
-  repeated GApplianceType vappliance_types = 16;
-  repeated GApplianceType nvappliance_types = 17;
-
-}   
-
-message GListOfListsHost
-{
-  repeated GListsHost items = 1;
 }
     
 
@@ -540,169 +366,6 @@ message GListOfVehicle
 
 
   
-message GKnife
-{
-
-  string name = 1;
-  GKnifeType type = 2;
-
-}   
-
-message GListOfKnife
-{
-  repeated GKnife items = 1;
-}
-    
-
-
-  
-message GGarlicPress
-{
-
-  string name = 2;
-  bool machine_washable = 3;
-
-}   
-
-message GListOfGarlicPress
-{
-  repeated GGarlicPress items = 1;
-}
-    
-
-
-  
-message GKitchen
-{
-
-  repeated GRecipe recipe_list = 2;
-  map<string, GRecipe> recipe_map = 3;
-  google.protobuf.Timestamp next_inspection_date = 4;
-
-}   
-
-message GListOfKitchen
-{
-  repeated GKitchen items = 1;
-}
-    
-
-
-  
-message GChef
-{
-
-  GRecipe favorite_recipe = 2;
-  GKnife favorite_knife = 3;
-  GApplianceType favorite_appliance_type = 4;
-  repeated string favorite_words = 5;
-  google.protobuf.Timestamp birthdate = 6;
-  google.protobuf.Duration shelf_life = 7;
-
-}   
-
-message GListOfChef
-{
-  repeated GChef items = 1;
-}
-    
-
-
-  
-message GSousChef
-{
-  GChef fieldsOfSuperClass = 1;
-
-
-}   
-
-message GListOfSousChef
-{
-  repeated GSousChef items = 1;
-}
-    
-
-
-  
-message GKnifeMaster
-{
-  GChef fieldsOfSuperClass = 1;
-
-  GKnife favorite_knife = 2;
-
-}   
-
-message GListOfKnifeMaster
-{
-  repeated GKnifeMaster items = 1;
-}
-    
-
-
-  
-message GInventory
-{
-
-  map<string, int32> number_of_things = 2;
-  map<string, GRecipe> recipes_by_name = 3;
-  google.protobuf.Duration time_span = 4;
-
-}   
-
-message GListOfInventory
-{
-  repeated GInventory items = 1;
-}
-    
-
-
-  
-message GPrecisionSubject
-{
-
-  google.protobuf.Timestamp date_property = 2;
-  google.protobuf.Duration duration_property = 3;
-
-}   
-
-message GListOfPrecisionSubject
-{
-  repeated GPrecisionSubject items = 1;
-}
-    
-
-
-  
-message GRecipe
-{
-
-  string title = 2;
-  google.protobuf.StringValue description = 3;
-  GCategory category = 4;
-  repeated GIngredient ingredients = 5;
-  google.protobuf.Timestamp publish_date = 6;
-  google.protobuf.Timestamp expiry_date = 7;
-  google.protobuf.Duration preparation_duration = 8;
-  google.protobuf.Duration total_duration = 9;
-  bool is_published = 10;
-  google.protobuf.BoolValue requires_robot = 11;
-  google.protobuf.DoubleValue gross_weight = 12;
-  google.protobuf.DoubleValue net_weight = 13;
-  GApplianceType main_appliance_type = 14;
-  GApplianceType_Message secondary_appliance_type = 15;
-  repeated string tags = 16;
-  repeated string extra_tags = 17;
-
-}   
-
-message GListOfRecipe
-{
-  repeated GRecipe items = 1;
-}
-    
-
-
-  
 message GStarship
 {
 
@@ -715,22 +378,6 @@ message GStarship
 message GListOfStarship
 {
   repeated GStarship items = 1;
-}
-    
-
-
-  
-message GPerson
-{
-
-  google.protobuf.BoolValue bool_value = 1;
-  bytes dec_val = 2;
-
-}   
-
-message GListOfPerson
-{
-  repeated GPerson items = 1;
 }
     
 
@@ -903,6 +550,362 @@ message GLeaf
 message GListOfLeaf
 {
   repeated GLeaf items = 1;
+}
+    
+
+
+  
+message GCalcParameters
+{
+
+  int32 parameter1 = 2;
+  int32 parameter2 = 1;
+  Int32Value parameter3 = 3;
+  Int32Value parameter4 = 4;
+  int32 parameter5 = 9;
+
+}   
+
+message GListOfCalcParameters
+{
+  repeated GCalcParameters items = 1;
+}
+    
+
+
+  
+message GConstructObject1
+{
+
+  string name = 2;
+  int32 number = 3;
+
+}   
+
+message GListOfConstructObject1
+{
+  repeated GConstructObject1 items = 1;
+}
+    
+
+
+  
+message GConstructObject2
+{
+
+  string name = 2;
+  int32 number = 3;
+
+}   
+
+message GListOfConstructObject2
+{
+  repeated GConstructObject2 items = 1;
+}
+    
+
+
+  
+message GConstructObject3
+{
+
+  string name = 2;
+  int32 number = 3;
+
+}   
+
+message GListOfConstructObject3
+{
+  repeated GConstructObject3 items = 1;
+}
+    
+
+
+  
+message GConstructObject4
+{
+
+  string name = 2;
+  int32 number = 3;
+
+}   
+
+message GListOfConstructObject4
+{
+  repeated GConstructObject4 items = 1;
+}
+    
+
+
+  
+message GConstructObject5
+{
+
+  string name = 2;
+  int32 number = 3;
+
+}   
+
+message GListOfConstructObject5
+{
+  repeated GConstructObject5 items = 1;
+}
+    
+
+
+  
+message GConstructObject6
+{
+
+  StringValue name = 2;
+  Int32Value number = 3;
+
+}   
+
+message GListOfConstructObject6
+{
+  repeated GConstructObject6 items = 1;
+}
+    
+
+
+  
+message GConstructObject7
+{
+
+  Int32Value number = 2;
+  string name = 3;
+
+}   
+
+message GListOfConstructObject7
+{
+  repeated GConstructObject7 items = 1;
+}
+    
+
+
+  
+message GConstructObject8
+{
+
+  Int32Value number = 2;
+  string name = 3;
+
+}   
+
+message GListOfConstructObject8
+{
+  repeated GConstructObject8 items = 1;
+}
+    
+
+
+  
+message GListsHost
+{
+
+  repeated bool vbools = 2;
+  repeated bool nvbools = 3;
+  repeated string vstrings = 4;
+  repeated string nvstrings = 5;
+  repeated int64 vdurations = 6;
+  repeated int64 nvdurations = 7;
+  repeated int64 vdatetimes = 8;
+  repeated int64 nvdatetimes = 9;
+  repeated bytes vdecimals = 10;
+  repeated bytes nvdecimals = 11;
+  repeated int32 vints = 12;
+  repeated int32 nvints = 13;
+  repeated double vdoubles = 14;
+  repeated double nvdoubles = 15;
+  repeated GApplianceType vappliance_types = 16;
+  repeated GApplianceType nvappliance_types = 17;
+
+}   
+
+message GListOfListsHost
+{
+  repeated GListsHost items = 1;
+}
+    
+
+
+  
+message GPerson
+{
+
+  BoolValue bool_value = 1;
+  bytes dec_val = 2;
+
+}   
+
+message GListOfPerson
+{
+  repeated GPerson items = 1;
+}
+    
+
+
+  
+message GRecipe
+{
+
+  string title = 2;
+  StringValue description = 3;
+  GCategory category = 4;
+  repeated GIngredient ingredients = 5;
+  int64 publish_date = 6;
+  Int64Value expiry_date = 7;
+  int64 preparation_duration = 8;
+  Int64Value total_duration = 9;
+  bool is_published = 10;
+  BoolValue requires_robot = 11;
+  DoubleValue gross_weight = 12;
+  DoubleValue net_weight = 13;
+  GApplianceType main_appliance_type = 14;
+  GApplianceType_Message secondary_appliance_type = 15;
+  repeated string tags = 16;
+  repeated string extra_tags = 17;
+
+}   
+
+message GListOfRecipe
+{
+  repeated GRecipe items = 1;
+}
+    
+
+
+  
+message GKnife
+{
+
+  string name = 1;
+  GKnifeType type = 2;
+
+}   
+
+message GListOfKnife
+{
+  repeated GKnife items = 1;
+}
+    
+
+
+  
+message GGarlicPress
+{
+
+  string name = 2;
+  bool machine_washable = 3;
+
+}   
+
+message GListOfGarlicPress
+{
+  repeated GGarlicPress items = 1;
+}
+    
+
+
+  
+message GKitchen
+{
+
+  repeated GRecipe recipe_list = 2;
+  map<string, GRecipe> recipe_map = 3;
+  int64 next_inspection_date = 4;
+
+}   
+
+message GListOfKitchen
+{
+  repeated GKitchen items = 1;
+}
+    
+
+
+  
+message GChef
+{
+
+  GRecipe favorite_recipe = 2;
+  GKnife favorite_knife = 3;
+  GApplianceType favorite_appliance_type = 4;
+  repeated string favorite_words = 5;
+  int64 birthdate = 6;
+  Int64Value shelf_life = 7;
+
+}   
+
+message GListOfChef
+{
+  repeated GChef items = 1;
+}
+    
+
+
+  
+message GSousChef
+{
+  GChef fieldsOfSuperClass = 1;
+
+
+}   
+
+message GListOfSousChef
+{
+  repeated GSousChef items = 1;
+}
+    
+
+
+  
+message GKnifeMaster
+{
+  GChef fieldsOfSuperClass = 1;
+
+  GKnife favorite_knife = 2;
+
+}   
+
+message GListOfKnifeMaster
+{
+  repeated GKnifeMaster items = 1;
+}
+    
+
+
+  
+message GInventory
+{
+
+  map<string, int32> number_of_things = 2;
+  map<string, GRecipe> recipes_by_name = 3;
+  Int64Value time_span = 4;
+
+}   
+
+message GListOfInventory
+{
+  repeated GInventory items = 1;
+}
+    
+
+
+  
+message GPrecisionSubject
+{
+
+  int64 date_property = 2;
+  int64 duration_property = 3;
+
+}   
+
+message GListOfPrecisionSubject
+{
+  repeated GPrecisionSubject items = 1;
 }
     
         

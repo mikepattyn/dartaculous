@@ -1,7 +1,7 @@
 import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart';
 import 'package:proto_generator_test/grpc/model.pb.dart';
+// ignore: unused_import
 import 'package:proto_generator_test/gtypes.dart';
 import 'package:proto_generator_test/src/appliance_type.dart';
 

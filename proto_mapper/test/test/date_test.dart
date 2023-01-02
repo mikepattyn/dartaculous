@@ -4,7 +4,6 @@ import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'package:test/test.dart';
 
-/// Currently, dates are only stored up to the milliseconds, preferrable this should also be possible up to the microseconds.
 void main() {
   group('Dates', () {
     test('Microseconds precision', () {
