@@ -1,5 +1,4 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart';
 import 'package:proto_generator_test/grpc/model.pb.dart';
 import 'package:proto_generator_test/gtypes.dart';
 

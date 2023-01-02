@@ -38,6 +38,7 @@ class $RecipeBuilder implements Builder<Recipe> {
     try {
       final entity = _build();
       final errors = $RecipeValidator().validate(entity);
+
       final result =
           BuildResult<Recipe>(result: entity, validationErrors: errors);
       return result;
