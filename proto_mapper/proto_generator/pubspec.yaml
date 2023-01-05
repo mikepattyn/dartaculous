@@ -12,13 +12,13 @@ dependencies:
   proto_annotations: ^2.3.0
   decimal: ^2.0.0
   grpc: ^3.0.2
-  analyzer: ^5.1.0
+  analyzer: ^5.2.0
   build: ^2.0.0
   recase: ^4.0.0
   squarealfa_common_types: ^1.2.0
   squarealfa_generators_common: ^2.10.0
   glob: ^2.1.1
-  path: ^1.8.3
+  path: ^1.8.2
   
 dev_dependencies:
   lints: ^2.0.0

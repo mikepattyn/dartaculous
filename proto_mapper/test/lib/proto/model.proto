@@ -4,126 +4,65 @@ package com.company.project;
     
 option go_package = "./stubs";
     
-import "google/protobuf/duration.proto";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
 
 
     
 
-
-  
-message GCalcResult
+message GFieldsOfAbstractVehicle
 {
 
-  int32 result = 2;
+  int32 weight = 2;
 
+}
+    
+  
+message GAbstractVehicle
+{
+  oneof props {
+    GFieldsOfAbstractVehicle abstract_vehicle = 1;
+
+    GBicycle bicycle = 3;
+    GScooter scooter = 4;
+
+  }
+    
 }   
 
-message GListOfCalcResult
+message GListOfAbstractVehicle
 {
-  repeated GCalcResult items = 1;
+  repeated GAbstractVehicle items = 1;
 }
     
 
-
-  
-message GCategory
+message GFieldsOfAircraft
 {
+  GFieldsOfVehicle fieldsOfSuperClass = 6;
 
-  string title = 2;
-  GComponent main_component = 3;
-  GComponent alternative_component = 4;
-  repeated GComponent other_components = 5;
-  repeated GComponent secondary_components = 6;
+  int32 service_ceiling = 3;
+  string key = 4;
 
-}   
-
-message GListOfCategory
-{
-  repeated GCategory items = 1;
 }
     
-
-
   
-message GComponent
+message GAircraft
 {
+  oneof props {
+    GFieldsOfAircraft aircraft = 1;
 
-  string description = 2;
+    GAirplane airplane = 3;
+    GRotorcraft rotorcraft = 4;
+    GBalloon balloon = 5;
 
-}   
-
-message GListOfComponent
-{
-  repeated GComponent items = 1;
-}
+  }
     
-
-
-  
-message GEmpty
-{
-
-
 }   
 
-message GListOfEmpty
+message GListOfAircraft
 {
-  repeated GEmpty items = 1;
-}
-    
-
-
-  
-message GEncapsulatedFieldsClass
-{
-
-  string final_string = 1;
-  string encapsulated_string = 2;
-
-}   
-
-message GListOfEncapsulatedFieldsClass
-{
-  repeated GEncapsulatedFieldsClass items = 1;
-}
-    
-
-
-  
-message GIngredient
-{
-
-  string description = 2;
-  bytes quantity = 3;
-  double precision = 4;
-  google.protobuf.Duration cooking_duration = 5;
-  GComponent main_component = 6;
-  repeated GComponent other_components = 7;
-  GComponent alternative_component = 8;
-  repeated GComponent secondary_components = 9;
-
-}   
-
-message GListOfIngredient
-{
-  repeated GIngredient items = 1;
-}
-    
-
-
-  
-message GKey
-{
-
-  string key = 2;
-
-}   
-
-message GListOfKey
-{
-  repeated GKey items = 1;
+  repeated GAircraft items = 1;
 }
     
 
@@ -238,77 +177,6 @@ message GListOfHelicopter
 }
     
 
-
-  
-message GScooter
-{
-  GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
-
-  string key = 2;
-
-}   
-
-message GListOfScooter
-{
-  repeated GScooter items = 1;
-}
-    
-
-message GFieldsOfAbstractVehicle
-{
-
-  int32 weight = 2;
-
-}
-    
-  
-message GAbstractVehicle
-{
-  oneof props {
-    GFieldsOfAbstractVehicle abstract_vehicle = 1;
-
-    GBicycle bicycle = 3;
-    GScooter scooter = 4;
-
-  }
-    
-}   
-
-message GListOfAbstractVehicle
-{
-  repeated GAbstractVehicle items = 1;
-}
-    
-
-message GFieldsOfAircraft
-{
-  GFieldsOfVehicle fieldsOfSuperClass = 6;
-
-  int32 service_ceiling = 3;
-  string key = 4;
-
-}
-    
-  
-message GAircraft
-{
-  oneof props {
-    GFieldsOfAircraft aircraft = 1;
-
-    GAirplane airplane = 3;
-    GRotorcraft rotorcraft = 4;
-    GBalloon balloon = 5;
-
-  }
-    
-}   
-
-message GListOfAircraft
-{
-  repeated GAircraft items = 1;
-}
-    
-
 message GFieldsOfRotorcraft
 {
   GFieldsOfAircraft fieldsOfSuperClass = 1;
@@ -335,6 +203,22 @@ message GListOfRotorcraft
 }
     
 
+
+  
+message GScooter
+{
+  GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
+
+  string key = 2;
+
+}   
+
+message GListOfScooter
+{
+  repeated GScooter items = 1;
+}
+    
+
 message GFieldsOfVehicle
 {
 
@@ -358,23 +242,6 @@ message GVehicle
 message GListOfVehicle
 {
   repeated GVehicle items = 1;
-}
-    
-
-
-  
-message GStarship
-{
-
-  bytes range = 2;
-  bytes odometer = 3;
-  int32 engine_number = 4;
-
-}   
-
-message GListOfStarship
-{
-  repeated GStarship items = 1;
 }
     
 
@@ -431,125 +298,6 @@ message GListOfSubClass1
 }
     
 
-message GFieldsOfScheduleConstraint
-{
-
-
-}
-    
-  
-message GScheduleConstraint
-{
-  oneof props {
-    GFieldsOfScheduleConstraint schedule_constraint = 1;
-
-    GContestConstraint contest_constraint = 3;
-
-  }
-    
-}   
-
-message GListOfScheduleConstraint
-{
-  repeated GScheduleConstraint items = 1;
-}
-    
-
-
-  
-message GConstraintAdded
-{
-
-
-}   
-
-message GListOfConstraintAdded
-{
-  repeated GConstraintAdded items = 1;
-}
-    
-
-
-  
-message GContestConstraint
-{
-  GFieldsOfScheduleConstraint fieldsOfSuperClass = 1;
-
-
-}   
-
-message GListOfContestConstraint
-{
-  repeated GContestConstraint items = 1;
-}
-    
-
-message GFieldsOfBranch
-{
-
-
-}
-    
-  
-message GBranch
-{
-  oneof props {
-    GFieldsOfBranch branch = 1;
-
-    GTwig twig = 3;
-
-  }
-    
-}   
-
-message GListOfBranch
-{
-  repeated GBranch items = 1;
-}
-    
-
-message GFieldsOfTwig
-{
-  GFieldsOfBranch fieldsOfSuperClass = 1;
-
-  int32 prop1 = 2;
-  int32 prop2 = 4;
-
-}
-    
-  
-message GTwig
-{
-  oneof props {
-    GFieldsOfTwig twig = 1;
-
-    GLeaf leaf = 3;
-
-  }
-    
-}   
-
-message GListOfTwig
-{
-  repeated GTwig items = 1;
-}
-    
-
-
-  
-message GLeaf
-{
-  GFieldsOfTwig fieldsOfSuperClass = 1;
-
-
-}   
-
-message GListOfLeaf
-{
-  repeated GLeaf items = 1;
-}
-    
-
 
   
 message GCalcParameters
@@ -566,6 +314,55 @@ message GCalcParameters
 message GListOfCalcParameters
 {
   repeated GCalcParameters items = 1;
+}
+    
+
+
+  
+message GCalcResult
+{
+
+  int32 result = 2;
+
+}   
+
+message GListOfCalcResult
+{
+  repeated GCalcResult items = 1;
+}
+    
+
+
+  
+message GCategory
+{
+
+  string title = 2;
+  GComponent main_component = 3;
+  GComponent alternative_component = 4;
+  repeated GComponent other_components = 5;
+  repeated GComponent secondary_components = 6;
+
+}   
+
+message GListOfCategory
+{
+  repeated GCategory items = 1;
+}
+    
+
+
+  
+message GComponent
+{
+
+  string description = 2;
+
+}   
+
+message GListOfComponent
+{
+  repeated GComponent items = 1;
 }
     
 
@@ -699,6 +496,192 @@ message GListOfConstructObject8
 
 
   
+message GEmpty
+{
+
+
+}   
+
+message GListOfEmpty
+{
+  repeated GEmpty items = 1;
+}
+    
+
+
+  
+message GEncapsulatedFieldsClass
+{
+
+  string final_string = 1;
+  string encapsulated_string = 2;
+
+}   
+
+message GListOfEncapsulatedFieldsClass
+{
+  repeated GEncapsulatedFieldsClass items = 1;
+}
+    
+
+message GFieldsOfScheduleConstraint
+{
+
+
+}
+    
+  
+message GScheduleConstraint
+{
+  oneof props {
+    GFieldsOfScheduleConstraint schedule_constraint = 1;
+
+    GContestConstraint contest_constraint = 3;
+
+  }
+    
+}   
+
+message GListOfScheduleConstraint
+{
+  repeated GScheduleConstraint items = 1;
+}
+    
+
+
+  
+message GConstraintAdded
+{
+
+
+}   
+
+message GListOfConstraintAdded
+{
+  repeated GConstraintAdded items = 1;
+}
+    
+
+
+  
+message GContestConstraint
+{
+  GFieldsOfScheduleConstraint fieldsOfSuperClass = 1;
+
+
+}   
+
+message GListOfContestConstraint
+{
+  repeated GContestConstraint items = 1;
+}
+    
+
+
+  
+message GIngredient
+{
+
+  string description = 2;
+  bytes quantity = 3;
+  double precision = 4;
+  google.protobuf.Duration cooking_duration = 5;
+  GComponent main_component = 6;
+  repeated GComponent other_components = 7;
+  GComponent alternative_component = 8;
+  repeated GComponent secondary_components = 9;
+
+}   
+
+message GListOfIngredient
+{
+  repeated GIngredient items = 1;
+}
+    
+
+message GFieldsOfBranch
+{
+
+
+}
+    
+  
+message GBranch
+{
+  oneof props {
+    GFieldsOfBranch branch = 1;
+
+    GTwig twig = 3;
+
+  }
+    
+}   
+
+message GListOfBranch
+{
+  repeated GBranch items = 1;
+}
+    
+
+message GFieldsOfTwig
+{
+  GFieldsOfBranch fieldsOfSuperClass = 1;
+
+  int32 prop1 = 2;
+  int32 prop2 = 4;
+
+}
+    
+  
+message GTwig
+{
+  oneof props {
+    GFieldsOfTwig twig = 1;
+
+    GLeaf leaf = 3;
+
+  }
+    
+}   
+
+message GListOfTwig
+{
+  repeated GTwig items = 1;
+}
+    
+
+
+  
+message GLeaf
+{
+  GFieldsOfTwig fieldsOfSuperClass = 1;
+
+
+}   
+
+message GListOfLeaf
+{
+  repeated GLeaf items = 1;
+}
+    
+
+
+  
+message GKey
+{
+
+  string key = 2;
+
+}   
+
+message GListOfKey
+{
+  repeated GKey items = 1;
+}
+    
+
+
+  
 message GListsHost
 {
 
@@ -770,6 +753,23 @@ message GRecipe
 message GListOfRecipe
 {
   repeated GRecipe items = 1;
+}
+    
+
+
+  
+message GStarship
+{
+
+  bytes range = 2;
+  bytes odometer = 3;
+  int32 engine_number = 4;
+
+}   
+
+message GListOfStarship
+{
+  repeated GStarship items = 1;
 }
     
 
