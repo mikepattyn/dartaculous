@@ -224,9 +224,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
     final prefix = config.prefix;
     final toSuperFieldsOf = _createSuperFieldsOf(classElement, proto);
     final fromSuperRefs = _createFromSuperRefs(renderParms);
-    final toReturn = classElement.isAbstract
-        ? 'throw UnimplementedError();'
-        : '''
+    final toReturn = '''
             ${renderParms.toKnownSubclasses == null ? renderParms.toProtoFieldBuffer : 'proto.${className.camelCase} = _\$${className}ToFieldsOfProto(instance);'}
 
         
@@ -314,7 +312,7 @@ class ProtoMapperGenerator extends GeneratorForAnnotation<Proto> {
 
       $prefix$className _\$${className}ToProto($className instance) 
       {
-        ${((classElement.isAbstract) && (renderParms.toKnownSubclasses ?? '').isEmpty) ? '' : 'var proto = $prefix$className();'}
+        var proto = $prefix$className();
 
         ${renderParms.toKnownSubclasses ?? ''}
 

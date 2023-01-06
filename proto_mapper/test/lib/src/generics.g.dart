@@ -50,7 +50,9 @@ GScheduleConstraint _$ScheduleConstraintToProto(ScheduleConstraint instance) {
     return proto;
   }
 
-  throw UnimplementedError();
+  proto.scheduleConstraint = _$ScheduleConstraintToFieldsOfProto(instance);
+
+  return proto;
 }
 
 ScheduleConstraint _$ScheduleConstraintFromProto(

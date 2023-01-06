@@ -51,7 +51,9 @@ GRotorcraft _$RotorcraftToProto(Rotorcraft instance) {
     return proto;
   }
 
-  throw UnimplementedError();
+  proto.rotorcraft = _$RotorcraftToFieldsOfProto(instance);
+
+  return proto;
 }
 
 Rotorcraft _$RotorcraftFromProto(GRotorcraft sInstance) {

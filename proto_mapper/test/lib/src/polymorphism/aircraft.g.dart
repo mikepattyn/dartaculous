@@ -58,7 +58,9 @@ GAircraft _$AircraftToProto(Aircraft instance) {
     return proto;
   }
 
-  throw UnimplementedError();
+  proto.aircraft = _$AircraftToFieldsOfProto(instance);
+
+  return proto;
 }
 
 Aircraft _$AircraftFromProto(GAircraft sInstance) {

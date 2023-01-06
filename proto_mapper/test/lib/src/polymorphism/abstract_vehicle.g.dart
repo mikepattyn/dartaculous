@@ -56,7 +56,9 @@ GAbstractVehicle _$AbstractVehicleToProto(AbstractVehicle instance) {
     return proto;
   }
 
-  throw UnimplementedError();
+  proto.abstractVehicle = _$AbstractVehicleToFieldsOfProto(instance);
+
+  return proto;
 }
 
 AbstractVehicle _$AbstractVehicleFromProto(GAbstractVehicle sInstance) {

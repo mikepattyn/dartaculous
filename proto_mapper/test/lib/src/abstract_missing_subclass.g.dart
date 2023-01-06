@@ -36,7 +36,9 @@ class $AbstractParentClass1ProtoMapper
 
 GAbstractParentClass1 _$AbstractParentClass1ToProto(
     AbstractParentClass1 instance) {
-  throw UnimplementedError();
+  var proto = GAbstractParentClass1();
+
+  return proto;
 }
 
 AbstractParentClass1 _$AbstractParentClass1FromProto(
@@ -103,7 +105,9 @@ GAbstractParentClass2 _$AbstractParentClass2ToProto(
     return proto;
   }
 
-  throw UnimplementedError();
+  proto.abstractParentClass2 = _$AbstractParentClass2ToFieldsOfProto(instance);
+
+  return proto;
 }
 
 AbstractParentClass2 _$AbstractParentClass2FromProto(
