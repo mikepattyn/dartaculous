@@ -1,11 +1,12 @@
 import 'package:decimal/decimal.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
-import 'mongo_key_handler.dart';
+import 'package:map_mapper_generator_test_mongo/mongo_test.dart';
+import 'package:mongo_mapper/mongo_mapper.dart';
 import 'component.dart';
 
 part 'ingredient.g.dart';
 
-@mapMapped
+@mongo
 class Ingredient {
   final String key;
   final String description;

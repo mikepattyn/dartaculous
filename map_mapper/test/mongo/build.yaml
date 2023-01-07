@@ -1,7 +1,7 @@
-targets:
-  $default:
-    builders:
-      map_mapper_generator:map_map_generator:
-        options:
-          keyHandler: MongoKeyHandler
-          dateTimeRepresentation: dateTime
+# targets:
+#   $default:
+#     builders:
+#       map_mapper_generator:map_map_generator:
+#         options:
+#           # keyHandlerType: MongoKeyHandler
+#           dateTimeRepresentation: dateTime

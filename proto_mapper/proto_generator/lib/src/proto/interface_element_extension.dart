@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
+import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/proto_generator.dart';
 import 'package:proto_generator/src/common/constant_reader_extension.dart';
 import 'package:proto_annotations/proto_annotations.dart';

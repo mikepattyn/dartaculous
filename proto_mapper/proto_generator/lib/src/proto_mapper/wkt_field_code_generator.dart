@@ -1,4 +1,4 @@
-import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_annotations/config.dart';
 
 import 'field_code_generators/field_code_generator_identifiers.dart';
 import 'well_known_types/gbool_field_code_generator.dart';

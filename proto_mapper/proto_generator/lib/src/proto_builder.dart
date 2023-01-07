@@ -2,6 +2,7 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
 import 'package:glob/glob.dart';
 import 'package:path/path.dart' as p;
+import 'package:proto_annotations/config.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/common/constant_reader_extension.dart';
 import 'package:proto_generator/src/proto/proto_reflected.dart';

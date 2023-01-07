@@ -1,5 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/src/proto/enum_generator.dart';
 import 'package:proto_generator/src/proto/proto_reflected.dart';
 

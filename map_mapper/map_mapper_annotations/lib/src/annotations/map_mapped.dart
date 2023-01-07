@@ -12,6 +12,7 @@ class MapMapped {
     this.dateTimeRepresentation,
     this.knownSubClasses,
     this.mapEnumToString = false,
+    this.keyHandlerType,
   });
 
   /// Determines whether to include all fields by default.
@@ -40,6 +41,8 @@ class MapMapped {
   final DateTimeRepresentation? dateTimeRepresentation;
 
   final List<Type>? knownSubClasses;
+
+  final Type? keyHandlerType;
 }
 
 const mapMapped = MapMapped();

@@ -1,5 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_annotations/config.dart';
 
 class ProtoServicesGeneratorBase {
   final String className;

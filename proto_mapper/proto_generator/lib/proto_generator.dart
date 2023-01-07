@@ -4,7 +4,7 @@
 library proto_generator;
 
 import 'package:build/build.dart';
-import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/proto_generator.dart';
 import 'package:proto_generator/src/proto_builder.dart';
 import 'package:proto_generator/src/proto_from_cache.dart';

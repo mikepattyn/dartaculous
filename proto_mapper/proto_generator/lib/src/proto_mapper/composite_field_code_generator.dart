@@ -1,3 +1,4 @@
+import 'package:proto_annotations/config.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 
 import 'composites/entity_field_code_generator.dart';

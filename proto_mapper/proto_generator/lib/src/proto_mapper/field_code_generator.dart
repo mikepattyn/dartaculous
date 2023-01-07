@@ -1,5 +1,5 @@
 import 'package:decimal/decimal.dart';
-import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
 

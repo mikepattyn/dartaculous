@@ -32,8 +32,3 @@ class Config {
   factory Config.fromJson(Map<String, dynamic> json) => _$ConfigFromJson(json);
   Map<String, dynamic> toJson() => _$ConfigToJson(this);
 }
-
-void main(List<String> args) {
-  final config = Config.fromJson({"defaultIntPrecision": "int64"});
-  print(config.defaultIntPrecision);
-}

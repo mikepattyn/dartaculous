@@ -29,6 +29,7 @@ class MongoKeyHandler extends KeyHandler {
     }
   }
 
+  @override
   String fieldNameToMapKey(String fieldName) {
     switch (fieldName) {
       case '':

@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
+import 'package:proto_annotations/config.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator/src/common/proto_common.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';

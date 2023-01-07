@@ -1,5 +1,5 @@
 import 'package:decimal/decimal.dart';
-import 'package:proto_annotations/proto_annotations.dart';
+import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/src/proto/field_code_generators/bigint_field_code_generator.dart';
 import 'package:proto_generator/src/proto/field_code_generators/enum_field_code_generator.dart';
 import 'package:proto_generator/src/proto/field_code_generators/wrapped.dart';

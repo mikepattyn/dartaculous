@@ -1,9 +1,10 @@
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:map_mapper_generator_test_mongo/mongo_test.dart';
+import 'package:mongo_mapper/mongo_mapper.dart';
 
 part 'recipe.g.dart';
 
-@mapMapped
+@mongo
 class Recipe {
   final String key;
   final String title;

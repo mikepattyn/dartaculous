@@ -10,4 +10,3 @@ export 'src/annotations.dart';
 export 'src/g_service_parameters.dart';
 export 'src/proto_mapper.dart';
 export 'src/extensions/extensions.dart';
-export 'src/config.dart';
