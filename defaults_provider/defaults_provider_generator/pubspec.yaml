@@ -10,7 +10,7 @@ environment:
 dependencies:
   source_gen: ^1.2.1
   defaults_provider_annotations: ^3.0.0-dev.0
-  squarealfa_generators_common: ^2.10.0
+  squarealfa_generators_common: ^3.0.0-dev.0
   build: ^2.0.0
   decimal: ^2.1.0
   analyzer: ^5.1.0
