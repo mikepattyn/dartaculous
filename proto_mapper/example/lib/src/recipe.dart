@@ -1,5 +1,5 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_mapper_example/grpc/model.pb.dart';
+import 'package:proto_mapper_example/src/grpc/model.pb.dart';
 
 import 'ingredient.dart';
 

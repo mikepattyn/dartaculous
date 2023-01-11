@@ -10,7 +10,6 @@ environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies: 
-  squarealfa_common_types: ^2.0.0-dev.0
   map_mapper_annotations: ^4.0.0-dev.0
   bson: ^3.0.1
 

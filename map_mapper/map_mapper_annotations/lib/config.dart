@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
+
+import 'map_mapper_annotations.dart';
 
 part 'config.g.dart';
 

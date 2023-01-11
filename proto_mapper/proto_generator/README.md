@@ -107,11 +107,11 @@ From the terminal, in the directory of your package:
 # This will run proto_generator to generate lib/proto/model.proto
 dart run build_runner build
 
-# create the lib/grpc directory
-mkdir -p lib/grpc  # or whatever equivalent for your OS
+# create the lib/src/grpc directory
+mkdir -p lib/src/grpc  # or whatever equivalent for your OS
 
-# this will run the protoc compiler to generate lib/grpc/model.pb.dart, lib/grpc/model.pbenum.dart and lib/grpc/model.pbjson.dart files
-protoc --dart_out=grpc:lib/grpc -Ilib/proto  ./lib/proto/model.proto
+# this will run the protoc compiler to generate lib/src/grpc/model.pb.dart, lib/src/grpc/model.pbenum.dart and lib/src/grpc/model.pbjson.dart files
+protoc --dart_out=grpc:lib/src/grpc -Ilib/proto  ./lib/proto/model.proto
 
 # OPTIONAL - this reformats the proto file
 clang-format -i lib/proto/model.proto
@@ -141,7 +141,7 @@ message GListOfIngredient { repeated GIngredient items = 1; }
 ```
 Notice that the number of the proto fields is exactly the number you indicated in the ```@ProtoField(n)``` annotation for each field.
 
-The result of the ```protoc``` compilation will also be present in the ```lib/grpc/model.pb.dart```, where you will find a ```GIngredient``` class.
+The result of the ```protoc``` compilation will also be present in the ```lib/src/grpc/model.pb.dart```, where you will find a ```GIngredient``` class.
 
 You will also get the following ```ingredient.g.dart``` file:
 ```dart
@@ -165,7 +165,7 @@ By this point, you will get an error in the generated file complaining it doesn'
 ```dart
 import 'package:proto_annotations/proto_annotations.dart';
 // here's the reference
-import 'package:proto_mapper_example/grpc/model.pb.dart';
+import 'package:proto_mapper_example/src/grpc/model.pb.dart';
 
 part 'ingredient.g.dart';
 
@@ -344,17 +344,17 @@ message GIngredient {
 
 Now, assuming we have well known types installed in ```/usr/include/google/protobuf/```, we need to run the ```protoc``` with a few extra parameters:
 ```sh
-protoc --dart_out=grpc:lib/grpc -Ilib/proto -I/usr/include /usr/include/google/protobuf/*.proto  ./lib/proto/model.proto
+protoc --dart_out=grpc:lib/src/grpc -Ilib/proto -I/usr/include /usr/include/google/protobuf/*.proto  ./lib/proto/model.proto
 ```
 
 Back to the ```ingredient.dart``` file we need to add some more imports:
 ```dart
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_mapper_example/grpc/model.pb.dart';
-import 'package:proto_mapper_example/grpc/google/protobuf/wrappers.pb.dart';
-import 'package:proto_mapper_example/grpc/google/protobuf/duration.pb.dart'
+import 'package:proto_mapper_example/src/grpc/model.pb.dart';
+import 'package:proto_mapper_example/src/grpc/google/protobuf/wrappers.pb.dart';
+import 'package:proto_mapper_example/src/grpc/google/protobuf/duration.pb.dart'
     as $duration;
-import 'package:proto_mapper_example/grpc/google/protobuf/timestamp.pb.dart'
+import 'package:proto_mapper_example/src/grpc/google/protobuf/timestamp.pb.dart'
     as $timestamp;
 
 part 'ingredient.g.dart';

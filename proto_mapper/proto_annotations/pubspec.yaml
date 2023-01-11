@@ -12,7 +12,6 @@ dependencies:
   decimal: ^2.3.2
   fixnum: ^1.0.0
   grpc: ^3.0.2
-  squarealfa_common_types: ^2.0.0-dev.0
   rational: ^2.2.2
   json_annotation: ^4.7.0
   

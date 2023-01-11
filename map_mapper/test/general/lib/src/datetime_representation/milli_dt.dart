@@ -1,4 +1,3 @@
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 
 part 'milli_dt.g.dart';

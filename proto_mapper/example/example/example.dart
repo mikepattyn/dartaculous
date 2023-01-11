@@ -1,4 +1,3 @@
-import 'package:decimal/decimal.dart';
 import 'package:proto_mapper_example/src/car.dart';
 import 'package:proto_mapper_example/src/ingredient.dart';
 import 'package:proto_mapper_example/src/recipe.dart';

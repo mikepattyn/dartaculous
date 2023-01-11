@@ -9,5 +9,3 @@ dependency_overrides:
   squarealfa_generators_common:
     path: ../../generators_common
 
-  squarealfa_common_types:
-    path: ../../common_types

@@ -7,6 +7,8 @@ library map_mapper_annotations;
 export 'src/annotations/map_field.dart';
 export 'src/annotations/map_ignore.dart';
 export 'src/annotations/map_mapped.dart';
+export 'src/annotations/date_time_representation.dart';
+export 'src/annotations/time_precision.dart';
 export 'src/default_key_handler.dart';
 export 'src/key_handler.dart';
 export 'src/map_mapper.dart';

@@ -15,7 +15,6 @@ dependencies:
   analyzer: ^5.2.0
   build: ^2.0.0
   recase: ^4.0.0
-  squarealfa_common_types: ^2.0.0-dev.0
   squarealfa_generators_common: ^3.0.0-dev.0
   glob: ^2.1.1
   path: ^1.8.2

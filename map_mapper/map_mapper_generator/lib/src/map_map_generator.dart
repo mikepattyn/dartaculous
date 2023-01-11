@@ -5,6 +5,8 @@ import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:map_mapper_generator/src/map_mapped_reflected.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
+import 'extensions/constant_reader_date_time_representation_extension.dart';
+import 'extensions/constant_reader_time_precision_extension.dart';
 
 import 'field_code_generator.dart';
 import 'field_descriptor.dart';

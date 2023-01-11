@@ -1,6 +1,5 @@
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:mongo_mapper/mongo_mapper.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
 class MongoMapped implements MapMapped {
   @override
