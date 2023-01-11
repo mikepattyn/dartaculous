@@ -1,7 +1,0 @@
-
-dependency_overrides:
-  proto_annotations:
-    path: ../../proto_mapper/proto_annotations
-    
-  squarealfa_generators_common:
-    path: ../../generators_common

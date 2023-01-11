@@ -138,6 +138,12 @@
       <excludeFolder url="file://$MODULE_DIR$/map_mapper/mongo_mapper/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/map_mapper/mongo_mapper/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/map_mapper/mongo_mapper/build" />
+      <excludeFolder url="file://$MODULE_DIR$/deprecated/entity_adapter/entity_adapter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/deprecated/entity_adapter/entity_adapter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/deprecated/entity_adapter/entity_adapter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/deprecated/entity_adapter/entity_adapter_generator/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/deprecated/entity_adapter/entity_adapter_generator/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/deprecated/entity_adapter/entity_adapter_generator/build" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
