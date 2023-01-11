@@ -1,3 +1,9 @@
+## 4.0.0-dev.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Huge upgrade to proto_generator.
+
 ## 3.2.1
 
  - Update a dependency to the latest release.

@@ -3,7 +3,7 @@ description: Annotations to mark and configure business model classes for code
   generation of .proto and Dart mapper classes
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/proto_mapper/proto_annotations
 repository: https://gitlab.com/squarealfa/dart_framework
-version: 2.3.0
+version: 3.0.0-dev.0
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -12,7 +12,7 @@ dependencies:
   decimal: ^2.3.2
   fixnum: ^1.0.0
   grpc: ^3.0.2
-  squarealfa_common_types: ^1.2.0
+  squarealfa_common_types: ^2.0.0-dev.0
   rational: ^2.2.2
   json_annotation: ^4.7.0
   
