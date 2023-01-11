@@ -4,6 +4,11 @@ import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 class MapMappedReflected {
   final MapMapped mapMapped;
   final List<DartType>? knownSubClasses;
+  final String keyHandler;
 
-  MapMappedReflected(this.mapMapped, this.knownSubClasses);
+  MapMappedReflected({
+    required this.mapMapped,
+    required this.knownSubClasses,
+    required this.keyHandler,
+  });
 }

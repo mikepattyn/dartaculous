@@ -20,3 +20,5 @@ export 'src/validations/list_item_error_list.dart';
 export 'src/validations/list_property_validation.dart';
 export 'src/validations/property_validation.dart';
 export 'src/validations/validator.dart';
+export 'src/annotations/crud_permissions.dart';
+export 'src/entity_permissions.dart';

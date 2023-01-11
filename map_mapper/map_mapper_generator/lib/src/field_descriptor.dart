@@ -75,7 +75,7 @@ class FieldDescriptor extends FieldDescriptorBase {
       mapMapAnnotation.durationPrecision ?? TimePrecision.microseconds;
   DateTimeRepresentation get dateTimeRepresentation =>
       mapMapAnnotation.dateTimeRepresentation ??
-      DateTimeRepresentation.microsecondsSinceEpoch;
+      DateTimeRepresentation.dateTime;
 }
 
 MapField? _getMapField(FieldElement fieldElement) {

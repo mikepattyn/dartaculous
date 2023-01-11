@@ -1,27 +1,20 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/appliance_type.pbenum.dart';
-import 'package:proto_generator_test/grpc/utensils.pb.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/duration.pb.dart'
-    as $wellknown_duration;
-import 'package:proto_generator_test/grpc/google/protobuf/timestamp.pb.dart'
-    as $wellknown_timestamp;
+import 'package:proto_generator_test/grpc/model.pb.dart';
+import 'package:proto_generator_test/gtypes.dart';
 
 import 'appliance_type.dart';
 import 'recipe.dart';
 
 part 'utensils.g.dart';
 
-@Proto(useProtoFieldNamingConventions: true)
-@mapProto
+@Proto()
 enum KnifeType {
   chefsKnife,
   paringKnife,
   breadKnife,
 }
 
-@proto
-@mapProto
+@Proto()
 enum ChefType {
   seniorChef,
   sousChef,
@@ -29,29 +22,33 @@ enum ChefType {
   fishChef,
 }
 
-@proto
-@mapProto
+@Proto()
 class Knife {
+  @ProtoField(1)
   final String name;
+  @ProtoField(2)
   final KnifeType type;
 
   Knife({required this.name, required this.type});
 }
 
-@proto
-@mapProto
+@Proto()
 class GarlicPress {
+  @ProtoField(2)
   final String name;
+  @ProtoField(3)
   final bool machineWashable;
 
   GarlicPress({required this.name, required this.machineWashable});
 }
 
-@Proto(useProtoFieldNamingConventions: false)
-@MapProto(dateTimePrecision: TimePrecision.milliseconds)
+@Proto()
 class Kitchen {
+  @ProtoField(2)
   final List<Recipe> recipeList;
+  @ProtoField(3)
   final Map<String, Recipe> recipeMap;
+  @ProtoField(4)
   final DateTime nextInspectionDate;
 
   const Kitchen({
@@ -61,17 +58,19 @@ class Kitchen {
   });
 }
 
-@Proto(useProtoFieldNamingConventions: true)
-@MapProto(
-  dateTimePrecision: TimePrecision.microseconds,
-  durationPrecision: TimePrecision.milliseconds,
-)
+@Proto()
 class Chef {
+  @ProtoField(2)
   final Recipe? favoriteRecipe;
+  @ProtoField(3)
   final Knife? favoriteKnife;
+  @ProtoField(4)
   final ApplianceType favoriteApplianceType;
+  @ProtoField(5)
   final List<String> favoriteWords;
+  @ProtoField(6)
   final DateTime birthdate;
+  @ProtoField(7)
   final Duration? shelfLife;
 
   Chef({
@@ -89,20 +88,18 @@ class Chef {
 /// when looking for the FieldDescriptors of an entity,
 /// and rely on the fact that the constructor will properly
 /// set the required parameters(s).
-@proto
-@mapProto
+@Proto()
 class SousChef extends Chef {
-
-  SousChef(
-      {required ApplianceType favoriteApplianceType,
-      required DateTime birthdate,
-      List<String> favoriteWords = const []
-      })
-      : super(
-            favoriteKnife: null,
-            favoriteApplianceType: favoriteApplianceType,
-            favoriteWords: favoriteWords,
-            birthdate: birthdate);
+  SousChef({
+    required ApplianceType favoriteApplianceType,
+    required DateTime birthdate,
+    List<String> favoriteWords = const [],
+  }) : super(
+          favoriteKnife: null,
+          favoriteApplianceType: favoriteApplianceType,
+          favoriteWords: favoriteWords,
+          birthdate: birthdate,
+        );
 }
 
 /// KnifeMaster is required to have a favorite knife.
@@ -110,30 +107,31 @@ class SousChef extends Chef {
 /// defined in the parent class.
 /// We also know his favorite words, so no need to put them in the constructor.
 /// This requires addition of the "allowMissingFields" annotation property.
-@proto
-@MapProto(allowMissingFields: true, dateTimePrecision: TimePrecision.milliseconds)
+@Proto()
 class KnifeMaster extends Chef {
-
   @override
+  @ProtoField(2)
   // ignore: overridden_fields
   Knife favoriteKnife;
 
-  KnifeMaster(
-      {required this.favoriteKnife,
-      required ApplianceType favoriteApplianceType,
-      required DateTime birthdate})
-      : super(
+  KnifeMaster({
+    required this.favoriteKnife,
+    required ApplianceType favoriteApplianceType,
+    required DateTime birthdate,
+  }) : super(
             favoriteKnife: favoriteKnife,
             favoriteApplianceType: favoriteApplianceType,
             favoriteWords: ['Yes', 'Sir'],
             birthdate: birthdate);
 }
 
-@proto
-@MapProto(durationPrecision: TimePrecision.microseconds)
+@Proto()
 class Inventory {
+  @ProtoField(2)
   final Map<String, int> numberOfThings;
+  @ProtoField(3)
   final Map<String, Recipe> recipesByName;
+  @ProtoField(4)
   final Duration? timeSpan;
 
   const Inventory({
@@ -143,10 +141,11 @@ class Inventory {
   });
 }
 
-@proto
-@MapProto()
+@Proto()
 class PrecisionSubject {
+  @ProtoField(2)
   final DateTime dateProperty;
+  @ProtoField(3)
   final Duration durationProperty;
 
   const PrecisionSubject({

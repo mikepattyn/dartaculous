@@ -4,7 +4,7 @@ import 'package:proto_generator_test/proto_generator_test.dart';
 import 'package:proto_generator_test/src/appliance_type.dart';
 import 'package:proto_generator_test/src/component.dart';
 import 'package:proto_generator_test/src/utensils.dart';
-import 'package:proto_generator_test/grpc/utensils.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'package:test/test.dart';
 
@@ -17,12 +17,6 @@ void main() {
       String contents = proto.readAsStringSync();
       expect(contents, contains('G_KNIFE_TYPE_CHEFS_KNIFE'));
       expect(contents, isNot(contains('paringKnife')));
-    });
-
-    test('class field names', () {
-      File proto = File('proto/utensils.proto');
-      String contents = proto.readAsStringSync();
-      expect(contents, contains('bool has_value'));
     });
 
     test('serialization/deserialization', () {

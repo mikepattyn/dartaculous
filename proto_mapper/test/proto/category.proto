@@ -18,11 +18,9 @@ message GCategory
 {
   string title = 1;
   GComponent main_component = 2;
-  GComponent alternative_component = 3;
-  bool alternative_component_has_value = 4;
+  GComponent alternative_component = 4;
   repeated GComponent other_components = 5;
-  repeated GComponent secondary_components = 6;
-  bool secondary_components_has_value = 7;
+  repeated GComponent secondary_components = 7;
 
 }   
 

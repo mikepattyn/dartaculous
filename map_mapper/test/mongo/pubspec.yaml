@@ -6,6 +6,8 @@ environment:
 dependencies:
   map_mapper_generator:
     path: ../../map_mapper_generator
+  mongo_mapper:
+    path: ../../mongo_mapper
   # decimal: ^2.0.0
   # fixnum: ^1.0.0
   bson: ^3.0.0

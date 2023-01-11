@@ -25,3 +25,11 @@ builders:
     build_to: cache
     applies_builders: ["source_gen|combining_builder"]
 
+  crud_permissions_generator:
+    import: "package:squarealfa_entity_generator/squarealfa_entity_generator.dart"
+    builder_factories: ["crudPermissionsBuilder"]
+    build_extensions: {".dart": ["crud_permissions.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+

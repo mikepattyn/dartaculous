@@ -1,18 +1,14 @@
-# targets:
-#   $default:
-#     builders:
-#       proto_generator:proto_mapper_generator:
-#         options:
-#           prefix: G # or '' for no prefix
-#           dateTimePrecision: microseconds
-#           durationPrecision: microseconds
-#           generateProtoMapper: false
-#           generateMapMapper: false
-
-
-#       proto_generator:proto_generator:
-#         options:
-#           prefix: G # or '' for no prefix
-#           useProtoFieldNamingConventions: true
-#           package: mentoralfa
-      
+# Read about `build.yaml` at https://pub.dev/packages/build_config
+targets:
+  $default:
+    builders:
+      proto_generator:protoBuilder:
+        options:
+          useWellKnownTypes: false
+          useProtoFieldNamingConventions: true
+          packageName: com.mycompany.myproject
+          wellKnownDurationType: $Duration
+          wellKnownTimestampType: $Timestamp
+          defaultIntPrecision: int32
+          options:
+            - go_package = "./stubs"

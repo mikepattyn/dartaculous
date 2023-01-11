@@ -12,6 +12,7 @@ class $RecipeTypesProtoMapper
 
   @override
   RecipeTypes fromProto(GRecipeTypes proto) => RecipeTypes.values[proto.value];
+
   @override
   GRecipeTypes toProto(RecipeTypes entity) =>
       GRecipeTypes.valueOf(entity.index)!;

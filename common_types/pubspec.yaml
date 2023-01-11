@@ -1,5 +1,5 @@
 name: squarealfa_common_types
-description: Common types to be used by SquareAlfa Dart Framework.
+description: Common types to be used by Dartaculous Framework.
 repository: https://gitlab.com/squarealfa/dart_framework
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/common_types
 version: 1.2.0

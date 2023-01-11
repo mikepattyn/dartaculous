@@ -2,12 +2,13 @@
 targets:
   $default:
     builders:
-      proto_generator:proto_generator:
+      proto_generator:protoBuilder:
         options:
           useWellKnownTypes: true
-          # useProtoFieldNamingConventions: true
-      proto_generator:proto_mapper_generator:
-        options:
-          # dateTimePrecision: microseconds
-          # durationPrecision: microseconds
-          useWellKnownTypes: true
+          useProtoFieldNamingConventions: true
+          packageName: com.company.project
+          wellKnownDurationType: GDuration
+          wellKnownTimestampType: Timestamp
+          defaultIntPrecision: int32
+          options: 
+            - go_package = "./stubs"

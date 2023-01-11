@@ -1,12 +1,11 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/polymorphism/balloon.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'aircraft.dart';
 
 part 'balloon.g.dart';
 
-@proto
-@mapProto
+@Proto()
 class Balloon implements Aircraft {
   Balloon({
     required this.weight,
@@ -14,11 +13,15 @@ class Balloon implements Aircraft {
     required this.serviceCeiling,
   });
 
+  @ProtoField(2)
   @override
   final int weight;
+
+  @ProtoField(3)
   @override
   final String key;
 
+  @ProtoField(4)
   @override
   final int serviceCeiling;
 

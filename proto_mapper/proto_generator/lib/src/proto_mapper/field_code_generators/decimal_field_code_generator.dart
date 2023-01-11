@@ -1,21 +1,28 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
+import 'field_code_generator_identifiers.dart';
 
-class DecimalFieldCodeGenerator extends FieldCodeGenerator {
-  DecimalFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor, {
-    String refName = FieldCodeGenerator.defaultRefName,
-    String protoRefName = FieldCodeGenerator.defaultProtoRefName,
-  }) : super(
-          fieldDescriptor,
-          refName: refName,
-          protoRefName: protoRefName,
-        );
-
-  @override
-  String get toProtoExpression => '$instanceReference.toString()';
+class DecimalFieldCodeGenerator
+    with FieldCodeGeneratorIdentifiers
+    implements FieldCodeGenerator {
+  DecimalFieldCodeGenerator({
+    required this.fieldDescriptor,
+    required this.refName,
+    required this.protoRefName,
+  });
 
   @override
-  String get fromProtoNonNullableExpression =>
-      'Decimal.parse(instance.$protoFieldName)';
+  final FieldDescriptor fieldDescriptor;
+  @override
+  final String refName;
+  @override
+  final String protoRefName;
+
+  @override
+  String get toProtoMap =>
+      '$protoRef$protoFieldName = $ref$fieldName.\$toProtoBytes();';
+
+  @override
+  String get fromProtoMap =>
+      '${fieldDescriptor.isNullable ? '\$NullableDecimalProtoExtension' : '\$DecimalProtoExtension'}.\$fromProtoBytes($protoRef$protoFieldName)';
 }

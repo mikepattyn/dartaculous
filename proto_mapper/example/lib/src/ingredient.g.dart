@@ -15,6 +15,8 @@ class $IngredientProtoMapper implements ProtoMapper<Ingredient, GIngredient> {
   @override
   GIngredient toProto(Ingredient entity) => _$IngredientToProto(entity);
 
+  GIngredient toFieldsOfProto(Ingredient entity) => _$IngredientToProto(entity);
+
   Ingredient fromJson(String json) =>
       _$IngredientFromProto(GIngredient.fromJson(json));
   String toJson(Ingredient entity) => _$IngredientToProto(entity).writeToJson();
@@ -32,14 +34,31 @@ GIngredient _$IngredientToProto(Ingredient instance) {
 
   proto.description = instance.description;
   proto.quantity = instance.quantity;
+  if (instance.batchSize != null) {
+    proto.batchSize = Int32Value(value: instance.batchSize);
+  }
+
+  proto.estimatedPreparationTime = $Duration(
+      seconds: Int64(instance.estimatedPreparationTime.inSeconds),
+      nanos: (instance.estimatedPreparationTime.inMicroseconds -
+              instance.estimatedPreparationTime.inSeconds * 1000000) *
+          1000);
+  proto.expiryDate = $Timestamp.fromDateTime(instance.expiryDate);
 
   return proto;
 }
 
-Ingredient _$IngredientFromProto(GIngredient instance) => Ingredient(
-      description: instance.description,
-      quantity: instance.quantity,
-    );
+Ingredient _$IngredientFromProto(GIngredient proto) {
+  return Ingredient(
+    description: proto.description,
+    quantity: proto.quantity,
+    batchSize: (proto.batchSize.hasValue() ? proto.batchSize.value : null),
+    estimatedPreparationTime: Duration(
+        seconds: proto.estimatedPreparationTime.seconds.toInt(),
+        microseconds: (proto.estimatedPreparationTime.nanos ~/ 1000).toInt()),
+    expiryDate: proto.expiryDate.toDateTime(),
+  );
+}
 
 extension $IngredientProtoExtension on Ingredient {
   GIngredient toProto() => _$IngredientToProto(this);

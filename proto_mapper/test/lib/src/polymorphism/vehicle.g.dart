@@ -11,79 +11,70 @@ class $VehicleProtoMapper implements ProtoMapper<Vehicle, GVehicle> {
 
   @override
   Vehicle fromProto(GVehicle proto) => _$VehicleFromProto(proto);
+
   @override
   GVehicle toProto(Vehicle entity) => _$VehicleToProto(entity);
+
+  GFieldsOfVehicle toFieldsOfProto(Vehicle entity) =>
+      _$VehicleToFieldsOfProto(entity);
+
   Vehicle fromJson(String json) => _$VehicleFromProto(GVehicle.fromJson(json));
   String toJson(Vehicle entity) => _$VehicleToProto(entity).writeToJson();
+
   String toBase64Proto(Vehicle entity) =>
-      base64Encode(utf8.encode(toProto(entity).writeToJson()));
-  Vehicle fromBase64Proto(String base64Proto) => _$VehicleFromProto(
-      GVehicle.fromJson(utf8.decode(base64Decode(base64Proto))));
+      base64Encode(utf8.encode(entity.toProto().writeToJson()));
+
+  Vehicle fromBase64Proto(String base64Proto) =>
+      GVehicle.fromJson(utf8.decode(base64Decode(base64Proto))).toVehicle();
+}
+
+GFieldsOfVehicle _$VehicleToFieldsOfProto(Vehicle instance) {
+  final proto = GFieldsOfVehicle();
+
+  proto.weight = instance.weight;
+
+  return proto;
 }
 
 GVehicle _$VehicleToProto(Vehicle instance) {
-  var uproto = GVehicle();
-  if (instance is Airplane) {
-    uproto.airplane = (const $AirplaneProtoMapper()).toProto(instance);
-    return uproto;
-  }
+  var proto = GVehicle();
 
-  if (instance is Helicopter) {
-    uproto.helicopter = (const $HelicopterProtoMapper()).toProto(instance);
-    return uproto;
-  }
-
-  if (instance is Gyrocopter) {
-    uproto.gyrocopter = (const $GyrocopterProtoMapper()).toProto(instance);
-    return uproto;
-  }
-
-  if (instance is Balloon) {
-    uproto.balloon = (const $BalloonProtoMapper()).toProto(instance);
-    return uproto;
+  if (instance is Aircraft) {
+    proto.aircraft = (const $AircraftProtoMapper()).toProto(instance);
+    return proto;
   }
 
   if (instance is Car) {
-    uproto.car = (const $CarProtoMapper()).toProto(instance);
-    return uproto;
+    proto.car = (const $CarProtoMapper()).toProto(instance);
+    return proto;
   }
 
-  final proto = uproto.vehicle = GFieldsOfVehicle();
-  proto.weight = instance.weight;
+  proto.vehicle = _$VehicleToFieldsOfProto(instance);
 
-  return uproto;
+  return proto;
 }
 
 Vehicle _$VehicleFromProto(GVehicle sInstance) {
-  if (sInstance.hasAirplane()) {
-    return sInstance.airplane.toAirplane();
-  }
-
-  if (sInstance.hasHelicopter()) {
-    return sInstance.helicopter.toHelicopter();
-  }
-
-  if (sInstance.hasGyrocopter()) {
-    return sInstance.gyrocopter.toGyrocopter();
-  }
-
-  if (sInstance.hasBalloon()) {
-    return sInstance.balloon.toBalloon();
+  if (sInstance.hasAircraft()) {
+    return sInstance.aircraft.toAircraft();
   }
 
   if (sInstance.hasCar()) {
     return sInstance.car.toCar();
   }
-  final instance = sInstance.vehicle;
+
+  final proto = sInstance.vehicle;
   final ret = Vehicle(
-    weight: instance.weight,
+    weight: proto.weight,
   );
+
   return ret;
 }
 
 extension $VehicleProtoExtension on Vehicle {
   GVehicle toProto() => _$VehicleToProto(this);
   String toJson() => _$VehicleToProto(this).writeToJson();
+
   static Vehicle fromProto(GVehicle proto) => _$VehicleFromProto(proto);
   static Vehicle fromJson(String json) =>
       _$VehicleFromProto(GVehicle.fromJson(json));

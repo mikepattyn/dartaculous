@@ -1,30 +1,18 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
+import 'package:map_mapper_annotations/config.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:map_mapper_generator/src/map_mapped_reflected.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
-import 'package:squarealfa_common_types/squarealfa_common_types.dart';
 
 import 'field_code_generator.dart';
 import 'field_descriptor.dart';
 
 class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
-  final BuilderOptions options;
-  late final String _keyHandler;
-  late TimePrecision _durationPrecision;
-  late DateTimeRepresentation _dateTimeRepresentation;
+  final Config config;
 
-  MapMapGenerator(this.options) {
-    var config = options.config;
-
-    _keyHandler = config['keyHandler'] as String? ?? 'DefaultKeyHandler';
-    _durationPrecision = _getTimePrecision(
-        config['durationPrecision'] as String? ?? 'microseconds');
-    _dateTimeRepresentation = _getDateTimeRepresetation(
-        config['dateTimeRepresentation'] as String? ??
-            'microsecondsSinceEpoch');
-  }
+  MapMapGenerator(this.config);
 
   @override
   String? generateForAnnotatedElement(
@@ -34,8 +22,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
   ) {
     final readAnnotation = _hydrateAnnotation(
       annotation,
-      durationPrecision: _durationPrecision,
-      dateTimeRepresentation: _dateTimeRepresentation,
+      config: config,
     );
 
     if (element is! InterfaceElement) return null;
@@ -185,7 +172,9 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
             ? ''
             : 'final defaultsProvider = $defaultsProviderClassName();';
 
-    final kh = declareKh ? 'final \$kh = const $_keyHandler();' : '';
+    final kh = declareKh
+        ? 'final \$kh = const ${mapMappedReflected.keyHandler}();'
+        : '';
     final toSubClassMap = _getToSubClasses(mapMappedReflected);
     final typeMap = mapMappedReflected.knownSubClasses == null
         ? ''
@@ -393,15 +382,14 @@ Iterable<FieldDescriptor> _getFieldDescriptors(
 
 MapMappedReflected _hydrateAnnotation(
   ConstantReader reader, {
-  required TimePrecision durationPrecision,
-  required DateTimeRepresentation dateTimeRepresentation,
+  required Config config,
 }) {
   final annotatedDurationPrecision =
-      reader.getTimePrecision('durationPrecision') ?? durationPrecision;
+      reader.getTimePrecision('durationPrecision') ?? config.durationPrecision;
 
   final annotatedDateTimePrecision =
       reader.getDateTimeRepresentation('dateTimeRepresentation') ??
-          dateTimeRepresentation;
+          config.dateTimeRepresentation;
 
   final kscReader = reader.read('knownSubClasses');
   final kscs = kscReader.isNull
@@ -409,6 +397,8 @@ MapMappedReflected _hydrateAnnotation(
       : kscReader.listValue.map((ksc) {
           return ksc.toTypeValue()!;
         }).toList();
+
+  final kht = _getKeyHandlerType(config, reader);
 
   var mm = MapMapped(
     includeFieldsByDefault:
@@ -419,22 +409,19 @@ MapMappedReflected _hydrateAnnotation(
     dateTimeRepresentation: annotatedDateTimePrecision,
     mapEnumToString: reader.read('mapEnumToString').literalValue as bool,
   );
-  final ret = MapMappedReflected(mm, kscs);
+
+  final ret = MapMappedReflected(
+    mapMapped: mm,
+    knownSubClasses: kscs,
+    keyHandler: kht,
+  );
   return ret;
 }
 
-TimePrecision _getTimePrecision(String value) {
-  final values = TimePrecision.values.where((tp) => tp.name == value);
-  if (values.isEmpty) {
-    throw UnimplementedError();
+String _getKeyHandlerType(Config config, ConstantReader reader) {
+  final kht = reader.read('keyHandlerType');
+  if (kht.isNull) {
+    return config.keyHandlerType;
   }
-  return values.first;
-}
-
-DateTimeRepresentation _getDateTimeRepresetation(String value) {
-  final values = DateTimeRepresentation.values.where((tp) => tp.name == value);
-  if (values.isEmpty) {
-    throw UnimplementedError();
-  }
-  return values.first;
+  return kht.typeValue.getDisplayString(withNullability: false);
 }

@@ -1,22 +1,18 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/abstract_missing_subclass.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 part 'abstract_missing_subclass.g.dart';
 
 /// When working on a project but you haven't yet defined all subclasses,
 /// make sure that the generated code throws the Unimplemented exception,
 /// instead of creating a compilation error...
-@MapProto()
 @Proto()
-abstract class AbstractParentClass1 {
-}
+abstract class AbstractParentClass1 {}
 
-@MapProto(knownSubClasses: [SubClass1])
-@Proto(knownSubClasses: [SubClass1])
-abstract class AbstractParentClass2 {
-}
+const knownSubClasses = {SubClass1: 3};
 
-@MapProto()
+@Proto(knownSubClassMap: knownSubClasses)
+abstract class AbstractParentClass2 {}
+
 @Proto()
-class SubClass1 extends AbstractParentClass2 {
-}
+class SubClass1 extends AbstractParentClass2 {}

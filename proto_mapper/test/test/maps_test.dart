@@ -1,5 +1,5 @@
 import 'package:decimal/decimal.dart';
-import 'package:proto_generator_test/grpc/utensils.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 import 'package:proto_generator_test/proto_generator_test.dart';
 import 'package:proto_generator_test/src/appliance_type.dart';
 import 'package:proto_generator_test/src/component.dart';

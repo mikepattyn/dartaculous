@@ -15,6 +15,8 @@ class $RecipeProtoMapper implements ProtoMapper<Recipe, GRecipe> {
   @override
   GRecipe toProto(Recipe entity) => _$RecipeToProto(entity);
 
+  GRecipe toFieldsOfProto(Recipe entity) => _$RecipeToProto(entity);
+
   Recipe fromJson(String json) => _$RecipeFromProto(GRecipe.fromJson(json));
   String toJson(Recipe entity) => _$RecipeToProto(entity).writeToJson();
 
@@ -28,7 +30,7 @@ class $RecipeProtoMapper implements ProtoMapper<Recipe, GRecipe> {
 GRecipe _$RecipeToProto(Recipe instance) {
   var proto = GRecipe();
 
-  proto.key = instance.key;
+  proto.id = instance.id;
   proto.ptitle = instance.title;
   proto.ingredients.addAll(instance.ingredients
       .map((e) => const $IngredientProtoMapper().toProto(e)));
@@ -36,12 +38,14 @@ GRecipe _$RecipeToProto(Recipe instance) {
   return proto;
 }
 
-Recipe _$RecipeFromProto(GRecipe instance) => Recipe(
-      key: instance.key,
-      title: instance.ptitle,
-      ingredients: List<Ingredient>.unmodifiable(instance.ingredients
-          .map((e) => const $IngredientProtoMapper().fromProto(e))),
-    );
+Recipe _$RecipeFromProto(GRecipe proto) {
+  return Recipe(
+    id: proto.id,
+    title: proto.ptitle,
+    ingredients: List<Ingredient>.unmodifiable(proto.ingredients
+        .map((e) => const $IngredientProtoMapper().fromProto(e))),
+  );
+}
 
 extension $RecipeProtoExtension on Recipe {
   GRecipe toProto() => _$RecipeToProto(this);

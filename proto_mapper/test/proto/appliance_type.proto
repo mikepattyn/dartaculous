@@ -8,15 +8,12 @@ syntax = "proto3";
           
 
     
-enum GApplianceType
-{
+enum GApplianceType {
   G_APPLIANCE_TYPE_HEAT = 0;
   G_APPLIANCE_TYPE_COLD = 1;
   G_APPLIANCE_TYPE_CUTLERY = 2;
 }   
-     
-message NullableGApplianceType
-{
-  bool has_value = 1;
-  GApplianceType value = 2;
+
+message GApplianceType_Message {
+  GApplianceType value = 1;
 }

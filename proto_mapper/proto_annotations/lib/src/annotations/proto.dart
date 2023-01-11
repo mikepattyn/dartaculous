@@ -1,16 +1,19 @@
+typedef KnownSubClasses = Map<Type, int>;
+
+const KnownSubClasses noSubClass = {};
+const defaultSuperFieldsNumber = 1;
+const defaultOwnFieldsNumber = 1;
+
 class Proto {
   const Proto({
-    this.prefix,
-    this.packageName = '',
-    this.includeFieldsByDefault = true,
-    this.useProtoFieldNamingConventions,
-    this.knownSubClasses,
+    this.ownFieldsNumber = defaultOwnFieldsNumber,
+    this.superFieldsNumber = defaultSuperFieldsNumber,
+    this.knownSubClassMap = noSubClass,
   });
-  final String packageName;
-  final String? prefix;
-  final bool includeFieldsByDefault;
-  final bool? useProtoFieldNamingConventions;
-  final List<Type>? knownSubClasses;
+
+  final int superFieldsNumber;
+  final int ownFieldsNumber;
+  final KnownSubClasses knownSubClassMap;
 }
 
 const proto = Proto();

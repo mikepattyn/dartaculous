@@ -1,24 +1,24 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/calc_parameters.pb.dart';
-import 'package:proto_generator_test/grpc/google/protobuf/wrappers.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
+import 'package:proto_generator_test/gtypes.dart';
 
 part 'calc_parameters.g.dart';
 
-@proto
-@mapProto
+@Proto()
 class CalcParameters {
-  @ProtoField(number: 2)
+  @ProtoField(2)
   final int parameter1;
 
-  @ProtoField(number: 1)
+  @ProtoField(1)
   final int parameter2;
 
-  @ProtoField(number: 3)
+  @ProtoField(3)
   final int? parameter3;
 
+  @ProtoField(4)
   final int? parameter4;
 
-  @ProtoField(number: 9, hasValueNumber: 8)
+  @ProtoField(9)
   final int parameter5;
 
   CalcParameters({

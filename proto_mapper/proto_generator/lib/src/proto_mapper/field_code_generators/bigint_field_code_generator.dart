@@ -1,22 +1,28 @@
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
+import 'field_code_generator_identifiers.dart';
 
-class BigIntFieldCodeGenerator extends FieldCodeGenerator {
-  BigIntFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor, {
-    String refName = FieldCodeGenerator.defaultRefName,
-    String protoRefName = FieldCodeGenerator.defaultProtoRefName,
-  }) : super(
-          fieldDescriptor,
-          refName: refName,
-          protoRefName: protoRefName,
-        );
+class BigIntFieldCodeGenerator
+    with FieldCodeGeneratorIdentifiers
+    implements FieldCodeGenerator {
+  BigIntFieldCodeGenerator({
+    required this.fieldDescriptor,
+    required this.refName,
+    required this.protoRefName,
+  });
+
+  @override
+  final FieldDescriptor fieldDescriptor;
+  @override
+  final String refName;
+  @override
+  final String protoRefName;
 
   @override
   String get toProtoMap =>
-      '$protoRef$protoFieldName = $ref$fieldName.\$bigIntToProtoBytes();';
+      '$protoRef$protoFieldName = $ref$fieldName.\$toProtoBytes();';
 
   @override
-  String get fromProtoExpression =>
-      '${fieldDescriptor.isNullable ? '\$NullableBigIntProtoExtension' : '\$BigIntProtoExtension'}.\$fromProtoBytes($ref$protoFieldName)';
+  String get fromProtoMap =>
+      '${fieldDescriptor.isNullable ? '\$NullableBigIntProtoExtension' : '\$BigIntProtoExtension'}.\$fromProtoBytes($protoRef$protoFieldName)';
 }

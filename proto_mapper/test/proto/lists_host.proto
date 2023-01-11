@@ -20,28 +20,20 @@ message GListsHost
 {
   repeated bool vbools = 1;
   repeated bool nvbools = 2;
-  bool nvbools_has_value = 3;
-  repeated string vstrings = 4;
-  repeated string nvstrings = 5;
-  bool nvstrings_has_value = 6;
-  repeated google.protobuf.Duration vdurations = 7;
-  repeated google.protobuf.Duration nvdurations = 8;
-  bool nvdurations_has_value = 9;
-  repeated google.protobuf.Timestamp vdatetimes = 10;
-  repeated google.protobuf.Timestamp nvdatetimes = 11;
-  bool nvdatetimes_has_value = 12;
-  repeated string vdecimals = 13;
-  repeated string nvdecimals = 14;
-  bool nvdecimals_has_value = 15;
-  repeated int32 vints = 16;
-  repeated int32 nvints = 17;
-  bool nvints_has_value = 18;
-  repeated double vdoubles = 19;
-  repeated double nvdoubles = 20;
-  bool nvdoubles_has_value = 21;
-  repeated GApplianceType vappliance_types = 22;
-  repeated GApplianceType nvappliance_types = 23;
-  bool nvappliance_types_has_value = 24;
+  repeated string vstrings = 3;
+  repeated string nvstrings = 4;
+  repeated google.protobuf.Duration vdurations = 5;
+  repeated google.protobuf.Duration nvdurations = 6;
+  repeated google.protobuf.Timestamp vdatetimes = 7;
+  repeated google.protobuf.Timestamp nvdatetimes = 8;
+  repeated bytes vdecimals = 9;
+  repeated bytes nvdecimals = 11;
+  repeated int32 vints = 12;
+  repeated int32 nvints = 13;
+  repeated double vdoubles = 14;
+  repeated double nvdoubles = 15;
+  repeated GApplianceType vappliance_types = 16;
+  repeated GApplianceType nvappliance_types = 18;
 
 }   
 

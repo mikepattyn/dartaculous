@@ -1,107 +1,97 @@
+import 'package:decimal/decimal.dart';
+import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/src/proto/field_code_generators/bigint_field_code_generator.dart';
-import 'package:proto_generator/src/proto_common.dart';
-
-import 'field_code_generators/bool_field_code_generator.dart';
-import 'field_code_generators/datetime_field_code_generator.dart';
-import 'field_code_generators/double_field_code_generator.dart';
-import 'field_code_generators/duration_field_code_generator.dart';
+import 'package:proto_generator/src/proto/field_code_generators/enum_field_code_generator.dart';
+import 'package:proto_generator/src/proto/field_code_generators/wrapped.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
+import 'field_code_generators/imports.dart';
+import 'standalone_field_code_generators/wbool_field_code_generator.dart';
+import 'field_code_generators/decimal_field_code_generator.dart';
 import 'field_code_generators/entity_field_code_generator.dart';
-import 'field_code_generators/gbool_field_code_generator.dart';
-import 'field_code_generators/gdatetime_field_code_generator.dart';
-import 'field_code_generators/gdouble_field_code_generator.dart';
-import 'field_code_generators/gduration_field_code_generator.dart';
-import 'field_code_generators/generic_field_code_generator.dart';
-import 'field_code_generators/gint_field_code_generator.dart';
-import 'field_code_generators/gstring_field_code_generator.dart';
-import 'field_code_generators/int_field_code_generator.dart';
+import 'standalone_field_code_generators/wdouble_field_code_generator.dart';
+import 'standalone_field_code_generators/wduration_field_code_generator.dart';
+import 'standalone_field_code_generators/wint_field_code_generator.dart';
+import 'standalone_field_code_generators/wstring_field_code_generator.dart';
+import 'standalone_field_code_generators/wtimestamp_field_code_generator.dart';
+import 'wkt_field_code_generators/gbool_field_code_generator.dart';
+import 'wkt_field_code_generators/gdatetime_field_code_generator.dart';
+import 'wkt_field_code_generators/gdouble_field_code_generator.dart';
+import 'wkt_field_code_generators/gduration_field_code_generator.dart';
+import 'wkt_field_code_generators/gint_field_code_generator.dart';
+import 'wkt_field_code_generators/gstring_field_code_generator.dart';
 import 'field_code_generators/map_field_code_generator.dart';
-import 'field_code_generators/string_field_code_generator.dart';
 import 'field_descriptor.dart';
 
+part 'composite_field_code_generator.dart';
+part 'field_code_generator_mixin.dart';
+part 'wkt_field_code_generator.dart';
+part 'wrapped_field_code_generator.dart';
+
 abstract class FieldCodeGenerator {
-  final FieldDescriptor fieldDescriptor;
-  late final int lineNumber;
-  late final int? hasValueLineNumber;
+  String render();
 
-  FieldCodeGenerator(
-    this.fieldDescriptor,
-    List<int> lineNumbers,
-  ) {
-    lineNumber = fieldDescriptor.number ?? _nextAvailable(lineNumbers);
-    final hasValueLineNum = fieldDescriptor.isNullable
-        ? (fieldDescriptor.hasValueNumber ?? _nextAvailable(lineNumbers))
-        : null;
-    hasValueLineNumber = hasValueLineNum;
-  }
-
-  String get fieldLine =>
-      '$fieldType ${fieldDescriptor.protoFieldName} = $lineNumber;';
-
-  String? get hasValueLine => hasValueLineNumber != null
-      ? 'bool ${fieldDescriptor.protoFieldName}'
-          '${fieldDescriptor.useProtoFieldNamingConventions ? '_has_value' : 'HasValue'} = $hasValueLineNumber;'
-      : null;
-
-  String? get fieldType;
-
-  factory FieldCodeGenerator.fromFieldDescriptor(
-    FieldDescriptor fieldDescriptor,
-    List<int> lineNumbers,
-    bool useWellKnownTypes,
-  ) {
+  static FieldCodeGenerator fromFieldDescriptor(
+    FieldDescriptor fieldDescriptor, {
+    required Config config,
+  }) {
     final type = fieldDescriptor.itemType;
     final typeName =
         fieldDescriptor.itemType.getDisplayString(withNullability: false);
 
+    if (config.useWellKnownTypes) {
+      if (type.isDartCoreString) {
+        return GStringFieldCodeGenerator(fieldDescriptor);
+      }
+      if (type.isDartCoreBool) {
+        return GBoolFieldCodeGenerator(fieldDescriptor);
+      }
+      if (type.isDartCoreInt) {
+        return GIntFieldCodeGenerator(fieldDescriptor, config: config);
+      }
+      if (type.isDartCoreDouble) {
+        return GDoubleFieldCodeGenerator(fieldDescriptor);
+      }
+      if (typeName == (DateTime).toString()) {
+        return GDateTimeFieldCodeGenerator(fieldDescriptor);
+      }
+      if (typeName == (Duration).toString()) {
+        return GDurationFieldCodeGenerator(fieldDescriptor);
+      }
+    }
+
     if (type.isDartCoreString) {
-      return fieldDescriptor.fieldElementType.isDartCoreString &&
-              useWellKnownTypes
-          ? GStringFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : StringFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      WStringFieldCodeGenerator(fieldDescriptor);
     }
     if (type.isDartCoreBool) {
-      return fieldDescriptor.fieldElementType.isDartCoreBool &&
-              useWellKnownTypes
-          ? GBoolFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : BoolFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return WBoolFieldCodeGenerator(fieldDescriptor);
     }
     if (type.isDartCoreInt) {
-      return fieldDescriptor.fieldElementType.isDartCoreInt && useWellKnownTypes
-          ? GIntFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : IntFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return WIntFieldCodeGenerator(fieldDescriptor, config: config);
     }
     if (type.isDartCoreDouble) {
-      return fieldDescriptor.fieldElementType.isDartCoreDouble &&
-              useWellKnownTypes
-          ? GDoubleFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : DoubleFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return WDoubleFieldCodeGenerator(fieldDescriptor);
     }
     if (typeName == (BigInt).toString()) {
-      return BigIntFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return BigIntFieldCodeGenerator(fieldDescriptor);
+    }
+    if (typeName == (Decimal).toString()) {
+      return DecimalFieldCodeGenerator(fieldDescriptor);
     }
     if (typeName == (DateTime).toString()) {
-      return useWellKnownTypes
-          ? GDateTimeFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : DateTimeFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return WTimestampFieldCodeGenerator(fieldDescriptor);
     }
     if (typeName == (Duration).toString()) {
-      return useWellKnownTypes
-          ? GDurationFieldCodeGenerator(fieldDescriptor, lineNumbers)
-          : DurationFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return WDurationFieldCodeGenerator(fieldDescriptor);
+    }
+    if (fieldDescriptor.typeIsEnum) {
+      return EnumFieldCodeGenerator(fieldDescriptor);
     }
     if (type.hasProto) {
-      return EntityFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return EntityFieldCodeGenerator(fieldDescriptor);
     }
     if (type.isDartCoreMap) {
-      return MapFieldCodeGenerator(fieldDescriptor, lineNumbers);
+      return MapFieldCodeGenerator(fieldDescriptor);
     }
-    return GenericFieldCodeGenerator(fieldDescriptor, lineNumbers);
+    return WStringFieldCodeGenerator(fieldDescriptor);
   }
-}
-
-int _nextAvailable(List<int> numbers) {
-  int i = 0;
-  while (numbers.contains(++i)) {}
-  numbers.add(i);
-  return i;
 }

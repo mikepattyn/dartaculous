@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package com.mycompany.myproject;
+
+option go_package = "./stubs";
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+message GIngredient {
+
+  string description = 2;
+  double quantity = 3;
+  google.protobuf.Int32Value batch_size = 4;
+  google.protobuf.Duration estimated_preparation_time = 5;
+  google.protobuf.Timestamp expiry_date = 6;
+}
+
+message GListOfIngredient { repeated GIngredient items = 1; }
+
+message GRecipe {
+
+  string id = 2;
+  string ptitle = 3;
+  repeated GIngredient ingredients = 4;
+}
+
+message GListOfRecipe { repeated GRecipe items = 1; }
+
+message GFieldsOfVehicle { double weight = 2; }
+
+message GVehicle {
+  oneof props {
+    GFieldsOfVehicle vehicle = 1;
+
+    GCar car = 2;
+    GAirplane airplane = 3;
+  }
+}
+
+message GListOfVehicle { repeated GVehicle items = 1; }
+
+message GCar {
+  GFieldsOfVehicle fieldsOfSuperClass = 1;
+
+  int32 number_of_doors = 2;
+}
+
+message GListOfCar { repeated GCar items = 1; }
+
+message GAirplane {
+  GFieldsOfVehicle fieldsOfSuperClass = 1;
+
+  string registration = 2;
+  int32 service_ceiling = 3;
+}
+
+message GListOfAirplane { repeated GAirplane items = 1; }

@@ -1,8 +1,9 @@
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
+import 'package:mongo_mapper/mongo_mapper.dart';
 
 part 'component.g.dart';
 
-@mapMapped
+@mongo
 class Component {
   final String description;
 

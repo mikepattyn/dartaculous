@@ -1,18 +1,18 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/polymorphism/car.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'vehicle.dart';
 
 part 'car.g.dart';
 
-@proto
-@mapProto
+@Proto()
 class Car extends Vehicle {
   Car({
     required this.numberOfDoors,
     required int weight,
   }) : super(weight: weight);
 
+  @ProtoField(2)
   final int numberOfDoors;
 
   @override

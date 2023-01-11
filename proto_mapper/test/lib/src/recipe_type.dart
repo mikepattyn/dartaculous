@@ -1,10 +1,9 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/recipe_type.pbenum.dart';
+import 'package:proto_generator_test/grpc/model.pbenum.dart';
 
 part 'recipe_type.g.dart';
 
-@proto
-@mapProto
+@Proto()
 enum RecipeTypes {
   cook,
   grill,

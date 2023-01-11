@@ -1,10 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:map_mapper_generator_test_mongo/mongo_test.dart';
+import 'package:mongo_mapper/mongo_mapper.dart';
 
 part 'category.g.dart';
 
-@mapMapped
+@mongo
 class Category {
   final String id;
 

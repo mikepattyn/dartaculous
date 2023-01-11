@@ -11,7 +11,11 @@ syntax = "proto3";
 
 
 
-
+message BFieldsOfStaff
+{
+  
+}
+    
   
 message BStaff
 {
@@ -103,15 +107,12 @@ message WListOfCustomer
   repeated WCustomer items = 1;
 }
 
-enum AFoodCategory
-{
+enum AFoodCategory {
   A_FOOD_CATEGORY_VEGETABLES = 0;
   A_FOOD_CATEGORY_MEAT = 1;
   A_FOOD_CATEGORY_OTHER = 2;
 }   
-     
-message NullableAFoodCategory
-{
-  bool has_value = 1;
-  AFoodCategory value = 2;
+
+message AFoodCategory_Message {
+  AFoodCategory value = 1;
 }

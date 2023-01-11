@@ -23,24 +23,20 @@ message GRecipe
 {
   string title = 1;
   google.protobuf.StringValue description = 2;
-  GCategory category = 4;
-  repeated GIngredient ingredients = 5;
-  google.protobuf.Timestamp publish_date = 6;
-  google.protobuf.Timestamp expiry_date = 7;
-  bool expiry_date_has_value = 8;
-  google.protobuf.Duration preparation_duration = 9;
-  google.protobuf.Duration total_duration = 10;
-  bool total_duration_has_value = 11;
-  bool is_published = 12;
-  google.protobuf.BoolValue requires_robot = 13;
-  google.protobuf.DoubleValue gross_weight = 15;
-  google.protobuf.DoubleValue net_weight = 17;
-  GApplianceType main_appliance_type = 19;
-  GApplianceType secondary_appliance_type = 20;
-  bool secondary_appliance_type_has_value = 21;
-  repeated string tags = 22;
-  repeated string extra_tags = 23;
-  bool extra_tags_has_value = 24;
+  GCategory category = 3;
+  repeated GIngredient ingredients = 4;
+  google.protobuf.Timestamp publish_date = 5;
+  google.protobuf.Timestamp expiry_date = 6;
+  google.protobuf.Duration preparation_duration = 7;
+  google.protobuf.Duration total_duration = 8;
+  bool is_published = 9;
+  google.protobuf.BoolValue requires_robot = 10;
+  google.protobuf.DoubleValue gross_weight = 11;
+  google.protobuf.DoubleValue net_weight = 12;
+  GApplianceType main_appliance_type = 13;
+  GApplianceType_Message secondary_appliance_type = 15;
+  repeated string tags = 16;
+  repeated string extra_tags = 17;
 
 }   
 

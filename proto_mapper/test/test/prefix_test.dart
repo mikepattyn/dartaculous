@@ -4,7 +4,6 @@ import 'package:test/test.dart';
 
 /// Test to make sure that the `MapProto.prefix` is consistently used within the generated `.proto` files
 void main() {
-
   late String contents;
 
   setUp(() {
@@ -63,8 +62,7 @@ void main() {
     });
 
     test('nullable enum', () {
-      expect(contents, contains('message NullableAFoodCategory'));
+      expect(contents, contains('message AFoodCategory_Message'));
     });
-
   });
 }

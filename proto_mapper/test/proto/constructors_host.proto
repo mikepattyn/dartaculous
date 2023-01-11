@@ -84,7 +84,7 @@ import "google/protobuf/wrappers.proto";
 message GConstructObject6
 {
   google.protobuf.StringValue name = 1;
-  google.protobuf.Int32Value number = 3;
+  google.protobuf.Int32Value number = 2;
 
 }   
 
@@ -96,7 +96,7 @@ message GListOfConstructObject6
 message GConstructObject7
 {
   google.protobuf.Int32Value number = 1;
-  string name = 3;
+  string name = 2;
 
 }   
 
@@ -108,7 +108,7 @@ message GListOfConstructObject7
 message GConstructObject8
 {
   google.protobuf.Int32Value number = 1;
-  string name = 3;
+  string name = 2;
 
 }   
 

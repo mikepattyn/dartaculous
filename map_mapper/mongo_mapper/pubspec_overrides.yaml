@@ -1,0 +1,4 @@
+
+dependency_overrides:
+  map_mapper_annotations:
+    path: ../map_mapper_annotations

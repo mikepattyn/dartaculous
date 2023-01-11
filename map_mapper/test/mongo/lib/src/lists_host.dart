@@ -1,11 +1,12 @@
 import 'package:decimal/decimal.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
+import 'package:mongo_mapper/mongo_mapper.dart';
 
 import 'appliance_type.dart';
 
 part 'lists_host.g.dart';
 
-@mapMapped
+@mongo
 class ListsHost {
   final List<bool> vbools;
   final List<bool>? nvbools;

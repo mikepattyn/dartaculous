@@ -1,12 +1,11 @@
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator_test/grpc/polymorphism/gyrocopter.pb.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 
 import 'rotorcraft.dart';
 
 part 'gyrocopter.g.dart';
 
-@proto
-@mapProto
+@Proto()
 class Gyrocopter extends Rotorcraft {
   Gyrocopter({
     required int weight,
