@@ -1,3 +1,7 @@
+## 3.0.0-dev.1
+
+ - **FIX**: Updated dependencies.
+
 ## 3.0.0-dev.0
 
 > Note: This release has breaking changes.
