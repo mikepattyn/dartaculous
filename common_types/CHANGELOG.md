@@ -1,3 +1,9 @@
+## 2.0.0-dev.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Huge upgrade to proto_generator.
+
 ## 1.2.0
 
  - **FEAT**: Added dateTime to DateTimeRepresentation enum.

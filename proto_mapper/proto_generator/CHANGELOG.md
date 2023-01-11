@@ -1,3 +1,9 @@
+## 4.0.0-dev.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Huge upgrade to proto_generator.
+
 ## 3.8.1
 
  - **FIX**: BigInt nullable unmarshalling fixed.
