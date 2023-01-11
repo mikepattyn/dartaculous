@@ -1,3 +1,7 @@
+## 6.0.0-dev.1
+
+ - **FEAT**: removed dependecy from squarealfa_common_types.
+
 ## 6.0.0-dev.0
 
 > Note: This release has breaking changes.

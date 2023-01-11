@@ -1,3 +1,7 @@
+## 5.0.6-dev.1
+
+ - **FEAT**: removed dependecy from squarealfa_common_types.
+
 ## 5.0.6-dev.0
 
  - Update a dependency to the latest release.

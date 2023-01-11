@@ -2,15 +2,15 @@ name: defaults_provider_generator
 description: Generates business class Defaults Providers, that provide default values for non-nullable PODO properties
 homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/defaults_provider/defaults_provider_generator
 repository: https://gitlab.com/squarealfa/dart_framework
-version: 3.0.0-dev.1
+version: 3.0.0-dev.2
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   source_gen: ^1.2.1
-  defaults_provider_annotations: ^3.0.0-dev.0
-  squarealfa_generators_common: ^3.0.0-dev.0
+  defaults_provider_annotations: ^3.0.0-dev.1
+  squarealfa_generators_common: ^3.0.0-dev.1
   build: ^2.0.0
   decimal: ^2.1.0
   analyzer: ^5.1.0

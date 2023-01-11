@@ -1,3 +1,7 @@
+## 3.0.0-dev.2
+
+ - **FEAT**: removed dependecy from squarealfa_common_types.
+
 ## 3.0.0-dev.1
 
  - **FIX**: Updated dependencies.
