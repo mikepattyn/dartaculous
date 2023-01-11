@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/any.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/api.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/descriptor.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/duration.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/empty.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/field_mask.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/source_context.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/struct.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/timestamp.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/type.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/google/protobuf/wrappers.proto" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +60,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/ruicraveiro/Applications/flutter/bin/cache/dart-sdk",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "/home/ruicraveiro/sources/nozard/techlog",
     "settings.editor.selected.configurable": "dart.settings",
     "show.migrate.to.gradle.popup": "false"
   }
