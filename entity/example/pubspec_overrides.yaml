@@ -1,11 +1,7 @@
 
 dependency_overrides:
-  squarealfa_generators_common:
-    path: ../../generators_common
-
   squarealfa_entity_annotations:
     path: ../entity_annotations
 
   squarealfa_entity_generator:
     path: ../entity_generator
-

@@ -6,19 +6,14 @@ import 'ingredient.dart';
 
 part 'recipe.g.dart';
 
-@validatable
-@BuildBuilder(useDefaultsProvider: true)
-@copyWith
-@defaultsProvider
+@DefaultsProvider(createDefaultsProviderBaseClass: true)
 class Recipe {
-  final String id;
-  @required
+  final String key;
+
   final String title;
 
-  @required
-  final String? description;
-
   final List<Ingredient> ingredients;
+
   final int numPosts;
   final double doubleNumPosts;
   final Decimal decimalNumPosts;
@@ -29,8 +24,7 @@ class Recipe {
   final Category category;
 
   Recipe({
-    this.id = '',
-    required this.description,
+    this.key = '',
     required this.title,
     required this.ingredients,
     this.runtimeTag,
@@ -40,4 +34,9 @@ class Recipe {
     required this.mainIngredient,
     required this.category,
   });
+}
+
+class $RecipeDefaultsProvider extends $RecipeDefaultsProviderBase {
+  @override
+  Category get category => Category(title: 'my category');
 }

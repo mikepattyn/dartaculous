@@ -1,12 +1,12 @@
 import 'package:squarealfa_validation_example/squarealfa_validation_example.dart';
 
 void main() {
-  var recipe = Recipe(title: '', description: null);
+  final recipe = $RecipeDefaultsProvider().createWithDefaults();
   var validator = $RecipeValidator();
 
   var errors = validator.validate(recipe);
 
   for (var error in errors.validationErrors) {
-    print(error);
+    print('Error of type ${error.runtimeType} for field ${error.propertyName}');
   }
 }

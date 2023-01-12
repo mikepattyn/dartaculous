@@ -6,6 +6,7 @@ import 'package:squarealfa_entity_generator/src/crud_permissions/crud_permission
 
 import 'src/builder_generator/builder_generator.dart';
 import 'src/copywith_generator/copywith_generator.dart';
+import 'src/defaults_provider/defaults_provider_generator.dart';
 import 'src/validation/validator_generator.dart';
 
 export 'src/validation/validator_generator.dart';
@@ -21,3 +22,6 @@ Builder copyWithBuilder(BuilderOptions options) =>
 
 Builder crudPermissionsBuilder(BuilderOptions options) =>
     SharedPartBuilder([CrudPermissionsGenerator()], 'crud_permissions_builder');
+
+Builder defaultsProviderGeneratorBuilder(BuilderOptions options) =>
+    SharedPartBuilder([DefaultsProviderGenerator()], 'defaults_provider');

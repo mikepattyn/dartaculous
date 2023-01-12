@@ -33,3 +33,10 @@ builders:
     build_to: cache
     applies_builders: ["source_gen|combining_builder"]
 
+  defaults_provider_generator:
+    import: "package:squarealfa_entity_generator/squarealfa_entity_generator.dart"
+    builder_factories: ["defaultsProviderGeneratorBuilder"]
+    build_extensions: {".dart": ["defaults_provider.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]

@@ -1,4 +1,5 @@
 /// Validation annotations and classes
+export 'src/annotations/defaults_provider.dart';
 export 'src/annotations/build_builder.dart';
 export 'src/annotations/copy_with.dart';
 export 'src/build_result.dart';
