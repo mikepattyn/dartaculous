@@ -1,3 +1,9 @@
+## 5.0.6-dev.2
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **CHORE**: Removed all previously deprecated elements.
+
 ## 5.0.6-dev.1
 
  - **FEAT**: removed dependecy from squarealfa_common_types.
