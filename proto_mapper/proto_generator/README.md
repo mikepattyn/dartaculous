@@ -49,11 +49,11 @@ First, add the dependencies to pubspec.yaml:
 
 ```yaml
 dependencies:
-  proto_annotations: ^2.3.0
+  proto_annotations: latest
 
 dev_dependencies:
-  proto_generator: ^3.8.1
-  build_runner: ^2.1.2
+  proto_generator: latest
+  build_runner: any
 ```
 
 Add the import to ```proto_annotations``` package and add the ```part 'ingredient.g.dart';``` directive:
