@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/any.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/api.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/descriptor.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/duration.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/empty.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/field_mask.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/source_context.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/struct.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/timestamp.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/type.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/google/protobuf/wrappers.proto" beforeDir="false" />
-    </list>
+    <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,18 +47,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/home/ruicraveiro/sources/nozard/techlog",
-    "settings.editor.selected.configurable": "dart.settings",
+    "last_opened_file_path": "/home/ruicraveiro/sources/dart_framework/entity/example",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/entity/example" />
+      <recent name="$PROJECT_DIR$/entity/example/lib/src" />
       <recent name="$PROJECT_DIR$/proto_mapper/example" />
       <recent name="$PROJECT_DIR$/map_mapper/mongo_mapper" />
       <recent name="$PROJECT_DIR$/map_mapper/map_mapper_generator" />
-      <recent name="$PROJECT_DIR$/map_mapper/map_mapper_annotations" />
-      <recent name="$PROJECT_DIR$/map_mapper/map_mapper_annotations/lib/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/map_mapper/map_mapper_annotations/lib/src/annotations" />
@@ -80,15 +66,25 @@
       <recent name="$PROJECT_DIR$/map_mapper/mongo_mapper/lib/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Dart Command Line App.example.dart">
+  <component name="RunManager" selected="Dart Command Line App.main.dart">
     <configuration name="example.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/proto_mapper/example/example/example.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$/proto_mapper/example" />
       <method v="2" />
     </configuration>
+    <configuration name="main.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/entity/example/bin/main.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$/entity/example" />
+      <method v="2" />
+    </configuration>
     <configuration name="map_mapped.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/map_mapper/map_mapper_annotations/lib/src/annotations/map_mapped.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$/map_mapper/map_mapper_annotations" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in defaults_provider_generator_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/entity/test/test/defaults_provider_generator_test.dart" />
+      <option name="testName" value="defaults_provider_generator_test.dart" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -104,8 +100,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="test" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Dart Command Line App.main.dart" />
+        <item itemvalue="Dart Test.Tests in defaults_provider_generator_test.dart" />
+        <item itemvalue="Makefile Target.test" />
         <item itemvalue="Dart Command Line App.example.dart" />
         <item itemvalue="Dart Command Line App.map_mapped.dart" />
       </list>
