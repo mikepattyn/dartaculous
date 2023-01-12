@@ -1,3 +1,7 @@
+## 3.0.0-dev.2
+
+ - **FEAT**: Added defaults provider.
+
 ## 3.0.0-dev.1
 
  - **FEAT**: removed dependecy from squarealfa_common_types.
