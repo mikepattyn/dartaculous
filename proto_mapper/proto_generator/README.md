@@ -299,8 +299,8 @@ targets:
           useWellKnownTypes: false
           useProtoFieldNamingConventions: true
           packageName: com.mycompany.myproject
-          wellKnownDurationType: GDuration
-          wellKnownTimestampType: Timestamp
+          wellKnownDurationType: $Duration
+          wellKnownTimestampType: $Timestamp
           defaultIntPrecision: int32
           options:
             - go_package = "./stubs"
