@@ -1,5 +1,4 @@
 build: .PHONY
-	cd defaults_provider && make build
 	cd entity && make build
 	cd proto_mapper && make build
 	cd map_mapper && make build
@@ -9,7 +8,6 @@ build: .PHONY
 test: .PHONY
 	cd security/squarealfa_security && make test
 	cd generators_common && make test
-	cd defaults_provider && make test
 	cd entity && make test
 	cd proto_mapper && make test
 	cd map_mapper && make test
