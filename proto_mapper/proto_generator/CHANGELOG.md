@@ -1,3 +1,7 @@
+## 4.0.0-dev.3
+
+ - **FIX**: removed outdated version references in pubspec instructions in README.
+
 ## 4.0.0-dev.2
 
  - **FEAT**: removed dependecy from squarealfa_common_types.
