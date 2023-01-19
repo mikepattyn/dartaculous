@@ -1,3 +1,7 @@
+## 4.0.0-dev.6
+
+ - **FIX**: Fixed example and README, replacing referencing to wrappers for optional.
+
 ## 4.0.0-dev.5
 
 > Note: This release has breaking changes.
