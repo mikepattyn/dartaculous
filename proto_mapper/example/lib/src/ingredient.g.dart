@@ -35,15 +35,12 @@ GIngredient _$IngredientToProto(Ingredient instance) {
   proto.description = instance.description;
   proto.quantity = instance.quantity;
   if (instance.batchSize != null) {
-    proto.batchSize = Int32Value(value: instance.batchSize);
+    proto.batchSize = instance.batchSize!;
   }
 
-  proto.estimatedPreparationTime = $Duration(
-      seconds: Int64(instance.estimatedPreparationTime.inSeconds),
-      nanos: (instance.estimatedPreparationTime.inMicroseconds -
-              instance.estimatedPreparationTime.inSeconds * 1000000) *
-          1000);
-  proto.expiryDate = $Timestamp.fromDateTime(instance.expiryDate);
+  proto.estimatedPreparationTime =
+      Int64(instance.estimatedPreparationTime.inMicroseconds);
+  proto.expiryDate = Int64(instance.expiryDate.microsecondsSinceEpoch);
 
   return proto;
 }
@@ -52,11 +49,10 @@ Ingredient _$IngredientFromProto(GIngredient proto) {
   return Ingredient(
     description: proto.description,
     quantity: proto.quantity,
-    batchSize: (proto.batchSize.hasValue() ? proto.batchSize.value : null),
-    estimatedPreparationTime: Duration(
-        seconds: proto.estimatedPreparationTime.seconds.toInt(),
-        microseconds: (proto.estimatedPreparationTime.nanos ~/ 1000).toInt()),
-    expiryDate: proto.expiryDate.toDateTime(),
+    batchSize: (proto.hasBatchSize() ? proto.batchSize : null),
+    estimatedPreparationTime:
+        Duration(microseconds: proto.estimatedPreparationTime.toInt()),
+    expiryDate: DateTime.fromMicrosecondsSinceEpoch(proto.expiryDate.toInt()),
   );
 }
 

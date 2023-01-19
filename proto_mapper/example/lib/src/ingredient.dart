@@ -1,5 +1,6 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_mapper_example/src/grpc/model.pb.dart';
+// ignore: unused_import
 import 'package:proto_mapper_example/src/grpc/google/protobuf/wrappers.pb.dart';
 import 'package:proto_mapper_example/src/grpc/google/protobuf/duration.pb.dart'
     as $duration;

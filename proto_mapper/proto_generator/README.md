@@ -5,7 +5,7 @@ Here's the list of changes:
 - Single proto file for the entire package instead of a proto file for each Dart file (this changes everything, it simplifies everything). This means that when running ```protoc``` you will get a single set of .pb.dart, .pb.enum.dart, .pbjson.dart set of files instead of one per origin dart file. Easier to integrate and easier to manage.
 - Removed the feature to generate services.
 - ```@Proto()``` annotation now doubles also as ```@MapProto()```, so now only a single annotation is required to both indicate the generator to generate proto messages and mapping code. So, ```@MapProto()``` was removed.
-- Previous versions represented nullable fields by adding ```*hasValue``` fields. This has been removed. In place of those, nullable fields are now represented with type wrappers. Optionally, the package can be configured to generate code that uses Google Wellknown Types to represent nullable values.
+- Previous versions represented nullable fields by adding ```*hasValue``` fields. This has been removed. In place of those, nullable fields are now represented using proto buffer optional fields. Optionally, the package can be configured to generate code that uses Google Wellknown Types to represent nullable values.
 - Every field that is mapped requires now a ```@ProtoField(n)``` containing the proto field number.
 - Removed the ```@ProtoIgnore``` as it is redundant.
 - ```Proto.knownSubClasses``` is superseded by ```Proto.knownSubClassMap```. The field is now a map between the type of each subclass and the proto field number used to represent that class.
@@ -122,22 +122,16 @@ By this point, you will get the following ```lib/proto/model.proto``` file:
 ```protobuf
 syntax = "proto3";
 
-// this message was introduced because 
-// we have at least one nullable int.
-message Int32Value { int32 value = 1; }
-
 message GIngredient {
   string description = 2;
   double quantity = 3;
   
-  // and here we are using the wrapped type instead of int
-  Int32Value batch_size = 4;
+  optional int32 batch_size = 4;
   
   int64 estimated_preparation_time = 5;
   int64 expiry_date = 6;
 }
 
-message GListOfIngredient { repeated GIngredient items = 1; }
 ```
 Notice that the number of the proto fields is exactly the number you indicated in the ```@ProtoField(n)``` annotation for each field.
 
@@ -310,7 +304,7 @@ The available options are the following:
 
 | Option                         | Description                                                                               | Default value |
 |--------------------------------|-------------------------------------------------------------------------------------------|---------------|
-| useWellKnownTypes              | if set to true, will use Google Well Known types instead of generating nullable wrappers  | false         |
+| useWellKnownTypes              | if set to true, will use Google Well Known types instead of using proto optional feature  | false         |
 | useProtoFieldNamingConventions | Generated proto messages and fields using naming conventions appropriate to Proto3        | true          |
 | packageName                    | The name of the declared package in the generated proto file                              | [none]        |
 | wellKnownDurationType          | Defines an type name to be mapped to Google well known durations                          | $Duration     |
