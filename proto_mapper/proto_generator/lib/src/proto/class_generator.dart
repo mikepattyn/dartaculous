@@ -56,12 +56,7 @@ message $prefix$className
 {
 $classMessageContent
 }   
-
-message ${prefix}ListOf$className
-{
-  repeated $prefix$className items = 1;
-}
-    ''';
+''';
 
     return messages;
   }
