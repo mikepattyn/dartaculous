@@ -1,9 +1,9 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:decimal/decimal.dart';
 import 'package:proto_generator_test/grpc/model.pb.dart';
+// ignore: unused_import
 import 'package:proto_generator_test/gtypes.dart';
 import 'component.dart';
-
 
 part 'ingredient.g.dart';
 

@@ -13,7 +13,7 @@ import 'package:test/test.dart';
 void main() {
   group('useProtoFieldNamingConventions', () {
     test('enum value names', () {
-      File proto = File('proto/utensils.proto');
+      File proto = File('lib/proto/model.proto');
       String contents = proto.readAsStringSync();
       expect(contents, contains('G_KNIFE_TYPE_CHEFS_KNIFE'));
       expect(contents, isNot(contains('paringKnife')));

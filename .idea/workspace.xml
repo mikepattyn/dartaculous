@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="" />
+    <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example_model/lib/src/ingredient.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example_model/lib/src/ingredient.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example_model/lib/src/recipe.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example_model/lib/src/recipe.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +71,12 @@
       <recent name="$PROJECT_DIR$/map_mapper/mongo_mapper/lib/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Dart Command Line App.main.dart">
+  <component name="RunManager" selected="Dart Command Line App.calc_result.dart">
+    <configuration name="calc_result.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/proto_mapper/test/lib/src/calc_result.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$/proto_mapper/test" />
+      <method v="2" />
+    </configuration>
     <configuration name="example.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/proto_mapper/example/example/example.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$/proto_mapper/example" />
@@ -75,11 +85,6 @@
     <configuration name="main.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/entity/example/bin/main.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$/entity/example" />
-      <method v="2" />
-    </configuration>
-    <configuration name="map_mapped.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/map_mapper/map_mapper_annotations/lib/src/annotations/map_mapped.dart" />
-      <option name="workingDirectory" value="$PROJECT_DIR$/map_mapper/map_mapper_annotations" />
       <method v="2" />
     </configuration>
     <configuration name="Tests in defaults_provider_generator_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
@@ -108,11 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Dart Command Line App.calc_result.dart" />
         <item itemvalue="Dart Command Line App.main.dart" />
         <item itemvalue="Dart Test.Tests in defaults_provider_generator_test.dart" />
         <item itemvalue="Makefile Target.test" />
         <item itemvalue="Dart Command Line App.example.dart" />
-        <item itemvalue="Dart Command Line App.map_mapped.dart" />
       </list>
     </recent_temporary>
   </component>

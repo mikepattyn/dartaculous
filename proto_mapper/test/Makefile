@@ -2,11 +2,11 @@ build: .PHONY
 	dart run build_runner build --verbose  --delete-conflicting-outputs
 	protoc --dart_out=grpc:lib/grpc/ ./lib/proto/model.proto -Ilib/proto -I/usr/include /usr/include/google/protobuf/*.proto
 
-test: test_microseconds test_wellknown
+test: test_standalone test_wellknown
 
 
-test_microseconds: .PHONY
-	cp build_settings/build_settings.microseconds.yaml build.yaml
+test_standalone: .PHONY
+	cp build_settings/build_settings.standalone.yaml build.yaml
 	echo "" > lib/gtypes.dart
 
 	dart run build_runner build --verbose  --delete-conflicting-outputs

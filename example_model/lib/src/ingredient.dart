@@ -6,7 +6,6 @@ part 'ingredient.g.dart';
 
 @proto // generate .proto message based on this .dart file
 // generate mapping code between the protoc generated code and this class.
-@mapProto
 @mapMapped
 class Ingredient {
   final String description;

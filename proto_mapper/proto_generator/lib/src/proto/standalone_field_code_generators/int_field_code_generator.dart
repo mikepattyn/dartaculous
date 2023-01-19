@@ -4,8 +4,8 @@ import 'package:proto_annotations/proto_annotations.dart';
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
-class WIntFieldCodeGenerator extends WrappedFieldCodeGenerator {
-  WIntFieldCodeGenerator(
+class IntFieldCodeGenerator extends StandaloneFieldCodeGenerator {
+  IntFieldCodeGenerator(
     FieldDescriptor fieldDescriptor, {
     required this.config,
   }) : super(fieldDescriptor);
@@ -21,14 +21,5 @@ class WIntFieldCodeGenerator extends WrappedFieldCodeGenerator {
   }
 
   @override
-  String get scalarType => precision == IntPrecision.int32 ? 'int32' : 'int64';
-
-  @override
-  String renderWrapper() {
-    return '''message $wrappedType { $scalarType value = 1; }''';
-  }
-
-  @override
-  String get wrappedType =>
-      precision == IntPrecision.int32 ? 'Int32Value' : 'Int32Value';
+  String get fieldType => precision == IntPrecision.int32 ? 'int32' : 'int64';
 }

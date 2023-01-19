@@ -1,5 +1,6 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/model.pb.dart';
+// ignore: unused_import
 import 'package:proto_generator_test/gtypes.dart';
 
 part 'calc_parameters.g.dart';

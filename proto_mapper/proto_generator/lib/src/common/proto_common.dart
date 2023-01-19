@@ -2,7 +2,6 @@ import 'package:analyzer/dart/element/type.dart';
 import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/config.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:proto_generator/src/proto/field_code_generators/wrapped.dart';
 import 'package:proto_generator/src/proto/field_descriptor.dart' as protofield;
 import 'package:proto_generator/src/proto_mapper/field_descriptor.dart'
     as mapperfield;
@@ -14,7 +13,6 @@ import '../proto/field_code_generators/imports.dart';
 String createFieldDeclarations({
   required Iterable<protofield.FieldDescriptor> fieldDescriptors,
   required Set<String> imports,
-  required Set<String> wrappers,
   required Config config,
 }) {
   final fieldBuffer = StringBuffer();
@@ -31,10 +29,6 @@ String createFieldDeclarations({
     if (fieldCodeGenerator is Imports) {
       final fieldExternalProtoNames = (fieldCodeGenerator as Imports).imports;
       mergeProtoNames(fieldExternalProtoNames, imports);
-    }
-    if (fieldCodeGenerator is Wrapped) {
-      final wrapper = (fieldCodeGenerator as Wrapped).wrapper;
-      wrappers.add(wrapper);
     }
   }
 

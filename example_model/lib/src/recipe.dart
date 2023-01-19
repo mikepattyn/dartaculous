@@ -8,14 +8,13 @@ part 'recipe.g.dart';
 
 @proto // generate .proto message based on this .dart file
 // generate mapping code between the protoc generated code and this class.
-@mapProto
 @mapMapped
 class Recipe {
   final String key;
 
   // generate the field on the .proto message with the name 'ptitle'
   // the mapping code is also adapted to the name 'ptitle'
-  @ProtoField(name: 'ptitle')
+  @ProtoField(2, name: 'ptitle')
   final String title;
 
   // by default all public non-static properties are generated
@@ -25,7 +24,6 @@ class Recipe {
 
   // do not generate the field in the .proto message nor
   // generate mapping code for it.
-  @protoIgnore
   final String? runtimeTag;
 
   Recipe(

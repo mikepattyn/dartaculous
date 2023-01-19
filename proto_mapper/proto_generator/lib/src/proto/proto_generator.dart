@@ -9,7 +9,6 @@ class ProtoGenerator {
   final Config config;
   final imports = <String>{};
   final messages = <String>{};
-  final wrappers = <String>{};
 
   ProtoGenerator(this.config);
 
@@ -28,7 +27,6 @@ class ProtoGenerator {
             protoReflected: protoReflected,
             config: config,
             imports: imports,
-            wrappers: wrappers,
           ).generate();
 
     messages.add(ret);

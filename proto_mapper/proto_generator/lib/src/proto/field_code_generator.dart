@@ -2,17 +2,16 @@ import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/src/proto/field_code_generators/bigint_field_code_generator.dart';
 import 'package:proto_generator/src/proto/field_code_generators/enum_field_code_generator.dart';
-import 'package:proto_generator/src/proto/field_code_generators/wrapped.dart';
 import 'package:proto_generator/src/common/proto_common.dart';
 import 'field_code_generators/imports.dart';
-import 'standalone_field_code_generators/wbool_field_code_generator.dart';
+import 'standalone_field_code_generators/bool_field_code_generator.dart';
 import 'field_code_generators/decimal_field_code_generator.dart';
 import 'field_code_generators/entity_field_code_generator.dart';
-import 'standalone_field_code_generators/wdouble_field_code_generator.dart';
-import 'standalone_field_code_generators/wduration_field_code_generator.dart';
-import 'standalone_field_code_generators/wint_field_code_generator.dart';
-import 'standalone_field_code_generators/wstring_field_code_generator.dart';
-import 'standalone_field_code_generators/wtimestamp_field_code_generator.dart';
+import 'standalone_field_code_generators/double_field_code_generator.dart';
+import 'standalone_field_code_generators/duration_field_code_generator.dart';
+import 'standalone_field_code_generators/int_field_code_generator.dart';
+import 'standalone_field_code_generators/string_field_code_generator.dart';
+import 'standalone_field_code_generators/timestamp_field_code_generator.dart';
 import 'wkt_field_code_generators/gbool_field_code_generator.dart';
 import 'wkt_field_code_generators/gdatetime_field_code_generator.dart';
 import 'wkt_field_code_generators/gdouble_field_code_generator.dart';
@@ -25,7 +24,7 @@ import 'field_descriptor.dart';
 part 'composite_field_code_generator.dart';
 part 'field_code_generator_mixin.dart';
 part 'wkt_field_code_generator.dart';
-part 'wrapped_field_code_generator.dart';
+part 'standalone_field_code_generator.dart';
 
 abstract class FieldCodeGenerator {
   String render();
@@ -60,16 +59,16 @@ abstract class FieldCodeGenerator {
     }
 
     if (type.isDartCoreString) {
-      WStringFieldCodeGenerator(fieldDescriptor);
+      StringFieldCodeGenerator(fieldDescriptor);
     }
     if (type.isDartCoreBool) {
-      return WBoolFieldCodeGenerator(fieldDescriptor);
+      return BoolFieldCodeGenerator(fieldDescriptor);
     }
     if (type.isDartCoreInt) {
-      return WIntFieldCodeGenerator(fieldDescriptor, config: config);
+      return IntFieldCodeGenerator(fieldDescriptor, config: config);
     }
     if (type.isDartCoreDouble) {
-      return WDoubleFieldCodeGenerator(fieldDescriptor);
+      return DoubleFieldCodeGenerator(fieldDescriptor);
     }
     if (typeName == (BigInt).toString()) {
       return BigIntFieldCodeGenerator(fieldDescriptor);
@@ -78,10 +77,10 @@ abstract class FieldCodeGenerator {
       return DecimalFieldCodeGenerator(fieldDescriptor);
     }
     if (typeName == (DateTime).toString()) {
-      return WTimestampFieldCodeGenerator(fieldDescriptor);
+      return TimestampFieldCodeGenerator(fieldDescriptor);
     }
     if (typeName == (Duration).toString()) {
-      return WDurationFieldCodeGenerator(fieldDescriptor);
+      return DurationFieldCodeGenerator(fieldDescriptor);
     }
     if (fieldDescriptor.typeIsEnum) {
       return EnumFieldCodeGenerator(fieldDescriptor);
@@ -92,6 +91,6 @@ abstract class FieldCodeGenerator {
     if (type.isDartCoreMap) {
       return MapFieldCodeGenerator(fieldDescriptor);
     }
-    return WStringFieldCodeGenerator(fieldDescriptor);
+    return StringFieldCodeGenerator(fieldDescriptor);
   }
 }
