@@ -1,3 +1,10 @@
+## 4.0.0-dev.5
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Removed generation of GListOf messages.
+ - **BREAKING** **FEAT**: Replaced wrapper messages for proto optional feature.
+
 ## 4.0.0-dev.4
 
  - **FIX**: Fixed default wellKnown types in README.
