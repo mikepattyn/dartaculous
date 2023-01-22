@@ -1,3 +1,7 @@
+## 4.0.0-dev.7
+
+ - **FIX**: Adding generated code warning to generated model.proto.
+
 ## 4.0.0-dev.6
 
  - **FIX**: Fixed example and README, replacing referencing to wrappers for optional.
