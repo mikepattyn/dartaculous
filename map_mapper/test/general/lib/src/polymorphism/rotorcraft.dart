@@ -10,10 +10,10 @@ part 'rotorcraft.g.dart';
 @MapMapped(knownSubClasses: [Helicopter, Gyrocopter])
 abstract class Rotorcraft extends Aircraft {
   Rotorcraft({
-    required int weight,
-    required Decimal serviceCeiling,
+    required super.weight,
+    required super.serviceCeiling,
     required this.key,
-  }) : super(weight: weight, serviceCeiling: serviceCeiling);
+  });
 
   @override
   final String key;

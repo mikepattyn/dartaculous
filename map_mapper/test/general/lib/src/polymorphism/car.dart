@@ -8,18 +8,16 @@ part 'car.g.dart';
 class Car extends Vehicle {
   Car({
     required this.numberOfDoors,
-    required int weight,
-  }) : super(weight: weight);
+    required super.weight,
+  });
 
   final int numberOfDoors;
-
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
-    return other is Car &&
-      other.numberOfDoors == numberOfDoors;
+
+    return other is Car && other.numberOfDoors == numberOfDoors;
   }
 
   @override

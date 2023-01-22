@@ -7,9 +7,9 @@ class StringLengthValidationError extends ValidationError {
   final int? maxLength;
 
   const StringLengthValidationError(
-    String fieldName, {
+    super.fieldName, {
     required this.length,
     this.minLength,
     this.maxLength,
-  }) : super(fieldName);
+  });
 }

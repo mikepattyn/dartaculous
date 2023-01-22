@@ -5,7 +5,7 @@ class RegularExpressionValidationError extends ValidationError {
   final String expression;
 
   const RegularExpressionValidationError(
-    String fieldName, {
+    super.fieldName, {
     required this.expression,
-  }) : super(fieldName);
+  });
 }

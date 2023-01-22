@@ -16,8 +16,8 @@ class CollectionPropertiesResponse extends CollectionResponse {
   final String statusString;
 
   const CollectionPropertiesResponse({
-    required Result result,
-    required CollectionInfo collectionInfo,
+    required super.result,
+    required super.collectionInfo,
     required this.writeConcern,
     required this.waitForSync,
     this.tempObjectId,
@@ -28,8 +28,5 @@ class CollectionPropertiesResponse extends CollectionResponse {
     required this.keyOptions,
     required this.isDisjoint,
     required this.statusString,
-  }) : super(
-          result: result,
-          collectionInfo: collectionInfo,
-        );
+  });
 }

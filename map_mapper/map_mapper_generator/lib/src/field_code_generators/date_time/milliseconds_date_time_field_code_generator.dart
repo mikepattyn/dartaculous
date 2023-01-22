@@ -3,8 +3,9 @@ import '../../field_descriptor.dart';
 
 class MillisecondsDateTimeFieldCodeGenerator extends FieldCodeGenerator {
   MillisecondsDateTimeFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, bool hasDefaultsProvider)
-      : super(fieldDescriptor, hasDefaultsProvider);
+    super.fieldDescriptor,
+    super.hasDefaultsProvider,
+  );
 
   @override
   String get toMapExpression => 'instance.$fieldName.millisecondsSinceEpoch';

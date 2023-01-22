@@ -6,9 +6,9 @@ import '../field_descriptor.dart';
 
 class IntFieldCodeGenerator extends StandaloneFieldCodeGenerator {
   IntFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor, {
+    super.fieldDescriptor, {
     required this.config,
-  }) : super(fieldDescriptor);
+  });
 
   final Config config;
 

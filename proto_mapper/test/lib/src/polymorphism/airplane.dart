@@ -8,11 +8,11 @@ part 'airplane.g.dart';
 @Proto()
 class Airplane extends Aircraft {
   Airplane({
-    required int weight,
-    required int serviceCeiling,
+    required super.weight,
+    required super.serviceCeiling,
     required this.wingspan,
-    required String key,
-  }) : super(weight: weight, serviceCeiling: serviceCeiling, key: key);
+    required super.key,
+  });
 
   @ProtoField(2)
   final int wingspan;

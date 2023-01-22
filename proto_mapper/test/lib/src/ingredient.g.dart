@@ -35,7 +35,11 @@ GIngredient _$IngredientToProto(Ingredient instance) {
   proto.description = instance.description;
   proto.quantity = instance.quantity.$toProtoBytes();
   proto.precision = instance.precision;
-  proto.cookingDuration = Int64(instance.cookingDuration.inMicroseconds);
+  proto.cookingDuration = GDuration(
+      seconds: Int64(instance.cookingDuration.inSeconds),
+      nanos: (instance.cookingDuration.inMicroseconds -
+              instance.cookingDuration.inSeconds * 1000000) *
+          1000);
   proto.mainComponent =
       const $ComponentProtoMapper().toProto(instance.mainComponent);
   proto.otherComponents.addAll(instance.otherComponents
@@ -58,7 +62,9 @@ Ingredient _$IngredientFromProto(GIngredient proto) {
     description: proto.description,
     quantity: $DecimalProtoExtension.$fromProtoBytes(proto.quantity),
     precision: proto.precision,
-    cookingDuration: Duration(microseconds: proto.cookingDuration.toInt()),
+    cookingDuration: Duration(
+        seconds: proto.cookingDuration.seconds.toInt(),
+        microseconds: (proto.cookingDuration.nanos ~/ 1000).toInt()),
     mainComponent: const $ComponentProtoMapper().fromProto(proto.mainComponent),
     otherComponents: List<Component>.unmodifiable(proto.otherComponents
         .map((e) => const $ComponentProtoMapper().fromProto(e))),

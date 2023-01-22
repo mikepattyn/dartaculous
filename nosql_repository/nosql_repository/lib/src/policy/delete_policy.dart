@@ -21,12 +21,8 @@ import 'package:nosql_repository/nosql_repository.dart';
 /// are limited to the same tenant as the [principal]'s.
 class DeletePolicy extends UpdatePolicy {
   const DeletePolicy({
-    String permission = '',
-    bool filterByTenant = true,
-    String actionToDemand = 'write',
-  }) : super(
-          permission: permission,
-          filterByTenant: filterByTenant,
-          actionToDemand: actionToDemand,
-        );
+    super.permission = '',
+    super.filterByTenant = true,
+    super.actionToDemand = 'write',
+  });
 }

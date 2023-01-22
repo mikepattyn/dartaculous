@@ -32,35 +32,42 @@ GRecipe _$RecipeToProto(Recipe instance) {
 
   proto.title = instance.title;
   if (instance.description != null) {
-    proto.description = instance.description!;
+    proto.description = StringValue(value: instance.description);
   }
 
   proto.category = const $CategoryProtoMapper().toProto(instance.category);
   proto.ingredients.addAll(instance.ingredients
       .map((e) => const $IngredientProtoMapper().toProto(e)));
 
-  proto.publishDate = Int64(instance.publishDate.microsecondsSinceEpoch);
+  proto.publishDate = Timestamp.fromDateTime(instance.publishDate);
   if (instance.expiryDate != null) {
-    proto.expiryDate = Int64(instance.expiryDate!.microsecondsSinceEpoch);
+    proto.expiryDate = Timestamp.fromDateTime(instance.expiryDate!);
   }
 
-  proto.preparationDuration =
-      Int64(instance.preparationDuration.inMicroseconds);
+  proto.preparationDuration = GDuration(
+      seconds: Int64(instance.preparationDuration.inSeconds),
+      nanos: (instance.preparationDuration.inMicroseconds -
+              instance.preparationDuration.inSeconds * 1000000) *
+          1000);
   if (instance.totalDuration != null) {
-    proto.totalDuration = Int64(instance.totalDuration!.inMicroseconds);
+    proto.totalDuration = GDuration(
+        seconds: Int64(instance.totalDuration!.inSeconds),
+        nanos: (instance.totalDuration!.inMicroseconds -
+                instance.totalDuration!.inSeconds * 1000000) *
+            1000);
   }
 
   proto.isPublished = instance.isPublished;
   if (instance.requiresRobot != null) {
-    proto.requiresRobot = instance.requiresRobot!;
+    proto.requiresRobot = BoolValue(value: instance.requiresRobot);
   }
 
   if (instance.grossWeight != null) {
-    proto.grossWeight = instance.grossWeight!;
+    proto.grossWeight = DoubleValue(value: instance.grossWeight);
   }
 
   if (instance.netWeight != null) {
-    proto.netWeight = instance.netWeight!;
+    proto.netWeight = DoubleValue(value: instance.netWeight);
   }
 
   proto.mainApplianceType =
@@ -83,26 +90,31 @@ Recipe _$RecipeFromProto(GRecipe proto) {
     category: const $CategoryProtoMapper().fromProto(proto.category),
     ingredients: List<Ingredient>.unmodifiable(proto.ingredients
         .map((e) => const $IngredientProtoMapper().fromProto(e))),
-    publishDate: DateTime.fromMicrosecondsSinceEpoch(proto.publishDate.toInt()),
-    preparationDuration:
-        Duration(microseconds: proto.preparationDuration.toInt()),
+    publishDate: proto.publishDate.toDateTime(),
+    preparationDuration: Duration(
+        seconds: proto.preparationDuration.seconds.toInt(),
+        microseconds: (proto.preparationDuration.nanos ~/ 1000).toInt()),
     isPublished: proto.isPublished,
     mainApplianceType: ApplianceType.values[proto.mainApplianceType.value],
     tags: List<String>.unmodifiable(proto.tags.map((e) => e)),
-    grossWeight: (proto.hasGrossWeight() ? proto.grossWeight : null),
-    description: (proto.hasDescription() ? proto.description : null),
-    expiryDate: (proto.hasExpiryDate()
-        ? DateTime.fromMicrosecondsSinceEpoch(proto.expiryDate.toInt())
-        : null),
+    grossWeight:
+        (proto.grossWeight.hasValue() ? proto.grossWeight.value : null),
+    description:
+        (proto.description.hasValue() ? proto.description.value : null),
+    expiryDate:
+        (proto.hasExpiryDate() ? (proto.expiryDate.toDateTime()) : null),
     totalDuration: (proto.hasTotalDuration()
-        ? Duration(microseconds: proto.totalDuration.toInt())
+        ? (Duration(
+            seconds: proto.totalDuration.seconds.toInt(),
+            microseconds: (proto.totalDuration.nanos ~/ 1000).toInt()))
         : null),
-    requiresRobot: (proto.hasRequiresRobot() ? proto.requiresRobot : null),
+    requiresRobot:
+        (proto.requiresRobot.hasValue() ? proto.requiresRobot.value : null),
     secondaryApplianceType: (proto.hasSecondaryApplianceType()
         ? (ApplianceType.values[proto.secondaryApplianceType.value.value])
         : null),
     extraTags: List<String>.unmodifiable(proto.extraTags.map((e) => e)),
-    netWeight: (proto.hasNetWeight() ? proto.netWeight : null),
+    netWeight: (proto.netWeight.hasValue() ? proto.netWeight.value : null),
   );
 }
 

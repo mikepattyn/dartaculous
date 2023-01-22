@@ -2,9 +2,7 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class SetFieldCodeGenerator extends FieldCodeGenerator {
-  SetFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, bool hasDefaultsProvider)
-      : super(fieldDescriptor, hasDefaultsProvider);
+  SetFieldCodeGenerator(super.fieldDescriptor, super.hasDefaultsProvider);
 
   String _toMapExpression(bool isNullable) {
     if (fieldDescriptor.parameterTypeHasMapMapAnnotation) {

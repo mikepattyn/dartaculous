@@ -22,7 +22,7 @@ abstract class Aircraft extends Vehicle implements Entity {
 
   Aircraft({
     required this.serviceCeiling,
-    required int weight,
+    required super.weight,
     required this.key,
-  }) : super(weight: weight);
+  });
 }

@@ -5,7 +5,7 @@ repository: https://gitlab.com/squarealfa/dart_framework
 version: 4.0.0-dev.2
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
 dependencies:
   map_mapper_annotations: ^4.0.0-dev.1

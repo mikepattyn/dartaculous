@@ -92,15 +92,10 @@ class Chef {
 @Proto()
 class SousChef extends Chef {
   SousChef({
-    required ApplianceType favoriteApplianceType,
-    required DateTime birthdate,
-    List<String> favoriteWords = const [],
-  }) : super(
-          favoriteKnife: null,
-          favoriteApplianceType: favoriteApplianceType,
-          favoriteWords: favoriteWords,
-          birthdate: birthdate,
-        );
+    required super.favoriteApplianceType,
+    required super.birthdate,
+    super.favoriteWords = const [],
+  }) : super(favoriteKnife: null);
 }
 
 /// KnifeMaster is required to have a favorite knife.
@@ -117,13 +112,12 @@ class KnifeMaster extends Chef {
 
   KnifeMaster({
     required this.favoriteKnife,
-    required ApplianceType favoriteApplianceType,
-    required DateTime birthdate,
+    required super.favoriteApplianceType,
+    required super.birthdate,
   }) : super(
-            favoriteKnife: favoriteKnife,
-            favoriteApplianceType: favoriteApplianceType,
-            favoriteWords: ['Yes', 'Sir'],
-            birthdate: birthdate);
+          favoriteKnife: favoriteKnife,
+          favoriteWords: ['Yes', 'Sir'],
+        );
 }
 
 @Proto()

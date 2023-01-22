@@ -8,9 +8,9 @@ import 'package:nosql_repository/nosql_repository.dart';
 /// presented by this abstract class.
 abstract class EntityPermissionPolicy extends PermissionPolicy {
   const EntityPermissionPolicy(
-    String permission,
-    bool filterByTenant,
-  ) : super(permission, filterByTenant);
+    super.permission,
+    super.filterByTenant,
+  );
 
   /// determines which share with which action
   /// the user must have on the entity in order

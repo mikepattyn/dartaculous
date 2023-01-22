@@ -14,22 +14,15 @@ class FieldDescriptor extends FieldDescriptorBase {
   FieldDescriptor({
     required this.protoAnnotation,
     required this.config,
-    required String displayName,
-    required String name,
-    required bool isFinal,
-    required bool isLate,
-    required bool hasInitializer,
-    required DartType fieldElementType,
+    required super.displayName,
+    required super.name,
+    required super.isFinal,
+    required super.isLate,
+    required super.hasInitializer,
+    required super.fieldElementType,
     required this.protoFieldAnnotation,
     this.forEnum = false,
-  }) : super(
-          displayName: displayName,
-          name: name,
-          isFinal: isFinal,
-          isLate: isLate,
-          hasInitializer: hasInitializer,
-          fieldElementType: fieldElementType,
-        );
+  });
 
   FieldDescriptor.fromFieldElement({
     required FieldElement fieldElement,

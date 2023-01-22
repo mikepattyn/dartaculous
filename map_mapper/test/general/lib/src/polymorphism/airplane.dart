@@ -8,14 +8,11 @@ part 'airplane.g.dart';
 @mapMapped
 class Airplane extends Aircraft {
   Airplane({
-    required Decimal serviceCeiling,
-    required int weight,
+    required super.serviceCeiling,
+    required super.weight,
     required this.wingspan,
     required this.key,
-  }) : super(
-          serviceCeiling: serviceCeiling,
-          weight: weight,
-        );
+  });
 
   final int wingspan;
 

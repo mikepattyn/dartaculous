@@ -6,11 +6,10 @@ import 'package:squarealfa_security/squarealfa_security.dart';
 class TenantFilteredArangoDbRepository<TEntity>
     extends ArangoDbRepositoryBase<TEntity> {
   TenantFilteredArangoDbRepository(
-    DbClient db,
-    String collectionName,
-  ) : super(db, collectionName);
+    super.db,
+    super.collectionName,
+  );
 
-  
   Map<String, dynamic> getOrCreateMetaForCreate(
           Map<String, dynamic> map, DbPrincipal principal) =>
       _getOrCreateMeta(map);

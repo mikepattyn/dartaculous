@@ -12,8 +12,7 @@ with the optional mixin [RevisionInterceptor], implementing your own
 class ArangoDbRepository<TEntity>
     extends TenantFilteredArangoDbRepository<TEntity>
     with RevisionInterceptor<TEntity> {
-  ArangoDbRepository(DbClient db, String collectionName)
-      : super(db, collectionName);
+  ArangoDbRepository(super.db, super.collectionName);
 
   @override
   mapDate(DateTime revisionDate) {

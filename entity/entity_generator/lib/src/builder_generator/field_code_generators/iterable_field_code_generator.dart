@@ -4,9 +4,7 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class IterableFieldCodeGenerator extends FieldCodeGenerator {
-  IterableFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, BuildBuilder buildBuilder)
-      : super(fieldDescriptor, buildBuilder);
+  IterableFieldCodeGenerator(super.fieldDescriptor, super.buildBuilder);
 
   @override
   String get fieldDeclaration =>

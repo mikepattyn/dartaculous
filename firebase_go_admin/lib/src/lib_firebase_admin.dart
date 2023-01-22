@@ -758,6 +758,45 @@ class LibFirebaseAdmin {
       int Function(
           ffi.Pointer<ffi.UnsignedShort>, ffi.Pointer<drand48_data>)>();
 
+  int arc4random() {
+    return _arc4random();
+  }
+
+  late final _arc4randomPtr =
+      _lookup<ffi.NativeFunction<__uint32_t Function()>>('arc4random');
+  late final _arc4random = _arc4randomPtr.asFunction<int Function()>();
+
+  void arc4random_buf(
+    ffi.Pointer<ffi.Void> __buf,
+    int __size,
+  ) {
+    return _arc4random_buf(
+      __buf,
+      __size,
+    );
+  }
+
+  late final _arc4random_bufPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<ffi.Void>, ffi.Size)>>('arc4random_buf');
+  late final _arc4random_buf = _arc4random_bufPtr
+      .asFunction<void Function(ffi.Pointer<ffi.Void>, int)>();
+
+  int arc4random_uniform(
+    int __upper_bound,
+  ) {
+    return _arc4random_uniform(
+      __upper_bound,
+    );
+  }
+
+  late final _arc4random_uniformPtr =
+      _lookup<ffi.NativeFunction<__uint32_t Function(__uint32_t)>>(
+          'arc4random_uniform');
+  late final _arc4random_uniform =
+      _arc4random_uniformPtr.asFunction<int Function(int)>();
+
   ffi.Pointer<ffi.Void> malloc(
     int __size,
   ) {
@@ -2138,6 +2177,7 @@ class drand48_data extends ffi.Struct {
   external int __a;
 }
 
+typedef __uint32_t = ffi.UnsignedInt;
 typedef __compar_fn_t = ffi.Pointer<
     ffi.NativeFunction<
         ffi.Int Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>;
@@ -2227,7 +2267,7 @@ const int __GNU_LIBRARY__ = 6;
 
 const int __GLIBC__ = 2;
 
-const int __GLIBC_MINOR__ = 35;
+const int __GLIBC_MINOR__ = 36;
 
 const int _SYS_CDEFS_H = 1;
 
@@ -2393,11 +2433,7 @@ const int __timeval_defined = 1;
 
 const int _STRUCT_TIMESPEC = 1;
 
-const int __NFDBITS = 64;
-
 const int FD_SETSIZE = 1024;
-
-const int NFDBITS = 64;
 
 const int _BITS_PTHREADTYPES_COMMON_H = 1;
 

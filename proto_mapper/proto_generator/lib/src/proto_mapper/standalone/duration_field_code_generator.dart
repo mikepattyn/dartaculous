@@ -5,14 +5,10 @@ import '../field_descriptor.dart';
 
 class SDurationFieldCodeGenerator extends WKTFieldCodeGenerator {
   SDurationFieldCodeGenerator({
-    required FieldDescriptor fieldDescriptor,
-    required String refName,
-    required String protoRefName,
-  }) : super(
-          fieldDescriptor: fieldDescriptor,
-          refName: refName,
-          protoRefName: protoRefName,
-        );
+    required super.fieldDescriptor,
+    required super.refName,
+    required super.protoRefName,
+  });
 
   String get instanceReference =>
       '$ref$fieldName${fieldDescriptor.isNullable && ref.isNotEmpty ? '!' : ''}';

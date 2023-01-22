@@ -5,9 +5,9 @@ import '../field_descriptor.dart';
 
 class EntityFieldCodeGenerator extends FieldCodeGenerator {
   EntityFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor,
-    BuildBuilder buildBuilder,
-  ) : super(fieldDescriptor, buildBuilder);
+    super.fieldDescriptor,
+    super.buildBuilder,
+  );
 
   @override
   String get fieldType => '\$${fieldDescriptor.fieldElementTypeName}Builder';

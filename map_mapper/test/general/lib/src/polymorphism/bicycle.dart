@@ -11,8 +11,8 @@ class Bicycle extends AbstractVehicle {
   final String key;
 
   Bicycle({
-    required int weight,
+    required super.weight,
     required this.wheelDiamater,
     required this.key,
-  }) : super(weight: weight);
+  });
 }

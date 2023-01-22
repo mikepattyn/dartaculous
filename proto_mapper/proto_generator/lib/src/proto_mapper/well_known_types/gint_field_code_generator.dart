@@ -3,14 +3,10 @@ import '../field_descriptor.dart';
 
 class GIntFieldCodeGenerator extends WKTFieldCodeGenerator {
   GIntFieldCodeGenerator({
-    required FieldDescriptor fieldDescriptor,
-    required String refName,
-    required String protoRefName,
-  }) : super(
-          fieldDescriptor: fieldDescriptor,
-          refName: refName,
-          protoRefName: protoRefName,
-        );
+    required super.fieldDescriptor,
+    required super.refName,
+    required super.protoRefName,
+  });
 
   @override
   String get toProtoMap => fieldDescriptor.isNullable

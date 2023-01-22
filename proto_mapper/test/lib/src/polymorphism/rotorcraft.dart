@@ -12,12 +12,8 @@ const knownSubClasses = {Helicopter: 3, Gyrocopter: 4};
 @Proto(knownSubClassMap: knownSubClasses)
 abstract class Rotorcraft extends Aircraft {
   Rotorcraft({
-    required int weight,
-    required int serviceCeiling,
-    required String key,
-  }) : super(
-          weight: weight,
-          serviceCeiling: serviceCeiling,
-          key: key,
-        );
+    required super.weight,
+    required super.serviceCeiling,
+    required super.key,
+  });
 }

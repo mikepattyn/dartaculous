@@ -3,8 +3,9 @@ import '../../field_descriptor.dart';
 
 class Iso8601DateTimeFieldCodeGenerator extends FieldCodeGenerator {
   Iso8601DateTimeFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, bool hasDefaultsProvider)
-      : super(fieldDescriptor, hasDefaultsProvider);
+    super.fieldDescriptor,
+    super.hasDefaultsProvider,
+  );
 
   @override
   String get toMapExpression => 'instance.$fieldName.toIso8601String()';

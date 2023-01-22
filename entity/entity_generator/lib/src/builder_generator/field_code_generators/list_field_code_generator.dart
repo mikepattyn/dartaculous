@@ -4,9 +4,7 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class ListFieldCodeGenerator extends FieldCodeGenerator {
-  ListFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, BuildBuilder buildBuilder)
-      : super(fieldDescriptor, buildBuilder);
+  ListFieldCodeGenerator(super.fieldDescriptor, super.buildBuilder);
 
   @override
   String get fieldDeclaration =>

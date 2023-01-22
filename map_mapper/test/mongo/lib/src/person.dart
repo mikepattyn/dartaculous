@@ -8,9 +8,9 @@ part 'person.g.dart';
 class Person extends Entity {
   final String name;
   Person({
-    required String key,
+    required super.key,
     required this.name,
-  }) : super(key: key);
+  });
 }
 
 class $PersonDefaultsProvider {

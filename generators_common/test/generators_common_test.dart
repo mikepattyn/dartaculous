@@ -226,10 +226,10 @@ class Recipe extends Entity {
   static const String constProp = '';
 
   Recipe({
-    required String id,
+    required super.id,
     this.description = '',
     required this.title,
-  }) : super(id);
+  });
 }
 
 class Key {

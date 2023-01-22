@@ -6,9 +6,9 @@ class RangeValidationError<T> extends ValidationError {
   final T? minValue;
   final T? maxValue;
   const RangeValidationError(
-    String fieldName, {
+    super.fieldName, {
     required this.value,
     this.minValue,
     this.maxValue,
-  }) : super(fieldName);
+  });
 }

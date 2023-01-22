@@ -6,9 +6,9 @@ import '../field_descriptor.dart';
 
 class GIntFieldCodeGenerator extends WKTFieldCodeGenerator {
   GIntFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor, {
+    super.fieldDescriptor, {
     required this.config,
-  }) : super(fieldDescriptor);
+  });
 
   final Config config;
   IntPrecision get precision {

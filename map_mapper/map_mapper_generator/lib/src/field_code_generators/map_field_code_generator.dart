@@ -6,15 +6,16 @@ import 'package:map_mapper_generator/src/map_mapper_generator.helpers.dart';
 import '../field_descriptor.dart';
 
 class MapFieldCodeGenerator extends GenericFieldCodeGenerator {
-  MapFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, bool hasDefaultsProvider)
-      : super(fieldDescriptor, hasDefaultsProvider);
+  MapFieldCodeGenerator(super.fieldDescriptor, super.hasDefaultsProvider);
 
   @override
   String fromMapExpression(String sourceExpression) {
-    final valueTypes = (fieldDescriptor.fieldElementType as ParameterizedType).typeArguments;
-    if (valueTypes.length == 2 && getAnnotationsByName(valueTypes[1], 'MapMapped').isNotEmpty) {
-      final mapper = '\$${valueTypes[1].getDisplayString(withNullability: false)}MapMapper()';
+    final valueTypes =
+        (fieldDescriptor.fieldElementType as ParameterizedType).typeArguments;
+    if (valueTypes.length == 2 &&
+        getAnnotationsByName(valueTypes[1], 'MapMapped').isNotEmpty) {
+      final mapper =
+          '\$${valueTypes[1].getDisplayString(withNullability: false)}MapMapper()';
       return '(map[\'$fieldName\'] as Map<String, dynamic>).map((k, v) => MapEntry(k, $mapper.fromMap(v)))';
     }
     return super.fromMapExpression(sourceExpression);
@@ -22,12 +23,14 @@ class MapFieldCodeGenerator extends GenericFieldCodeGenerator {
 
   @override
   String get toMapExpression {
-    final valueTypes = (fieldDescriptor.fieldElementType as InterfaceType).typeArguments;
-    if (valueTypes.length == 2 && getAnnotationsByName(valueTypes[1], 'MapMapped').isNotEmpty) {
-      final mapper = '\$${valueTypes[1].getDisplayString(withNullability: false)}MapMapper()';
+    final valueTypes =
+        (fieldDescriptor.fieldElementType as InterfaceType).typeArguments;
+    if (valueTypes.length == 2 &&
+        getAnnotationsByName(valueTypes[1], 'MapMapped').isNotEmpty) {
+      final mapper =
+          '\$${valueTypes[1].getDisplayString(withNullability: false)}MapMapper()';
       return 'instance.$fieldName.map((k, v) => MapEntry(k, $mapper.toMap(v)))';
     }
     return super.toMapExpression;
   }
-
 }

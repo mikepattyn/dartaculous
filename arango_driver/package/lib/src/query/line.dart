@@ -6,7 +6,7 @@ import 'query_text_fragment.dart';
 /// Query([ Line('FOR doc in documents'), ... ])
 /// ```
 class Line extends QueryTextFragment {
-  Line(String line) : super(line);
+  Line(super.line);
 
   @override
   String toString() => line;

@@ -8,10 +8,10 @@ part 'airplane.g.dart';
 @proto
 class Airplane extends Vehicle {
   Airplane({
-    required double weight,
+    required super.weight,
     required this.registration,
     required this.serviceCeiling,
-  }) : super(weight: weight);
+  });
 
   @ProtoField(2)
   final String registration;

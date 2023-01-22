@@ -7,9 +7,9 @@ part 'car.g.dart';
 @proto
 class Car extends Vehicle {
   Car({
-    required double weight,
+    required super.weight,
     required this.numberOfDoors,
-  }) : super(weight: weight);
+  });
 
   @ProtoField(2)
   final int numberOfDoors;

@@ -8,9 +8,9 @@ part 'scooter.g.dart';
 class Scooter extends AbstractVehicle {
   String key;
   Scooter({
-    required int weight,
+    required super.weight,
     required this.key,
-  }) : super(weight: weight);
+  });
 
   @override
   bool operator ==(Object other) {

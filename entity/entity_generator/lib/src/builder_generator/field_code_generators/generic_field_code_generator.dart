@@ -5,7 +5,7 @@ import '../field_descriptor.dart';
 
 class GenericFieldCodeGenerator extends FieldCodeGenerator {
   GenericFieldCodeGenerator(
-    FieldDescriptor fieldDescriptor,
-    BuildBuilder buildBuilder,
-  ) : super(fieldDescriptor, buildBuilder);
+    super.fieldDescriptor,
+    super.buildBuilder,
+  );
 }

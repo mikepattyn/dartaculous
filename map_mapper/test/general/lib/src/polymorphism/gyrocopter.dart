@@ -8,8 +8,8 @@ part 'gyrocopter.g.dart';
 @MapMapped()
 class Gyrocopter extends Rotorcraft {
   Gyrocopter({
-    required int weight,
-    required Decimal serviceCeiling,
-    required String key,
-  }) : super(key: key, weight: weight, serviceCeiling: serviceCeiling);
+    required super.weight,
+    required super.serviceCeiling,
+    required super.key,
+  });
 }

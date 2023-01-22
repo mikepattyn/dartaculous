@@ -7,9 +7,9 @@ part 'airplane.g.dart';
 @mapMapped
 class Airplane extends Vehicle {
   Airplane({
-    required int weight,
+    required super.weight,
     required this.wingspan,
-  }) : super(weight: weight);
+  });
 
   final int wingspan;
 }

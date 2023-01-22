@@ -4,12 +4,8 @@ import '../field_descriptor.dart';
 
 class GenericFieldCodeGenerator extends StandaloneFieldCodeGenerator {
   GenericFieldCodeGenerator({
-    required FieldDescriptor fieldDescriptor,
-    required String refName,
-    required String protoRefName,
-  }) : super(
-          fieldDescriptor: fieldDescriptor,
-          refName: refName,
-          protoRefName: protoRefName,
-        );
+    required super.fieldDescriptor,
+    required super.refName,
+    required super.protoRefName,
+  });
 }

@@ -63,8 +63,8 @@ Here's an example:
 class Car extends Vehicle {
   Car({
     required this.numberOfDoors,
-    required int weight,
-  }) : super(weight: weight);
+    required super.weight,
+  });
 
   final int numberOfDoors;
 }
@@ -72,9 +72,9 @@ class Car extends Vehicle {
 @mapMapped
 class Airplane extends Vehicle {
   Airplane({
-    required int weight,
+    required super.weight,
     required this.wingspan,
-  }) : super(weight: weight);
+  });
 
   final int wingspan;
 }

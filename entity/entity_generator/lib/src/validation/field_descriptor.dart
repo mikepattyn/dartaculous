@@ -4,7 +4,7 @@ import 'package:squarealfa_entity_annotations/squarealfa_entity_annotations.dart
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 class FieldDescriptor extends FieldElementDescriptorBase {
-  FieldDescriptor._(FieldElement fieldElement) : super(fieldElement);
+  FieldDescriptor._(super.fieldElement);
 
   factory FieldDescriptor.fromFieldElement(
     InterfaceElement classElement,

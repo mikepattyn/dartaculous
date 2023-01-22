@@ -5,16 +5,11 @@ import '../field_descriptor.dart';
 
 class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
   EnumFieldCodeGenerator({
-    required FieldDescriptor fieldDescriptor,
-    required String refName,
-    required String protoRefName,
-    required Config config,
-  }) : super(
-          fieldDescriptor: fieldDescriptor,
-          refName: refName,
-          protoRefName: protoRefName,
-          config: config,
-        );
+    required super.fieldDescriptor,
+    required super.refName,
+    required super.protoRefName,
+    required super.config,
+  });
 
   String get _prefix => fieldDescriptor.prefix;
 

@@ -3,18 +3,19 @@ import '../field_descriptor.dart';
 
 class EnumFieldCodeGenerator extends FieldCodeGenerator {
   EnumFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, bool hasDefaultsProvider)
-      : super(fieldDescriptor, hasDefaultsProvider);
+    super.fieldDescriptor,
+    super.hasDefaultsProvider,
+  );
 
   @override
-  String get toMapExpression =>
-    mapEntityAnnotation.mapEnumToString ?
-      'instance.$fieldName.name' : 'instance.$fieldName.index';
+  String get toMapExpression => mapEntityAnnotation.mapEnumToString
+      ? 'instance.$fieldName.name'
+      : 'instance.$fieldName.index';
 
   @override
-  String get toNullableMapExpression =>
-      mapEntityAnnotation.mapEnumToString ?
-      'instance.$fieldName?.name' : 'instance.$fieldName?.index';
+  String get toNullableMapExpression => mapEntityAnnotation.mapEnumToString
+      ? 'instance.$fieldName?.name'
+      : 'instance.$fieldName?.index';
 
   @override
   String fromMapExpression(String sourceExpression) =>

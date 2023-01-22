@@ -2,9 +2,7 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class GenericFieldCodeGenerator extends FieldCodeGenerator {
-  GenericFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, bool hasDefaultsProvider)
-      : super(fieldDescriptor, hasDefaultsProvider);
+  GenericFieldCodeGenerator(super.fieldDescriptor, super.hasDefaultsProvider);
 
   @override
   String fromMapExpression(String sourceExpression) =>

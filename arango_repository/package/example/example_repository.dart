@@ -3,6 +3,5 @@
 
 // class ExampleRepository<TEntity>
 //     extends TenantFilteredArangoDbRepository<TEntity> {
-//   ExampleRepository(DbClient db, String collectionName)
-//       : super(db, collectionName);
+//   ExampleRepository(super.db, super.collectionName);
 // }

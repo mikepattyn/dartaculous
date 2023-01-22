@@ -2,9 +2,7 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class DecimalFieldCodeGenerator extends FieldCodeGenerator {
-  DecimalFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, bool hasDefaultsProvider)
-      : super(fieldDescriptor, hasDefaultsProvider);
+  DecimalFieldCodeGenerator(super.fieldDescriptor, super.hasDefaultsProvider);
 
   @override
   String get toMapExpression => 'instance.$fieldName.toString()';

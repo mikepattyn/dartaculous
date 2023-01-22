@@ -205,9 +205,9 @@ abstract class Vehicle {
 @proto
 class Car extends Vehicle {
   Car({
-    required double weight,
+    required super.weight,
     required this.numberOfDoors,
-  }) : super(weight: weight);
+  });
 
   @ProtoField(2)
   final int numberOfDoors;
@@ -216,10 +216,10 @@ class Car extends Vehicle {
 @proto
 class Airplane extends Vehicle {
   Airplane({
-    required double weight,
+    required super.weight,
     required this.registration,
     required this.serviceCeiling,
-  }) : super(weight: weight);
+  });
 
   @ProtoField(2)
   final String registration;

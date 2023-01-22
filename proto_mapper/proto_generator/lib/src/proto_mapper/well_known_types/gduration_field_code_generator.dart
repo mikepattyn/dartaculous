@@ -6,15 +6,12 @@ import '../wkt_field_code_generator.dart';
 
 class GDurationFieldCodeGenerator extends WKTFieldCodeGenerator {
   GDurationFieldCodeGenerator({
-    required FieldDescriptor fieldDescriptor,
-    required String refName,
-    required String protoRefName,
+    required super.fieldDescriptor,
+    required super.refName,
+    required super.protoRefName,
     required this.config,
-  }) : super(
-          fieldDescriptor: fieldDescriptor,
-          refName: refName,
-          protoRefName: protoRefName,
-        );
+  });
+
   final Config config;
 
   String get instanceReference =>

@@ -7,16 +7,11 @@ import '../field_descriptor.dart';
 
 class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
   MapFieldCodeGenerator({
-    required FieldDescriptor fieldDescriptor,
-    required Config config,
-    required String refName,
-    required String protoRefName,
-  }) : super(
-          fieldDescriptor: fieldDescriptor,
-          refName: refName,
-          protoRefName: protoRefName,
-          config: config,
-        );
+    required super.fieldDescriptor,
+    required super.config,
+    required super.refName,
+    required super.protoRefName,
+  });
 
   String get _valueToProto {
     var typeArguments =

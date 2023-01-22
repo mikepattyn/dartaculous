@@ -3,8 +3,7 @@ import '../../field_descriptor.dart';
 
 class MillisecondsDurationFieldCodeGenerator extends FieldCodeGenerator {
   MillisecondsDurationFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, bool hasDefaultsProvider)
-      : super(fieldDescriptor, hasDefaultsProvider);
+      super.fieldDescriptor, super.hasDefaultsProvider);
 
   @override
   String get toMapExpression => 'instance.$fieldName.inMilliseconds';

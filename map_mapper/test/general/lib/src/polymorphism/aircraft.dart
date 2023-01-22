@@ -19,7 +19,7 @@ part 'aircraft.g.dart';
 abstract class Aircraft extends Vehicle implements Entity {
   final Decimal serviceCeiling;
   Aircraft({
-    required int weight,
+    required super.weight,
     required this.serviceCeiling,
-  }) : super(weight: weight);
+  });
 }

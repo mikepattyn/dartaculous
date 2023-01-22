@@ -6,6 +6,5 @@ import 'errors/validation_error.dart';
 class PropertyValidation extends ValidationError {
   final ErrorList errorList;
 
-  const PropertyValidation(String propertyName, this.errorList)
-      : super(propertyName);
+  const PropertyValidation(super.propertyName, this.errorList);
 }

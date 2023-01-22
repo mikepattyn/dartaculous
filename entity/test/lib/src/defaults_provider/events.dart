@@ -34,21 +34,15 @@ abstract class Message {
 class Command extends Message {
   final String? userId;
 
-  Command(
-      {required String messageId,
-      AggregateId? aggregateId,
-      required DateTime timestamp,
-      required String payloadType,
-      required dynamic payload,
-      required MessageStatus status,
-      this.userId})
-      : super(
-            messageId: messageId,
-            aggregateId: aggregateId,
-            timestamp: timestamp,
-            payloadType: payloadType,
-            payload: payload,
-            status: status);
+  Command({
+    required super.messageId,
+    super.aggregateId,
+    required super.timestamp,
+    required super.payloadType,
+    required super.payload,
+    required super.status,
+    this.userId,
+  });
 
   String get commandId => messageId;
 }
@@ -58,20 +52,14 @@ class Event extends Message {
   final String? userId;
 
   const Event({
-    required String messageId,
-    required DateTime timestamp,
+    required super.messageId,
+    required super.timestamp,
     this.userId,
-    required AggregateId? aggregateId,
-    required String payloadType,
-    required dynamic payload,
-    required MessageStatus status,
-  }) : super(
-            messageId: messageId,
-            aggregateId: aggregateId,
-            timestamp: timestamp,
-            payloadType: payloadType,
-            payload: payload,
-            status: status);
+    required super.aggregateId,
+    required super.payloadType,
+    required super.payload,
+    required super.status,
+  });
 
   String get eventId => messageId;
 }
@@ -80,19 +68,13 @@ class Event extends Message {
 @defaultsProvider
 class IntegrationEvent extends Event {
   const IntegrationEvent({
-    required String messageId,
-    required DateTime timestamp,
+    required super.messageId,
+    required super.timestamp,
     String? processId,
-    required String payloadType,
-    required dynamic payload,
-    required MessageStatus status,
-  }) : super(
-            messageId: messageId,
-            timestamp: timestamp,
-            aggregateId: null,
-            payloadType: payloadType,
-            payload: payload,
-            status: status);
+    required super.payloadType,
+    required super.payload,
+    required super.status,
+  }) : super(aggregateId: null);
 }
 
 @defaultsProvider

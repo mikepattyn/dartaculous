@@ -2,9 +2,7 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class KeyFieldCodeGenerator extends FieldCodeGenerator {
-  KeyFieldCodeGenerator(
-      FieldDescriptor fieldDescriptor, bool hasDefaultsProvider)
-      : super(fieldDescriptor, hasDefaultsProvider);
+  KeyFieldCodeGenerator(super.fieldDescriptor, super.hasDefaultsProvider);
 
   @override
   bool get usesKh => true;

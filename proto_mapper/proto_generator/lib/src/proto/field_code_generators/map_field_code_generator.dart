@@ -5,8 +5,7 @@ import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 
 class MapFieldCodeGenerator extends CompositeFieldCodeGenerator {
-  MapFieldCodeGenerator(FieldDescriptor fieldDescriptor)
-      : super(fieldDescriptor) {
+  MapFieldCodeGenerator(super.fieldDescriptor) {
     final fieldElementType = fieldDescriptor.itemType;
 
     final packageName = fieldElementType.packageName;

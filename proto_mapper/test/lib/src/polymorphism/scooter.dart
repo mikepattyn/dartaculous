@@ -12,7 +12,7 @@ class Scooter extends AbstractVehicle {
   final String key;
 
   Scooter({
-    required int weight,
+    required super.weight,
     required this.key,
-  }) : super(weight: weight);
+  });
 }

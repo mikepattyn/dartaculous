@@ -8,8 +8,8 @@ part 'car.g.dart';
 class Car extends Vehicle {
   Car({
     required this.numberOfDoors,
-    required int weight,
-  }) : super(weight: weight);
+    required super.weight,
+  });
 
   final int numberOfDoors;
 }
