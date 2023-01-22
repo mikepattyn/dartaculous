@@ -4,16 +4,11 @@ repository: https://gitlab.com/ruicraveiro/dart_framework
 packages:
   - nosql_repository/**
   - arango_driver/package/**
-  - arango_repository/package/**
-  - common_types/**
   - generators_common/**
   - security/**
   - proto_mapper/**
   - map_mapper/**
-  - defaults_provider/**
   - entity/**
-  - entity_adapter/**
-  - example_model/**
   - grpc_host/**
   - go_bridge/**
   - mongo_go/**
