@@ -13,5 +13,6 @@ packages:
   - go_bridge/**
   - mongo_go/**
   - firebase_go_admin/**
+  - dbsync/**
 
 
