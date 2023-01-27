@@ -142,7 +142,7 @@ GKitchen _$KitchenToProto(Kitchen instance) {
       .map((k, v) => MapEntry(k, const $RecipeProtoMapper().toProto(v))));
 
   proto.nextInspectionDate =
-      Int64(instance.nextInspectionDate.microsecondsSinceEpoch);
+      Timestamp.fromDateTime(instance.nextInspectionDate);
 
   return proto;
 }
@@ -153,8 +153,7 @@ Kitchen _$KitchenFromProto(GKitchen proto) {
         proto.recipeList.map((e) => const $RecipeProtoMapper().fromProto(e))),
     recipeMap: proto.recipeMap
         .map((k, v) => MapEntry(k, const $RecipeProtoMapper().fromProto(v))),
-    nextInspectionDate:
-        DateTime.fromMicrosecondsSinceEpoch(proto.nextInspectionDate.toInt()),
+    nextInspectionDate: proto.nextInspectionDate.toDateTime(),
   );
 }
 
@@ -209,9 +208,13 @@ GChef _$ChefToProto(Chef instance) {
       GApplianceType.valueOf(instance.favoriteApplianceType.index)!;
   proto.favoriteWords.addAll(instance.favoriteWords);
 
-  proto.birthdate = Int64(instance.birthdate.microsecondsSinceEpoch);
+  proto.birthdate = Timestamp.fromDateTime(instance.birthdate);
   if (instance.shelfLife != null) {
-    proto.shelfLife = Int64(instance.shelfLife!.inMicroseconds);
+    proto.shelfLife = GDuration(
+        seconds: Int64(instance.shelfLife!.inSeconds),
+        nanos: (instance.shelfLife!.inMicroseconds -
+                instance.shelfLife!.inSeconds * 1000000) *
+            1000);
   }
 
   return proto;
@@ -228,9 +231,11 @@ Chef _$ChefFromProto(GChef proto) {
     favoriteApplianceType:
         ApplianceType.values[proto.favoriteApplianceType.value],
     favoriteWords: List<String>.unmodifiable(proto.favoriteWords.map((e) => e)),
-    birthdate: DateTime.fromMicrosecondsSinceEpoch(proto.birthdate.toInt()),
+    birthdate: proto.birthdate.toDateTime(),
     shelfLife: (proto.hasShelfLife()
-        ? Duration(microseconds: proto.shelfLife.toInt())
+        ? (Duration(
+            seconds: proto.shelfLife.seconds.toInt(),
+            microseconds: (proto.shelfLife.nanos ~/ 1000).toInt()))
         : null),
   );
 }
@@ -281,8 +286,7 @@ SousChef _$SousChefFromProto(GSousChef proto) {
   return SousChef(
     favoriteApplianceType: ApplianceType
         .values[proto.fieldsOfSuperClass.favoriteApplianceType.value],
-    birthdate: DateTime.fromMicrosecondsSinceEpoch(
-        proto.fieldsOfSuperClass.birthdate.toInt()),
+    birthdate: proto.fieldsOfSuperClass.birthdate.toDateTime(),
     favoriteWords: List<String>.unmodifiable(
         proto.fieldsOfSuperClass.favoriteWords.map((e) => e)),
   );
@@ -343,8 +347,7 @@ KnifeMaster _$KnifeMasterFromProto(GKnifeMaster proto) {
     favoriteKnife: const $KnifeProtoMapper().fromProto(proto.favoriteKnife),
     favoriteApplianceType: ApplianceType
         .values[proto.fieldsOfSuperClass.favoriteApplianceType.value],
-    birthdate: DateTime.fromMicrosecondsSinceEpoch(
-        proto.fieldsOfSuperClass.birthdate.toInt()),
+    birthdate: proto.fieldsOfSuperClass.birthdate.toDateTime(),
   );
 }
 
@@ -394,7 +397,11 @@ GInventory _$InventoryToProto(Inventory instance) {
       .map((k, v) => MapEntry(k, const $RecipeProtoMapper().toProto(v))));
 
   if (instance.timeSpan != null) {
-    proto.timeSpan = Int64(instance.timeSpan!.inMicroseconds);
+    proto.timeSpan = GDuration(
+        seconds: Int64(instance.timeSpan!.inSeconds),
+        nanos: (instance.timeSpan!.inMicroseconds -
+                instance.timeSpan!.inSeconds * 1000000) *
+            1000);
   }
 
   return proto;
@@ -406,7 +413,9 @@ Inventory _$InventoryFromProto(GInventory proto) {
     recipesByName: proto.recipesByName
         .map((k, v) => MapEntry(k, const $RecipeProtoMapper().fromProto(v))),
     timeSpan: (proto.hasTimeSpan()
-        ? Duration(microseconds: proto.timeSpan.toInt())
+        ? (Duration(
+            seconds: proto.timeSpan.seconds.toInt(),
+            microseconds: (proto.timeSpan.nanos ~/ 1000).toInt()))
         : null),
   );
 }
@@ -455,17 +464,22 @@ class $PrecisionSubjectProtoMapper
 GPrecisionSubject _$PrecisionSubjectToProto(PrecisionSubject instance) {
   var proto = GPrecisionSubject();
 
-  proto.dateProperty = Int64(instance.dateProperty.microsecondsSinceEpoch);
-  proto.durationProperty = Int64(instance.durationProperty.inMicroseconds);
+  proto.dateProperty = Timestamp.fromDateTime(instance.dateProperty);
+  proto.durationProperty = GDuration(
+      seconds: Int64(instance.durationProperty.inSeconds),
+      nanos: (instance.durationProperty.inMicroseconds -
+              instance.durationProperty.inSeconds * 1000000) *
+          1000);
 
   return proto;
 }
 
 PrecisionSubject _$PrecisionSubjectFromProto(GPrecisionSubject proto) {
   return PrecisionSubject(
-    dateProperty:
-        DateTime.fromMicrosecondsSinceEpoch(proto.dateProperty.toInt()),
-    durationProperty: Duration(microseconds: proto.durationProperty.toInt()),
+    dateProperty: proto.dateProperty.toDateTime(),
+    durationProperty: Duration(
+        seconds: proto.durationProperty.seconds.toInt(),
+        microseconds: (proto.durationProperty.nanos ~/ 1000).toInt()),
   );
 }
 
