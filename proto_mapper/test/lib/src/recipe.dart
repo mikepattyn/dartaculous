@@ -41,6 +41,9 @@ class Recipe {
   @ProtoField(15)
   final ApplianceType? secondaryApplianceType;
 
+  @ProtoField(18)
+  final List<ApplianceType> moreApplianceTypes;
+
   @ProtoField(16)
   final List<String> tags;
   @ProtoField(17)
@@ -63,5 +66,6 @@ class Recipe {
     this.secondaryApplianceType,
     this.extraTags,
     this.netWeight,
+    this.moreApplianceTypes = const [],
   });
 }

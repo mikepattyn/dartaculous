@@ -1,4 +1,5 @@
 import 'package:decimal/decimal.dart';
+import 'package:proto_generator_test/grpc/model.pb.dart';
 import 'package:proto_generator_test/proto_generator_test.dart';
 import 'package:proto_generator_test/src/appliance_type.dart';
 import 'package:proto_generator_test/src/component.dart';
@@ -189,6 +190,23 @@ void main() {
       expect(recipe2.mainApplianceType, recipe.mainApplianceType);
     });
 
+    test('applianceType list', () {
+      final recipe = _scrambledEggsRecipe(moreApplianceTypes: [
+        ApplianceType.cold,
+        ApplianceType.cutlery,
+      ]);
+
+      final proto = recipe.toProto();
+      final recipe2 = proto.toRecipe();
+
+      expect(proto.moreApplianceTypes.length, 2);
+      expect(
+          proto.moreApplianceTypes.first, GApplianceType.G_APPLIANCE_TYPE_COLD);
+      expect(proto.moreApplianceTypes.last,
+          GApplianceType.G_APPLIANCE_TYPE_CUTLERY);
+      expect(recipe2.moreApplianceTypes, recipe.moreApplianceTypes);
+    });
+
     test('null secondaryApplianceType', () {
       final recipe = _scrambledEggsRecipe(secondaryApplianceType: null);
 
@@ -206,6 +224,16 @@ void main() {
       final recipe2 = proto.toRecipe();
 
       expect(recipe2.secondaryApplianceType, ApplianceType.cold);
+    });
+
+    test('tags', () {
+      final recipe = _scrambledEggsRecipe();
+
+      final proto = recipe.toProto();
+      final recipe2 = proto.toRecipe();
+
+      expect(recipe2.tags.length, recipe.tags.length);
+      expect(recipe2.tags.last, recipe.tags.last);
     });
 
     test('tags', () {
@@ -269,6 +297,7 @@ Recipe _scrambledEggsRecipe({
   List<Component>? categorySecondaryComponents,
   ApplianceType? secondaryApplianceType,
   List<String>? extraTags,
+  List<ApplianceType> moreApplianceTypes = const [],
 }) =>
     Recipe(
       category: _eggsCategory(
@@ -305,4 +334,5 @@ Recipe _scrambledEggsRecipe({
       extraTags: extraTags,
       grossWeight: 195.65,
       netWeight: null,
+      moreApplianceTypes: moreApplianceTypes,
     );

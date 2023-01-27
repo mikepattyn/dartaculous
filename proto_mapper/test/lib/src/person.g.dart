@@ -31,7 +31,7 @@ GPerson _$PersonToProto(Person instance) {
   var proto = GPerson();
 
   if (instance.boolValue != null) {
-    proto.boolValue = BoolValue(value: instance.boolValue);
+    proto.boolValue = instance.boolValue!;
   }
 
   proto.decVal = instance.decVal.$toProtoBytes();
@@ -41,7 +41,7 @@ GPerson _$PersonToProto(Person instance) {
 
 Person _$PersonFromProto(GPerson proto) {
   return Person(
-    boolValue: (proto.boolValue.hasValue() ? proto.boolValue.value : null),
+    boolValue: (proto.hasBoolValue() ? proto.boolValue : null),
     decVal: $NullableDecimalProtoExtension.$fromProtoBytes(proto.decVal),
   );
 }

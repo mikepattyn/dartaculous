@@ -23,6 +23,7 @@ class Recipe {
 
   final ApplianceType mainApplianceType;
   final ApplianceType? secondaryApplianceType;
+  final List<ApplianceType> moreApplianceTypes;
 
   final List<String> tags;
   final List<String>? extraTags;
@@ -45,5 +46,6 @@ class Recipe {
     this.secondaryApplianceType,
     this.extraTags,
     this.secondaryCategoryKey,
+    this.moreApplianceTypes = const [],
   });
 }

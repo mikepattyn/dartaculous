@@ -40,11 +40,11 @@ GCalcParameters _$CalcParametersToProto(CalcParameters instance) {
   proto.parameter1 = instance.parameter1;
   proto.parameter2 = instance.parameter2;
   if (instance.parameter3 != null) {
-    proto.parameter3 = Int32Value(value: instance.parameter3);
+    proto.parameter3 = instance.parameter3!;
   }
 
   if (instance.parameter4 != null) {
-    proto.parameter4 = Int32Value(value: instance.parameter4);
+    proto.parameter4 = instance.parameter4!;
   }
 
   proto.parameter5 = instance.parameter5;
@@ -56,8 +56,8 @@ CalcParameters _$CalcParametersFromProto(GCalcParameters proto) {
   return CalcParameters(
     parameter1: proto.parameter1,
     parameter2: proto.parameter2,
-    parameter3: (proto.parameter3.hasValue() ? proto.parameter3.value : null),
-    parameter4: (proto.parameter4.hasValue() ? proto.parameter4.value : null),
+    parameter3: (proto.hasParameter3() ? proto.parameter3 : null),
+    parameter4: (proto.hasParameter4() ? proto.parameter4 : null),
     parameter5: proto.parameter5,
   );
 }

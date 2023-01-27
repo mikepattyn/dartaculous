@@ -10,7 +10,7 @@ test_standalone: .PHONY
 	echo "" > lib/gtypes.dart
 
 	dart run build_runner build --verbose  --delete-conflicting-outputs
-	protoc --dart_out=grpc:lib/grpc/ --experimental_allow_proto3_optional ./lib/proto/model.proto -Ilib/proto -I/usr/include /usr/include/google/protobuf/*.proto
+	protoc --dart_out=grpc:lib/grpc/ ./lib/proto/model.proto -Ilib/proto -I/usr/include /usr/include/google/protobuf/*.proto
 	dart test -r expanded
 
 test_wellknown: .PHONY
