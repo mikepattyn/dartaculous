@@ -1,7 +1,6 @@
 import 'package:proto_generator/src/common/proto_common.dart';
 
 import '../field_code_generator.dart';
-import '../field_descriptor.dart';
 
 class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
   EnumFieldCodeGenerator(super.fieldDescriptor);
@@ -17,11 +16,6 @@ class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
     final displayName =
         fieldElementType.getDisplayString(withNullability: false);
 
-    final messageSuffix =
-        fieldDescriptor.isNullable && !fieldDescriptor.isRepeated
-            ? '_Message'
-            : '';
-
-    return '$packagePrefix${fieldDescriptor.prefix}$displayName$messageSuffix';
+    return '$packagePrefix${fieldDescriptor.prefix}$displayName';
   }
 }

@@ -5,28 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dart_framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dart_framework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitbucket-pipelines.yml.available" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbsync/dbsync/lib/dbsync.dart" beforeDir="false" afterPath="$PROJECT_DIR$/dbsync/dbsync/lib/dbsync.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map_mapper/test/general/lib/src/recipe.dart" beforeDir="false" afterPath="$PROJECT_DIR$/map_mapper/test/general/lib/src/recipe.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/build.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/build.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/google/protobuf/api.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/google/protobuf/api.pb.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/google/protobuf/type.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/google/protobuf/type.pb.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto/enum_generator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto/enum_generator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto_mapper/composites/enum_field_code_generator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto_mapper/composites/enum_field_code_generator.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/model.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/model.pb.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/model.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/model.pbjson.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/gtypes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/gtypes.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/proto/model.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/proto/model.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/src/calc_parameters.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/src/calc_parameters.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/src/constructors_host.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/src/constructors_host.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/src/ingredient.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/src/ingredient.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/src/lists_host.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/src/lists_host.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/src/person.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/src/person.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/src/recipe.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/src/recipe.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/src/recipe.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/src/recipe.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/src/utensils.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/src/utensils.g.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proto_mapper/test/test/proto_generator_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/test/proto_generator_test.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +75,7 @@
       <recent name="$PROJECT_DIR$/map_mapper/mongo_mapper/lib/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Dart Test.Tests in proto_generator_test.dart">
+  <component name="RunManager" selected="Dart Test.null secondaryApplianceType in proto_generator_test.dart">
     <configuration name="calc_result.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/proto_mapper/test/lib/src/calc_result.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$/proto_mapper/test" />
@@ -101,11 +86,6 @@
       <option name="workingDirectory" value="$PROJECT_DIR$/entity/example" />
       <method v="2" />
     </configuration>
-    <configuration name="Tests in defaults_provider_generator_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/entity/test/test/defaults_provider_generator_test.dart" />
-      <option name="testName" value="defaults_provider_generator_test.dart" />
-      <method v="2" />
-    </configuration>
     <configuration name="Tests in proto_generator_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/proto_mapper/test/test/proto_generator_test.dart" />
       <option name="testName" value="proto_generator_test.dart" />
@@ -114,6 +94,12 @@
     <configuration name="Tests in proto_mapper/test" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/proto_mapper/test" />
       <option name="scope" value="FOLDER" />
+      <method v="2" />
+    </configuration>
+    <configuration name="null secondaryApplianceType in proto_generator_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/proto_mapper/test/test/proto_generator_test.dart" />
+      <option name="scope" value="GROUP_OR_TEST_BY_NAME" />
+      <option name="testName" value="null secondaryApplianceType" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -131,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Dart Test.null secondaryApplianceType in proto_generator_test.dart" />
         <item itemvalue="Dart Test.Tests in proto_generator_test.dart" />
         <item itemvalue="Dart Test.Tests in proto_mapper/test" />
         <item itemvalue="Dart Command Line App.calc_result.dart" />
         <item itemvalue="Dart Command Line App.main.dart" />
-        <item itemvalue="Dart Test.Tests in defaults_provider_generator_test.dart" />
       </list>
     </recent_temporary>
   </component>

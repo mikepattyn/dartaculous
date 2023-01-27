@@ -485,7 +485,7 @@ const GRecipe$json = const {
     const {'1': 'gross_weight', '3': 12, '4': 1, '5': 1, '9': 4, '10': 'grossWeight', '17': true},
     const {'1': 'net_weight', '3': 13, '4': 1, '5': 1, '9': 5, '10': 'netWeight', '17': true},
     const {'1': 'main_appliance_type', '3': 14, '4': 1, '5': 14, '6': '.com.company.project.GApplianceType', '10': 'mainApplianceType'},
-    const {'1': 'secondary_appliance_type', '3': 15, '4': 1, '5': 11, '6': '.com.company.project.GApplianceType_Message', '10': 'secondaryApplianceType'},
+    const {'1': 'secondary_appliance_type', '3': 15, '4': 1, '5': 14, '6': '.com.company.project.GApplianceType', '10': 'secondaryApplianceType'},
     const {'1': 'more_appliance_types', '3': 18, '4': 3, '5': 14, '6': '.com.company.project.GApplianceType', '10': 'moreApplianceTypes'},
     const {'1': 'tags', '3': 16, '4': 3, '5': 9, '10': 'tags'},
     const {'1': 'extra_tags', '3': 17, '4': 3, '5': 9, '10': 'extraTags'},
@@ -501,7 +501,7 @@ const GRecipe$json = const {
 };
 
 /// Descriptor for `GRecipe`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gRecipeDescriptor = $convert.base64Decode('CgdHUmVjaXBlEhQKBXRpdGxlGAIgASgJUgV0aXRsZRIlCgtkZXNjcmlwdGlvbhgDIAEoCUgAUgtkZXNjcmlwdGlvbogBARI6CghjYXRlZ29yeRgEIAEoCzIeLmNvbS5jb21wYW55LnByb2plY3QuR0NhdGVnb3J5UghjYXRlZ29yeRJCCgtpbmdyZWRpZW50cxgFIAMoCzIgLmNvbS5jb21wYW55LnByb2plY3QuR0luZ3JlZGllbnRSC2luZ3JlZGllbnRzEiEKDHB1Ymxpc2hfZGF0ZRgGIAEoA1ILcHVibGlzaERhdGUSJAoLZXhwaXJ5X2RhdGUYByABKANIAVIKZXhwaXJ5RGF0ZYgBARIxChRwcmVwYXJhdGlvbl9kdXJhdGlvbhgIIAEoA1ITcHJlcGFyYXRpb25EdXJhdGlvbhIqCg50b3RhbF9kdXJhdGlvbhgJIAEoA0gCUg10b3RhbER1cmF0aW9uiAEBEiEKDGlzX3B1Ymxpc2hlZBgKIAEoCFILaXNQdWJsaXNoZWQSKgoOcmVxdWlyZXNfcm9ib3QYCyABKAhIA1INcmVxdWlyZXNSb2JvdIgBARImCgxncm9zc193ZWlnaHQYDCABKAFIBFILZ3Jvc3NXZWlnaHSIAQESIgoKbmV0X3dlaWdodBgNIAEoAUgFUgluZXRXZWlnaHSIAQESUwoTbWFpbl9hcHBsaWFuY2VfdHlwZRgOIAEoDjIjLmNvbS5jb21wYW55LnByb2plY3QuR0FwcGxpYW5jZVR5cGVSEW1haW5BcHBsaWFuY2VUeXBlEmUKGHNlY29uZGFyeV9hcHBsaWFuY2VfdHlwZRgPIAEoCzIrLmNvbS5jb21wYW55LnByb2plY3QuR0FwcGxpYW5jZVR5cGVfTWVzc2FnZVIWc2Vjb25kYXJ5QXBwbGlhbmNlVHlwZRJVChRtb3JlX2FwcGxpYW5jZV90eXBlcxgSIAMoDjIjLmNvbS5jb21wYW55LnByb2plY3QuR0FwcGxpYW5jZVR5cGVSEm1vcmVBcHBsaWFuY2VUeXBlcxISCgR0YWdzGBAgAygJUgR0YWdzEh0KCmV4dHJhX3RhZ3MYESADKAlSCWV4dHJhVGFnc0IOCgxfZGVzY3JpcHRpb25CDgoMX2V4cGlyeV9kYXRlQhEKD190b3RhbF9kdXJhdGlvbkIRCg9fcmVxdWlyZXNfcm9ib3RCDwoNX2dyb3NzX3dlaWdodEINCgtfbmV0X3dlaWdodA==');
+final $typed_data.Uint8List gRecipeDescriptor = $convert.base64Decode('CgdHUmVjaXBlEhQKBXRpdGxlGAIgASgJUgV0aXRsZRIlCgtkZXNjcmlwdGlvbhgDIAEoCUgAUgtkZXNjcmlwdGlvbogBARI6CghjYXRlZ29yeRgEIAEoCzIeLmNvbS5jb21wYW55LnByb2plY3QuR0NhdGVnb3J5UghjYXRlZ29yeRJCCgtpbmdyZWRpZW50cxgFIAMoCzIgLmNvbS5jb21wYW55LnByb2plY3QuR0luZ3JlZGllbnRSC2luZ3JlZGllbnRzEiEKDHB1Ymxpc2hfZGF0ZRgGIAEoA1ILcHVibGlzaERhdGUSJAoLZXhwaXJ5X2RhdGUYByABKANIAVIKZXhwaXJ5RGF0ZYgBARIxChRwcmVwYXJhdGlvbl9kdXJhdGlvbhgIIAEoA1ITcHJlcGFyYXRpb25EdXJhdGlvbhIqCg50b3RhbF9kdXJhdGlvbhgJIAEoA0gCUg10b3RhbER1cmF0aW9uiAEBEiEKDGlzX3B1Ymxpc2hlZBgKIAEoCFILaXNQdWJsaXNoZWQSKgoOcmVxdWlyZXNfcm9ib3QYCyABKAhIA1INcmVxdWlyZXNSb2JvdIgBARImCgxncm9zc193ZWlnaHQYDCABKAFIBFILZ3Jvc3NXZWlnaHSIAQESIgoKbmV0X3dlaWdodBgNIAEoAUgFUgluZXRXZWlnaHSIAQESUwoTbWFpbl9hcHBsaWFuY2VfdHlwZRgOIAEoDjIjLmNvbS5jb21wYW55LnByb2plY3QuR0FwcGxpYW5jZVR5cGVSEW1haW5BcHBsaWFuY2VUeXBlEl0KGHNlY29uZGFyeV9hcHBsaWFuY2VfdHlwZRgPIAEoDjIjLmNvbS5jb21wYW55LnByb2plY3QuR0FwcGxpYW5jZVR5cGVSFnNlY29uZGFyeUFwcGxpYW5jZVR5cGUSVQoUbW9yZV9hcHBsaWFuY2VfdHlwZXMYEiADKA4yIy5jb20uY29tcGFueS5wcm9qZWN0LkdBcHBsaWFuY2VUeXBlUhJtb3JlQXBwbGlhbmNlVHlwZXMSEgoEdGFncxgQIAMoCVIEdGFncxIdCgpleHRyYV90YWdzGBEgAygJUglleHRyYVRhZ3NCDgoMX2Rlc2NyaXB0aW9uQg4KDF9leHBpcnlfZGF0ZUIRCg9fdG90YWxfZHVyYXRpb25CEQoPX3JlcXVpcmVzX3JvYm90Qg8KDV9ncm9zc193ZWlnaHRCDQoLX25ldF93ZWlnaHQ=');
 @$core.Deprecated('Use gStarshipDescriptor instead')
 const GStarship$json = const {
   '1': 'GStarship',
@@ -792,43 +792,3 @@ const GPrecisionSubject$json = const {
 
 /// Descriptor for `GPrecisionSubject`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gPrecisionSubjectDescriptor = $convert.base64Decode('ChFHUHJlY2lzaW9uU3ViamVjdBIjCg1kYXRlX3Byb3BlcnR5GAIgASgDUgxkYXRlUHJvcGVydHkSKwoRZHVyYXRpb25fcHJvcGVydHkYAyABKANSEGR1cmF0aW9uUHJvcGVydHk=');
-@$core.Deprecated('Use gApplianceType_MessageDescriptor instead')
-const GApplianceType_Message$json = const {
-  '1': 'GApplianceType_Message',
-  '2': const [
-    const {'1': 'value', '3': 1, '4': 1, '5': 14, '6': '.com.company.project.GApplianceType', '10': 'value'},
-  ],
-};
-
-/// Descriptor for `GApplianceType_Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gApplianceType_MessageDescriptor = $convert.base64Decode('ChZHQXBwbGlhbmNlVHlwZV9NZXNzYWdlEjkKBXZhbHVlGAEgASgOMiMuY29tLmNvbXBhbnkucHJvamVjdC5HQXBwbGlhbmNlVHlwZVIFdmFsdWU=');
-@$core.Deprecated('Use gRecipeTypes_MessageDescriptor instead')
-const GRecipeTypes_Message$json = const {
-  '1': 'GRecipeTypes_Message',
-  '2': const [
-    const {'1': 'value', '3': 1, '4': 1, '5': 14, '6': '.com.company.project.GRecipeTypes', '10': 'value'},
-  ],
-};
-
-/// Descriptor for `GRecipeTypes_Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gRecipeTypes_MessageDescriptor = $convert.base64Decode('ChRHUmVjaXBlVHlwZXNfTWVzc2FnZRI3CgV2YWx1ZRgBIAEoDjIhLmNvbS5jb21wYW55LnByb2plY3QuR1JlY2lwZVR5cGVzUgV2YWx1ZQ==');
-@$core.Deprecated('Use gKnifeType_MessageDescriptor instead')
-const GKnifeType_Message$json = const {
-  '1': 'GKnifeType_Message',
-  '2': const [
-    const {'1': 'value', '3': 1, '4': 1, '5': 14, '6': '.com.company.project.GKnifeType', '10': 'value'},
-  ],
-};
-
-/// Descriptor for `GKnifeType_Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gKnifeType_MessageDescriptor = $convert.base64Decode('ChJHS25pZmVUeXBlX01lc3NhZ2USNQoFdmFsdWUYASABKA4yHy5jb20uY29tcGFueS5wcm9qZWN0LkdLbmlmZVR5cGVSBXZhbHVl');
-@$core.Deprecated('Use gChefType_MessageDescriptor instead')
-const GChefType_Message$json = const {
-  '1': 'GChefType_Message',
-  '2': const [
-    const {'1': 'value', '3': 1, '4': 1, '5': 14, '6': '.com.company.project.GChefType', '10': 'value'},
-  ],
-};
-
-/// Descriptor for `GChefType_Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gChefType_MessageDescriptor = $convert.base64Decode('ChFHQ2hlZlR5cGVfTWVzc2FnZRI0CgV2YWx1ZRgBIAEoDjIeLmNvbS5jb21wYW55LnByb2plY3QuR0NoZWZUeXBlUgV2YWx1ZQ==');

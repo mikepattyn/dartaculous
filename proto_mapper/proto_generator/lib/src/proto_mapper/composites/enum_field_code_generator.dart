@@ -20,7 +20,7 @@ class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
   @override
   String get fromProtoNullableExpression {
     return '''(${protoRef}has${protoFieldName.pascalName}()
-          ? (${fieldDescriptor.fieldElementTypeName}.values[$protoRef$fieldName.value.value])
+          ? (${fieldDescriptor.fieldElementTypeName}.values[$protoRef$fieldName.value])
           : null)''';
   }
 
@@ -28,7 +28,7 @@ class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
   String get toProtoMap => fieldDescriptor.isNullable
       ? '''
         if ($ref$fieldName != null) {
-          $protoRef$protoFieldName = $_prefix${fieldDescriptor.fieldElementTypeName}_Message(value: $toProtoNullableExpression); 
+          $protoRef$protoFieldName = $toProtoNullableExpression; 
         }
       '''
       : '$protoRef$protoFieldName = $toProtoExpression;';

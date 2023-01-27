@@ -216,7 +216,7 @@ void main() {
       expect(recipe2.secondaryApplianceType, null);
     });
 
-    test('null secondaryApplianceType', () {
+    test('not null secondaryApplianceType', () {
       final recipe =
           _scrambledEggsRecipe(secondaryApplianceType: ApplianceType.cold);
 

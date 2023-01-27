@@ -29,14 +29,8 @@ class EnumGenerator {
     }
     var className = interfaceElement.name;
     var ret = '''
-        
 enum $prefix$className {
 $fieldBuffer}   
-
-message $prefix${className}_Message {
-  $prefix$className value = 1;
-}
-     
 ''';
 
     return ret;

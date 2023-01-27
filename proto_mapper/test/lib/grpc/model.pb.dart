@@ -2321,7 +2321,7 @@ class GRecipe extends $pb.GeneratedMessage {
     ..a<$core.double>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grossWeight', $pb.PbFieldType.OD)
     ..a<$core.double>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'netWeight', $pb.PbFieldType.OD)
     ..e<GApplianceType>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mainApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
-    ..aOM<GApplianceType_Message>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondaryApplianceType', subBuilder: GApplianceType_Message.create)
+    ..e<GApplianceType>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondaryApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
     ..pPS(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags')
     ..pPS(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'extraTags')
     ..pc<GApplianceType>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'moreApplianceTypes', $pb.PbFieldType.KE, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values, defaultEnumValue: GApplianceType.G_APPLIANCE_TYPE_HEAT)
@@ -2343,7 +2343,7 @@ class GRecipe extends $pb.GeneratedMessage {
     $core.double? grossWeight,
     $core.double? netWeight,
     GApplianceType? mainApplianceType,
-    GApplianceType_Message? secondaryApplianceType,
+    GApplianceType? secondaryApplianceType,
     $core.Iterable<$core.String>? tags,
     $core.Iterable<$core.String>? extraTags,
     $core.Iterable<GApplianceType>? moreApplianceTypes,
@@ -2537,15 +2537,13 @@ class GRecipe extends $pb.GeneratedMessage {
   void clearMainApplianceType() => clearField(14);
 
   @$pb.TagNumber(15)
-  GApplianceType_Message get secondaryApplianceType => $_getN(13);
+  GApplianceType get secondaryApplianceType => $_getN(13);
   @$pb.TagNumber(15)
-  set secondaryApplianceType(GApplianceType_Message v) { setField(15, v); }
+  set secondaryApplianceType(GApplianceType v) { setField(15, v); }
   @$pb.TagNumber(15)
   $core.bool hasSecondaryApplianceType() => $_has(13);
   @$pb.TagNumber(15)
   void clearSecondaryApplianceType() => clearField(15);
-  @$pb.TagNumber(15)
-  GApplianceType_Message ensureSecondaryApplianceType() => $_ensure(13);
 
   @$pb.TagNumber(16)
   $core.List<$core.String> get tags => $_getList(14);
@@ -3957,193 +3955,5 @@ class GPrecisionSubject extends $pb.GeneratedMessage {
   $core.bool hasDurationProperty() => $_has(1);
   @$pb.TagNumber(3)
   void clearDurationProperty() => clearField(3);
-}
-
-class GApplianceType_Message extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GApplianceType_Message', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..e<GApplianceType>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
-    ..hasRequiredFields = false
-  ;
-
-  GApplianceType_Message._() : super();
-  factory GApplianceType_Message({
-    GApplianceType? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory GApplianceType_Message.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GApplianceType_Message.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GApplianceType_Message clone() => GApplianceType_Message()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GApplianceType_Message copyWith(void Function(GApplianceType_Message) updates) => super.copyWith((message) => updates(message as GApplianceType_Message)) as GApplianceType_Message; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GApplianceType_Message create() => GApplianceType_Message._();
-  GApplianceType_Message createEmptyInstance() => create();
-  static $pb.PbList<GApplianceType_Message> createRepeated() => $pb.PbList<GApplianceType_Message>();
-  @$core.pragma('dart2js:noInline')
-  static GApplianceType_Message getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GApplianceType_Message>(create);
-  static GApplianceType_Message? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  GApplianceType get value => $_getN(0);
-  @$pb.TagNumber(1)
-  set value(GApplianceType v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-}
-
-class GRecipeTypes_Message extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GRecipeTypes_Message', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..e<GRecipeTypes>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GRecipeTypes.G_RECIPE_TYPES_COOK, valueOf: GRecipeTypes.valueOf, enumValues: GRecipeTypes.values)
-    ..hasRequiredFields = false
-  ;
-
-  GRecipeTypes_Message._() : super();
-  factory GRecipeTypes_Message({
-    GRecipeTypes? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory GRecipeTypes_Message.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GRecipeTypes_Message.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GRecipeTypes_Message clone() => GRecipeTypes_Message()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GRecipeTypes_Message copyWith(void Function(GRecipeTypes_Message) updates) => super.copyWith((message) => updates(message as GRecipeTypes_Message)) as GRecipeTypes_Message; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GRecipeTypes_Message create() => GRecipeTypes_Message._();
-  GRecipeTypes_Message createEmptyInstance() => create();
-  static $pb.PbList<GRecipeTypes_Message> createRepeated() => $pb.PbList<GRecipeTypes_Message>();
-  @$core.pragma('dart2js:noInline')
-  static GRecipeTypes_Message getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GRecipeTypes_Message>(create);
-  static GRecipeTypes_Message? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  GRecipeTypes get value => $_getN(0);
-  @$pb.TagNumber(1)
-  set value(GRecipeTypes v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-}
-
-class GKnifeType_Message extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GKnifeType_Message', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..e<GKnifeType>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GKnifeType.G_KNIFE_TYPE_CHEFS_KNIFE, valueOf: GKnifeType.valueOf, enumValues: GKnifeType.values)
-    ..hasRequiredFields = false
-  ;
-
-  GKnifeType_Message._() : super();
-  factory GKnifeType_Message({
-    GKnifeType? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory GKnifeType_Message.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GKnifeType_Message.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GKnifeType_Message clone() => GKnifeType_Message()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GKnifeType_Message copyWith(void Function(GKnifeType_Message) updates) => super.copyWith((message) => updates(message as GKnifeType_Message)) as GKnifeType_Message; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GKnifeType_Message create() => GKnifeType_Message._();
-  GKnifeType_Message createEmptyInstance() => create();
-  static $pb.PbList<GKnifeType_Message> createRepeated() => $pb.PbList<GKnifeType_Message>();
-  @$core.pragma('dart2js:noInline')
-  static GKnifeType_Message getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GKnifeType_Message>(create);
-  static GKnifeType_Message? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  GKnifeType get value => $_getN(0);
-  @$pb.TagNumber(1)
-  set value(GKnifeType v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-}
-
-class GChefType_Message extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GChefType_Message', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..e<GChefType>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OE, defaultOrMaker: GChefType.G_CHEF_TYPE_SENIOR_CHEF, valueOf: GChefType.valueOf, enumValues: GChefType.values)
-    ..hasRequiredFields = false
-  ;
-
-  GChefType_Message._() : super();
-  factory GChefType_Message({
-    GChefType? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory GChefType_Message.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GChefType_Message.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GChefType_Message clone() => GChefType_Message()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GChefType_Message copyWith(void Function(GChefType_Message) updates) => super.copyWith((message) => updates(message as GChefType_Message)) as GChefType_Message; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GChefType_Message create() => GChefType_Message._();
-  GChefType_Message createEmptyInstance() => create();
-  static $pb.PbList<GChefType_Message> createRepeated() => $pb.PbList<GChefType_Message>();
-  @$core.pragma('dart2js:noInline')
-  static GChefType_Message getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GChefType_Message>(create);
-  static GChefType_Message? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  GChefType get value => $_getN(0);
-  @$pb.TagNumber(1)
-  set value(GChefType v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
 }
 

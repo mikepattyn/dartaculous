@@ -66,8 +66,8 @@ GRecipe _$RecipeToProto(Recipe instance) {
   proto.mainApplianceType =
       GApplianceType.valueOf(instance.mainApplianceType.index)!;
   if (instance.secondaryApplianceType != null) {
-    proto.secondaryApplianceType = GApplianceType_Message(
-        value: GApplianceType.valueOf(instance.secondaryApplianceType!.index)!);
+    proto.secondaryApplianceType =
+        GApplianceType.valueOf(instance.secondaryApplianceType!.index)!;
   }
 
   proto.moreApplianceTypes.addAll(instance.moreApplianceTypes
@@ -102,7 +102,7 @@ Recipe _$RecipeFromProto(GRecipe proto) {
         : null),
     requiresRobot: (proto.hasRequiresRobot() ? proto.requiresRobot : null),
     secondaryApplianceType: (proto.hasSecondaryApplianceType()
-        ? (ApplianceType.values[proto.secondaryApplianceType.value.value])
+        ? (ApplianceType.values[proto.secondaryApplianceType.value])
         : null),
     extraTags: List<String>.unmodifiable(proto.extraTags.map((e) => e)),
     netWeight: (proto.hasNetWeight() ? proto.netWeight : null),
