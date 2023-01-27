@@ -1,3 +1,7 @@
+## 4.0.0-dev.11
+
+ - **FIX**: Fixed Dart analyzer warnings from proto_generator.
+
 ## 4.0.0-dev.10
 
 > Note: This release has breaking changes.
