@@ -1,3 +1,7 @@
+## 4.0.0-dev.9
+
+ - **FIX**: Fixed unconventional name mapping for classes and enums.
+
 ## 4.0.0-dev.8
 
 > Note: This release has breaking changes.
