@@ -1,3 +1,10 @@
+## 4.0.0-dev.8
+
+> Note: This release has breaking changes.
+
+ - **FIX**: Proto field reference always camel case.
+ - **BREAKING** **FEAT**: Enum nulls no longer represented by _message.
+
 ## 4.0.0-dev.7
 
  - **FIX**: Adding generated code warning to generated model.proto.
