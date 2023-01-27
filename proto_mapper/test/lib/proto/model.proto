@@ -421,8 +421,6 @@ message GRecipe
   repeated string tags = 16;
   repeated string extra_tags = 17;
   repeated GApplianceType more_appliance_types = 18;
-  string UnconventionalName = 19;
-  optional string NUnconventionalName = 20;
 
 }   
 
@@ -658,6 +656,26 @@ message GPrecisionSubject
 
   int64 date_property = 2;
   int64 duration_property = 3;
+
+}   
+
+
+
+  
+message GAltNaming
+{
+
+  string UnconventionalName = 19;
+  optional string NUnconventionalName = 20;
+  GApplianceType UnconventionalEnumName = 21;
+  GApplianceType NUnconventionalEnumName = 22;
+  GEmpty UnconventionalCategory = 23;
+  GEmpty NUnconventionalCategory = 24;
+  repeated GIngredient UnconventionalList = 25;
+  int64 UnconventionalDateTime = 26;
+  optional int64 NUnconventionalDateTime = 27;
+  int64 UnconventionalDuration = 28;
+  optional int64 NUnconventionalDuration = 29;
 
 }   
 

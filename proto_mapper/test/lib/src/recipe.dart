@@ -49,12 +49,6 @@ class Recipe {
   @ProtoField(18)
   final List<ApplianceType> moreApplianceTypes;
 
-  @ProtoField(19, name: 'UnconventionalName')
-  final String unconventionalName;
-
-  @ProtoField(20, name: 'NUnconventionalName')
-  final String? nUnconventionalName;
-
   Recipe({
     required this.title,
     required this.category,
@@ -73,7 +67,5 @@ class Recipe {
     this.extraTags,
     this.netWeight,
     this.moreApplianceTypes = const [],
-    this.unconventionalName = '',
-    this.nUnconventionalName,
   });
 }

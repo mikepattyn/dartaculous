@@ -1,5 +1,6 @@
 import 'package:proto_annotations/config.dart';
 import 'package:proto_annotations/proto_annotations.dart';
+import 'package:recase/recase.dart';
 
 import 'composites/entity_field_code_generator.dart';
 // import 'composites/generic_field_code_generator.dart';
@@ -58,7 +59,7 @@ abstract class CompositeFieldCodeGenerator implements FieldCodeGenerator {
   String get fromProtoNullableExpression;
 
   String get fieldName => fieldDescriptor.displayName;
-  String get protoFieldName => fieldDescriptor.protoFieldName;
+  String get protoFieldName => fieldDescriptor.protoFieldName.camelCase;
 
   static bool isComposite(FieldDescriptor fieldDescriptor) {
     return fieldDescriptor.fieldElementType.isDartCoreSet ||

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/Makefile" afterDir="false" />
-    </list>
+    <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
