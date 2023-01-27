@@ -1,3 +1,9 @@
+## 3.0.0-dev.2
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: useWellKnownTypes split into useWellKnownWrappers, useWellKnownDuration and useWellKnownTimestamp.
+
 ## 3.0.0-dev.1
 
  - **FEAT**: removed dependecy from squarealfa_common_types.

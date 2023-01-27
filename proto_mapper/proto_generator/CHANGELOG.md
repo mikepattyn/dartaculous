@@ -1,3 +1,9 @@
+## 4.0.0-dev.10
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: useWellKnownTypes split into useWellKnownWrappers, useWellKnownDuration and useWellKnownTimestamp.
+
 ## 4.0.0-dev.9
 
  - **FIX**: Fixed unconventional name mapping for classes and enums.
