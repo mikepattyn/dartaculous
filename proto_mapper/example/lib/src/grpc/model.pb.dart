@@ -10,146 +10,6 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class GAirplane extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAirplane', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.mycompany.myproject'), createEmptyInstance: create)
-    ..aOM<GFieldsOfVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfVehicle.create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'registration')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serviceCeiling', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  GAirplane._() : super();
-  factory GAirplane({
-    GFieldsOfVehicle? fieldsOfSuperClass,
-    $core.String? registration,
-    $core.int? serviceCeiling,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    if (registration != null) {
-      _result.registration = registration;
-    }
-    if (serviceCeiling != null) {
-      _result.serviceCeiling = serviceCeiling;
-    }
-    return _result;
-  }
-  factory GAirplane.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GAirplane.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GAirplane clone() => GAirplane()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GAirplane copyWith(void Function(GAirplane) updates) => super.copyWith((message) => updates(message as GAirplane)) as GAirplane; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GAirplane create() => GAirplane._();
-  GAirplane createEmptyInstance() => create();
-  static $pb.PbList<GAirplane> createRepeated() => $pb.PbList<GAirplane>();
-  @$core.pragma('dart2js:noInline')
-  static GAirplane getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GAirplane>(create);
-  static GAirplane? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  GFieldsOfVehicle get fieldsOfSuperClass => $_getN(0);
-  @$pb.TagNumber(1)
-  set fieldsOfSuperClass(GFieldsOfVehicle v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasFieldsOfSuperClass() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearFieldsOfSuperClass() => clearField(1);
-  @$pb.TagNumber(1)
-  GFieldsOfVehicle ensureFieldsOfSuperClass() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  $core.String get registration => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set registration($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasRegistration() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearRegistration() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.int get serviceCeiling => $_getIZ(2);
-  @$pb.TagNumber(3)
-  set serviceCeiling($core.int v) { $_setSignedInt32(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasServiceCeiling() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearServiceCeiling() => clearField(3);
-}
-
-class GCar extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GCar', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.mycompany.myproject'), createEmptyInstance: create)
-    ..aOM<GFieldsOfVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfVehicle.create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfDoors', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  GCar._() : super();
-  factory GCar({
-    GFieldsOfVehicle? fieldsOfSuperClass,
-    $core.int? numberOfDoors,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    if (numberOfDoors != null) {
-      _result.numberOfDoors = numberOfDoors;
-    }
-    return _result;
-  }
-  factory GCar.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GCar.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GCar clone() => GCar()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GCar copyWith(void Function(GCar) updates) => super.copyWith((message) => updates(message as GCar)) as GCar; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GCar create() => GCar._();
-  GCar createEmptyInstance() => create();
-  static $pb.PbList<GCar> createRepeated() => $pb.PbList<GCar>();
-  @$core.pragma('dart2js:noInline')
-  static GCar getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GCar>(create);
-  static GCar? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  GFieldsOfVehicle get fieldsOfSuperClass => $_getN(0);
-  @$pb.TagNumber(1)
-  set fieldsOfSuperClass(GFieldsOfVehicle v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasFieldsOfSuperClass() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearFieldsOfSuperClass() => clearField(1);
-  @$pb.TagNumber(1)
-  GFieldsOfVehicle ensureFieldsOfSuperClass() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  $core.int get numberOfDoors => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set numberOfDoors($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasNumberOfDoors() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearNumberOfDoors() => clearField(2);
-}
-
 class GIngredient extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GIngredient', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.mycompany.myproject'), createEmptyInstance: create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
@@ -465,5 +325,145 @@ class GVehicle extends $pb.GeneratedMessage {
   void clearAirplane() => clearField(3);
   @$pb.TagNumber(3)
   GAirplane ensureAirplane() => $_ensure(2);
+}
+
+class GAirplane extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAirplane', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.mycompany.myproject'), createEmptyInstance: create)
+    ..aOM<GFieldsOfVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfVehicle.create)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'registration')
+    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serviceCeiling', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  GAirplane._() : super();
+  factory GAirplane({
+    GFieldsOfVehicle? fieldsOfSuperClass,
+    $core.String? registration,
+    $core.int? serviceCeiling,
+  }) {
+    final _result = create();
+    if (fieldsOfSuperClass != null) {
+      _result.fieldsOfSuperClass = fieldsOfSuperClass;
+    }
+    if (registration != null) {
+      _result.registration = registration;
+    }
+    if (serviceCeiling != null) {
+      _result.serviceCeiling = serviceCeiling;
+    }
+    return _result;
+  }
+  factory GAirplane.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GAirplane.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GAirplane clone() => GAirplane()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GAirplane copyWith(void Function(GAirplane) updates) => super.copyWith((message) => updates(message as GAirplane)) as GAirplane; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GAirplane create() => GAirplane._();
+  GAirplane createEmptyInstance() => create();
+  static $pb.PbList<GAirplane> createRepeated() => $pb.PbList<GAirplane>();
+  @$core.pragma('dart2js:noInline')
+  static GAirplane getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GAirplane>(create);
+  static GAirplane? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  GFieldsOfVehicle get fieldsOfSuperClass => $_getN(0);
+  @$pb.TagNumber(1)
+  set fieldsOfSuperClass(GFieldsOfVehicle v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasFieldsOfSuperClass() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearFieldsOfSuperClass() => clearField(1);
+  @$pb.TagNumber(1)
+  GFieldsOfVehicle ensureFieldsOfSuperClass() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get registration => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set registration($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRegistration() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRegistration() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get serviceCeiling => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set serviceCeiling($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasServiceCeiling() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearServiceCeiling() => clearField(3);
+}
+
+class GCar extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GCar', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.mycompany.myproject'), createEmptyInstance: create)
+    ..aOM<GFieldsOfVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfVehicle.create)
+    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfDoors', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  GCar._() : super();
+  factory GCar({
+    GFieldsOfVehicle? fieldsOfSuperClass,
+    $core.int? numberOfDoors,
+  }) {
+    final _result = create();
+    if (fieldsOfSuperClass != null) {
+      _result.fieldsOfSuperClass = fieldsOfSuperClass;
+    }
+    if (numberOfDoors != null) {
+      _result.numberOfDoors = numberOfDoors;
+    }
+    return _result;
+  }
+  factory GCar.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GCar.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GCar clone() => GCar()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GCar copyWith(void Function(GCar) updates) => super.copyWith((message) => updates(message as GCar)) as GCar; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GCar create() => GCar._();
+  GCar createEmptyInstance() => create();
+  static $pb.PbList<GCar> createRepeated() => $pb.PbList<GCar>();
+  @$core.pragma('dart2js:noInline')
+  static GCar getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GCar>(create);
+  static GCar? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  GFieldsOfVehicle get fieldsOfSuperClass => $_getN(0);
+  @$pb.TagNumber(1)
+  set fieldsOfSuperClass(GFieldsOfVehicle v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasFieldsOfSuperClass() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearFieldsOfSuperClass() => clearField(1);
+  @$pb.TagNumber(1)
+  GFieldsOfVehicle ensureFieldsOfSuperClass() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.int get numberOfDoors => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set numberOfDoors($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasNumberOfDoors() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearNumberOfDoors() => clearField(2);
 }
 

@@ -4,7 +4,9 @@ targets:
     builders:
       proto_generator:protoBuilder:
         options:
-          useWellKnownTypes: true
+          useWellKnownWrappers: true
+          useWellKnownDuration: true
+          useWellKnownTimestamp: true
           useProtoFieldNamingConventions: true
           packageName: com.company.project
           wellKnownDurationType: GDuration

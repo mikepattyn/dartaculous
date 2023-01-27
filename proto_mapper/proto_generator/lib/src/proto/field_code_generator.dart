@@ -37,7 +37,7 @@ abstract class FieldCodeGenerator {
     final typeName =
         fieldDescriptor.itemType.getDisplayString(withNullability: false);
 
-    if (config.useWellKnownTypes) {
+    if (config.useWellKnownWrappers) {
       if (type.isDartCoreString) {
         return GStringFieldCodeGenerator(fieldDescriptor);
       }
@@ -50,12 +50,12 @@ abstract class FieldCodeGenerator {
       if (type.isDartCoreDouble) {
         return GDoubleFieldCodeGenerator(fieldDescriptor);
       }
-      if (typeName == (DateTime).toString()) {
-        return GDateTimeFieldCodeGenerator(fieldDescriptor);
-      }
-      if (typeName == (Duration).toString()) {
-        return GDurationFieldCodeGenerator(fieldDescriptor);
-      }
+    }
+    if (config.useWellKnownTimestamp && typeName == (DateTime).toString()) {
+      return GDateTimeFieldCodeGenerator(fieldDescriptor);
+    }
+    if (config.useWellKnownDuration && typeName == (Duration).toString()) {
+      return GDurationFieldCodeGenerator(fieldDescriptor);
     }
 
     if (type.isDartCoreString) {

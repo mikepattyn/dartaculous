@@ -8,29 +8,6 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-@$core.Deprecated('Use gAirplaneDescriptor instead')
-const GAirplane$json = const {
-  '1': 'GAirplane',
-  '2': const [
-    const {'1': 'fieldsOfSuperClass', '3': 1, '4': 1, '5': 11, '6': '.com.mycompany.myproject.GFieldsOfVehicle', '10': 'fieldsOfSuperClass'},
-    const {'1': 'registration', '3': 2, '4': 1, '5': 9, '10': 'registration'},
-    const {'1': 'service_ceiling', '3': 3, '4': 1, '5': 5, '10': 'serviceCeiling'},
-  ],
-};
-
-/// Descriptor for `GAirplane`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gAirplaneDescriptor = $convert.base64Decode('CglHQWlycGxhbmUSWQoSZmllbGRzT2ZTdXBlckNsYXNzGAEgASgLMikuY29tLm15Y29tcGFueS5teXByb2plY3QuR0ZpZWxkc09mVmVoaWNsZVISZmllbGRzT2ZTdXBlckNsYXNzEiIKDHJlZ2lzdHJhdGlvbhgCIAEoCVIMcmVnaXN0cmF0aW9uEicKD3NlcnZpY2VfY2VpbGluZxgDIAEoBVIOc2VydmljZUNlaWxpbmc=');
-@$core.Deprecated('Use gCarDescriptor instead')
-const GCar$json = const {
-  '1': 'GCar',
-  '2': const [
-    const {'1': 'fieldsOfSuperClass', '3': 1, '4': 1, '5': 11, '6': '.com.mycompany.myproject.GFieldsOfVehicle', '10': 'fieldsOfSuperClass'},
-    const {'1': 'number_of_doors', '3': 2, '4': 1, '5': 5, '10': 'numberOfDoors'},
-  ],
-};
-
-/// Descriptor for `GCar`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List gCarDescriptor = $convert.base64Decode('CgRHQ2FyElkKEmZpZWxkc09mU3VwZXJDbGFzcxgBIAEoCzIpLmNvbS5teWNvbXBhbnkubXlwcm9qZWN0LkdGaWVsZHNPZlZlaGljbGVSEmZpZWxkc09mU3VwZXJDbGFzcxImCg9udW1iZXJfb2ZfZG9vcnMYAiABKAVSDW51bWJlck9mRG9vcnM=');
 @$core.Deprecated('Use gIngredientDescriptor instead')
 const GIngredient$json = const {
   '1': 'GIngredient',
@@ -85,3 +62,26 @@ const GVehicle$json = const {
 
 /// Descriptor for `GVehicle`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List gVehicleDescriptor = $convert.base64Decode('CghHVmVoaWNsZRJFCgd2ZWhpY2xlGAEgASgLMikuY29tLm15Y29tcGFueS5teXByb2plY3QuR0ZpZWxkc09mVmVoaWNsZUgAUgd2ZWhpY2xlEjEKA2NhchgCIAEoCzIdLmNvbS5teWNvbXBhbnkubXlwcm9qZWN0LkdDYXJIAFIDY2FyEkAKCGFpcnBsYW5lGAMgASgLMiIuY29tLm15Y29tcGFueS5teXByb2plY3QuR0FpcnBsYW5lSABSCGFpcnBsYW5lQgcKBXByb3Bz');
+@$core.Deprecated('Use gAirplaneDescriptor instead')
+const GAirplane$json = const {
+  '1': 'GAirplane',
+  '2': const [
+    const {'1': 'fieldsOfSuperClass', '3': 1, '4': 1, '5': 11, '6': '.com.mycompany.myproject.GFieldsOfVehicle', '10': 'fieldsOfSuperClass'},
+    const {'1': 'registration', '3': 2, '4': 1, '5': 9, '10': 'registration'},
+    const {'1': 'service_ceiling', '3': 3, '4': 1, '5': 5, '10': 'serviceCeiling'},
+  ],
+};
+
+/// Descriptor for `GAirplane`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gAirplaneDescriptor = $convert.base64Decode('CglHQWlycGxhbmUSWQoSZmllbGRzT2ZTdXBlckNsYXNzGAEgASgLMikuY29tLm15Y29tcGFueS5teXByb2plY3QuR0ZpZWxkc09mVmVoaWNsZVISZmllbGRzT2ZTdXBlckNsYXNzEiIKDHJlZ2lzdHJhdGlvbhgCIAEoCVIMcmVnaXN0cmF0aW9uEicKD3NlcnZpY2VfY2VpbGluZxgDIAEoBVIOc2VydmljZUNlaWxpbmc=');
+@$core.Deprecated('Use gCarDescriptor instead')
+const GCar$json = const {
+  '1': 'GCar',
+  '2': const [
+    const {'1': 'fieldsOfSuperClass', '3': 1, '4': 1, '5': 11, '6': '.com.mycompany.myproject.GFieldsOfVehicle', '10': 'fieldsOfSuperClass'},
+    const {'1': 'number_of_doors', '3': 2, '4': 1, '5': 5, '10': 'numberOfDoors'},
+  ],
+};
+
+/// Descriptor for `GCar`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gCarDescriptor = $convert.base64Decode('CgRHQ2FyElkKEmZpZWxkc09mU3VwZXJDbGFzcxgBIAEoCzIpLmNvbS5teWNvbXBhbnkubXlwcm9qZWN0LkdGaWVsZHNPZlZlaGljbGVSEmZpZWxkc09mU3VwZXJDbGFzcxImCg9udW1iZXJfb2ZfZG9vcnMYAiABKAVSDW51bWJlck9mRG9vcnM=');

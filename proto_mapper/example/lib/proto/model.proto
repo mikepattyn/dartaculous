@@ -6,19 +6,6 @@ package com.mycompany.myproject;
 
 option go_package = "./stubs";
 
-message GAirplane {
-  GFieldsOfVehicle fieldsOfSuperClass = 1;
-
-  string registration = 2;
-  int32 service_ceiling = 3;
-}
-
-message GCar {
-  GFieldsOfVehicle fieldsOfSuperClass = 1;
-
-  int32 number_of_doors = 2;
-}
-
 message GIngredient {
 
   string description = 2;
@@ -44,4 +31,17 @@ message GVehicle {
     GCar car = 2;
     GAirplane airplane = 3;
   }
+}
+
+message GAirplane {
+  GFieldsOfVehicle fieldsOfSuperClass = 1;
+
+  string registration = 2;
+  int32 service_ceiling = 3;
+}
+
+message GCar {
+  GFieldsOfVehicle fieldsOfSuperClass = 1;
+
+  int32 number_of_doors = 2;
 }

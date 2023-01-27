@@ -13,7 +13,9 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
         $checkKeys(
           json,
           allowedKeys: const [
-            'useWellKnownTypes',
+            'useWellKnownWrappers',
+            'useWellKnownTimestamp',
+            'useWellKnownDuration',
             'useProtoFieldNamingConventions',
             'packageName',
             'options',
@@ -24,8 +26,12 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
           ],
         );
         final val = Config(
-          useWellKnownTypes:
-              $checkedConvert('useWellKnownTypes', (v) => v as bool? ?? false),
+          useWellKnownWrappers: $checkedConvert(
+              'useWellKnownWrappers', (v) => v as bool? ?? false),
+          useWellKnownDuration: $checkedConvert(
+              'useWellKnownDuration', (v) => v as bool? ?? false),
+          useWellKnownTimestamp: $checkedConvert(
+              'useWellKnownTimestamp', (v) => v as bool? ?? false),
           useProtoFieldNamingConventions: $checkedConvert(
               'useProtoFieldNamingConventions', (v) => v as bool? ?? true),
           packageName:
@@ -51,7 +57,9 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$ConfigToJson(Config instance) => <String, dynamic>{
-      'useWellKnownTypes': instance.useWellKnownTypes,
+      'useWellKnownWrappers': instance.useWellKnownWrappers,
+      'useWellKnownTimestamp': instance.useWellKnownTimestamp,
+      'useWellKnownDuration': instance.useWellKnownDuration,
       'useProtoFieldNamingConventions': instance.useProtoFieldNamingConventions,
       'packageName': instance.packageName,
       'options': instance.options,

@@ -77,13 +77,13 @@ String collectionProtoToValue(
     return '\$BigIntProtoExtension.\$fromProtoBytes($parameterName)';
   }
   if (fieldTypeName == (DateTime).toString()) {
-    if (config.useWellKnownTypes) {
+    if (config.useWellKnownTimestamp) {
       return '''$parameterName.toDateTime()''';
     }
     return 'DateTime.fromMicrosecondsSinceEpoch($parameterName.toInt())';
   }
   if (fieldTypeName == (Duration).toString()) {
-    if (config.useWellKnownTypes) {
+    if (config.useWellKnownDuration) {
       return '''Duration(
       seconds: $parameterName.seconds.toInt(),
       microseconds: ($parameterName.nanos ~/ 1000).toInt())''';
@@ -107,13 +107,13 @@ String collectionValueToProto(
     return '$parameterName.\$toProtoBytes()';
   }
   if (fieldTypeName == (DateTime).toString()) {
-    if (config.useWellKnownTypes) {
+    if (config.useWellKnownTimestamp) {
       return '''${config.wellKnownTimestampType}.fromDateTime($parameterName)''';
     }
     return 'Int64($parameterName.microsecondsSinceEpoch)';
   }
   if (fieldTypeName == (Duration).toString()) {
-    if (config.useWellKnownTypes) {
+    if (config.useWellKnownDuration) {
       return '''${config.wellKnownDurationType}(
         seconds: Int64($parameterName.inSeconds),
         nanos: ($parameterName.inMicroseconds - $parameterName.inSeconds * 1000000) * 1000)''';

@@ -290,7 +290,9 @@ targets:
     builders:
       proto_generator:protoBuilder:
         options:
-          useWellKnownTypes: false
+          useWellKnownWrappers: false
+          useWellKnownDuration: false
+          useWellKnownTimestamp: false
           useProtoFieldNamingConventions: true
           packageName: com.mycompany.myproject
           wellKnownDurationType: $Duration
@@ -302,22 +304,24 @@ targets:
 
 The available options are the following:
 
-| Option                         | Description                                                                               | Default value |
-|--------------------------------|-------------------------------------------------------------------------------------------|---------------|
-| useWellKnownTypes              | if set to true, will use Google Well Known types instead of using proto optional feature  | false         |
-| useProtoFieldNamingConventions | Generated proto messages and fields using naming conventions appropriate to Proto3        | true          |
-| packageName                    | The name of the declared package in the generated proto file                              | [none]        |
-| wellKnownDurationType          | Defines an type name to be mapped to Google well known durations                          | $Duration     |
-| wellKnownTimestampType         | Defines an type name to be mapped to Google well known timestamp                          | $Timestamp    |
-| defaultIntPrecision            | Proto type to be generated for Dart int fields. May be ```int32``` or ```int64```         | int32         |
-| options                        | Any option statement you want to add to the proto file.                                   | [none]        |
+| Option                         | Description                                                                                 | Default value |
+|--------------------------------|---------------------------------------------------------------------------------------------|---------------|
+| useWellKnownWrappers           | if set to true, will use Google Well Known wrappers instead of using proto optional feature | false         |
+| useWellKnownDuration           | if set to true, will use Google Well Known duration to represent durations                  | false         |
+| useWellKnownTimestamp          | if set to true, will use Google Well Known timestamp to represent date and time             | false         |
+| useProtoFieldNamingConventions | Generated proto messages and fields using naming conventions appropriate to Proto3          | true          |
+| packageName                    | The name of the declared package in the generated proto file                                | [none]        |
+| wellKnownDurationType          | Defines an type name to be mapped to Google well known durations                            | $Duration     |
+| wellKnownTimestampType         | Defines an type name to be mapped to Google well known timestamp                            | $Timestamp    |
+| defaultIntPrecision            | Proto type to be generated for Dart int fields. May be ```int32``` or ```int64```           | int32         |
+| options                        | Any option statement you want to add to the proto file.                                     | [none]        |
 
 ## Well Known Types (optional)
 
-You may, optionally, want to integrate the generated model.proto file with [Google Well Known Types](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf). To do so, change the ```build.yaml``` file updating the ```useWellKnownTypes``` setting to true.  
+You may, optionally, want to integrate the generated model.proto file with [Google Well Known Types](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf). To do so, change the ```build.yaml``` file updating either of ```useWellKnownWrappers```, ```useWellKnownDuration``` or ```useWellKnownTimestamp``` settings to true.  
 
- 
-After running ```dart run build_runner build```, you will get the following ```model.proto```:
+
+Let's assume you set them all to true. After running ```dart run build_runner build```, you will get the following ```model.proto```:
 
 ```protobuf
 syntax = "proto3";

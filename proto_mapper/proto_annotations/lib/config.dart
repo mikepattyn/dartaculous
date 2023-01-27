@@ -9,7 +9,9 @@ part 'config.g.dart';
   disallowUnrecognizedKeys: true,
 )
 class Config {
-  final bool useWellKnownTypes;
+  final bool useWellKnownWrappers;
+  final bool useWellKnownTimestamp;
+  final bool useWellKnownDuration;
   final bool useProtoFieldNamingConventions;
   final String packageName;
   final List<String> options;
@@ -19,7 +21,9 @@ class Config {
   final IntPrecision defaultIntPrecision;
 
   Config({
-    this.useWellKnownTypes = false,
+    this.useWellKnownWrappers = false,
+    this.useWellKnownDuration = false,
+    this.useWellKnownTimestamp = false,
     this.useProtoFieldNamingConventions = true,
     this.packageName = '',
     this.options = const [],
