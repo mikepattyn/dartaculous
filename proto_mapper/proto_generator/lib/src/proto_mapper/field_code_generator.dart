@@ -1,7 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
-import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
 
 import 'field_code_generators/bigint_field_code_generator.dart';
 import 'field_code_generators/decimal_field_code_generator.dart';
@@ -9,7 +8,6 @@ import 'field_descriptor.dart';
 import 'standalone/datetime_field_code_generator.dart';
 import 'standalone/duration_field_code_generator.dart';
 import 'standalone/generic_field_code_generator.dart';
-import 'standalone_field_code_generator.dart';
 import 'well_known_types/gbool_field_code_generator.dart';
 import 'well_known_types/gdatetime_field_code_generator.dart';
 import 'well_known_types/gdouble_field_code_generator.dart';
