@@ -2325,6 +2325,8 @@ class GRecipe extends $pb.GeneratedMessage {
     ..pPS(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags')
     ..pPS(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'extraTags')
     ..pc<GApplianceType>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'moreApplianceTypes', $pb.PbFieldType.KE, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values, defaultEnumValue: GApplianceType.G_APPLIANCE_TYPE_HEAT)
+    ..aOS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalName', protoName: 'UnconventionalName')
+    ..aOS(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalName', protoName: 'NUnconventionalName')
     ..hasRequiredFields = false
   ;
 
@@ -2347,6 +2349,8 @@ class GRecipe extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? tags,
     $core.Iterable<$core.String>? extraTags,
     $core.Iterable<GApplianceType>? moreApplianceTypes,
+    $core.String? unconventionalName,
+    $core.String? nUnconventionalName,
   }) {
     final _result = create();
     if (title != null) {
@@ -2399,6 +2403,12 @@ class GRecipe extends $pb.GeneratedMessage {
     }
     if (moreApplianceTypes != null) {
       _result.moreApplianceTypes.addAll(moreApplianceTypes);
+    }
+    if (unconventionalName != null) {
+      _result.unconventionalName = unconventionalName;
+    }
+    if (nUnconventionalName != null) {
+      _result.nUnconventionalName = nUnconventionalName;
     }
     return _result;
   }
@@ -2553,6 +2563,24 @@ class GRecipe extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(18)
   $core.List<GApplianceType> get moreApplianceTypes => $_getList(16);
+
+  @$pb.TagNumber(19)
+  $core.String get unconventionalName => $_getSZ(17);
+  @$pb.TagNumber(19)
+  set unconventionalName($core.String v) { $_setString(17, v); }
+  @$pb.TagNumber(19)
+  $core.bool hasUnconventionalName() => $_has(17);
+  @$pb.TagNumber(19)
+  void clearUnconventionalName() => clearField(19);
+
+  @$pb.TagNumber(20)
+  $core.String get nUnconventionalName => $_getSZ(18);
+  @$pb.TagNumber(20)
+  set nUnconventionalName($core.String v) { $_setString(18, v); }
+  @$pb.TagNumber(20)
+  $core.bool hasNUnconventionalName() => $_has(18);
+  @$pb.TagNumber(20)
+  void clearNUnconventionalName() => clearField(20);
 }
 
 class GStarship extends $pb.GeneratedMessage {

@@ -418,9 +418,11 @@ message GRecipe
   optional double net_weight = 13;
   GApplianceType main_appliance_type = 14;
   GApplianceType secondary_appliance_type = 15;
-  repeated GApplianceType more_appliance_types = 18;
   repeated string tags = 16;
   repeated string extra_tags = 17;
+  repeated GApplianceType more_appliance_types = 18;
+  string UnconventionalName = 19;
+  optional string NUnconventionalName = 20;
 
 }   
 

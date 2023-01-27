@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto/enum_generator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto/enum_generator.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto_mapper/composites/enum_field_code_generator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto_mapper/composites/enum_field_code_generator.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/model.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/model.pb.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/model.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/grpc/model.pbjson.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/proto/model.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/proto/model.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/lib/src/recipe.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/lib/src/recipe.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto_mapper/test/test/proto_generator_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/test/proto_generator_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto_mapper/test/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/test/Makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

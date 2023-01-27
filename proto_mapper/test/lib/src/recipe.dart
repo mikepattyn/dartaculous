@@ -41,13 +41,19 @@ class Recipe {
   @ProtoField(15)
   final ApplianceType? secondaryApplianceType;
 
-  @ProtoField(18)
-  final List<ApplianceType> moreApplianceTypes;
-
   @ProtoField(16)
   final List<String> tags;
   @ProtoField(17)
   final List<String>? extraTags;
+
+  @ProtoField(18)
+  final List<ApplianceType> moreApplianceTypes;
+
+  @ProtoField(19, name: 'UnconventionalName')
+  final String unconventionalName;
+
+  @ProtoField(20, name: 'NUnconventionalName')
+  final String? nUnconventionalName;
 
   Recipe({
     required this.title,
@@ -67,5 +73,7 @@ class Recipe {
     this.extraTags,
     this.netWeight,
     this.moreApplianceTypes = const [],
+    this.unconventionalName = '',
+    this.nUnconventionalName,
   });
 }

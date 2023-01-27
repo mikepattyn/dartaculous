@@ -70,12 +70,17 @@ GRecipe _$RecipeToProto(Recipe instance) {
         GApplianceType.valueOf(instance.secondaryApplianceType!.index)!;
   }
 
-  proto.moreApplianceTypes.addAll(instance.moreApplianceTypes
-      .map((e) => const $ApplianceTypeProtoMapper().toProto(e)));
-
   proto.tags.addAll(instance.tags);
 
   proto.extraTags.addAll(instance.extraTags ?? []);
+
+  proto.moreApplianceTypes.addAll(instance.moreApplianceTypes
+      .map((e) => const $ApplianceTypeProtoMapper().toProto(e)));
+
+  proto.unconventionalName = instance.unconventionalName;
+  if (instance.nUnconventionalName != null) {
+    proto.nUnconventionalName = instance.nUnconventionalName!;
+  }
 
   return proto;
 }
@@ -109,6 +114,9 @@ Recipe _$RecipeFromProto(GRecipe proto) {
     moreApplianceTypes: List<ApplianceType>.unmodifiable(proto
         .moreApplianceTypes
         .map((e) => const $ApplianceTypeProtoMapper().fromProto(e))),
+    unconventionalName: proto.unconventionalName,
+    nUnconventionalName:
+        (proto.hasNUnconventionalName() ? proto.nUnconventionalName : null),
   );
 }
 
