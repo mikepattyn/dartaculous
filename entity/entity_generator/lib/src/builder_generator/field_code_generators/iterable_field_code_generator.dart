@@ -1,7 +1,4 @@
-import 'package:squarealfa_entity_annotations/squarealfa_entity_annotations.dart';
-
 import '../field_code_generator.dart';
-import '../field_descriptor.dart';
 
 class IterableFieldCodeGenerator extends FieldCodeGenerator {
   IterableFieldCodeGenerator(super.fieldDescriptor, super.buildBuilder);

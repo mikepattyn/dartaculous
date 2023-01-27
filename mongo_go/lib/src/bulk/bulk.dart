@@ -1,7 +1,6 @@
 export 'bulk_write_options.dart';
 export 'bulk_write_model.dart';
 export 'insert_one_model.dart';
-export 'insert_one_model.dart';
 export 'delete_one_model.dart';
 export 'replace_one_model.dart';
 export 'bulk_write_result.dart';

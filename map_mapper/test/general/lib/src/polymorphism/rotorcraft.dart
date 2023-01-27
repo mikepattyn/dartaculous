@@ -1,4 +1,3 @@
-import 'package:decimal/decimal.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/gyrocopter.dart';
 import 'package:map_mapper_generator_test/src/polymorphism/helicopter.dart';

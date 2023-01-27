@@ -1,7 +1,5 @@
-import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
-import '../field_descriptor.dart';
 
 class EnumFieldCodeGenerator extends CompositeFieldCodeGenerator {
   EnumFieldCodeGenerator({

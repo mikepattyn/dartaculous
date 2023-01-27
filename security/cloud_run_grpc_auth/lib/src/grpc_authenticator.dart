@@ -50,7 +50,9 @@ abstract class GrpcAuthenticator {
 
     if (_tokenExpiresSoon) {
       // Token is about to expire. Extend it prematurely.
-      await obtainAccessCredentials(_lastUri).catchError((_) {});
+      try {
+        await obtainAccessCredentials(_lastUri);
+      } catch (_) {}
     }
   }
 

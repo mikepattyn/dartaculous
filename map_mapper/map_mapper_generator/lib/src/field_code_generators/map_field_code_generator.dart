@@ -1,9 +1,6 @@
-//import 'package:analyzer/dart/element/type.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:map_mapper_generator/src/field_code_generators/generic_field_code_generator.dart';
 import 'package:map_mapper_generator/src/map_mapper_generator.helpers.dart';
-
-import '../field_descriptor.dart';
 
 class MapFieldCodeGenerator extends GenericFieldCodeGenerator {
   MapFieldCodeGenerator(super.fieldDescriptor, super.hasDefaultsProvider);

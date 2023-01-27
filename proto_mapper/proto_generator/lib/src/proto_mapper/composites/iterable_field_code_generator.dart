@@ -1,8 +1,5 @@
-import 'package:proto_annotations/config.dart';
 import 'package:proto_generator/src/common/proto_common.dart';
 import 'package:proto_generator/src/proto_mapper/composite_field_code_generator.dart';
-
-import '../field_descriptor.dart';
 
 class IterableFieldCodeGenerator extends CompositeFieldCodeGenerator {
   IterableFieldCodeGenerator({

@@ -1,7 +1,5 @@
-import '../../results/collection_info.dart';
 import 'collection_response.dart';
 import '../../results/key_options.dart';
-import 'result.dart';
 
 class CollectionPropertiesResponse extends CollectionResponse {
   final int writeConcern;

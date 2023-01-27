@@ -1,7 +1,6 @@
 import 'package:proto_annotations/config.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
-import '../field_descriptor.dart';
 import '../wkt_field_code_generator.dart';
 
 class GDurationFieldCodeGenerator extends WKTFieldCodeGenerator {

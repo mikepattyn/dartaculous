@@ -1,5 +1,4 @@
 import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
-import '../field_descriptor.dart';
 
 class GIntFieldCodeGenerator extends WKTFieldCodeGenerator {
   GIntFieldCodeGenerator({

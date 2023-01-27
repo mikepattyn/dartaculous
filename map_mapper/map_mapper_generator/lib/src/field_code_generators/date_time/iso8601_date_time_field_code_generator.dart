@@ -1,5 +1,4 @@
 import '../../field_code_generator.dart';
-import '../../field_descriptor.dart';
 
 class Iso8601DateTimeFieldCodeGenerator extends FieldCodeGenerator {
   Iso8601DateTimeFieldCodeGenerator(

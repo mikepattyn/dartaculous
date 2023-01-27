@@ -2,7 +2,6 @@ import 'package:proto_annotations/config.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 
 import '../field_code_generator.dart';
-import '../field_descriptor.dart';
 
 class IntFieldCodeGenerator extends StandaloneFieldCodeGenerator {
   IntFieldCodeGenerator(

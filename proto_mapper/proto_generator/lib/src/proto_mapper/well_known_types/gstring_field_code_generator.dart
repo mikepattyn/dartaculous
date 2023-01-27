@@ -1,7 +1,5 @@
 import 'package:proto_generator/src/proto_mapper/wkt_field_code_generator.dart';
 
-import '../field_descriptor.dart';
-
 class GStringFieldCodeGenerator extends WKTFieldCodeGenerator {
   GStringFieldCodeGenerator({
     required super.fieldDescriptor,

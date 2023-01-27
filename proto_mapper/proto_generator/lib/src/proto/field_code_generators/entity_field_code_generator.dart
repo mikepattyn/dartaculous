@@ -2,7 +2,6 @@ import 'package:analyzer/dart/element/type.dart';
 import 'package:proto_generator/src/common/proto_common.dart';
 
 import '../field_code_generator.dart';
-import '../field_descriptor.dart';
 
 class EntityFieldCodeGenerator extends CompositeFieldCodeGenerator {
   EntityFieldCodeGenerator(super.fieldDescriptor);
