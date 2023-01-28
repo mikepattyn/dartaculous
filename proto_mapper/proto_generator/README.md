@@ -63,7 +63,7 @@ import 'package:proto_annotations/proto_annotations.dart';
 
 part 'ingredient.g.dart';
 
-class Ingredient { ... }
+class Ingredient { /*...*/ }
 ```
 
 After doing this the first time, it is likely the compiler will complain that ```ingredient.g.dart``` still doesn't exist. We will generate it in a short while. Next, decorate the class with a ```@proto``` (shorthand for ```@Proto()```) annotation, and a ```@ProtoField()``` annotation for every field that you want to map:
@@ -318,7 +318,7 @@ The available options are the following:
 
 ## Well Known Types (optional)
 
-You may, optionally, want to integrate the generated model.proto file with [Google Well Known Types](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf). To do so, change the ```build.yaml``` file updating either of ```useWellKnownWrappers```, ```useWellKnownDuration``` or ```useWellKnownTimestamp``` settings to true.  
+You may, optionally, want to integrate the generated ```model.proto``` file with [Google Well Known Types](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf). To do so, change the ```build.yaml``` file updating either of ```useWellKnownWrappers```, ```useWellKnownDuration``` or ```useWellKnownTimestamp``` settings to true.  
 
 
 Let's assume you set them all to true. After running ```dart run build_runner build```, you will get the following ```model.proto```:
