@@ -1,3 +1,7 @@
+## 5.0.6-dev.3
+
+ - **FIX**: Changed repository URL.
+
 ## 5.0.6-dev.2
 
 > Note: This release has breaking changes.

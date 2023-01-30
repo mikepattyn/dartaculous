@@ -1,3 +1,7 @@
+## 3.0.0-dev.3
+
+ - **FIX**: Changed repository URL.
+
 ## 3.0.0-dev.2
 
 > Note: This release has breaking changes.

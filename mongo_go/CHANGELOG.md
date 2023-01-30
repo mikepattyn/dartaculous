@@ -1,3 +1,7 @@
+## 5.1.3-dev.3
+
+ - **FIX**: Changed repository URL.
+
 ## 5.1.3-dev.2
 
  - Update a dependency to the latest release.

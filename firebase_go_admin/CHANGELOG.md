@@ -1,3 +1,7 @@
+## 0.11.2-dev.3
+
+ - **FIX**: Changed repository URL.
+
 ## 0.11.2-dev.2
 
  - Update a dependency to the latest release.

@@ -2,7 +2,7 @@ name: squarealfa_entity_annotations
 description: Annotations and classes to drive code generation for validation and entity life cycle.
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/entity/entity_annotations
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 3.0.0-dev.2
+version: 3.0.0-dev.3
 
 environment:
   sdk: ">=2.18.0 <3.0.0"

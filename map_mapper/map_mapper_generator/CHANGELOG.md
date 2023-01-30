@@ -1,3 +1,7 @@
+## 4.0.0-dev.3
+
+ - **FIX**: Changed repository URL.
+
 ## 4.0.0-dev.2
 
  - **FEAT**: removed dependecy from squarealfa_common_types.

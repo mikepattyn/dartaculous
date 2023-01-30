@@ -1,3 +1,7 @@
+## 3.0.0-dev.4
+
+ - **FIX**: Changed repository URL.
+
 ## 3.0.0-dev.3
 
  - **FEAT**: Added defaults provider.

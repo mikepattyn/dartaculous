@@ -2,7 +2,7 @@ name: squarealfa_generators_common
 description: This package provides a set of helpers and extensions to facilitate the reflection over classes that serving as the basis for code generation.
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/generators_common
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 3.0.0-dev.1
+version: 3.0.0-dev.2
 
 environment:
   sdk: '>=2.17.0 <3.0.0'

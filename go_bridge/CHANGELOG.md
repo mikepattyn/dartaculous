@@ -1,3 +1,7 @@
+## 1.4.1
+
+ - **FIX**: Changed repository URL.
+
 ## 1.4.0
 
  - **FEAT**: removed dependecy from squarealfa_common_types.

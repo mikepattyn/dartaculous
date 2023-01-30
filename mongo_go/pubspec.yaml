@@ -2,7 +2,7 @@ name: mongo_go
 description: Provides a MongoDB driver based on the official GO SDK via Dart FFI meant to be used in Dart server-side code.
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/mongo_go
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 5.1.3-dev.2
+version: 5.1.3-dev.3
 
 
 environment:
@@ -12,10 +12,10 @@ dependencies:
   args: ^2.3.0
   ffi: ^2.0.1
   path: ^1.8.0
-  proto_annotations: ^3.0.0-dev.2
+  proto_annotations: ^3.0.0-dev.3
   protobuf: ^2.1.0
   tuple: ^2.0.0
-  go_bridge: ^1.4.0
+  go_bridge: ^1.4.1
   meta: ^1.8.0
   fixnum: ^1.0.1
   decimal: ^2.3.0
@@ -27,7 +27,7 @@ dev_dependencies:
   lints: ^2.0.0
   test: ^1.16.0
   build_runner: ^2.2.0
-  proto_generator: ^4.0.0-dev.11
+  proto_generator: ^4.0.0-dev.12
 platforms:
   linux:
   windows:
