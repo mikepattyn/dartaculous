@@ -1,3 +1,7 @@
+## 6.0.2
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 6.0.1
 
  - Update a dependency to the latest release.

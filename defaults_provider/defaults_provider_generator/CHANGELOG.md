@@ -1,3 +1,7 @@
+## 2.4.1
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 2.4.0
 
  - **FEAT**: Support for BigInt.

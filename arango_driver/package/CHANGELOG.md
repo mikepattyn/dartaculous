@@ -1,3 +1,7 @@
+## 3.6.1
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 3.6.0
 
  - **FIX**: DbClient.runAndReturnStream now throws proper error when invalid query.

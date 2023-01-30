@@ -1,3 +1,7 @@
+## 1.3.1
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 1.3.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

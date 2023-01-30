@@ -1,3 +1,7 @@
+## 3.4.2
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 3.4.1
 
  - Update a dependency to the latest release.

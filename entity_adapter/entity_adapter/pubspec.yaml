@@ -4,17 +4,17 @@ description: Provides the annotations and a facade to several SquareAlfa
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/entity_adapter/entity_adapter
 repository: https://gitlab.com/dartaculous/dartaculous/
 
-version: 3.1.9
+version: 3.1.10
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  defaults_provider_annotations: ^2.1.0
-  map_mapper_annotations: ^3.2.1
-  proto_annotations: ^2.3.0
-  squarealfa_entity_annotations: ^2.1.0
-  squarealfa_common_types: ^1.2.0
+  defaults_provider_annotations: ^3.0.0
+  map_mapper_annotations: ^3.2.2
+  proto_annotations: ^2.3.1
+  squarealfa_entity_annotations: ^3.0.0
+  squarealfa_common_types: ^1.2.1
   grpc: ^3.0.0
 
 dev_dependencies:

@@ -1,3 +1,7 @@
+## 1.2.1
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 1.2.0
 
  - **FEAT**: Added dateTime to DateTimeRepresentation enum.

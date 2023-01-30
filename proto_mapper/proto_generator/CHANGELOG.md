@@ -1,3 +1,7 @@
+## 3.8.2
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 3.8.1
 
  - **FIX**: BigInt nullable unmarshalling fixed.

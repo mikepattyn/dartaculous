@@ -1,3 +1,7 @@
+## 5.1.3
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 5.1.2
 
  - Update a dependency to the latest release.

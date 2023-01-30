@@ -1,3 +1,7 @@
+## 2.2.1
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 2.2.0
 
  - **FEAT**: Added optional support for usage of Google ProtoBuf Well-Known types.

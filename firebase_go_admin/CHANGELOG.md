@@ -1,3 +1,7 @@
+## 0.11.2+3
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 0.11.2+2
 
  - Update a dependency to the latest release.

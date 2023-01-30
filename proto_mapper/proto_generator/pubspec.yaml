@@ -2,20 +2,20 @@ name: proto_generator
 description: Code generation of .proto and Dart mapper classes to facilitate the usage of PODOs (plain-old-dart-objects) with gRPC
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/proto_mapper/proto_generator
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 3.8.1
+version: 3.8.2
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   source_gen: ^1.2.1
-  proto_annotations: ^2.3.0
+  proto_annotations: ^2.3.1
   decimal: ^2.0.0
   grpc: ^3.0.2
   analyzer: ^5.1.0
   build: ^2.0.0
   recase: ^4.0.0
-  squarealfa_common_types: ^1.2.0
+  squarealfa_common_types: ^1.2.1
   squarealfa_generators_common: ^2.10.0
   code_builder: ^4.3.0
   built_value: ^8.4.1

@@ -3,7 +3,7 @@ description: Generates a facade to several SquareAlfa framework services that ar
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/entity_adapter/entity_adapter_generator
 repository: https://gitlab.com/dartaculous/dartaculous/
 
-version: 3.4.1
+version: 3.4.2
 
 
 environment:
@@ -11,13 +11,13 @@ environment:
 
 dependencies:
   source_gen: ^1.2.1
-  squarealfa_entity_adapter: ^3.1.9
-  map_mapper_generator: ^3.9.0
-  proto_generator: ^3.8.1
-  defaults_provider_generator: ^2.4.0
-  squarealfa_entity_generator: ^2.2.0
+  squarealfa_entity_adapter: ^3.1.10
+  map_mapper_generator: ^3.9.1
+  proto_generator: ^3.8.2
+  defaults_provider_generator: ^2.4.1
+  squarealfa_entity_generator: ^2.2.1
   squarealfa_generators_common: ^2.10.0
-  squarealfa_common_types: ^1.2.0
+  squarealfa_common_types: ^1.2.1
   analyzer: ^5.1.0
   build: ^2.0.0
 

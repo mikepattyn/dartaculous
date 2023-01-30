@@ -2,7 +2,7 @@ name: grpc_host
 description: Hosts gRPC services
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/grpc_host
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 5.0.5
+version: 5.0.6
 
 
 environment:
@@ -10,9 +10,9 @@ environment:
 
 
 dependencies:
-  nosql_repository: ^5.0.1
-  squarealfa_entity_adapter: ^3.1.9
-  squarealfa_security: ^2.2.0
+  nosql_repository: ^5.0.2
+  squarealfa_entity_adapter: ^3.1.10
+  squarealfa_security: ^2.2.1
   grpc: ^3.0.0
   yaml: ^3.1.0
   kiwi: ^4.0.1

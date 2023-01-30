@@ -1,3 +1,7 @@
+## 0.11.0+1
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 0.11.0
 
 > Note: This release has breaking changes.

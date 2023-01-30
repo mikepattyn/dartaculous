@@ -1,3 +1,7 @@
+## 3.9.1
+
+ - **FIX**: Updated pubspec with new git URL.
+
 ## 3.9.0
 
  - **FEAT**: Support for BigInt.
