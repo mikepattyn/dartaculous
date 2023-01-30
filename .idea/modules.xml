@@ -2,7 +2,32 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/dart_framework.iml" filepath="$PROJECT_DIR$/.idea/dart_framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arango_driver/package/melos_arango_driver.iml" filepath="$PROJECT_DIR$/arango_driver/package/melos_arango_driver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security/cloud_run_grpc_auth/melos_cloud_run_grpc_auth.iml" filepath="$PROJECT_DIR$/security/cloud_run_grpc_auth/melos_cloud_run_grpc_auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dbsync/dbsync/melos_dbsync.iml" filepath="$PROJECT_DIR$/dbsync/dbsync/melos_dbsync.iml" />
+      <module fileurl="file://$PROJECT_DIR$/entity/test/melos_entity_test.iml" filepath="$PROJECT_DIR$/entity/test/melos_entity_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/firebase_go_admin/melos_firebase_go_admin.iml" filepath="$PROJECT_DIR$/firebase_go_admin/melos_firebase_go_admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/go_bridge/melos_go_bridge.iml" filepath="$PROJECT_DIR$/go_bridge/melos_go_bridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grpc_host/melos_grpc_host.iml" filepath="$PROJECT_DIR$/grpc_host/melos_grpc_host.iml" />
+      <module fileurl="file://$PROJECT_DIR$/map_mapper/map_mapper_annotations/melos_map_mapper_annotations.iml" filepath="$PROJECT_DIR$/map_mapper/map_mapper_annotations/melos_map_mapper_annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/map_mapper/example/melos_map_mapper_example.iml" filepath="$PROJECT_DIR$/map_mapper/example/melos_map_mapper_example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/map_mapper/map_mapper_generator/melos_map_mapper_generator.iml" filepath="$PROJECT_DIR$/map_mapper/map_mapper_generator/melos_map_mapper_generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/map_mapper/test/json/melos_map_mapper_generator_json_test.iml" filepath="$PROJECT_DIR$/map_mapper/test/json/melos_map_mapper_generator_json_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/map_mapper/test/general/melos_map_mapper_generator_test.iml" filepath="$PROJECT_DIR$/map_mapper/test/general/melos_map_mapper_generator_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/map_mapper/test/mongo/melos_map_mapper_generator_test_mongo.iml" filepath="$PROJECT_DIR$/map_mapper/test/mongo/melos_map_mapper_generator_test_mongo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mongo_go/melos_mongo_go.iml" filepath="$PROJECT_DIR$/mongo_go/melos_mongo_go.iml" />
+      <module fileurl="file://$PROJECT_DIR$/map_mapper/mongo_mapper/melos_mongo_mapper.iml" filepath="$PROJECT_DIR$/map_mapper/mongo_mapper/melos_mongo_mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proto_mapper/proto_annotations/melos_proto_annotations.iml" filepath="$PROJECT_DIR$/proto_mapper/proto_annotations/melos_proto_annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proto_mapper/proto_generator/melos_proto_generator.iml" filepath="$PROJECT_DIR$/proto_mapper/proto_generator/melos_proto_generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proto_mapper/test/melos_proto_generator_test.iml" filepath="$PROJECT_DIR$/proto_mapper/test/melos_proto_generator_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proto_mapper/example/melos_proto_mapper_example.iml" filepath="$PROJECT_DIR$/proto_mapper/example/melos_proto_mapper_example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/entity/entity_annotations/melos_squarealfa_entity_annotations.iml" filepath="$PROJECT_DIR$/entity/entity_annotations/melos_squarealfa_entity_annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/entity/entity_generator/melos_squarealfa_entity_generator.iml" filepath="$PROJECT_DIR$/entity/entity_generator/melos_squarealfa_entity_generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/generators_common/melos_squarealfa_generators_common.iml" filepath="$PROJECT_DIR$/generators_common/melos_squarealfa_generators_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security/squarealfa_security/melos_squarealfa_security.iml" filepath="$PROJECT_DIR$/security/squarealfa_security/melos_squarealfa_security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/entity/example/melos_squarealfa_validation_example.iml" filepath="$PROJECT_DIR$/entity/example/melos_squarealfa_validation_example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dbsync/synced_data/melos_synced_data.iml" filepath="$PROJECT_DIR$/dbsync/synced_data/melos_synced_data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_dart_framework.iml" filepath="$PROJECT_DIR$/melos_dart_framework.iml" />
     </modules>
   </component>
 </project>

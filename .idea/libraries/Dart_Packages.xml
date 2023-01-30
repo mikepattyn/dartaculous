@@ -236,6 +236,7 @@
         <entry key="fixnum">
           <value>
             <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/fixnum-1.1.0/lib" />
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/fixnum-1.0.1/lib" />
             </list>
           </value>
@@ -251,13 +252,6 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/glob-2.1.1/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="go_bridge">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/go_bridge-1.4.0/lib" />
             </list>
           </value>
         </entry>
@@ -374,20 +368,6 @@
             </list>
           </value>
         </entry>
-        <entry key="map_mapper_annotations">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/map_mapper_annotations-4.0.0-dev.1/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="map_mapper_generator">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/map_mapper_generator-4.0.0-dev.2/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="matcher">
           <value>
             <list>
@@ -462,21 +442,6 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/power_extensions-0.2.2/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="proto_annotations">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/proto_annotations-3.0.0-dev.2/lib" />
-              <option value="$PROJECT_DIR$/../framework/dart_framework/proto_mapper/proto_annotations/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="proto_generator">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/proto_generator-4.0.0-dev.10/lib" />
             </list>
           </value>
         </entry>
@@ -599,21 +564,6 @@
             </list>
           </value>
         </entry>
-        <entry key="squarealfa_generators_common">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_generators_common-3.0.0-dev.1/lib" />
-              <option value="$PROJECT_DIR$/../framework/dart_framework/generators_common/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="squarealfa_security">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_security-3.0.0-dev.1/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="stack_trace">
           <value>
             <list>
@@ -639,13 +589,6 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="synced_data">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/synced_data-0.0.1-dev.0/lib" />
             </list>
           </value>
         </entry>
@@ -805,9 +748,9 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/ffigen-7.2.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/file-6.1.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fixnum-1.0.1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fixnum-1.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/frontend_server_client-3.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/glob-2.1.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/go_bridge-1.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/googleapis_auth-1.3.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/graphs-2.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/grpc-3.1.0/lib" />
@@ -825,8 +768,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/lints-1.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/lints-2.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/logging-1.1.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/map_mapper_annotations-4.0.0-dev.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/map_mapper_generator-4.0.0-dev.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/matcher-0.12.14/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/meta-1.8.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/mime-1.0.4/lib" />
@@ -838,8 +779,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pointycastle-3.6.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pool-1.5.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/power_extensions-0.2.2/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/proto_annotations-3.0.0-dev.2/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/proto_generator-4.0.0-dev.10/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/protobuf-2.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pub_semver-2.1.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pubspec-2.3.0/lib" />
@@ -857,13 +796,10 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/source_maps-0.10.11/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/source_span-1.9.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sqflite_common-2.4.2+2/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_generators_common-3.0.0-dev.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_security-3.0.0-dev.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stack_trace-1.11.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stream_channel-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stream_transform-2.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/synced_data-0.0.1-dev.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/synchronized-3.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/term_glyph-1.2.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/test-1.22.2/lib" />
@@ -881,8 +817,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/x509-0.2.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/yaml-3.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/yaml_edit-2.0.3/lib" />
-      <root url="file://$PROJECT_DIR$/../framework/dart_framework/generators_common/lib" />
-      <root url="file://$PROJECT_DIR$/../framework/dart_framework/proto_mapper/proto_annotations/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
