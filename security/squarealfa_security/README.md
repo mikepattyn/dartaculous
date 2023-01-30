@@ -41,4 +41,4 @@ The following code parses a JWT token:
 
 ## Context
 
-This package is part of a set of losely integrated packages that constitute the [Dartaculous Framework](https://gitlab.com/squarealfa/dart_framework#squarealfa-dart-framework).
+This package is part of a set of losely integrated packages that constitute the [Dartaculous Framework](https://gitlab.com/dartaculous/dartaculous#squarealfa-dart-framework).

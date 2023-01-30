@@ -55,4 +55,4 @@ You may not want the entire feature set, but to cherry-pick the features you wil
 |[squarealfa_entity_annotations](https://pub.dev/packages/squarealfa_entity_annotations) and [squarealfa_entity_generator](https://pub.dev/packages/squarealfa_entity_generator)|Adds features to [PODOs](#podos) like validation, builders and an extension to provide a ```copyWith``` method.
 
 # Contributing
-If you would like to contribute to this project, please read the [CONTRIBUTING.md](https://gitlab.com/squarealfa/dart_framework/-/blob/main/CONTRIBUTING.md) document.
+If you would like to contribute to this project, please read the [CONTRIBUTING.md](https://gitlab.com/dartaculous/dartaculous/-/blob/main/CONTRIBUTING.md) document.

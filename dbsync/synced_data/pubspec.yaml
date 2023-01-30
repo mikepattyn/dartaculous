@@ -1,8 +1,8 @@
 name: synced_data
 description: Contains classes meant to be used by the dbsync package on both
   client and server
-repository: https://gitlab.com/squarealfa/dart_framework
-homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/dbsync/synced_data
+repository: https://gitlab.com/dartaculous/dartaculous
+homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/dbsync/synced_data
 version: 0.0.1-dev.0
 
 environment:

@@ -1,8 +1,8 @@
 name: proto_annotations
 description: Annotations to mark and configure business model classes for code
   generation of .proto and Dart mapper classes
-homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/proto_mapper/proto_annotations
-repository: https://gitlab.com/squarealfa/dart_framework
+homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/proto_mapper/proto_annotations
+repository: https://gitlab.com/dartaculous/dartaculous
 version: 3.0.0-dev.2
 
 environment:

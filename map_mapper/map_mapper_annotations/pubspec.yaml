@@ -2,8 +2,8 @@ name: map_mapper_annotations
 description: 
   Contains annotations and mappers to allow the mapping between PODOs and Map<String, dynamic> maps 
   used to interact with document databases
-homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/map_mapper/map_mapper_annotations
-repository: https://gitlab.com/squarealfa/dart_framework
+homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/map_mapper/map_mapper_annotations
+repository: https://gitlab.com/dartaculous/dartaculous
 version: 4.0.0-dev.1
 
 environment:

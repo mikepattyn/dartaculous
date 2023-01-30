@@ -389,9 +389,9 @@ class Ingredient {
 
 ## Example
 
-Check out the complete example project at https://gitlab.com/squarealfa/dart_framework/-/tree/main/proto_mapper/example.
+Check out the complete example project at https://gitlab.com/dartaculous/dartaculous/-/tree/main/proto_mapper/example.
 
 
 ## Context
 
-This package is part of a set of loosely integrated packages that constitute the [Dartaculous Framework](https://gitlab.com/squarealfa/dart_framework#squarealfa-dart-framework).
+This package is part of a set of loosely integrated packages that constitute the [Dartaculous Framework](https://gitlab.com/dartaculous/dartaculous#squarealfa-dart-framework).

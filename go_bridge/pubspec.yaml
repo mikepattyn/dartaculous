@@ -1,7 +1,7 @@
 name: go_bridge
 description: Provides a bridge to call go libraries via FFI and protobuffer encoded messages
-homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/go_bridge
-repository: https://gitlab.com/squarealfa/dart_framework
+homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/go_bridge
+repository: https://gitlab.com/dartaculous/dartaculous
 version: 1.4.0
 
 
