@@ -1,7 +1,7 @@
 name: arangodb_repository
 description: Concrete implementation of the nosql_repository package for the ArangoDB database.
-repository: https://gitlab.com/squarealfa/dart_framework
-homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/arango_repository
+repository: https://gitlab.com/dartaculous/dartaculous
+homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/arango_repository
 version: 6.0.1
 
 environment:

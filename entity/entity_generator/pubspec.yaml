@@ -1,8 +1,8 @@
 name: squarealfa_entity_generator
 description:
   Code generators that augment classes that are meant to be used as business entities
-homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/entity/entity_generator
-repository: https://gitlab.com/squarealfa/dart_framework
+homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/entity/entity_generator
+repository: https://gitlab.com/dartaculous/dartaculous
 version: 2.2.0
 
 environment:

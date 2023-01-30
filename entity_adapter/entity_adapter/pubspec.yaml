@@ -1,8 +1,8 @@
 name: squarealfa_entity_adapter
 description: Provides the annotations and a facade to several SquareAlfa
   framework services that are required to expose PODOs via gRPC services
-homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/entity_adapter/entity_adapter
-repository: https://gitlab.com/squarealfa/dart_framework/
+homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/entity_adapter/entity_adapter
+repository: https://gitlab.com/dartaculous/dartaculous/
 
 version: 3.1.9
 

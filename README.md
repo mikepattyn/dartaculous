@@ -57,4 +57,4 @@ You may not want the entire feature set, but to cherry-pick the features you wil
 |[squarealfa_entity_adapter](https://pub.dev/packages/squarealfa_entity_adapter) and [squarealfa_entity_adapter_generator](https://pub.dev/packages/squarealfa_entity_adapter_generator/admin)|Provides the annotations and a facade to several SquareAlfa framework services that are required to expose PODOs via gRPC services. These packages are a substitute for all other code-generation packages.
 
 # Contributing
-If you would like to contribute to this project, please read the [CONTRIBUTING.md](https://gitlab.com/squarealfa/dart_framework/-/blob/main/CONTRIBUTING.md) document.
+If you would like to contribute to this project, please read the [CONTRIBUTING.md](https://gitlab.com/dartaculous/dartaculous/-/blob/main/CONTRIBUTING.md) document.

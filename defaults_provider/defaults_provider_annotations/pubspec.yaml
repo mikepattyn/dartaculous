@@ -1,8 +1,8 @@
 name: defaults_provider_annotations
 description:
   Contains annotations to drive the code generator that creates defaults providers.
-homepage: https://gitlab.com/squarealfa/dart_framework/-/tree/main/defaults_provider/defaults_provider_annotations
-repository: https://gitlab.com/squarealfa/dart_framework
+homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/defaults_provider/defaults_provider_annotations
+repository: https://gitlab.com/dartaculous/dartaculous
 version: 2.1.1
 
 
