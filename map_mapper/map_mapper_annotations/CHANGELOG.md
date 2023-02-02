@@ -1,3 +1,7 @@
+## 4.0.0-dev.3
+
+ - **FIX**: Updated dependency.
+
 ## 4.0.0-dev.2
 
  - **FIX**: Changed repository URL.
