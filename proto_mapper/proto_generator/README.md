@@ -298,23 +298,25 @@ targets:
           wellKnownDurationType: $Duration
           wellKnownTimestampType: $Timestamp
           defaultIntPrecision: int32
+          outProtoPath: proto/model.proto
           options:
             - go_package = "./stubs"
 ```
 
 The available options are the following:
 
-| Option                         | Description                                                                                 | Default value |
-|--------------------------------|---------------------------------------------------------------------------------------------|---------------|
-| useWellKnownWrappers           | if set to true, will use Google Well Known wrappers instead of using proto optional feature | false         |
-| useWellKnownDuration           | if set to true, will use Google Well Known duration to represent durations                  | false         |
-| useWellKnownTimestamp          | if set to true, will use Google Well Known timestamp to represent date and time             | false         |
-| useProtoFieldNamingConventions | Generated proto messages and fields using naming conventions appropriate to Proto3          | true          |
-| packageName                    | The name of the declared package in the generated proto file                                | [none]        |
-| wellKnownDurationType          | Defines an type name to be mapped to Google well known durations                            | $Duration     |
-| wellKnownTimestampType         | Defines an type name to be mapped to Google well known timestamp                            | $Timestamp    |
-| defaultIntPrecision            | Proto type to be generated for Dart int fields. May be ```int32``` or ```int64```           | int32         |
-| options                        | Any option statement you want to add to the proto file.                                     | [none]        |
+| Option                         | Description                                                                                 | Default value     |
+|--------------------------------|---------------------------------------------------------------------------------------------|-------------------|
+| useWellKnownWrappers           | if set to true, will use Google Well Known wrappers instead of using proto optional feature | false             |
+| useWellKnownDuration           | if set to true, will use Google Well Known duration to represent durations                  | false             |
+| useWellKnownTimestamp          | if set to true, will use Google Well Known timestamp to represent date and time             | false             |
+| useProtoFieldNamingConventions | Generated proto messages and fields using naming conventions appropriate to Proto3          | true              |
+| packageName                    | The name of the declared package in the generated proto file                                | [none]            |
+| wellKnownDurationType          | Defines an type name to be mapped to Google well known durations                            | $Duration         |
+| wellKnownTimestampType         | Defines an type name to be mapped to Google well known timestamp                            | $Timestamp        |
+| defaultIntPrecision            | Proto type to be generated for Dart int fields. May be ```int32``` or ```int64```           | int32             |
+| outProtoPath                   | Path, relative to the lib directory, to which the single .proto file is generated           | proto/model.proto |
+| options                        | Any option statement you want to add to the proto file.                                     | [none]            |
 
 ## Well Known Types (optional)
 

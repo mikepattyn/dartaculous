@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17037389-da43-4c38-8281-867da99ccf32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto_mapper/proto_annotations/lib/config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/proto_annotations/lib/config.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto_mapper/proto_annotations/lib/config.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/proto_annotations/lib/config.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto_mapper/proto_generator/build.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/proto_generator/build.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto_builder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/proto_mapper/proto_generator/lib/src/proto_builder.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

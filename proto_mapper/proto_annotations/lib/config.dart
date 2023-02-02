@@ -19,6 +19,7 @@ class Config {
   final String wellKnownDurationType;
   final String wellKnownTimestampType;
   final IntPrecision defaultIntPrecision;
+  final String outProtoPath;
 
   Config({
     this.useWellKnownWrappers = false,
@@ -31,6 +32,7 @@ class Config {
     this.wellKnownDurationType = r'$Duration',
     this.wellKnownTimestampType = r'$Timestamp',
     this.defaultIntPrecision = IntPrecision.int32,
+    this.outProtoPath = 'proto/model.proto',
   });
 
   factory Config.fromJson(Map<String, dynamic> json) => _$ConfigFromJson(json);

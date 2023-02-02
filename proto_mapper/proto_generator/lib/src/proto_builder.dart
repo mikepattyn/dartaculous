@@ -13,17 +13,19 @@ import 'proto/proto_generator.dart';
 class ProtoBuilder implements Builder {
   late Config config;
   late ProtoGenerator protoGen;
+  late String modelPath;
 
   ProtoBuilder(BuilderOptions options) {
     config = Config.fromJson(options.config);
     protoGen = ProtoGenerator(config);
+    modelPath = _getModelPath();
   }
 
   static final _allFilesInLib = Glob('lib/**.dart');
   @override
   Map<String, List<String>> get buildExtensions {
-    return const {
-      r'$lib$': ['proto/model.tproto', 'src/proto_model.g.dart'],
+    return {
+      r'$lib$': [modelPath, 'src/proto_model.g.dart'],
     };
   }
 
@@ -37,8 +39,9 @@ class ProtoBuilder implements Builder {
     enums.forEach((e, cr) => protoGen.generateForAnnotatedElement(e, cr));
 
     String content = _renderProto();
-    final output =
-        AssetId(buildStep.inputId.package, p.join('lib/proto', 'model.tproto'));
+    final path = p.join('lib', p.dirname(modelPath));
+    final filename = p.basename(modelPath);
+    final output = AssetId(buildStep.inputId.package, p.join(path, filename));
 
     await buildStep.writeAsString(output, content);
   }
@@ -89,6 +92,11 @@ $renderedMessages
         }
       }
     }
+  }
+
+  String _getModelPath() {
+    final path = '${p.withoutExtension(config.outProtoPath)}.tproto';
+    return path;
   }
 }
 

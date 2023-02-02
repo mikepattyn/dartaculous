@@ -6,7 +6,7 @@ builders:
     builder_factories: ['protoBuilder', 'protoMapperBuilder']
     build_extensions: 
       $lib$: 
-        - model.tproto
+        - .tproto
       .dart:
         - proto_map.g.part
     build_to: cache

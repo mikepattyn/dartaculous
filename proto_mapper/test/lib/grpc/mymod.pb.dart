@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: model.proto
+//  source: mymod.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
@@ -13,9 +13,9 @@ import 'google/protobuf/wrappers.pb.dart' as $0;
 import 'google/protobuf/timestamp.pb.dart' as $1;
 import 'google/protobuf/duration.pb.dart' as $2;
 
-import 'model.pbenum.dart';
+import 'mymod.pbenum.dart';
 
-export 'model.pbenum.dart';
+export 'mymod.pbenum.dart';
 
 class GFieldsOfAbstractVehicle extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfAbstractVehicle', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
