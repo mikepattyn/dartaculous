@@ -1,3 +1,7 @@
+## 4.0.0-dev.13
+
+ - **FEAT**: Added configuration option.
+
 ## 4.0.0-dev.12
 
  - **FIX**: Changed repository URL.
