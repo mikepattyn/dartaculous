@@ -49,6 +49,9 @@ class $RecipeMapMapper extends MapMapper<Recipe> {
       secondaryCategoryKey: map['secondaryCategoryKey'] == null
           ? null
           : $kh.keyFromMap(map, 'secondaryCategoryKey'),
+      moreApplianceTypes: List<ApplianceType>.unmodifiable(
+          map['moreApplianceTypes']
+              .map((e) => const $ApplianceTypeMapMapper().fromMap(e))),
     );
   }
 
@@ -75,6 +78,9 @@ class $RecipeMapMapper extends MapMapper<Recipe> {
     map['requiresRobot'] = instance.requiresRobot;
     map['mainApplianceType'] = instance.mainApplianceType.index;
     map['secondaryApplianceType'] = instance.secondaryApplianceType?.index;
+    map['moreApplianceTypes'] = instance.moreApplianceTypes
+        .map((e) => const $ApplianceTypeMapMapper().toMap(e))
+        .toList();
     map['tags'] = instance.tags;
     map['extraTags'] = instance.extraTags;
 
@@ -137,6 +143,8 @@ class $RecipeFieldNames {
   String get mainApplianceType => prefix + _mainApplianceType;
   static const _secondaryApplianceType = 'secondaryApplianceType';
   String get secondaryApplianceType => prefix + _secondaryApplianceType;
+  static const _moreApplianceTypes = 'moreApplianceTypes';
+  String get moreApplianceTypes => prefix + _moreApplianceTypes;
   static const _tags = 'tags';
   String get tags => prefix + _tags;
   static const _extraTags = 'extraTags';
