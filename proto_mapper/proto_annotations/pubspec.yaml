@@ -3,7 +3,7 @@ description: Annotations to mark and configure business model classes for code
   generation of .proto and Dart mapper classes
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/proto_mapper/proto_annotations
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 3.0.0-dev.4
+version: 3.0.0-dev.5
 
 environment:
   sdk: ">=2.17.0 <3.0.0"

@@ -1,3 +1,9 @@
+## 3.0.0-dev.5
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FIX**: Removed proto_services annotation.
+
 ## 3.0.0-dev.4
 
  - **FEAT**: Added configuration option.

@@ -2,7 +2,7 @@ name: firebase_go_admin
 description: Firebase Administration based on the official Firebase Admin GO SDK via Dart FFI.
 repository: https://gitlab.com/dartaculous/dartaculous
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/firebase_admin
-version: 0.11.2-dev.4
+version: 0.11.2-dev.5
 
 
 environment:
@@ -12,7 +12,7 @@ dependencies:
   args: ^2.3.0
   ffi: ^2.0.1
   path: ^1.8.0
-  proto_annotations: ^3.0.0-dev.4
+  proto_annotations: ^3.0.0-dev.5
   protobuf: ^2.1.0
   tuple: ^2.0.0
   go_bridge: ^1.4.1
@@ -23,7 +23,7 @@ dev_dependencies:
   lints: ^2.0.0
   test: ^1.16.0
   build_runner: ^2.2.0
-  proto_generator: ^4.0.0-dev.13
+  proto_generator: ^4.0.0-dev.14
 platforms:
   linux:
   windows:
