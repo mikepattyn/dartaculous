@@ -43,15 +43,6 @@ extension EnumElementExtensions on EnumElement {
               ));
 }
 
-DartType _getRelevantFieldType(FieldElement fieldElement) {
-  var relevantFieldType = fieldElement.type;
-  if (relevantFieldType.isIterable || relevantFieldType.isList) {
-    relevantFieldType =
-        (relevantFieldType as InterfaceType).typeArguments.first;
-  }
-  return relevantFieldType;
-}
-
 const _ignoreFieldChecker = TypeChecker.fromRuntime(CSharpIgnore);
 
 CSharpIgnore? _getIgnoreAnnotation(FieldElement fieldElement) {
