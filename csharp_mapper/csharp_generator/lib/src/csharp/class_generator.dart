@@ -63,7 +63,7 @@ $properties
   String _renderField(FieldDescriptor fd) {
     final basicType = _getTypeName(fd);
     final type = fd.isRepeated ? 'List<$basicType>' : basicType;
-    return '$type${fd.nullSuffix} ${fd.name.camelCase}';
+    return '$type${fd.nullSuffix} ${fd.name.pascalCase}';
   }
 }
 

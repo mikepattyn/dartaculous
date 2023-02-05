@@ -2,6 +2,12 @@
 
 namespace Company.Dartlib;
 
+public record Contract(
+  DateTime StartDate, 
+  TimeSpan Duration, 
+  List<string> Clauses
+); 
+
 public enum Gender {
   Female,
   Male,
@@ -10,16 +16,10 @@ public enum Gender {
 
 
 public record Person(
-  string name, 
-  DateTime? birthDate, 
-  Gender gender, 
-  List<Contract> contracts, 
-  Person? spouse
-); 
-
-public record Contract(
-  DateTime startDate, 
-  TimeSpan duration, 
-  List<string> clauses
+  string Name, 
+  DateTime? BirthDate, 
+  Gender Gender, 
+  List<Contract> Contracts, 
+  Person? Spouse
 ); 
 

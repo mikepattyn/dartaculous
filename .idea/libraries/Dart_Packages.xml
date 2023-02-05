@@ -192,13 +192,6 @@
             </list>
           </value>
         </entry>
-        <entry key="csharp_annotations">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/csharp_annotations-0.0.1-dev.0/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="csslib">
           <value>
             <list>
@@ -574,13 +567,6 @@
             </list>
           </value>
         </entry>
-        <entry key="squarealfa_generators_common">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_generators_common-3.0.0-dev.2/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="stack_trace">
           <value>
             <list>
@@ -760,7 +746,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/crypto-3.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/crypto_keys-0.3.0+1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/cryptography-2.0.5/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/csharp_annotations-0.0.1-dev.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/csslib-0.17.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dart_style-2.2.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/decimal-2.3.2/lib" />
@@ -818,7 +803,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/source_maps-0.10.11/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/source_span-1.9.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sqflite_common-2.4.2+2/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_generators_common-3.0.0-dev.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stack_trace-1.11.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stream_channel-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stream_transform-2.1.0/lib" />
