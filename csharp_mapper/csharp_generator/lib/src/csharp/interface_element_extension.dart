@@ -1,5 +1,4 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/dart/element/type.dart';
 import 'package:csharp_annotations/config.dart';
 import 'package:csharp_annotations/csharp_annotations.dart';
 import 'package:source_gen/source_gen.dart';
