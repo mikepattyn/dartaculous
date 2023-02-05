@@ -19,5 +19,6 @@ packages:
   - mongo_go/**
   - firebase_go_admin/**
   - dbsync/**
+  - csharp_mapper/**
 
 

@@ -84,6 +84,21 @@
       <excludeFolder url="file://$MODULE_DIR$/map_mapper/test/mongo/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/map_mapper/test/mongo/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/map_mapper/test/mongo/build" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/csharp_generator/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/csharp_generator/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/csharp_generator/build" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/csharp_annotations/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/csharp_annotations/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/csharp_annotations/build" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/test/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/test/build" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/test/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/test/dartlib/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/test/dartlib/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/test/dartlib/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

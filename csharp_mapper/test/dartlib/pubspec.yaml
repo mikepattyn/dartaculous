@@ -1,0 +1,23 @@
+name: dartlib
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+publish_to: none
+
+dependencies:
+  protobuf: ^2.1.0
+  csharp_annotations:
+    path: ../../csharp_annotations
+  decimal: ^2.0.0
+
+dev_dependencies:
+  lints: ^2.0.1
+  test: ^1.14.4
+  csharp_generator:
+    path: ../../csharp_generator
+
+  build_runner: ^2.1.2

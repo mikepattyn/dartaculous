@@ -1,0 +1,8 @@
+# Read about `build.yaml` at https://pub.dev/packages/build_config
+targets:
+  $default:
+    builders:
+      csharp_generator:csharpBuilder:
+        options:
+          outPath: csharp/Model.cs
+          namespace: Company.{package_name}

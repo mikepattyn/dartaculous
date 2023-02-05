@@ -1,0 +1,7 @@
+
+dependency_overrides:
+  csharp_annotations:
+    path: ../csharp_annotations
+    
+  squarealfa_generators_common:
+    path: ../../generators_common

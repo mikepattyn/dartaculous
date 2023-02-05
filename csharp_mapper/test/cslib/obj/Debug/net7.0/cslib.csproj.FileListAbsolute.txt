@@ -1,0 +1,12 @@
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/bin/Debug/net7.0/cslib.deps.json
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/bin/Debug/net7.0/cslib.dll
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/bin/Debug/net7.0/cslib.pdb
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/obj/Debug/net7.0/cslib.csproj.AssemblyReference.cache
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/obj/Debug/net7.0/cslib.GeneratedMSBuildEditorConfig.editorconfig
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/obj/Debug/net7.0/cslib.AssemblyInfoInputs.cache
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/obj/Debug/net7.0/cslib.AssemblyInfo.cs
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/obj/Debug/net7.0/cslib.csproj.CoreCompileInputs.cache
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/obj/Debug/net7.0/cslib.dll
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/obj/Debug/net7.0/refint/cslib.dll
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/obj/Debug/net7.0/cslib.pdb
+/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/obj/Debug/net7.0/ref/cslib.dll
