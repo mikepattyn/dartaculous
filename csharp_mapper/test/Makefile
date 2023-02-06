@@ -1,5 +1,5 @@
 build: .PHONY
-	cd dartlib && dart run build_runner build
+	cd dartlib && make
 
 test: build
 	dotnet test

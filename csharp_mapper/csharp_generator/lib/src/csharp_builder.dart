@@ -1,23 +1,37 @@
+import 'dart:math';
+
+import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
 import 'package:csharp_annotations/csharp_annotations.dart';
+import 'package:decimal/decimal.dart';
 import 'package:glob/glob.dart';
 import 'package:path/path.dart' as p;
 import 'package:csharp_annotations/config.dart';
-import 'package:csharp_generator/src/common/constant_reader_extension.dart';
+import 'package:csharp_generator/src/constant_reader_extension.dart';
+import 'package:csharp_generator/src/interface_element_extension.dart';
 import 'package:recase/recase.dart';
 import 'package:source_gen/source_gen.dart';
+import 'package:squarealfa_entity_annotations/squarealfa_entity_annotations.dart'
+    as sea;
+import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
+import 'csharp_types/csharp_annotation.dart';
+import 'csharp_types/csharp_ast.dart';
+import 'csharp_types/csharp_record.dart';
+import 'csharp_types/csharp_enum.dart';
+import 'csharp_types/csharp_property.dart';
+import 'field_descriptor.dart';
 
-import 'csharp/record_generator.dart';
+part 'csharp_builder.ast.dart';
+part 'csharp_builder.render.dart';
+part 'csharp_builder.attributes.dart';
 
 class CSharpBuilder implements Builder {
   late Config config;
-  late CSharpGenerator csharpGen;
   late String modelPath;
 
   CSharpBuilder(BuilderOptions options) {
     config = Config.fromJson(options.config);
-    csharpGen = CSharpGenerator(config);
     modelPath = _getModelPath();
   }
 
@@ -33,31 +47,18 @@ class CSharpBuilder implements Builder {
   Future<void> build(BuildStep buildStep) async {
     final elements = await _findElements(buildStep);
 
-    final records = StringBuffer();
-    _writeHeader(buildStep, records);
+    final ast = _buildAst(
+      buildStep,
+      config,
+      elements,
+    );
+    final contents = _buildContents(ast);
 
-    for (final e in elements.entries) {
-      final iElement = e.key;
-      final annotation = e.value;
-      final content =
-          csharpGen.generateForAnnotatedElement(iElement, annotation);
-      records.writeln(content);
-      records.writeln();
-    }
     final path = p.join('lib', p.dirname(modelPath));
     final filename = p.basename(modelPath);
     final output = AssetId(buildStep.inputId.package, p.join(path, filename));
 
-    await buildStep.writeAsString(output, records.toString());
-  }
-
-  void _writeHeader(BuildStep buildStep, StringBuffer records) {
-    final lib = buildStep.inputId.package.pascalCase;
-    final namespace = config.namespace.replaceAll('{package_name}', lib);
-    records.writeln('// GENERATED CODE - DO NOT MODIFY BY HAND');
-    records.writeln();
-    records.writeln('namespace $namespace;');
-    records.writeln();
+    await buildStep.writeAsString(output, contents.toString());
   }
 
   Future<Map<InterfaceElement, CSharp>> _findElements(

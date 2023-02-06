@@ -8,10 +8,12 @@ class FieldDescriptor extends FieldDescriptorBase {
   final CSharp csharpAnnotation;
   final CSharpIgnore? ignoreAnnotation;
   final bool forEnum;
+  final FieldElement fieldElement;
 
   FieldDescriptor({
     required this.csharpAnnotation,
     required this.config,
+    required this.fieldElement,
     required super.displayName,
     required super.name,
     required super.isFinal,
@@ -23,7 +25,7 @@ class FieldDescriptor extends FieldDescriptorBase {
   });
 
   FieldDescriptor.fromFieldElement({
-    required FieldElement fieldElement,
+    required this.fieldElement,
     required this.csharpAnnotation,
     required this.forEnum,
     required this.config,
