@@ -1,3 +1,7 @@
+## 0.0.1-dev.4
+
+ - **FEAT**: Added validation attributes.
+
 ## 0.0.1-dev.3
 
  - **FIX**: Removed unused import.
