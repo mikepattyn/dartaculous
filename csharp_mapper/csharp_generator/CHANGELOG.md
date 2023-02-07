@@ -1,3 +1,7 @@
+## 0.0.1-dev.5
+
+ - **FIX**: Added proper content to README.
+
 ## 0.0.1-dev.4
 
  - **FEAT**: Added validation attributes.
