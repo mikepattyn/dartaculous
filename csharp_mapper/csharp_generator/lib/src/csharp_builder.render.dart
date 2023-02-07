@@ -8,6 +8,10 @@ String _buildContents(CSharpAst ast) {
   for (final using in ast.usings) {
     builder.writeln('using $using;');
   }
+  builder.writeln('// ReSharper disable UnusedAutoPropertyAccessor.Global');
+  builder.writeln('// ReSharper disable PartialTypeWithSinglePart');
+  builder.writeln('// ReSharper disable UnusedMember.Global');
+  builder.writeln('// ReSharper disable UnusedType.Global');
   builder.writeln();
   builder.writeln('namespace ${ast.namespace};');
   builder.writeln();
@@ -33,10 +37,12 @@ $fields,
 }
 
 String _renderRecord(CSharpRecord record) {
+  final superClass =
+      record.superClassName.isEmpty ? '' : ': ${record.superClassName}';
   final fields = _renderFields(record);
-  return '''public record ${record.name} (
+  return '''public partial record ${record.name} $superClass {
 $fields
-);
+};
   ''';
 }
 
@@ -44,14 +50,17 @@ String _renderFields(CSharpRecord record) {
   return record.properties.map((e) {
     final suffix = e.isNullable ? '?' : '';
     final annots = _renderAttributes(e);
-    return '$annots  ${e.type}$suffix ${e.name}';
-  }).join(',\n');
+    return '$annots  public required ${e.type}$suffix ${e.name} { get; init; }';
+  }).join('\n');
 }
 
 String _renderAttributes(CSharpProperty property) {
-  return property.attributes.map((e) {
+  if (property.attributes.isEmpty) {
+    return '';
+  }
+  return '\n${property.attributes.map((e) {
     final parameters =
         e.parameters.isEmpty ? '' : '(${e.parameters.join(", ")})';
-    return '  [property:${e.name}$parameters]\n';
-  }).join();
+    return '  [${e.name}$parameters]\n';
+  }).join()}';
 }

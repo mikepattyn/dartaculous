@@ -1,11 +1,12 @@
 import 'package:csharp_annotations/csharp_annotations.dart';
 import 'package:squarealfa_entity_annotations/squarealfa_entity_annotations.dart';
 
+import 'Animal.dart';
 import 'contract.dart';
 import 'gender.dart';
 
 @csharp
-class Person {
+class Person extends Animal {
   @required
   final String name;
   final DateTime? birthDate;
@@ -26,5 +27,6 @@ class Person {
     required this.contracts,
     required this.email,
     this.nonce,
+    required super.properties,
   });
 }

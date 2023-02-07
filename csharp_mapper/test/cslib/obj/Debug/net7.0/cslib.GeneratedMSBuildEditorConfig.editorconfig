@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Company.Dartlib
-build_property.ProjectDir = /home/ruicraveiro/sources/dart_framework/csharp_mapper/test/cslib/
+build_property.ProjectDir = /home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/

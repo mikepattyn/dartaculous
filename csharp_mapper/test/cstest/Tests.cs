@@ -28,9 +28,7 @@ public class Tests
     {
         var person = CreateSamplePerson();
 
-        var results = new List<ValidationResult>();
         Validator.ValidateObject(person, new ValidationContext(person),  true);
-        Assert.Empty(results);
     }
 
     [Fact]
@@ -105,30 +103,45 @@ public class Tests
         Assert.Equal(nameof(Person.Weight), results.First().MemberNames.First());
     }
 
+    
+    [Fact]
+    public void CarInheritsVehicle()
+    {
+        Car car = new()
+        {
+            Doors = 4,
+            Weight = 500
+        };
+
+        Assert.Equal(4, car.Doors);
+        Assert.Equal(500, car.Weight);
+    }
+
     private static Person CreateSamplePerson()
     {
-        return new Person(
-            Name: "Alice",
-            BirthDate: new(1980, 05, 10),
-            Gender: Gender.Female,
-            Contracts: new ()
+        return new Person{
+            Name = "Alice",
+            BirthDate = new(1980, 05, 10),
+            Gender= Gender.Female,
+            Contracts= new ()
             {
-                new(
-                    new(2023, 02, 05), 
-                    new TimeSpan(365, 0, 0, 0),
-                    new()
+                new Contract
+                {
+                    StartDate = new(2023, 02, 05),
+                    Duration = new TimeSpan(365, 0, 0, 0),
+                    Clauses = new()
                     {
                         "First Clause",
                         "Second Clause"
                     }
-                )
+                } 
             },
-            Spouse:null,
-            Comment: "Fairly big comment",
-            Email: "alice@acme.com",
-            Address: "Kansas",
-            Height: 1.60,
-            Weight: 75
-        );
+            Spouse=null,
+            Comment= "Fairly big comment",
+            Email= "alice@acme.com",
+            Address= "Kansas",
+            Height= 1.60,
+            Weight= 75
+        };
     }
 }

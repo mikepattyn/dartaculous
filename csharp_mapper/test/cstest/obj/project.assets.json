@@ -5519,7 +5519,7 @@
     "cslib/1.0.0": {
       "type": "project",
       "path": "../cslib/cslib.csproj",
-      "msbuildProject": "../../../../framework/dart_framework/csharp_mapper/test/cslib/cslib.csproj"
+      "msbuildProject": "../cslib/cslib.csproj"
     }
   },
   "projectFileDependencyGroups": {

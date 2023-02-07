@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "nQKquqs5sS2kE6/lw9pj3LROoSh6E9gwTS8+B6ZGaJaIC7+tNd/aOCAByfCkVTWTVbeui/vUCD2NoZ4/51FyNw==",
   "success": true,
-  "projectFilePath": "/home/ruicraveiro/sources/dart_framework/csharp_mapper/test/cstest/cstest.csproj",
+  "projectFilePath": "/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cstest/cstest.csproj",
   "expectedPackageFiles": [
     "/home/ruicraveiro/.nuget/packages/coverlet.collector/3.2.0/coverlet.collector.3.2.0.nupkg.sha512",
     "/home/ruicraveiro/.nuget/packages/microsoft.codecoverage/17.4.1/microsoft.codecoverage.17.4.1.nupkg.sha512",

@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "5tKL5KTYe8EmbivoDx3/z1bpH5NTOWdlIlUzgTzDAD4gBxru+0sTAPWQgzHhK6yB31bdeN9PG2PdEMGhSXD9AQ==",
   "success": true,
-  "projectFilePath": "/home/ruicraveiro/sources/dart_framework/csharp_mapper/test/cslib/cslib.csproj",
+  "projectFilePath": "/home/ruicraveiro/sources/framework/dart_framework/csharp_mapper/test/cslib/cslib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

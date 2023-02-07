@@ -10,19 +10,19 @@ public enum Gender {
   Other,
 }
   
-public record Person (
+public record Person {
   [property:Required(AllowEmptyStrings = false)]
-  string Name,
-  DateTime? BirthDate,
-  Gender Gender,
-  List<Contract> Contracts,
+  public required string Name { get; init; },
+  public required DateTime? BirthDate { get; init; },
+  public required Gender Gender { get; init; },
+  public required List<Contract> Contracts { get; init; },
   [property:EmailAddress]
-  string Email
-);
+  public required string Email { get; init; }
+};
   
-public record Contract (
-  DateTime StartDate,
-  TimeSpan Duration,
-  List<string> Clauses
-);
+public record Contract {
+  public required DateTime StartDate { get; init; },
+  public required TimeSpan Duration { get; init; },
+  public required List<string> Clauses { get; init; }
+};
   

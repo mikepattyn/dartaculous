@@ -67,6 +67,7 @@ List<CSharpRecord> _getRecords(
   return recordElements.map((e) {
     final ce = e.key;
     final annotation = e.value;
+    final superClassName = _getSuperClassName(ce);
 
     final fieldDescriptors = ce
         .getFieldDescriptors(annotation: annotation, config: config)
@@ -78,8 +79,21 @@ List<CSharpRecord> _getRecords(
     return CSharpRecord(
       name: ce.displayName.pascalCase,
       properties: properties,
+      superClassName: superClassName,
     );
   }).toList();
+}
+
+String _getSuperClassName(ClassElement ce) {
+  final st = ce.supertype;
+  if (st == null) {
+    return '';
+  }
+  final annot = _getCSharpRecord(st.element);
+  if (annot == null) {
+    return '';
+  }
+  return st.getDisplayString(withNullability: false).pascalCase;
 }
 
 List<CSharpProperty> _getProperties(List<FieldDescriptor> fieldDescriptors) {
