@@ -1,3 +1,9 @@
+## 0.0.1-dev.6
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: Support for inheritance.
+
 ## 0.0.1-dev.5
 
  - **FIX**: Added proper content to README.
