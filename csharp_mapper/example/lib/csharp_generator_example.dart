@@ -3,4 +3,5 @@
 /// More dartdocs go here.
 library csharp_generator_example;
 
-export 'src/recipe.dart';
+export 'src/person.dart';
+export 'src/contract.dart';

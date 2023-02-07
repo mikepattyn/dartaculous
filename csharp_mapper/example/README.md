@@ -1,7 +1,7 @@
-# proto_annotations and proto_generator packages usage example
+# csharp_annotations and csharp_generator packages usage example
 
-This is an example project that demonstrates the usage of the proto_annotations and proto_generator packages.
-Checkout out https://pub.dev/packages/proto_generator for how to get started.
+This is an example project that demonstrates the usage of the csharp_annotations and csharp_generator packages.
+Checkout out https://pub.dev/packages/csharp_generator for how to get started.
 
 ## Context
 

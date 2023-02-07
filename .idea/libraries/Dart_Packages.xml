@@ -595,6 +595,21 @@
             </list>
           </value>
         </entry>
+        <entry key="squarealfa_entity_annotations">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_entity_annotations-3.0.0/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_entity_annotations-3.0.0-dev.3/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="squarealfa_entity_generator">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_entity_generator-2.2.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="squarealfa_generators_common">
           <value>
             <list>
@@ -842,6 +857,9 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/source_maps-0.10.11/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/source_span-1.9.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sqflite_common-2.4.2+2/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_entity_annotations-3.0.0-dev.3/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_entity_annotations-3.0.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_entity_generator-2.2.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/squarealfa_generators_common-3.0.0-dev.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stack_trace-1.11.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stream_channel-2.1.1/lib" />
