@@ -128,7 +128,7 @@ String _getTypeName(FieldDescriptor fd) {
     return 'double';
   }
   if (typeName == (Decimal).toString()) {
-    return 'Decimal';
+    return 'decimal';
   }
   if (typeName == (DateTime).toString()) {
     return 'DateTime';
