@@ -1,3 +1,7 @@
+## 4.0.0-dev.16
+
+ - **FEAT**: Reintroduced option to encode decimals as strings.
+
 ## 4.0.0-dev.15
 
  - Update a dependency to the latest release.

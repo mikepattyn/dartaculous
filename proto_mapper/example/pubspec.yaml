@@ -11,10 +11,10 @@ environment:
 
 dependencies:
   protobuf: ^2.1.0
-  proto_annotations: ^3.0.0-dev.6
+  proto_annotations: ^3.0.0-dev.7
 dev_dependencies:
   lints: ^2.0.1
   test: ^1.14.4
-  proto_generator: ^4.0.0-dev.15
+  proto_generator: ^4.0.0-dev.16
   build_runner: ^2.1.2
 

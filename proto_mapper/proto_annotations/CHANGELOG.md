@@ -1,3 +1,7 @@
+## 3.0.0-dev.7
+
+ - **FEAT**: Reintroduced option to encode decimals as strings.
+
 ## 3.0.0-dev.6
 
 > Note: This release has breaking changes.
