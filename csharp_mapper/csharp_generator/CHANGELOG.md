@@ -1,3 +1,7 @@
+## 0.0.1-dev.7
+
+ - **FIX**: Added resharper exception for inconsistent naming.
+
 ## 0.0.1-dev.6
 
 > Note: This release has breaking changes.

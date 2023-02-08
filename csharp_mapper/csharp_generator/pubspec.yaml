@@ -2,7 +2,7 @@ name: csharp_generator
 description: Code generation of C# classes based on Dart classes
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/charp_mapper/csharp_generator
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 0.0.1-dev.6
+version: 0.0.1-dev.7
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
