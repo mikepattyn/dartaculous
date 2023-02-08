@@ -1,3 +1,7 @@
+## 0.0.1-dev.9
+
+ - **FIX**: Rendering Decimal as C# type decimal.
+
 ## 0.0.1-dev.8
 
  - **FIX**: Squelching resharper never instantiated warning for generated classes.
