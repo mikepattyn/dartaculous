@@ -1,3 +1,7 @@
+## 0.0.1-dev.8
+
+ - **FIX**: Squelching resharper never instantiated warning for generated classes.
+
 ## 0.0.1-dev.7
 
  - **FIX**: Added resharper exception for inconsistent naming.
