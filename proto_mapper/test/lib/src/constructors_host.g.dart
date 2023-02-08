@@ -325,11 +325,11 @@ GConstructObject6 _$ConstructObject6ToProto(ConstructObject6 instance) {
   var proto = GConstructObject6();
 
   if (instance.name != null) {
-    proto.name = StringValue(value: instance.name);
+    proto.name = instance.name!;
   }
 
   if (instance.number != null) {
-    proto.number = Int32Value(value: instance.number);
+    proto.number = instance.number!;
   }
 
   return proto;
@@ -337,8 +337,8 @@ GConstructObject6 _$ConstructObject6ToProto(ConstructObject6 instance) {
 
 ConstructObject6 _$ConstructObject6FromProto(GConstructObject6 proto) {
   return ConstructObject6(
-    name: (proto.name.hasValue() ? proto.name.value : null),
-  )..number = (proto.number.hasValue() ? proto.number.value : null);
+    name: (proto.hasName() ? proto.name : null),
+  )..number = (proto.hasNumber() ? proto.number : null);
 }
 
 extension $ConstructObject6ProtoExtension on ConstructObject6 {
@@ -387,7 +387,7 @@ GConstructObject7 _$ConstructObject7ToProto(ConstructObject7 instance) {
   var proto = GConstructObject7();
 
   if (instance.number != null) {
-    proto.number = Int32Value(value: instance.number);
+    proto.number = instance.number!;
   }
 
   proto.name = instance.name;
@@ -398,7 +398,7 @@ GConstructObject7 _$ConstructObject7ToProto(ConstructObject7 instance) {
 ConstructObject7 _$ConstructObject7FromProto(GConstructObject7 proto) {
   return ConstructObject7.name(
     proto.name,
-    (proto.number.hasValue() ? proto.number.value : null),
+    (proto.hasNumber() ? proto.number : null),
   );
 }
 
@@ -448,7 +448,7 @@ GConstructObject8 _$ConstructObject8ToProto(ConstructObject8 instance) {
   var proto = GConstructObject8();
 
   if (instance.number != null) {
-    proto.number = Int32Value(value: instance.number);
+    proto.number = instance.number!;
   }
 
   proto.name = instance.name;

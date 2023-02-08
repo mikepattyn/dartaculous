@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
 import 'package:proto_annotations/src/annotations/proto_field.dart';
+import 'decimal_encoding.dart';
+export 'decimal_encoding.dart';
 
 part 'config.g.dart';
 
@@ -19,6 +21,7 @@ class Config {
   final String wellKnownDurationType;
   final String wellKnownTimestampType;
   final IntPrecision defaultIntPrecision;
+  final DecimalEncoding decimalEncoding;
   final String outProtoPath;
 
   Config({
@@ -32,6 +35,7 @@ class Config {
     this.wellKnownDurationType = r'$Duration',
     this.wellKnownTimestampType = r'$Timestamp',
     this.defaultIntPrecision = IntPrecision.int32,
+    this.decimalEncoding = DecimalEncoding.binary,
     this.outProtoPath = 'proto/model.proto',
   });
 

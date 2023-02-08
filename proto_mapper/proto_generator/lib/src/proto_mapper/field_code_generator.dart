@@ -30,6 +30,7 @@ abstract class FieldCodeGenerator {
       fieldDescriptor: fieldDescriptor,
       refName: fieldDescriptor.refName,
       protoRefName: fieldDescriptor.protoRefName,
+      config: config,
     );
     if (fcd != null) return fcd;
 
@@ -120,6 +121,7 @@ FieldCodeGenerator? _getCustomEncodedFieldCodeGenerator({
   required FieldDescriptor fieldDescriptor,
   required String refName,
   required String protoRefName,
+  required Config config,
 }) {
   if (fieldDescriptor.fieldElementTypeName == (BigInt).toString()) {
     return BigIntFieldCodeGenerator(
@@ -133,6 +135,7 @@ FieldCodeGenerator? _getCustomEncodedFieldCodeGenerator({
       fieldDescriptor: fieldDescriptor,
       refName: refName,
       protoRefName: protoRefName,
+      config: config,
     );
   }
   return null;

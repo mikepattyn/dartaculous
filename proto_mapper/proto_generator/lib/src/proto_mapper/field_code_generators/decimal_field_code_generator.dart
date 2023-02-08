@@ -1,3 +1,6 @@
+import 'package:proto_annotations/config.dart';
+import 'package:proto_generator/src/common/proto_common.dart';
+
 import '../field_code_generator.dart';
 import '../field_descriptor.dart';
 import 'field_code_generator_identifiers.dart';
@@ -9,7 +12,10 @@ class DecimalFieldCodeGenerator
     required this.fieldDescriptor,
     required this.refName,
     required this.protoRefName,
+    required this.config,
   });
+
+  final Config config;
 
   @override
   final FieldDescriptor fieldDescriptor;
@@ -20,9 +26,13 @@ class DecimalFieldCodeGenerator
 
   @override
   String get toProtoMap =>
-      '$protoRef$protoFieldName = $ref$fieldName.\$toProtoBytes();';
+      '$protoRef$protoFieldName = $ref$fieldName.$_toMethodName();';
 
   @override
   String get fromProtoMap =>
-      '${fieldDescriptor.isNullable ? '\$NullableDecimalProtoExtension' : '\$DecimalProtoExtension'}.\$fromProtoBytes($protoRef$protoFieldName)';
+      '${fieldDescriptor.isNullable ? '\$NullableDecimalProtoExtension' : '\$DecimalProtoExtension'}.$_fromMethodName($protoRef$protoFieldName)';
+
+  String get _toMethodName => decimalToMethodName(config);
+
+  String get _fromMethodName => decimalFromMethodName(config);
 }

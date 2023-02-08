@@ -71,7 +71,7 @@ String collectionProtoToValue(
 }) {
   final fieldTypeName = parameterType.getDisplayString(withNullability: false);
   if (fieldTypeName == (Decimal).toString()) {
-    return '\$DecimalProtoExtension.\$fromProtoBytes($parameterName)';
+    return '\$DecimalProtoExtension.${decimalFromMethodName(config)}($parameterName)';
   }
   if (fieldTypeName == (BigInt).toString()) {
     return '\$BigIntProtoExtension.\$fromProtoBytes($parameterName)';
@@ -101,7 +101,7 @@ String collectionValueToProto(
 }) {
   final fieldTypeName = parameterType.getDisplayString(withNullability: false);
   if (fieldTypeName == (Decimal).toString()) {
-    return '$parameterName.\$toProtoBytes()';
+    return '$parameterName.${decimalToMethodName(config)}()';
   }
   if (fieldTypeName == (BigInt).toString()) {
     return '$parameterName.\$toProtoBytes()';
@@ -121,4 +121,26 @@ String collectionValueToProto(
     return 'Int64($parameterName.inMicroseconds)';
   }
   return ''' const \$${fieldTypeName}ProtoMapper().toProto($parameterName)''';
+}
+
+String decimalToMethodName(Config config) {
+  switch (config.decimalEncoding) {
+    case DecimalEncoding.binary:
+      return r'$toProtoBytes';
+    case DecimalEncoding.string:
+      return r'$toProtoString';
+    default:
+      throw UnimplementedError();
+  }
+}
+
+String decimalFromMethodName(Config config) {
+  switch (config.decimalEncoding) {
+    case DecimalEncoding.binary:
+      return r'$fromProtoBytes';
+    case DecimalEncoding.string:
+      return r'$fromProtoString';
+    default:
+      throw UnimplementedError();
+  }
 }

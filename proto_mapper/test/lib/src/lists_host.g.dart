@@ -39,25 +39,22 @@ GListsHost _$ListsHostToProto(ListsHost instance) {
 
   proto.nvstrings.addAll(instance.nvstrings ?? []);
 
-  proto.vdurations.addAll(instance.vdurations.map((e) => GDuration(
-      seconds: Int64(e.inSeconds),
-      nanos: (e.inMicroseconds - e.inSeconds * 1000000) * 1000)));
+  proto.vdurations
+      .addAll(instance.vdurations.map((e) => Int64(e.inMicroseconds)));
 
-  proto.nvdurations.addAll(instance.nvdurations?.map((e) => GDuration(
-          seconds: Int64(e.inSeconds),
-          nanos: (e.inMicroseconds - e.inSeconds * 1000000) * 1000)) ??
-      []);
+  proto.nvdurations
+      .addAll(instance.nvdurations?.map((e) => Int64(e.inMicroseconds)) ?? []);
 
   proto.vdatetimes
-      .addAll(instance.vdatetimes.map((e) => Timestamp.fromDateTime(e)));
+      .addAll(instance.vdatetimes.map((e) => Int64(e.microsecondsSinceEpoch)));
 
   proto.nvdatetimes.addAll(
-      instance.nvdatetimes?.map((e) => Timestamp.fromDateTime(e)) ?? []);
+      instance.nvdatetimes?.map((e) => Int64(e.microsecondsSinceEpoch)) ?? []);
 
-  proto.vdecimals.addAll(instance.vdecimals.map((e) => e.$toProtoBytes()));
+  proto.vdecimals.addAll(instance.vdecimals.map((e) => e.$toProtoString()));
 
   proto.nvdecimals
-      .addAll(instance.nvdecimals?.map((e) => e.$toProtoBytes()) ?? []);
+      .addAll(instance.nvdecimals?.map((e) => e.$toProtoString()) ?? []);
 
   proto.vints.addAll(instance.vints);
 
@@ -81,28 +78,24 @@ ListsHost _$ListsHostFromProto(GListsHost proto) {
   return ListsHost(
     vbools: List<bool>.unmodifiable(proto.vbools.map((e) => e)),
     vstrings: List<String>.unmodifiable(proto.vstrings.map((e) => e)),
-    vdurations: List<Duration>.unmodifiable(proto.vdurations.map((e) =>
-        Duration(
-            seconds: e.seconds.toInt(),
-            microseconds: (e.nanos ~/ 1000).toInt()))),
-    vdatetimes: List<DateTime>.unmodifiable(
-        proto.vdatetimes.map((e) => e.toDateTime())),
+    vdurations: List<Duration>.unmodifiable(
+        proto.vdurations.map((e) => Duration(microseconds: e.toInt()))),
+    vdatetimes: List<DateTime>.unmodifiable(proto.vdatetimes
+        .map((e) => DateTime.fromMicrosecondsSinceEpoch(e.toInt()))),
     vdecimals: List<Decimal>.unmodifiable(
-        proto.vdecimals.map((e) => $DecimalProtoExtension.$fromProtoBytes(e))),
+        proto.vdecimals.map((e) => $DecimalProtoExtension.$fromProtoString(e))),
     vints: List<int>.unmodifiable(proto.vints.map((e) => e)),
     vdoubles: List<double>.unmodifiable(proto.vdoubles.map((e) => e)),
     vapplianceTypes: List<ApplianceType>.unmodifiable(proto.vapplianceTypes
         .map((e) => const $ApplianceTypeProtoMapper().fromProto(e))),
     nvbools: List<bool>.unmodifiable(proto.nvbools.map((e) => e)),
     nvstrings: List<String>.unmodifiable(proto.nvstrings.map((e) => e)),
-    nvdurations: List<Duration>.unmodifiable(proto.nvdurations.map((e) =>
-        Duration(
-            seconds: e.seconds.toInt(),
-            microseconds: (e.nanos ~/ 1000).toInt()))),
-    nvdatetimes: List<DateTime>.unmodifiable(
-        proto.nvdatetimes.map((e) => e.toDateTime())),
-    nvdecimals: List<Decimal>.unmodifiable(
-        proto.nvdecimals.map((e) => $DecimalProtoExtension.$fromProtoBytes(e))),
+    nvdurations: List<Duration>.unmodifiable(
+        proto.nvdurations.map((e) => Duration(microseconds: e.toInt()))),
+    nvdatetimes: List<DateTime>.unmodifiable(proto.nvdatetimes
+        .map((e) => DateTime.fromMicrosecondsSinceEpoch(e.toInt()))),
+    nvdecimals: List<Decimal>.unmodifiable(proto.nvdecimals
+        .map((e) => $DecimalProtoExtension.$fromProtoString(e))),
     nvints: List<int>.unmodifiable(proto.nvints.map((e) => e)),
     nvdoubles: List<double>.unmodifiable(proto.nvdoubles.map((e) => e)),
     nvapplianceTypes: List<ApplianceType>.unmodifiable(proto.nvapplianceTypes

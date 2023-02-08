@@ -33,8 +33,7 @@ GAltNaming _$AltNamingToProto(AltNaming instance) {
 
   proto.unconventionalName = instance.unconventionalName;
   if (instance.nUnconventionalName != null) {
-    proto.nUnconventionalName =
-        StringValue(value: instance.nUnconventionalName);
+    proto.nUnconventionalName = instance.nUnconventionalName!;
   }
 
   proto.unconventionalEnumName =
@@ -55,23 +54,17 @@ GAltNaming _$AltNamingToProto(AltNaming instance) {
       .map((e) => const $IngredientProtoMapper().toProto(e)));
 
   proto.unconventionalDateTime =
-      Timestamp.fromDateTime(instance.unconventionalDateTime);
+      Int64(instance.unconventionalDateTime.microsecondsSinceEpoch);
   if (instance.nUnconventionalDateTime != null) {
     proto.nUnconventionalDateTime =
-        Timestamp.fromDateTime(instance.nUnconventionalDateTime!);
+        Int64(instance.nUnconventionalDateTime!.microsecondsSinceEpoch);
   }
 
-  proto.unconventionalDuration = GDuration(
-      seconds: Int64(instance.unconventionalDuration.inSeconds),
-      nanos: (instance.unconventionalDuration.inMicroseconds -
-              instance.unconventionalDuration.inSeconds * 1000000) *
-          1000);
+  proto.unconventionalDuration =
+      Int64(instance.unconventionalDuration.inMicroseconds);
   if (instance.nUnconventionalDuration != null) {
-    proto.nUnconventionalDuration = GDuration(
-        seconds: Int64(instance.nUnconventionalDuration!.inSeconds),
-        nanos: (instance.nUnconventionalDuration!.inMicroseconds -
-                instance.nUnconventionalDuration!.inSeconds * 1000000) *
-            1000);
+    proto.nUnconventionalDuration =
+        Int64(instance.nUnconventionalDuration!.inMicroseconds);
   }
 
   return proto;
@@ -80,9 +73,8 @@ GAltNaming _$AltNamingToProto(AltNaming instance) {
 AltNaming _$AltNamingFromProto(GAltNaming proto) {
   return AltNaming(
     unconventionalName: proto.unconventionalName,
-    nUnconventionalName: (proto.nUnconventionalName.hasValue()
-        ? proto.nUnconventionalName.value
-        : null),
+    nUnconventionalName:
+        (proto.hasNUnconventionalName() ? proto.nUnconventionalName : null),
     unconventionalEnumName:
         ApplianceType.values[proto.unconventionalEnumName.value],
     nUnconventionalEnumName: (proto.hasNUnconventionalEnumName()
@@ -95,18 +87,16 @@ AltNaming _$AltNamingFromProto(GAltNaming proto) {
         : null),
     unconventionalList: List<Ingredient>.unmodifiable(proto.unconventionalList
         .map((e) => const $IngredientProtoMapper().fromProto(e))),
-    unconventionalDateTime: proto.unconventionalDateTime.toDateTime(),
+    unconventionalDateTime: DateTime.fromMicrosecondsSinceEpoch(
+        proto.unconventionalDateTime.toInt()),
     nUnconventionalDateTime: (proto.hasNUnconventionalDateTime()
-        ? (proto.nUnconventionalDateTime.toDateTime())
+        ? DateTime.fromMicrosecondsSinceEpoch(
+            proto.nUnconventionalDateTime.toInt())
         : null),
-    unconventionalDuration: Duration(
-        seconds: proto.unconventionalDuration.seconds.toInt(),
-        microseconds: (proto.unconventionalDuration.nanos ~/ 1000).toInt()),
+    unconventionalDuration:
+        Duration(microseconds: proto.unconventionalDuration.toInt()),
     nUnconventionalDuration: (proto.hasNUnconventionalDuration()
-        ? (Duration(
-            seconds: proto.nUnconventionalDuration.seconds.toInt(),
-            microseconds:
-                (proto.nUnconventionalDuration.nanos ~/ 1000).toInt()))
+        ? Duration(microseconds: proto.nUnconventionalDuration.toInt())
         : null),
   );
 }

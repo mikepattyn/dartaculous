@@ -6,9 +6,7 @@ package com.company.project;
     
 option go_package = "./stubs";
     
-import "google/protobuf/wrappers.proto";
-import "google/protobuf/timestamp.proto";
-import "google/protobuf/duration.proto";
+
 
 
 message GFieldsOfAbstractVehicle
@@ -85,7 +83,7 @@ message GBicycle
 {
   GFieldsOfAbstractVehicle fieldsOfSuperClass = 1;
 
-  bytes wheel_diamater = 2;
+  string wheel_diamater = 2;
   string key = 3;
 
 }   
@@ -229,16 +227,16 @@ message GAltNaming
 {
 
   string UnconventionalName = 19;
-  google.protobuf.StringValue NUnconventionalName = 20;
+  optional string NUnconventionalName = 20;
   GApplianceType UnconventionalEnumName = 21;
   GApplianceType NUnconventionalEnumName = 22;
   GEmpty UnconventionalCategory = 23;
   GEmpty NUnconventionalCategory = 24;
   repeated GIngredient UnconventionalList = 25;
-  google.protobuf.Timestamp UnconventionalDateTime = 26;
-  google.protobuf.Timestamp NUnconventionalDateTime = 27;
-  google.protobuf.Duration UnconventionalDuration = 28;
-  google.protobuf.Duration NUnconventionalDuration = 29;
+  int64 UnconventionalDateTime = 26;
+  optional int64 NUnconventionalDateTime = 27;
+  int64 UnconventionalDuration = 28;
+  optional int64 NUnconventionalDuration = 29;
 
 }   
 
@@ -250,8 +248,8 @@ message GCalcParameters
 
   int32 parameter1 = 2;
   int32 parameter2 = 1;
-  google.protobuf.Int32Value parameter3 = 3;
-  google.protobuf.Int32Value parameter4 = 4;
+  optional int32 parameter3 = 3;
+  optional int32 parameter4 = 4;
   int32 parameter5 = 9;
 
 }   
@@ -351,8 +349,8 @@ message GConstructObject5
 message GConstructObject6
 {
 
-  google.protobuf.StringValue name = 2;
-  google.protobuf.Int32Value number = 3;
+  optional string name = 2;
+  optional int32 number = 3;
 
 }   
 
@@ -362,7 +360,7 @@ message GConstructObject6
 message GConstructObject7
 {
 
-  google.protobuf.Int32Value number = 2;
+  optional int32 number = 2;
   string name = 3;
 
 }   
@@ -373,7 +371,7 @@ message GConstructObject7
 message GConstructObject8
 {
 
-  google.protobuf.Int32Value number = 2;
+  optional int32 number = 2;
   string name = 3;
 
 }   
@@ -443,9 +441,9 @@ message GIngredient
 {
 
   string description = 2;
-  bytes quantity = 3;
+  string quantity = 3;
   double precision = 4;
-  google.protobuf.Duration cooking_duration = 5;
+  int64 cooking_duration = 5;
   GComponent main_component = 6;
   repeated GComponent other_components = 7;
   GComponent alternative_component = 8;
@@ -524,12 +522,12 @@ message GListsHost
   repeated bool nvbools = 3;
   repeated string vstrings = 4;
   repeated string nvstrings = 5;
-  repeated google.protobuf.Duration vdurations = 6;
-  repeated google.protobuf.Duration nvdurations = 7;
-  repeated google.protobuf.Timestamp vdatetimes = 8;
-  repeated google.protobuf.Timestamp nvdatetimes = 9;
-  repeated bytes vdecimals = 10;
-  repeated bytes nvdecimals = 11;
+  repeated int64 vdurations = 6;
+  repeated int64 nvdurations = 7;
+  repeated int64 vdatetimes = 8;
+  repeated int64 nvdatetimes = 9;
+  repeated string vdecimals = 10;
+  repeated string nvdecimals = 11;
   repeated int32 vints = 12;
   repeated int32 nvints = 13;
   repeated double vdoubles = 14;
@@ -545,8 +543,8 @@ message GListsHost
 message GPerson
 {
 
-  google.protobuf.BoolValue bool_value = 1;
-  bytes dec_val = 2;
+  optional bool bool_value = 1;
+  string dec_val = 2;
 
 }   
 
@@ -557,17 +555,17 @@ message GRecipe
 {
 
   string title = 2;
-  google.protobuf.StringValue description = 3;
+  optional string description = 3;
   GCategory category = 4;
   repeated GIngredient ingredients = 5;
-  google.protobuf.Timestamp publish_date = 6;
-  google.protobuf.Timestamp expiry_date = 7;
-  google.protobuf.Duration preparation_duration = 8;
-  google.protobuf.Duration total_duration = 9;
+  int64 publish_date = 6;
+  optional int64 expiry_date = 7;
+  int64 preparation_duration = 8;
+  optional int64 total_duration = 9;
   bool is_published = 10;
-  google.protobuf.BoolValue requires_robot = 11;
-  google.protobuf.DoubleValue gross_weight = 12;
-  google.protobuf.DoubleValue net_weight = 13;
+  optional bool requires_robot = 11;
+  optional double gross_weight = 12;
+  optional double net_weight = 13;
   GApplianceType main_appliance_type = 14;
   GApplianceType secondary_appliance_type = 15;
   repeated string tags = 16;
@@ -618,7 +616,7 @@ message GKitchen
 
   repeated GRecipe recipe_list = 2;
   map<string, GRecipe> recipe_map = 3;
-  google.protobuf.Timestamp next_inspection_date = 4;
+  int64 next_inspection_date = 4;
 
 }   
 
@@ -632,8 +630,8 @@ message GChef
   GKnife favorite_knife = 3;
   GApplianceType favorite_appliance_type = 4;
   repeated string favorite_words = 5;
-  google.protobuf.Timestamp birthdate = 6;
-  google.protobuf.Duration shelf_life = 7;
+  int64 birthdate = 6;
+  optional int64 shelf_life = 7;
 
 }   
 
@@ -666,7 +664,7 @@ message GInventory
 
   map<string, int32> number_of_things = 2;
   map<string, GRecipe> recipes_by_name = 3;
-  google.protobuf.Duration time_span = 4;
+  optional int64 time_span = 4;
 
 }   
 
@@ -676,8 +674,8 @@ message GInventory
 message GPrecisionSubject
 {
 
-  google.protobuf.Timestamp date_property = 2;
-  google.protobuf.Duration duration_property = 3;
+  int64 date_property = 2;
+  int64 duration_property = 3;
 
 }   
 

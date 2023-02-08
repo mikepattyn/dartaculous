@@ -33,7 +33,7 @@ GBicycle _$BicycleToProto(Bicycle instance) {
   proto.fieldsOfSuperClass =
       const $AbstractVehicleProtoMapper().toFieldsOfProto(instance);
 
-  proto.wheelDiamater = instance.wheelDiamater.$toProtoBytes();
+  proto.wheelDiamater = instance.wheelDiamater.$toProtoString();
   proto.key = instance.key;
 
   return proto;
@@ -41,7 +41,7 @@ GBicycle _$BicycleToProto(Bicycle instance) {
 
 Bicycle _$BicycleFromProto(GBicycle proto) {
   return Bicycle(
-    wheelDiamater: $DecimalProtoExtension.$fromProtoBytes(proto.wheelDiamater),
+    wheelDiamater: $DecimalProtoExtension.$fromProtoString(proto.wheelDiamater),
     weight: proto.fieldsOfSuperClass.weight,
     key: proto.key,
   );

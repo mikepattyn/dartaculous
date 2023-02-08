@@ -74,7 +74,7 @@ abstract class FieldCodeGenerator {
       return BigIntFieldCodeGenerator(fieldDescriptor);
     }
     if (typeName == (Decimal).toString()) {
-      return DecimalFieldCodeGenerator(fieldDescriptor);
+      return DecimalFieldCodeGenerator(fieldDescriptor, config: config);
     }
     if (typeName == (DateTime).toString()) {
       return TimestampFieldCodeGenerator(fieldDescriptor);

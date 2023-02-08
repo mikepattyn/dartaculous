@@ -29,6 +29,14 @@ extension $DecimalProtoExtension on Decimal {
     final rational = Rational(numerator, denominator);
     return rational.toDecimal();
   }
+
+  String $toProtoString() {
+    return toString();
+  }
+
+  static Decimal $fromProtoString(String string) {
+    return Decimal.parse(string);
+  }
 }
 
 extension $NullableDecimalProtoExtension on Decimal? {
@@ -43,6 +51,19 @@ extension $NullableDecimalProtoExtension on Decimal? {
     }
 
     return $DecimalProtoExtension.$fromProtoBytes(bytes);
+  }
+
+  String $toProtoString() {
+    if (this == null) return '';
+    return toString();
+  }
+
+  static Decimal? $fromProtoString(String string) {
+    if (string.isEmpty) {
+      return null;
+    }
+
+    return $DecimalProtoExtension.$fromProtoString(string);
   }
 }
 
