@@ -12,6 +12,7 @@ String _buildContents(CSharpAst ast) {
   builder.writeln('// ReSharper disable PartialTypeWithSinglePart');
   builder.writeln('// ReSharper disable UnusedMember.Global');
   builder.writeln('// ReSharper disable UnusedType.Global');
+  builder.writeln('// ReSharper disable InconsistentNaming');
   builder.writeln();
   builder.writeln('namespace ${ast.namespace};');
   builder.writeln();
