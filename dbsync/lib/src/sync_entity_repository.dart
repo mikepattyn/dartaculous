@@ -1,7 +1,7 @@
 import 'package:sqflite_common/sqlite_api.dart';
 import 'package:dbsync/dbsync.dart';
 
-abstract class SyncEntityRepository<TEntity extends SyncEntity> {
+abstract class SyncEntityRepository<TEntity> {
   const SyncEntityRepository({
     required this.syncHandler,
     required this.syncLocalRepository,
@@ -28,8 +28,8 @@ abstract class SyncEntityRepository<TEntity extends SyncEntity> {
         final localChange = LocalChange.create(
           protoBytes: syncHandler.marshal(entity),
           entityType: TEntity,
-          entityId: entity.id,
-          entityRev: entity.rev,
+          entityId: syncHandler.getId(entity),
+          entityRev: syncHandler.getRev(entity),
         );
         await syncLocalRepository.insertChange(txn, localChange);
       }
@@ -47,8 +47,8 @@ abstract class SyncEntityRepository<TEntity extends SyncEntity> {
         final localChange = LocalChange.update(
           entityType: TEntity,
           protoBytes: syncHandler.marshal(entity),
-          entityId: entity.id,
-          entityRev: entity.rev,
+          entityId: syncHandler.getId(entity),
+          entityRev: syncHandler.getRev(entity),
         );
         await syncLocalRepository.insertChange(txn, localChange);
       }

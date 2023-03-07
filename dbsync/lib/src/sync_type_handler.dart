@@ -4,7 +4,10 @@ import 'dart:typed_data';
 import 'package:dbsync/dbsync.dart';
 import 'package:sqflite_common/sqlite_api.dart';
 
-abstract class SyncTypeHandler<TEntity extends SyncEntity> {
+abstract class SyncTypeHandler<TEntity> {
+  String getId(TEntity entity);
+  String getRev(TEntity entity);
+
   Future<TEntity> getLocal(DatabaseExecutor executor, String id);
   FutureOr<void> clearAllLocal(DatabaseExecutor executor);
   Future<void> upsertLocal(DatabaseExecutor executor, TEntity entity);

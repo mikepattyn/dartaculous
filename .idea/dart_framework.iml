@@ -99,6 +99,9 @@
       <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/test/dartlib/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/test/dartlib/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/csharp_mapper/test/dartlib/build" />
+      <excludeFolder url="file://$MODULE_DIR$/dbsync/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/dbsync/build" />
+      <excludeFolder url="file://$MODULE_DIR$/dbsync/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
