@@ -4,13 +4,13 @@ import 'package:dbsync/dbsync.dart';
 abstract class SyncEntityRepository<TEntity> {
   const SyncEntityRepository({
     required this.syncHandler,
-    required this.syncLocalRepository,
+    // required this.syncLocalRepository,
     required this.database,
     required this.isOffline,
   });
 
   final SyncTypeHandler<TEntity> syncHandler;
-  final SyncLocalRepository syncLocalRepository;
+  // final SyncLocalRepository syncLocalRepository;
   final Database database;
   final bool isOffline;
 
@@ -31,7 +31,7 @@ abstract class SyncEntityRepository<TEntity> {
           entityId: syncHandler.getId(entity),
           entityRev: syncHandler.getRev(entity),
         );
-        await syncLocalRepository.insertChange(txn, localChange);
+        await SyncLocalRepository.insertChange(txn, localChange);
       }
     });
 
@@ -50,7 +50,7 @@ abstract class SyncEntityRepository<TEntity> {
           entityId: syncHandler.getId(entity),
           entityRev: syncHandler.getRev(entity),
         );
-        await syncLocalRepository.insertChange(txn, localChange);
+        await SyncLocalRepository.insertChange(txn, localChange);
       }
     });
 
@@ -70,7 +70,7 @@ abstract class SyncEntityRepository<TEntity> {
           entityId: id,
           entityRev: rev,
         );
-        await syncLocalRepository.insertChange(txn, localChange);
+        await SyncLocalRepository.insertChange(txn, localChange);
       }
     });
   }

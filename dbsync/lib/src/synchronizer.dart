@@ -6,23 +6,39 @@ import 'package:dbsync/dbsync.dart';
 abstract class Synchronizer {
   Synchronizer({
     required this.localDatabase,
-    // required this.localChangeRepository,
-    // required this.changeClient,
     required this.typeHandlers,
   }) {
     isSynchronizingStream =
         _isSynchronizingController.stream.asBroadcastStream();
   }
 
-  bool isConflictException(Object exception);
-  Future<List<LocalChange>> getLocalChanges(DatabaseExecutor executor);
-  FutureOr<void> deleteLocalChange(DatabaseExecutor executor, int id);
-  FutureOr<void> clearAllLocal(DatabaseExecutor executor);
+  Future<List<LocalChange>> getLocalChanges(DatabaseExecutor executor) async {
+    final l = await SyncLocalRepository.getLocalChanges(executor);
+    return l;
+  }
 
-  Future<String?> getLastReceivedChangeId(DatabaseExecutor executor);
-  Future<void> setLastReceivedChangeId(DatabaseExecutor executor, String? id);
+  FutureOr<void> deleteLocalChange(DatabaseExecutor executor, int id) async {
+    await SyncLocalRepository.deleteLocalChange(executor, id);
+  }
+
+  FutureOr<void> clearAllLocal(DatabaseExecutor executor) async {
+    await SyncLocalRepository.clearAll(executor);
+  }
+
+  Future<String?> getLastReceivedChangeId(DatabaseExecutor executor) async {
+    final s = await SyncLocalRepository.getLastReceivedChangeId(executor);
+    return s;
+  }
+
+  Future<void> setLastReceivedChangeId(
+      DatabaseExecutor executor, String? id) async {
+    await SyncLocalRepository.setLastReceivedChange(executor, id);
+  }
+
   FutureOr<void> insertLocalChange(
-      DatabaseExecutor executor, LocalChange localChange);
+      DatabaseExecutor executor, LocalChange localChange) async {
+    await SyncLocalRepository.insertChange(executor, localChange);
+  }
 
   Future<String?> getLatestServerChangeId();
 
@@ -165,10 +181,7 @@ abstract class Synchronizer {
         await deleteLocalChange(txn, localChange.id);
         try {
           await _doOperation(localChange, handler);
-        } catch (ex) {
-          if (!isConflictException(ex)) {
-            rethrow;
-          }
+        } on ConflictException catch (ex) {
           if (context != null) {
             context.conflicts.add(localChange);
           }
