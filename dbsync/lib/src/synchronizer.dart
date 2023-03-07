@@ -2,24 +2,57 @@ import 'dart:async';
 
 import 'package:sqflite_common/sqlite_api.dart';
 import 'package:dbsync/dbsync.dart';
-import 'package:synced_data/synced_data.dart';
 
 abstract class Synchronizer {
   Synchronizer({
-    required this.database,
-    required this.localChangeRepository,
-    required this.changeClient,
+    required this.localDatabase,
     required this.typeHandlers,
   }) {
     isSynchronizingStream =
         _isSynchronizingController.stream.asBroadcastStream();
   }
 
-  bool isConflictException(Object exception);
+  Future<List<LocalChange>> getLocalChanges(DatabaseExecutor executor) async {
+    final l = await SyncLocalRepository.getLocalChanges(executor);
+    return l;
+  }
 
-  final Database database;
-  final SyncLocalRepository localChangeRepository;
-  final SyncChangeClient changeClient;
+  FutureOr<void> deleteLocalChange(DatabaseExecutor executor, int id) async {
+    await SyncLocalRepository.deleteLocalChange(executor, id);
+  }
+
+  FutureOr<void> clearAllLocal(DatabaseExecutor executor) async {
+    await SyncLocalRepository.clearAll(executor);
+  }
+
+  Future<String?> getLastReceivedChangeId(DatabaseExecutor executor) async {
+    final s = await SyncLocalRepository.getLastReceivedChangeId(executor);
+    return s;
+  }
+
+  Future<void> setLastReceivedChangeId(
+      DatabaseExecutor executor, String? id) async {
+    await SyncLocalRepository.setLastReceivedChange(executor, id);
+  }
+
+  FutureOr<void> insertLocalChange(
+      DatabaseExecutor executor, LocalChange localChange) async {
+    await SyncLocalRepository.insertChange(executor, localChange);
+  }
+
+  Future<String?> getLatestServerChangeId();
+
+  /// Gets the pending changes from the server, starting
+  /// with lastChangeId.
+  /// Will return an empty stream if no changes are available,
+  /// but lastChangeId still exists in the change log.
+  /// Will return null if lastChangeId has expired and removed from the
+  /// change log.
+  Future<Stream<ServerChange>?> getServerPendingChanges(String? lastChangeId);
+
+  final Database localDatabase;
+  // final SyncLocalRepository localChangeRepository;
+  // final SyncChangeClient changeClient;
   final _isSynchronizingController = StreamController<bool>();
   late final Stream<bool> isSynchronizingStream;
 
@@ -62,16 +95,15 @@ abstract class Synchronizer {
     SynchronizationContext? context,
     bool fullResync = false,
   }) async {
-    final lastChangeId =
-        await localChangeRepository.getLastReceivedChange(database);
+    final lastChangeId = await getLastReceivedChangeId(localDatabase);
 
     if (lastChangeId == null || fullResync) {
       await _fullSyncServerChanges(context: context);
       return;
     }
 
-    final changes = (await changeClient.getPendingChanges(lastChangeId))
-        ?.asBroadcastStream();
+    final changes =
+        (await getServerPendingChanges(lastChangeId))?.asBroadcastStream();
     if (changes == null) {
       await _fullSyncServerChanges(context: context);
     } else {
@@ -80,51 +112,55 @@ abstract class Synchronizer {
   }
 
   Future<void> _partialSyncServerChanges(
-    Stream<SyncChange> changes, {
+    Stream<ServerChange> changes, {
     SynchronizationContext? context,
   }) async {
-    SyncChange? lastChange;
-    database.transaction((txn) async {
+    ServerChange? lastChange;
+    localDatabase.transaction((txn) async {
       await for (final change in changes) {
         if (context?.cancel ?? false) {
           return;
         }
         lastChange = change;
         final handler = _getTypeHandlerByTypeName(change.entityType);
-        if (change is SyncDeleteChange) {
-          await handler.localEntityRepository.deleteLocal(txn, change.id);
-        } else if (change is SyncUpsertChange) {
-          await handler.localEntityRepository.upsertLocal(txn, change.entity);
-        } else {
-          throw UnsupportedError('Type of change not supported.');
+        switch (change.changeOperation) {
+          case ChangeOperation.delete:
+            await handler.deleteLocal(txn, change.changedId);
+            break;
+          case ChangeOperation.create:
+          case ChangeOperation.update:
+            final entity = await handler.unmarshal(change.entity);
+            await handler.upsertLocal(txn, entity);
+            break;
+          default:
+            throw UnsupportedError('Type of change not supported.');
         }
       }
       if (lastChange != null) {
-        await localChangeRepository.setLastReceivedChange(txn, lastChange!.id);
+        await setLastReceivedChangeId(txn, lastChange!.id);
       }
     });
   }
 
   Future<void> _fullSyncServerChanges({SynchronizationContext? context}) async {
-    final lastSyncedChangeId = await changeClient.getLatestChangeId();
+    final lastSyncedChangeId = await getLatestServerChangeId();
 
-    await database.transaction((transaction) async {
-      await localChangeRepository.clearAll(transaction);
+    await localDatabase.transaction((transaction) async {
+      await clearAllLocal(transaction);
       for (final handler in typeHandlers.values) {
         if (context?.cancel ?? false) {
           return;
         }
-        await handler.localEntityRepository.clearAll(transaction);
-        final stream = await handler.entityService.getAll();
+        await handler.clearAllLocal(transaction);
+        final stream = await handler.getAllRemote();
         await for (final item in stream) {
           if (context?.cancel ?? false) {
             return;
           }
-          await handler.localEntityRepository.upsertLocal(transaction, item);
+          await handler.upsertLocal(transaction, item);
         }
       }
-      await localChangeRepository.setLastReceivedChange(
-          transaction, lastSyncedChangeId);
+      await setLastReceivedChangeId(transaction, lastSyncedChangeId);
     });
   }
 
@@ -134,21 +170,18 @@ abstract class Synchronizer {
   Future<void> _syncLocalChanges({
     SynchronizationContext? context,
   }) async {
-    final localChanges = await localChangeRepository.getLocalChanges(database);
+    final localChanges = await getLocalChanges(localDatabase);
 
     for (final localChange in localChanges) {
       if (context?.cancel ?? false) {
         break;
       }
       final handler = _getTypeHandlerByTypeName(localChange.entityType);
-      await database.transaction((txn) async {
-        await localChangeRepository.deleteLocalChange(txn, localChange.id);
+      await localDatabase.transaction((txn) async {
+        await deleteLocalChange(txn, localChange.id);
         try {
           await _doOperation(localChange, handler);
-        } catch (ex) {
-          if (!isConflictException(ex)) {
-            rethrow;
-          }
+        } on ConflictException catch (ex) {
           if (context != null) {
             context.conflicts.add(localChange);
           }
@@ -161,17 +194,17 @@ abstract class Synchronizer {
       LocalChange localChange, SyncTypeHandler<dynamic> handler) async {
     switch (localChange.operation) {
       case ChangeOperation.create:
-        final entity = handler.fromLocalChangeEntity(localChange.entity);
-        await handler.entityService.create(entity);
+        final entity = handler.unmarshal(localChange.protoBytes);
+        await handler.createRemote(entity);
         break;
       case ChangeOperation.update:
-        final entity = handler.fromLocalChangeEntity(localChange.entity);
-        await handler.entityService.update(entity);
+        final entity = handler.unmarshal(localChange.protoBytes);
+        await handler.updateRemote(entity);
         break;
       case ChangeOperation.delete:
-        final id = localChange.entity.id;
-        final rev = localChange.entity.rev;
-        await handler.entityService.delete(id, rev);
+        final id = localChange.entityId;
+        final rev = localChange.entityRev;
+        await handler.deleteRemote(id, rev);
         break;
     }
   }

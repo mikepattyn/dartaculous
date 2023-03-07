@@ -4,38 +4,34 @@ import 'package:dbsync/dbsync.dart';
 abstract class SyncEntityRepository<TEntity> {
   const SyncEntityRepository({
     required this.syncHandler,
-    required this.syncLocalRepository,
+    // required this.syncLocalRepository,
     required this.database,
     required this.isOffline,
   });
 
   final SyncTypeHandler<TEntity> syncHandler;
-  final SyncLocalRepository syncLocalRepository;
+  // final SyncLocalRepository syncLocalRepository;
   final Database database;
   final bool isOffline;
 
-  SyncEntityService<TEntity> get _serviceClient => syncHandler.entityService;
-  LocalEntityRepository<TEntity> get _localEntityRepository =>
-      syncHandler.localEntityRepository;
-
   Future<TEntity> get(String id) async {
-    if (!isOffline) return await _serviceClient.get(id);
-    return await _localEntityRepository.getLocal(database, id);
+    if (!isOffline) return await syncHandler.getRemote(id);
+    return await syncHandler.getLocal(database, id);
   }
 
   Future<TEntity> create(TEntity entity) async {
-    final created = isOffline ? entity : await _serviceClient.create(entity);
+    final created = isOffline ? entity : await syncHandler.createRemote(entity);
 
-    // final protoBytes = getProtoBytes(entity);
-    final lce = syncHandler.toLocalChangeEntity(entity);
     await database.transaction((txn) async {
-      await _localEntityRepository.upsertLocal(txn, entity);
+      await syncHandler.upsertLocal(txn, entity);
       if (isOffline) {
         final localChange = LocalChange.create(
+          protoBytes: syncHandler.marshal(entity),
           entityType: TEntity,
-          entity: lce,
+          entityId: syncHandler.getId(entity),
+          entityRev: syncHandler.getRev(entity),
         );
-        await syncLocalRepository.insertChange(txn, localChange);
+        await SyncLocalRepository.insertChange(txn, localChange);
       }
     });
 
@@ -43,17 +39,18 @@ abstract class SyncEntityRepository<TEntity> {
   }
 
   Future<TEntity> update(TEntity entity) async {
-    final updated = isOffline ? entity : await _serviceClient.update(entity);
+    final updated = isOffline ? entity : await syncHandler.updateRemote(entity);
 
-    final lce = syncHandler.toLocalChangeEntity(entity);
     await database.transaction((txn) async {
-      await _localEntityRepository.upsertLocal(txn, updated);
+      await syncHandler.upsertLocal(txn, updated);
       if (isOffline) {
         final localChange = LocalChange.update(
           entityType: TEntity,
-          entity: lce,
+          protoBytes: syncHandler.marshal(entity),
+          entityId: syncHandler.getId(entity),
+          entityRev: syncHandler.getRev(entity),
         );
-        await syncLocalRepository.insertChange(txn, localChange);
+        await SyncLocalRepository.insertChange(txn, localChange);
       }
     });
 
@@ -62,18 +59,18 @@ abstract class SyncEntityRepository<TEntity> {
 
   Future<void> delete(String id, String rev) async {
     if (!isOffline) {
-      await _serviceClient.delete(id, rev);
+      await syncHandler.deleteRemote(id, rev);
     }
 
     await database.transaction((txn) async {
-      await _localEntityRepository.deleteLocal(txn, id);
+      await syncHandler.deleteLocal(txn, id);
       if (isOffline) {
         final localChange = LocalChange.delete(
           entityType: TEntity,
           entityId: id,
           entityRev: rev,
         );
-        await syncLocalRepository.insertChange(txn, localChange);
+        await SyncLocalRepository.insertChange(txn, localChange);
       }
     });
   }
