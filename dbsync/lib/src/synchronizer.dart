@@ -181,7 +181,7 @@ abstract class Synchronizer {
         await deleteLocalChange(txn, localChange.id);
         try {
           await _doOperation(localChange, handler);
-        } on ConflictException catch (ex) {
+        } on ConflictException catch (_) {
           if (context != null) {
             context.conflicts.add(localChange);
           }
