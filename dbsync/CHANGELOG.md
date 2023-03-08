@@ -1,3 +1,7 @@
+## 0.0.1-dev.4
+
+- Added clearAllLocal to EntityLocalRepository.
+
 ## 0.0.1-dev.3
 
  - Added EntityLocalRepository

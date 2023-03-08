@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:typed_data';
 import 'package:sqflite_common/sqlite_api.dart';
 
@@ -19,6 +20,10 @@ mixin EntityLocalRepository<TEntity> {
     if (q.isEmpty) throw 'Not found';
     final ret = unmarshal(q.first['proto'] as Uint8List);
     return ret;
+  }
+
+  FutureOr<void> clearAllLocal(DatabaseExecutor executor) async {
+    await executor.delete(tableName);
   }
 
   Map<String, Object?> mapCustomFields(TEntity entity) => {};
