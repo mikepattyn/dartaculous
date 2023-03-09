@@ -10,3 +10,4 @@ export 'src/server_change.dart';
 export 'src/change_operation.dart';
 export 'src/conflict_exception.dart';
 export 'src/entity_local_repository.dart';
+export 'src/local_entity_schema.dart';

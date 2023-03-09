@@ -1,3 +1,7 @@
+## 0.0.1-dev.5
+
+- Added LocalEntitySchema and base implementation mixin.
+
 ## 0.0.1-dev.4
 
 - Added clearAllLocal to EntityLocalRepository.
