@@ -1,3 +1,8 @@
+## 0.0.1-dev.7
+
+- Split Synchronizer class implementation into a composition of UploadSynchronizer and DownloadSynchronizer, being either of the last two usable independently.
+
+
 ## 0.0.1-dev.6
 
 - Added LocalChangesSchema.
