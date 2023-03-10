@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:dbsync/src/download_synchronizer.dart';
-import 'package:dbsync/src/upload_synchronizer.dart';
 import 'package:meta/meta.dart';
 import 'package:sqflite_common/sqlite_api.dart';
 import 'package:dbsync/dbsync.dart';

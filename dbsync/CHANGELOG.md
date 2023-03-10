@@ -1,3 +1,7 @@
+## 0.0.1-dev.8
+
+- Fixed missing exports.
+
 ## 0.0.1-dev.7
 
 - Split Synchronizer class implementation into a composition of UploadSynchronizer and DownloadSynchronizer, being either of the last two usable independently.
