@@ -1,3 +1,13 @@
+## 0.0.1-dev.10
+
+- getRemote is @protected
+
+
+## 0.0.1-dev.9
+
+- Added support for temporary service unavailability
+
+
 ## 0.0.1-dev.8
 
 - Fixed missing exports.
