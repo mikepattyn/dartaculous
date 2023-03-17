@@ -1,20 +1,17 @@
 import 'dart:async';
 import 'dart:typed_data';
+import 'package:dbsync/dbsync.dart';
 import 'package:sqflite_common/sqlite_api.dart';
 
-mixin EntityLocalRepository<TEntity> {
-  String getId(TEntity entity);
-
-  Uint8List marshal(TEntity entity);
-
-  TEntity unmarshal(Uint8List entityBytes);
-
+mixin EntityLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
   String get tableName;
 
+  @override
   Future<void> deleteLocal(DatabaseExecutor executor, String id) async {
     await executor.delete(tableName, where: 'id = ?', whereArgs: [id]);
   }
 
+  @override
   Future<TEntity> getLocal(DatabaseExecutor executor, String id) async {
     final q = await executor.query(tableName, where: 'id = ?', whereArgs: [id]);
     if (q.isEmpty) throw 'Not found';
@@ -22,12 +19,14 @@ mixin EntityLocalRepository<TEntity> {
     return ret;
   }
 
+  @override
   FutureOr<void> clearAllLocal(DatabaseExecutor executor) async {
     await executor.delete(tableName);
   }
 
   Map<String, Object?> mapCustomFields(TEntity entity) => {};
 
+  @override
   Future<void> upsertLocal(DatabaseExecutor transaction, TEntity entity) async {
     await transaction.insert(
       tableName,

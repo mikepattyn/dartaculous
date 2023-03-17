@@ -6,31 +6,31 @@ abstract class SyncEntityRepository<TEntity> {
   const SyncEntityRepository({
     required this.syncHandler,
     required this.database,
-    required this.isOffline,
   });
 
   final SyncTypeHandler<TEntity> syncHandler;
   final Database database;
-  final bool isOffline;
 
   Future<TEntity> get(String id) async {
-    if (!isOffline) {
-      final remote = await getRemote(id);
-      if (remote != null) {
-        return remote;
-      }
+    final remote = await getRemote(id);
+    if (remote != null) {
+      return remote;
     }
     return await syncHandler.getLocal(database, id);
   }
 
   @protected
   Future<TEntity?> getRemote(String id) async {
-    final e = await syncHandler.getRemote(id);
-    return e;
+    try {
+      final e = await syncHandler.getRemote(id);
+      return e;
+    } on UnavailableException catch (_) {
+      return null;
+    }
   }
 
   Future<TEntity> create(TEntity entity) async {
-    final remoteCreated = isOffline ? null : await createRemote(entity);
+    final remoteCreated = await createRemote(entity);
     final created = remoteCreated ?? entity;
 
     await database.transaction((txn) async {
@@ -51,12 +51,16 @@ abstract class SyncEntityRepository<TEntity> {
 
   @protected
   Future<TEntity?> createRemote(TEntity entity) async {
-    final created = await syncHandler.createRemote(entity);
-    return created;
+    try {
+      final created = await syncHandler.createRemote(entity);
+      return created;
+    } on UnavailableException catch (_) {
+      return null;
+    }
   }
 
   Future<TEntity> update(TEntity entity) async {
-    TEntity? remoteUpdated = isOffline ? null : await updateRemote(entity);
+    TEntity? remoteUpdated = await updateRemote(entity);
     final updated = remoteUpdated ?? entity;
 
     await database.transaction((txn) async {
@@ -82,12 +86,16 @@ abstract class SyncEntityRepository<TEntity> {
   /// throws if any other exception
   @protected
   Future<TEntity?> updateRemote(TEntity entity) async {
-    final updated = await syncHandler.updateRemote(entity);
-    return updated;
+    try {
+      final updated = await syncHandler.updateRemote(entity);
+      return updated;
+    } on UnavailableException catch (_) {
+      return null;
+    }
   }
 
   Future<void> delete(String id, String rev) async {
-    final synced = isOffline ? false : await deleteRemote(id, rev);
+    final synced = await deleteRemote(id, rev);
 
     await database.transaction((txn) async {
       await syncHandler.deleteLocal(txn, id);
@@ -108,7 +116,11 @@ abstract class SyncEntityRepository<TEntity> {
   // - false if unavailable
   // throws if any other exception
   Future<bool> deleteRemote(String id, String rev) async {
-    await syncHandler.deleteRemote(id, rev);
-    return true;
+    try {
+      await syncHandler.deleteRemote(id, rev);
+      return true;
+    } on UnavailableException catch (_) {
+      return false;
+    }
   }
 }

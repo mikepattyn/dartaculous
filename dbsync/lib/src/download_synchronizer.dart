@@ -30,25 +30,26 @@ class DownloadSynchronizer {
   /// change log.
   GetPendingChangesFunc getServerPendingChanges;
 
-  Future<void> syncServerChanges({
-    SynchronizationContext? context,
-    bool fullResync = false,
-  }) async {
+
+  Future<void> sync({SynchronizationContext? context}) async {
     final lastChangeId = await _getLatestReceivedChangeId(localDatabase);
 
-    if (lastChangeId == null || fullResync) {
-      await _fullSyncServerChanges(context: context);
+    if (lastChangeId == null) {
+      await fullResync(context: context);
       return;
     }
 
     final changes =
         (await getServerPendingChanges(lastChangeId))?.asBroadcastStream();
     if (changes == null) {
-      await _fullSyncServerChanges(context: context);
+      await fullResync(context: context);
     } else {
       await _partialSyncServerChanges(changes, context: context);
     }
   }
+
+
+
 
   FutureOr<void> _clearAllLocalPendingChanges(DatabaseExecutor executor) async {
     await SyncLocalRepository.clearAll(executor);
@@ -95,7 +96,7 @@ class DownloadSynchronizer {
     });
   }
 
-  Future<void> _fullSyncServerChanges({SynchronizationContext? context}) async {
+  Future<void> fullResync({SynchronizationContext? context}) async {
     final lastSyncedChangeId = await getLatestServerChangeId();
 
     await localDatabase.transaction((transaction) async {

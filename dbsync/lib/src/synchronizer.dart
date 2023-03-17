@@ -30,21 +30,12 @@ abstract class Synchronizer {
   Future<Stream<ServerChange>?> getServerPendingChanges(String? lastChangeId);
 
   Future<void> sync({SynchronizationContext? context}) async {
-    await _sync(context: context);
+    await uploadSynchronizer.syncLocalChanges(context: context);
+    await downloadSynchronizer.sync(context: context);
   }
 
   Future<void> fullResync({SynchronizationContext? context}) async {
-    await _sync(context: context, fullResync: true);
-  }
-
-  Future<void> _sync({
-    SynchronizationContext? context,
-    bool fullResync = false,
-  }) async {
     await uploadSynchronizer.syncLocalChanges(context: context);
-    await downloadSynchronizer.syncServerChanges(
-      context: context,
-      fullResync: fullResync,
-    );
+    await downloadSynchronizer.fullResync(context: context);
   }
 }
