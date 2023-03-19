@@ -44,7 +44,7 @@ String _renderRecord(CSharpRecord record) {
   final fields = _renderFields(record);
   return '''public partial record ${record.name} $superClass {
 $fields
-};
+}
   ''';
 }
 

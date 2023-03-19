@@ -1,3 +1,8 @@
+## 0.0.1-dev.12
+
+ - **FIX**: Removed redundant trailing semicolons
+
+
 ## 0.0.1-dev.11
 
  - **FIX**: Not analyzing part of dart files
