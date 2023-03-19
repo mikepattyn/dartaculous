@@ -76,6 +76,9 @@ $renderedMessages
       Map<ClassElement, ProtoReflected> classes,
       Map<EnumElement, ProtoReflected> enums) async {
     await for (final input in buildStep.findAssets(_allFilesInLib)) {
+      if (!await buildStep.resolver.isLibrary(input)) {
+        continue;
+      }
       final library = await buildStep.resolver.libraryFor(input);
       final classesInLibrary = LibraryReader(library).classes;
       for (var c in classesInLibrary) {

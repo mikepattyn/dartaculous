@@ -1,3 +1,7 @@
+## 4.0.0-dev.17
+
+  - **FIX**: Not analyzing part of dart files
+
 ## 4.0.0-dev.16
 
  - **FEAT**: Reintroduced option to encode decimals as strings.
