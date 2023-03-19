@@ -20,15 +20,15 @@ public partial record Contract  {
   public required DateTime StartDate { get; init; }
   public required TimeSpan Duration { get; init; }
   public required List<string> Clauses { get; init; }
-};
+}
   
 public partial record Vehicle  {
   public required decimal Weight { get; init; }
-};
+}
   
 public partial record Car : Vehicle {
   public required int Doors { get; init; }
-};
+}
   
 public partial record Person  {
 
@@ -55,5 +55,5 @@ public partial record Person  {
 
   [Range(1, 200)]
   public required int Weight { get; init; }
-};
+}
   
