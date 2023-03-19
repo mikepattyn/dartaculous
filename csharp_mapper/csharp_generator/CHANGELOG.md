@@ -1,3 +1,8 @@
+## 0.0.1-dev.11
+
+ - **FIX**: Not analyzing part of dart files
+
+
 ## 0.0.1-dev.10
 
  - **FIX**: Removed unused import warning.

@@ -64,6 +64,9 @@ class CSharpBuilder implements Builder {
   ) async {
     final lst = <MapEntry<InterfaceElement, CSharp>>[];
     await for (final asset in buildStep.findAssets(_allFilesInLib)) {
+      if (!await buildStep.resolver.isLibrary(asset)) {
+        continue;
+      }
       final library = await buildStep.resolver.libraryFor(asset);
       final reader = LibraryReader(library);
       final elementsInLibrary = [
