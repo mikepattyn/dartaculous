@@ -1,6 +1,11 @@
+## 0.0.1-dev.12
+
+- sync handler may return null from getRemote
+
 ## 0.0.1-dev.11
 
 - Offline is totally based on unavailable
+
 
 ## 0.0.1-dev.10
 
