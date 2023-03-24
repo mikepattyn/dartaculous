@@ -10,5 +10,5 @@ class EntityFieldCodeGenerator extends FieldCodeGenerator {
               is ClassElement &&
           (fieldDescriptor.fieldElementType.element as ClassElement).isAbstract
       ? '''throw UnimplementedError()'''
-      : '''\$${fieldDescriptor.fieldElementTypeName}DefaultsProvider().createWithDefaults()''';
+      : '''const \$${fieldDescriptor.fieldElementTypeName}DefaultsProvider().createWithDefaults()''';
 }
