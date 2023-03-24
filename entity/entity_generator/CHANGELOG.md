@@ -1,3 +1,7 @@
+## 3.0.0-dev.5
+
+ - **FIX**: Fixed code generation to create const instances when possible.
+
 ## 3.0.0-dev.4
 
  - **FIX**: Changed repository URL.

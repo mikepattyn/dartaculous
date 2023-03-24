@@ -3,7 +3,7 @@ description:
   Code generators that augment classes that are meant to be used as business entities
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/entity/entity_generator
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 3.0.0-dev.4
+version: 3.0.0-dev.5
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
