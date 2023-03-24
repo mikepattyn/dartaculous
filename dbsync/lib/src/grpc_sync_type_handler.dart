@@ -3,13 +3,13 @@ import 'package:grpc/grpc.dart';
 
 mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
   Future<Stream<TEntity>> grpcGetAllRemote();
-  Future<TEntity> grpcGetRemote(String id);
+  Future<TEntity?> grpcGetRemote(String id);
   Future<TEntity> grpcCreateRemote(TEntity entity);
   Future<TEntity> grpcUpdateRemote(TEntity entity);
   Future<void> grpcDeleteRemote(String id, String rev);
 
   @override
-  Future<TEntity> getRemote(String id) async {
+  Future<TEntity?> getRemote(String id) async {
     try {
       final e = await grpcGetRemote(id);
       return e;

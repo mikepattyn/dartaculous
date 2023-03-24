@@ -12,7 +12,7 @@ abstract class SyncTypeHandler<TEntity> {
   Future<void> upsertLocal(DatabaseExecutor executor, TEntity entity);
   Future<void> deleteLocal(DatabaseExecutor executor, String id);
 
-  Future<TEntity> getRemote(String id);
+  Future<TEntity?> getRemote(String id);
   Future<Stream<TEntity>> getAllRemote();
   Future<TEntity> createRemote(TEntity entity);
   Future<TEntity> updateRemote(TEntity entity);

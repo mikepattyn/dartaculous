@@ -1,3 +1,8 @@
+## 3.0.1
+
+ - Graduation
+
+
 ## 3.0.0-dev.5
 
  - **FIX**: Fixed code generation to create const instances when possible.

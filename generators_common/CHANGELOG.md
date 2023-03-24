@@ -1,3 +1,7 @@
+## 3.0.1
+
+ - Graduation
+
 ## 3.0.0-dev.2
 
  - **FIX**: Changed repository URL.
