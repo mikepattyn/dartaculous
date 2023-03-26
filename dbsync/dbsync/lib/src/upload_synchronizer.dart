@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:sqflite_common/sqlite_api.dart';
 import 'package:dbsync/dbsync.dart';
 
 class UploadSynchronizer {
@@ -9,17 +7,12 @@ class UploadSynchronizer {
     required this.typeHandlers,
   });
 
-  final Database localDatabase;
+  final LocalChangeHandler localDatabase;
   final Map<String, SyncTypeHandler> typeHandlers;
 
-  Future<List<LocalChange>> _getLocalChanges(DatabaseExecutor executor) async {
-    final l = await SyncLocalRepository.getLocalChanges(executor);
-    return l;
-  }
-
-  FutureOr<void> _deleteLocalChange(DatabaseExecutor executor, int id) async {
-    await SyncLocalRepository.deleteLocalChange(executor, id);
-  }
+  // FutureOr<void> _deleteLocalChange(DatabaseExecutor executor, int id) async {
+  //   await SyncLocalRepository.deleteLocalChange(executor, id);
+  // }
 
   /// synchronizes all local changes to the server
   /// Returns a list of local changes that were discarded
@@ -27,7 +20,7 @@ class UploadSynchronizer {
   Future<void> syncLocalChanges({
     SynchronizationContext? context,
   }) async {
-    final localChanges = await _getLocalChanges(localDatabase);
+    final localChanges = await localDatabase.getLocalChanges();
 
     for (final localChange in localChanges) {
       if (context?.cancel ?? false) {
@@ -35,7 +28,7 @@ class UploadSynchronizer {
       }
       final handler = _getTypeHandlerByTypeName(localChange.entityType);
       await localDatabase.transaction((txn) async {
-        await _deleteLocalChange(txn, localChange.id);
+        await localDatabase.deleteLocalChange(txn, localChange);
         try {
           await _doOperation(localChange, handler);
         } on ConflictException catch (_) {

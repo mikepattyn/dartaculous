@@ -1,11 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:typed_data';
+
+import 'package:dbsync/dbsync.dart';
+import 'package:map_mapper_annotations/map_mapper_annotations.dart';
+
 export 'change_operation.dart';
 
-import 'dart:typed_data';
-import 'package:dbsync/dbsync.dart';
+part 'local_change.g.dart';
 
+@mapMapped
 class LocalChange {
+  @MapField(isKey: false)
   final int id;
   final String entityType;
+
+  @MapField(isKey: false)
   final String entityId;
   final String entityRev;
   final ChangeOperation operation;
@@ -46,4 +55,22 @@ class LocalChange {
         entityType = entityType.toString(),
         id = -1,
         protoBytes = Uint8List(0);
+
+  LocalChange copyWith({
+    int? id,
+    String? entityType,
+    String? entityId,
+    String? entityRev,
+    ChangeOperation? operation,
+    Uint8List? protoBytes,
+  }) {
+    return LocalChange(
+      id: id ?? this.id,
+      entityType: entityType ?? this.entityType,
+      entityId: entityId ?? this.entityId,
+      entityRev: entityRev ?? this.entityRev,
+      operation: operation ?? this.operation,
+      protoBytes: protoBytes ?? this.protoBytes,
+    );
+  }
 }

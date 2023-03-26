@@ -1,18 +1,23 @@
 import 'dart:async';
 import 'dart:typed_data';
+
 import 'package:dbsync/dbsync.dart';
 import 'package:sqflite_common/sqlite_api.dart';
+import 'package:sqfsync/sqfsync.dart';
 
-mixin EntityLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
+mixin SqfLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
   String get tableName;
+  Database get database;
 
   @override
-  Future<void> deleteLocal(DatabaseExecutor executor, String id) async {
+  Future<void> deleteLocal(Context context, String id) async {
+    final executor = _getExecutor(context);
     await executor.delete(tableName, where: 'id = ?', whereArgs: [id]);
   }
 
   @override
-  Future<TEntity> getLocal(DatabaseExecutor executor, String id) async {
+  Future<TEntity> getLocal(String id) async {
+    final executor = _getExecutor();
     final q = await executor.query(tableName, where: 'id = ?', whereArgs: [id]);
     if (q.isEmpty) throw 'Not found';
     final ret = unmarshal(q.first['proto'] as Uint8List);
@@ -20,15 +25,17 @@ mixin EntityLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
   }
 
   @override
-  FutureOr<void> clearAllLocal(DatabaseExecutor executor) async {
+  FutureOr<void> clearAllLocal(Context context) async {
+    final executor = _getExecutor(context);
     await executor.delete(tableName);
   }
 
   Map<String, Object?> mapCustomFields(TEntity entity) => {};
 
   @override
-  Future<void> upsertLocal(DatabaseExecutor transaction, TEntity entity) async {
-    await transaction.insert(
+  Future<void> upsertLocal(Context context, TEntity entity) async {
+    final executor = _getExecutor(context);
+    await executor.insert(
       tableName,
       {
         'id': getId(entity),
@@ -37,5 +44,10 @@ mixin EntityLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+  }
+
+  DatabaseExecutor _getExecutor([Context? context]) {
+    if (context is TransactionContext) return context.transaction;
+    return database;
   }
 }

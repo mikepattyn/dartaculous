@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:sqflite_common/sqlite_api.dart';
+// import 'package:sqflite_common/sqlite_api.dart';
 import 'package:dbsync/dbsync.dart';
 
 typedef GetIdFunc = Future<String?> Function();
@@ -15,7 +15,7 @@ class DownloadSynchronizer {
     required this.getServerPendingChanges,
   });
 
-  final Database localDatabase;
+  final LocalChangeHandler localDatabase;
 
   final Map<String, SyncTypeHandler> typeHandlers;
 
@@ -30,9 +30,8 @@ class DownloadSynchronizer {
   /// change log.
   GetPendingChangesFunc getServerPendingChanges;
 
-
   Future<void> sync({SynchronizationContext? context}) async {
-    final lastChangeId = await _getLatestReceivedChangeId(localDatabase);
+    final lastChangeId = await localDatabase.getLastReceivedChangeId();
 
     if (lastChangeId == null) {
       await fullResync(context: context);
@@ -48,29 +47,23 @@ class DownloadSynchronizer {
     }
   }
 
+  // FutureOr<void> _clearAllLocalPendingChanges(Context context) async {
+  //   localDatabase.clearAllLocalChanges(context);
+  //   //await SyncLocalRepository.clearAll(executor);
+  // }
 
-
-
-  FutureOr<void> _clearAllLocalPendingChanges(DatabaseExecutor executor) async {
-    await SyncLocalRepository.clearAll(executor);
-  }
-
-  Future<String?> _getLatestReceivedChangeId(DatabaseExecutor executor) async {
-    final s = await SyncLocalRepository.getLastReceivedChangeId(executor);
-    return s;
-  }
-
-  Future<void> _setLastReceivedChangeId(
-      DatabaseExecutor executor, String? id) async {
-    await SyncLocalRepository.setLastReceivedChange(executor, id);
-  }
+  // Future<String?> _getLatestReceivedChangeId(Context context) async {
+  //   //final s = await SyncLocalRepository.getLastReceivedChangeId(executor);
+  //   final s = await localDatabase.getLastReceivedChangeId(context);
+  //   return s;
+  // }
 
   Future<void> _partialSyncServerChanges(
     Stream<ServerChange> changes, {
     SynchronizationContext? context,
   }) async {
     ServerChange? lastChange;
-    localDatabase.transaction((txn) async {
+    await localDatabase.transaction((ctx) async {
       await for (final change in changes) {
         if (context?.cancel ?? false) {
           return;
@@ -79,19 +72,21 @@ class DownloadSynchronizer {
         final handler = _getTypeHandlerByTypeName(change.entityType);
         switch (change.changeOperation) {
           case ChangeOperation.delete:
-            await handler.deleteLocal(txn, change.changedId);
+            await handler.deleteLocal(ctx, change.changedId);
             break;
           case ChangeOperation.create:
           case ChangeOperation.update:
             final entity = await handler.unmarshal(change.entity);
-            await handler.upsertLocal(txn, entity);
+            await handler.upsertLocal(ctx, entity);
             break;
           default:
             throw UnsupportedError('Type of change not supported.');
         }
       }
       if (lastChange != null) {
-        await _setLastReceivedChangeId(txn, lastChange!.id);
+        await localDatabase.setLastReceivedChangeId(
+            Context.background(), lastChange!.id);
+        //await _setLastReceivedChangeId(txn, lastChange!.id);
       }
     });
   }
@@ -99,22 +94,22 @@ class DownloadSynchronizer {
   Future<void> fullResync({SynchronizationContext? context}) async {
     final lastSyncedChangeId = await getLatestServerChangeId();
 
-    await localDatabase.transaction((transaction) async {
-      await _clearAllLocalPendingChanges(transaction);
+    await localDatabase.transaction((ctx) async {
+      await localDatabase.clearAllLocalChanges(ctx);
       for (final handler in typeHandlers.values) {
         if (context?.cancel ?? false) {
           return;
         }
-        await handler.clearAllLocal(transaction);
+        await handler.clearAllLocal(ctx);
         final stream = await handler.getAllRemote();
         await for (final item in stream) {
           if (context?.cancel ?? false) {
             return;
           }
-          await handler.upsertLocal(transaction, item);
+          await handler.upsertLocal(ctx, item);
         }
       }
-      await _setLastReceivedChangeId(transaction, lastSyncedChangeId);
+      await localDatabase.setLastReceivedChangeId(ctx, lastSyncedChangeId);
     });
   }
 

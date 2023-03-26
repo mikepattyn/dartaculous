@@ -1,12 +1,11 @@
 import 'dart:async';
 
 import 'package:meta/meta.dart';
-import 'package:sqflite_common/sqlite_api.dart';
 import 'package:dbsync/dbsync.dart';
 
-abstract class Synchronizer {
+abstract class Synchronizer<TSerialized> {
   Synchronizer({
-    required Database localDatabase,
+    required LocalChangeHandler localDatabase,
     required Map<String, SyncTypeHandler> typeHandlers,
   }) : uploadSynchronizer = UploadSynchronizer(
           localDatabase: localDatabase,
