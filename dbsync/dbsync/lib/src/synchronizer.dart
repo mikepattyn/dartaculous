@@ -29,7 +29,9 @@ abstract class Synchronizer<TSerialized> {
   Future<Stream<ServerChange>?> getServerPendingChanges(String? lastChangeId);
 
   Future<void> sync({SynchronizationContext? context}) async {
+    print('### WILL SYNC UPLOAD LOCAL ');
     await uploadSynchronizer.syncLocalChanges(context: context);
+    print('### WILL SYNC DOWNLOAD LOCAL ');
     await downloadSynchronizer.sync(context: context);
   }
 

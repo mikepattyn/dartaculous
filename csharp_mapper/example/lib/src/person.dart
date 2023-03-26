@@ -1,7 +1,7 @@
 import 'package:csharp_annotations/csharp_annotations.dart';
 import 'package:squarealfa_entity_annotations/squarealfa_entity_annotations.dart';
 
-import 'Animal.dart';
+import 'animal.dart';
 import 'contract.dart';
 import 'gender.dart';
 

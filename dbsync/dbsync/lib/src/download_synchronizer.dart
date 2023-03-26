@@ -34,16 +34,24 @@ class DownloadSynchronizer {
     final lastChangeId = await localDatabase.getLastReceivedChangeId();
 
     if (lastChangeId == null) {
+      print('#### WILL DO A FULL RESYNC');
       await fullResync(context: context);
+      print('#### DONE FULL RESYNC');
       return;
-    }
 
+    }
+    print('#### WILL GET CHANGES FOR PARTIAL RESYNC');
     final changes =
         (await getServerPendingChanges(lastChangeId))?.asBroadcastStream();
+    print('#### GOT CHANGES FOR PARTIAL RESYNC');
     if (changes == null) {
+      print('#### NULL CHANGES - WILL FULL RESYNC');
       await fullResync(context: context);
+      print('#### NULL CHANGES - FULL RESYNC DONE');
     } else {
+      print('#### HAS CHANGES - WILL PARTIAL RESYNC');
       await _partialSyncServerChanges(changes, context: context);
+      print('#### HAS CHANGES - PARTIAL RESYNC DONE');
     }
   }
 
@@ -84,8 +92,7 @@ class DownloadSynchronizer {
         }
       }
       if (lastChange != null) {
-        await localDatabase.setLastReceivedChangeId(
-            Context.background(), lastChange!.id);
+        await localDatabase.setLastReceivedChangeId(ctx, lastChange!.id);
         //await _setLastReceivedChangeId(txn, lastChange!.id);
       }
     });
