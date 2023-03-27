@@ -1,18 +1,16 @@
 name: sqfsync
-description: A starting point for Dart libraries or applications.
-version: 0.0.1
-# repository: https://github.com/my_org/my_repo
+description: Adapter for dbsync that uses sqlite database.
+repository: https://gitlab.com/dartaculous/dartaculous
+homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/dbsync/sqfsync
+version: 0.0.1-dev.1
+
 
 environment:
   sdk: '>=2.19.4 <3.0.0'
 
-publish_to: none
-
 dependencies:
   sqflite_common: ^2.4.1
-  dbsync:
-    path: ../dbsync
-
+  dbsync: ^0.0.1-dev.13
 
 dev_dependencies:
   lints: ^2.0.0
