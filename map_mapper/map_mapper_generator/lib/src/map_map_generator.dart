@@ -27,6 +27,15 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       config: config,
     );
 
+    print('''
+
+
+
+CONFIG SAYS: ${config.keyHandlerType}
+
+
+''');
+
     if (element is! InterfaceElement) return null;
 
     if (element is EnumElement) {
@@ -39,8 +48,7 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
     var fieldNamesBuffer = StringBuffer();
 
     final classElement = element.asClassElement();
-    var fieldDescriptors =
-        _getFieldDescriptors(classElement, readAnnotation.mapMapped);
+    var fieldDescriptors = _getFieldDescriptors(classElement, readAnnotation);
     var defaultsProviderClassName = _getDefaultsProvider(
       classElement,
       readAnnotation.mapMapped,
@@ -370,13 +378,13 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
 
 Iterable<FieldDescriptor> _getFieldDescriptors(
   InterfaceElement classElement,
-  MapMapped annotation,
+  MapMappedReflected reflected,
 ) {
   final fieldSet = classElement.getSortedFieldSet();
   final fieldDescriptors = fieldSet
       .map((fieldElement) => FieldDescriptor.fromFieldElement(
             fieldElement,
-            annotation,
+            reflected,
           ))
       .where((element) => element.isMapIncluded);
   return fieldDescriptors;

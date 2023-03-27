@@ -9,12 +9,12 @@ part 'config.g.dart';
   disallowUnrecognizedKeys: true,
 )
 class Config {
-  String keyHandlerType;
-  TimePrecision durationPrecision;
-  DateTimeRepresentation dateTimeRepresentation;
+  final String keyHandlerType;
+  final TimePrecision durationPrecision;
+  final DateTimeRepresentation dateTimeRepresentation;
 
   Config({
-    this.keyHandlerType = 'DefaultKeyHandler',
+    this.keyHandlerType = '',
     this.durationPrecision = TimePrecision.microseconds,
     this.dateTimeRepresentation = DateTimeRepresentation.microsecondsSinceEpoch,
   });

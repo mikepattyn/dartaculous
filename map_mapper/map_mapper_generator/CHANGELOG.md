@@ -1,3 +1,7 @@
+## 4.0.0-dev.5
+
+ - **BREAKING** No longer using key handler by default.
+
 ## 4.0.0-dev.4
 
  - Update a dependency to the latest release.

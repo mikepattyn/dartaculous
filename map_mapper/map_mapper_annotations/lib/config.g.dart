@@ -19,8 +19,8 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
           ],
         );
         final val = Config(
-          keyHandlerType: $checkedConvert(
-              'keyHandlerType', (v) => v as String? ?? 'DefaultKeyHandler'),
+          keyHandlerType:
+              $checkedConvert('keyHandlerType', (v) => v as String? ?? ''),
           durationPrecision: $checkedConvert(
               'durationPrecision',
               (v) =>

@@ -1,3 +1,7 @@
+## 4.0.0-dev.4
+
+ - **FIX**: KeyHandler set to empty by default.
+
 ## 4.0.0-dev.3
 
  - **FIX**: Updated dependency.

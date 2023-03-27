@@ -4,7 +4,7 @@ description:
   used to interact with document databases
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/map_mapper/map_mapper_annotations
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 4.0.0-dev.3
+version: 4.0.0-dev.4
 
 environment:
   sdk: '>=2.17.0 <3.0.0'

@@ -1,10 +1,12 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:map_mapper_annotations/map_mapper_annotations.dart';
+import 'package:map_mapper_generator/src/map_mapped_reflected.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:squarealfa_generators_common/squarealfa_generators_common.dart';
 
 class FieldDescriptor extends FieldDescriptorBase {
-  final MapMapped mapMapAnnotation;
+  final MapMappedReflected mapMapReflected;
+  MapMapped get mapMapAnnotation => mapMapReflected.mapMapped;
 
   final MapField? mapFieldAnnotation;
   final MapIgnore? mapIgnoreAnnotation;
@@ -13,6 +15,7 @@ class FieldDescriptor extends FieldDescriptorBase {
 
   /// Keys are string or number values of which the field name ends with "id" or "key"
   bool get isKey {
+    if (mapMapReflected.keyHandler.isEmpty) return false;
     final ret = (keyNames.any((kn) =>
                 kn == displayName ||
                 displayName.endsWith(
@@ -29,21 +32,21 @@ class FieldDescriptor extends FieldDescriptorBase {
 
   FieldDescriptor._(
     FieldElement fieldElement,
-    this.mapMapAnnotation, {
+    this.mapMapReflected, {
     this.mapFieldAnnotation,
     this.mapIgnoreAnnotation,
   }) : super.fromFieldElement(fieldElement);
 
   factory FieldDescriptor.fromFieldElement(
     FieldElement fieldElement,
-    MapMapped mapEntityAnnotation,
+    MapMappedReflected mapMappedReflected,
   ) {
     final mapFieldAnnotation = _getMapField(fieldElement);
     final mapIgnoreAnnotation = _getMapIgnore(fieldElement);
 
     return FieldDescriptor._(
       fieldElement,
-      mapEntityAnnotation,
+      mapMappedReflected,
       mapFieldAnnotation: mapFieldAnnotation,
       mapIgnoreAnnotation: mapIgnoreAnnotation,
     );
