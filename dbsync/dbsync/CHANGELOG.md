@@ -1,3 +1,8 @@
+## 0.0.1-dev.13
+
+- Removed dependency from Sqlite.
+
+
 ## 0.0.1-dev.12
 
 - sync handler may return null from getRemote

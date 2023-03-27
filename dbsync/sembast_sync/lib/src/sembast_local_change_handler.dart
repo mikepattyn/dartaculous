@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:dbsync/dbsync.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast_sync/sembast_sync.dart';
@@ -39,7 +41,22 @@ class SembastLocalChangeHandler implements LocalChangeHandler {
     final executor = _getExecutor();
     final records = await changeStore.find(executor);
     final lcs = records.map((e) {
-      return e.value.toLocalChange();
+      final map = e.value;
+
+      final protoBytes = Uint8List.fromList(
+          (map['protoBytes'] as Iterable<Object?>)
+              .map((e) => e as int)
+              .toList());
+
+      final lc = LocalChange(
+        id: map['id'] as int,
+        entityType: map['entityType'] as String,
+        entityId: map['entityId'] as String,
+        entityRev: map['entityRev'] as String,
+        operation: ChangeOperation.values[map['operation'] as int],
+        protoBytes: protoBytes,
+      );
+      return lc;
     }).toList();
     return lcs;
   }
@@ -60,13 +77,21 @@ class SembastLocalChangeHandler implements LocalChangeHandler {
       change = change.copyWith(id: id);
     }
 
-    await changeStore.record(change.id).add(executor, change.toMap());
+    final map = <String, Object?>{
+      'id': change.id,
+      'entityType': change.entityType,
+      'entityId': change.entityId,
+      'entityRev': change.entityRev,
+      'operation': change.operation.index,
+      'protoBytes': change.protoBytes.toList(),
+    };
+    await changeStore.record(change.id).add(executor, map);
   }
 
   @override
   Future<void> setLastReceivedChangeId(Context ctx, String? id) async {
     final executor = _getExecutor(ctx);
-    await syncStateStore.record(1).put(executor, {'lastReceivedChangeId': ''});
+    await syncStateStore.record(1).put(executor, {'lastReceivedChangeId': id});
   }
 
   @override

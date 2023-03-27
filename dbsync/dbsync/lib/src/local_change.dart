@@ -2,19 +2,14 @@
 import 'dart:typed_data';
 
 import 'package:dbsync/dbsync.dart';
-import 'package:map_mapper_annotations/map_mapper_annotations.dart';
 
 export 'change_operation.dart';
 
-part 'local_change.g.dart';
 
-@mapMapped
 class LocalChange {
-  @MapField(isKey: false)
   final int id;
   final String entityType;
 
-  @MapField(isKey: false)
   final String entityId;
   final String entityRev;
   final ChangeOperation operation;

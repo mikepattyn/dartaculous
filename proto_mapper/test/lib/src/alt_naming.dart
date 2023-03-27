@@ -1,7 +1,6 @@
 import 'package:proto_annotations/proto_annotations.dart';
 import 'package:proto_generator_test/grpc/model.pb.dart';
 
-import '../gtypes.dart';
 import 'appliance_type.dart';
 import 'empty.dart';
 import 'ingredient.dart';

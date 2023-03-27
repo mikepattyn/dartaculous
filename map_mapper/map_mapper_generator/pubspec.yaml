@@ -2,13 +2,13 @@ name: map_mapper_generator
 description: Generates code that maps (converts) between instances of business classes to Map<String, dynamic> and back
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/map_mapper/map_mapper_generator
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 4.0.0-dev.4
+version: 4.0.0-dev.6
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
 
 dependencies:
-  map_mapper_annotations: ^4.0.0-dev.3
+  map_mapper_annotations: ^4.0.0-dev.4
   source_gen: ^1.0.0
   squarealfa_generators_common: ^3.0.0-dev.2
   analyzer: ^5.2.0

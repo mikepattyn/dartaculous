@@ -27,15 +27,6 @@ class MapMapGenerator extends GeneratorForAnnotation<MapMapped> {
       config: config,
     );
 
-    print('''
-
-
-
-CONFIG SAYS: ${config.keyHandlerType}
-
-
-''');
-
     if (element is! InterfaceElement) return null;
 
     if (element is EnumElement) {

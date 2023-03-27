@@ -1,6 +1,5 @@
 import 'package:csharp_annotations/csharp_annotations.dart';
 import 'package:squarealfa_entity_annotations/squarealfa_entity_annotations.dart';
-import 'package:decimal/decimal.dart';
 
 import 'contract.dart';
 import 'gender.dart';

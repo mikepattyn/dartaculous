@@ -1,3 +1,7 @@
+## 4.0.0-dev.6
+
+ - **FIX** Removed leftover print statement.
+
 ## 4.0.0-dev.5
 
  - **BREAKING** No longer using key handler by default.
