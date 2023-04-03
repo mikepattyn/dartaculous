@@ -17,7 +17,7 @@ class SembastLocalChangeHandler implements LocalChangeHandler {
   Future<void> clearAllLocalChanges(Context ctx) async {
     final executor = _getExecutor(ctx);
 
-    changeStore.delete(executor);
+    await changeStore.delete(executor);
   }
 
   @override
