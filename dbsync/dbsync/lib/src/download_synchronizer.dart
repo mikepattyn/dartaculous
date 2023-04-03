@@ -36,7 +36,6 @@ class DownloadSynchronizer {
     if (lastChangeId == null) {
       await fullResync(context: context);
       return;
-
     }
     final changes =
         (await getServerPendingChanges(lastChangeId))?.asBroadcastStream();
@@ -62,13 +61,11 @@ class DownloadSynchronizer {
     Stream<ServerChange> changes, {
     SynchronizationContext? context,
   }) async {
-    ServerChange? lastChange;
-    await localDatabase.transaction((ctx) async {
-      await for (final change in changes) {
+    await for (final change in changes) {
+      await localDatabase.transaction((ctx) async {
         if (context?.cancel ?? false) {
           return;
         }
-        lastChange = change;
         final handler = _getTypeHandlerByTypeName(change.entityType);
         switch (change.changeOperation) {
           case ChangeOperation.delete:
@@ -82,12 +79,9 @@ class DownloadSynchronizer {
           default:
             throw UnsupportedError('Type of change not supported.');
         }
-      }
-      if (lastChange != null) {
-        await localDatabase.setLastReceivedChangeId(ctx, lastChange!.id);
-        //await _setLastReceivedChangeId(txn, lastChange!.id);
-      }
-    });
+        await localDatabase.setLastReceivedChangeId(ctx, change.id);
+      });
+    }
   }
 
   Future<void> fullResync({SynchronizationContext? context}) async {
@@ -95,21 +89,28 @@ class DownloadSynchronizer {
 
     await localDatabase.transaction((ctx) async {
       await localDatabase.clearAllLocalChanges(ctx);
+      await localDatabase.setLastReceivedChangeId(ctx, null);
       for (final handler in typeHandlers.values) {
+        await handler.clearAllLocal(Context.background());
+      }
+    });
+
+    for (final handler in typeHandlers.values) {
+      if (context?.cancel ?? false) {
+        return;
+      }
+      final stream = await handler.getAllRemote();
+      await for (final item in stream) {
         if (context?.cancel ?? false) {
           return;
         }
-        await handler.clearAllLocal(ctx);
-        final stream = await handler.getAllRemote();
-        await for (final item in stream) {
-          if (context?.cancel ?? false) {
-            return;
-          }
+        await localDatabase.transaction((ctx) async {
           await handler.upsertLocal(ctx, item);
-        }
+          await localDatabase.setLastReceivedChangeId(ctx, lastSyncedChangeId);
+        });
       }
-      await localDatabase.setLastReceivedChangeId(ctx, lastSyncedChangeId);
-    });
+    }
+    //});
   }
 
   SyncTypeHandler _getTypeHandlerByTypeName(String typeName) {

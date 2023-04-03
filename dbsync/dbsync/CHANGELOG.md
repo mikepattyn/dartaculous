@@ -1,3 +1,7 @@
+## 0.0.1-dev.14
+
+- Replaced global transaction with transaction per synched item
+
 ## 0.0.1-dev.13
 
 - Removed dependency from Sqlite.
