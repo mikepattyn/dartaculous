@@ -1,3 +1,8 @@
+## 0.0.1-dev.15
+
+- Fixed wrong context for local delete all.
+
+
 ## 0.0.1-dev.14
 
 - Replaced global transaction with transaction per synched item

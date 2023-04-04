@@ -91,7 +91,7 @@ class DownloadSynchronizer {
       await localDatabase.clearAllLocalChanges(ctx);
       await localDatabase.setLastReceivedChangeId(ctx, null);
       for (final handler in typeHandlers.values) {
-        await handler.clearAllLocal(Context.background());
+        await handler.clearAllLocal(ctx);
       }
     });
 
