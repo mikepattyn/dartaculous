@@ -1,3 +1,7 @@
+## 0.0.1-dev.3
+
+- Fixed bug with missing await for clearAll.
+
 ## 0.0.1-dev.2
 
 - Fixed bug with missing await for local changes deletion.

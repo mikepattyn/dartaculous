@@ -2,7 +2,7 @@ name: sembast_sync
 description: Adapter for dbsync that uses sqlite database.
 repository: https://gitlab.com/dartaculous/dartaculous
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/dbsync/sembast_sync
-version: 0.0.1-dev.2
+version: 0.0.1-dev.3
 
 environment:
   sdk: '>=2.19.4 <3.0.0'

@@ -30,7 +30,7 @@ mixin SembastLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
   @override
   FutureOr<void> clearAllLocal(Context context) async {
     final executor = _getExecutor(context);
-    store.delete(executor);
+    await store.delete(executor);
   }
 
   @override
