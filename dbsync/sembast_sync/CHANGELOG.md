@@ -1,3 +1,7 @@
+## 0.0.1-dev.4
+
+- Added support for batch processing.
+
 ## 0.0.1-dev.3
 
 - Fixed bug with missing await for clearAll.

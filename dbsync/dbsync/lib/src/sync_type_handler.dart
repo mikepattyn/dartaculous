@@ -3,15 +3,21 @@ import 'dart:typed_data';
 
 import 'package:dbsync/dbsync.dart';
 
-
 abstract class SyncTypeHandler<TEntity> {
   String getId(TEntity entity);
   String getRev(TEntity entity);
 
   Future<TEntity> getLocal(String id);
   FutureOr<void> clearAllLocal(Context context);
+
   Future<void> upsertLocal(Context context, TEntity entity);
+
+  int get upsertBatchSize => 1;
+  Future<void> upsertLocalBatch(Context context, List entities);
   Future<void> deleteLocal(Context context, String id);
+
+  int get deleteBatchSize => 1;
+  Future<void> deleteLocalBatch(Context context, List<String> ids);
 
   Future<TEntity?> getRemote(String id);
   Future<Stream<TEntity>> getAllRemote();

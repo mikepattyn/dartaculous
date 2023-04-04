@@ -18,6 +18,12 @@ mixin SembastLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
   }
 
   @override
+  Future<void> deleteLocalBatch(Context context, List<String> ids) async {
+    final executor = _getExecutor(context);
+    await store.records(ids).delete(executor);
+  }
+
+  @override
   Future<TEntity> getLocal(String id) async {
     final executor = _getExecutor();
     final q = await store.record(id).get(executor);
@@ -40,6 +46,21 @@ mixin SembastLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
     final id = getId(entity);
     final map = toMap(entity);
     await store.record(id).put(executor, map);
+  }
+
+  @override
+  int get upsertBatchSize => 10000;
+
+  @override
+  int get deleteBatchSize => 10000;
+
+  @override
+  Future<void> upsertLocalBatch(Context context, List entities) async {
+    final executor = _getExecutor(context);
+
+    final ids = entities.map((e) => getId(e)).toList();
+    final maps = entities.map((e) => toMap(e)).toList();
+    await store.records(ids).put(executor, maps);
   }
 
   DatabaseClient _getExecutor([Context? context]) {

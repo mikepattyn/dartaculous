@@ -16,6 +16,14 @@ mixin SqfLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
   }
 
   @override
+  Future<void> deleteLocalBatch(Context context, List<String> ids) async {
+    for (final id in ids) {
+      final executor = _getExecutor(context);
+      await executor.delete(tableName, where: 'id = ?', whereArgs: [id]);
+    }
+  }
+
+  @override
   Future<TEntity> getLocal(String id) async {
     final executor = _getExecutor();
     final q = await executor.query(tableName, where: 'id = ?', whereArgs: [id]);
@@ -44,6 +52,22 @@ mixin SqfLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+  }
+
+  @override
+  Future<void> upsertLocalBatch(Context context, List entities) async {
+    final executor = _getExecutor(context);
+    for (final entity in entities) {
+      await executor.insert(
+        tableName,
+        {
+          'id': getId(entity),
+          'proto': marshal(entity),
+          ...mapCustomFields(entity)
+        },
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+    }
   }
 
   DatabaseExecutor _getExecutor([Context? context]) {

@@ -1,7 +1,10 @@
+## 0.0.1-dev.16
+
+- Restored broad-scale transactions and added logging.
+
 ## 0.0.1-dev.15
 
 - Fixed wrong context for local delete all.
-
 
 ## 0.0.1-dev.14
 
