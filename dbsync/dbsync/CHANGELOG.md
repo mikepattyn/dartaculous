@@ -1,3 +1,7 @@
+## 0.0.1-dev.17
+
+- Throw error when cancelled.
+
 ## 0.0.1-dev.16
 
 - Restored broad-scale transactions and added logging.
