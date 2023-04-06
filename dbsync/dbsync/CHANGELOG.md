@@ -1,3 +1,7 @@
+## 0.0.1-dev.18
+
+- Updating local db when syncing to server in deferred
+
 ## 0.0.1-dev.17
 
 - Throw error when cancelled.

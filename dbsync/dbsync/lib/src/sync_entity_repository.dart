@@ -14,6 +14,7 @@ abstract class SyncEntityRepository<TEntity> {
   Future<TEntity> get(String id) async {
     final remote = await getRemote(id);
     if (remote != null) {
+      await syncHandler.upsertLocal(Context.background(), remote);
       return remote;
     }
     return await syncHandler.getLocal(id);

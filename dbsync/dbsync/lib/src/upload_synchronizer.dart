@@ -30,7 +30,7 @@ class UploadSynchronizer {
       await localDatabase.transaction((txn) async {
         await localDatabase.deleteLocalChange(txn, localChange);
         try {
-          await _doOperation(localChange, handler);
+          await _doOperation(txn, localChange, handler);
         } on ConflictException catch (_) {
           if (context != null) {
             context.conflicts.add(localChange);
@@ -40,16 +40,18 @@ class UploadSynchronizer {
     }
   }
 
-  Future<void> _doOperation(
-      LocalChange localChange, SyncTypeHandler<dynamic> handler) async {
+  Future<void> _doOperation(Context txn, LocalChange localChange,
+      SyncTypeHandler<dynamic> handler) async {
     switch (localChange.operation) {
       case ChangeOperation.create:
         final entity = handler.unmarshal(localChange.protoBytes);
-        await handler.createRemote(entity);
+        final updated = await handler.createRemote(entity);
+        await handler.upsertLocal(txn, updated);
         break;
       case ChangeOperation.update:
         final entity = handler.unmarshal(localChange.protoBytes);
-        await handler.updateRemote(entity);
+        final updated = await handler.updateRemote(entity);
+        await handler.upsertLocal(txn, updated);
         break;
       case ChangeOperation.delete:
         final id = localChange.entityId;
