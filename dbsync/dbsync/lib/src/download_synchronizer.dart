@@ -42,8 +42,9 @@ class DownloadSynchronizer {
       return;
     }
     _logger.finest('... will sync from $lastChangeId');
-    final changes =
-        (await getServerPendingChanges(lastChangeId))?.asBroadcastStream();
+    final changes = (await getServerPendingChanges(
+            lastChangeId == '' ? null : lastChangeId))
+        ?.asBroadcastStream();
     if (changes == null) {
       _logger.finest('... got no changes, so will do full resync');
       await fullResync(context: context);
@@ -187,7 +188,8 @@ class DownloadSynchronizer {
         }
         _logger.finest(
             '... done syncing all handlers will call setLastReceivedChangeId with $lastSyncedChangeId.');
-        await localDatabase.setLastReceivedChangeId(ctx, lastSyncedChangeId);
+        await localDatabase.setLastReceivedChangeId(
+            ctx, lastSyncedChangeId ?? '');
       });
     } on CancelException catch (_) {
       _logger.finest('user cancelled sync');
