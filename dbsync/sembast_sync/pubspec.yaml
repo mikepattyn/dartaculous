@@ -7,9 +7,13 @@ version: 0.0.1-dev.4
 environment:
   sdk: '>=2.19.4 <3.0.0'
 
+publish_to: none
+
 dependencies:
   sembast:  ^3.4.3+1
-  dbsync: ^0.0.1-dev.16
+  meta: ^1.8.0
+  dbsync: #^0.0.1-dev.16
+    path: ../dbsync
 
 dev_dependencies:
   lints: ^2.0.0

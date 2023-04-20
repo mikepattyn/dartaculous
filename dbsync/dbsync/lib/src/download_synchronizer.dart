@@ -77,7 +77,8 @@ class DownloadSynchronizer {
             case ChangeOperation.delete:
               final lst = (deleteBatch[handler] ??= []);
               lst.add(change.changedId);
-              if (lst.length >= handler.upsertBatchSize) {
+              if (handler.deleteBatchSize >= 0 &&
+                  lst.length >= handler.upsertBatchSize) {
                 _logger.finest(
                     '... reached deleted batch size. Will call handler.deleteLocalBatch');
                 await handler.deleteLocalBatch(ctx, lst);
@@ -89,9 +90,10 @@ class DownloadSynchronizer {
             case ChangeOperation.create:
             case ChangeOperation.update:
               final entity = await handler.unmarshal(change.entity);
-              final lst = (upsertBatch[handler] ??= []);
+              final List lst = (upsertBatch[handler] ??= []);
               lst.add(entity);
-              if (lst.length >= handler.upsertBatchSize) {
+              if (handler.upsertBatchSize >= 0 &&
+                  lst.length >= handler.upsertBatchSize) {
                 _logger.finest(
                     '... reached upsert batch size. Will call handler.upsertLocalBatch');
                 await handler.upsertLocalBatch(ctx, lst);
@@ -167,7 +169,8 @@ class DownloadSynchronizer {
             }
 
             items.add(item);
-            if (items.length >= handler.upsertBatchSize) {
+            if (handler.upsertBatchSize >= 0 &&
+                items.length >= handler.upsertBatchSize) {
               _logger
                   .finest('... reached upsertBatchSize. will upserLocalBatch');
               await handler.upsertLocalBatch(ctx, items);
