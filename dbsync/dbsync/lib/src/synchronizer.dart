@@ -26,7 +26,7 @@ abstract class Synchronizer<TSerialized> {
   Future<String?> getLatestServerChangeId();
 
   @protected
-  Future<Stream<ServerChange>?> getServerPendingChanges(String? lastChangeId);
+  Future<Stream<ServerChange>> getServerPendingChanges(String? lastChangeId);
 
   Future<void> sync({SynchronizationContext? context}) async {
     await uploadSynchronizer.syncLocalChanges(context: context);

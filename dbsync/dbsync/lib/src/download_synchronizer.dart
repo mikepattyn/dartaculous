@@ -1,12 +1,13 @@
 import 'dart:async';
 
 import 'package:dbsync/dbsync.dart';
+import 'package:dbsync/src/exceptions/notfound_exception.dart';
 import 'package:logging/logging.dart';
 
 final _logger = Logger('dbsync:DownloadSynchronizer');
 
 typedef GetIdFunc = Future<String?> Function();
-typedef GetPendingChangesFunc = Future<Stream<ServerChange>?> Function(
+typedef GetPendingChangesFunc = Future<Stream<ServerChange>> Function(
     String? lastChangeId);
 
 class DownloadSynchronizer {
@@ -42,15 +43,14 @@ class DownloadSynchronizer {
       return;
     }
     _logger.finest('... will sync from $lastChangeId');
-    final changes = (await getServerPendingChanges(
-            lastChangeId == '' ? null : lastChangeId))
-        ?.asBroadcastStream();
-    if (changes == null) {
-      _logger.finest('... got no changes, so will do full resync');
-      await fullResync(context: context);
-    } else {
-      _logger.finest('... got changes, will do _partialSyncServerChanges');
+    try {
+      final changes = (await getServerPendingChanges(
+              lastChangeId == '' ? null : lastChangeId))
+          .asBroadcastStream();
       await _partialSyncServerChanges(changes, context: context);
+    } on NotFoundException catch (_) {
+      _logger.finest('...Received a NotFoundException, so doing a fullResync');
+      await fullResync(context: context);
     }
   }
 
@@ -132,7 +132,11 @@ class DownloadSynchronizer {
     } on CancelException catch (_) {
       _logger.finest('user cancelled sync');
       rethrow;
+    } catch (ex) {
+      _logger.finest('exception on _partialSyncServerChanges: $ex');
+      rethrow;
     }
+    print('finished _partialSyncServerChanges with no incident');
   }
 
   Future<void> fullResync({SynchronizationContext? context}) async {
@@ -200,8 +204,13 @@ class DownloadSynchronizer {
   SyncTypeHandler _getTypeHandlerByTypeName(String typeName) {
     final handler = typeHandlers[typeName];
     if (handler == null) {
+      print('### All the type handlers are: ');
+      for (final th in typeHandlers.keys) {
+        print(' - $th');
+      }
       throw ArgumentError(
-          "There is no handler registered for the entity's type", 'entity');
+          "There is no handler registered for the entity's type $typeName",
+          typeName);
     }
     return handler;
   }
