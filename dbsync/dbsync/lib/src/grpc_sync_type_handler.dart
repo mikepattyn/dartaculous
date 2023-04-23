@@ -1,5 +1,6 @@
 import 'package:dbsync/dbsync.dart';
 import 'package:grpc/grpc.dart';
+import 'package:meta/meta.dart';
 
 mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
   Future<Stream<TEntity>> grpcGetAllRemote();
@@ -14,7 +15,7 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
       final e = await grpcGetRemote(id);
       return e;
     } on GrpcError catch (ex) {
-      if (ex.code == StatusCode.unavailable) {
+      if (isUnavailable(ex)) {
         throw UnavailableException(innerException: ex);
       }
       rethrow;
@@ -27,7 +28,7 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
       final str = await grpcGetAllRemote();
       return str;
     } on GrpcError catch (exception) {
-      if (exception.code == StatusCode.unavailable) {
+      if (isUnavailable(exception)) {
         throw UnavailableException(innerException: exception);
       }
       rethrow;
@@ -40,7 +41,7 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
       final created = await grpcCreateRemote(entity);
       return created;
     } on GrpcError catch (exception) {
-      if (exception.code == StatusCode.unavailable) {
+      if (isUnavailable(exception)) {
         throw UnavailableException(innerException: exception);
       }
       if (exception.code == StatusCode.aborted ||
@@ -57,7 +58,7 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
       final updated = await grpcUpdateRemote(entity);
       return updated;
     } on GrpcError catch (exception) {
-      if (exception.code == StatusCode.unavailable) {
+      if (isUnavailable(exception)) {
         throw UnavailableException(innerException: exception);
       }
       if (exception.code == StatusCode.aborted ||
@@ -74,7 +75,7 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
     try {
       await grpcDeleteRemote(id, rev);
     } on GrpcError catch (exception) {
-      if (exception.code == StatusCode.unavailable) {
+      if (isUnavailable(exception)) {
         throw UnavailableException(innerException: exception);
       }
       if (exception.code == StatusCode.aborted ||
@@ -83,5 +84,10 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
       }
       rethrow;
     }
+  }
+
+  @protected
+  bool isUnavailable(GrpcError exception) {
+    return exception.code == StatusCode.unavailable;
   }
 }

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:dbsync/dbsync.dart';
-import 'package:dbsync/src/exceptions/notfound_exception.dart';
 import 'package:logging/logging.dart';
 
 final _logger = Logger('dbsync:DownloadSynchronizer');
