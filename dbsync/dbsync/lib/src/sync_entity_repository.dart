@@ -6,10 +6,12 @@ abstract class SyncEntityRepository<TEntity> {
   const SyncEntityRepository({
     required this.syncHandler,
     required this.localChangeHandler,
+    required this.entityType,
   });
 
   final SyncTypeHandler<TEntity> syncHandler;
   final LocalChangeHandler localChangeHandler;
+  final String entityType;
 
   Future<TEntity> get(String id) async {
     final remote = await getRemote(id);
@@ -39,7 +41,7 @@ abstract class SyncEntityRepository<TEntity> {
       if (remoteCreated == null) {
         final localChange = LocalChange.create(
           protoBytes: syncHandler.marshal(entity),
-          entityType: TEntity,
+          entityType: this.entityType,
           entityId: syncHandler.getId(entity),
           entityRev: syncHandler.getRev(entity),
         );
@@ -68,7 +70,7 @@ abstract class SyncEntityRepository<TEntity> {
       await syncHandler.upsertLocal(txn, updated);
       if (remoteUpdated == null) {
         final localChange = LocalChange.update(
-          entityType: TEntity,
+          entityType: this.entityType,
           protoBytes: syncHandler.marshal(entity),
           entityId: syncHandler.getId(entity),
           entityRev: syncHandler.getRev(entity),
@@ -102,7 +104,7 @@ abstract class SyncEntityRepository<TEntity> {
       await syncHandler.deleteLocal(txn, id);
       if (!synced) {
         final localChange = LocalChange.delete(
-          entityType: TEntity,
+          entityType: this.entityType,
           entityId: id,
           entityRev: rev,
         );

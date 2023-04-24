@@ -25,29 +25,26 @@ class LocalChange {
   });
 
   LocalChange.create({
-    required Type entityType,
+    required this.entityType,
     required this.protoBytes,
     required this.entityId,
     required this.entityRev,
   })  : operation = ChangeOperation.create,
-        entityType = entityType.toString(),
         id = -1;
 
   LocalChange.update({
-    required Type entityType,
+    required this.entityType,
     required this.protoBytes,
     required this.entityId,
     required this.entityRev,
   })  : operation = ChangeOperation.update,
-        entityType = entityType.toString(),
         id = -1;
 
   LocalChange.delete({
-    required Type entityType,
+    required this.entityType,
     required this.entityId,
     required this.entityRev,
   })  : operation = ChangeOperation.delete,
-        entityType = entityType.toString(),
         id = -1,
         protoBytes = Uint8List(0);
 
