@@ -43,9 +43,8 @@ class DownloadSynchronizer {
     }
     _logger.finest('... will sync from $lastChangeId');
     try {
-      final changes = (await getServerPendingChanges(
-              lastChangeId == '' ? null : lastChangeId))
-          .asBroadcastStream();
+      final changes = await getServerPendingChanges(
+          lastChangeId == '' ? null : lastChangeId);
       await _partialSyncServerChanges(changes, context: context);
     } on NotFoundException catch (_) {
       _logger.finest('...Received a NotFoundException, so doing a fullResync');
@@ -100,7 +99,6 @@ class DownloadSynchronizer {
                 lst.clear();
                 _logger.finest('... done upserting');
               }
-              //await handler.upsertLocal(ctx, entity);
               break;
             default:
               throw UnsupportedError('Type of change not supported.');
@@ -165,27 +163,36 @@ class DownloadSynchronizer {
             throw CancelException();
           }
           final stream = await handler.getAllRemote();
-          final items = [];
-          await for (final item in stream) {
-            if (context?.cancel ?? false) {
-              _logger.finest('... cancel requested. Will leave.');
-              throw CancelException();
+          try {
+            final items = [];
+            await for (final item in stream) {
+              if (context?.cancel ?? false) {
+                _logger.finest('... cancel requested. Will leave.');
+                throw CancelException();
+              }
+
+              items.add(item);
+              if (handler.upsertBatchSize >= 0 &&
+                  items.length >= handler.upsertBatchSize) {
+                _logger.finest(
+                    '... reached upsertBatchSize. will upserLocalBatch');
+                await handler.upsertLocalBatch(ctx, items);
+                items.clear();
+              }
             }
 
-            items.add(item);
-            if (handler.upsertBatchSize >= 0 &&
-                items.length >= handler.upsertBatchSize) {
-              _logger
-                  .finest('... reached upsertBatchSize. will upserLocalBatch');
+            if (items.isNotEmpty) {
+              _logger.finest(
+                  '... received all items. will upserLocalBatch for remaining items.');
+
               await handler.upsertLocalBatch(ctx, items);
-              items.clear();
             }
-          }
-          if (items.isNotEmpty) {
-            _logger.finest(
-                '... received all items. will upserLocalBatch for remaining items.');
-
-            await handler.upsertLocalBatch(ctx, items);
+          } finally {
+            try {
+              await stream.drain();
+            } catch (ex) {
+              _logger.warning('error draining changes stream: $ex');
+            }
           }
           _logger.finest('... done syncing all items for handler.');
         }
