@@ -163,37 +163,30 @@ class DownloadSynchronizer {
             throw CancelException();
           }
           final stream = await handler.getAllRemote();
-          try {
-            final items = [];
-            await for (final item in stream) {
-              if (context?.cancel ?? false) {
-                _logger.finest('... cancel requested. Will leave.');
-                throw CancelException();
-              }
-
-              items.add(item);
-              if (handler.upsertBatchSize >= 0 &&
-                  items.length >= handler.upsertBatchSize) {
-                _logger.finest(
-                    '... reached upsertBatchSize. will upserLocalBatch');
-                await handler.upsertLocalBatch(ctx, items);
-                items.clear();
-              }
+          final items = [];
+          await for (final item in stream) {
+            if (context?.cancel ?? false) {
+              _logger.finest('... cancel requested. Will leave.');
+              throw CancelException();
             }
 
-            if (items.isNotEmpty) {
-              _logger.finest(
-                  '... received all items. will upserLocalBatch for remaining items.');
-
+            items.add(item);
+            if (handler.upsertBatchSize >= 0 &&
+                items.length >= handler.upsertBatchSize) {
+              _logger
+                  .finest('... reached upsertBatchSize. will upserLocalBatch');
               await handler.upsertLocalBatch(ctx, items);
-            }
-          } finally {
-            try {
-              await stream.drain();
-            } catch (ex) {
-              _logger.warning('error draining changes stream: $ex');
+              items.clear();
             }
           }
+
+          if (items.isNotEmpty) {
+            _logger.finest(
+                '... received all items. will upserLocalBatch for remaining items.');
+
+            await handler.upsertLocalBatch(ctx, items);
+          }
+
           _logger.finest('... done syncing all items for handler.');
         }
         _logger.finest(
