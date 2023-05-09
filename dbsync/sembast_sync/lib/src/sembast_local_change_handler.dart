@@ -72,7 +72,7 @@ class SembastLocalChangeHandler implements LocalChangeHandler {
           Filter.equals('entityRev', change.entityRev)
         ])));
 
-    if (change.id == 0) {
+    if (change.id <= 0) {
       final id = await changeStore.generateIntKey(executor);
       change = change.copyWith(id: id);
     }
