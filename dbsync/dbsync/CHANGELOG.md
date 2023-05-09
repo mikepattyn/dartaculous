@@ -1,3 +1,7 @@
+## 0.0.1-dev.19
+
+- Several fixes
+
 ## 0.0.1-dev.18
 
 - Updating local db when syncing to server in deferred
