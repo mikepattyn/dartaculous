@@ -1,3 +1,7 @@
+## 0.0.1-dev.5
+
+- Several fixes
+
 ## 0.0.1-dev.4
 
 - Added support for batch processing.
