@@ -12,13 +12,11 @@ class $RecipeMapMapper extends MapMapper<Recipe> {
 
   @override
   Recipe fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return Recipe(
-      key: $kh.keyFromMap(map, 'key'),
+      key: map['key'] as String,
       title: map['title'] as String,
       category: const $CategoryMapMapper().fromMap(map['category']),
-      categoryKey: $kh.keyFromMap(map, 'categoryKey'),
+      categoryKey: map['categoryKey'] as String,
       ingredients: List<Ingredient>.unmodifiable(map['ingredients']
           .map((e) => const $IngredientMapMapper().fromMap(e))),
       publishDate: DateTime.fromMicrosecondsSinceEpoch(map['publishDate']),
@@ -46,9 +44,7 @@ class $RecipeMapMapper extends MapMapper<Recipe> {
       extraTags: map['extraTags'] == null
           ? null
           : List<String>.unmodifiable(map['extraTags']),
-      secondaryCategoryKey: map['secondaryCategoryKey'] == null
-          ? null
-          : $kh.keyFromMap(map, 'secondaryCategoryKey'),
+      secondaryCategoryKey: map['secondaryCategoryKey'] as String?,
       moreApplianceTypes: List<ApplianceType>.unmodifiable(
           map['moreApplianceTypes']
               .map((e) => const $ApplianceTypeMapMapper().fromMap(e))),
@@ -57,15 +53,13 @@ class $RecipeMapMapper extends MapMapper<Recipe> {
 
   @override
   Map<String, dynamic> toMap(Recipe instance) {
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
-    $kh.keyToMap(map, instance.key, 'key');
+    map['key'] = instance.key;
     map['title'] = instance.title;
     map['description'] = instance.description;
-    $kh.keyToMap(map, instance.categoryKey, 'categoryKey');
-    $kh.keyToMap(
-        map, instance.secondaryCategoryKey ?? '', 'secondaryCategoryKey');
+    map['categoryKey'] = instance.categoryKey;
+    map['secondaryCategoryKey'] = instance.secondaryCategoryKey;
     map['category'] = const $CategoryMapMapper().toMap(instance.category);
     map['ingredients'] = instance.ingredients
         .map((e) => const $IngredientMapMapper().toMap(e))
@@ -99,7 +93,6 @@ extension $MapRecipeExtension on Map<String, dynamic> {
 }
 
 class $RecipeFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -110,16 +103,15 @@ class $RecipeFieldNames {
         prefix = '';
 
   static const _key = 'key';
-  String get key => prefix + $kh.fieldNameToMapKey(_key);
+  String get key => prefix + _key;
   static const _title = 'title';
   String get title => prefix + _title;
   static const _description = 'description';
   String get description => prefix + _description;
   static const _categoryKey = 'categoryKey';
-  String get categoryKey => prefix + $kh.fieldNameToMapKey(_categoryKey);
+  String get categoryKey => prefix + _categoryKey;
   static const _secondaryCategoryKey = 'secondaryCategoryKey';
-  String get secondaryCategoryKey =>
-      prefix + $kh.fieldNameToMapKey(_secondaryCategoryKey);
+  String get secondaryCategoryKey => prefix + _secondaryCategoryKey;
   static const _category = 'category';
   $CategoryFieldNames get category =>
       $CategoryFieldNames.sub(prefix + _category);

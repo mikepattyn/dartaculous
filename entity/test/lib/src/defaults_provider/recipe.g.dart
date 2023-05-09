@@ -39,6 +39,6 @@ abstract class $RecipeDefaultsProviderBase {
   double get doubleNumPosts => 0;
   Decimal get decimalNumPosts => Decimal.zero;
   Ingredient get mainIngredient =>
-      $IngredientDefaultsProvider().createWithDefaults();
+      const $IngredientDefaultsProvider().createWithDefaults();
   Category get category;
 }

@@ -1,0 +1,8 @@
+# melos_managed_dependency_overrides: map_mapper_annotations,map_mapper_generator,squarealfa_generators_common
+dependency_overrides:
+  map_mapper_annotations:
+    path: ../../map_mapper_annotations
+  map_mapper_generator:
+    path: ../../map_mapper_generator
+  squarealfa_generators_common:
+    path: ../../../generators_common

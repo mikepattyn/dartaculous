@@ -4,6 +4,9 @@ import 'package:sqfsync/sqfsync.dart';
 
 class SqfEntityRepository<TEntity> extends SyncEntityRepository<TEntity> {
   final Database database;
-  SqfEntityRepository({required super.syncHandler, required this.database})
-      : super(localChangeHandler: SqfLocalChangeHandler(database));
+  SqfEntityRepository({
+    required super.syncHandler,
+    required this.database,
+    required super.entityType,
+  }) : super(localChangeHandler: SqfLocalChangeHandler(database));
 }

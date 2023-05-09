@@ -37,7 +37,7 @@ class $RecipeBuilder implements Builder<Recipe> {
   BuildResult<Recipe> tryBuild() {
     try {
       final entity = _build();
-      final errors = $RecipeValidator().validate(entity);
+      final errors = const $RecipeValidator().validate(entity);
 
       final result =
           BuildResult<Recipe>(result: entity, validationErrors: errors);
@@ -83,7 +83,7 @@ class $RecipeValidator implements Validator {
 
   ValidationError? validateTitle(String value, {Recipe? entity}) {
     if (value.isEmpty) {
-      return RequiredValidationError('title');
+      return const RequiredValidationError('title');
     }
 
     return null;
@@ -91,7 +91,7 @@ class $RecipeValidator implements Validator {
 
   ValidationError? validateDescription(String? value, {Recipe? entity}) {
     if (value?.isEmpty ?? true) {
-      return RequiredValidationError('description');
+      return const RequiredValidationError('description');
     }
 
     return null;
@@ -99,7 +99,7 @@ class $RecipeValidator implements Validator {
 
   ValidationError? $validateTitle(String? value, {Recipe? entity}) {
     if (value == null) {
-      return RequiredValidationError('title');
+      return const RequiredValidationError('title');
     }
     return validateTitle(value, entity: entity);
   }

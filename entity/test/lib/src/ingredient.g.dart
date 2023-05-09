@@ -101,7 +101,7 @@ class $IngredientValidator implements Validator {
 
   ValidationError? validateRInt(int? value, {Ingredient? entity}) {
     if (value == null) {
-      return RequiredValidationError('rInt');
+      return const RequiredValidationError('rInt');
     }
 
     if (value < 10) {
@@ -119,28 +119,28 @@ class $IngredientValidator implements Validator {
 
   ValidationError? $validateDescription(String? value, {Ingredient? entity}) {
     if (value == null) {
-      return RequiredValidationError('description');
+      return const RequiredValidationError('description');
     }
     return validateDescription(value, entity: entity);
   }
 
   ValidationError? $validateQuantity(double? value, {Ingredient? entity}) {
     if (value == null) {
-      return RequiredValidationError('quantity');
+      return const RequiredValidationError('quantity');
     }
     return validateQuantity(value, entity: entity);
   }
 
   ValidationError? $validatePrecision(Decimal? value, {Ingredient? entity}) {
     if (value == null) {
-      return RequiredValidationError('precision');
+      return const RequiredValidationError('precision');
     }
     return validatePrecision(value, entity: entity);
   }
 
   ValidationError? $validateIntQuantity(int? value, {Ingredient? entity}) {
     if (value == null) {
-      return RequiredValidationError('intQuantity');
+      return const RequiredValidationError('intQuantity');
     }
     return validateIntQuantity(value, entity: entity);
   }

@@ -1,8 +1,15 @@
+# melos_managed_dependency_overrides: csharp_generator,squarealfa_entity_annotations,squarealfa_entity_generator
 
 dependency_overrides:
   csharp_annotations:
     path: ../../csharp_annotations
 
+  csharp_generator:
+    path: ../../csharp_generator
+  squarealfa_entity_annotations:
+    path: ../../../entity/entity_annotations
+  squarealfa_entity_generator:
+    path: ../../../entity/entity_generator
   squarealfa_generators_common:
     path: ../../../generators_common
 

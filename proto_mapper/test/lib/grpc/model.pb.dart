@@ -1317,191 +1317,6 @@ class GSubClass1 extends $pb.GeneratedMessage {
   GFieldsOfAbstractParentClass2 ensureFieldsOfSuperClass() => $_ensure(0);
 }
 
-class GAltNaming extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAltNaming', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalName', protoName: 'UnconventionalName')
-    ..aOS(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalName', protoName: 'NUnconventionalName')
-    ..e<GApplianceType>(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalEnumName', $pb.PbFieldType.OE, protoName: 'UnconventionalEnumName', defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
-    ..e<GApplianceType>(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalEnumName', $pb.PbFieldType.OE, protoName: 'NUnconventionalEnumName', defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
-    ..aOM<GEmpty>(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalCategory', protoName: 'UnconventionalCategory', subBuilder: GEmpty.create)
-    ..aOM<GEmpty>(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalCategory', protoName: 'NUnconventionalCategory', subBuilder: GEmpty.create)
-    ..pc<GIngredient>(25, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalList', $pb.PbFieldType.PM, protoName: 'UnconventionalList', subBuilder: GIngredient.create)
-    ..aInt64(26, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalDateTime', protoName: 'UnconventionalDateTime')
-    ..aInt64(27, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalDateTime', protoName: 'NUnconventionalDateTime')
-    ..aInt64(28, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalDuration', protoName: 'UnconventionalDuration')
-    ..aInt64(29, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalDuration', protoName: 'NUnconventionalDuration')
-    ..hasRequiredFields = false
-  ;
-
-  GAltNaming._() : super();
-  factory GAltNaming({
-    $core.String? unconventionalName,
-    $core.String? nUnconventionalName,
-    GApplianceType? unconventionalEnumName,
-    GApplianceType? nUnconventionalEnumName,
-    GEmpty? unconventionalCategory,
-    GEmpty? nUnconventionalCategory,
-    $core.Iterable<GIngredient>? unconventionalList,
-    $fixnum.Int64? unconventionalDateTime,
-    $fixnum.Int64? nUnconventionalDateTime,
-    $fixnum.Int64? unconventionalDuration,
-    $fixnum.Int64? nUnconventionalDuration,
-  }) {
-    final _result = create();
-    if (unconventionalName != null) {
-      _result.unconventionalName = unconventionalName;
-    }
-    if (nUnconventionalName != null) {
-      _result.nUnconventionalName = nUnconventionalName;
-    }
-    if (unconventionalEnumName != null) {
-      _result.unconventionalEnumName = unconventionalEnumName;
-    }
-    if (nUnconventionalEnumName != null) {
-      _result.nUnconventionalEnumName = nUnconventionalEnumName;
-    }
-    if (unconventionalCategory != null) {
-      _result.unconventionalCategory = unconventionalCategory;
-    }
-    if (nUnconventionalCategory != null) {
-      _result.nUnconventionalCategory = nUnconventionalCategory;
-    }
-    if (unconventionalList != null) {
-      _result.unconventionalList.addAll(unconventionalList);
-    }
-    if (unconventionalDateTime != null) {
-      _result.unconventionalDateTime = unconventionalDateTime;
-    }
-    if (nUnconventionalDateTime != null) {
-      _result.nUnconventionalDateTime = nUnconventionalDateTime;
-    }
-    if (unconventionalDuration != null) {
-      _result.unconventionalDuration = unconventionalDuration;
-    }
-    if (nUnconventionalDuration != null) {
-      _result.nUnconventionalDuration = nUnconventionalDuration;
-    }
-    return _result;
-  }
-  factory GAltNaming.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GAltNaming.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GAltNaming clone() => GAltNaming()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GAltNaming copyWith(void Function(GAltNaming) updates) => super.copyWith((message) => updates(message as GAltNaming)) as GAltNaming; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GAltNaming create() => GAltNaming._();
-  GAltNaming createEmptyInstance() => create();
-  static $pb.PbList<GAltNaming> createRepeated() => $pb.PbList<GAltNaming>();
-  @$core.pragma('dart2js:noInline')
-  static GAltNaming getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GAltNaming>(create);
-  static GAltNaming? _defaultInstance;
-
-  @$pb.TagNumber(19)
-  $core.String get unconventionalName => $_getSZ(0);
-  @$pb.TagNumber(19)
-  set unconventionalName($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(19)
-  $core.bool hasUnconventionalName() => $_has(0);
-  @$pb.TagNumber(19)
-  void clearUnconventionalName() => clearField(19);
-
-  @$pb.TagNumber(20)
-  $core.String get nUnconventionalName => $_getSZ(1);
-  @$pb.TagNumber(20)
-  set nUnconventionalName($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(20)
-  $core.bool hasNUnconventionalName() => $_has(1);
-  @$pb.TagNumber(20)
-  void clearNUnconventionalName() => clearField(20);
-
-  @$pb.TagNumber(21)
-  GApplianceType get unconventionalEnumName => $_getN(2);
-  @$pb.TagNumber(21)
-  set unconventionalEnumName(GApplianceType v) { setField(21, v); }
-  @$pb.TagNumber(21)
-  $core.bool hasUnconventionalEnumName() => $_has(2);
-  @$pb.TagNumber(21)
-  void clearUnconventionalEnumName() => clearField(21);
-
-  @$pb.TagNumber(22)
-  GApplianceType get nUnconventionalEnumName => $_getN(3);
-  @$pb.TagNumber(22)
-  set nUnconventionalEnumName(GApplianceType v) { setField(22, v); }
-  @$pb.TagNumber(22)
-  $core.bool hasNUnconventionalEnumName() => $_has(3);
-  @$pb.TagNumber(22)
-  void clearNUnconventionalEnumName() => clearField(22);
-
-  @$pb.TagNumber(23)
-  GEmpty get unconventionalCategory => $_getN(4);
-  @$pb.TagNumber(23)
-  set unconventionalCategory(GEmpty v) { setField(23, v); }
-  @$pb.TagNumber(23)
-  $core.bool hasUnconventionalCategory() => $_has(4);
-  @$pb.TagNumber(23)
-  void clearUnconventionalCategory() => clearField(23);
-  @$pb.TagNumber(23)
-  GEmpty ensureUnconventionalCategory() => $_ensure(4);
-
-  @$pb.TagNumber(24)
-  GEmpty get nUnconventionalCategory => $_getN(5);
-  @$pb.TagNumber(24)
-  set nUnconventionalCategory(GEmpty v) { setField(24, v); }
-  @$pb.TagNumber(24)
-  $core.bool hasNUnconventionalCategory() => $_has(5);
-  @$pb.TagNumber(24)
-  void clearNUnconventionalCategory() => clearField(24);
-  @$pb.TagNumber(24)
-  GEmpty ensureNUnconventionalCategory() => $_ensure(5);
-
-  @$pb.TagNumber(25)
-  $core.List<GIngredient> get unconventionalList => $_getList(6);
-
-  @$pb.TagNumber(26)
-  $fixnum.Int64 get unconventionalDateTime => $_getI64(7);
-  @$pb.TagNumber(26)
-  set unconventionalDateTime($fixnum.Int64 v) { $_setInt64(7, v); }
-  @$pb.TagNumber(26)
-  $core.bool hasUnconventionalDateTime() => $_has(7);
-  @$pb.TagNumber(26)
-  void clearUnconventionalDateTime() => clearField(26);
-
-  @$pb.TagNumber(27)
-  $fixnum.Int64 get nUnconventionalDateTime => $_getI64(8);
-  @$pb.TagNumber(27)
-  set nUnconventionalDateTime($fixnum.Int64 v) { $_setInt64(8, v); }
-  @$pb.TagNumber(27)
-  $core.bool hasNUnconventionalDateTime() => $_has(8);
-  @$pb.TagNumber(27)
-  void clearNUnconventionalDateTime() => clearField(27);
-
-  @$pb.TagNumber(28)
-  $fixnum.Int64 get unconventionalDuration => $_getI64(9);
-  @$pb.TagNumber(28)
-  set unconventionalDuration($fixnum.Int64 v) { $_setInt64(9, v); }
-  @$pb.TagNumber(28)
-  $core.bool hasUnconventionalDuration() => $_has(9);
-  @$pb.TagNumber(28)
-  void clearUnconventionalDuration() => clearField(28);
-
-  @$pb.TagNumber(29)
-  $fixnum.Int64 get nUnconventionalDuration => $_getI64(10);
-  @$pb.TagNumber(29)
-  set nUnconventionalDuration($fixnum.Int64 v) { $_setInt64(10, v); }
-  @$pb.TagNumber(29)
-  $core.bool hasNUnconventionalDuration() => $_has(10);
-  @$pb.TagNumber(29)
-  void clearNUnconventionalDuration() => clearField(29);
-}
-
 class GCalcParameters extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GCalcParameters', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
     ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter2', $pb.PbFieldType.O3)
@@ -4140,5 +3955,190 @@ class GPrecisionSubject extends $pb.GeneratedMessage {
   $core.bool hasDurationProperty() => $_has(1);
   @$pb.TagNumber(3)
   void clearDurationProperty() => clearField(3);
+}
+
+class GAltNaming extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAltNaming', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalName', protoName: 'UnconventionalName')
+    ..aOS(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalName', protoName: 'NUnconventionalName')
+    ..e<GApplianceType>(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalEnumName', $pb.PbFieldType.OE, protoName: 'UnconventionalEnumName', defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
+    ..e<GApplianceType>(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalEnumName', $pb.PbFieldType.OE, protoName: 'NUnconventionalEnumName', defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
+    ..aOM<GEmpty>(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalCategory', protoName: 'UnconventionalCategory', subBuilder: GEmpty.create)
+    ..aOM<GEmpty>(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalCategory', protoName: 'NUnconventionalCategory', subBuilder: GEmpty.create)
+    ..pc<GIngredient>(25, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalList', $pb.PbFieldType.PM, protoName: 'UnconventionalList', subBuilder: GIngredient.create)
+    ..aInt64(26, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalDateTime', protoName: 'UnconventionalDateTime')
+    ..aInt64(27, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalDateTime', protoName: 'NUnconventionalDateTime')
+    ..aInt64(28, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalDuration', protoName: 'UnconventionalDuration')
+    ..aInt64(29, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalDuration', protoName: 'NUnconventionalDuration')
+    ..hasRequiredFields = false
+  ;
+
+  GAltNaming._() : super();
+  factory GAltNaming({
+    $core.String? unconventionalName,
+    $core.String? nUnconventionalName,
+    GApplianceType? unconventionalEnumName,
+    GApplianceType? nUnconventionalEnumName,
+    GEmpty? unconventionalCategory,
+    GEmpty? nUnconventionalCategory,
+    $core.Iterable<GIngredient>? unconventionalList,
+    $fixnum.Int64? unconventionalDateTime,
+    $fixnum.Int64? nUnconventionalDateTime,
+    $fixnum.Int64? unconventionalDuration,
+    $fixnum.Int64? nUnconventionalDuration,
+  }) {
+    final _result = create();
+    if (unconventionalName != null) {
+      _result.unconventionalName = unconventionalName;
+    }
+    if (nUnconventionalName != null) {
+      _result.nUnconventionalName = nUnconventionalName;
+    }
+    if (unconventionalEnumName != null) {
+      _result.unconventionalEnumName = unconventionalEnumName;
+    }
+    if (nUnconventionalEnumName != null) {
+      _result.nUnconventionalEnumName = nUnconventionalEnumName;
+    }
+    if (unconventionalCategory != null) {
+      _result.unconventionalCategory = unconventionalCategory;
+    }
+    if (nUnconventionalCategory != null) {
+      _result.nUnconventionalCategory = nUnconventionalCategory;
+    }
+    if (unconventionalList != null) {
+      _result.unconventionalList.addAll(unconventionalList);
+    }
+    if (unconventionalDateTime != null) {
+      _result.unconventionalDateTime = unconventionalDateTime;
+    }
+    if (nUnconventionalDateTime != null) {
+      _result.nUnconventionalDateTime = nUnconventionalDateTime;
+    }
+    if (unconventionalDuration != null) {
+      _result.unconventionalDuration = unconventionalDuration;
+    }
+    if (nUnconventionalDuration != null) {
+      _result.nUnconventionalDuration = nUnconventionalDuration;
+    }
+    return _result;
+  }
+  factory GAltNaming.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GAltNaming.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GAltNaming clone() => GAltNaming()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GAltNaming copyWith(void Function(GAltNaming) updates) => super.copyWith((message) => updates(message as GAltNaming)) as GAltNaming; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GAltNaming create() => GAltNaming._();
+  GAltNaming createEmptyInstance() => create();
+  static $pb.PbList<GAltNaming> createRepeated() => $pb.PbList<GAltNaming>();
+  @$core.pragma('dart2js:noInline')
+  static GAltNaming getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GAltNaming>(create);
+  static GAltNaming? _defaultInstance;
+
+  @$pb.TagNumber(19)
+  $core.String get unconventionalName => $_getSZ(0);
+  @$pb.TagNumber(19)
+  set unconventionalName($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(19)
+  $core.bool hasUnconventionalName() => $_has(0);
+  @$pb.TagNumber(19)
+  void clearUnconventionalName() => clearField(19);
+
+  @$pb.TagNumber(20)
+  $core.String get nUnconventionalName => $_getSZ(1);
+  @$pb.TagNumber(20)
+  set nUnconventionalName($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(20)
+  $core.bool hasNUnconventionalName() => $_has(1);
+  @$pb.TagNumber(20)
+  void clearNUnconventionalName() => clearField(20);
+
+  @$pb.TagNumber(21)
+  GApplianceType get unconventionalEnumName => $_getN(2);
+  @$pb.TagNumber(21)
+  set unconventionalEnumName(GApplianceType v) { setField(21, v); }
+  @$pb.TagNumber(21)
+  $core.bool hasUnconventionalEnumName() => $_has(2);
+  @$pb.TagNumber(21)
+  void clearUnconventionalEnumName() => clearField(21);
+
+  @$pb.TagNumber(22)
+  GApplianceType get nUnconventionalEnumName => $_getN(3);
+  @$pb.TagNumber(22)
+  set nUnconventionalEnumName(GApplianceType v) { setField(22, v); }
+  @$pb.TagNumber(22)
+  $core.bool hasNUnconventionalEnumName() => $_has(3);
+  @$pb.TagNumber(22)
+  void clearNUnconventionalEnumName() => clearField(22);
+
+  @$pb.TagNumber(23)
+  GEmpty get unconventionalCategory => $_getN(4);
+  @$pb.TagNumber(23)
+  set unconventionalCategory(GEmpty v) { setField(23, v); }
+  @$pb.TagNumber(23)
+  $core.bool hasUnconventionalCategory() => $_has(4);
+  @$pb.TagNumber(23)
+  void clearUnconventionalCategory() => clearField(23);
+  @$pb.TagNumber(23)
+  GEmpty ensureUnconventionalCategory() => $_ensure(4);
+
+  @$pb.TagNumber(24)
+  GEmpty get nUnconventionalCategory => $_getN(5);
+  @$pb.TagNumber(24)
+  set nUnconventionalCategory(GEmpty v) { setField(24, v); }
+  @$pb.TagNumber(24)
+  $core.bool hasNUnconventionalCategory() => $_has(5);
+  @$pb.TagNumber(24)
+  void clearNUnconventionalCategory() => clearField(24);
+  @$pb.TagNumber(24)
+  GEmpty ensureNUnconventionalCategory() => $_ensure(5);
+
+  @$pb.TagNumber(25)
+  $core.List<GIngredient> get unconventionalList => $_getList(6);
+
+  @$pb.TagNumber(26)
+  $fixnum.Int64 get unconventionalDateTime => $_getI64(7);
+  @$pb.TagNumber(26)
+  set unconventionalDateTime($fixnum.Int64 v) { $_setInt64(7, v); }
+  @$pb.TagNumber(26)
+  $core.bool hasUnconventionalDateTime() => $_has(7);
+  @$pb.TagNumber(26)
+  void clearUnconventionalDateTime() => clearField(26);
+
+  @$pb.TagNumber(27)
+  $fixnum.Int64 get nUnconventionalDateTime => $_getI64(8);
+  @$pb.TagNumber(27)
+  set nUnconventionalDateTime($fixnum.Int64 v) { $_setInt64(8, v); }
+  @$pb.TagNumber(27)
+  $core.bool hasNUnconventionalDateTime() => $_has(8);
+  @$pb.TagNumber(27)
+  void clearNUnconventionalDateTime() => clearField(27);
+
+  @$pb.TagNumber(28)
+  $fixnum.Int64 get unconventionalDuration => $_getI64(9);
+  @$pb.TagNumber(28)
+  set unconventionalDuration($fixnum.Int64 v) { $_setInt64(9, v); }
+  @$pb.TagNumber(28)
+  $core.bool hasUnconventionalDuration() => $_has(9);
+  @$pb.TagNumber(28)
+  void clearUnconventionalDuration() => clearField(28);
+
+  @$pb.TagNumber(29)
+  $fixnum.Int64 get nUnconventionalDuration => $_getI64(10);
+  @$pb.TagNumber(29)
+  set nUnconventionalDuration($fixnum.Int64 v) { $_setInt64(10, v); }
+  @$pb.TagNumber(29)
+  $core.bool hasNUnconventionalDuration() => $_has(10);
+  @$pb.TagNumber(29)
+  void clearNUnconventionalDuration() => clearField(29);
 }
 

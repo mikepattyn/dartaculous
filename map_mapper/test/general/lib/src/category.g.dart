@@ -12,8 +12,6 @@ class $CategoryMapMapper extends MapMapper<Category> {
 
   @override
   Category fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return Category(
       title: map['title'] as String,
       mainComponent: const $ComponentMapMapper().fromMap(map['mainComponent']),
@@ -26,19 +24,18 @@ class $CategoryMapMapper extends MapMapper<Category> {
           ? null
           : List<Component>.unmodifiable(map['secondaryComponents']
               .map((e) => const $ComponentMapMapper().fromMap(e))),
-      id: $kh.keyFromMap(map, 'id'),
-      mainComponentId: $kh.keyFromMap(map, 'mainComponentId'),
+      id: map['id'] as String,
+      mainComponentId: map['mainComponentId'] as String,
     );
   }
 
   @override
   Map<String, dynamic> toMap(Category instance) {
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
-    $kh.keyToMap(map, instance.id, 'id');
+    map['id'] = instance.id;
     map['title'] = instance.title;
-    $kh.keyToMap(map, instance.mainComponentId, 'mainComponentId');
+    map['mainComponentId'] = instance.mainComponentId;
     map['mainComponent'] =
         const $ComponentMapMapper().toMap(instance.mainComponent);
     map['alternativeComponent'] = (instance.alternativeComponent == null
@@ -68,7 +65,6 @@ extension $MapCategoryExtension on Map<String, dynamic> {
 }
 
 class $CategoryFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -79,12 +75,11 @@ class $CategoryFieldNames {
         prefix = '';
 
   static const _id = 'id';
-  String get id => prefix + $kh.fieldNameToMapKey(_id);
+  String get id => prefix + _id;
   static const _title = 'title';
   String get title => prefix + _title;
   static const _mainComponentId = 'mainComponentId';
-  String get mainComponentId =>
-      prefix + $kh.fieldNameToMapKey(_mainComponentId);
+  String get mainComponentId => prefix + _mainComponentId;
   static const _mainComponent = 'mainComponent';
   $ComponentFieldNames get mainComponent =>
       $ComponentFieldNames.sub(prefix + _mainComponent);

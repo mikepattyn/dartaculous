@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: squarealfa_entity_annotations
+dependency_overrides:
+  squarealfa_entity_annotations:
+    path: ../entity_annotations

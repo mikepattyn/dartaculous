@@ -12,19 +12,16 @@ class $EntityMapMapper extends MapMapper<Entity> {
 
   @override
   Entity fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return Entity(
-      key: $kh.keyFromMap(map, 'key'),
+      key: map['key'] as String,
     );
   }
 
   @override
   Map<String, dynamic> toMap(Entity instance) {
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
-    $kh.keyToMap(map, instance.key, 'key');
+    map['key'] = instance.key;
 
     return map;
   }
@@ -41,7 +38,6 @@ extension $MapEntityExtension on Map<String, dynamic> {
 }
 
 class $EntityFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -52,7 +48,7 @@ class $EntityFieldNames {
         prefix = '';
 
   static const _key = 'key';
-  String get key => prefix + $kh.fieldNameToMapKey(_key);
+  String get key => prefix + _key;
 
   @override
   String toString() => fieldName;

@@ -12,20 +12,17 @@ class $AggregateIdMapMapper extends MapMapper<AggregateId> {
 
   @override
   AggregateId fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return AggregateId.of(
-      $kh.keyFromMap(map, 'id'),
+      map['id'] as String,
       map['type'] as String,
     );
   }
 
   @override
   Map<String, dynamic> toMap(AggregateId instance) {
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
-    $kh.keyToMap(map, instance.id, 'id');
+    map['id'] = instance.id;
     map['type'] = instance.type;
 
     return map;
@@ -43,7 +40,6 @@ extension $MapAggregateIdExtension on Map<String, dynamic> {
 }
 
 class $AggregateIdFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -54,7 +50,7 @@ class $AggregateIdFieldNames {
         prefix = '';
 
   static const _id = 'id';
-  String get id => prefix + $kh.fieldNameToMapKey(_id);
+  String get id => prefix + _id;
   static const _type = 'type';
   String get type => prefix + _type;
 
@@ -110,12 +106,11 @@ class $MessageMapMapper extends MapMapper<Message> {
       };
     }
 
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
     map['\$type'] = 'Message';
 
-    $kh.keyToMap(map, instance.messageId, 'messageId');
+    map['messageId'] = instance.messageId;
     map['aggregateId'] = (instance.aggregateId == null
         ? null
         : const $AggregateIdMapMapper().toMap(instance.aggregateId!));
@@ -139,7 +134,6 @@ extension $MapMessageExtension on Map<String, dynamic> {
 }
 
 class $MessageFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -150,7 +144,7 @@ class $MessageFieldNames {
         prefix = '';
 
   static const _messageId = 'messageId';
-  String get messageId => prefix + $kh.fieldNameToMapKey(_messageId);
+  String get messageId => prefix + _messageId;
   static const _aggregateId = 'aggregateId';
   $AggregateIdFieldNames get aggregateId =>
       $AggregateIdFieldNames.sub(prefix + _aggregateId);
@@ -173,10 +167,8 @@ class $CommandMapMapper extends MapMapper<Command> {
 
   @override
   Command fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return Command(
-      messageId: $kh.keyFromMap(map, 'messageId'),
+      messageId: map['messageId'] as String,
       aggregateId: (map['aggregateId'] != null
           ? const $AggregateIdMapMapper().fromMap(map['aggregateId'])
           : null),
@@ -186,16 +178,15 @@ class $CommandMapMapper extends MapMapper<Command> {
       status: map['status'] is String
           ? MessageStatus.values.firstWhere((v) => v.name == map['status'])
           : MessageStatus.values[map['status'] as int],
-      userId: map['userId'] == null ? null : $kh.keyFromMap(map, 'userId'),
+      userId: map['userId'] as String?,
     );
   }
 
   @override
   Map<String, dynamic> toMap(Command instance) {
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
-    $kh.keyToMap(map, instance.messageId, 'messageId');
+    map['messageId'] = instance.messageId;
     map['aggregateId'] = (instance.aggregateId == null
         ? null
         : const $AggregateIdMapMapper().toMap(instance.aggregateId!));
@@ -203,7 +194,7 @@ class $CommandMapMapper extends MapMapper<Command> {
     map['payloadType'] = instance.payloadType;
     map['payload'] = instance.payload;
     map['status'] = instance.status.name;
-    $kh.keyToMap(map, instance.userId ?? '', 'userId');
+    map['userId'] = instance.userId;
 
     return map;
   }
@@ -220,7 +211,6 @@ extension $MapCommandExtension on Map<String, dynamic> {
 }
 
 class $CommandFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -231,7 +221,7 @@ class $CommandFieldNames {
         prefix = '';
 
   static const _messageId = 'messageId';
-  String get messageId => prefix + $kh.fieldNameToMapKey(_messageId);
+  String get messageId => prefix + _messageId;
   static const _aggregateId = 'aggregateId';
   $AggregateIdFieldNames get aggregateId =>
       $AggregateIdFieldNames.sub(prefix + _aggregateId);
@@ -244,7 +234,7 @@ class $CommandFieldNames {
   static const _status = 'status';
   String get status => prefix + _status;
   static const _userId = 'userId';
-  String get userId => prefix + $kh.fieldNameToMapKey(_userId);
+  String get userId => prefix + _userId;
 
   @override
   String toString() => fieldName;
@@ -270,12 +260,10 @@ class $EventMapMapper extends MapMapper<Event> {
   }
 
   Event _fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return Event(
-      messageId: $kh.keyFromMap(map, 'messageId'),
+      messageId: map['messageId'] as String,
       timestamp: DateTime.fromMicrosecondsSinceEpoch(map['timestamp']),
-      userId: map['userId'] == null ? null : $kh.keyFromMap(map, 'userId'),
+      userId: map['userId'] as String?,
       aggregateId: (map['aggregateId'] != null
           ? const $AggregateIdMapMapper().fromMap(map['aggregateId'])
           : null),
@@ -296,12 +284,11 @@ class $EventMapMapper extends MapMapper<Event> {
       };
     }
 
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
     map['\$type'] = 'Event';
 
-    $kh.keyToMap(map, instance.messageId, 'messageId');
+    map['messageId'] = instance.messageId;
     map['aggregateId'] = (instance.aggregateId == null
         ? null
         : const $AggregateIdMapMapper().toMap(instance.aggregateId!));
@@ -309,7 +296,7 @@ class $EventMapMapper extends MapMapper<Event> {
     map['payloadType'] = instance.payloadType;
     map['payload'] = instance.payload;
     map['status'] = instance.status.name;
-    $kh.keyToMap(map, instance.userId ?? '', 'userId');
+    map['userId'] = instance.userId;
 
     return map;
   }
@@ -326,7 +313,6 @@ extension $MapEventExtension on Map<String, dynamic> {
 }
 
 class $EventFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -337,7 +323,7 @@ class $EventFieldNames {
         prefix = '';
 
   static const _messageId = 'messageId';
-  String get messageId => prefix + $kh.fieldNameToMapKey(_messageId);
+  String get messageId => prefix + _messageId;
   static const _aggregateId = 'aggregateId';
   $AggregateIdFieldNames get aggregateId =>
       $AggregateIdFieldNames.sub(prefix + _aggregateId);
@@ -350,7 +336,7 @@ class $EventFieldNames {
   static const _status = 'status';
   String get status => prefix + _status;
   static const _userId = 'userId';
-  String get userId => prefix + $kh.fieldNameToMapKey(_userId);
+  String get userId => prefix + _userId;
 
   @override
   String toString() => fieldName;
@@ -362,10 +348,8 @@ class $IntegrationEventMapMapper extends MapMapper<IntegrationEvent> {
 
   @override
   IntegrationEvent fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return IntegrationEvent(
-      messageId: $kh.keyFromMap(map, 'messageId'),
+      messageId: map['messageId'] as String,
       timestamp: DateTime.fromMicrosecondsSinceEpoch(map['timestamp']),
       payloadType: map['payloadType'] as String,
       payload: map['payload'] as dynamic,
@@ -377,10 +361,9 @@ class $IntegrationEventMapMapper extends MapMapper<IntegrationEvent> {
 
   @override
   Map<String, dynamic> toMap(IntegrationEvent instance) {
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
-    $kh.keyToMap(map, instance.messageId, 'messageId');
+    map['messageId'] = instance.messageId;
     map['aggregateId'] = (instance.aggregateId == null
         ? null
         : const $AggregateIdMapMapper().toMap(instance.aggregateId!));
@@ -388,7 +371,7 @@ class $IntegrationEventMapMapper extends MapMapper<IntegrationEvent> {
     map['payloadType'] = instance.payloadType;
     map['payload'] = instance.payload;
     map['status'] = instance.status.index;
-    $kh.keyToMap(map, instance.userId ?? '', 'userId');
+    map['userId'] = instance.userId;
 
     return map;
   }
@@ -407,7 +390,6 @@ extension $MapIntegrationEventExtension on Map<String, dynamic> {
 }
 
 class $IntegrationEventFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -418,7 +400,7 @@ class $IntegrationEventFieldNames {
         prefix = '';
 
   static const _messageId = 'messageId';
-  String get messageId => prefix + $kh.fieldNameToMapKey(_messageId);
+  String get messageId => prefix + _messageId;
   static const _aggregateId = 'aggregateId';
   $AggregateIdFieldNames get aggregateId =>
       $AggregateIdFieldNames.sub(prefix + _aggregateId);
@@ -431,7 +413,7 @@ class $IntegrationEventFieldNames {
   static const _status = 'status';
   String get status => prefix + _status;
   static const _userId = 'userId';
-  String get userId => prefix + $kh.fieldNameToMapKey(_userId);
+  String get userId => prefix + _userId;
 
   @override
   String toString() => fieldName;

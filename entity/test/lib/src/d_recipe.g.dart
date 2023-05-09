@@ -7,7 +7,7 @@ part of 'd_recipe.dart';
 // **************************************************************************
 
 class $DRecipeBuilder implements Builder<DRecipe> {
-  final _defaultsProvider = $DRecipeDefaultsProvider();
+  final _defaultsProvider = const $DRecipeDefaultsProvider();
 
   String? $title;
   String get title => $title ?? _defaultsProvider.title;
@@ -39,7 +39,7 @@ class $DRecipeBuilder implements Builder<DRecipe> {
   BuildResult<DRecipe> tryBuild() {
     try {
       final entity = _build();
-      final errors = $DRecipeValidator().validate(entity);
+      final errors = const $DRecipeValidator().validate(entity);
 
       final result =
           BuildResult<DRecipe>(result: entity, validationErrors: errors);
@@ -104,7 +104,7 @@ class $DRecipeValidator implements Validator {
 
   ValidationError? validateTitle(String value, {DRecipe? entity}) {
     if (value.isEmpty) {
-      return RequiredValidationError('title');
+      return const RequiredValidationError('title');
     }
 
     return null;
@@ -112,7 +112,7 @@ class $DRecipeValidator implements Validator {
 
   ValidationError? validateDescription(String? value, {DRecipe? entity}) {
     if (value?.isEmpty ?? true) {
-      return RequiredValidationError('description');
+      return const RequiredValidationError('description');
     }
 
     return null;
@@ -120,7 +120,7 @@ class $DRecipeValidator implements Validator {
 
   ValidationError? $validateTitle(String? value, {DRecipe? entity}) {
     if (value == null) {
-      return RequiredValidationError('title');
+      return const RequiredValidationError('title');
     }
     return validateTitle(value, entity: entity);
   }

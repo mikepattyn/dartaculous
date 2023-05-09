@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: map_mapper_annotations,map_mapper_generator
+dependency_overrides:
+  map_mapper_annotations:
+    path: ../map_mapper_annotations
+  map_mapper_generator:
+    path: ../map_mapper_generator

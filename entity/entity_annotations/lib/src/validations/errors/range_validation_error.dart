@@ -5,7 +5,7 @@ class RangeValidationError<T> extends ValidationError {
   final T value;
   final T? minValue;
   final T? maxValue;
-  const RangeValidationError(
+  RangeValidationError(
     super.fieldName, {
     required this.value,
     this.minValue,

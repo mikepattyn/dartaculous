@@ -11,7 +11,7 @@ class $CategoryValidator implements Validator {
 
   ValidationError? validateTitle(String value, {Category? entity}) {
     if (value.isEmpty) {
-      return RequiredValidationError('title');
+      return const RequiredValidationError('title');
     }
 
     return null;
@@ -19,7 +19,7 @@ class $CategoryValidator implements Validator {
 
   ValidationError? $validateTitle(String? value, {Category? entity}) {
     if (value == null) {
-      return RequiredValidationError('title');
+      return const RequiredValidationError('title');
     }
     return validateTitle(value, entity: entity);
   }

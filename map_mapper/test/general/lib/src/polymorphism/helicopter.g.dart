@@ -12,23 +12,20 @@ class $HelicopterMapMapper extends MapMapper<Helicopter> {
 
   @override
   Helicopter fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return Helicopter(
       weight: map['weight'] as int,
       serviceCeiling: Decimal.parse(map['serviceCeiling']),
-      key: $kh.keyFromMap(map, 'key'),
+      key: map['key'] as String,
     );
   }
 
   @override
   Map<String, dynamic> toMap(Helicopter instance) {
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
     map['weight'] = instance.weight;
     map['serviceCeiling'] = instance.serviceCeiling.toString();
-    $kh.keyToMap(map, instance.key, 'key');
+    map['key'] = instance.key;
 
     return map;
   }
@@ -45,7 +42,6 @@ extension $MapHelicopterExtension on Map<String, dynamic> {
 }
 
 class $HelicopterFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -60,7 +56,7 @@ class $HelicopterFieldNames {
   static const _serviceCeiling = 'serviceCeiling';
   String get serviceCeiling => prefix + _serviceCeiling;
   static const _key = 'key';
-  String get key => prefix + $kh.fieldNameToMapKey(_key);
+  String get key => prefix + _key;
 
   @override
   String toString() => fieldName;

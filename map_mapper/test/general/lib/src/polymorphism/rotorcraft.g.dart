@@ -44,14 +44,13 @@ class $RotorcraftMapMapper extends MapMapper<Rotorcraft> {
       };
     }
 
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
     map['\$type'] = 'Rotorcraft';
 
     map['weight'] = instance.weight;
     map['serviceCeiling'] = instance.serviceCeiling.toString();
-    $kh.keyToMap(map, instance.key, 'key');
+    map['key'] = instance.key;
 
     return map;
   }
@@ -68,7 +67,6 @@ extension $MapRotorcraftExtension on Map<String, dynamic> {
 }
 
 class $RotorcraftFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -83,7 +81,7 @@ class $RotorcraftFieldNames {
   static const _serviceCeiling = 'serviceCeiling';
   String get serviceCeiling => prefix + _serviceCeiling;
   static const _key = 'key';
-  String get key => prefix + $kh.fieldNameToMapKey(_key);
+  String get key => prefix + _key;
 
   @override
   String toString() => fieldName;

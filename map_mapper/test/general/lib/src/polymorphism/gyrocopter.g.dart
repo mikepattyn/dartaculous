@@ -12,23 +12,20 @@ class $GyrocopterMapMapper extends MapMapper<Gyrocopter> {
 
   @override
   Gyrocopter fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return Gyrocopter(
       weight: map['weight'] as int,
       serviceCeiling: Decimal.parse(map['serviceCeiling']),
-      key: $kh.keyFromMap(map, 'key'),
+      key: map['key'] as String,
     );
   }
 
   @override
   Map<String, dynamic> toMap(Gyrocopter instance) {
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
     map['weight'] = instance.weight;
     map['serviceCeiling'] = instance.serviceCeiling.toString();
-    $kh.keyToMap(map, instance.key, 'key');
+    map['key'] = instance.key;
 
     return map;
   }
@@ -45,7 +42,6 @@ extension $MapGyrocopterExtension on Map<String, dynamic> {
 }
 
 class $GyrocopterFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -60,7 +56,7 @@ class $GyrocopterFieldNames {
   static const _serviceCeiling = 'serviceCeiling';
   String get serviceCeiling => prefix + _serviceCeiling;
   static const _key = 'key';
-  String get key => prefix + $kh.fieldNameToMapKey(_key);
+  String get key => prefix + _key;
 
   @override
   String toString() => fieldName;

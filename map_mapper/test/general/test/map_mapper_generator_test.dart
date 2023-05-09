@@ -238,13 +238,13 @@ void main() {
       expect(drecipe.ingredients.first.mainComponentKey,
           recipe.ingredients.first.mainComponentKey);
 
-      expect(map['_key'], recipe.key);
+      expect(map['key'], recipe.key);
       expect(map['categoryKey'], recipe.categoryKey);
       expect(map['category']['id'], recipe.category.id);
       expect(
           map['category']['mainComponentId'], recipe.category.mainComponentId);
 
-      expect(map['ingredients'][0]['_key'], recipe.ingredients.first.key);
+      expect(map['ingredients'][0]['key'], recipe.ingredients.first.key);
       expect(map['ingredients'][0]['mainComponentKey'],
           recipe.ingredients.first.mainComponentKey);
     });

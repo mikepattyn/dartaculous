@@ -12,23 +12,20 @@ class $BalloonMapMapper extends MapMapper<Balloon> {
 
   @override
   Balloon fromMap(Map<String, dynamic> map) {
-    final $kh = const DefaultKeyHandler();
-
     return Balloon(
       serviceCeiling: Decimal.parse(map['serviceCeiling']),
       weight: map['weight'] as int,
-      key: $kh.keyFromMap(map, 'key'),
+      key: map['key'] as String,
     );
   }
 
   @override
   Map<String, dynamic> toMap(Balloon instance) {
-    final $kh = const DefaultKeyHandler();
     final map = <String, dynamic>{};
 
     map['serviceCeiling'] = instance.serviceCeiling.toString();
     map['weight'] = instance.weight;
-    $kh.keyToMap(map, instance.key, 'key');
+    map['key'] = instance.key;
 
     return map;
   }
@@ -45,7 +42,6 @@ extension $MapBalloonExtension on Map<String, dynamic> {
 }
 
 class $BalloonFieldNames {
-  final $kh = const DefaultKeyHandler();
   final String fieldName;
   final String prefix;
 
@@ -60,7 +56,7 @@ class $BalloonFieldNames {
   static const _weight = 'weight';
   String get weight => prefix + _weight;
   static const _key = 'key';
-  String get key => prefix + $kh.fieldNameToMapKey(_key);
+  String get key => prefix + _key;
 
   @override
   String toString() => fieldName;
