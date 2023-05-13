@@ -1,3 +1,8 @@
+## 0.0.1-dev.6
+
+- Throwing NotFound in lieu of 'not found'
+
+
 ## 0.0.1-dev.5
 
 - Several fixes

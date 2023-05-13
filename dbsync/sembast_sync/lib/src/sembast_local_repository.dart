@@ -29,7 +29,7 @@ mixin SembastLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
     final executor = getExecutor();
     final q = await store.record(id).get(executor);
 
-    if (q == null) throw 'Not found';
+    if (q == null) throw NotFoundException();
     final ret = fromMap(q);
     return ret;
   }
