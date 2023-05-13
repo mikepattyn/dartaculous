@@ -18,6 +18,9 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
       if (isUnavailable(ex)) {
         throw UnavailableException(innerException: ex);
       }
+      if (isNotFound(ex)) {
+        throw NotFoundException(innerException: ex);
+      }
       rethrow;
     }
   }
@@ -30,6 +33,9 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
     } on GrpcError catch (exception) {
       if (isUnavailable(exception)) {
         throw UnavailableException(innerException: exception);
+      }
+      if (isNotFound(exception)) {
+        throw NotFoundException(innerException: exception);
       }
       rethrow;
     }
@@ -61,6 +67,10 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
       if (isUnavailable(exception)) {
         throw UnavailableException(innerException: exception);
       }
+      if (isNotFound(exception)) {
+        throw NotFoundException(innerException: exception);
+      }
+
       if (exception.code == StatusCode.aborted ||
           exception.code == StatusCode.alreadyExists ||
           exception.code == StatusCode.notFound) {
@@ -78,6 +88,9 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
       if (isUnavailable(exception)) {
         throw UnavailableException(innerException: exception);
       }
+      if (isNotFound(exception)) {
+        throw NotFoundException(innerException: exception);
+      }
       if (exception.code == StatusCode.aborted ||
           exception.code == StatusCode.notFound) {
         throw ConflictException(innerException: exception);
@@ -89,5 +102,10 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
   @protected
   bool isUnavailable(GrpcError exception) {
     return exception.code == StatusCode.unavailable;
+  }
+
+  @protected
+  bool isNotFound(GrpcError exception) {
+    return exception.code == StatusCode.notFound;
   }
 }

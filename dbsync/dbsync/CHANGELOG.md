@@ -1,3 +1,8 @@
+## 0.0.1-dev.20
+
+- Throwing NotFound in lieu of the gRCP equivalent
+
+
 ## 0.0.1-dev.19
 
 - Several fixes
