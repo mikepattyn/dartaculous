@@ -102,6 +102,15 @@
       <excludeFolder url="file://$MODULE_DIR$/dbsync/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/dbsync/build" />
       <excludeFolder url="file://$MODULE_DIR$/dbsync/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/dbsync/sembast_sync/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/dbsync/sembast_sync/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/dbsync/sembast_sync/build" />
+      <excludeFolder url="file://$MODULE_DIR$/dbsync/sqfsync/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/dbsync/sqfsync/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/dbsync/sqfsync/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
