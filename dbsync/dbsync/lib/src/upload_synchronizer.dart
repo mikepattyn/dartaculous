@@ -10,10 +10,6 @@ class UploadSynchronizer {
   final LocalChangeHandler localDatabase;
   final Map<String, SyncTypeHandler> typeHandlers;
 
-  // FutureOr<void> _deleteLocalChange(DatabaseExecutor executor, int id) async {
-  //   await SyncLocalRepository.deleteLocalChange(executor, id);
-  // }
-
   /// synchronizes all local changes to the server
   /// Returns a list of local changes that were discarded
   /// because of optimistic conflict

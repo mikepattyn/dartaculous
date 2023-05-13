@@ -2,6 +2,13 @@ import 'package:meta/meta.dart';
 //import 'package:sqflite_common/sqlite_api.dart';
 import 'package:dbsync/dbsync.dart';
 
+enum DataSource {
+  remote,
+  local,
+}
+
+enum DataDestination { local, both }
+
 abstract class SyncEntityRepository<TEntity> {
   const SyncEntityRepository({
     required this.syncHandler,
@@ -13,13 +20,14 @@ abstract class SyncEntityRepository<TEntity> {
   final LocalChangeHandler localChangeHandler;
   final String entityType;
 
-  Future<TEntity> get(String id) async {
+  Future<(TEntity, DataSource)> get(String id) async {
     final remote = await getRemote(id);
     if (remote != null) {
       await syncHandler.upsertLocal(Context.background(), remote);
-      return remote;
+      return (remote, DataSource.remote);
     }
-    return await syncHandler.getLocal(id);
+    final local = await syncHandler.getLocal(id);
+    return (local, DataSource.local);
   }
 
   @protected
@@ -32,9 +40,11 @@ abstract class SyncEntityRepository<TEntity> {
     }
   }
 
-  Future<TEntity> create(TEntity entity) async {
+  Future<(TEntity, DataDestination)> create(TEntity entity) async {
     final remoteCreated = await createRemote(entity);
     final created = remoteCreated ?? entity;
+    final ds =
+        remoteCreated != null ? DataDestination.both : DataDestination.local;
 
     await localChangeHandler.transaction((txn) async {
       await syncHandler.upsertLocal(txn, entity);
@@ -49,7 +59,7 @@ abstract class SyncEntityRepository<TEntity> {
       }
     });
 
-    return created;
+    return (created, ds);
   }
 
   @protected
@@ -62,9 +72,11 @@ abstract class SyncEntityRepository<TEntity> {
     }
   }
 
-  Future<TEntity> update(TEntity entity) async {
+  Future<(TEntity, DataDestination)> update(TEntity entity) async {
     TEntity? remoteUpdated = await updateRemote(entity);
     final updated = remoteUpdated ?? entity;
+    final ds =
+        remoteUpdated == null ? DataDestination.local : DataDestination.both;
 
     await localChangeHandler.transaction((txn) async {
       await syncHandler.upsertLocal(txn, updated);
@@ -79,7 +91,7 @@ abstract class SyncEntityRepository<TEntity> {
       }
     });
 
-    return updated;
+    return (updated, ds);
   }
 
   /// Tries to update remotely.
@@ -97,8 +109,9 @@ abstract class SyncEntityRepository<TEntity> {
     }
   }
 
-  Future<void> delete(String id, String rev) async {
+  Future<DataDestination> delete(String id, String rev) async {
     final synced = await deleteRemote(id, rev);
+    final ds = synced ? DataDestination.both : DataDestination.local;
 
     await localChangeHandler.transaction((txn) async {
       await syncHandler.deleteLocal(txn, id);
@@ -111,6 +124,8 @@ abstract class SyncEntityRepository<TEntity> {
         await localChangeHandler.insertLocalChange(txn, localChange);
       }
     });
+
+    return ds;
   }
 
   // Tries to delete the entity remotely

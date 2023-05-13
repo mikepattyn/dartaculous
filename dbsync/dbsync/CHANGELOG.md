@@ -1,7 +1,13 @@
+## 0.1.0-dev.0
+
+- Upgrade to Dart 3
+- SyncEntityRepository's methods now return a record with 
+  the affected entity and an indication of where it came 
+  or to where it was saved.
+
 ## 0.0.1-dev.20
 
 - Throwing NotFound in lieu of the gRCP equivalent
-
 
 ## 0.0.1-dev.19
 

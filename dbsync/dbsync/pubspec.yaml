@@ -2,10 +2,10 @@ name: dbsync
 description: Contains algorithm to perform synchronization between Sqlite database and server API
 repository: https://gitlab.com/dartaculous/dartaculous
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/dbsync/dbsync
-version: 0.0.1-dev.20
+version: 0.1.0-dev.0
 
 environment:
-  sdk: '>=2.18.6 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   meta: ^1.8.0
