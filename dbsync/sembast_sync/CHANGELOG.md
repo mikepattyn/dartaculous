@@ -1,3 +1,7 @@
+## 0.1.0-dev.1
+
+- Better lifecycle
+
 ## 0.1.0-dev.0
 
 - Upgrade to Dart 3

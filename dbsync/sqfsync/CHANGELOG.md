@@ -1,3 +1,7 @@
+## 0.1.0-dev.1
+
+- Better lifecycle
+
 ## 0.0.1-dev.3
 
 - Added support for batch processing.
