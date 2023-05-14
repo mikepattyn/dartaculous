@@ -7,7 +7,7 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
   Future<TEntity?> grpcGetRemote(String id);
   Future<TEntity> grpcCreateRemote(TEntity entity);
   Future<TEntity> grpcUpdateRemote(TEntity entity);
-  Future<void> grpcDeleteRemote(String id, String rev);
+  Future<void> grpcDeleteRemote(TEntity entity);
 
   @override
   Future<TEntity?> getRemote(String id) async {
@@ -81,9 +81,9 @@ mixin GrpcSyncTypeHandler<TEntity> on SyncTypeHandler<TEntity> {
   }
 
   @override
-  Future<void> deleteRemote(String id, String rev) async {
+  Future<void> deleteRemote(TEntity entity) async {
     try {
-      await grpcDeleteRemote(id, rev);
+      await grpcDeleteRemote(entity);
     } on GrpcError catch (exception) {
       if (isUnavailable(exception)) {
         throw UnavailableException(innerException: exception);

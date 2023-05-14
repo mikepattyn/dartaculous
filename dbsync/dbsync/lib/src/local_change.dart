@@ -5,7 +5,6 @@ import 'package:dbsync/dbsync.dart';
 
 export 'change_operation.dart';
 
-
 class LocalChange {
   final int id;
   final String entityType;
@@ -42,11 +41,11 @@ class LocalChange {
 
   LocalChange.delete({
     required this.entityType,
+    required this.protoBytes,
     required this.entityId,
     required this.entityRev,
   })  : operation = ChangeOperation.delete,
-        id = -1,
-        protoBytes = Uint8List(0);
+        id = -1;
 
   LocalChange copyWith({
     int? id,

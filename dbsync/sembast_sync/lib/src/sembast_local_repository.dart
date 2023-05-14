@@ -13,13 +13,17 @@ mixin SembastLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
   Map<String, dynamic> toMap(TEntity entity);
 
   @override
-  Future<void> deleteLocal(Context context, String id) async {
+  Future<void> deleteLocal(Context context, TEntity entity) async {
+    final id = getId(entity);
+
     final executor = getExecutor(context);
     await store.record(id).delete(executor);
   }
 
   @override
-  Future<void> deleteLocalBatch(Context context, List<String> ids) async {
+  Future<void> deleteLocalBatch(Context context, List entities) async {
+    final ids = entities.map((e) => getId(e)).toList();
+
     final executor = getExecutor(context);
     await store.records(ids).delete(executor);
   }

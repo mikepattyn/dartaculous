@@ -14,16 +14,16 @@ abstract class SyncTypeHandler<TEntity> {
 
   int get upsertBatchSize => 1;
   Future<void> upsertLocalBatch(Context context, List entities);
-  Future<void> deleteLocal(Context context, String id);
+  Future<void> deleteLocal(Context context, TEntity entity);
 
   int get deleteBatchSize => 1;
-  Future<void> deleteLocalBatch(Context context, List<String> ids);
+  Future<void> deleteLocalBatch(Context context, List entities);
 
   Future<TEntity?> getRemote(String id);
   Future<Stream<TEntity>> getAllRemote();
   Future<TEntity> createRemote(TEntity entity);
   Future<TEntity> updateRemote(TEntity entity);
-  Future<void> deleteRemote(String id, String rev);
+  Future<void> deleteRemote(TEntity entity);
 
   TEntity unmarshal(Uint8List entityBytes);
   Uint8List marshal(TEntity entity);

@@ -109,17 +109,18 @@ abstract class SyncEntityRepository<TEntity> {
     }
   }
 
-  Future<DataDestination> delete(String id, String rev) async {
-    final synced = await deleteRemote(id, rev);
+  Future<DataDestination> delete(TEntity entity) async {
+    final synced = await deleteRemote(entity);
     final ds = synced ? DataDestination.both : DataDestination.local;
 
     await localChangeHandler.transaction((txn) async {
-      await syncHandler.deleteLocal(txn, id);
+      await syncHandler.deleteLocal(txn, entity);
       if (!synced) {
         final localChange = LocalChange.delete(
           entityType: this.entityType,
-          entityId: id,
-          entityRev: rev,
+          protoBytes: syncHandler.marshal(entity),
+          entityId: syncHandler.getId(entity),
+          entityRev: syncHandler.getRev(entity),
         );
         await localChangeHandler.insertLocalChange(txn, localChange);
       }
@@ -133,9 +134,9 @@ abstract class SyncEntityRepository<TEntity> {
   // - true if succeeded
   // - false if unavailable
   // throws if any other exception
-  Future<bool> deleteRemote(String id, String rev) async {
+  Future<bool> deleteRemote(TEntity entity) async {
     try {
-      await syncHandler.deleteRemote(id, rev);
+      await syncHandler.deleteRemote(entity);
       return true;
     } on UnavailableException catch (_) {
       return false;

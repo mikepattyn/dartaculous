@@ -10,13 +10,16 @@ mixin SqfLocalRepository<TEntity> on SyncTypeHandler<TEntity> {
   Database get database;
 
   @override
-  Future<void> deleteLocal(Context context, String id) async {
+  Future<void> deleteLocal(Context context, TEntity entity) async {
+    final id = getId(entity);
     final executor = _getExecutor(context);
     await executor.delete(tableName, where: 'id = ?', whereArgs: [id]);
   }
 
   @override
-  Future<void> deleteLocalBatch(Context context, List<String> ids) async {
+  Future<void> deleteLocalBatch(Context context, List entities) async {
+    final ids = entities.map((e) => getId(e)).toList();
+
     for (final id in ids) {
       final executor = _getExecutor(context);
       await executor.delete(tableName, where: 'id = ?', whereArgs: [id]);
