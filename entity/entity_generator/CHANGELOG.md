@@ -1,3 +1,7 @@
+## 3.0.3
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
 ## 3.0.2
 
  - Update a dependency to the latest release.

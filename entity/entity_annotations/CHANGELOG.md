@@ -1,3 +1,7 @@
+## 4.0.1
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
 ## 4.0.0
 
 > Note: This release has breaking changes.

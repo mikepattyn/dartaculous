@@ -11,6 +11,77 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 Packages with breaking changes:
 
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`cloud_run_grpc_auth` - `v0.11.1+2`](#cloud_run_grpc_auth---v01112)
+ - [`csharp_annotations` - `v0.0.1+1`](#csharp_annotations---v0011)
+ - [`csharp_generator` - `v0.0.1+1`](#csharp_generator---v0011)
+ - [`map_mapper_annotations` - `v4.0.1`](#map_mapper_annotations---v401)
+ - [`map_mapper_generator` - `v4.0.1`](#map_mapper_generator---v401)
+ - [`mongo_mapper` - `v0.2.0+1`](#mongo_mapper---v0201)
+ - [`proto_annotations` - `v3.0.1`](#proto_annotations---v301)
+ - [`proto_generator` - `v4.0.1`](#proto_generator---v401)
+ - [`squarealfa_entity_annotations` - `v4.0.1`](#squarealfa_entity_annotations---v401)
+ - [`squarealfa_entity_generator` - `v3.0.3`](#squarealfa_entity_generator---v303)
+ - [`squarealfa_security` - `v3.0.1`](#squarealfa_security---v301)
+
+---
+
+#### `cloud_run_grpc_auth` - `v0.11.1+2`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `csharp_annotations` - `v0.0.1+1`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `csharp_generator` - `v0.0.1+1`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `map_mapper_annotations` - `v4.0.1`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `map_mapper_generator` - `v4.0.1`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `mongo_mapper` - `v0.2.0+1`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `proto_annotations` - `v3.0.1`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `proto_generator` - `v4.0.1`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `squarealfa_entity_annotations` - `v4.0.1`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `squarealfa_entity_generator` - `v3.0.3`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+#### `squarealfa_security` - `v3.0.1`
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
+
+## 2023-06-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
  - [`map_mapper_annotations` - `v4.0.0`](#map_mapper_annotations---v400)
  - [`map_mapper_generator` - `v4.0.0`](#map_mapper_generator---v400)
  - [`proto_annotations` - `v3.0.0`](#proto_annotations---v300)

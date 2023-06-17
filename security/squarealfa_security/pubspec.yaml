@@ -2,7 +2,7 @@ name: squarealfa_security
 description: Package containing security-related features, like JWT token handling and password hashing.
 repository: https://gitlab.com/dartaculous/dartaculous
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/security/squarealfa_security
-version: 3.0.0
+version: 3.0.1
 
 
 environment:

@@ -3,7 +3,7 @@ description: Annotations to mark and configure business model classes for code
   generation of CSharp classes
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/csharp_mapper/csharp_annotations
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 0.0.1
+version: 0.0.1+1
 
 environment:
   sdk: ">=2.17.0 <4.0.0"

@@ -1,3 +1,7 @@
+## 0.11.1+2
+
+ - **FIX**: Upgraded max Dart version to <4.0.0.
+
 ## 0.11.1+1
 
  - **FIX**: Changed repository URL.
