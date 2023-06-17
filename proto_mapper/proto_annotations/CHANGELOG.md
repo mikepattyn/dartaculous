@@ -1,3 +1,7 @@
+## 3.0.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 3.0.0-dev.7
 
  - **FEAT**: Reintroduced option to encode decimals as strings.

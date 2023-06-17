@@ -1,3 +1,13 @@
+## 4.0.0
+
+> Note: This release has breaking changes.
+
+ - **FIX**: Updated pubspec with new git URL.
+ - **FIX**: Changed repository URL.
+ - **FEAT**: Added defaults provider.
+ - **FEAT**: removed dependecy from squarealfa_common_types.
+ - **BREAKING** **FEAT**: Huge upgrade to proto_generator.
+
 ## 3.0.1
 
  - Graduation

@@ -10,7 +10,7 @@ publish_to: none
 
 dependencies:
   protobuf: ^2.1.0
-  squarealfa_entity_annotations: ^3.0.0
+  squarealfa_entity_annotations: ^4.0.0
   csharp_annotations:
     path: ../../csharp_annotations
   decimal: ^2.0.0
@@ -18,7 +18,7 @@ dependencies:
 dev_dependencies:
   lints: ^2.0.1
   test: ^1.14.4
-  squarealfa_entity_generator: ^3.0.0-dev.5
+  squarealfa_entity_generator: ^3.0.2
   csharp_generator:
     path: ../../csharp_generator
 

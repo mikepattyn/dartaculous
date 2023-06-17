@@ -11,13 +11,13 @@ environment:
 
 dependencies:
   protobuf: ^2.1.0
-  csharp_annotations: ^0.0.1-dev.0
+  csharp_annotations: ^0.0.1
   decimal: ^2.0.0
-  squarealfa_entity_annotations: ^3.0.0
+  squarealfa_entity_annotations: ^4.0.0
 
 dev_dependencies:
   lints: ^2.0.1
   test: ^1.14.4
-  csharp_generator: ^0.0.1-dev.10
+  csharp_generator: ^0.0.1
   build_runner: ^2.1.2
 

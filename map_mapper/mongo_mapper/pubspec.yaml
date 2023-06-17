@@ -4,13 +4,13 @@ description:
   used to interact with MongoDB
 homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/map_mapper/mongo_mapper
 repository: https://gitlab.com/dartaculous/dartaculous
-version: 0.2.0-dev.3
+version: 0.2.0
 
 environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies: 
-  map_mapper_annotations: ^4.0.0-dev.3
+  map_mapper_annotations: ^4.0.0
   bson: ^3.0.1
 
 dev_dependencies:
