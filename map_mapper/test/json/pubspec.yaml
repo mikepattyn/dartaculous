@@ -1,7 +1,7 @@
 name: map_mapper_generator_json_test
 description: A starting point for Dart libraries or applications.
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=2.18.0 <4.0.0"
 
 dependencies:
   map_mapper_generator:

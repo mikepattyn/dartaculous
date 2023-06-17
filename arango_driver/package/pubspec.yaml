@@ -5,7 +5,7 @@ homepage: https://gitlab.com/dartaculous/dartaculous/-/tree/main/arango_driver
 version: 4.0.0-dev.2
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: '>=2.17.0 <4.0.0'
 
 dev_dependencies:
   test: ^1.20.1

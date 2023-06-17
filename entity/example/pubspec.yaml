@@ -1,7 +1,7 @@
 name: squarealfa_validation_example
 description: Example for squarealfa_validation_generator
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.12.0 <4.0.0"
 
 dependencies:
   squarealfa_entity_annotations: ^4.0.0
