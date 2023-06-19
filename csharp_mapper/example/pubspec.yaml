@@ -10,7 +10,7 @@ environment:
   sdk: ">=2.18.0 <4.0.0"
 
 dependencies:
-  protobuf: ^2.1.0
+  protobuf: ^3.0.0
   csharp_annotations: ^0.0.1+1
   decimal: ^2.0.0
   squarealfa_entity_annotations: ^4.0.1

@@ -11,7 +11,7 @@ class GBoolFieldCodeGenerator extends WKTFieldCodeGenerator {
   String get toProtoMap => fieldDescriptor.isNullable
       ? '''
         if ($ref$fieldName != null) {
-          $protoRef$protoFieldName = BoolValue(value: $ref$fieldName); 
+          $protoRef$protoFieldName = BoolValue() .. value = $ref$fieldName!; 
         }
       '''
       : '$protoRef$protoFieldName = $ref$fieldName;';

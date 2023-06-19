@@ -33,9 +33,9 @@ class GDurationFieldCodeGenerator extends WKTFieldCodeGenerator {
     return fromProtoNonNullableExpression;
   }
 
-  String get toProtoExpression => '''${config.wellKnownDurationType}(
-        seconds: Int64($instanceReference.inSeconds),
-        nanos: ($instanceReference.inMicroseconds - $instanceReference.inSeconds * 1000000) * 1000)''';
+  String get toProtoExpression => '''${config.wellKnownDurationType}()
+        ..seconds = Int64($instanceReference.inSeconds)
+        ..nanos = ($instanceReference.inMicroseconds - $instanceReference.inSeconds * 1000000) * 1000''';
 
   String get fromProtoNullableExpression =>
       '''(${protoRef}has${protoFieldName.pascalName}() ? ($fromProtoNonNullableExpression) : null)''';

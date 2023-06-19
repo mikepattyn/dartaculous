@@ -11,7 +11,7 @@ class GDoubleFieldCodeGenerator extends WKTFieldCodeGenerator {
   String get toProtoMap => fieldDescriptor.isNullable
       ? '''
         if ($ref$fieldName != null) {
-          $protoRef$protoFieldName = DoubleValue(value: $ref$fieldName); 
+          $protoRef$protoFieldName = DoubleValue() .. value = $ref$fieldName!; 
         }
       '''
       : '$protoRef$protoFieldName = $ref$fieldName;';

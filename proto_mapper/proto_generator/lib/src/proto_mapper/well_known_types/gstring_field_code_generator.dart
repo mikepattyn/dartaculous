@@ -11,7 +11,7 @@ class GStringFieldCodeGenerator extends WKTFieldCodeGenerator {
   String get toProtoMap => fieldDescriptor.isNullable
       ? '''
         if ($ref$fieldName != null) {
-          $protoRef$protoFieldName = StringValue(value: $ref$fieldName); 
+          $protoRef$protoFieldName = StringValue()..value = $ref$fieldName!; 
         }
       '''
       : '$protoRef$protoFieldName = $ref$fieldName;';

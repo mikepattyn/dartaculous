@@ -114,9 +114,9 @@ String collectionValueToProto(
   }
   if (fieldTypeName == (Duration).toString()) {
     if (config.useWellKnownDuration) {
-      return '''${config.wellKnownDurationType}(
-        seconds: Int64($parameterName.inSeconds),
-        nanos: ($parameterName.inMicroseconds - $parameterName.inSeconds * 1000000) * 1000)''';
+      return '''${config.wellKnownDurationType}()
+        .. seconds = Int64($parameterName.inSeconds)
+        .. nanos = ($parameterName.inMicroseconds - $parameterName.inSeconds * 1000000) * 1000''';
     }
     return 'Int64($parameterName.inMicroseconds)';
   }

@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: model.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -15,23 +19,16 @@ import 'model.pbenum.dart';
 export 'model.pbenum.dart';
 
 class GFieldsOfAbstractVehicle extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfAbstractVehicle', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'weight', $pb.PbFieldType.O3)
+  factory GFieldsOfAbstractVehicle() => create();
+  GFieldsOfAbstractVehicle._() : super();
+  factory GFieldsOfAbstractVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfAbstractVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GFieldsOfAbstractVehicle', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'weight', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GFieldsOfAbstractVehicle._() : super();
-  factory GFieldsOfAbstractVehicle({
-    $core.int? weight,
-  }) {
-    final _result = create();
-    if (weight != null) {
-      _result.weight = weight;
-    }
-    return _result;
-  }
-  factory GFieldsOfAbstractVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GFieldsOfAbstractVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -41,8 +38,10 @@ class GFieldsOfAbstractVehicle extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GFieldsOfAbstractVehicle copyWith(void Function(GFieldsOfAbstractVehicle) updates) => super.copyWith((message) => updates(message as GFieldsOfAbstractVehicle)) as GFieldsOfAbstractVehicle; // ignore: deprecated_member_use
+  GFieldsOfAbstractVehicle copyWith(void Function(GFieldsOfAbstractVehicle) updates) => super.copyWith((message) => updates(message as GFieldsOfAbstractVehicle)) as GFieldsOfAbstractVehicle;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GFieldsOfAbstractVehicle create() => GFieldsOfAbstractVehicle._();
   GFieldsOfAbstractVehicle createEmptyInstance() => create();
@@ -69,40 +68,25 @@ enum GAbstractVehicle_Props {
 }
 
 class GAbstractVehicle extends $pb.GeneratedMessage {
+  factory GAbstractVehicle() => create();
+  GAbstractVehicle._() : super();
+  factory GAbstractVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GAbstractVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, GAbstractVehicle_Props> _GAbstractVehicle_PropsByTag = {
     1 : GAbstractVehicle_Props.abstractVehicle,
     3 : GAbstractVehicle_Props.bicycle,
     4 : GAbstractVehicle_Props.scooter,
     0 : GAbstractVehicle_Props.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAbstractVehicle', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GAbstractVehicle', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..oo(0, [1, 3, 4])
-    ..aOM<GFieldsOfAbstractVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'abstractVehicle', subBuilder: GFieldsOfAbstractVehicle.create)
-    ..aOM<GBicycle>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'bicycle', subBuilder: GBicycle.create)
-    ..aOM<GScooter>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scooter', subBuilder: GScooter.create)
+    ..aOM<GFieldsOfAbstractVehicle>(1, _omitFieldNames ? '' : 'abstractVehicle', subBuilder: GFieldsOfAbstractVehicle.create)
+    ..aOM<GBicycle>(3, _omitFieldNames ? '' : 'bicycle', subBuilder: GBicycle.create)
+    ..aOM<GScooter>(4, _omitFieldNames ? '' : 'scooter', subBuilder: GScooter.create)
     ..hasRequiredFields = false
   ;
 
-  GAbstractVehicle._() : super();
-  factory GAbstractVehicle({
-    GFieldsOfAbstractVehicle? abstractVehicle,
-    GBicycle? bicycle,
-    GScooter? scooter,
-  }) {
-    final _result = create();
-    if (abstractVehicle != null) {
-      _result.abstractVehicle = abstractVehicle;
-    }
-    if (bicycle != null) {
-      _result.bicycle = bicycle;
-    }
-    if (scooter != null) {
-      _result.scooter = scooter;
-    }
-    return _result;
-  }
-  factory GAbstractVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GAbstractVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -112,8 +96,10 @@ class GAbstractVehicle extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GAbstractVehicle copyWith(void Function(GAbstractVehicle) updates) => super.copyWith((message) => updates(message as GAbstractVehicle)) as GAbstractVehicle; // ignore: deprecated_member_use
+  GAbstractVehicle copyWith(void Function(GAbstractVehicle) updates) => super.copyWith((message) => updates(message as GAbstractVehicle)) as GAbstractVehicle;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GAbstractVehicle create() => GAbstractVehicle._();
   GAbstractVehicle createEmptyInstance() => create();
@@ -160,33 +146,18 @@ class GAbstractVehicle extends $pb.GeneratedMessage {
 }
 
 class GFieldsOfAircraft extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfAircraft', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serviceCeiling', $pb.PbFieldType.O3)
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
-    ..aOM<GFieldsOfVehicle>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfVehicle.create)
+  factory GFieldsOfAircraft() => create();
+  GFieldsOfAircraft._() : super();
+  factory GFieldsOfAircraft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfAircraft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GFieldsOfAircraft', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'serviceCeiling', $pb.PbFieldType.O3)
+    ..aOS(4, _omitFieldNames ? '' : 'key')
+    ..aOM<GFieldsOfVehicle>(6, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfVehicle.create)
     ..hasRequiredFields = false
   ;
 
-  GFieldsOfAircraft._() : super();
-  factory GFieldsOfAircraft({
-    $core.int? serviceCeiling,
-    $core.String? key,
-    GFieldsOfVehicle? fieldsOfSuperClass,
-  }) {
-    final _result = create();
-    if (serviceCeiling != null) {
-      _result.serviceCeiling = serviceCeiling;
-    }
-    if (key != null) {
-      _result.key = key;
-    }
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    return _result;
-  }
-  factory GFieldsOfAircraft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GFieldsOfAircraft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -196,8 +167,10 @@ class GFieldsOfAircraft extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GFieldsOfAircraft copyWith(void Function(GFieldsOfAircraft) updates) => super.copyWith((message) => updates(message as GFieldsOfAircraft)) as GFieldsOfAircraft; // ignore: deprecated_member_use
+  GFieldsOfAircraft copyWith(void Function(GFieldsOfAircraft) updates) => super.copyWith((message) => updates(message as GFieldsOfAircraft)) as GFieldsOfAircraft;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GFieldsOfAircraft create() => GFieldsOfAircraft._();
   GFieldsOfAircraft createEmptyInstance() => create();
@@ -245,6 +218,11 @@ enum GAircraft_Props {
 }
 
 class GAircraft extends $pb.GeneratedMessage {
+  factory GAircraft() => create();
+  GAircraft._() : super();
+  factory GAircraft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GAircraft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, GAircraft_Props> _GAircraft_PropsByTag = {
     1 : GAircraft_Props.aircraft,
     3 : GAircraft_Props.airplane,
@@ -252,39 +230,15 @@ class GAircraft extends $pb.GeneratedMessage {
     5 : GAircraft_Props.balloon,
     0 : GAircraft_Props.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAircraft', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GAircraft', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..oo(0, [1, 3, 4, 5])
-    ..aOM<GFieldsOfAircraft>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'aircraft', subBuilder: GFieldsOfAircraft.create)
-    ..aOM<GAirplane>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'airplane', subBuilder: GAirplane.create)
-    ..aOM<GRotorcraft>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotorcraft', subBuilder: GRotorcraft.create)
-    ..aOM<GBalloon>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'balloon', subBuilder: GBalloon.create)
+    ..aOM<GFieldsOfAircraft>(1, _omitFieldNames ? '' : 'aircraft', subBuilder: GFieldsOfAircraft.create)
+    ..aOM<GAirplane>(3, _omitFieldNames ? '' : 'airplane', subBuilder: GAirplane.create)
+    ..aOM<GRotorcraft>(4, _omitFieldNames ? '' : 'rotorcraft', subBuilder: GRotorcraft.create)
+    ..aOM<GBalloon>(5, _omitFieldNames ? '' : 'balloon', subBuilder: GBalloon.create)
     ..hasRequiredFields = false
   ;
 
-  GAircraft._() : super();
-  factory GAircraft({
-    GFieldsOfAircraft? aircraft,
-    GAirplane? airplane,
-    GRotorcraft? rotorcraft,
-    GBalloon? balloon,
-  }) {
-    final _result = create();
-    if (aircraft != null) {
-      _result.aircraft = aircraft;
-    }
-    if (airplane != null) {
-      _result.airplane = airplane;
-    }
-    if (rotorcraft != null) {
-      _result.rotorcraft = rotorcraft;
-    }
-    if (balloon != null) {
-      _result.balloon = balloon;
-    }
-    return _result;
-  }
-  factory GAircraft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GAircraft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -294,8 +248,10 @@ class GAircraft extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GAircraft copyWith(void Function(GAircraft) updates) => super.copyWith((message) => updates(message as GAircraft)) as GAircraft; // ignore: deprecated_member_use
+  GAircraft copyWith(void Function(GAircraft) updates) => super.copyWith((message) => updates(message as GAircraft)) as GAircraft;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GAircraft create() => GAircraft._();
   GAircraft createEmptyInstance() => create();
@@ -353,28 +309,17 @@ class GAircraft extends $pb.GeneratedMessage {
 }
 
 class GAirplane extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAirplane', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfAircraft>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAircraft.create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wingspan', $pb.PbFieldType.O3)
+  factory GAirplane() => create();
+  GAirplane._() : super();
+  factory GAirplane.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GAirplane.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GAirplane', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfAircraft>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAircraft.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'wingspan', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GAirplane._() : super();
-  factory GAirplane({
-    GFieldsOfAircraft? fieldsOfSuperClass,
-    $core.int? wingspan,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    if (wingspan != null) {
-      _result.wingspan = wingspan;
-    }
-    return _result;
-  }
-  factory GAirplane.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GAirplane.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -384,8 +329,10 @@ class GAirplane extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GAirplane copyWith(void Function(GAirplane) updates) => super.copyWith((message) => updates(message as GAirplane)) as GAirplane; // ignore: deprecated_member_use
+  GAirplane copyWith(void Function(GAirplane) updates) => super.copyWith((message) => updates(message as GAirplane)) as GAirplane;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GAirplane create() => GAirplane._();
   GAirplane createEmptyInstance() => create();
@@ -416,33 +363,18 @@ class GAirplane extends $pb.GeneratedMessage {
 }
 
 class GBalloon extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GBalloon', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'weight', $pb.PbFieldType.O3)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
-    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serviceCeiling', $pb.PbFieldType.O3)
+  factory GBalloon() => create();
+  GBalloon._() : super();
+  factory GBalloon.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GBalloon.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GBalloon', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'weight', $pb.PbFieldType.O3)
+    ..aOS(3, _omitFieldNames ? '' : 'key')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'serviceCeiling', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GBalloon._() : super();
-  factory GBalloon({
-    $core.int? weight,
-    $core.String? key,
-    $core.int? serviceCeiling,
-  }) {
-    final _result = create();
-    if (weight != null) {
-      _result.weight = weight;
-    }
-    if (key != null) {
-      _result.key = key;
-    }
-    if (serviceCeiling != null) {
-      _result.serviceCeiling = serviceCeiling;
-    }
-    return _result;
-  }
-  factory GBalloon.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GBalloon.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -452,8 +384,10 @@ class GBalloon extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GBalloon copyWith(void Function(GBalloon) updates) => super.copyWith((message) => updates(message as GBalloon)) as GBalloon; // ignore: deprecated_member_use
+  GBalloon copyWith(void Function(GBalloon) updates) => super.copyWith((message) => updates(message as GBalloon)) as GBalloon;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GBalloon create() => GBalloon._();
   GBalloon createEmptyInstance() => create();
@@ -491,33 +425,18 @@ class GBalloon extends $pb.GeneratedMessage {
 }
 
 class GBicycle extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GBicycle', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfAbstractVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAbstractVehicle.create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wheelDiamater')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
+  factory GBicycle() => create();
+  GBicycle._() : super();
+  factory GBicycle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GBicycle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GBicycle', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfAbstractVehicle>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAbstractVehicle.create)
+    ..aOS(2, _omitFieldNames ? '' : 'wheelDiamater')
+    ..aOS(3, _omitFieldNames ? '' : 'key')
     ..hasRequiredFields = false
   ;
 
-  GBicycle._() : super();
-  factory GBicycle({
-    GFieldsOfAbstractVehicle? fieldsOfSuperClass,
-    $core.String? wheelDiamater,
-    $core.String? key,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    if (wheelDiamater != null) {
-      _result.wheelDiamater = wheelDiamater;
-    }
-    if (key != null) {
-      _result.key = key;
-    }
-    return _result;
-  }
-  factory GBicycle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GBicycle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -527,8 +446,10 @@ class GBicycle extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GBicycle copyWith(void Function(GBicycle) updates) => super.copyWith((message) => updates(message as GBicycle)) as GBicycle; // ignore: deprecated_member_use
+  GBicycle copyWith(void Function(GBicycle) updates) => super.copyWith((message) => updates(message as GBicycle)) as GBicycle;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GBicycle create() => GBicycle._();
   GBicycle createEmptyInstance() => create();
@@ -568,28 +489,17 @@ class GBicycle extends $pb.GeneratedMessage {
 }
 
 class GCar extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GCar', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfVehicle.create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfDoors', $pb.PbFieldType.O3)
+  factory GCar() => create();
+  GCar._() : super();
+  factory GCar.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GCar.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GCar', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfVehicle>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfVehicle.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'numberOfDoors', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GCar._() : super();
-  factory GCar({
-    GFieldsOfVehicle? fieldsOfSuperClass,
-    $core.int? numberOfDoors,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    if (numberOfDoors != null) {
-      _result.numberOfDoors = numberOfDoors;
-    }
-    return _result;
-  }
-  factory GCar.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GCar.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -599,8 +509,10 @@ class GCar extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GCar copyWith(void Function(GCar) updates) => super.copyWith((message) => updates(message as GCar)) as GCar; // ignore: deprecated_member_use
+  GCar copyWith(void Function(GCar) updates) => super.copyWith((message) => updates(message as GCar)) as GCar;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GCar create() => GCar._();
   GCar createEmptyInstance() => create();
@@ -631,23 +543,16 @@ class GCar extends $pb.GeneratedMessage {
 }
 
 class GEntity extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GEntity', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
+  factory GEntity() => create();
+  GEntity._() : super();
+  factory GEntity.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GEntity.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GEntity', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'key')
     ..hasRequiredFields = false
   ;
 
-  GEntity._() : super();
-  factory GEntity({
-    $core.String? key,
-  }) {
-    final _result = create();
-    if (key != null) {
-      _result.key = key;
-    }
-    return _result;
-  }
-  factory GEntity.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GEntity.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -657,8 +562,10 @@ class GEntity extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GEntity copyWith(void Function(GEntity) updates) => super.copyWith((message) => updates(message as GEntity)) as GEntity; // ignore: deprecated_member_use
+  GEntity copyWith(void Function(GEntity) updates) => super.copyWith((message) => updates(message as GEntity)) as GEntity;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GEntity create() => GEntity._();
   GEntity createEmptyInstance() => create();
@@ -678,23 +585,16 @@ class GEntity extends $pb.GeneratedMessage {
 }
 
 class GGyrocopter extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GGyrocopter', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfRotorcraft>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfRotorcraft.create)
+  factory GGyrocopter() => create();
+  GGyrocopter._() : super();
+  factory GGyrocopter.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GGyrocopter.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GGyrocopter', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfRotorcraft>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfRotorcraft.create)
     ..hasRequiredFields = false
   ;
 
-  GGyrocopter._() : super();
-  factory GGyrocopter({
-    GFieldsOfRotorcraft? fieldsOfSuperClass,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    return _result;
-  }
-  factory GGyrocopter.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GGyrocopter.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -704,8 +604,10 @@ class GGyrocopter extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GGyrocopter copyWith(void Function(GGyrocopter) updates) => super.copyWith((message) => updates(message as GGyrocopter)) as GGyrocopter; // ignore: deprecated_member_use
+  GGyrocopter copyWith(void Function(GGyrocopter) updates) => super.copyWith((message) => updates(message as GGyrocopter)) as GGyrocopter;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GGyrocopter create() => GGyrocopter._();
   GGyrocopter createEmptyInstance() => create();
@@ -727,23 +629,16 @@ class GGyrocopter extends $pb.GeneratedMessage {
 }
 
 class GHelicopter extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GHelicopter', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfRotorcraft>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfRotorcraft.create)
+  factory GHelicopter() => create();
+  GHelicopter._() : super();
+  factory GHelicopter.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GHelicopter.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GHelicopter', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfRotorcraft>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfRotorcraft.create)
     ..hasRequiredFields = false
   ;
 
-  GHelicopter._() : super();
-  factory GHelicopter({
-    GFieldsOfRotorcraft? fieldsOfSuperClass,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    return _result;
-  }
-  factory GHelicopter.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GHelicopter.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -753,8 +648,10 @@ class GHelicopter extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GHelicopter copyWith(void Function(GHelicopter) updates) => super.copyWith((message) => updates(message as GHelicopter)) as GHelicopter; // ignore: deprecated_member_use
+  GHelicopter copyWith(void Function(GHelicopter) updates) => super.copyWith((message) => updates(message as GHelicopter)) as GHelicopter;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GHelicopter create() => GHelicopter._();
   GHelicopter createEmptyInstance() => create();
@@ -776,23 +673,16 @@ class GHelicopter extends $pb.GeneratedMessage {
 }
 
 class GFieldsOfRotorcraft extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfRotorcraft', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfAircraft>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAircraft.create)
+  factory GFieldsOfRotorcraft() => create();
+  GFieldsOfRotorcraft._() : super();
+  factory GFieldsOfRotorcraft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfRotorcraft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GFieldsOfRotorcraft', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfAircraft>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAircraft.create)
     ..hasRequiredFields = false
   ;
 
-  GFieldsOfRotorcraft._() : super();
-  factory GFieldsOfRotorcraft({
-    GFieldsOfAircraft? fieldsOfSuperClass,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    return _result;
-  }
-  factory GFieldsOfRotorcraft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GFieldsOfRotorcraft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -802,8 +692,10 @@ class GFieldsOfRotorcraft extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GFieldsOfRotorcraft copyWith(void Function(GFieldsOfRotorcraft) updates) => super.copyWith((message) => updates(message as GFieldsOfRotorcraft)) as GFieldsOfRotorcraft; // ignore: deprecated_member_use
+  GFieldsOfRotorcraft copyWith(void Function(GFieldsOfRotorcraft) updates) => super.copyWith((message) => updates(message as GFieldsOfRotorcraft)) as GFieldsOfRotorcraft;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GFieldsOfRotorcraft create() => GFieldsOfRotorcraft._();
   GFieldsOfRotorcraft createEmptyInstance() => create();
@@ -832,40 +724,25 @@ enum GRotorcraft_Props {
 }
 
 class GRotorcraft extends $pb.GeneratedMessage {
+  factory GRotorcraft() => create();
+  GRotorcraft._() : super();
+  factory GRotorcraft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GRotorcraft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, GRotorcraft_Props> _GRotorcraft_PropsByTag = {
     1 : GRotorcraft_Props.rotorcraft,
     3 : GRotorcraft_Props.helicopter,
     4 : GRotorcraft_Props.gyrocopter,
     0 : GRotorcraft_Props.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GRotorcraft', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GRotorcraft', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..oo(0, [1, 3, 4])
-    ..aOM<GFieldsOfRotorcraft>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotorcraft', subBuilder: GFieldsOfRotorcraft.create)
-    ..aOM<GHelicopter>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'helicopter', subBuilder: GHelicopter.create)
-    ..aOM<GGyrocopter>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gyrocopter', subBuilder: GGyrocopter.create)
+    ..aOM<GFieldsOfRotorcraft>(1, _omitFieldNames ? '' : 'rotorcraft', subBuilder: GFieldsOfRotorcraft.create)
+    ..aOM<GHelicopter>(3, _omitFieldNames ? '' : 'helicopter', subBuilder: GHelicopter.create)
+    ..aOM<GGyrocopter>(4, _omitFieldNames ? '' : 'gyrocopter', subBuilder: GGyrocopter.create)
     ..hasRequiredFields = false
   ;
 
-  GRotorcraft._() : super();
-  factory GRotorcraft({
-    GFieldsOfRotorcraft? rotorcraft,
-    GHelicopter? helicopter,
-    GGyrocopter? gyrocopter,
-  }) {
-    final _result = create();
-    if (rotorcraft != null) {
-      _result.rotorcraft = rotorcraft;
-    }
-    if (helicopter != null) {
-      _result.helicopter = helicopter;
-    }
-    if (gyrocopter != null) {
-      _result.gyrocopter = gyrocopter;
-    }
-    return _result;
-  }
-  factory GRotorcraft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GRotorcraft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -875,8 +752,10 @@ class GRotorcraft extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GRotorcraft copyWith(void Function(GRotorcraft) updates) => super.copyWith((message) => updates(message as GRotorcraft)) as GRotorcraft; // ignore: deprecated_member_use
+  GRotorcraft copyWith(void Function(GRotorcraft) updates) => super.copyWith((message) => updates(message as GRotorcraft)) as GRotorcraft;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GRotorcraft create() => GRotorcraft._();
   GRotorcraft createEmptyInstance() => create();
@@ -923,28 +802,17 @@ class GRotorcraft extends $pb.GeneratedMessage {
 }
 
 class GScooter extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GScooter', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfAbstractVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAbstractVehicle.create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
+  factory GScooter() => create();
+  GScooter._() : super();
+  factory GScooter.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GScooter.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GScooter', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfAbstractVehicle>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAbstractVehicle.create)
+    ..aOS(2, _omitFieldNames ? '' : 'key')
     ..hasRequiredFields = false
   ;
 
-  GScooter._() : super();
-  factory GScooter({
-    GFieldsOfAbstractVehicle? fieldsOfSuperClass,
-    $core.String? key,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    if (key != null) {
-      _result.key = key;
-    }
-    return _result;
-  }
-  factory GScooter.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GScooter.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -954,8 +822,10 @@ class GScooter extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GScooter copyWith(void Function(GScooter) updates) => super.copyWith((message) => updates(message as GScooter)) as GScooter; // ignore: deprecated_member_use
+  GScooter copyWith(void Function(GScooter) updates) => super.copyWith((message) => updates(message as GScooter)) as GScooter;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GScooter create() => GScooter._();
   GScooter createEmptyInstance() => create();
@@ -986,23 +856,16 @@ class GScooter extends $pb.GeneratedMessage {
 }
 
 class GFieldsOfVehicle extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfVehicle', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'weight', $pb.PbFieldType.O3)
+  factory GFieldsOfVehicle() => create();
+  GFieldsOfVehicle._() : super();
+  factory GFieldsOfVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GFieldsOfVehicle', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'weight', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GFieldsOfVehicle._() : super();
-  factory GFieldsOfVehicle({
-    $core.int? weight,
-  }) {
-    final _result = create();
-    if (weight != null) {
-      _result.weight = weight;
-    }
-    return _result;
-  }
-  factory GFieldsOfVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GFieldsOfVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1012,8 +875,10 @@ class GFieldsOfVehicle extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GFieldsOfVehicle copyWith(void Function(GFieldsOfVehicle) updates) => super.copyWith((message) => updates(message as GFieldsOfVehicle)) as GFieldsOfVehicle; // ignore: deprecated_member_use
+  GFieldsOfVehicle copyWith(void Function(GFieldsOfVehicle) updates) => super.copyWith((message) => updates(message as GFieldsOfVehicle)) as GFieldsOfVehicle;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GFieldsOfVehicle create() => GFieldsOfVehicle._();
   GFieldsOfVehicle createEmptyInstance() => create();
@@ -1040,40 +905,25 @@ enum GVehicle_Props {
 }
 
 class GVehicle extends $pb.GeneratedMessage {
+  factory GVehicle() => create();
+  GVehicle._() : super();
+  factory GVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, GVehicle_Props> _GVehicle_PropsByTag = {
     1 : GVehicle_Props.vehicle,
     3 : GVehicle_Props.aircraft,
     4 : GVehicle_Props.car,
     0 : GVehicle_Props.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GVehicle', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GVehicle', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..oo(0, [1, 3, 4])
-    ..aOM<GFieldsOfVehicle>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vehicle', subBuilder: GFieldsOfVehicle.create)
-    ..aOM<GAircraft>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'aircraft', subBuilder: GAircraft.create)
-    ..aOM<GCar>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'car', subBuilder: GCar.create)
+    ..aOM<GFieldsOfVehicle>(1, _omitFieldNames ? '' : 'vehicle', subBuilder: GFieldsOfVehicle.create)
+    ..aOM<GAircraft>(3, _omitFieldNames ? '' : 'aircraft', subBuilder: GAircraft.create)
+    ..aOM<GCar>(4, _omitFieldNames ? '' : 'car', subBuilder: GCar.create)
     ..hasRequiredFields = false
   ;
 
-  GVehicle._() : super();
-  factory GVehicle({
-    GFieldsOfVehicle? vehicle,
-    GAircraft? aircraft,
-    GCar? car,
-  }) {
-    final _result = create();
-    if (vehicle != null) {
-      _result.vehicle = vehicle;
-    }
-    if (aircraft != null) {
-      _result.aircraft = aircraft;
-    }
-    if (car != null) {
-      _result.car = car;
-    }
-    return _result;
-  }
-  factory GVehicle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GVehicle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1083,8 +933,10 @@ class GVehicle extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GVehicle copyWith(void Function(GVehicle) updates) => super.copyWith((message) => updates(message as GVehicle)) as GVehicle; // ignore: deprecated_member_use
+  GVehicle copyWith(void Function(GVehicle) updates) => super.copyWith((message) => updates(message as GVehicle)) as GVehicle;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GVehicle create() => GVehicle._();
   GVehicle createEmptyInstance() => create();
@@ -1131,14 +983,15 @@ class GVehicle extends $pb.GeneratedMessage {
 }
 
 class GAbstractParentClass1 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAbstractParentClass1', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  factory GAbstractParentClass1() => create();
+  GAbstractParentClass1._() : super();
+  factory GAbstractParentClass1.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GAbstractParentClass1.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GAbstractParentClass1', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
-  GAbstractParentClass1._() : super();
-  factory GAbstractParentClass1() => create();
-  factory GAbstractParentClass1.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GAbstractParentClass1.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1148,8 +1001,10 @@ class GAbstractParentClass1 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GAbstractParentClass1 copyWith(void Function(GAbstractParentClass1) updates) => super.copyWith((message) => updates(message as GAbstractParentClass1)) as GAbstractParentClass1; // ignore: deprecated_member_use
+  GAbstractParentClass1 copyWith(void Function(GAbstractParentClass1) updates) => super.copyWith((message) => updates(message as GAbstractParentClass1)) as GAbstractParentClass1;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GAbstractParentClass1 create() => GAbstractParentClass1._();
   GAbstractParentClass1 createEmptyInstance() => create();
@@ -1160,14 +1015,15 @@ class GAbstractParentClass1 extends $pb.GeneratedMessage {
 }
 
 class GFieldsOfAbstractParentClass2 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfAbstractParentClass2', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  factory GFieldsOfAbstractParentClass2() => create();
+  GFieldsOfAbstractParentClass2._() : super();
+  factory GFieldsOfAbstractParentClass2.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfAbstractParentClass2.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GFieldsOfAbstractParentClass2', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
-  GFieldsOfAbstractParentClass2._() : super();
-  factory GFieldsOfAbstractParentClass2() => create();
-  factory GFieldsOfAbstractParentClass2.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GFieldsOfAbstractParentClass2.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1177,8 +1033,10 @@ class GFieldsOfAbstractParentClass2 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GFieldsOfAbstractParentClass2 copyWith(void Function(GFieldsOfAbstractParentClass2) updates) => super.copyWith((message) => updates(message as GFieldsOfAbstractParentClass2)) as GFieldsOfAbstractParentClass2; // ignore: deprecated_member_use
+  GFieldsOfAbstractParentClass2 copyWith(void Function(GFieldsOfAbstractParentClass2) updates) => super.copyWith((message) => updates(message as GFieldsOfAbstractParentClass2)) as GFieldsOfAbstractParentClass2;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GFieldsOfAbstractParentClass2 create() => GFieldsOfAbstractParentClass2._();
   GFieldsOfAbstractParentClass2 createEmptyInstance() => create();
@@ -1195,34 +1053,23 @@ enum GAbstractParentClass2_Props {
 }
 
 class GAbstractParentClass2 extends $pb.GeneratedMessage {
+  factory GAbstractParentClass2() => create();
+  GAbstractParentClass2._() : super();
+  factory GAbstractParentClass2.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GAbstractParentClass2.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, GAbstractParentClass2_Props> _GAbstractParentClass2_PropsByTag = {
     1 : GAbstractParentClass2_Props.abstractParentClass2,
     3 : GAbstractParentClass2_Props.subClass1,
     0 : GAbstractParentClass2_Props.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAbstractParentClass2', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GAbstractParentClass2', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..oo(0, [1, 3])
-    ..aOM<GFieldsOfAbstractParentClass2>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'abstractParentClass2', subBuilder: GFieldsOfAbstractParentClass2.create)
-    ..aOM<GSubClass1>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'subClass1', subBuilder: GSubClass1.create)
+    ..aOM<GFieldsOfAbstractParentClass2>(1, _omitFieldNames ? '' : 'abstractParentClass2', subBuilder: GFieldsOfAbstractParentClass2.create)
+    ..aOM<GSubClass1>(3, _omitFieldNames ? '' : 'subClass1', subBuilder: GSubClass1.create)
     ..hasRequiredFields = false
   ;
 
-  GAbstractParentClass2._() : super();
-  factory GAbstractParentClass2({
-    GFieldsOfAbstractParentClass2? abstractParentClass2,
-    GSubClass1? subClass1,
-  }) {
-    final _result = create();
-    if (abstractParentClass2 != null) {
-      _result.abstractParentClass2 = abstractParentClass2;
-    }
-    if (subClass1 != null) {
-      _result.subClass1 = subClass1;
-    }
-    return _result;
-  }
-  factory GAbstractParentClass2.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GAbstractParentClass2.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1232,8 +1079,10 @@ class GAbstractParentClass2 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GAbstractParentClass2 copyWith(void Function(GAbstractParentClass2) updates) => super.copyWith((message) => updates(message as GAbstractParentClass2)) as GAbstractParentClass2; // ignore: deprecated_member_use
+  GAbstractParentClass2 copyWith(void Function(GAbstractParentClass2) updates) => super.copyWith((message) => updates(message as GAbstractParentClass2)) as GAbstractParentClass2;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GAbstractParentClass2 create() => GAbstractParentClass2._();
   GAbstractParentClass2 createEmptyInstance() => create();
@@ -1269,23 +1118,16 @@ class GAbstractParentClass2 extends $pb.GeneratedMessage {
 }
 
 class GSubClass1 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GSubClass1', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfAbstractParentClass2>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAbstractParentClass2.create)
+  factory GSubClass1() => create();
+  GSubClass1._() : super();
+  factory GSubClass1.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GSubClass1.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GSubClass1', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfAbstractParentClass2>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfAbstractParentClass2.create)
     ..hasRequiredFields = false
   ;
 
-  GSubClass1._() : super();
-  factory GSubClass1({
-    GFieldsOfAbstractParentClass2? fieldsOfSuperClass,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    return _result;
-  }
-  factory GSubClass1.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GSubClass1.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1295,8 +1137,10 @@ class GSubClass1 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GSubClass1 copyWith(void Function(GSubClass1) updates) => super.copyWith((message) => updates(message as GSubClass1)) as GSubClass1; // ignore: deprecated_member_use
+  GSubClass1 copyWith(void Function(GSubClass1) updates) => super.copyWith((message) => updates(message as GSubClass1)) as GSubClass1;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GSubClass1 create() => GSubClass1._();
   GSubClass1 createEmptyInstance() => create();
@@ -1318,43 +1162,20 @@ class GSubClass1 extends $pb.GeneratedMessage {
 }
 
 class GCalcParameters extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GCalcParameters', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter2', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter1', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter3', $pb.PbFieldType.O3)
-    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter4', $pb.PbFieldType.O3)
-    ..a<$core.int>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'parameter5', $pb.PbFieldType.O3)
+  factory GCalcParameters() => create();
+  GCalcParameters._() : super();
+  factory GCalcParameters.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GCalcParameters.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GCalcParameters', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'parameter2', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'parameter1', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'parameter3', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'parameter4', $pb.PbFieldType.O3)
+    ..a<$core.int>(9, _omitFieldNames ? '' : 'parameter5', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GCalcParameters._() : super();
-  factory GCalcParameters({
-    $core.int? parameter2,
-    $core.int? parameter1,
-    $core.int? parameter3,
-    $core.int? parameter4,
-    $core.int? parameter5,
-  }) {
-    final _result = create();
-    if (parameter2 != null) {
-      _result.parameter2 = parameter2;
-    }
-    if (parameter1 != null) {
-      _result.parameter1 = parameter1;
-    }
-    if (parameter3 != null) {
-      _result.parameter3 = parameter3;
-    }
-    if (parameter4 != null) {
-      _result.parameter4 = parameter4;
-    }
-    if (parameter5 != null) {
-      _result.parameter5 = parameter5;
-    }
-    return _result;
-  }
-  factory GCalcParameters.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GCalcParameters.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1364,8 +1185,10 @@ class GCalcParameters extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GCalcParameters copyWith(void Function(GCalcParameters) updates) => super.copyWith((message) => updates(message as GCalcParameters)) as GCalcParameters; // ignore: deprecated_member_use
+  GCalcParameters copyWith(void Function(GCalcParameters) updates) => super.copyWith((message) => updates(message as GCalcParameters)) as GCalcParameters;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GCalcParameters create() => GCalcParameters._();
   GCalcParameters createEmptyInstance() => create();
@@ -1421,23 +1244,16 @@ class GCalcParameters extends $pb.GeneratedMessage {
 }
 
 class GCalcResult extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GCalcResult', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'result', $pb.PbFieldType.O3)
+  factory GCalcResult() => create();
+  GCalcResult._() : super();
+  factory GCalcResult.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GCalcResult.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GCalcResult', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'result', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GCalcResult._() : super();
-  factory GCalcResult({
-    $core.int? result,
-  }) {
-    final _result = create();
-    if (result != null) {
-      _result.result = result;
-    }
-    return _result;
-  }
-  factory GCalcResult.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GCalcResult.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1447,8 +1263,10 @@ class GCalcResult extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GCalcResult copyWith(void Function(GCalcResult) updates) => super.copyWith((message) => updates(message as GCalcResult)) as GCalcResult; // ignore: deprecated_member_use
+  GCalcResult copyWith(void Function(GCalcResult) updates) => super.copyWith((message) => updates(message as GCalcResult)) as GCalcResult;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GCalcResult create() => GCalcResult._();
   GCalcResult createEmptyInstance() => create();
@@ -1468,43 +1286,20 @@ class GCalcResult extends $pb.GeneratedMessage {
 }
 
 class GCategory extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GCategory', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
-    ..aOM<GComponent>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mainComponent', subBuilder: GComponent.create)
-    ..aOM<GComponent>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'alternativeComponent', subBuilder: GComponent.create)
-    ..pc<GComponent>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'otherComponents', $pb.PbFieldType.PM, subBuilder: GComponent.create)
-    ..pc<GComponent>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondaryComponents', $pb.PbFieldType.PM, subBuilder: GComponent.create)
+  factory GCategory() => create();
+  GCategory._() : super();
+  factory GCategory.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GCategory.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GCategory', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'title')
+    ..aOM<GComponent>(3, _omitFieldNames ? '' : 'mainComponent', subBuilder: GComponent.create)
+    ..aOM<GComponent>(4, _omitFieldNames ? '' : 'alternativeComponent', subBuilder: GComponent.create)
+    ..pc<GComponent>(5, _omitFieldNames ? '' : 'otherComponents', $pb.PbFieldType.PM, subBuilder: GComponent.create)
+    ..pc<GComponent>(6, _omitFieldNames ? '' : 'secondaryComponents', $pb.PbFieldType.PM, subBuilder: GComponent.create)
     ..hasRequiredFields = false
   ;
 
-  GCategory._() : super();
-  factory GCategory({
-    $core.String? title,
-    GComponent? mainComponent,
-    GComponent? alternativeComponent,
-    $core.Iterable<GComponent>? otherComponents,
-    $core.Iterable<GComponent>? secondaryComponents,
-  }) {
-    final _result = create();
-    if (title != null) {
-      _result.title = title;
-    }
-    if (mainComponent != null) {
-      _result.mainComponent = mainComponent;
-    }
-    if (alternativeComponent != null) {
-      _result.alternativeComponent = alternativeComponent;
-    }
-    if (otherComponents != null) {
-      _result.otherComponents.addAll(otherComponents);
-    }
-    if (secondaryComponents != null) {
-      _result.secondaryComponents.addAll(secondaryComponents);
-    }
-    return _result;
-  }
-  factory GCategory.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GCategory.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1514,8 +1309,10 @@ class GCategory extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GCategory copyWith(void Function(GCategory) updates) => super.copyWith((message) => updates(message as GCategory)) as GCategory; // ignore: deprecated_member_use
+  GCategory copyWith(void Function(GCategory) updates) => super.copyWith((message) => updates(message as GCategory)) as GCategory;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GCategory create() => GCategory._();
   GCategory createEmptyInstance() => create();
@@ -1563,23 +1360,16 @@ class GCategory extends $pb.GeneratedMessage {
 }
 
 class GComponent extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GComponent', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
+  factory GComponent() => create();
+  GComponent._() : super();
+  factory GComponent.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GComponent.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GComponent', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'description')
     ..hasRequiredFields = false
   ;
 
-  GComponent._() : super();
-  factory GComponent({
-    $core.String? description,
-  }) {
-    final _result = create();
-    if (description != null) {
-      _result.description = description;
-    }
-    return _result;
-  }
-  factory GComponent.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GComponent.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1589,8 +1379,10 @@ class GComponent extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GComponent copyWith(void Function(GComponent) updates) => super.copyWith((message) => updates(message as GComponent)) as GComponent; // ignore: deprecated_member_use
+  GComponent copyWith(void Function(GComponent) updates) => super.copyWith((message) => updates(message as GComponent)) as GComponent;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GComponent create() => GComponent._();
   GComponent createEmptyInstance() => create();
@@ -1610,28 +1402,17 @@ class GComponent extends $pb.GeneratedMessage {
 }
 
 class GConstructObject1 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject1', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', $pb.PbFieldType.O3)
+  factory GConstructObject1() => create();
+  GConstructObject1._() : super();
+  factory GConstructObject1.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GConstructObject1.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GConstructObject1', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'number', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GConstructObject1._() : super();
-  factory GConstructObject1({
-    $core.String? name,
-    $core.int? number,
-  }) {
-    final _result = create();
-    if (name != null) {
-      _result.name = name;
-    }
-    if (number != null) {
-      _result.number = number;
-    }
-    return _result;
-  }
-  factory GConstructObject1.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GConstructObject1.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1641,8 +1422,10 @@ class GConstructObject1 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GConstructObject1 copyWith(void Function(GConstructObject1) updates) => super.copyWith((message) => updates(message as GConstructObject1)) as GConstructObject1; // ignore: deprecated_member_use
+  GConstructObject1 copyWith(void Function(GConstructObject1) updates) => super.copyWith((message) => updates(message as GConstructObject1)) as GConstructObject1;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GConstructObject1 create() => GConstructObject1._();
   GConstructObject1 createEmptyInstance() => create();
@@ -1671,28 +1454,17 @@ class GConstructObject1 extends $pb.GeneratedMessage {
 }
 
 class GConstructObject2 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject2', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', $pb.PbFieldType.O3)
+  factory GConstructObject2() => create();
+  GConstructObject2._() : super();
+  factory GConstructObject2.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GConstructObject2.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GConstructObject2', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'number', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GConstructObject2._() : super();
-  factory GConstructObject2({
-    $core.String? name,
-    $core.int? number,
-  }) {
-    final _result = create();
-    if (name != null) {
-      _result.name = name;
-    }
-    if (number != null) {
-      _result.number = number;
-    }
-    return _result;
-  }
-  factory GConstructObject2.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GConstructObject2.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1702,8 +1474,10 @@ class GConstructObject2 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GConstructObject2 copyWith(void Function(GConstructObject2) updates) => super.copyWith((message) => updates(message as GConstructObject2)) as GConstructObject2; // ignore: deprecated_member_use
+  GConstructObject2 copyWith(void Function(GConstructObject2) updates) => super.copyWith((message) => updates(message as GConstructObject2)) as GConstructObject2;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GConstructObject2 create() => GConstructObject2._();
   GConstructObject2 createEmptyInstance() => create();
@@ -1732,28 +1506,17 @@ class GConstructObject2 extends $pb.GeneratedMessage {
 }
 
 class GConstructObject3 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject3', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', $pb.PbFieldType.O3)
+  factory GConstructObject3() => create();
+  GConstructObject3._() : super();
+  factory GConstructObject3.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GConstructObject3.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GConstructObject3', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'number', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GConstructObject3._() : super();
-  factory GConstructObject3({
-    $core.String? name,
-    $core.int? number,
-  }) {
-    final _result = create();
-    if (name != null) {
-      _result.name = name;
-    }
-    if (number != null) {
-      _result.number = number;
-    }
-    return _result;
-  }
-  factory GConstructObject3.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GConstructObject3.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1763,8 +1526,10 @@ class GConstructObject3 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GConstructObject3 copyWith(void Function(GConstructObject3) updates) => super.copyWith((message) => updates(message as GConstructObject3)) as GConstructObject3; // ignore: deprecated_member_use
+  GConstructObject3 copyWith(void Function(GConstructObject3) updates) => super.copyWith((message) => updates(message as GConstructObject3)) as GConstructObject3;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GConstructObject3 create() => GConstructObject3._();
   GConstructObject3 createEmptyInstance() => create();
@@ -1793,28 +1558,17 @@ class GConstructObject3 extends $pb.GeneratedMessage {
 }
 
 class GConstructObject4 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject4', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', $pb.PbFieldType.O3)
+  factory GConstructObject4() => create();
+  GConstructObject4._() : super();
+  factory GConstructObject4.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GConstructObject4.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GConstructObject4', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'number', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GConstructObject4._() : super();
-  factory GConstructObject4({
-    $core.String? name,
-    $core.int? number,
-  }) {
-    final _result = create();
-    if (name != null) {
-      _result.name = name;
-    }
-    if (number != null) {
-      _result.number = number;
-    }
-    return _result;
-  }
-  factory GConstructObject4.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GConstructObject4.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1824,8 +1578,10 @@ class GConstructObject4 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GConstructObject4 copyWith(void Function(GConstructObject4) updates) => super.copyWith((message) => updates(message as GConstructObject4)) as GConstructObject4; // ignore: deprecated_member_use
+  GConstructObject4 copyWith(void Function(GConstructObject4) updates) => super.copyWith((message) => updates(message as GConstructObject4)) as GConstructObject4;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GConstructObject4 create() => GConstructObject4._();
   GConstructObject4 createEmptyInstance() => create();
@@ -1854,28 +1610,17 @@ class GConstructObject4 extends $pb.GeneratedMessage {
 }
 
 class GConstructObject5 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject5', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', $pb.PbFieldType.O3)
+  factory GConstructObject5() => create();
+  GConstructObject5._() : super();
+  factory GConstructObject5.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GConstructObject5.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GConstructObject5', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'number', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GConstructObject5._() : super();
-  factory GConstructObject5({
-    $core.String? name,
-    $core.int? number,
-  }) {
-    final _result = create();
-    if (name != null) {
-      _result.name = name;
-    }
-    if (number != null) {
-      _result.number = number;
-    }
-    return _result;
-  }
-  factory GConstructObject5.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GConstructObject5.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1885,8 +1630,10 @@ class GConstructObject5 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GConstructObject5 copyWith(void Function(GConstructObject5) updates) => super.copyWith((message) => updates(message as GConstructObject5)) as GConstructObject5; // ignore: deprecated_member_use
+  GConstructObject5 copyWith(void Function(GConstructObject5) updates) => super.copyWith((message) => updates(message as GConstructObject5)) as GConstructObject5;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GConstructObject5 create() => GConstructObject5._();
   GConstructObject5 createEmptyInstance() => create();
@@ -1915,28 +1662,17 @@ class GConstructObject5 extends $pb.GeneratedMessage {
 }
 
 class GConstructObject6 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject6', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', $pb.PbFieldType.O3)
+  factory GConstructObject6() => create();
+  GConstructObject6._() : super();
+  factory GConstructObject6.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GConstructObject6.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GConstructObject6', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'number', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GConstructObject6._() : super();
-  factory GConstructObject6({
-    $core.String? name,
-    $core.int? number,
-  }) {
-    final _result = create();
-    if (name != null) {
-      _result.name = name;
-    }
-    if (number != null) {
-      _result.number = number;
-    }
-    return _result;
-  }
-  factory GConstructObject6.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GConstructObject6.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1946,8 +1682,10 @@ class GConstructObject6 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GConstructObject6 copyWith(void Function(GConstructObject6) updates) => super.copyWith((message) => updates(message as GConstructObject6)) as GConstructObject6; // ignore: deprecated_member_use
+  GConstructObject6 copyWith(void Function(GConstructObject6) updates) => super.copyWith((message) => updates(message as GConstructObject6)) as GConstructObject6;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GConstructObject6 create() => GConstructObject6._();
   GConstructObject6 createEmptyInstance() => create();
@@ -1976,28 +1714,17 @@ class GConstructObject6 extends $pb.GeneratedMessage {
 }
 
 class GConstructObject7 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject7', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', $pb.PbFieldType.O3)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+  factory GConstructObject7() => create();
+  GConstructObject7._() : super();
+  factory GConstructObject7.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GConstructObject7.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GConstructObject7', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'number', $pb.PbFieldType.O3)
+    ..aOS(3, _omitFieldNames ? '' : 'name')
     ..hasRequiredFields = false
   ;
 
-  GConstructObject7._() : super();
-  factory GConstructObject7({
-    $core.int? number,
-    $core.String? name,
-  }) {
-    final _result = create();
-    if (number != null) {
-      _result.number = number;
-    }
-    if (name != null) {
-      _result.name = name;
-    }
-    return _result;
-  }
-  factory GConstructObject7.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GConstructObject7.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2007,8 +1734,10 @@ class GConstructObject7 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GConstructObject7 copyWith(void Function(GConstructObject7) updates) => super.copyWith((message) => updates(message as GConstructObject7)) as GConstructObject7; // ignore: deprecated_member_use
+  GConstructObject7 copyWith(void Function(GConstructObject7) updates) => super.copyWith((message) => updates(message as GConstructObject7)) as GConstructObject7;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GConstructObject7 create() => GConstructObject7._();
   GConstructObject7 createEmptyInstance() => create();
@@ -2037,28 +1766,17 @@ class GConstructObject7 extends $pb.GeneratedMessage {
 }
 
 class GConstructObject8 extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstructObject8', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'number', $pb.PbFieldType.O3)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+  factory GConstructObject8() => create();
+  GConstructObject8._() : super();
+  factory GConstructObject8.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GConstructObject8.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GConstructObject8', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'number', $pb.PbFieldType.O3)
+    ..aOS(3, _omitFieldNames ? '' : 'name')
     ..hasRequiredFields = false
   ;
 
-  GConstructObject8._() : super();
-  factory GConstructObject8({
-    $core.int? number,
-    $core.String? name,
-  }) {
-    final _result = create();
-    if (number != null) {
-      _result.number = number;
-    }
-    if (name != null) {
-      _result.name = name;
-    }
-    return _result;
-  }
-  factory GConstructObject8.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GConstructObject8.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2068,8 +1786,10 @@ class GConstructObject8 extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GConstructObject8 copyWith(void Function(GConstructObject8) updates) => super.copyWith((message) => updates(message as GConstructObject8)) as GConstructObject8; // ignore: deprecated_member_use
+  GConstructObject8 copyWith(void Function(GConstructObject8) updates) => super.copyWith((message) => updates(message as GConstructObject8)) as GConstructObject8;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GConstructObject8 create() => GConstructObject8._();
   GConstructObject8 createEmptyInstance() => create();
@@ -2098,14 +1818,15 @@ class GConstructObject8 extends $pb.GeneratedMessage {
 }
 
 class GEmpty extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GEmpty', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  factory GEmpty() => create();
+  GEmpty._() : super();
+  factory GEmpty.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GEmpty.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GEmpty', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
-  GEmpty._() : super();
-  factory GEmpty() => create();
-  factory GEmpty.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GEmpty.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2115,8 +1836,10 @@ class GEmpty extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GEmpty copyWith(void Function(GEmpty) updates) => super.copyWith((message) => updates(message as GEmpty)) as GEmpty; // ignore: deprecated_member_use
+  GEmpty copyWith(void Function(GEmpty) updates) => super.copyWith((message) => updates(message as GEmpty)) as GEmpty;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GEmpty create() => GEmpty._();
   GEmpty createEmptyInstance() => create();
@@ -2127,28 +1850,17 @@ class GEmpty extends $pb.GeneratedMessage {
 }
 
 class GEncapsulatedFieldsClass extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GEncapsulatedFieldsClass', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'finalString')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'encapsulatedString')
+  factory GEncapsulatedFieldsClass() => create();
+  GEncapsulatedFieldsClass._() : super();
+  factory GEncapsulatedFieldsClass.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GEncapsulatedFieldsClass.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GEncapsulatedFieldsClass', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'finalString')
+    ..aOS(2, _omitFieldNames ? '' : 'encapsulatedString')
     ..hasRequiredFields = false
   ;
 
-  GEncapsulatedFieldsClass._() : super();
-  factory GEncapsulatedFieldsClass({
-    $core.String? finalString,
-    $core.String? encapsulatedString,
-  }) {
-    final _result = create();
-    if (finalString != null) {
-      _result.finalString = finalString;
-    }
-    if (encapsulatedString != null) {
-      _result.encapsulatedString = encapsulatedString;
-    }
-    return _result;
-  }
-  factory GEncapsulatedFieldsClass.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GEncapsulatedFieldsClass.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2158,8 +1870,10 @@ class GEncapsulatedFieldsClass extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GEncapsulatedFieldsClass copyWith(void Function(GEncapsulatedFieldsClass) updates) => super.copyWith((message) => updates(message as GEncapsulatedFieldsClass)) as GEncapsulatedFieldsClass; // ignore: deprecated_member_use
+  GEncapsulatedFieldsClass copyWith(void Function(GEncapsulatedFieldsClass) updates) => super.copyWith((message) => updates(message as GEncapsulatedFieldsClass)) as GEncapsulatedFieldsClass;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GEncapsulatedFieldsClass create() => GEncapsulatedFieldsClass._();
   GEncapsulatedFieldsClass createEmptyInstance() => create();
@@ -2188,14 +1902,15 @@ class GEncapsulatedFieldsClass extends $pb.GeneratedMessage {
 }
 
 class GFieldsOfScheduleConstraint extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfScheduleConstraint', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  factory GFieldsOfScheduleConstraint() => create();
+  GFieldsOfScheduleConstraint._() : super();
+  factory GFieldsOfScheduleConstraint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfScheduleConstraint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GFieldsOfScheduleConstraint', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
-  GFieldsOfScheduleConstraint._() : super();
-  factory GFieldsOfScheduleConstraint() => create();
-  factory GFieldsOfScheduleConstraint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GFieldsOfScheduleConstraint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2205,8 +1920,10 @@ class GFieldsOfScheduleConstraint extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GFieldsOfScheduleConstraint copyWith(void Function(GFieldsOfScheduleConstraint) updates) => super.copyWith((message) => updates(message as GFieldsOfScheduleConstraint)) as GFieldsOfScheduleConstraint; // ignore: deprecated_member_use
+  GFieldsOfScheduleConstraint copyWith(void Function(GFieldsOfScheduleConstraint) updates) => super.copyWith((message) => updates(message as GFieldsOfScheduleConstraint)) as GFieldsOfScheduleConstraint;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GFieldsOfScheduleConstraint create() => GFieldsOfScheduleConstraint._();
   GFieldsOfScheduleConstraint createEmptyInstance() => create();
@@ -2223,34 +1940,23 @@ enum GScheduleConstraint_Props {
 }
 
 class GScheduleConstraint extends $pb.GeneratedMessage {
+  factory GScheduleConstraint() => create();
+  GScheduleConstraint._() : super();
+  factory GScheduleConstraint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GScheduleConstraint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, GScheduleConstraint_Props> _GScheduleConstraint_PropsByTag = {
     1 : GScheduleConstraint_Props.scheduleConstraint,
     3 : GScheduleConstraint_Props.contestConstraint,
     0 : GScheduleConstraint_Props.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GScheduleConstraint', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GScheduleConstraint', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..oo(0, [1, 3])
-    ..aOM<GFieldsOfScheduleConstraint>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scheduleConstraint', subBuilder: GFieldsOfScheduleConstraint.create)
-    ..aOM<GContestConstraint>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'contestConstraint', subBuilder: GContestConstraint.create)
+    ..aOM<GFieldsOfScheduleConstraint>(1, _omitFieldNames ? '' : 'scheduleConstraint', subBuilder: GFieldsOfScheduleConstraint.create)
+    ..aOM<GContestConstraint>(3, _omitFieldNames ? '' : 'contestConstraint', subBuilder: GContestConstraint.create)
     ..hasRequiredFields = false
   ;
 
-  GScheduleConstraint._() : super();
-  factory GScheduleConstraint({
-    GFieldsOfScheduleConstraint? scheduleConstraint,
-    GContestConstraint? contestConstraint,
-  }) {
-    final _result = create();
-    if (scheduleConstraint != null) {
-      _result.scheduleConstraint = scheduleConstraint;
-    }
-    if (contestConstraint != null) {
-      _result.contestConstraint = contestConstraint;
-    }
-    return _result;
-  }
-  factory GScheduleConstraint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GScheduleConstraint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2260,8 +1966,10 @@ class GScheduleConstraint extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GScheduleConstraint copyWith(void Function(GScheduleConstraint) updates) => super.copyWith((message) => updates(message as GScheduleConstraint)) as GScheduleConstraint; // ignore: deprecated_member_use
+  GScheduleConstraint copyWith(void Function(GScheduleConstraint) updates) => super.copyWith((message) => updates(message as GScheduleConstraint)) as GScheduleConstraint;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GScheduleConstraint create() => GScheduleConstraint._();
   GScheduleConstraint createEmptyInstance() => create();
@@ -2297,14 +2005,15 @@ class GScheduleConstraint extends $pb.GeneratedMessage {
 }
 
 class GConstraintAdded extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GConstraintAdded', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  factory GConstraintAdded() => create();
+  GConstraintAdded._() : super();
+  factory GConstraintAdded.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GConstraintAdded.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GConstraintAdded', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
-  GConstraintAdded._() : super();
-  factory GConstraintAdded() => create();
-  factory GConstraintAdded.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GConstraintAdded.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2314,8 +2023,10 @@ class GConstraintAdded extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GConstraintAdded copyWith(void Function(GConstraintAdded) updates) => super.copyWith((message) => updates(message as GConstraintAdded)) as GConstraintAdded; // ignore: deprecated_member_use
+  GConstraintAdded copyWith(void Function(GConstraintAdded) updates) => super.copyWith((message) => updates(message as GConstraintAdded)) as GConstraintAdded;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GConstraintAdded create() => GConstraintAdded._();
   GConstraintAdded createEmptyInstance() => create();
@@ -2326,23 +2037,16 @@ class GConstraintAdded extends $pb.GeneratedMessage {
 }
 
 class GContestConstraint extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GContestConstraint', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfScheduleConstraint>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfScheduleConstraint.create)
+  factory GContestConstraint() => create();
+  GContestConstraint._() : super();
+  factory GContestConstraint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GContestConstraint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GContestConstraint', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfScheduleConstraint>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfScheduleConstraint.create)
     ..hasRequiredFields = false
   ;
 
-  GContestConstraint._() : super();
-  factory GContestConstraint({
-    GFieldsOfScheduleConstraint? fieldsOfSuperClass,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    return _result;
-  }
-  factory GContestConstraint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GContestConstraint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2352,8 +2056,10 @@ class GContestConstraint extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GContestConstraint copyWith(void Function(GContestConstraint) updates) => super.copyWith((message) => updates(message as GContestConstraint)) as GContestConstraint; // ignore: deprecated_member_use
+  GContestConstraint copyWith(void Function(GContestConstraint) updates) => super.copyWith((message) => updates(message as GContestConstraint)) as GContestConstraint;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GContestConstraint create() => GContestConstraint._();
   GContestConstraint createEmptyInstance() => create();
@@ -2375,58 +2081,23 @@ class GContestConstraint extends $pb.GeneratedMessage {
 }
 
 class GIngredient extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GIngredient', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'quantity')
-    ..a<$core.double>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'precision', $pb.PbFieldType.OD)
-    ..aInt64(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cookingDuration')
-    ..aOM<GComponent>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mainComponent', subBuilder: GComponent.create)
-    ..pc<GComponent>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'otherComponents', $pb.PbFieldType.PM, subBuilder: GComponent.create)
-    ..aOM<GComponent>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'alternativeComponent', subBuilder: GComponent.create)
-    ..pc<GComponent>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondaryComponents', $pb.PbFieldType.PM, subBuilder: GComponent.create)
+  factory GIngredient() => create();
+  GIngredient._() : super();
+  factory GIngredient.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GIngredient.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GIngredient', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..aOS(3, _omitFieldNames ? '' : 'quantity')
+    ..a<$core.double>(4, _omitFieldNames ? '' : 'precision', $pb.PbFieldType.OD)
+    ..aInt64(5, _omitFieldNames ? '' : 'cookingDuration')
+    ..aOM<GComponent>(6, _omitFieldNames ? '' : 'mainComponent', subBuilder: GComponent.create)
+    ..pc<GComponent>(7, _omitFieldNames ? '' : 'otherComponents', $pb.PbFieldType.PM, subBuilder: GComponent.create)
+    ..aOM<GComponent>(8, _omitFieldNames ? '' : 'alternativeComponent', subBuilder: GComponent.create)
+    ..pc<GComponent>(9, _omitFieldNames ? '' : 'secondaryComponents', $pb.PbFieldType.PM, subBuilder: GComponent.create)
     ..hasRequiredFields = false
   ;
 
-  GIngredient._() : super();
-  factory GIngredient({
-    $core.String? description,
-    $core.String? quantity,
-    $core.double? precision,
-    $fixnum.Int64? cookingDuration,
-    GComponent? mainComponent,
-    $core.Iterable<GComponent>? otherComponents,
-    GComponent? alternativeComponent,
-    $core.Iterable<GComponent>? secondaryComponents,
-  }) {
-    final _result = create();
-    if (description != null) {
-      _result.description = description;
-    }
-    if (quantity != null) {
-      _result.quantity = quantity;
-    }
-    if (precision != null) {
-      _result.precision = precision;
-    }
-    if (cookingDuration != null) {
-      _result.cookingDuration = cookingDuration;
-    }
-    if (mainComponent != null) {
-      _result.mainComponent = mainComponent;
-    }
-    if (otherComponents != null) {
-      _result.otherComponents.addAll(otherComponents);
-    }
-    if (alternativeComponent != null) {
-      _result.alternativeComponent = alternativeComponent;
-    }
-    if (secondaryComponents != null) {
-      _result.secondaryComponents.addAll(secondaryComponents);
-    }
-    return _result;
-  }
-  factory GIngredient.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GIngredient.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2436,8 +2107,10 @@ class GIngredient extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GIngredient copyWith(void Function(GIngredient) updates) => super.copyWith((message) => updates(message as GIngredient)) as GIngredient; // ignore: deprecated_member_use
+  GIngredient copyWith(void Function(GIngredient) updates) => super.copyWith((message) => updates(message as GIngredient)) as GIngredient;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GIngredient create() => GIngredient._();
   GIngredient createEmptyInstance() => create();
@@ -2512,14 +2185,15 @@ class GIngredient extends $pb.GeneratedMessage {
 }
 
 class GFieldsOfBranch extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfBranch', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  factory GFieldsOfBranch() => create();
+  GFieldsOfBranch._() : super();
+  factory GFieldsOfBranch.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfBranch.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GFieldsOfBranch', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
-  GFieldsOfBranch._() : super();
-  factory GFieldsOfBranch() => create();
-  factory GFieldsOfBranch.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GFieldsOfBranch.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2529,8 +2203,10 @@ class GFieldsOfBranch extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GFieldsOfBranch copyWith(void Function(GFieldsOfBranch) updates) => super.copyWith((message) => updates(message as GFieldsOfBranch)) as GFieldsOfBranch; // ignore: deprecated_member_use
+  GFieldsOfBranch copyWith(void Function(GFieldsOfBranch) updates) => super.copyWith((message) => updates(message as GFieldsOfBranch)) as GFieldsOfBranch;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GFieldsOfBranch create() => GFieldsOfBranch._();
   GFieldsOfBranch createEmptyInstance() => create();
@@ -2547,34 +2223,23 @@ enum GBranch_Props {
 }
 
 class GBranch extends $pb.GeneratedMessage {
+  factory GBranch() => create();
+  GBranch._() : super();
+  factory GBranch.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GBranch.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, GBranch_Props> _GBranch_PropsByTag = {
     1 : GBranch_Props.branch,
     3 : GBranch_Props.twig,
     0 : GBranch_Props.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GBranch', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GBranch', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..oo(0, [1, 3])
-    ..aOM<GFieldsOfBranch>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'branch', subBuilder: GFieldsOfBranch.create)
-    ..aOM<GTwig>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'twig', subBuilder: GTwig.create)
+    ..aOM<GFieldsOfBranch>(1, _omitFieldNames ? '' : 'branch', subBuilder: GFieldsOfBranch.create)
+    ..aOM<GTwig>(3, _omitFieldNames ? '' : 'twig', subBuilder: GTwig.create)
     ..hasRequiredFields = false
   ;
 
-  GBranch._() : super();
-  factory GBranch({
-    GFieldsOfBranch? branch,
-    GTwig? twig,
-  }) {
-    final _result = create();
-    if (branch != null) {
-      _result.branch = branch;
-    }
-    if (twig != null) {
-      _result.twig = twig;
-    }
-    return _result;
-  }
-  factory GBranch.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GBranch.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2584,8 +2249,10 @@ class GBranch extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GBranch copyWith(void Function(GBranch) updates) => super.copyWith((message) => updates(message as GBranch)) as GBranch; // ignore: deprecated_member_use
+  GBranch copyWith(void Function(GBranch) updates) => super.copyWith((message) => updates(message as GBranch)) as GBranch;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GBranch create() => GBranch._();
   GBranch createEmptyInstance() => create();
@@ -2621,33 +2288,18 @@ class GBranch extends $pb.GeneratedMessage {
 }
 
 class GFieldsOfTwig extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GFieldsOfTwig', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfBranch>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfBranch.create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'prop1', $pb.PbFieldType.O3)
-    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'prop2', $pb.PbFieldType.O3)
+  factory GFieldsOfTwig() => create();
+  GFieldsOfTwig._() : super();
+  factory GFieldsOfTwig.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GFieldsOfTwig.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GFieldsOfTwig', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfBranch>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfBranch.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'prop1', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'prop2', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GFieldsOfTwig._() : super();
-  factory GFieldsOfTwig({
-    GFieldsOfBranch? fieldsOfSuperClass,
-    $core.int? prop1,
-    $core.int? prop2,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    if (prop1 != null) {
-      _result.prop1 = prop1;
-    }
-    if (prop2 != null) {
-      _result.prop2 = prop2;
-    }
-    return _result;
-  }
-  factory GFieldsOfTwig.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GFieldsOfTwig.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2657,8 +2309,10 @@ class GFieldsOfTwig extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GFieldsOfTwig copyWith(void Function(GFieldsOfTwig) updates) => super.copyWith((message) => updates(message as GFieldsOfTwig)) as GFieldsOfTwig; // ignore: deprecated_member_use
+  GFieldsOfTwig copyWith(void Function(GFieldsOfTwig) updates) => super.copyWith((message) => updates(message as GFieldsOfTwig)) as GFieldsOfTwig;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GFieldsOfTwig create() => GFieldsOfTwig._();
   GFieldsOfTwig createEmptyInstance() => create();
@@ -2704,34 +2358,23 @@ enum GTwig_Props {
 }
 
 class GTwig extends $pb.GeneratedMessage {
+  factory GTwig() => create();
+  GTwig._() : super();
+  factory GTwig.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GTwig.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
   static const $core.Map<$core.int, GTwig_Props> _GTwig_PropsByTag = {
     1 : GTwig_Props.twig,
     3 : GTwig_Props.leaf,
     0 : GTwig_Props.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GTwig', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GTwig', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
     ..oo(0, [1, 3])
-    ..aOM<GFieldsOfTwig>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'twig', subBuilder: GFieldsOfTwig.create)
-    ..aOM<GLeaf>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leaf', subBuilder: GLeaf.create)
+    ..aOM<GFieldsOfTwig>(1, _omitFieldNames ? '' : 'twig', subBuilder: GFieldsOfTwig.create)
+    ..aOM<GLeaf>(3, _omitFieldNames ? '' : 'leaf', subBuilder: GLeaf.create)
     ..hasRequiredFields = false
   ;
 
-  GTwig._() : super();
-  factory GTwig({
-    GFieldsOfTwig? twig,
-    GLeaf? leaf,
-  }) {
-    final _result = create();
-    if (twig != null) {
-      _result.twig = twig;
-    }
-    if (leaf != null) {
-      _result.leaf = leaf;
-    }
-    return _result;
-  }
-  factory GTwig.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GTwig.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2741,8 +2384,10 @@ class GTwig extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GTwig copyWith(void Function(GTwig) updates) => super.copyWith((message) => updates(message as GTwig)) as GTwig; // ignore: deprecated_member_use
+  GTwig copyWith(void Function(GTwig) updates) => super.copyWith((message) => updates(message as GTwig)) as GTwig;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GTwig create() => GTwig._();
   GTwig createEmptyInstance() => create();
@@ -2778,23 +2423,16 @@ class GTwig extends $pb.GeneratedMessage {
 }
 
 class GLeaf extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GLeaf', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GFieldsOfTwig>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfTwig.create)
+  factory GLeaf() => create();
+  GLeaf._() : super();
+  factory GLeaf.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GLeaf.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GLeaf', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GFieldsOfTwig>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GFieldsOfTwig.create)
     ..hasRequiredFields = false
   ;
 
-  GLeaf._() : super();
-  factory GLeaf({
-    GFieldsOfTwig? fieldsOfSuperClass,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    return _result;
-  }
-  factory GLeaf.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GLeaf.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2804,8 +2442,10 @@ class GLeaf extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GLeaf copyWith(void Function(GLeaf) updates) => super.copyWith((message) => updates(message as GLeaf)) as GLeaf; // ignore: deprecated_member_use
+  GLeaf copyWith(void Function(GLeaf) updates) => super.copyWith((message) => updates(message as GLeaf)) as GLeaf;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GLeaf create() => GLeaf._();
   GLeaf createEmptyInstance() => create();
@@ -2827,23 +2467,16 @@ class GLeaf extends $pb.GeneratedMessage {
 }
 
 class GKey extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GKey', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
+  factory GKey() => create();
+  GKey._() : super();
+  factory GKey.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GKey.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GKey', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'key')
     ..hasRequiredFields = false
   ;
 
-  GKey._() : super();
-  factory GKey({
-    $core.String? key,
-  }) {
-    final _result = create();
-    if (key != null) {
-      _result.key = key;
-    }
-    return _result;
-  }
-  factory GKey.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GKey.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2853,8 +2486,10 @@ class GKey extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GKey copyWith(void Function(GKey) updates) => super.copyWith((message) => updates(message as GKey)) as GKey; // ignore: deprecated_member_use
+  GKey copyWith(void Function(GKey) updates) => super.copyWith((message) => updates(message as GKey)) as GKey;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GKey create() => GKey._();
   GKey createEmptyInstance() => create();
@@ -2874,98 +2509,31 @@ class GKey extends $pb.GeneratedMessage {
 }
 
 class GListsHost extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GListsHost', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..p<$core.bool>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vbools', $pb.PbFieldType.KB)
-    ..p<$core.bool>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvbools', $pb.PbFieldType.KB)
-    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vstrings')
-    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvstrings')
-    ..p<$fixnum.Int64>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdurations', $pb.PbFieldType.K6)
-    ..p<$fixnum.Int64>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdurations', $pb.PbFieldType.K6)
-    ..p<$fixnum.Int64>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdatetimes', $pb.PbFieldType.K6)
-    ..p<$fixnum.Int64>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdatetimes', $pb.PbFieldType.K6)
-    ..pPS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdecimals')
-    ..pPS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdecimals')
-    ..p<$core.int>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vints', $pb.PbFieldType.K3)
-    ..p<$core.int>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvints', $pb.PbFieldType.K3)
-    ..p<$core.double>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vdoubles', $pb.PbFieldType.KD)
-    ..p<$core.double>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvdoubles', $pb.PbFieldType.KD)
-    ..pc<GApplianceType>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vapplianceTypes', $pb.PbFieldType.KE, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values, defaultEnumValue: GApplianceType.G_APPLIANCE_TYPE_HEAT)
-    ..pc<GApplianceType>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nvapplianceTypes', $pb.PbFieldType.KE, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values, defaultEnumValue: GApplianceType.G_APPLIANCE_TYPE_HEAT)
+  factory GListsHost() => create();
+  GListsHost._() : super();
+  factory GListsHost.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GListsHost.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GListsHost', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..p<$core.bool>(2, _omitFieldNames ? '' : 'vbools', $pb.PbFieldType.KB)
+    ..p<$core.bool>(3, _omitFieldNames ? '' : 'nvbools', $pb.PbFieldType.KB)
+    ..pPS(4, _omitFieldNames ? '' : 'vstrings')
+    ..pPS(5, _omitFieldNames ? '' : 'nvstrings')
+    ..p<$fixnum.Int64>(6, _omitFieldNames ? '' : 'vdurations', $pb.PbFieldType.K6)
+    ..p<$fixnum.Int64>(7, _omitFieldNames ? '' : 'nvdurations', $pb.PbFieldType.K6)
+    ..p<$fixnum.Int64>(8, _omitFieldNames ? '' : 'vdatetimes', $pb.PbFieldType.K6)
+    ..p<$fixnum.Int64>(9, _omitFieldNames ? '' : 'nvdatetimes', $pb.PbFieldType.K6)
+    ..pPS(10, _omitFieldNames ? '' : 'vdecimals')
+    ..pPS(11, _omitFieldNames ? '' : 'nvdecimals')
+    ..p<$core.int>(12, _omitFieldNames ? '' : 'vints', $pb.PbFieldType.K3)
+    ..p<$core.int>(13, _omitFieldNames ? '' : 'nvints', $pb.PbFieldType.K3)
+    ..p<$core.double>(14, _omitFieldNames ? '' : 'vdoubles', $pb.PbFieldType.KD)
+    ..p<$core.double>(15, _omitFieldNames ? '' : 'nvdoubles', $pb.PbFieldType.KD)
+    ..pc<GApplianceType>(16, _omitFieldNames ? '' : 'vapplianceTypes', $pb.PbFieldType.KE, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values, defaultEnumValue: GApplianceType.G_APPLIANCE_TYPE_HEAT)
+    ..pc<GApplianceType>(17, _omitFieldNames ? '' : 'nvapplianceTypes', $pb.PbFieldType.KE, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values, defaultEnumValue: GApplianceType.G_APPLIANCE_TYPE_HEAT)
     ..hasRequiredFields = false
   ;
 
-  GListsHost._() : super();
-  factory GListsHost({
-    $core.Iterable<$core.bool>? vbools,
-    $core.Iterable<$core.bool>? nvbools,
-    $core.Iterable<$core.String>? vstrings,
-    $core.Iterable<$core.String>? nvstrings,
-    $core.Iterable<$fixnum.Int64>? vdurations,
-    $core.Iterable<$fixnum.Int64>? nvdurations,
-    $core.Iterable<$fixnum.Int64>? vdatetimes,
-    $core.Iterable<$fixnum.Int64>? nvdatetimes,
-    $core.Iterable<$core.String>? vdecimals,
-    $core.Iterable<$core.String>? nvdecimals,
-    $core.Iterable<$core.int>? vints,
-    $core.Iterable<$core.int>? nvints,
-    $core.Iterable<$core.double>? vdoubles,
-    $core.Iterable<$core.double>? nvdoubles,
-    $core.Iterable<GApplianceType>? vapplianceTypes,
-    $core.Iterable<GApplianceType>? nvapplianceTypes,
-  }) {
-    final _result = create();
-    if (vbools != null) {
-      _result.vbools.addAll(vbools);
-    }
-    if (nvbools != null) {
-      _result.nvbools.addAll(nvbools);
-    }
-    if (vstrings != null) {
-      _result.vstrings.addAll(vstrings);
-    }
-    if (nvstrings != null) {
-      _result.nvstrings.addAll(nvstrings);
-    }
-    if (vdurations != null) {
-      _result.vdurations.addAll(vdurations);
-    }
-    if (nvdurations != null) {
-      _result.nvdurations.addAll(nvdurations);
-    }
-    if (vdatetimes != null) {
-      _result.vdatetimes.addAll(vdatetimes);
-    }
-    if (nvdatetimes != null) {
-      _result.nvdatetimes.addAll(nvdatetimes);
-    }
-    if (vdecimals != null) {
-      _result.vdecimals.addAll(vdecimals);
-    }
-    if (nvdecimals != null) {
-      _result.nvdecimals.addAll(nvdecimals);
-    }
-    if (vints != null) {
-      _result.vints.addAll(vints);
-    }
-    if (nvints != null) {
-      _result.nvints.addAll(nvints);
-    }
-    if (vdoubles != null) {
-      _result.vdoubles.addAll(vdoubles);
-    }
-    if (nvdoubles != null) {
-      _result.nvdoubles.addAll(nvdoubles);
-    }
-    if (vapplianceTypes != null) {
-      _result.vapplianceTypes.addAll(vapplianceTypes);
-    }
-    if (nvapplianceTypes != null) {
-      _result.nvapplianceTypes.addAll(nvapplianceTypes);
-    }
-    return _result;
-  }
-  factory GListsHost.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GListsHost.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2975,8 +2543,10 @@ class GListsHost extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GListsHost copyWith(void Function(GListsHost) updates) => super.copyWith((message) => updates(message as GListsHost)) as GListsHost; // ignore: deprecated_member_use
+  GListsHost copyWith(void Function(GListsHost) updates) => super.copyWith((message) => updates(message as GListsHost)) as GListsHost;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GListsHost create() => GListsHost._();
   GListsHost createEmptyInstance() => create();
@@ -3035,28 +2605,17 @@ class GListsHost extends $pb.GeneratedMessage {
 }
 
 class GPerson extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GPerson', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boolValue')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'decVal')
+  factory GPerson() => create();
+  GPerson._() : super();
+  factory GPerson.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GPerson.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GPerson', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'boolValue')
+    ..aOS(2, _omitFieldNames ? '' : 'decVal')
     ..hasRequiredFields = false
   ;
 
-  GPerson._() : super();
-  factory GPerson({
-    $core.bool? boolValue,
-    $core.String? decVal,
-  }) {
-    final _result = create();
-    if (boolValue != null) {
-      _result.boolValue = boolValue;
-    }
-    if (decVal != null) {
-      _result.decVal = decVal;
-    }
-    return _result;
-  }
-  factory GPerson.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GPerson.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3066,8 +2625,10 @@ class GPerson extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GPerson copyWith(void Function(GPerson) updates) => super.copyWith((message) => updates(message as GPerson)) as GPerson; // ignore: deprecated_member_use
+  GPerson copyWith(void Function(GPerson) updates) => super.copyWith((message) => updates(message as GPerson)) as GPerson;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GPerson create() => GPerson._();
   GPerson createEmptyInstance() => create();
@@ -3096,103 +2657,32 @@ class GPerson extends $pb.GeneratedMessage {
 }
 
 class GRecipe extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GRecipe', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
-    ..aOM<GCategory>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'category', subBuilder: GCategory.create)
-    ..pc<GIngredient>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ingredients', $pb.PbFieldType.PM, subBuilder: GIngredient.create)
-    ..aInt64(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishDate')
-    ..aInt64(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiryDate')
-    ..aInt64(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'preparationDuration')
-    ..aInt64(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'totalDuration')
-    ..aOB(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isPublished')
-    ..aOB(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requiresRobot')
-    ..a<$core.double>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grossWeight', $pb.PbFieldType.OD)
-    ..a<$core.double>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'netWeight', $pb.PbFieldType.OD)
-    ..e<GApplianceType>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mainApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
-    ..e<GApplianceType>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondaryApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
-    ..pPS(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags')
-    ..pPS(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'extraTags')
-    ..pc<GApplianceType>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'moreApplianceTypes', $pb.PbFieldType.KE, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values, defaultEnumValue: GApplianceType.G_APPLIANCE_TYPE_HEAT)
+  factory GRecipe() => create();
+  GRecipe._() : super();
+  factory GRecipe.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GRecipe.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GRecipe', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'title')
+    ..aOS(3, _omitFieldNames ? '' : 'description')
+    ..aOM<GCategory>(4, _omitFieldNames ? '' : 'category', subBuilder: GCategory.create)
+    ..pc<GIngredient>(5, _omitFieldNames ? '' : 'ingredients', $pb.PbFieldType.PM, subBuilder: GIngredient.create)
+    ..aInt64(6, _omitFieldNames ? '' : 'publishDate')
+    ..aInt64(7, _omitFieldNames ? '' : 'expiryDate')
+    ..aInt64(8, _omitFieldNames ? '' : 'preparationDuration')
+    ..aInt64(9, _omitFieldNames ? '' : 'totalDuration')
+    ..aOB(10, _omitFieldNames ? '' : 'isPublished')
+    ..aOB(11, _omitFieldNames ? '' : 'requiresRobot')
+    ..a<$core.double>(12, _omitFieldNames ? '' : 'grossWeight', $pb.PbFieldType.OD)
+    ..a<$core.double>(13, _omitFieldNames ? '' : 'netWeight', $pb.PbFieldType.OD)
+    ..e<GApplianceType>(14, _omitFieldNames ? '' : 'mainApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
+    ..e<GApplianceType>(15, _omitFieldNames ? '' : 'secondaryApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
+    ..pPS(16, _omitFieldNames ? '' : 'tags')
+    ..pPS(17, _omitFieldNames ? '' : 'extraTags')
+    ..pc<GApplianceType>(18, _omitFieldNames ? '' : 'moreApplianceTypes', $pb.PbFieldType.KE, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values, defaultEnumValue: GApplianceType.G_APPLIANCE_TYPE_HEAT)
     ..hasRequiredFields = false
   ;
 
-  GRecipe._() : super();
-  factory GRecipe({
-    $core.String? title,
-    $core.String? description,
-    GCategory? category,
-    $core.Iterable<GIngredient>? ingredients,
-    $fixnum.Int64? publishDate,
-    $fixnum.Int64? expiryDate,
-    $fixnum.Int64? preparationDuration,
-    $fixnum.Int64? totalDuration,
-    $core.bool? isPublished,
-    $core.bool? requiresRobot,
-    $core.double? grossWeight,
-    $core.double? netWeight,
-    GApplianceType? mainApplianceType,
-    GApplianceType? secondaryApplianceType,
-    $core.Iterable<$core.String>? tags,
-    $core.Iterable<$core.String>? extraTags,
-    $core.Iterable<GApplianceType>? moreApplianceTypes,
-  }) {
-    final _result = create();
-    if (title != null) {
-      _result.title = title;
-    }
-    if (description != null) {
-      _result.description = description;
-    }
-    if (category != null) {
-      _result.category = category;
-    }
-    if (ingredients != null) {
-      _result.ingredients.addAll(ingredients);
-    }
-    if (publishDate != null) {
-      _result.publishDate = publishDate;
-    }
-    if (expiryDate != null) {
-      _result.expiryDate = expiryDate;
-    }
-    if (preparationDuration != null) {
-      _result.preparationDuration = preparationDuration;
-    }
-    if (totalDuration != null) {
-      _result.totalDuration = totalDuration;
-    }
-    if (isPublished != null) {
-      _result.isPublished = isPublished;
-    }
-    if (requiresRobot != null) {
-      _result.requiresRobot = requiresRobot;
-    }
-    if (grossWeight != null) {
-      _result.grossWeight = grossWeight;
-    }
-    if (netWeight != null) {
-      _result.netWeight = netWeight;
-    }
-    if (mainApplianceType != null) {
-      _result.mainApplianceType = mainApplianceType;
-    }
-    if (secondaryApplianceType != null) {
-      _result.secondaryApplianceType = secondaryApplianceType;
-    }
-    if (tags != null) {
-      _result.tags.addAll(tags);
-    }
-    if (extraTags != null) {
-      _result.extraTags.addAll(extraTags);
-    }
-    if (moreApplianceTypes != null) {
-      _result.moreApplianceTypes.addAll(moreApplianceTypes);
-    }
-    return _result;
-  }
-  factory GRecipe.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GRecipe.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3202,8 +2692,10 @@ class GRecipe extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GRecipe copyWith(void Function(GRecipe) updates) => super.copyWith((message) => updates(message as GRecipe)) as GRecipe; // ignore: deprecated_member_use
+  GRecipe copyWith(void Function(GRecipe) updates) => super.copyWith((message) => updates(message as GRecipe)) as GRecipe;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GRecipe create() => GRecipe._();
   GRecipe createEmptyInstance() => create();
@@ -3345,33 +2837,18 @@ class GRecipe extends $pb.GeneratedMessage {
 }
 
 class GStarship extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GStarship', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'range', $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'odometer', $pb.PbFieldType.OY)
-    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'engineNumber', $pb.PbFieldType.O3)
+  factory GStarship() => create();
+  GStarship._() : super();
+  factory GStarship.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GStarship.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GStarship', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'range', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'odometer', $pb.PbFieldType.OY)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'engineNumber', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  GStarship._() : super();
-  factory GStarship({
-    $core.List<$core.int>? range,
-    $core.List<$core.int>? odometer,
-    $core.int? engineNumber,
-  }) {
-    final _result = create();
-    if (range != null) {
-      _result.range = range;
-    }
-    if (odometer != null) {
-      _result.odometer = odometer;
-    }
-    if (engineNumber != null) {
-      _result.engineNumber = engineNumber;
-    }
-    return _result;
-  }
-  factory GStarship.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GStarship.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3381,8 +2858,10 @@ class GStarship extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GStarship copyWith(void Function(GStarship) updates) => super.copyWith((message) => updates(message as GStarship)) as GStarship; // ignore: deprecated_member_use
+  GStarship copyWith(void Function(GStarship) updates) => super.copyWith((message) => updates(message as GStarship)) as GStarship;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GStarship create() => GStarship._();
   GStarship createEmptyInstance() => create();
@@ -3420,28 +2899,17 @@ class GStarship extends $pb.GeneratedMessage {
 }
 
 class GKnife extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GKnife', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..e<GKnifeType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: GKnifeType.G_KNIFE_TYPE_CHEFS_KNIFE, valueOf: GKnifeType.valueOf, enumValues: GKnifeType.values)
+  factory GKnife() => create();
+  GKnife._() : super();
+  factory GKnife.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GKnife.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GKnife', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..e<GKnifeType>(2, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: GKnifeType.G_KNIFE_TYPE_CHEFS_KNIFE, valueOf: GKnifeType.valueOf, enumValues: GKnifeType.values)
     ..hasRequiredFields = false
   ;
 
-  GKnife._() : super();
-  factory GKnife({
-    $core.String? name,
-    GKnifeType? type,
-  }) {
-    final _result = create();
-    if (name != null) {
-      _result.name = name;
-    }
-    if (type != null) {
-      _result.type = type;
-    }
-    return _result;
-  }
-  factory GKnife.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GKnife.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3451,8 +2919,10 @@ class GKnife extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GKnife copyWith(void Function(GKnife) updates) => super.copyWith((message) => updates(message as GKnife)) as GKnife; // ignore: deprecated_member_use
+  GKnife copyWith(void Function(GKnife) updates) => super.copyWith((message) => updates(message as GKnife)) as GKnife;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GKnife create() => GKnife._();
   GKnife createEmptyInstance() => create();
@@ -3481,28 +2951,17 @@ class GKnife extends $pb.GeneratedMessage {
 }
 
 class GGarlicPress extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GGarlicPress', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'machineWashable')
+  factory GGarlicPress() => create();
+  GGarlicPress._() : super();
+  factory GGarlicPress.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GGarlicPress.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GGarlicPress', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aOB(3, _omitFieldNames ? '' : 'machineWashable')
     ..hasRequiredFields = false
   ;
 
-  GGarlicPress._() : super();
-  factory GGarlicPress({
-    $core.String? name,
-    $core.bool? machineWashable,
-  }) {
-    final _result = create();
-    if (name != null) {
-      _result.name = name;
-    }
-    if (machineWashable != null) {
-      _result.machineWashable = machineWashable;
-    }
-    return _result;
-  }
-  factory GGarlicPress.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GGarlicPress.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3512,8 +2971,10 @@ class GGarlicPress extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GGarlicPress copyWith(void Function(GGarlicPress) updates) => super.copyWith((message) => updates(message as GGarlicPress)) as GGarlicPress; // ignore: deprecated_member_use
+  GGarlicPress copyWith(void Function(GGarlicPress) updates) => super.copyWith((message) => updates(message as GGarlicPress)) as GGarlicPress;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GGarlicPress create() => GGarlicPress._();
   GGarlicPress createEmptyInstance() => create();
@@ -3542,33 +3003,18 @@ class GGarlicPress extends $pb.GeneratedMessage {
 }
 
 class GKitchen extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GKitchen', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..pc<GRecipe>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'recipeList', $pb.PbFieldType.PM, subBuilder: GRecipe.create)
-    ..m<$core.String, GRecipe>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'recipeMap', entryClassName: 'GKitchen.RecipeMapEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OM, valueCreator: GRecipe.create, packageName: const $pb.PackageName('com.company.project'))
-    ..aInt64(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextInspectionDate')
+  factory GKitchen() => create();
+  GKitchen._() : super();
+  factory GKitchen.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GKitchen.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GKitchen', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..pc<GRecipe>(2, _omitFieldNames ? '' : 'recipeList', $pb.PbFieldType.PM, subBuilder: GRecipe.create)
+    ..m<$core.String, GRecipe>(3, _omitFieldNames ? '' : 'recipeMap', entryClassName: 'GKitchen.RecipeMapEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OM, valueCreator: GRecipe.create, valueDefaultOrMaker: GRecipe.getDefault, packageName: const $pb.PackageName('com.company.project'))
+    ..aInt64(4, _omitFieldNames ? '' : 'nextInspectionDate')
     ..hasRequiredFields = false
   ;
 
-  GKitchen._() : super();
-  factory GKitchen({
-    $core.Iterable<GRecipe>? recipeList,
-    $core.Map<$core.String, GRecipe>? recipeMap,
-    $fixnum.Int64? nextInspectionDate,
-  }) {
-    final _result = create();
-    if (recipeList != null) {
-      _result.recipeList.addAll(recipeList);
-    }
-    if (recipeMap != null) {
-      _result.recipeMap.addAll(recipeMap);
-    }
-    if (nextInspectionDate != null) {
-      _result.nextInspectionDate = nextInspectionDate;
-    }
-    return _result;
-  }
-  factory GKitchen.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GKitchen.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3578,8 +3024,10 @@ class GKitchen extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GKitchen copyWith(void Function(GKitchen) updates) => super.copyWith((message) => updates(message as GKitchen)) as GKitchen; // ignore: deprecated_member_use
+  GKitchen copyWith(void Function(GKitchen) updates) => super.copyWith((message) => updates(message as GKitchen)) as GKitchen;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GKitchen create() => GKitchen._();
   GKitchen createEmptyInstance() => create();
@@ -3605,48 +3053,21 @@ class GKitchen extends $pb.GeneratedMessage {
 }
 
 class GChef extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GChef', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GRecipe>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteRecipe', subBuilder: GRecipe.create)
-    ..aOM<GKnife>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
-    ..e<GApplianceType>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
-    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteWords')
-    ..aInt64(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'birthdate')
-    ..aInt64(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shelfLife')
+  factory GChef() => create();
+  GChef._() : super();
+  factory GChef.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GChef.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GChef', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GRecipe>(2, _omitFieldNames ? '' : 'favoriteRecipe', subBuilder: GRecipe.create)
+    ..aOM<GKnife>(3, _omitFieldNames ? '' : 'favoriteKnife', subBuilder: GKnife.create)
+    ..e<GApplianceType>(4, _omitFieldNames ? '' : 'favoriteApplianceType', $pb.PbFieldType.OE, defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
+    ..pPS(5, _omitFieldNames ? '' : 'favoriteWords')
+    ..aInt64(6, _omitFieldNames ? '' : 'birthdate')
+    ..aInt64(7, _omitFieldNames ? '' : 'shelfLife')
     ..hasRequiredFields = false
   ;
 
-  GChef._() : super();
-  factory GChef({
-    GRecipe? favoriteRecipe,
-    GKnife? favoriteKnife,
-    GApplianceType? favoriteApplianceType,
-    $core.Iterable<$core.String>? favoriteWords,
-    $fixnum.Int64? birthdate,
-    $fixnum.Int64? shelfLife,
-  }) {
-    final _result = create();
-    if (favoriteRecipe != null) {
-      _result.favoriteRecipe = favoriteRecipe;
-    }
-    if (favoriteKnife != null) {
-      _result.favoriteKnife = favoriteKnife;
-    }
-    if (favoriteApplianceType != null) {
-      _result.favoriteApplianceType = favoriteApplianceType;
-    }
-    if (favoriteWords != null) {
-      _result.favoriteWords.addAll(favoriteWords);
-    }
-    if (birthdate != null) {
-      _result.birthdate = birthdate;
-    }
-    if (shelfLife != null) {
-      _result.shelfLife = shelfLife;
-    }
-    return _result;
-  }
-  factory GChef.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GChef.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3656,8 +3077,10 @@ class GChef extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GChef copyWith(void Function(GChef) updates) => super.copyWith((message) => updates(message as GChef)) as GChef; // ignore: deprecated_member_use
+  GChef copyWith(void Function(GChef) updates) => super.copyWith((message) => updates(message as GChef)) as GChef;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GChef create() => GChef._();
   GChef createEmptyInstance() => create();
@@ -3720,23 +3143,16 @@ class GChef extends $pb.GeneratedMessage {
 }
 
 class GSousChef extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GSousChef', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GChef>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GChef.create)
+  factory GSousChef() => create();
+  GSousChef._() : super();
+  factory GSousChef.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GSousChef.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GSousChef', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GChef>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GChef.create)
     ..hasRequiredFields = false
   ;
 
-  GSousChef._() : super();
-  factory GSousChef({
-    GChef? fieldsOfSuperClass,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    return _result;
-  }
-  factory GSousChef.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GSousChef.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3746,8 +3162,10 @@ class GSousChef extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GSousChef copyWith(void Function(GSousChef) updates) => super.copyWith((message) => updates(message as GSousChef)) as GSousChef; // ignore: deprecated_member_use
+  GSousChef copyWith(void Function(GSousChef) updates) => super.copyWith((message) => updates(message as GSousChef)) as GSousChef;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GSousChef create() => GSousChef._();
   GSousChef createEmptyInstance() => create();
@@ -3769,28 +3187,17 @@ class GSousChef extends $pb.GeneratedMessage {
 }
 
 class GKnifeMaster extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GKnifeMaster', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOM<GChef>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GChef.create)
-    ..aOM<GKnife>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favoriteKnife', subBuilder: GKnife.create)
+  factory GKnifeMaster() => create();
+  GKnifeMaster._() : super();
+  factory GKnifeMaster.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GKnifeMaster.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GKnifeMaster', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOM<GChef>(1, _omitFieldNames ? '' : 'fieldsOfSuperClass', protoName: 'fieldsOfSuperClass', subBuilder: GChef.create)
+    ..aOM<GKnife>(2, _omitFieldNames ? '' : 'favoriteKnife', subBuilder: GKnife.create)
     ..hasRequiredFields = false
   ;
 
-  GKnifeMaster._() : super();
-  factory GKnifeMaster({
-    GChef? fieldsOfSuperClass,
-    GKnife? favoriteKnife,
-  }) {
-    final _result = create();
-    if (fieldsOfSuperClass != null) {
-      _result.fieldsOfSuperClass = fieldsOfSuperClass;
-    }
-    if (favoriteKnife != null) {
-      _result.favoriteKnife = favoriteKnife;
-    }
-    return _result;
-  }
-  factory GKnifeMaster.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GKnifeMaster.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3800,8 +3207,10 @@ class GKnifeMaster extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GKnifeMaster copyWith(void Function(GKnifeMaster) updates) => super.copyWith((message) => updates(message as GKnifeMaster)) as GKnifeMaster; // ignore: deprecated_member_use
+  GKnifeMaster copyWith(void Function(GKnifeMaster) updates) => super.copyWith((message) => updates(message as GKnifeMaster)) as GKnifeMaster;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GKnifeMaster create() => GKnifeMaster._();
   GKnifeMaster createEmptyInstance() => create();
@@ -3834,33 +3243,18 @@ class GKnifeMaster extends $pb.GeneratedMessage {
 }
 
 class GInventory extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GInventory', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..m<$core.String, $core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfThings', entryClassName: 'GInventory.NumberOfThingsEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.O3, packageName: const $pb.PackageName('com.company.project'))
-    ..m<$core.String, GRecipe>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'recipesByName', entryClassName: 'GInventory.RecipesByNameEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OM, valueCreator: GRecipe.create, packageName: const $pb.PackageName('com.company.project'))
-    ..aInt64(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timeSpan')
+  factory GInventory() => create();
+  GInventory._() : super();
+  factory GInventory.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GInventory.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GInventory', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..m<$core.String, $core.int>(2, _omitFieldNames ? '' : 'numberOfThings', entryClassName: 'GInventory.NumberOfThingsEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.O3, packageName: const $pb.PackageName('com.company.project'))
+    ..m<$core.String, GRecipe>(3, _omitFieldNames ? '' : 'recipesByName', entryClassName: 'GInventory.RecipesByNameEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OM, valueCreator: GRecipe.create, valueDefaultOrMaker: GRecipe.getDefault, packageName: const $pb.PackageName('com.company.project'))
+    ..aInt64(4, _omitFieldNames ? '' : 'timeSpan')
     ..hasRequiredFields = false
   ;
 
-  GInventory._() : super();
-  factory GInventory({
-    $core.Map<$core.String, $core.int>? numberOfThings,
-    $core.Map<$core.String, GRecipe>? recipesByName,
-    $fixnum.Int64? timeSpan,
-  }) {
-    final _result = create();
-    if (numberOfThings != null) {
-      _result.numberOfThings.addAll(numberOfThings);
-    }
-    if (recipesByName != null) {
-      _result.recipesByName.addAll(recipesByName);
-    }
-    if (timeSpan != null) {
-      _result.timeSpan = timeSpan;
-    }
-    return _result;
-  }
-  factory GInventory.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GInventory.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3870,8 +3264,10 @@ class GInventory extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GInventory copyWith(void Function(GInventory) updates) => super.copyWith((message) => updates(message as GInventory)) as GInventory; // ignore: deprecated_member_use
+  GInventory copyWith(void Function(GInventory) updates) => super.copyWith((message) => updates(message as GInventory)) as GInventory;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GInventory create() => GInventory._();
   GInventory createEmptyInstance() => create();
@@ -3897,28 +3293,17 @@ class GInventory extends $pb.GeneratedMessage {
 }
 
 class GPrecisionSubject extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GPrecisionSubject', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dateProperty')
-    ..aInt64(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'durationProperty')
+  factory GPrecisionSubject() => create();
+  GPrecisionSubject._() : super();
+  factory GPrecisionSubject.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GPrecisionSubject.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GPrecisionSubject', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aInt64(2, _omitFieldNames ? '' : 'dateProperty')
+    ..aInt64(3, _omitFieldNames ? '' : 'durationProperty')
     ..hasRequiredFields = false
   ;
 
-  GPrecisionSubject._() : super();
-  factory GPrecisionSubject({
-    $fixnum.Int64? dateProperty,
-    $fixnum.Int64? durationProperty,
-  }) {
-    final _result = create();
-    if (dateProperty != null) {
-      _result.dateProperty = dateProperty;
-    }
-    if (durationProperty != null) {
-      _result.durationProperty = durationProperty;
-    }
-    return _result;
-  }
-  factory GPrecisionSubject.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GPrecisionSubject.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -3928,8 +3313,10 @@ class GPrecisionSubject extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GPrecisionSubject copyWith(void Function(GPrecisionSubject) updates) => super.copyWith((message) => updates(message as GPrecisionSubject)) as GPrecisionSubject; // ignore: deprecated_member_use
+  GPrecisionSubject copyWith(void Function(GPrecisionSubject) updates) => super.copyWith((message) => updates(message as GPrecisionSubject)) as GPrecisionSubject;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GPrecisionSubject create() => GPrecisionSubject._();
   GPrecisionSubject createEmptyInstance() => create();
@@ -3958,73 +3345,26 @@ class GPrecisionSubject extends $pb.GeneratedMessage {
 }
 
 class GAltNaming extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GAltNaming', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.company.project'), createEmptyInstance: create)
-    ..aOS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalName', protoName: 'UnconventionalName')
-    ..aOS(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalName', protoName: 'NUnconventionalName')
-    ..e<GApplianceType>(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalEnumName', $pb.PbFieldType.OE, protoName: 'UnconventionalEnumName', defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
-    ..e<GApplianceType>(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalEnumName', $pb.PbFieldType.OE, protoName: 'NUnconventionalEnumName', defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
-    ..aOM<GEmpty>(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalCategory', protoName: 'UnconventionalCategory', subBuilder: GEmpty.create)
-    ..aOM<GEmpty>(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalCategory', protoName: 'NUnconventionalCategory', subBuilder: GEmpty.create)
-    ..pc<GIngredient>(25, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalList', $pb.PbFieldType.PM, protoName: 'UnconventionalList', subBuilder: GIngredient.create)
-    ..aInt64(26, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalDateTime', protoName: 'UnconventionalDateTime')
-    ..aInt64(27, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalDateTime', protoName: 'NUnconventionalDateTime')
-    ..aInt64(28, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'UnconventionalDuration', protoName: 'UnconventionalDuration')
-    ..aInt64(29, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'NUnconventionalDuration', protoName: 'NUnconventionalDuration')
+  factory GAltNaming() => create();
+  GAltNaming._() : super();
+  factory GAltNaming.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GAltNaming.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GAltNaming', package: const $pb.PackageName(_omitMessageNames ? '' : 'com.company.project'), createEmptyInstance: create)
+    ..aOS(19, _omitFieldNames ? '' : 'UnconventionalName', protoName: 'UnconventionalName')
+    ..aOS(20, _omitFieldNames ? '' : 'NUnconventionalName', protoName: 'NUnconventionalName')
+    ..e<GApplianceType>(21, _omitFieldNames ? '' : 'UnconventionalEnumName', $pb.PbFieldType.OE, protoName: 'UnconventionalEnumName', defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
+    ..e<GApplianceType>(22, _omitFieldNames ? '' : 'NUnconventionalEnumName', $pb.PbFieldType.OE, protoName: 'NUnconventionalEnumName', defaultOrMaker: GApplianceType.G_APPLIANCE_TYPE_HEAT, valueOf: GApplianceType.valueOf, enumValues: GApplianceType.values)
+    ..aOM<GEmpty>(23, _omitFieldNames ? '' : 'UnconventionalCategory', protoName: 'UnconventionalCategory', subBuilder: GEmpty.create)
+    ..aOM<GEmpty>(24, _omitFieldNames ? '' : 'NUnconventionalCategory', protoName: 'NUnconventionalCategory', subBuilder: GEmpty.create)
+    ..pc<GIngredient>(25, _omitFieldNames ? '' : 'UnconventionalList', $pb.PbFieldType.PM, protoName: 'UnconventionalList', subBuilder: GIngredient.create)
+    ..aInt64(26, _omitFieldNames ? '' : 'UnconventionalDateTime', protoName: 'UnconventionalDateTime')
+    ..aInt64(27, _omitFieldNames ? '' : 'NUnconventionalDateTime', protoName: 'NUnconventionalDateTime')
+    ..aInt64(28, _omitFieldNames ? '' : 'UnconventionalDuration', protoName: 'UnconventionalDuration')
+    ..aInt64(29, _omitFieldNames ? '' : 'NUnconventionalDuration', protoName: 'NUnconventionalDuration')
     ..hasRequiredFields = false
   ;
 
-  GAltNaming._() : super();
-  factory GAltNaming({
-    $core.String? unconventionalName,
-    $core.String? nUnconventionalName,
-    GApplianceType? unconventionalEnumName,
-    GApplianceType? nUnconventionalEnumName,
-    GEmpty? unconventionalCategory,
-    GEmpty? nUnconventionalCategory,
-    $core.Iterable<GIngredient>? unconventionalList,
-    $fixnum.Int64? unconventionalDateTime,
-    $fixnum.Int64? nUnconventionalDateTime,
-    $fixnum.Int64? unconventionalDuration,
-    $fixnum.Int64? nUnconventionalDuration,
-  }) {
-    final _result = create();
-    if (unconventionalName != null) {
-      _result.unconventionalName = unconventionalName;
-    }
-    if (nUnconventionalName != null) {
-      _result.nUnconventionalName = nUnconventionalName;
-    }
-    if (unconventionalEnumName != null) {
-      _result.unconventionalEnumName = unconventionalEnumName;
-    }
-    if (nUnconventionalEnumName != null) {
-      _result.nUnconventionalEnumName = nUnconventionalEnumName;
-    }
-    if (unconventionalCategory != null) {
-      _result.unconventionalCategory = unconventionalCategory;
-    }
-    if (nUnconventionalCategory != null) {
-      _result.nUnconventionalCategory = nUnconventionalCategory;
-    }
-    if (unconventionalList != null) {
-      _result.unconventionalList.addAll(unconventionalList);
-    }
-    if (unconventionalDateTime != null) {
-      _result.unconventionalDateTime = unconventionalDateTime;
-    }
-    if (nUnconventionalDateTime != null) {
-      _result.nUnconventionalDateTime = nUnconventionalDateTime;
-    }
-    if (unconventionalDuration != null) {
-      _result.unconventionalDuration = unconventionalDuration;
-    }
-    if (nUnconventionalDuration != null) {
-      _result.nUnconventionalDuration = nUnconventionalDuration;
-    }
-    return _result;
-  }
-  factory GAltNaming.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GAltNaming.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -4034,8 +3374,10 @@ class GAltNaming extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GAltNaming copyWith(void Function(GAltNaming) updates) => super.copyWith((message) => updates(message as GAltNaming)) as GAltNaming; // ignore: deprecated_member_use
+  GAltNaming copyWith(void Function(GAltNaming) updates) => super.copyWith((message) => updates(message as GAltNaming)) as GAltNaming;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GAltNaming create() => GAltNaming._();
   GAltNaming createEmptyInstance() => create();
@@ -4142,3 +3484,6 @@ class GAltNaming extends $pb.GeneratedMessage {
   void clearNUnconventionalDuration() => clearField(29);
 }
 
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');

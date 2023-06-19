@@ -13,7 +13,7 @@ dependencies:
   ffi: ^2.0.1
   path: ^1.8.0
   proto_annotations: ^3.0.0-dev.7
-  protobuf: ^2.1.0
+  protobuf: ^3.0.0
   tuple: ^2.0.0
   go_bridge: ^1.4.1
   fixnum: ^1.0.1
