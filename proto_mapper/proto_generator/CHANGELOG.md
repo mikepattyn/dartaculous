@@ -1,3 +1,7 @@
+## 4.1.0
+
+ - **FEAT**: Bumped protobuffer to 3.0.0.
+
 ## 4.0.1
 
  - **FIX**: Upgraded max Dart version to <4.0.0.

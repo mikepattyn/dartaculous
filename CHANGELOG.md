@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-06-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`proto_generator` - `v4.1.0`](#proto_generator---v410)
+
+---
+
+#### `proto_generator` - `v4.1.0`
+
+ - **FEAT**: Bumped protobuffer to 3.0.0.
+
+
 ## 2023-06-17
 
 ### Changes
