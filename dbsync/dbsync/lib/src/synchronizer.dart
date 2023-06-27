@@ -194,7 +194,7 @@ abstract class Synchronizer<TSerialized> {
     try {
       await localDatabase.transaction((ctx) async {
         ServerChange? lastChange;
-        final deleteBatch = <SyncTypeHandler, List<String>>{};
+        final deleteBatch = <SyncTypeHandler, List>{};
         final upsertBatch = <SyncTypeHandler, List>{};
 
         await for (final change in changes) {
@@ -209,9 +209,10 @@ abstract class Synchronizer<TSerialized> {
           switch (change.changeOperation) {
             case ChangeOperation.delete:
               final lst = (deleteBatch[handler] ??= []);
-              lst.add(change.changedId);
+              final entity = await handler.unmarshal(change.entity);
+              lst.add(entity);
               if (handler.deleteBatchSize >= 0 &&
-                  lst.length >= handler.upsertBatchSize) {
+                  lst.length >= handler.deleteBatchSize) {
                 _logger.finest(
                     '... reached deleted batch size. Will call handler.deleteLocalBatch');
                 await handler.deleteLocalBatch(ctx, lst);
@@ -222,8 +223,8 @@ abstract class Synchronizer<TSerialized> {
               break;
             case ChangeOperation.create:
             case ChangeOperation.update:
-              final entity = await handler.unmarshal(change.entity);
               final List lst = (upsertBatch[handler] ??= []);
+              final entity = await handler.unmarshal(change.entity);
               lst.add(entity);
               if (handler.upsertBatchSize >= 0 &&
                   lst.length >= handler.upsertBatchSize) {
