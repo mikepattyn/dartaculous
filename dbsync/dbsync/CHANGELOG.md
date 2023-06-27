@@ -1,3 +1,8 @@
+## 1.0.0
+
+ - Graduated to version 1.0.0
+ 
+
 ## 0.1.0+1
 
  - **FIX**: Fixed broken delete synchronization.
